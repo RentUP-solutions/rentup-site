@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Sistemul complet de documente pentru proprietari: contract, inventar, PV foto, protocoale.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rental Kit — Rent Up</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#C77936;--brand-light:#FAF4EB;--brand-border:#E8D5BC;
+  --bg:#FDFAF6;--bg-stone:#F5EFE6;--bg-warm:#F0E8DA;
+  --border:#EDE5D8;--dark:#2D2820;--text:#2D2820;
+  --mid:#7A6E62;--muted:#9A8E82;--light:#B8AFA4;
+  --green:#0F6E56;--green-bg:#E1F5EE;
+  --red:#A32D2D;--red-bg:#FCEBEB;
+  --amber:#854F0B;--amber-bg:#FAEEDA;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+
+nav{background:rgba(253,250,246,.96);backdrop-filter:blur(12px);border-bottom:.5px solid var(--border);padding:0 56px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+
+
+
+.nav-back:hover{color:var(--text)}
+
+
+
+/* HERO */
+.hero{padding:88px 56px 72px;background:var(--bg);border-bottom:.5px solid var(--border)}
+.hero-tag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--brand);margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.hero-dot{width:5px;height:5px;border-radius:50%;background:var(--brand)}
+.hero-h1{font-size:52px;font-weight:300;line-height:1.05;letter-spacing:-.03em;margin-bottom:20px}
+.hero-h1 em{font-style:normal;font-weight:500;color:var(--brand)}
+.hero-sub{font-size:16px;color:var(--muted);line-height:1.75;max-width:580px;margin-bottom:48px}
+.hero-meta{display:flex;gap:10px;flex-wrap:wrap}
+.meta-tag{font-size:12px;font-weight:500;background:var(--bg-stone);border:.5px solid var(--border);color:var(--muted);padding:6px 14px;border-radius:100px}
+
+/* WHAT IS */
+.what-is{padding:72px 56px;background:var(--bg-stone);display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.wi-l h2{font-size:32px;font-weight:300;letter-spacing:-.025em;margin-bottom:16px}
+.wi-l p{font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:12px}
+.wi-r{display:flex;flex-direction:column;gap:12px}
+.wi-item{display:flex;gap:14px;padding:18px 20px;background:var(--bg);border:.5px solid var(--border);border-radius:10px;align-items:flex-start;transition:box-shadow .2s}
+.wi-item:hover{box-shadow:0 4px 16px rgba(45,40,32,.07)}
+.wi-icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.wi-title{font-size:14px;font-weight:500;margin-bottom:5px}
+.wi-desc{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* MODULES */
+section{padding:80px 56px}
+.sec-tag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--brand);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--brand)}
+h2.sh{font-size:36px;font-weight:300;letter-spacing:-.025em;margin-bottom:12px}
+.sec-sub{font-size:15px;color:var(--muted);line-height:1.7;max-width:520px;margin-bottom:44px}
+
+/* MODULE LIST */
+.modules{display:flex;flex-direction:column;gap:4px;margin-bottom:40px}
+.mod-row{display:flex;gap:14px;padding:14px 18px;border:.5px solid var(--border);border-radius:8px;background:var(--bg);align-items:center;transition:all .15s}
+.mod-row:hover{background:var(--brand-light);border-color:var(--brand-border)}
+.mod-num{font-size:11px;font-weight:600;color:var(--brand);width:22px;flex-shrink:0}
+.mod-title{font-size:14px;font-weight:500;flex:1}
+.mod-tags{display:flex;gap:6px}
+.mod-tag{font-size:10px;background:var(--bg-stone);color:var(--muted);padding:3px 9px;border-radius:100px;border:.5px solid var(--border)}
+.mod-tag.new{background:var(--brand-light);color:var(--brand);border-color:var(--brand-border)}
+
+/* DOCUMENT PREVIEWS */
+.previews{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:48px}
+
+/* Doc frame */
+.doc-frame{background:white;border-radius:14px;overflow:hidden;box-shadow:0 8px 40px rgba(45,40,32,.1);border:.5px solid var(--border);position:relative;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.doc-frame:hover{transform:translateY(-3px);box-shadow:0 16px 56px rgba(45,40,32,.14)}
+.doc-label{position:absolute;top:12px;right:12px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;background:var(--brand);color:white;padding:4px 10px;border-radius:100px}
+.doc-label.sec{background:var(--bg-stone);color:var(--muted)}
+
+/* Preview content */
+.doc-inner{padding:28px 24px}
+.doc-header{margin-bottom:20px;padding-bottom:16px;border-bottom:2px solid var(--brand)}
+.doc-brand{font-size:10px;font-weight:600;color:var(--brand);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.doc-title{font-size:20px;font-weight:600;color:var(--dark);line-height:1.2;margin-bottom:4px}
+.doc-sub{font-size:11px;color:var(--muted)}
+
+/* Content blocks in preview */
+.prev-section{margin-bottom:14px}
+.prev-label{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--brand);margin-bottom:6px}
+.prev-h{font-size:13px;font-weight:600;color:var(--dark);margin-bottom:6px;padding-bottom:4px;border-bottom:.5px solid var(--border)}
+.prev-row{display:flex;justify-content:space-between;padding:4px 8px;font-size:10px;color:var(--muted);border-bottom:.5px solid var(--border);gap:8px}
+.prev-row:last-child{border-bottom:none}
+.prev-row strong{color:var(--dark);font-weight:500}
+.prev-blt{font-size:10px;color:var(--muted);padding:3px 0;display:flex;gap:6px;line-height:1.4}
+.prev-blt::before{content:'–';color:var(--brand);flex-shrink:0;font-weight:600}
+.prev-box{background:var(--bg-stone);border-radius:6px;padding:8px 10px;font-size:10px;color:var(--muted);line-height:1.5;border-left:2px solid var(--brand);margin-bottom:8px}
+.prev-box.green{background:var(--green-bg);border-color:var(--green);color:var(--green)}
+.prev-box.red{background:var(--red-bg);border-color:var(--red);color:var(--red)}
+.prev-pill{display:inline-block;font-size:9px;font-weight:600;padding:2px 8px;border-radius:100px;border:.5px solid;margin-right:4px}
+.prev-pill.g{background:var(--green-bg);color:var(--green);border-color:#1D9E75}
+.prev-pill.a{background:var(--amber-bg);color:var(--amber);border-color:#E8C87C}
+.prev-pill.r{background:var(--red-bg);color:var(--red);border-color:var(--red)}
+.prev-tbl{width:100%;font-size:9px;border-collapse:collapse}
+.prev-tbl th{background:var(--brand-light);padding:4px 6px;text-align:left;font-weight:600;color:var(--brand);border:.5px solid var(--brand-border)}
+.prev-tbl td{padding:4px 6px;border:.5px solid var(--border);color:var(--muted)}
+.prev-tbl tr:nth-child(even) td{background:var(--bg-stone)}
+.prev-check{display:grid;grid-template-columns:1fr 1fr;gap:4px;font-size:9px}
+.prev-check-item{display:flex;gap:4px;align-items:flex-start;color:var(--muted)}
+.prev-check-item.ok::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0}
+.prev-check-item.no::before{content:'✗';color:var(--red);font-weight:700;flex-shrink:0}
+.prev-score{display:flex;gap:6px;margin-bottom:8px}
+.score-box{flex:1;background:var(--brand-light);border:.5px solid var(--brand-border);border-radius:6px;padding:6px;text-align:center}
+.score-val{font-size:15px;font-weight:600;color:var(--brand)}
+.score-lbl{font-size:8px;color:var(--muted)}
+.blur-overlay{position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(transparent,rgba(253,250,246,.98));display:flex;align-items:flex-end;justify-content:center;padding-bottom:16px}
+.see-more{font-size:12px;font-weight:500;color:var(--brand);text-decoration:none}
+
+/* ANNEXES */
+.annexes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:0}
+.ann{background:var(--bg);border:.5px solid var(--border);border-radius:10px;padding:18px 20px;transition:all .2s}
+.ann:hover{background:var(--brand-light);border-color:var(--brand-border)}
+.ann-code{font-size:10px;font-weight:600;color:var(--brand);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.ann-title{font-size:13px;font-weight:500;margin-bottom:6px}
+.ann-desc{font-size:12px;color:var(--muted);line-height:1.55}
+.ann-badge{display:inline-block;font-size:10px;font-weight:500;background:var(--brand-light);color:var(--brand);padding:2px 8px;border-radius:100px;margin-top:8px;border:.5px solid var(--brand-border)}
+
+/* TRAUMA SECTION */
+.trauma{background:var(--dark);padding:80px 56px}
+.trauma-inner{max-width:760px;margin:0 auto;text-align:center}
+.trauma-tag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--brand);margin-bottom:18px;display:flex;align-items:center;justify-content:center;gap:8px}
+.trauma-h{font-size:38px;font-weight:300;color:white;letter-spacing:-.025em;line-height:1.15;margin-bottom:16px}
+.trauma-h em{font-style:normal;color:var(--brand)}
+.trauma-sub{font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:44px}
+.trauma-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:44px;text-align:left}
+.tc{background:#3D3228;border-radius:12px;padding:20px}
+.tc-icon{font-size:22px;margin-bottom:10px}
+.tc-title{font-size:14px;font-weight:500;color:white;margin-bottom:8px}
+.tc-desc{font-size:13px;color:var(--muted);line-height:1.6}
+.trauma-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-p{font-size:14px;font-weight:500;background:var(--brand);color:white;padding:13px 28px;border-radius:100px;text-decoration:none;transition:all .2s}
+.btn-p:hover{background:#a8622a}
+.btn-g{font-size:14px;color:var(--muted);padding:13px 24px;border:.5px solid #4D4238;border-radius:100px;text-decoration:none}
+
+/* CTA final */
+.cta-final{padding:80px 56px;background:var(--brand-light);border-top:.5px solid var(--brand-border);text-align:center}
+.cta-final h2{font-size:32px;font-weight:300;letter-spacing:-.02em;margin-bottom:12px}
+.cta-final p{font-size:15px;color:var(--muted);margin-bottom:32px;line-height:1.65}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-brand{font-size:14px;font-weight:500;background:var(--brand);color:white;padding:13px 28px;border-radius:100px;text-decoration:none}
+.btn-outline{font-size:14px;font-weight:500;color:var(--brand);border:.5px solid var(--brand);padding:13px 22px;border-radius:100px;text-decoration:none}
+
+footer{background:var(--bg);border-top:.5px solid var(--border);padding:22px 56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.f-logo{font-size:15px;font-weight:500;color:var(--brand)}
+.f-t{font-size:12px;color:var(--light)}
+
+@media(max-width:860px){
+  nav,.hero,.what-is,section,.trauma,.cta-final,footer{padding-left:20px;padding-right:20px}
+  .hero-h1{font-size:34px}.what-is{grid-template-columns:1fr}
+  .previews,.trauma-cards,.annexes{grid-template-columns:1fr}
+}
+
+
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-filter:blur(12px);border-bottom:.5px solid #EDE5D8;padding:0 56px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Inter',sans-serif;font-size:17px;font-weight:600;color:#C77936;text-decoration:none;letter-spacing:-.01em}
+.logo span{color:#2D2820;font-weight:300}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-family:'Inter',sans-serif;font-size:13px;color:#9A8E82;text-decoration:none;transition:color .15s}
+.nav-links a:hover,.nav-links a.active{color:#2D2820}
+.nav-cta{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:#C77936;border:.5px solid #C77936;padding:8px 18px;border-radius:100px;text-decoration:none;white-space:nowrap;transition:background .2s}
+.nav-cta:hover{background:#FAF4EB}
+@media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}}
+
+/* Page transitions */
+body{opacity:0;transition:opacity .22s ease}
+body.loaded{opacity:1}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">Rent<span>Up</span></a>
+  <div class="nav-links">
+    <a href="index.html#process">Cum funcționează</a>
+    <a href="index.html#packages">Pachete</a>
+    <a href="portofoliu.html">Portofoliu</a>
+    <a href="rental-kit.html" class="active">Rental Kit</a>
+    <a href="realitatea-chiriei.html">Realitatea chiriei</a>
+    <a href="faq.html">FAQ</a>
+  </div>
+  <a class="nav-cta" href="audit.html">Audit 200€ →</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag"><div class="hero-dot"></div>Rental Performance System · Produs exclusiv</div>
+  <h1 class="hero-h1">Rental Kit —<br><em>sistemul din spatele chiriei stabile.</em></h1>
+  <p class="hero-sub">Nu e un dosar cu hârtii. E un sistem complet care traduce designul în bani: cum găsești chiriașul potrivit, cum îl evaluezi, cum îl primești, cum îl ții și cum te desparți fără surprize.</p>
+  <div class="hero-meta">
+    <span class="meta-tag">Inclus în pachetele Standard și Premium</span>
+    <span class="meta-tag">Ghid proprietar + Ghid chiriaș</span>
+    <span class="meta-tag">Documente complete</span>
+    <span class="meta-tag">Actualizat permanent</span>
+  </div>
+</div>
+
+<!-- WHAT IS -->
+<div class="what-is">
+  <div class="wi-l">
+    <h2>Ce e, concret,<br>un Rental Kit?</h2>
+    <p>Cel mai frecvent auzim: <em>"Design înțeleg, dar ce înseamnă kit?"</em></p>
+    <p>Kitului îi ia de unde se oprește designul. Apartamentul arată bine — acum ce faci cu el? Cum listezi? Pe cine primești? Cum predai cheile fără să-ți pară rău după?</p>
+    <p>Rental Kit-ul este documentul viu care răspunde la toate astea, personalizat pentru proprietatea ta.</p>
+  </div>
+  <div class="wi-r">
+    <div class="wi-item">
+      <span class="wi-icon">🎯</span>
+      <div><div class="wi-title">Strategie de piață</div><div class="wi-desc">Cum stabilești chiria corectă, cum listezi, ce fotografii faci și ce scrie în anunț ca să atragă omul potrivit.</div></div>
+    </div>
+    <div class="wi-item">
+      <span class="wi-icon">🔍</span>
+      <div><div class="wi-title">Sistem de selecție chiriaș</div><div class="wi-desc">Chestionar structurat, 4 piloni de evaluare, red flags cu explicații. Nu instinct — sistem.</div></div>
+    </div>
+    <div class="wi-item">
+      <span class="wi-icon">📋</span>
+      <div><div class="wi-title">Documente complete</div><div class="wi-desc">PV foto extins, inventar detaliat, contract custom, politica de garanție cu proceduri clare.</div></div>
+    </div>
+    <div class="wi-item">
+      <span class="wi-icon">🤝</span>
+      <div><div class="wi-title">Ghid chiriaș</div><div class="wi-desc">Primești un chiriaș informat și responsabilizat. El știe ce se așteaptă de la el și cum funcționează garanția.</div></div>
+    </div>
+    <div class="wi-item">
+      <span class="wi-icon">📜</span>
+      <div><div class="wi-title">Scrisoare de referință</div><div class="wi-desc">La final, chiriașul bun primește o referință standardizată Rent Up. Primul sistem de acest tip din România.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- GHID PROPRIETAR PREVIEW -->
+<section style="background:var(--bg)">
+  <div class="sec-tag"><div class="dot"></div>Ghid Proprietar</div>
+  <h2 class="sh">Tot ce ai nevoie<br>de la anunț până la predare.</h2>
+  <p class="sec-sub">Șapte module care acoperă întregul ciclu de viață al chiriei. Nu e un template generic — e personalizat pentru proprietatea ta, zona ta și profilul de chiriaș urmărit.</p>
+
+  <div class="modules">
+    <div class="mod-row"><span class="mod-num">01</span><span class="mod-title">Poziționarea proprietății — public țintă, mesaj, prețul corect</span><div class="mod-tags"><span class="mod-tag">strategie</span></div></div>
+    <div class="mod-row"><span class="mod-num">02</span><span class="mod-title">Listarea — platforme, fotografii, modelul de anunț</span><div class="mod-tags"><span class="mod-tag">marketing</span></div></div>
+    <div class="mod-row"><span class="mod-num">03</span><span class="mod-title">Evaluarea chiriașului — 4 piloni, sistem de decizie, red flags</span><div class="mod-tags"><span class="mod-tag">selecție</span><span class="mod-tag new">sistem</span></div></div>
+    <div class="mod-row"><span class="mod-num">04</span><span class="mod-title">Predarea proprietății — PV foto, inventar, set foto cu timestamp</span><div class="mod-tags"><span class="mod-tag">documente</span></div></div>
+    <div class="mod-row"><span class="mod-num">05</span><span class="mod-title">Administrarea pe durata contractului — comunicare, mentenanță</span><div class="mod-tags"><span class="mod-tag">relație</span></div></div>
+    <div class="mod-row"><span class="mod-num">06</span><span class="mod-title">Reînnoirea și finalul contractului — strategie, garanție, scrisoare de referință</span><div class="mod-tags"><span class="mod-tag new">referință</span></div></div>
+    <div class="mod-row" style="background:var(--amber-bg);border-color:#E8C87C"><span class="mod-num" style="color:var(--amber)">+</span><span class="mod-title" style="color:var(--amber)">Addendum: Proprietarul cu traumă & Gestionarea situațiilor dificile</span><div class="mod-tags"><span class="mod-tag new">exclusiv</span></div></div>
+  </div>
+
+  <!-- DOCUMENT PREVIEW -->
+  <div class="previews">
+    <div class="doc-frame">
+      <span class="doc-label">Previzualizare</span>
+      <div class="doc-inner">
+        <div class="doc-header">
+          <div class="doc-brand">Rent Up · Rental Kit</div>
+          <div class="doc-title">Ghid Proprietar</div>
+          <div class="doc-sub">Sistem complet · Modul 03 — Evaluarea chiriașului</div>
+        </div>
+
+        <div class="prev-section">
+          <div class="prev-label">Sistem de decizie</div>
+          <table class="prev-tbl">
+            <tr><th>Evaluare</th><th>Decizie</th></tr>
+            <tr><td>4 din 4 piloni îndepliniți</td><td style="color:var(--green);font-weight:600">✓ Accept</td></tr>
+            <tr><td>3 din 4 — pilon slab</td><td style="color:var(--amber);font-weight:600">◑ Condiționat</td></tr>
+            <tr><td>2 sau mai puțin / 2+ red flags</td><td style="color:var(--red);font-weight:600">✗ Respins</td></tr>
+          </table>
+        </div>
+
+        <div class="prev-section">
+          <div class="prev-label">Red flags — cu explicație</div>
+          <div class="prev-blt">"Vedem cum e" sau evitarea unui angajament clar</div>
+          <div class="prev-blt">Schimbări frecvente de locuință fără motiv clar</div>
+          <div class="prev-blt">Venit variabil sau neverificabil</div>
+          <div class="prev-blt">Negociere agresivă înainte de vizionare</div>
+        </div>
+
+        <div class="prev-section">
+          <div class="prev-label">Șabloane de comunicare</div>
+          <div class="prev-box">„Bună ziua! Mulțumesc pentru interes. Înainte de a stabili o vizionare, vă rog să completați chestionarul atașat."</div>
+        </div>
+      </div>
+      <div class="blur-overlay"><a class="see-more" href="index.html#contact">Primești tot kitului → contactează-ne</a></div>
+    </div>
+
+    <div class="doc-frame">
+      <span class="doc-label">Previzualizare</span>
+      <div class="doc-inner">
+        <div class="doc-header">
+          <div class="doc-brand">Rent Up · Rental Kit</div>
+          <div class="doc-title">Ghid Proprietar</div>
+          <div class="doc-sub">Sistem complet · Modul 06 — Finalul contractului</div>
+        </div>
+
+        <div class="prev-section">
+          <div class="prev-label">Scrisoarea de referință — sistem unic în România</div>
+          <table class="prev-tbl">
+            <tr><th>Criteriu evaluat</th><th>Da</th><th>Nu</th></tr>
+            <tr><td>Plata chiriei la timp</td><td>☐</td><td>☐</td></tr>
+            <tr><td>Proprietatea predată conform</td><td>☐</td><td>☐</td></tr>
+            <tr><td>Comunicare corectă pe durata</td><td>☐</td><td>☐</td></tr>
+          </table>
+        </div>
+
+        <div class="prev-section">
+          <div class="prev-label">Recomandare finală</div>
+          <div style="display:flex;gap:6px;margin-top:4px">
+            <span class="prev-pill g">✓ Recomandat</span>
+            <span class="prev-pill a">◑ Cu rezerve</span>
+            <span class="prev-pill r">✗ Nerecomand.</span>
+          </div>
+        </div>
+
+        <div class="prev-section">
+          <div class="prev-label">Calendar inspecții recomandat</div>
+          <div class="prev-row"><span>Luna 1 (30 zile)</span><strong>Opțional</strong></div>
+          <div class="prev-row"><span>Luna 6</span><strong>Standard</strong></div>
+          <div class="prev-row"><span>Anual</span><strong>La reînnoire</strong></div>
+        </div>
+      </div>
+      <div class="blur-overlay"><a class="see-more" href="index.html#contact">Primești tot kitului → contactează-ne</a></div>
+    </div>
+  </div>
+
+  <!-- ANEXE -->
+  <div class="sec-tag"><div class="dot"></div>Documente incluse</div>
+  <div class="annexes">
+    <div class="ann"><div class="ann-code">A1</div><div class="ann-title">Chestionar standard chiriaș</div><div class="ann-desc">5 secțiuni: date generale, situație profesională, istoric locativ, intenție de ședere, comportament.</div></div>
+    <div class="ann"><div class="ann-code">A1b</div><div class="ann-title">Fișă internă de evaluare</div><div class="ann-desc">Evaluare pe 4 piloni + red flags identificate + decizie finală. Nu se trimite chiriașului.</div></div>
+    <div class="ann"><div class="ann-code">A2</div><div class="ann-title">Inventar proprietate</div><div class="ann-desc">Fiecare element cu stare inițială, valoare estimată, scala FB/B/A/D + uzură acceptată explicată.</div></div>
+    <div class="ann"><div class="ann-code">A3</div><div class="ann-title">Proces verbal foto extins</div><div class="ann-desc">PV clasic + registru fotografic cu timestamp, 12 câmpuri, semnat pe pagină de ambele părți.</div><div class="ann-badge">Foto cu timestamp</div></div>
+    <div class="ann"><div class="ann-code">A4</div><div class="ann-title">Politica de garanție</div><div class="ann-desc">Condiții clare + procedura de avertisment în 3 pași (5 zile notificare, 10 zile remediere, reținere justificată).</div></div>
+    <div class="ann"><div class="ann-code">A5</div><div class="ann-title">Scrisoarea de referință</div><div class="ann-desc">Document standardizat cu cod unic verificabil. Primul sistem de referințe pentru chiriași din România.</div><div class="ann-badge">Exclusiv Rent Up</div></div>
+    <div class="ann"><div class="ann-code">A6</div><div class="ann-title">Check-list inspecție periodică</div><div class="ann-desc">12 elemente verificate, concluzie în 3 variante, semnat de ambele părți. Opțional.</div></div>
+  </div>
+</section>
+
+<!-- GHID CHIRIAS PREVIEW -->
+<section style="background:var(--bg-stone)">
+  <div class="sec-tag"><div class="dot"></div>Ghid Chiriaș</div>
+  <h2 class="sh">Un chiriaș informat<br>e un chiriaș responsabil.</h2>
+  <p class="sec-sub">Ghidul de chiriaș nu e o listă de reguli. E un document care construiește relația de la prima zi — cu ton cald, informații clare și zero ambiguitate despre garanție.</p>
+
+  <div class="previews">
+    <div class="doc-frame">
+      <span class="doc-label sec">Previzualizare</span>
+      <div class="doc-inner">
+        <div class="doc-header" style="border-color:var(--border)">
+          <div class="doc-brand" style="color:var(--muted)">Rent Up · Rental Kit</div>
+          <div class="doc-title">Ghid Chiriaș</div>
+          <div class="doc-sub">Bun venit · Cum funcționează · Ce așteptăm unii de la alții</div>
+        </div>
+
+        <div class="prev-section">
+          <div class="prev-label" style="color:var(--brand)">Bun venit!</div>
+          <div class="prev-box" style="border-color:var(--brand);background:var(--brand-light);color:var(--mid)">„Bine ai venit în noul tău spațiu. Suntem bucuroase că ai ales să locuiești aici. Acest ghid nu e un regulament. E o conversație despre cum funcționează lucrurile și cum facem ca această colaborare să fie bună pentru amândoi."</div>
+        </div>
+
+        <div class="prev-section">
+          <div class="prev-label">Ce poți aștepta de la noi</div>
+          <div class="prev-check">
+            <div class="prev-check-item ok">Răspuns în maxim 48h</div>
+            <div class="prev-check-item ok">Nicio vizită fără preaviz</div>
+            <div class="prev-check-item ok">Rezolvare rapidă a problemelor</div>
+            <div class="prev-check-item ok">Comunicare corectă și clară</div>
+          </div>
+        </div>
+
+        <div class="prev-section">
+          <div class="prev-label">Uzură normală vs. daune</div>
+          <div class="prev-box green">✓ Normal: urme minore pe pereți, uzura ușoară a mobilierului în timp</div>
+          <div class="prev-box red">✗ Daună: lovituri, spargeri, mucegai din lipsă de aerisire</div>
+        </div>
+      </div>
+      <div class="blur-overlay"><a class="see-more" href="index.html#contact">Primești tot kitului → contactează-ne</a></div>
+    </div>
+
+    <div class="doc-frame">
+      <span class="doc-label sec">Previzualizare</span>
+      <div class="doc-inner">
+        <div class="doc-header" style="border-color:var(--border)">
+          <div class="doc-brand" style="color:var(--muted)">Rent Up · Rental Kit · Anexa B4</div>
+          <div class="doc-title">Consimțământ referință</div>
+          <div class="doc-sub">Document GDPR · semnat la intrarea în relație</div>
+        </div>
+
+        <div class="prev-section">
+          <div class="prev-label" style="color:var(--brand)">Ce înseamnă scrisoarea de referință</div>
+          <div class="prev-blt">La finalul contractului primești o referință standardizată Rent Up</div>
+          <div class="prev-blt">Descrie comportamentul tău ca chiriaș pe durata contractului</div>
+          <div class="prev-blt">Tu decizi dacă o prezinți sau nu viitorului proprietar</div>
+          <div class="prev-blt">Nu se publică. Nu se transmite fără acordul tău.</div>
+        </div>
+
+        <div class="prev-section">
+          <div class="prev-label">Ce ai câștigă dacă ești un chiriaș bun</div>
+          <div class="prev-box" style="border-color:var(--green);background:var(--green-bg);color:var(--green)">O referință reală, cu cod unic verificabil, care valorează în piața de închirieri la fel ca o recomandare profesională la un nou angajator.</div>
+        </div>
+
+        <div class="prev-section">
+          <div class="prev-label">Drepturile tale</div>
+          <div class="prev-row"><span>Acces la datele tale</span><strong>Da, oricând</strong></div>
+          <div class="prev-row"><span>Contestarea scrisorii</span><strong>10 zile de la primire</strong></div>
+          <div class="prev-row"><span>Ștergerea datelor</span><strong>La cerere</strong></div>
+        </div>
+      </div>
+      <div class="blur-overlay"><a class="see-more" href="index.html#contact">Primești tot kitului → contactează-ne</a></div>
+    </div>
+  </div>
+
+  <!-- Chiriaș anexe -->
+  <div class="sec-tag"><div class="dot"></div>Documente pentru chiriaș</div>
+  <div class="annexes">
+    <div class="ann"><div class="ann-code">B1</div><div class="ann-title">Reguli de utilizare</div><div class="ann-desc">Ce e interzis și ce e obligatoriu — clar, fără ambiguitate, semnat la predarea cheilor.</div></div>
+    <div class="ann"><div class="ann-code">B2</div><div class="ann-title">Garanție — rezumat chiriaș</div><div class="ann-desc">Mecanismul complet în limbaj simplu. Procedura de avertisment în 3 pași, fără surprize la final.</div></div>
+    <div class="ann"><div class="ann-code">B3</div><div class="ann-title">Fișă de urgențe</div><div class="ann-desc">Instalator, electrician, administrator bloc, urgențe gaz, 112. Completată înainte de predare.</div></div>
+    <div class="ann"><div class="ann-code">B4</div><div class="ann-title">Consimțământ referință</div><div class="ann-desc">Document GDPR complet. Chiriașul acceptă explicit și conștient sistemul de referințe.</div><div class="ann-badge">Nou</div></div>
+  </div>
+</section>
+
+<!-- TRAUMA SECTION -->
+<div class="trauma">
+  <div class="trauma-inner">
+    <div class="trauma-tag"><div class="hero-dot"></div>Știm ce piață avem</div>
+    <h2 class="trauma-h">Poate că nu crezi în asta.<br><em>Pentru că ai fost păcălit înainte.</em></h2>
+    <p class="trauma-sub">Am citit sute de comentarii de la proprietari români. Știm cum arată trauma unui apartament distrus, a unui chiriaș care nu pleacă, a garanției care nu acoperă daunele. Nu îți spunem că n-o să se mai întâmple niciodată. Îți spunem că există un sistem care reduce semnificativ probabilitatea — și un ghid pentru dacă se întâmplă totuși.</p>
+
+    <div class="trauma-cards">
+      <div class="tc">
+        <div class="tc-icon">🔍</div>
+        <div class="tc-title">Inspectezi când ai nevoie</div>
+        <div class="tc-desc">Calendar flexibil: 30 zile (opțional), 6 luni, anual. Spui transparent chiriașului de la început — fără surprize pentru nimeni.</div>
+      </div>
+      <div class="tc">
+        <div class="tc-icon">🔒</div>
+        <div class="tc-title">Garanție adaptată la nivelul tău de risc</div>
+        <div class="tc-desc">Standard (1+1) sau varianta cu protecție mai mare (1+2). Explică-ți opțiunile, decide tu.</div>
+      </div>
+      <div class="tc">
+        <div class="tc-icon">⚖️</div>
+        <div class="tc-title">Ghid pentru situații dificile</div>
+        <div class="tc-desc">Petreceri, neplată, refuz evacuare, cheie nepredată, ANAF. Pași concreți pentru fiecare — inclusiv clauze de adăugat în contract.</div>
+      </div>
+    </div>
+
+    <div class="trauma-cta">
+      <a class="btn-p" href="index.html#contact">Vorbim despre situația ta →</a>
+      <a class="btn-g" href="audit.html">Sau începe cu un audit</a>
+    </div>
+  </div>
+</div>
+
+<!-- CTA FINAL -->
+<div class="cta-final">
+  <h2>Rental Kit-ul vine cu proiectul de design.</h2>
+  <p>Nu îl vindem separat — pentru că singur, fără designul care filtrează chiriașii, valorează mai puțin. Împreună, sunt sistemul complet.</p>
+  <div class="cta-btns">
+    <a class="btn-brand" href="index.html#packages">Vezi pachetele →</a>
+    <a class="btn-outline" href="audit.html">Audit — 200€</a>
+  </div>
+</div>
+
+<footer style="background:#FDFAF6;border-top:.5px solid #EDE5D8;padding:48px 56px 32px">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="display:flex;flex-wrap:wrap;gap:48px;justify-content:space-between;margin-bottom:40px">
+      <div>
+        <div style="font-size:17px;font-weight:500;color:#C77936;font-family:Inter,sans-serif;margin-bottom:8px">Rent Up</div>
+        <div style="font-size:13px;color:#9A8E82;line-height:1.6">Studio de design interior<br>specializat în chirii.<br>București · 2025</div>
+      </div>
+      <div style="display:flex;gap:48px;flex-wrap:wrap">
+        <div>
+          <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:#B8AFA4;margin-bottom:14px">Servicii</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <a href="audit.html" style="font-size:13px;color:#7A6E62;text-decoration:none">Audit — 200€</a>
+            <a href="index.html#packages" style="font-size:13px;color:#7A6E62;text-decoration:none">Pachet Standard</a>
+            <a href="index.html#packages" style="font-size:13px;color:#7A6E62;text-decoration:none">Pachet Premium</a>
+            <a href="rental-kit.html" style="font-size:13px;color:#7A6E62;text-decoration:none">Rental Kit</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:#B8AFA4;margin-bottom:14px">Resurse</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <a href="realitatea-chiriei.html" style="font-size:13px;color:#7A6E62;text-decoration:none">Realitatea chiriei</a>
+            <a href="metodologie.html" style="font-size:13px;color:#7A6E62;text-decoration:none">Metodologie MVR</a>
+            <a href="simulator.html" style="font-size:13px;color:#7A6E62;text-decoration:none">Simulator mobilare</a>
+            <a href="faq.html" style="font-size:13px;color:#7A6E62;text-decoration:none">Întrebări frecvente</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:#B8AFA4;margin-bottom:14px">Contact</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <span style="font-size:13px;color:#7A6E62">hello@rentup.ro</span>
+            <span style="font-size:13px;color:#7A6E62">+40 000 000 000</span>
+            <a href="https://instagram.com/rentup.ro" style="font-size:13px;color:#7A6E62;text-decoration:none">@rentup.ro</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="padding-top:20px;border-top:.5px solid #EDE5D8;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px">
+      <div style="font-size:12px;color:#B8AFA4">© 2025 Rent Up · Toate drepturile rezervate</div>
+      <div style="font-size:12px;color:#B8AFA4">Rental Performance System · Verificat juridic</div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+// Page fade-in
+document.addEventListener('DOMContentLoaded', function() {
+  requestAnimationFrame(() => document.body.classList.add('loaded'));
+});
+// Page fade-out before navigation
+document.addEventListener('click', function(e) {
+  const a = e.target.closest('a[href]');
+  if (!a) return;
+  const href = a.getAttribute('href');
+  if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
+  if (a.target === '_blank') return;
+  e.preventDefault();
+  document.body.style.opacity = '0';
+  setTimeout(() => { window.location.href = href; }, 220);
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  requestAnimationFrame(function(){ document.body.classList.add('loaded'); });
+});
+document.addEventListener('click',function(e){
+  var a = e.target.closest('a[href]');
+  if(!a) return;
+  var href = a.getAttribute('href');
+  if(!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
+  if(a.target==='_blank') return;
+  e.preventDefault();
+  document.body.style.opacity='0';
+  setTimeout(function(){ window.location.href=href; }, 200);
+});
+</script>
+</body>
+</html>

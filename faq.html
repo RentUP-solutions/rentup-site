@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Întrebări frecvente — Rent Up</title>
+<meta name="description" content="Întrebări frecvente despre serviciile Rent Up — audit, pachete, Rental Kit, selecție chiriași, contracte și ROI.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#C77936;--brand-light:#FAF4EB;--brand-border:#E8D5BC;
+  --bg:#FDFAF6;--bg-stone:#F5EFE6;--bg-warm:#F0E8DA;
+  --border:#EDE5D8;--dark:#2D2820;--text:#2D2820;
+  --mid:#7A6E62;--muted:#9A8E82;--light:#B8AFA4;
+  --green:#0F6E56;--green-bg:#E1F5EE;--green-border:#1D9E75;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-filter:blur(12px);border-bottom:.5px solid var(--border);padding:0 56px;height:64px;display:flex;align-items:center;justify-content:space-between}
+
+
+
+
+
+
+
+
+/* HERO */
+.hero{padding:88px 56px 72px;background:var(--bg-stone);border-bottom:.5px solid var(--border)}
+.hero-eyebrow{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--brand);margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.hero-dot{width:5px;height:5px;border-radius:50%;background:var(--brand)}
+.hero-h1{font-size:52px;font-weight:300;line-height:1.0;letter-spacing:-.03em;margin-bottom:14px}
+.hero-h1 em{font-style:normal;font-weight:500;color:var(--brand)}
+.hero-sub{font-size:16px;color:var(--muted);line-height:1.72;max-width:520px}
+
+/* CATEGORY TABS */
+.cat-tabs{padding:0 56px;background:var(--bg);border-bottom:.5px solid var(--border);display:flex;gap:0;overflow-x:auto}
+.cat-tab{font-size:13px;font-weight:500;color:var(--muted);padding:18px 22px;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s;background:none;border-top:none;border-left:none;border-right:none;font-family:'Inter',sans-serif}
+.cat-tab:hover{color:var(--text)}
+.cat-tab.active{color:var(--brand);border-bottom-color:var(--brand)}
+
+/* FAQ LAYOUT */
+.faq-layout{display:grid;grid-template-columns:240px 1fr;gap:0;background:linear-gradient(to right,#F5EFE6 240px,#E0DDD6 240px,#E0DDD6 241px,#FDFAF6 241px)}
+.faq-sidebar{}.faq-sidebar-inner{position:sticky;top:64px;padding:40px 32px}
+.sidebar-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:16px}
+.sidebar-link{display:block;font-size:13px;color:var(--muted);padding:8px 12px;border-radius:6px;cursor:pointer;transition:all .15s;margin-bottom:2px;text-decoration:none}
+.sidebar-link:hover{background:var(--bg-warm);color:var(--text)}
+.sidebar-link.active{background:var(--brand-light);color:var(--brand)}
+
+.faq-content{padding:48px 56px}
+
+/* FAQ CATEGORY */
+.faq-cat{margin-bottom:60px}
+.faq-cat-header{margin-bottom:28px;padding-bottom:16px;border-bottom:.5px solid var(--border)}
+.faq-cat-tag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--brand);margin-bottom:8px}
+.faq-cat-title{font-size:24px;font-weight:400;letter-spacing:-.015em}
+.faq-cat-desc{font-size:14px;color:var(--muted);line-height:1.6;margin-top:6px}
+
+/* FAQ ITEM */
+.faq-item{border-bottom:.5px solid var(--border)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;background:none;border:none;font-family:'Inter',sans-serif;text-align:left;transition:color .15s;gap:16px}
+.faq-q:hover .fq-text{color:var(--brand)}
+.fq-text{font-size:15px;font-weight:500;color:var(--text);line-height:1.4;transition:color .15s}
+.fq-icon{width:24px;height:24px;border:.5px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;color:var(--muted);transition:all .2s}
+.faq-item.open .fq-icon{background:var(--brand-light);border-color:var(--brand-border);color:var(--brand);transform:rotate(45deg)}
+.faq-a{display:none;padding:0 0 20px;max-width:680px}
+.faq-item.open .faq-a{display:block}
+.faq-a p{font-size:14px;color:var(--mid);line-height:1.75;margin-bottom:12px}
+.faq-a p:last-child{margin-bottom:0}
+.faq-a strong{color:var(--text);font-weight:500}
+.faq-a .fa-note{background:var(--brand-light);border-left:2px solid var(--brand-border);padding:12px 16px;border-radius:0 8px 8px 0;font-size:13px;color:var(--mid);line-height:1.6;margin-top:12px}
+.faq-a .fa-list{list-style:none;display:flex;flex-direction:column;gap:6px;margin:10px 0}
+.faq-a .fa-list li{font-size:14px;color:var(--mid);display:flex;align-items:baseline;gap:8px}
+.faq-a .fa-list li::before{content:'→';color:var(--brand);font-size:11px;flex-shrink:0}
+.faq-a a{color:var(--brand);text-decoration:none}
+.faq-a a:hover{text-decoration:underline}
+
+/* CONTACT BOX */
+.contact-box{margin-top:48px;padding:32px 36px;background:var(--brand-light);border:.5px solid var(--brand-border);border-radius:16px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.cb-l h3{font-size:18px;font-weight:500;margin-bottom:6px}
+.cb-l p{font-size:14px;color:var(--muted)}
+.btn-brand{font-size:14px;font-weight:500;background:var(--brand);color:white;padding:13px 24px;border-radius:100px;text-decoration:none;white-space:nowrap}
+.btn-brand:hover{background:#a8622a}
+
+/* CTA */
+.cta-section{background:#F5EFE6;padding:80px 56px;text-align:center}
+.cta-section h2{font-size:32px;font-weight:300;color:#2D2820;letter-spacing:-.02em;margin-bottom:12px}
+.cta-section p{font-size:15px;color:#7A6E62;line-height:1.7;max-width:460px;margin:0 auto 32px}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-outline-w{font-size:14px;font-weight:500;color:rgba(255,255,255,.7);border:.5px solid rgba(255,255,255,.2);padding:13px 22px;border-radius:100px;text-decoration:none}
+.btn-outline-w:hover{border-color:rgba(255,255,255,.4);color:white}
+
+footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.f-logo{font-size:15px;font-weight:500;color:var(--brand)}
+.f-t{font-size:12px;color:var(--light)}
+
+@media(max-width:860px){
+  nav,.hero,.faq-content,.cta-section,footer{padding-left:20px;padding-right:20px}
+  .hero-h1{font-size:34px}
+  .cat-tabs{padding-left:20px}
+  .faq-layout{grid-template-columns:1fr;background:var(--bg)}
+  .faq-sidebar{display:none}
+}
+
+
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-filter:blur(12px);border-bottom:.5px solid #EDE5D8;padding:0 56px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Inter',sans-serif;font-size:17px;font-weight:600;color:#C77936;text-decoration:none;letter-spacing:-.01em}
+.logo span{color:#2D2820;font-weight:300}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-family:'Inter',sans-serif;font-size:13px;color:#9A8E82;text-decoration:none;transition:color .15s}
+.nav-links a:hover,.nav-links a.active{color:#2D2820}
+.nav-cta{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:#C77936;border:.5px solid #C77936;padding:8px 18px;border-radius:100px;text-decoration:none;white-space:nowrap;transition:background .2s}
+.nav-cta:hover{background:#FAF4EB}
+@media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}}
+
+/* Page transitions */
+body{opacity:0;transition:opacity .22s ease}
+body.loaded{opacity:1}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">Rent<span>Up</span></a>
+  <div class="nav-links">
+    <a href="index.html#process">Cum funcționează</a>
+    <a href="index.html#packages">Pachete</a>
+    <a href="portofoliu.html">Portofoliu</a>
+    <a href="rental-kit.html">Rental Kit</a>
+    <a href="realitatea-chiriei.html">Realitatea chiriei</a>
+    <a href="faq.html" class="active">FAQ</a>
+  </div>
+  <a class="nav-cta" href="audit.html">Audit 200€ →</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow"><div class="hero-dot"></div>Întrebări & Răspunsuri</div>
+  <h1 class="hero-h1">Întrebări<br><em>frecvente.</em></h1>
+  <p class="hero-sub">Tot ce vrei să știi înainte să lucrezi cu noi — despre audit, pachete, Rental Kit, selecție chiriași și ce se întâmplă dacă lucrurile merg prost.</p>
+</div>
+
+<!-- TABS -->
+<div class="cat-tabs">
+  <button class="cat-tab active" onclick="scrollToSec('despre')">Despre Rent Up</button>
+  <button class="cat-tab" onclick="scrollToSec('audit')">Auditul</button>
+  <button class="cat-tab" onclick="scrollToSec('pachete')">Pachete & Prețuri</button>
+  <button class="cat-tab" onclick="scrollToSec('selectie')">Selecția chiriașului</button>
+  <button class="cat-tab" onclick="scrollToSec('contract')">Contracte & Legal</button>
+  <button class="cat-tab" onclick="scrollToSec('probleme')">Situații dificile</button>
+  <button class="cat-tab" onclick="scrollToSec('rental-kit')">Rental Kit</button>
+</div>
+
+<!-- LAYOUT -->
+<div class="faq-layout">
+
+  <!-- SIDEBAR -->
+  <div class="faq-sidebar">
+    <div class="faq-sidebar-inner">
+    <div class="sidebar-label">Categorii</div>
+    <a class="sidebar-link active" href="#despre">Despre Rent Up</a>
+    <a class="sidebar-link" href="#audit">Auditul</a>
+    <a class="sidebar-link" href="#pachete">Pachete & Prețuri</a>
+    <a class="sidebar-link" href="#selectie">Selecția chiriașului</a>
+    <a class="sidebar-link" href="#contract">Contracte & Legal</a>
+    <a class="sidebar-link" href="#probleme">Situații dificile</a>
+    <a class="sidebar-link" href="#rental-kit">Rental Kit</a>
+    </div><!-- /sidebar-inner -->
+  </div><!-- /faq-sidebar -->
+
+  <!-- CONTENT -->
+  <div class="faq-content">
+
+    <!-- DESPRE RENT UP -->
+    <div class="faq-cat" id="despre">
+      <div class="faq-cat-header">
+        <div class="faq-cat-tag">01 · Despre Rent Up</div>
+        <div class="faq-cat-title">Ce este Rent Up și cum funcționează?</div>
+        <div class="faq-cat-desc">Bazele — ce facem, pentru cine și ce nu facem.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggle(this)">
+          <span class="fq-text">Ce face Rent Up, concret?</span>
+          <span class="fq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Rent Up este un studio de design interior specializat exclusiv în optimizarea apartamentelor pentru închiriere. Nu facem design rezidențial general — facem design gândit să atragă chiriaș potrivit, să genereze fotografii bune și să reziste în timp cu costuri minime de întreținere.</p>
+          <p>Pe lângă design, livrăm un sistem complet de administrare — <strong>Rental Kit</strong> — care include documente, contracte, protocoale de selecție chiriaș și ghiduri de gestionare a situațiilor dificile. Toate documentele sunt customizate pentru proprietatea ta.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggle(this)">
+          <span class="fq-text">Pentru cine e Rent Up?</span>
+          <span class="fq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Pentru proprietarii care dau sau vor să dea un apartament în chirie și vor să facă asta cu un sistem, nu cu speranța că norocul va fi de partea lor.</p>
+          <p>În special pentru cei care:</p>
+          <ul class="fa-list">
+            <li>Au avut experiențe negative și nu vor să le repete</li>
+            <li>Au apartamentul gol și se tem să înceapă</li>
+            <li>Vor să înțeleagă dacă investiția în amenajare are sens</li>
+            <li>Caută un chiriaș bun, nu neapărat chiria cea mai mare</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggle(this)">
+          <span class="fq-text">Garantați că voi găsi un chiriaș bun?</span>
+          <span class="fq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Nu. Niciun sistem nu poate garanta comportamentul unui om. Ce garantăm este că procesul de selecție, documentație și design <strong>reduce semnificativ probabilitatea</strong> unui chiriaș problematic — și că, dacă ceva merge prost, ai instrumentele legale necesare să te protejezi eficient.</p>
+          <p>Diferența față de haos: proprietarii care aplică sistematic un proces de selecție au cu 80-90% mai puține probleme decât cei care selectează după instinct.</p>
+          <div class="fa-note">Nu eliminăm riscul. Îl reducem sistematic. Haosul e garantat — sistemul e opțional.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggle(this)">
+          <span class="fq-text">Lucrați doar în București?</span>
+          <span class="fq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Vizita de audit și fotografiile profesionale le facem în București și zona metropolitană. Proiectele de design (plan, moodboard, randări, centralizatoare) le putem realiza pentru orice locație din România — livrăm digital.</p>
+          <p>Contactează-ne cu detalii și stabilim dacă și cum putem colabora pentru proprietatea ta.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- AUDITUL -->
+    <div class="faq-cat" id="audit">
+      <div class="faq-cat-header">
+        <div class="faq-cat-tag">02 · Auditul</div>
+        <div class="faq-cat-title">Ce este auditul și ce primesc?</div>
+        <div class="faq-cat-desc">Primul pas — o evaluare reală înainte de orice decizie.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggle(this)">
+          <span class="fq-text">Ce este auditul de 200€ și ce include?</span>
+          <span class="fq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>O vizită la apartament de 1-2 ore în care evaluăm starea actuală, potențialul de chirie și ce ar trebui schimbat pentru a atrage profilul corect de chiriaș.</p>
+          <p>Raportul livrat în 48h de la vizită include:</p>
+          <ul class="fa-list">
+            <li>Scorul MVR (Metoda Vizuală Rent Up) per cameră și total</li>
+            <li>Analiza de piață — chiria medie pentru zona și tipul tău de proprietate</li>
+            <li>Lista de intervenții prioritizate (urgent / recomandat / opțional)</li>
+            <li>Estimare buget de implementare (minim + recomandat)</li>
+            <li>Potențial de chirie — scenariu conservator și optimist</li>
+            <li>ROI estimat — în câte luni se recuperează investiția</li>
+            <li>Recomandare pachet (Standard sau Premium) sau concluzia că momentan nu merită investiția</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggle(this)">
+          <span class="fq-text">Dacă fac auditul, sunt obligat să continui cu un pachet?</span>
+          <span class="fq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Nu. Auditul este independent și fără angajament. Primești raportul complet indiferent dacă continui sau nu.</p>
+          <p>Dacă decizi să continui cu Standard sau Premium în termen de 90 de zile, <strong>cei 200€ se scad integral din valoarea pachetului ales.</strong></p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggle(this)">
+          <span class="fq-text">Merită auditul dacă apartamentul meu e deja în stare bună?</span>
+          <span class="fq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Da — tocmai atunci e cel mai util. Un apartament în stare bună poate fi listat incorect, fotografiat prost sau prețuit greșit față de potențialul real. Auditul îți spune exact cât ești de la plafonul de chirie pe care îl poți obține și ce investiție minimă mai e necesară.</p>
+          <p>E posibil ca auditul să confirme că ești deja la nivel optim și că nu ai nevoie de nicio intervenție suplimentară. Asta e la fel de valoroasă ca o listă lungă de recomandări.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PACHETE -->
+    <div class="faq-cat" id="pachete">
+      <div class="faq-cat-header">
+        <div class="faq-cat-tag">03 · Pachete & Prețuri</div>
+        <div class="faq-cat-title">Cât costă și ce primesc?</div>
+        <div class="faq-cat-desc">Totul despre Standard, Premium și ce diferențiază cele două.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggle(this)">
+          <span class="fq-text">Care e diferența reală dintre Standard și Premium?</span>
+          <span class="fq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p><strong>Standard (30€/mp)</strong> — primești design complet (plan, moodboard, randări, centralizatoare), o vizită pe șantier și Rental Kit cu instrucțiuni DIY pentru fotografiere și listare. Tu execuți implementarea și listezi singur.</p>
+          <p><strong>Premium (65€/mp)</strong> — toate cele de la Standard plus: documentație pentru mobilier custom, planuri tehnice, 3 vizite pe șantier, staging realizat de echipa noastră, fotografii profesionale, anunț redactat și publicat, listare completă cu monitorizare activă.</p>
+          <div class="fa-note">Simplu: Standard = direcție + sistem. Premium = direcție + sistem + execuție completă până la primul chiriaș.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggle(this)">
+          <span class="fq-text">Prețul per mp include și mobilierul?</span>
+          <span class="fq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Nu. Prețul per mp este strict pentru serviciul de design și sistemul Rent Up. Mobilierul, materialele și implementarea fizică sunt cumpărate de tine direct de la furnizorii recomandați în centralizatoarele pe care ți le livrăm.</p>
+          <p>Buget orientativ pentru mobilare și implementare:</p>
+          <ul class="fa-list">
+            <li>Garsonieră: 2.000–5.000€ (în funcție de starea finisajelor existente)</li>
+            <li>2 camere: 4.000–9.000€</li>
+            <li>3 camere: 6.000–13.000€</li>
+          </ul>
+          <p>Minimul se aplică când finisajele existente sunt acceptabile. Auditul stabilește exact în ce categorie te afli.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggle(this)">
+          <span class="fq-text">În cât timp se recuperează investiția?</span>
+          <span class="fq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Depinde de situația specifică. Un calcul conservator pentru un apartament de 2 camere în București:</p>
+          <ul class="fa-list">
+            <li>Chirie curentă: 500€/lună → după optimizare: 700€/lună</li>
+            <li>Investiție totală estimată (serviciu + mobilare): ~5.650€</li>
+            <li>ROI direct din chiria extra: ~28 luni</li>
+            <li>Plus economii indirecte (mai puține reparații, luni goale, rotație): +3.000–8.000€ în 5 ani</li>
+          </ul>
+          <p>Auditul calculează ROI-ul pentru apartamentul tău specific, nu un număr generic.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggle(this)">
+          <span class="fq-text">Câte runde de feedback sunt incluse?</span>
+          <span class="fq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Două runde de feedback per etapă majoră, pentru ambele pachete. Rundele sunt incluse în preț.</p>
+          <p>O rundă = un set consolidat de observații transmise în scris pentru o etapă specifică. Observațiile transmise fragmentat sau succesiv se consideră runde separate. De la a treia rundă se aplică un cost suplimentar de 50–500€ în funcție de amploarea modificărilor.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SELECTIA CHIRIASULUI -->
+    <div class="faq-cat" id="selectie">
+      <div class="faq-cat-header">
+        <div class="faq-cat-tag">04 · Selecția chiriașului</div>
+        <div class="faq-cat-title">Cum găsesc un chiriaș potrivit?</div>
+        <div class="faq-cat-desc">Sistemul de selecție pe 4 piloni și cum elimini „e noroc".</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggle(this)">
+          <span class="fq-text">De ce designul atrage un chiriaș mai bun?</span>
+          <span class="fq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Un anunț cu fotografii profesionale și un apartament care arată bine filtrează natural. Chiriașul care vede un apartament îngrijit și coerent înțelege că proprietarul este atent și serios — și cei care nu se vor comporta corespunzător preferă spații mai „relaxate" ca standard.</p>
+          <p>Datele din comunitate confirmă: proprietarii cu apartamente renovate și prețuite corect raportează că profilul + prețul elimină 80-90% din chiriașii problematici.</p>
+          <div class="fa-note">Designul nu e doar estetică. E filtru de selecție.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggle(this)">
+          <span class="fq-text">Ce înseamnă sistemul de selecție pe 4 piloni?</span>
+          <span class="fq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Rental Kit-ul include un chestionar structurat care evaluează fiecare candidat pe patru dimensiuni:</p>
+          <ul class="fa-list">
+            <li><strong>Stabilitate financiară</strong> — venit verificabil, angajare stabilă</li>
+            <li><strong>Istoric de chiriaș</strong> — referință de la proprietarul anterior, de ce a plecat</li>
+            <li><strong>Stil de viață</strong> — fumător, animale, număr de persoane, activitate la domiciliu</li>
+            <li><strong>Comunicare</strong> — cum răspunde, cum se prezintă, semnale de alarmă în conversație</li>
+          </ul>
+          <p>Documentul include și o fișă de evaluare internă (uz Rent Up) care ajută la decizia finală bazată pe dovezi, nu pe instinct.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggle(this)">
+          <span class="fq-text">Ar trebui să accept chiriași cu animale de companie?</span>
+          <span class="fq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Nu recomandăm refuzul automat — recomandăm protecție adecvată. Proprietarii care refuză sistematic pierd adesea chiriași serioși și stabili, doar pentru că au animale.</p>
+          <p>Cu instrumentele corecte, poți accepta animale în siguranță:</p>
+          <ul class="fa-list">
+            <li>Garanție extinsă: 1+2 în loc de 1+1</li>
+            <li>Clauze contractuale specifice pentru animale</li>
+            <li>PV foto detaliat la intrare — documentezi starea exactă</li>
+            <li>Mențiunea că orice daună cauzată de animal este exclusiv responsabilitatea chiriașului</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CONTRACTE -->
+    <div class="faq-cat" id="contract">
+      <div class="faq-cat-header">
+        <div class="faq-cat-tag">05 · Contracte & Legal</div>
+        <div class="faq-cat-title">Contractul, ANAF și notarul.</div>
+        <div class="faq-cat-desc">Protecție legală reală — ce documentele fac diferența.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggle(this)">
+          <span class="fq-text">Ce este titlul executoriu și de ce contează?</span>
+          <span class="fq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Un titlu executoriu îți permite să acționezi direct împotriva unui debitor fără a obține mai întâi o hotărâre judecătorească — adică fără luni de instanță.</p><div style="margin-top:14px;padding:14px 16px;background:#FAF4EB;border:.5px solid #E8D5BC;border-radius:8px">
+      <div style="font-size:13px;font-weight:500;color:#C77936;margin-bottom:6px">Cum funcționează exact și cum te protejează?</div>
+      <div style="font-size:13px;color:#9A8E82;margin-bottom:10px">Protocoalele complete — contracte, clauze, executor judecătoresc — sunt incluse în Rental Kit.</div>
+      <a href="rental-kit.html" style="font-size:13px;font-weight:500;color:white;background:#C77936;padding:8px 18px;border-radius:100px;text-decoration:none">Descoperă Rental Kit →</a>
+    </div></div>
+            <div style="font-size:13px;color:var(--muted,#9A8E82);margin-bottom:12px">Protocolul complet — contracte, clauze, autentificare notarială, executor — este în Rental Kit.</div>
+            <a href="rental-kit.html" style="font-size:13px;font-weight:500;color:white;background:var(--brand,#C77936);padding:8px 18px;border-radius:100px;text-decoration:none">Descoperă Rental Kit →</a>
+          </div></div>
+      </div>
+
+      
+      </div>
+
+      
+
+    </div>
+
+    <!-- SITUATII DIFICILE -->
+    <div class="faq-cat" id="probleme">
+      <div class="faq-cat-header">
+        <div class="faq-cat-tag">06 · Situații dificile</div>
+        <div class="faq-cat-title">Ce fac când lucrurile merg prost?</div>
+        <div class="faq-cat-desc">Răspunsuri directe pentru cele mai frecvente situații de criză.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggle(this)">
+          <span class="fq-text">Chiriașul nu plătește — cum procedez?</span>
+          <span class="fq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Există un protocol clar pe zile — de la primul reminder la executare silită — fără să improvizezi.</p><p style="filter:blur(4px);user-select:none;pointer-events:none">Ziua 1-5 reminder WhatsApp, Ziua 5-15 notificare formală, Ziua 30 titlu executoriu. Modelele complete sunt în Rental Kit.</p><div style="margin-top:12px;padding:14px 16px;background:#FAF4EB;border:.5px solid #E8D5BC;border-radius:8px">
+      <div style="font-size:13px;font-weight:500;color:#C77936;margin-bottom:6px">Protocolul complet este în Rental Kit.</div>
+      <a href="rental-kit.html" style="font-size:13px;font-weight:500;color:white;background:#C77936;padding:8px 18px;border-radius:100px;text-decoration:none">Descoperă Rental Kit →</a>
+    </div></div></div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggle(this)">
+          <span class="fq-text">Chiriașul refuză să plece la expirarea contractului — ce fac?</span>
+          <span class="fq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p><strong>Pasul 1:</strong> Încearcă medierea — propune un acord scris: dacă pleacă în X zile, renunți la penalități. Mai rapid și mai ieftin decât orice altă cale.</p>
+          <p><strong>Pasul 2:</strong> Urmezi același protocol ca la neplata chiriei de la Ziua 15–30 — notificare de reziliere, executor, evacuare judiciară dacă e necesar.</p>
+          <div class="fa-note">Atenție: evacuarea forțată e interzisă prin lege între 1 decembrie și 1 martie. Dacă apar semnale de problemă în octombrie-noiembrie, inițiezi procedura înainte de 1 decembrie.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggle(this)">
+          <span class="fq-text">Chiriașul a lăsat daune la plecare — cum recuperez?</span>
+          <span class="fq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Ai dreptul să reții din garanție contravaloarea daunelor documentate. Procedura corectă:</p>
+          <ul class="fa-list">
+            <li>Trimiți notificare scrisă cu descrierea daunelor și suma estimată în 5 zile de la constatare</li>
+            <li>Chiriașul are 10 zile să remedieze sau să conteste</li>
+            <li>Dacă nu remediază, reții suma justificată cu facturi sau devize</li>
+          </ul>
+          <p>Fără inventarul semnat la intrare și setul foto cu timestamp, orice reținere poate fi contestată cu succes. <strong>Documentele de la intrare sunt fundația.</strong></p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggle(this)">
+          <span class="fq-text">Cât durează să găsesc chiriaș după ce termin proiectul?</span>
+          <span class="fq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Nu putem garanta un termen specific — depinde de zonă, preț și sezonul anului. Din experiența noastră, un apartament fotografiat profesional și listat corect pe 3 platforme (OLX, Storia, Imobiliare.ro) găsește chiriaș în 1-3 săptămâni în București.</p>
+          <p>Comparativ, un apartament cu fotografii de telefon și anunț slab poate sta neînchiriat 1-3 luni în aceeași zonă și la același preț.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RENTAL KIT -->
+    <div class="faq-cat" id="rental-kit">
+      <div class="faq-cat-header">
+        <div class="faq-cat-tag">07 · Rental Kit</div>
+        <div class="faq-cat-title">Ce este Rental Kit-ul și cât timp îl folosesc?</div>
+        <div class="faq-cat-desc">Sistemul complet de documente și protocoale pentru administrare.</div>
+      </div>
+
+      
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggle(this)">
+          <span class="fq-text">Pot folosi Rental Kit-ul pentru mai multe proprietăți?</span>
+          <span class="fq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Rental Kit-ul este livrat cu drept de utilizare pentru proprietatea contractată. Utilizarea pentru alte proprietăți necesită achiziționarea unui pachet suplimentar.</p>
+          <p>Documentele (Ghid proprietar, protocoale, contract) pot fi adaptate pentru alte proprietăți — contactează-ne pentru o ofertă.</p>
+        </div>
+      </div>
+
+      
+
+    </div>
+
+    <!-- CONTACT BOX -->
+    <div class="contact-box">
+      <div class="cb-l">
+        <h3>Nu ai găsit răspunsul?</h3>
+        <p>Scrie-ne sau programează un apel de 15 minute — fără angajament.</p>
+      </div>
+      <a class="btn-brand" href="audit.html">Contactează-ne →</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Pornește cu un audit.</h2>
+  <p>200€ pentru o evaluare completă — fără angajament. Afli exact unde ești și ce are sens să faci diferit.</p>
+  <div class="cta-btns">
+    <a class="btn-brand" href="audit.html">Programează auditul →</a>
+    <a class="btn-outline-w" href="realitatea-chiriei.html">Realitatea chiriei</a>
+  </div>
+</div>
+
+<footer style="background:#FDFAF6;border-top:.5px solid #EDE5D8;padding:48px 56px 32px">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="display:flex;flex-wrap:wrap;gap:48px;justify-content:space-between;margin-bottom:40px">
+      <div>
+        <div style="font-size:17px;font-weight:500;color:#C77936;font-family:Inter,sans-serif;margin-bottom:8px">Rent Up</div>
+        <div style="font-size:13px;color:#9A8E82;line-height:1.6">Studio de design interior<br>specializat în chirii.<br>București · 2025</div>
+      </div>
+      <div style="display:flex;gap:48px;flex-wrap:wrap">
+        <div>
+          <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:#B8AFA4;margin-bottom:14px">Servicii</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <a href="audit.html" style="font-size:13px;color:#7A6E62;text-decoration:none">Audit — 200€</a>
+            <a href="index.html#packages" style="font-size:13px;color:#7A6E62;text-decoration:none">Pachet Standard</a>
+            <a href="index.html#packages" style="font-size:13px;color:#7A6E62;text-decoration:none">Pachet Premium</a>
+            <a href="rental-kit.html" style="font-size:13px;color:#7A6E62;text-decoration:none">Rental Kit</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:#B8AFA4;margin-bottom:14px">Resurse</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <a href="realitatea-chiriei.html" style="font-size:13px;color:#7A6E62;text-decoration:none">Realitatea chiriei</a>
+            <a href="metodologie.html" style="font-size:13px;color:#7A6E62;text-decoration:none">Metodologie MVR</a>
+            <a href="simulator.html" style="font-size:13px;color:#7A6E62;text-decoration:none">Simulator mobilare</a>
+            <a href="faq.html" style="font-size:13px;color:#7A6E62;text-decoration:none">Întrebări frecvente</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:#B8AFA4;margin-bottom:14px">Contact</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <span style="font-size:13px;color:#7A6E62">hello@rentup.ro</span>
+            <span style="font-size:13px;color:#7A6E62">+40 000 000 000</span>
+            <a href="https://instagram.com/rentup.ro" style="font-size:13px;color:#7A6E62;text-decoration:none">@rentup.ro</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="padding-top:20px;border-top:.5px solid #EDE5D8;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px">
+      <div style="font-size:12px;color:#B8AFA4">© 2025 Rent Up · Toate drepturile rezervate</div>
+      <div style="font-size:12px;color:#B8AFA4">Rental Performance System · Verificat juridic</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function scrollToSec(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var offset = 128;
+  var top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+  window.scrollTo({top: top, behavior: 'smooth'});
+  document.querySelectorAll('.cat-tab').forEach(function(t) { t.classList.remove('active'); });
+  var tabs = document.querySelectorAll('.cat-tab');
+  for (var i=0; i<tabs.length; i++) {
+    var oc = tabs[i].getAttribute('onclick') || '';
+    if (oc.indexOf("'" + id + "'") > -1 || oc.indexOf('"' + id + '"') > -1) {
+      tabs[i].classList.add('active');
+    }
+  }
+}
+function toggle(btn) {
+  var item = btn.parentElement;
+  var wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i) { i.classList.remove('open'); });
+  if (!wasOpen) item.classList.add('open');
+}
+// Sidebar scroll spy
+window.addEventListener('scroll', function() {
+  var cats = document.querySelectorAll('[id]');
+  var current = '';
+  cats.forEach(function(el) {
+    if (el.getBoundingClientRect().top < 160) current = el.id;
+  });
+  document.querySelectorAll('.sidebar-link').forEach(function(l) {
+    l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+  });
+});
+
+</script>
+
+
+<script>
+// Page fade-in
+document.addEventListener('DOMContentLoaded', function() {
+  requestAnimationFrame(() => document.body.classList.add('loaded'));
+});
+// Page fade-out before navigation
+document.addEventListener('click', function(e) {
+  const a = e.target.closest('a[href]');
+  if (!a) return;
+  const href = a.getAttribute('href');
+  if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
+  if (a.target === '_blank') return;
+  e.preventDefault();
+  document.body.style.opacity = '0';
+  setTimeout(() => { window.location.href = href; }, 220);
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  requestAnimationFrame(function(){ document.body.classList.add('loaded'); });
+});
+document.addEventListener('click',function(e){
+  var a = e.target.closest('a[href]');
+  if(!a) return;
+  var href = a.getAttribute('href');
+  if(!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
+  if(a.target==='_blank') return;
+  e.preventDefault();
+  document.body.style.opacity='0';
+  setTimeout(function(){ window.location.href=href; }, 200);
+});
+</script>
+</body>
+</html>

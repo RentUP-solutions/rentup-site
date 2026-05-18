@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Calculează costul mobilării apartamentului pentru închiriere. Prefabricat sau la comandă.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulator mobilare — Calculator cost chirii · Rent Up</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FDFAF6;--bg2:#FAF4EB;--bg3:#F5EFE6;--bg4:#EDE5D8;
+  --brand:#C77936;--brandL:#FAF4EB;--brandBdr:#E8D5BC;
+  --dark:#2D2820;--text:#3a3530;--mid:#7A6E62;--muted:#9A8E82;--light:#B8AFA4;
+  --border:#E0DDD6;--border2:#EDE5D8;
+  --green:#0F6E56;--greenBg:#E1F5EE;--greenBdr:#1D9E75;
+  --blue:#185FA5;--blueBg:#E6F1FB;
+  --amber:#854F0B;--amberBg:#FDF0D8;--amberBdr:#E8C49A;
+  --shadow:0 2px 12px rgba(45,40,32,.07);
+  --radius:14px;--rsm:8px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-filter:blur(12px);border-bottom:.5px solid var(--border);padding:0 56px;height:64px;display:flex;align-items:center;justify-content:space-between}
+
+
+
+.nav-badge{font-size:11px;font-weight:600;background:var(--brandL);color:var(--brand);border:.5px solid var(--brandBdr);padding:5px 12px;border-radius:100px}
+.hero{padding:72px 56px 56px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.eyebrow{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--brand);margin-bottom:16px}
+.hero h1{font-family:'Fraunces',serif;font-size:50px;font-weight:300;line-height:1.05;color:var(--dark);margin-bottom:12px}
+.hero h1 em{font-style:normal;color:var(--brand)}
+.hero-note-box{background:var(--amberBg);border:.5px solid var(--amberBdr);border-radius:var(--rsm);padding:11px 14px;font-size:13px;color:var(--amber);margin-bottom:20px}
+.hero-sub{font-size:15px;color:var(--muted);line-height:1.72;margin-bottom:28px}
+.stats{display:flex;gap:28px;margin-bottom:32px}
+.stat{border-left:1.5px solid var(--border2);padding-left:14px}
+.stat-val{font-size:20px;font-weight:300;color:var(--dark)}
+.stat-val em{font-style:normal;color:var(--brand)}
+.stat-lbl{font-size:11px;color:var(--muted)}
+.btn-start{display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:white;font-size:14px;font-weight:500;padding:13px 26px;border-radius:100px;border:none;cursor:pointer;transition:background .2s}
+.btn-start:hover{background:#a8622a}
+.fn{font-size:12px;color:var(--light);margin-top:10px}
+.preview{background:var(--bg2);border:.5px solid var(--brandBdr);border-radius:18px;padding:22px;box-shadow:var(--shadow)}
+.pv-head{font-size:12px;color:var(--mid);margin-bottom:14px;font-weight:500}
+.pv-row{display:flex;justify-content:space-between;align-items:center;padding:9px 12px;background:var(--bg);border:.5px solid var(--border);border-radius:var(--rsm);margin-bottom:6px}
+.pv-name{font-size:13px;font-weight:500;color:var(--dark)}
+.pv-desc{font-size:11px;color:var(--muted)}
+.pv-price{font-size:13px;font-weight:500;color:var(--brand)}
+.pv-div{height:.5px;background:var(--border);margin:10px 0}
+.pv-tr{display:flex;justify-content:space-between;font-size:12px;padding:2px 0}
+.pv-tl{color:var(--muted)}.pv-tv{color:var(--text)}
+.pv-grand{display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding:13px 14px;background:var(--brandL);border:.5px solid var(--brandBdr);border-radius:var(--rsm)}
+.pv-gl{font-size:14px;font-weight:500;color:var(--dark)}
+.pv-gv{font-size:19px;font-weight:500;color:var(--brand)}
+.si-wrap{display:none;padding:0 56px 24px;max-width:720px;margin:0 auto}
+.si{display:flex;align-items:center}
+.si-item{display:flex;align-items:center;gap:8px}
+.si-circle{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;transition:all .3s}
+.si-circle.act{background:var(--brand);color:white}
+.si-circle.done{background:var(--green);color:white}
+.si-circle.idle{background:var(--bg3);color:var(--muted);border:.5px solid var(--border)}
+.si-lbl{font-size:12px;color:var(--muted)}.si-lbl.act{color:var(--brand);font-weight:500}.si-lbl.done{color:var(--green)}
+.si-conn{flex:1;height:.5px;background:var(--border);margin:0 12px;transition:background .3s}
+.si-conn.done{background:var(--green)}.si-conn.act{background:var(--brand)}
+main{max-width:720px;margin:0 auto;padding:0 56px 120px}
+.sec{display:none}.sec.active{display:block}
+.sec-tag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--brand);margin-bottom:10px}
+.sec-title{font-family:'Fraunces',serif;font-size:26px;font-weight:300;color:var(--dark);margin-bottom:5px}
+.sec-sub{font-size:14px;color:var(--muted);margin-bottom:24px}
+.card{background:var(--bg);border:.5px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:13px;box-shadow:var(--shadow)}
+.cc-title{font-size:16px;font-weight:500;color:var(--dark);margin-bottom:4px}
+.cc-sub{font-size:13px;color:var(--muted);margin-bottom:16px;line-height:1.55}
+.ch2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.chbtn{background:var(--bg2);border:.5px solid var(--border);border-radius:var(--rsm);padding:12px 14px;cursor:pointer;transition:all .18s;text-align:left}
+.chbtn:hover{border-color:var(--brand);background:var(--brandL)}
+.chbtn.sel{border-color:var(--brand);background:var(--brandL)}
+.chbtn.sel .ct{color:var(--brand)}
+.ct{font-size:14px;font-weight:500;color:var(--text);margin-bottom:3px}
+.cd{font-size:12px;color:var(--muted)}
+.slider-val{font-size:24px;font-weight:300;color:var(--dark);text-align:right;margin-bottom:8px}
+.slider-val em{font-style:normal;color:var(--brand)}
+input[type=range]{-webkit-appearance:none;width:100%;height:3px;background:var(--border);border-radius:100px;outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;height:17px;border-radius:50%;background:var(--brand);cursor:pointer;box-shadow:0 0 0 3px rgba(199,121,54,.18)}
+.slider-lbl{display:flex;justify-content:space-between;font-size:11px;color:var(--light);margin-top:6px}
+.counter{display:flex;align-items:center;gap:10px}
+.cbtn{width:28px;height:28px;border-radius:50%;background:var(--bg2);border:.5px solid var(--border);color:var(--text);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.cbtn:hover{border-color:var(--brand);color:var(--brand)}
+.cval{font-size:18px;font-weight:500;color:var(--dark);min-width:26px;text-align:center}
+.cnote{font-size:13px;color:var(--muted)}
+.lift-note{display:none;margin-top:10px;padding:11px 14px;background:var(--bg3);border:.5px solid var(--border2);border-radius:var(--rsm)}
+.lift-np{font-size:13px;font-weight:500;color:var(--brand);margin-top:3px}
+.rc{background:var(--bg);border:.5px solid var(--border);border-radius:var(--radius);margin-bottom:9px;overflow:hidden;box-shadow:var(--shadow);transition:border-color .2s}
+.rc.on{border-color:var(--brandBdr)}
+.rh{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;cursor:pointer;user-select:none}
+.rhl{display:flex;align-items:center;gap:10px}
+.rico{width:32px;height:32px;background:var(--bg3);border-radius:var(--rsm);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--mid)}
+.rico svg{width:16px;height:16px}
+.rtitle{font-size:14px;font-weight:500;color:var(--dark)}
+.rprev{font-size:12px;color:var(--muted);margin-top:1px}
+.rprev.act{color:var(--brand);font-weight:500}
+.tog{width:38px;height:20px;background:var(--bg3);border:.5px solid var(--border);border-radius:100px;cursor:pointer;position:relative;flex-shrink:0;transition:all .2s}
+.tog.on{background:var(--brand);border-color:var(--brand)}
+.tog::after{content:"";position:absolute;top:2px;left:2px;width:14px;height:14px;background:white;border-radius:50%;transition:transform .2s;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.tog.on::after{transform:translateX(18px)}
+.rei{font-size:11px;color:var(--muted)}
+.rb{padding:0 16px 16px;display:none;border-top:.5px solid var(--border2);padding-top:14px}
+.rc.exp .rb{display:block}
+.og{margin-bottom:13px}
+.ol{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:7px}
+/* TIER CARDS */
+.tiers{display:flex;flex-direction:column;gap:7px}
+.tier{padding:12px 14px;border:.5px solid var(--border);border-radius:var(--rsm);cursor:pointer;transition:all .18s;background:var(--bg2);display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.tier:hover{border-color:var(--brand)}
+.tier.sel{border-color:var(--brand);background:var(--brandL)}
+.tier-l{flex:1}
+.tier-name{font-size:13px;font-weight:500;color:var(--dark)}
+.tier.sel .tier-name{color:var(--brand)}
+.tier-desc{font-size:12px;color:var(--muted);margin-top:2px;line-height:1.45}
+.tier-r{text-align:right;flex-shrink:0}
+.tier-price{font-size:13px;font-weight:500;color:var(--brand);white-space:nowrap}
+.tier-dur{font-size:11px;color:var(--muted);margin-top:2px}
+.rec{display:inline-block;font-size:10px;font-weight:600;background:var(--greenBg);color:var(--green);padding:1px 7px;border-radius:100px;margin-left:5px;vertical-align:middle}
+.dim{background:var(--bg2);border:.5px solid var(--border);border-radius:var(--rsm);padding:9px 13px;display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}
+.dlbl{font-size:12px;color:var(--muted)}
+.dctrls{display:flex;align-items:center;gap:7px}
+.dbtn{width:24px;height:24px;border-radius:50%;background:var(--bg3);border:.5px solid var(--border);color:var(--text);font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.dbtn:hover{border-color:var(--brand);color:var(--brand)}
+.dval{font-size:14px;font-weight:500;color:var(--dark);min-width:48px;text-align:center}
+.presets{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px}
+.preset-btn{padding:6px 13px;border-radius:100px;border:.5px solid var(--border);background:var(--bg);font-size:12px;color:var(--muted);cursor:pointer;transition:all .15s}
+.preset-btn:hover{border-color:var(--brand);color:var(--brand)}
+.preset-btn.sel{border-color:var(--brand);background:var(--brandL);color:var(--brand)}
+.info-note{padding:11px 14px;background:var(--bg3);border:.5px solid var(--border2);border-radius:var(--rsm);font-size:13px;color:var(--mid);display:flex;gap:8px}
+.live-bar{position:sticky;bottom:0;background:rgba(253,250,246,.96);backdrop-filter:blur(12px);border-top:.5px solid var(--border);padding:13px 56px;display:flex;align-items:center;justify-content:space-between;z-index:50}
+.lb-info{display:flex;gap:20px}
+.lb-stat{font-size:12px;color:var(--muted)}
+.lb-stat strong{color:var(--dark)}
+.lb-right{display:flex;align-items:center;gap:24px}
+.lb-total-val{font-size:20px;font-weight:500;color:var(--brand)}
+.lb-total-lbl{font-size:11px;color:var(--muted)}
+.navbtns{display:flex;gap:8px}
+.btn-next{background:var(--brand);color:white;font-size:14px;font-weight:500;padding:11px 22px;border-radius:100px;border:none;cursor:pointer;transition:background .2s}
+.btn-next:hover{background:#a8622a}
+.btn-back{background:transparent;color:var(--muted);font-size:14px;padding:11px 16px;border-radius:100px;border:.5px solid var(--border);cursor:pointer;transition:all .2s}
+.btn-back:hover{color:var(--text);border-color:var(--text)}
+/* RESULTS */
+.res-block{background:var(--bg);border:.5px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:13px;box-shadow:var(--shadow)}
+.res-block-title{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:14px}
+.rrow{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:.5px solid var(--border2)}
+.rrow:last-child{border-bottom:none}
+.rname{font-size:14px;color:var(--dark)}
+.rsub{font-size:11px;color:var(--muted);margin-top:1px}
+.rprice{font-size:14px;font-weight:500;color:var(--brand)}
+.rprice.bl{filter:blur(5px);user-select:none}
+/* ESTIMATE BANNER */
+.est-banner{background:var(--amberBg);border:.5px solid var(--amberBdr);border-radius:var(--rsm);padding:12px 16px;margin-bottom:13px;font-size:13px;color:var(--amber);display:flex;gap:10px;align-items:flex-start}
+/* PACKAGES */
+.pkg-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:13px}
+.pkg-card{background:var(--bg);border:.5px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+.pkg-card.recommended{border-color:var(--brand)}
+.pkg-tag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
+.pkg-tag.std{color:var(--mid)}
+.pkg-tag.prem{color:var(--brand)}
+.pkg-name{font-size:18px;font-weight:500;color:var(--dark);margin-bottom:2px}
+.pkg-price{font-size:13px;color:var(--muted);margin-bottom:16px}
+.pkg-rows{display:flex;flex-direction:column;gap:0}
+.pkg-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:.5px solid var(--border2);font-size:13px}
+.pkg-row:last-child{border-bottom:none}
+.pkg-row-lbl{color:var(--mid)}
+.pkg-row-val{color:var(--dark);font-weight:500}
+.pkg-row-val.bl{filter:blur(5px);user-select:none}
+.pkg-total-row{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding:13px 14px;background:var(--brandL);border:.5px solid var(--brandBdr);border-radius:var(--rsm)}
+.pkg-total-lbl{font-size:13px;font-weight:500;color:var(--dark)}
+.pkg-total-val{font-size:22px;font-weight:300;color:var(--brand)}
+.pkg-total-val.bl{filter:blur(7px);user-select:none}
+.pkg-roi{font-size:12px;color:var(--green);margin-top:8px;font-weight:500}
+/* ROI */
+.roi-block{background:linear-gradient(135deg,#e8f5ee,#f0faf5);border:.5px solid var(--greenBdr);border-radius:var(--radius);padding:24px;margin-bottom:13px}
+.roi-ey{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--green);margin-bottom:9px}
+.roi-title{font-family:'Fraunces',serif;font-size:22px;font-weight:300;color:var(--dark);margin-bottom:5px}
+.roi-sub{font-size:13px;color:var(--mid);margin-bottom:18px}
+.roi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:14px}
+.roi-stat{background:white;border:.5px solid rgba(29,158,117,.2);border-radius:var(--rsm);padding:13px}
+.rsval{font-size:21px;font-weight:300;color:var(--green)}
+.rsval em{font-size:13px;font-style:normal}
+.rslbl{font-size:11px;color:var(--mid);margin-top:3px}
+.roi-note{font-size:12px;color:var(--mid);font-style:italic;border-top:.5px solid rgba(29,158,117,.2);padding-top:11px;margin-bottom:13px}
+.roi-cta-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.btn-audit{display:inline-flex;align-items:center;gap:7px;background:var(--green);color:white;font-size:13px;font-weight:500;padding:9px 18px;border-radius:100px;text-decoration:none;transition:background .2s;border:none;cursor:pointer}
+.btn-audit:hover{background:#0a5c44}
+/* PAYMENT */
+.pw-block{background:var(--bg2);border:.5px solid var(--brandBdr);border-radius:var(--radius);padding:26px;text-align:center;margin-bottom:13px}
+.pw-icon{width:40px;height:40px;margin:0 auto 12px;color:var(--brand)}
+.pw-title{font-family:'Fraunces',serif;font-size:22px;font-weight:300;color:var(--dark);margin-bottom:7px}
+.pw-sub{font-size:14px;color:var(--muted);margin-bottom:20px;line-height:1.7;max-width:400px;margin-left:auto;margin-right:auto}
+.pw-feats{display:flex;flex-direction:column;gap:7px;margin-bottom:20px;text-align:left;max-width:340px;margin-left:auto;margin-right:auto}
+.pw-feat{display:flex;align-items:center;gap:9px;font-size:14px;color:var(--text)}
+.pw-ico{color:var(--green);width:14px;height:14px;flex-shrink:0}
+.btn-pay{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;max-width:340px;margin:0 auto 9px;background:var(--brand);color:white;font-size:15px;font-weight:500;padding:14px 26px;border-radius:100px;border:none;cursor:pointer;transition:background .2s}
+.btn-pay:hover{background:#a8622a}
+.pw-note{font-size:12px;color:var(--light)}
+.save-block{background:var(--bg3);border:.5px solid var(--border);border-radius:var(--radius);padding:19px}
+.save-title{font-size:14px;font-weight:500;color:var(--dark);margin-bottom:3px}
+.save-sub{font-size:12px;color:var(--muted);margin-bottom:13px}
+.save-inputs{display:flex;gap:7px;flex-wrap:wrap}
+.save-input{flex:1;min-width:160px;background:var(--bg);border:.5px solid var(--border);border-radius:var(--rsm);padding:9px 13px;color:var(--text);font-size:13px;font-family:Inter,sans-serif;outline:none}
+.save-input:focus{border-color:var(--brand)}
+.save-input::placeholder{color:var(--light)}
+.btn-save{background:var(--bg2);color:var(--text);font-size:13px;font-weight:500;padding:9px 16px;border-radius:var(--rsm);border:.5px solid var(--border);cursor:pointer;white-space:nowrap}
+.btn-save:hover{border-color:var(--brand);color:var(--brand)}
+.toast{position:fixed;bottom:90px;right:22px;background:var(--dark);color:white;border-radius:var(--rsm);padding:10px 16px;font-size:13px;display:none;z-index:300}
+.hero{grid-template-columns:1fr;gap:28px;padding:44px 20px 36px}.preview{display:none}.si-wrap{padding-left:20px;padding-right:20px}.live-bar{padding:11px 20px}.lb-info{display:none}.roi-grid{grid-template-columns:1fr 1fr}.ch2{grid-template-columns:1fr}.pkg-grid{grid-template-columns:1fr}}
+
+
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-filter:blur(12px);border-bottom:.5px solid #EDE5D8;padding:0 56px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Inter',sans-serif;font-size:17px;font-weight:600;color:#C77936;text-decoration:none;letter-spacing:-.01em}
+.logo span{color:#2D2820;font-weight:300}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-family:'Inter',sans-serif;font-size:13px;color:#9A8E82;text-decoration:none;transition:color .15s}
+.nav-links a:hover,.nav-links a.active{color:#2D2820}
+.nav-cta{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:#C77936;border:.5px solid #C77936;padding:8px 18px;border-radius:100px;text-decoration:none;white-space:nowrap;transition:background .2s}
+.nav-cta:hover{background:#FAF4EB}
+@media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}}
+
+/* Page transitions */
+body{opacity:0;transition:opacity .22s ease}
+body.loaded{opacity:1}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">Rent<span>Up</span></a>
+  <a href="index.html" style="font-family:'Inter',sans-serif;font-size:13px;color:#9A8E82;text-decoration:none">← Înapoi la site</a>
+  <a class="nav-cta" href="audit.html">Audit 200€ →</a>
+</nav>
+
+<div id="hero-section">
+<div class="hero">
+  <div>
+    <div class="eyebrow">Calculator mobilare · prețuri 2025 · pentru chirii</div>
+    <h1>Cât costă<br>să <em>mobilezi</em>?</h1>
+    <div class="hero-note-box">Acest calculator este optimizat pentru apartamente de închiriat, nu pentru rezidențe personale. Prețurile reflectă mobilier durabil și eficient pentru uz locativ.</div>
+    <p class="hero-sub">Alegi camerele, tipul de mobilier (prefabricat sau la comandă) și primești o estimare cu marjă de risc și recuperarea investiției incluse.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">±<em>10-15%</em></div><div class="stat-lbl">față de ofertele reale</div></div>
+      <div class="stat"><div class="stat-val"><em>15</em> €</div><div class="stat-lbl">raport PDF complet</div></div>
+      <div class="stat"><div class="stat-val">2025</div><div class="stat-lbl">prețuri actualizate</div></div>
+    </div>
+    <button class="btn-start" onclick="startSim()">Începe configurarea ↓</button>
+    <p class="fn">Estimare nivel low-mid · fără TVA · fără electrocasnice</p>
+  </div>
+  <div class="preview">
+    <div class="pv-head">Exemplu buget · Apartament 2 camere · 55 m²</div>
+    <div class="pv-row"><div><div class="pv-name">Bucătărie IKEA Standard 3 ml</div><div class="pv-desc">METOD configurat · montaj inclus</div></div><div class="pv-price">980 €</div></div>
+    <div class="pv-row"><div><div class="pv-name">Living — canapea + mobilă TV</div><div class="pv-desc">Prefabricat standard + accesorii</div></div><div class="pv-price">1.700 €</div></div>
+    <div class="pv-row"><div><div class="pv-name">Dulap dormitor + pat + noptiere</div><div class="pv-desc">IKEA PAX + prefabricat</div></div><div class="pv-price">1.250 €</div></div>
+    <div class="pv-row"><div><div class="pv-name">Hol + baie accesorii</div><div class="pv-desc">Prefabricat</div></div><div class="pv-price">690 €</div></div>
+    <div class="pv-div"></div>
+    <div class="pv-tr"><span class="pv-tl">Total mobilier</span><span class="pv-tv">4.620 €</span></div>
+    <div class="pv-tr"><span class="pv-tl">Marjă risc 5%</span><span class="pv-tv">231 €</span></div>
+    <div class="pv-tr"><span class="pv-tl">Rent Up Standard 55mp</span><span class="pv-tv">1.650 €</span></div>
+    <div class="pv-grand"><div class="pv-gl">Investiție totală</div><div class="pv-gv">6.501 €</div></div>
+  </div>
+</div>
+</div>
+
+<div class="si-wrap" id="step-ind">
+  <div class="si">
+    <div class="si-item"><div class="si-circle act" id="sc1">1</div><div class="si-lbl act" id="sl1">Configurare</div></div>
+    <div class="si-conn" id="c1"></div>
+    <div class="si-item"><div class="si-circle idle" id="sc2">2</div><div class="si-lbl" id="sl2">Piese</div></div>
+    <div class="si-conn" id="c2"></div>
+    <div class="si-item"><div class="si-circle idle" id="sc3">3</div><div class="si-lbl" id="sl3">Rezultat</div></div>
+  </div>
+</div>
+
+<main>
+
+<div class="sec active" id="s1">
+  <div class="sec-tag">Pasul 1</div>
+  <div class="sec-title">Configurare generală</div>
+  <div class="sec-sub">Parametrii globali influențează toate prețurile calculate.</div>
+
+  <div class="card">
+    <div class="cc-title">Locație</div>
+    <div class="cc-sub">Afectează costul manoperei și logisticii.</div>
+    <div class="ch2">
+      <div class="chbtn sel" onclick="pick(this,'locatie','buc')" data-g="locatie"><div class="ct">București / Cluj</div><div class="cd">Coeficient standard</div></div>
+      <div class="chbtn" onclick="pick(this,'locatie','alt')" data-g="locatie"><div class="ct">Altă localitate</div><div class="cd">Provincii · −8%</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="cc-title">Tip imobil</div>
+    <div class="ch2">
+      <div class="chbtn sel" onclick="pick(this,'imobil','nou')" data-g="imobil"><div class="ct">Bloc Nou</div><div class="cd">După 2000</div></div>
+      <div class="chbtn" onclick="pick(this,'imobil','vechi')" data-g="imobil"><div class="ct">Bloc Vechi</div><div class="cd">Înainte de 2000 · +3%</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="cc-title">Logistică — etaj și lift</div>
+    <div class="cc-sub">Fără lift, fiecare etaj adaugă cost de transport și manoperă pentru echipele de montaj.</div>
+    <div class="ch2" style="margin-bottom:14px">
+      <div class="chbtn" onclick="pick(this,'lift','da')" data-g="lift"><div class="ct">Cu lift</div><div class="cd">Fără supracoturi logistice</div></div>
+      <div class="chbtn sel" onclick="pick(this,'lift','nu')" data-g="lift"><div class="ct">Fără lift</div><div class="cd">+85 € / etaj manoperă</div></div>
+    </div>
+    <div class="cc-sub" style="margin-bottom:7px">Etaj (0 = parter)</div>
+    <div class="counter">
+      <div class="cbtn" onclick="chV('etaj',-1)">−</div>
+      <div class="cval" id="etaj-v">0</div>
+      <div class="cbtn" onclick="chV('etaj',1)">+</div>
+      <span class="cnote" id="etaj-note">fără supracost</span>
+    </div>
+    <div class="lift-note" id="lift-n">
+      <div style="font-size:13px;color:var(--mid)">Fără lift · transport manual pe scări</div>
+      <div class="lift-np" id="lift-np">+0 €</div>
+    </div>
+    <div class="cc-sub" style="margin-top:16px;margin-bottom:7px">Electrocasnice de instalat (cuptor, hotă, mașină spălat etc.)</div>
+    <div class="counter">
+      <div class="cbtn" onclick="chV('electro',-1)">−</div>
+      <div class="cval" id="electro-v">0</div>
+      <div class="cbtn" onclick="chV('electro',1)">+</div>
+      <span class="cnote">buc · <strong style="color:var(--brand)">+80 € / buc</strong> montaj</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="cc-title">Suprafață apartament</div>
+    <div class="cc-sub">Folosită pentru onorariul de design și estimarea chiriei potențiale.</div>
+    <div class="slider-val"><em id="mp-v">65</em> m²</div>
+    <input type="range" min="25" max="150" value="65" oninput="updMp(this.value)">
+    <div class="slider-lbl"><span>25 m²</span><span>150 m²</span></div>
+  </div>
+</div>
+
+<div class="sec" id="s2">
+  <div class="sec-tag">Pasul 2</div>
+  <div class="sec-title">Selectează și configurează</div>
+  <div class="sec-sub">Activează camerele și alege tipul de mobilier. Prefabricat = mai ieftin, durată mai scurtă. La comandă = investiție mai mare, rezistă 8-12 ani cu chiriași.</div>
+
+  <div style="margin-bottom:16px">
+    <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:7px">Pornire rapidă</div>
+    <div class="presets">
+      <div class="preset-btn" onclick="preset('gars',this)">Garsonieră</div>
+      <div class="preset-btn" onclick="preset('2c',this)">2 camere</div>
+      <div class="preset-btn" onclick="preset('3c',this)">3 camere</div>
+      <div class="preset-btn" onclick="preset('m',this)">Manual</div>
+    </div>
+  </div>
+
+  <!-- BUCATARIE -->
+  <div class="rc on exp" id="rc-buc">
+    <div class="rh" onclick="tRoom('buc')">
+      <div class="rhl">
+        <div class="tog on" id="tog-buc" onclick="event.stopPropagation();fRoom('buc')"></div>
+        <div class="rico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="9" width="18" height="11" rx="1.5"/><circle cx="8" cy="14" r="2"/><circle cx="16" cy="14" r="2"/><path d="M3 13h18M12 9V7"/></svg></div>
+        <div><div class="rtitle">Bucătărie</div><div class="rprev act" id="rp-buc">980 €</div></div>
+      </div>
+      <div class="rei" id="rei-buc">▾</div>
+    </div>
+    <div class="rb" id="rb-buc">
+      <div class="og">
+        <div class="ol">Tip mobilier</div>
+        <div class="tiers">
+          <div class="tier" onclick="sOpt('buc','tier','pf-low',this)">
+            <div class="tier-l"><div class="tier-name">Prefabricat Buget</div><div class="tier-desc">IKEA ENHET / METOD basic. Corpuri PAL simplu, fronturi ieftine, feronerie basic.</div></div>
+            <div class="tier-r"><div class="tier-price">~160–240 €/ml</div><div class="tier-dur">Durată: 3-5 ani</div></div>
+          </div>
+          <div class="tier sel" onclick="sOpt('buc','tier','pf-std',this)">
+            <div class="tier-l"><div class="tier-name">Prefabricat Standard <span class="rec">cel mai frecvent IKEA</span></div><div class="tier-desc">IKEA METOD configurat. Fronturi mat/MDF foil, mai multe sertare, configurări L/U posibile.</div></div>
+            <div class="tier-r"><div class="tier-price">~240–400 €/ml</div><div class="tier-dur">Durată: 5-7 ani</div></div>
+          </div>
+          <div class="tier" onclick="sOpt('buc','tier','cmd',this)">
+            <div class="tier-l"><div class="tier-name">La comandă PAL+MDF <span class="rec">recomandat chirii</span></div><div class="tier-desc">Mobilier local la comandă. Robustețe superioară, customizare completă, rezistă la uzură repetată.</div></div>
+            <div class="tier-r"><div class="tier-price">~800–1.200 €/ml</div><div class="tier-dur">Durată: 8-12 ani</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="dim"><div class="dlbl">Metri liniari corp</div><div class="dctrls"><div class="dbtn" onclick="chR('buc','ml',-.5)">−</div><div class="dval" id="buc-ml">3.5 ml</div><div class="dbtn" onclick="chR('buc','ml',.5)">+</div></div></div>
+      <div class="og"><div class="ol">Blat de lucru</div><div class="tiers">
+        <div class="tier sel" onclick="sOpt('buc','blat','hpl',this)"><div class="tier-l"><div class="tier-name">Egger HPL <span class="rec">recomandat</span></div><div class="tier-desc">Rezistent la zgârieturi și umezeală. Ideal pentru chirii.</div></div><div class="tier-r"><div class="tier-price">+200 €</div></div></div>
+        <div class="tier" onclick="sOpt('buc','blat','cuart',this)"><div class="tier-l"><div class="tier-name">Cuarț / Ceramică</div><div class="tier-desc">Premium. Relevant pentru chirii la prețuri mari.</div></div><div class="tier-r"><div class="tier-price">+480 €</div></div></div>
+        <div class="tier" onclick="sOpt('buc','blat','std',this)"><div class="tier-l"><div class="tier-name">Standard (PAL melaminat)</div><div class="tier-desc">Cel mai ieftin. Se deteriorează mai rapid.</div></div><div class="tier-r"><div class="tier-price">inclus</div></div></div>
+      </div></div>
+      <div class="og"><div class="ol">Iluminat LED</div><div class="tiers">
+        <div class="tier sel" onclick="sOpt('buc','led','std',this)"><div class="tier-l"><div class="tier-name">LED Standard <span class="rec">recomandat</span></div><div class="tier-desc">Profil aplicat, lumină caldă/rece.</div></div><div class="tier-r"><div class="tier-price">+180 €</div></div></div>
+        <div class="tier" onclick="sOpt('buc','led','none',this)"><div class="tier-l"><div class="tier-name">Fără LED</div></div><div class="tier-r"><div class="tier-price">—</div></div></div>
+      </div></div>
+      <div class="info-note" style="margin-top:4px">Prețul IKEA depinde mult de numărul de sertare, colțuri și înălțime. Estimarea include +20% montaj. Variație reală ±20%.</div>
+    </div>
+  </div>
+
+  <!-- INSULA -->
+  <div class="rc" id="rc-ins">
+    <div class="rh" onclick="tRoom('ins')">
+      <div class="rhl">
+        <div class="tog" id="tog-ins" onclick="event.stopPropagation();fRoom('ins')"></div>
+        <div class="rico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="10" width="20" height="8" rx="1.5"/><path d="M7 10V8m5 2V8m5 2V8M5 18v2m14-2v2"/></svg></div>
+        <div><div class="rtitle">Insulă bucătărie</div><div class="rprev" id="rp-ins">inactiv</div></div>
+      </div>
+      <div class="rei" id="rei-ins">▸</div>
+    </div>
+    <div class="rb" id="rb-ins">
+      <div class="og"><div class="ol">Tip</div><div class="tiers">
+        <div class="tier sel" onclick="sOpt('ins','tier','pf-std',this)"><div class="tier-l"><div class="tier-name">Prefabricat Standard</div></div><div class="tier-r"><div class="tier-price">~350–600 €</div></div></div>
+        <div class="tier" onclick="sOpt('ins','tier','cmd',this)"><div class="tier-l"><div class="tier-name">La comandă PAL+MDF <span class="rec">recomandat</span></div></div><div class="tier-r"><div class="tier-price">~900–1.400 €</div></div></div>
+      </div></div>
+      <div class="dim"><div class="dlbl">Lungime (ml)</div><div class="dctrls"><div class="dbtn" onclick="chR('ins','ml',-.5)">−</div><div class="dval" id="ins-ml">1.5 ml</div><div class="dbtn" onclick="chR('ins','ml',.5)">+</div></div></div>
+    </div>
+  </div>
+
+  <!-- LIVING -->
+  <div class="rc" id="rc-liv">
+    <div class="rh" onclick="tRoom('liv')">
+      <div class="rhl">
+        <div class="tog" id="tog-liv" onclick="event.stopPropagation();fRoom('liv')"></div>
+        <div class="rico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16v-4a2 2 0 012-2h14a2 2 0 012 2v4"/><rect x="1" y="16" width="22" height="4" rx="1.5"/><path d="M5 16v2M19 16v2"/></svg></div>
+        <div><div class="rtitle">Living / Sufragerie</div><div class="rprev" id="rp-liv">inactiv</div></div>
+      </div>
+      <div class="rei" id="rei-liv">▸</div>
+    </div>
+    <div class="rb" id="rb-liv">
+      <div class="og"><div class="ol">Mobilă TV / Rafturi</div><div class="tiers">
+        <div class="tier" onclick="sOpt('liv','tv','none',this)"><div class="tier-l"><div class="tier-name">Nu includ</div></div><div class="tier-r"><div class="tier-price">—</div></div></div>
+        <div class="tier" onclick="sOpt('liv','tv','pf-low',this)"><div class="tier-l"><div class="tier-name">Prefabricat Buget</div><div class="tier-desc">Mobilier simplu de raft/TV.</div></div><div class="tier-r"><div class="tier-price">~300–500 €</div></div></div>
+        <div class="tier sel" onclick="sOpt('liv','tv','pf-std',this)"><div class="tier-l"><div class="tier-name">Prefabricat Standard</div></div><div class="tier-r"><div class="tier-price">~500–900 €</div></div></div>
+        <div class="tier" onclick="sOpt('liv','tv','cmd',this)"><div class="tier-l"><div class="tier-name">La comandă PAL+MDF <span class="rec">recomandat</span></div><div class="tier-desc">Custom per perete, mai rezistent.</div></div><div class="tier-r"><div class="tier-price">380–600 €/ml</div></div></div>
+      </div></div>
+      <div class="dim" id="liv-ml-w"><div class="dlbl">Lungime mobilă TV (ml)</div><div class="dctrls"><div class="dbtn" onclick="chR('liv','ml',-.5)">−</div><div class="dval" id="liv-ml">2.0 ml</div><div class="dbtn" onclick="chR('liv','ml',.5)">+</div></div></div>
+      <div class="og"><div class="ol">Canapea</div><div class="tiers">
+        <div class="tier" onclick="sOpt('liv','sofa','none',this)"><div class="tier-l"><div class="tier-name">Nu includ</div></div><div class="tier-r"><div class="tier-price">—</div></div></div>
+        <div class="tier" onclick="sOpt('liv','sofa','pf-low',this)"><div class="tier-l"><div class="tier-name">Prefabricat Buget</div><div class="tier-desc">Canapea simplă. Se uzează în 3-4 ani cu chiriași.</div></div><div class="tier-r"><div class="tier-price">~300–600 €</div><div class="tier-dur">Durată: 3-4 ani</div></div></div>
+        <div class="tier sel" onclick="sOpt('liv','sofa','pf-std',this)"><div class="tier-l"><div class="tier-name">Prefabricat Standard <span class="rec">recomandat chirii</span></div><div class="tier-desc">Calitate decentă, rezistă 5-7 ani cu utilizare normală.</div></div><div class="tier-r"><div class="tier-price">~600–1.400 €</div><div class="tier-dur">Durată: 5-7 ani</div></div></div>
+        <div class="tier" onclick="sOpt('liv','sofa','pf-prem',this)"><div class="tier-l"><div class="tier-name">Prefabricat Premium</div></div><div class="tier-r"><div class="tier-price">~1.400–2.500 €</div></div></div>
+      </div></div>
+      <div class="og"><div class="ol">Accesorii — covor, masă cafea, iluminat</div><div class="tiers">
+        <div class="tier" onclick="sOpt('liv','acc','none',this)"><div class="tier-l"><div class="tier-name">Nu includ</div></div><div class="tier-r"><div class="tier-price">—</div></div></div>
+        <div class="tier sel" onclick="sOpt('liv','acc','std',this)"><div class="tier-l"><div class="tier-name">Standard</div><div class="tier-desc">Covor, masă cafea, 1-2 corpuri iluminat.</div></div><div class="tier-r"><div class="tier-price">~400–800 €</div></div></div>
+        <div class="tier" onclick="sOpt('liv','acc','prem',this)"><div class="tier-l"><div class="tier-name">Premium</div></div><div class="tier-r"><div class="tier-price">~800–1.500 €</div></div></div>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- DORMITOR -->
+  <div class="rc" id="rc-dorm">
+    <div class="rh" onclick="tRoom('dorm')">
+      <div class="rhl">
+        <div class="tog" id="tog-dorm" onclick="event.stopPropagation();fRoom('dorm')"></div>
+        <div class="rico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="13" width="20" height="8" rx="1.5"/><path d="M4 13V8a1 1 0 011-1h14a1 1 0 011 1v5"/><rect x="6" y="9" width="4" height="4" rx=".5"/><rect x="14" y="9" width="4" height="4" rx=".5"/><path d="M2 18h20"/></svg></div>
+        <div><div class="rtitle">Dormitor matrimonial</div><div class="rprev" id="rp-dorm">inactiv</div></div>
+      </div>
+      <div class="rei" id="rei-dorm">▸</div>
+    </div>
+    <div class="rb" id="rb-dorm">
+      <div class="og"><div class="ol">Dulap</div><div class="tiers">
+        <div class="tier" onclick="sOpt('dorm','dulap','none',this)"><div class="tier-l"><div class="tier-name">Nu includ</div></div><div class="tier-r"><div class="tier-price">—</div></div></div>
+        <div class="tier" onclick="sOpt('dorm','dulap','pf-low',this)"><div class="tier-l"><div class="tier-name">Prefabricat Buget (IKEA PAX basic)</div></div><div class="tier-r"><div class="tier-price">~100–150 €/ml</div><div class="tier-dur">Durată: 4-6 ani</div></div></div>
+        <div class="tier" onclick="sOpt('dorm','dulap','pf-std',this)"><div class="tier-l"><div class="tier-name">Prefabricat Standard (IKEA PAX complet)</div></div><div class="tier-r"><div class="tier-price">~180–250 €/ml</div><div class="tier-dur">Durată: 6-8 ani</div></div></div>
+        <div class="tier sel" onclick="sOpt('dorm','dulap','cmd',this)"><div class="tier-l"><div class="tier-name">La comandă PAL+MDF <span class="rec">recomandat</span></div><div class="tier-desc">Glisante silențioase, custoate complete, rezistă la uzură intensă.</div></div><div class="tier-r"><div class="tier-price">~450–600 €/ml</div><div class="tier-dur">Durată: 10-15 ani</div></div></div>
+      </div></div>
+      <div class="dim" id="dorm-ml-w"><div class="dlbl">Lungime dulap (ml)</div><div class="dctrls"><div class="dbtn" onclick="chR('dorm','ml',-.5)">−</div><div class="dval" id="dorm-ml">2.5 ml</div><div class="dbtn" onclick="chR('dorm','ml',.5)">+</div></div></div>
+      <div class="og"><div class="ol">Pat</div><div class="tiers">
+        <div class="tier" onclick="sOpt('dorm','pat','none',this)"><div class="tier-l"><div class="tier-name">Nu includ</div></div><div class="tier-r"><div class="tier-price">—</div></div></div>
+        <div class="tier sel" onclick="sOpt('dorm','pat','pf-std',this)"><div class="tier-l"><div class="tier-name">Prefabricat Standard <span class="rec">recomandat chirii</span></div></div><div class="tier-r"><div class="tier-price">~500–900 €</div></div></div>
+        <div class="tier" onclick="sOpt('dorm','pat','cmd',this)"><div class="tier-l"><div class="tier-name">La comandă</div></div><div class="tier-r"><div class="tier-price">~1.000–2.200 €</div></div></div>
+      </div></div>
+      <div class="og"><div class="ol">Noptiere</div><div class="tiers">
+        <div class="tier" onclick="sOpt('dorm','nopt','none',this)"><div class="tier-l"><div class="tier-name">Nu includ</div></div><div class="tier-r"><div class="tier-price">—</div></div></div>
+        <div class="tier sel" onclick="sOpt('dorm','nopt','pf-std',this)"><div class="tier-l"><div class="tier-name">Prefabricate · set 2</div></div><div class="tier-r"><div class="tier-price">~200–400 €</div></div></div>
+        <div class="tier" onclick="sOpt('dorm','nopt','cmd',this)"><div class="tier-l"><div class="tier-name">La comandă · set 2</div></div><div class="tier-r"><div class="tier-price">~550–800 €</div></div></div>
+      </div></div>
+      <div class="og"><div class="ol">Masă de birou</div><div class="tiers">
+        <div class="tier sel" onclick="sOpt('dorm','birou','none',this)"><div class="tier-l"><div class="tier-name">Nu includ</div></div><div class="tier-r"><div class="tier-price">—</div></div></div>
+        <div class="tier" onclick="sOpt('dorm','birou','pf-std',this)"><div class="tier-l"><div class="tier-name">Prefabricată (IKEA/standard)</div></div><div class="tier-r"><div class="tier-price">~150–350 €</div></div></div>
+        <div class="tier" onclick="sOpt('dorm','birou','cmd',this)"><div class="tier-l"><div class="tier-name">La comandă (integrată în dulap)</div></div><div class="tier-r"><div class="tier-price">~400–800 €</div></div></div>
+      </div></div>
+      <div class="og"><div class="ol">Spațiu depozitare suplimentar</div><div class="tiers">
+        <div class="tier sel" onclick="sOpt('dorm','dep','none',this)"><div class="tier-l"><div class="tier-name">Nu includ</div></div><div class="tier-r"><div class="tier-price">—</div></div></div>
+        <div class="tier" onclick="sOpt('dorm','dep','pf-std',this)"><div class="tier-l"><div class="tier-name">Prefabricat (raft/corp mic)</div></div><div class="tier-r"><div class="tier-price">~150–400 €</div></div></div>
+        <div class="tier" onclick="sOpt('dorm','dep','cmd',this)"><div class="tier-l"><div class="tier-name">La comandă</div></div><div class="tier-r"><div class="tier-price">~500–1.000 €</div></div></div>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- HOL -->
+  <div class="rc" id="rc-hol">
+    <div class="rh" onclick="tRoom('hol')">
+      <div class="rhl">
+        <div class="tog" id="tog-hol" onclick="event.stopPropagation();fRoom('hol')"></div>
+        <div class="rico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><circle cx="7" cy="12" r=".8" fill="currentColor"/></svg></div>
+        <div><div class="rtitle">Hol / Intrare</div><div class="rprev" id="rp-hol">inactiv</div></div>
+      </div>
+      <div class="rei" id="rei-hol">▸</div>
+    </div>
+    <div class="rb" id="rb-hol">
+      <div class="og"><div class="ol">Dulap intrare</div><div class="tiers">
+        <div class="tier" onclick="sOpt('hol','dulap','pf-low',this)"><div class="tier-l"><div class="tier-name">Prefabricat Buget</div></div><div class="tier-r"><div class="tier-price">~200–400 €</div></div></div>
+        <div class="tier" onclick="sOpt('hol','dulap','pf-std',this)"><div class="tier-l"><div class="tier-name">Prefabricat Standard</div></div><div class="tier-r"><div class="tier-price">~400–700 €</div></div></div>
+        <div class="tier sel" onclick="sOpt('hol','dulap','cmd',this)"><div class="tier-l"><div class="tier-name">La comandă PAL <span class="rec">recomandat</span></div></div><div class="tier-r"><div class="tier-price">~320 €/ml</div></div></div>
+      </div></div>
+      <div class="dim"><div class="dlbl">Lungime (ml)</div><div class="dctrls"><div class="dbtn" onclick="chR('hol','ml',-.5)">−</div><div class="dval" id="hol-ml">1.5 ml</div><div class="dbtn" onclick="chR('hol','ml',.5)">+</div></div></div>
+      <div class="og"><div class="ol">Spațiu depozitare (debara / polițe)</div><div class="tiers">
+        <div class="tier sel" onclick="sOpt('hol','dep','none',this)"><div class="tier-l"><div class="tier-name">Nu includ</div></div><div class="tier-r"><div class="tier-price">—</div></div></div>
+        <div class="tier" onclick="sOpt('hol','dep','pf-std',this)"><div class="tier-l"><div class="tier-name">Prefabricat (raft utilitar)</div></div><div class="tier-r"><div class="tier-price">~150–300 €</div></div></div>
+        <div class="tier" onclick="sOpt('hol','dep','cmd',this)"><div class="tier-l"><div class="tier-name">La comandă (corp depozitare)</div></div><div class="tier-r"><div class="tier-price">~400–900 €</div></div></div>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- DRESSING -->
+  <div class="rc" id="rc-dres">
+    <div class="rh" onclick="tRoom('dres')">
+      <div class="rhl">
+        <div class="tog" id="tog-dres" onclick="event.stopPropagation();fRoom('dres')"></div>
+        <div class="rico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M8 6a4 4 0 008 0"/><path d="M5 6a7 7 0 0114 0M3 21h18M6 21l2-12M18 21l-2-12"/></svg></div>
+        <div><div class="rtitle">Dressing / Garderobă</div><div class="rprev" id="rp-dres">inactiv</div></div>
+      </div>
+      <div class="rei" id="rei-dres">▸</div>
+    </div>
+    <div class="rb" id="rb-dres">
+      <div class="og"><div class="ol">Tip</div><div class="tiers">
+        <div class="tier" onclick="sOpt('dres','tier','pf-low',this)"><div class="tier-l"><div class="tier-name">Prefabricat Buget (IKEA PAX basic)</div></div><div class="tier-r"><div class="tier-price">~100–150 €/ml</div></div></div>
+        <div class="tier" onclick="sOpt('dres','tier','pf-std',this)"><div class="tier-l"><div class="tier-name">Prefabricat Standard</div></div><div class="tier-r"><div class="tier-price">~180–250 €/ml</div></div></div>
+        <div class="tier sel" onclick="sOpt('dres','tier','cmd',this)"><div class="tier-l"><div class="tier-name">La comandă PAL+MDF <span class="rec">recomandat</span></div></div><div class="tier-r"><div class="tier-price">~600–900 €/ml</div></div></div>
+      </div></div>
+      <div class="dim"><div class="dlbl">Total ml</div><div class="dctrls"><div class="dbtn" onclick="chR('dres','ml',-.5)">−</div><div class="dval" id="dres-ml">3.0 ml</div><div class="dbtn" onclick="chR('dres','ml',.5)">+</div></div></div>
+    </div>
+  </div>
+
+  <!-- DORMITOR 2 -->
+  <div class="rc" id="rc-d2">
+    <div class="rh" onclick="tRoom('d2')">
+      <div class="rhl">
+        <div class="tog" id="tog-d2" onclick="event.stopPropagation();fRoom('d2')"></div>
+        <div class="rico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="13" width="16" height="7" rx="1.5"/><path d="M6 13V9a1 1 0 011-1h10a1 1 0 011 1v4"/><rect x="8" y="10" width="8" height="3" rx=".5"/><path d="M4 17h16"/></svg></div>
+        <div><div class="rtitle">Dormitor suplimentar</div><div class="rprev" id="rp-d2">inactiv</div></div>
+      </div>
+      <div class="rei" id="rei-d2">▸</div>
+    </div>
+    <div class="rb" id="rb-d2">
+      <div class="og"><div class="ol">Dulap</div><div class="tiers">
+        <div class="tier" onclick="sOpt('d2','dulap','none',this)"><div class="tier-l"><div class="tier-name">Nu includ</div></div><div class="tier-r"><div class="tier-price">—</div></div></div>
+        <div class="tier sel" onclick="sOpt('d2','dulap','pf-std',this)"><div class="tier-l"><div class="tier-name">Prefabricat Standard</div></div><div class="tier-r"><div class="tier-price">~400–700 €</div></div></div>
+        <div class="tier" onclick="sOpt('d2','dulap','cmd',this)"><div class="tier-l"><div class="tier-name">La comandă PAL</div></div><div class="tier-r"><div class="tier-price">~320 €/ml · 2ml</div></div></div>
+      </div></div>
+      <div class="og"><div class="ol">Pat</div><div class="tiers">
+        <div class="tier" onclick="sOpt('d2','pat','none',this)"><div class="tier-l"><div class="tier-name">Nu includ</div></div><div class="tier-r"><div class="tier-price">—</div></div></div>
+        <div class="tier sel" onclick="sOpt('d2','pat','pf-std',this)"><div class="tier-l"><div class="tier-name">Prefabricat single/dublu</div></div><div class="tier-r"><div class="tier-price">~350–650 €</div></div></div>
+      </div></div>
+      <div class="og"><div class="ol">Masă de birou</div><div class="tiers">
+        <div class="tier sel" onclick="sOpt('d2','birou','none',this)"><div class="tier-l"><div class="tier-name">Nu includ</div></div><div class="tier-r"><div class="tier-price">—</div></div></div>
+        <div class="tier" onclick="sOpt('d2','birou','pf-std',this)"><div class="tier-l"><div class="tier-name">Prefabricată</div></div><div class="tier-r"><div class="tier-price">~150–350 €</div></div></div>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- BAIE -->
+  <div class="rc" id="rc-baie">
+    <div class="rh" onclick="tRoom('baie')">
+      <div class="rhl">
+        <div class="tog" id="tog-baie" onclick="event.stopPropagation();fRoom('baie')"></div>
+        <div class="rico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16v5a3 3 0 01-3 3H7a3 3 0 01-3-3v-5z"/><path d="M4 12V7a3 3 0 016 0M9 5h6M9 20v2M15 20v2M12 20v2"/></svg></div>
+        <div><div class="rtitle">Baie — Accesorii & oglindă</div><div class="rprev" id="rp-baie">inactiv</div></div>
+      </div>
+      <div class="rei" id="rei-baie">▸</div>
+    </div>
+    <div class="rb" id="rb-baie">
+      <div class="og"><div class="ol">Nivel accesorii (bară prosoape, cuier, suport hârtie, oglindă LED)</div><div class="tiers">
+        <div class="tier" onclick="sOpt('baie','acc','pf-low',this)"><div class="tier-l"><div class="tier-name">Buget</div></div><div class="tier-r"><div class="tier-price">~150–250 €</div></div></div>
+        <div class="tier sel" onclick="sOpt('baie','acc','pf-std',this)"><div class="tier-l"><div class="tier-name">Standard <span class="rec">recomandat</span></div></div><div class="tier-r"><div class="tier-price">~250–400 €</div></div></div>
+        <div class="tier" onclick="sOpt('baie','acc','pf-prem',this)"><div class="tier-l"><div class="tier-name">Premium</div></div><div class="tier-r"><div class="tier-price">~400–600 €</div></div></div>
+      </div></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="sec" id="s3"><div id="res-html"></div></div>
+
+</main>
+
+<div class="live-bar" id="lb">
+  <div class="lb-info">
+    <div class="lb-stat">Camere: <strong id="lb-r">0</strong></div>
+    <div class="lb-stat">Mobilier: <strong id="lb-m">0 €</strong></div>
+  </div>
+  <div class="lb-right">
+    <div><div class="lb-total-val" id="lb-t">0 €</div><div class="lb-total-lbl">total estimat (fără TVA)</div></div>
+    <div class="navbtns">
+      <button class="btn-back" id="btn-bk" onclick="goBack()" style="display:none">← Înapoi</button>
+      <button class="btn-next" onclick="goNext()"><span id="btn-lbl">Configurează piesele</span> →</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const S={step:1,locatie:"buc",imobil:"nou",lift:"nu",etaj:0,electro:0,mp:65,
+  rooms:{
+    buc:{on:true,exp:true,opts:{ml:3.5,tier:"pf-std",blat:"hpl",led:"std"}},
+    ins:{on:false,exp:false,opts:{ml:1.5,tier:"pf-std"}},
+    liv:{on:false,exp:false,opts:{tv:"pf-std",ml:2.0,sofa:"pf-std",acc:"std"}},
+    dorm:{on:false,exp:false,opts:{dulap:"cmd",ml:2.5,pat:"pf-std",nopt:"pf-std",birou:"none",dep:"none"}},
+    hol:{on:false,exp:false,opts:{dulap:"cmd",ml:1.5,dep:"none"}},
+    dres:{on:false,exp:false,opts:{ml:3.0,tier:"cmd"}},
+    d2:{on:false,exp:false,opts:{dulap:"pf-std",pat:"pf-std",birou:"none"}},
+    baie:{on:false,exp:false,opts:{acc:"pf-std"}},
+  }
+};
+
+const P={
+  buc:{
+    "pf-low":{perml:200},"pf-std":{perml:320},"cmd":{perml:1000},
+    blat:{hpl:200,cuart:480,std:0},led:{std:180,none:0}
+  },
+  ins:{"pf-std":475,"cmd":1150},
+  liv:{
+    tv:{"none":0,"pf-low":400,"pf-std":700,"cmd":500},
+    sofa:{"none":0,"pf-low":450,"pf-std":1000,"pf-prem":1950},
+    acc:{"none":0,"std":600,"prem":1150},
+    cmdmlprice:490
+  },
+  dorm:{
+    dulap:{"none":0,"pf-low":125,"pf-std":215,"cmd":520},
+    pat:{"none":0,"pf-std":700,"cmd":1600},
+    nopt:{"none":0,"pf-std":300,"cmd":680},
+    birou:{"none":0,"pf-std":250,"cmd":600},
+    dep:{"none":0,"pf-std":275,"cmd":750}
+  },
+  hol:{dulap:{"pf-low":300,"pf-std":550,"cmd":320},dep:{"none":0,"pf-std":225,"cmd":650}},
+  dres:{"pf-low":125,"pf-std":215,"cmd":750},
+  d2:{dulap:{"none":0,"pf-std":550,"cmd":640},pat:{"none":0,"pf-std":500},birou:{"none":0,"pf-std":250}},
+  baie:{"pf-low":200,"pf-std":325,"pf-prem":500},
+  electro:80,lift:85,
+  risc:0.05,
+  des:{std:30,prem:65},
+  loc:{buc:1,alt:0.92},
+  imob:{nou:1,vechi:1.03}
+};
+
+function liftC(){return S.lift==="nu"&&S.etaj>0?S.etaj*P.lift:0;}
+
+function calcR(id){
+  const r=S.rooms[id];if(!r.on)return 0;
+  const o=r.opts,lc=P.loc[S.locatie],ic=P.imob[S.imobil];
+  let p=0;
+  if(id==="buc"){
+    const t=P.buc[o.tier||"pf-std"];
+    p=t.perml*(o.ml||3.5)+(P.buc.blat[o.blat||"hpl"]||0)+(P.buc.led[o.led||"std"]||0);
+  } else if(id==="ins"){
+    p=(P.ins[o.tier||"pf-std"]||475)*(o.ml||1.5);
+  } else if(id==="liv"){
+    const tv=o.tv||"pf-std";
+    if(tv==="cmd")p+=P.liv.cmdmlprice*(o.ml||2);
+    else p+=P.liv.tv[tv]||700;
+    p+=P.liv.sofa[o.sofa||"pf-std"]+P.liv.acc[o.acc||"std"];
+  } else if(id==="dorm"){
+    const dul=o.dulap||"cmd";
+    if(dul==="cmd")p+=P.dorm.dulap.cmd*(o.ml||2.5);
+    else p+=P.dorm.dulap[dul]*(o.ml||2.5);
+    p+=P.dorm.pat[o.pat||"pf-std"]+P.dorm.nopt[o.nopt||"pf-std"]+(P.dorm.birou[o.birou||"none"]||0)+(P.dorm.dep[o.dep||"none"]||0);
+  } else if(id==="hol"){
+    const dul=o.dulap||"cmd";
+    if(dul==="cmd")p+=P.hol.dulap.cmd*(o.ml||1.5);
+    else p+=P.hol.dulap[dul]||550;
+    p+=P.hol.dep[o.dep||"none"]||0;
+  } else if(id==="dres"){
+    const t=o.tier||"cmd";
+    p=P.dres[t]*(o.ml||3);
+  } else if(id==="d2"){
+    p=(P.d2.dulap[o.dulap||"pf-std"]||0)+(P.d2.pat[o.pat||"pf-std"]||0)+(P.d2.birou[o.birou||"none"]||0);
+  } else if(id==="baie"){
+    p=P.baie[o.acc||"pf-std"]||325;
+  }
+  return Math.round(p*lc*ic);
+}
+
+function calcAll(){
+  let mob=0,active=0;
+  Object.keys(S.rooms).forEach(id=>{if(S.rooms[id].on){mob+=calcR(id);active++;}});
+  const el=S.electro*P.electro,lf=liftC();
+  const risc=Math.round((mob+el+lf)*P.risc);
+  const desStd=Math.round(S.mp*P.des.std);
+  const desPrem=Math.round(S.mp*P.des.prem);
+  return{mob,el,lf,risc,desStd,desPrem,
+    totalStd:mob+el+lf+risc+desStd,
+    totalPrem:mob+el+lf+risc+desPrem,active};
+}
+
+function updT(){
+  const{mob,totalStd,active}=calcAll();
+  document.getElementById("lb-r").textContent=active;
+  document.getElementById("lb-m").textContent=mob.toLocaleString("ro")+" €";
+  document.getElementById("lb-t").textContent=totalStd.toLocaleString("ro")+" €";
+  const rNames={buc:"buc",ins:"ins",liv:"liv",dorm:"dorm",hol:"hol",dres:"dres",d2:"d2",baie:"baie"};
+  Object.keys(S.rooms).forEach(id=>{
+    const el=document.getElementById("rp-"+id);if(!el)return;
+    if(!S.rooms[id].on){el.textContent="inactiv";el.className="rprev";return;}
+    el.textContent="~"+calcR(id).toLocaleString("ro")+" €";el.className="rprev act";
+  });
+}
+
+function updLift(){
+  const c=liftC();
+  const n=document.getElementById("lift-n"),p=document.getElementById("lift-np"),en=document.getElementById("etaj-note");
+  if(S.lift==="nu"&&S.etaj>0){n.style.display="block";p.textContent="+"+c+" € ("+S.etaj+" etaj"+(S.etaj>1?"e":"")+" × "+P.lift+" €)";en.textContent="+"+c+" € fără lift";}
+  else{n.style.display="none";en.textContent=S.etaj===0?"fără supracost":"";}
+}
+
+function pick(el,g,v){
+  document.querySelectorAll("[data-g="+g+"]").forEach(b=>b.classList.remove("sel"));
+  el.classList.add("sel");S[g]=v;updLift();updT();
+}
+
+function chV(k,d){
+  if(k==="etaj")S.etaj=Math.max(0,S.etaj+d);
+  if(k==="electro")S.electro=Math.max(0,S.electro+d);
+  document.getElementById(k+"-v").textContent=S[k];updLift();updT();
+}
+
+function updMp(v){S.mp=parseInt(v);document.getElementById("mp-v").textContent=v;updT();}
+
+function fRoom(id){
+  const r=S.rooms[id];r.on=!r.on;
+  document.getElementById("tog-"+id).classList.toggle("on",r.on);
+  document.getElementById("rc-"+id).classList.toggle("on",r.on);
+  if(r.on&&!r.exp)tRoom(id);updT();
+}
+
+function tRoom(id){
+  const r=S.rooms[id];if(!r.on){fRoom(id);return;}
+  r.exp=!r.exp;
+  document.getElementById("rc-"+id).classList.toggle("exp",r.exp);
+  document.getElementById("rei-"+id).textContent=r.exp?"▾":"▸";
+}
+
+function sOpt(room,key,val,el){
+  S.rooms[room].opts[key]=val;
+  if(el.classList.contains("tier")){el.parentElement.querySelectorAll(".tier").forEach(t=>t.classList.remove("sel"));el.classList.add("sel");}
+  updT();
+}
+
+function chR(room,key,d){
+  const o=S.rooms[room].opts;
+  o[key]=Math.max(0.5,Math.min(8,(o[key]||1)+d));
+  o[key]=Math.round(o[key]*2)/2;
+  const e=document.getElementById(room+"-"+key);
+  if(e)e.textContent=o[key]+" ml";
+  updT();
+}
+
+const pdefs={gars:["buc","liv","baie"],"2c":["buc","liv","dorm","hol","baie"],"3c":["buc","ins","liv","dorm","d2","hol","dres","baie"],m:[]};
+function preset(t,el){
+  document.querySelectorAll(".preset-btn").forEach(b=>b.classList.remove("sel"));el.classList.add("sel");
+  const act=pdefs[t]||[];
+  Object.keys(S.rooms).forEach(id=>{
+    S.rooms[id].on=act.includes(id);
+    document.getElementById("tog-"+id).classList.toggle("on",S.rooms[id].on);
+    document.getElementById("rc-"+id).classList.toggle("on",S.rooms[id].on);
+    if(S.rooms[id].on&&!S.rooms[id].exp){S.rooms[id].exp=true;document.getElementById("rc-"+id).classList.add("exp");document.getElementById("rei-"+id).textContent="▾";}
+    else if(!S.rooms[id].on){S.rooms[id].exp=false;document.getElementById("rc-"+id).classList.remove("exp");document.getElementById("rei-"+id).textContent="▸";}
+  });updT();
+}
+
+function startSim(){
+  document.getElementById('hero-section').style.opacity='0';
+  document.getElementById('hero-section').style.transform='translateY(-8px)';
+  setTimeout(()=>{document.getElementById('hero-section').style.display='none';},200);
+  document.getElementById("hero-section").style.display="none";
+  document.getElementById("step-ind").style.display="flex";
+  document.getElementById("lb").style.display="flex";
+  updSI(1);updT();
+}
+
+function goNext(){
+  if(S.step===1){S.step=2;document.getElementById("s1").classList.remove("active");document.getElementById("s2").classList.add("active");document.getElementById("btn-lbl").textContent="Vezi rezultatul";document.getElementById("btn-bk").style.display="block";updSI(2);}
+  else if(S.step===2){S.step=3;document.getElementById("s2").classList.remove("active");document.getElementById("s3").classList.add("active");buildRes();document.getElementById("btn-lbl").textContent="Reconfigurează";updSI(3);}
+  else{S.step=2;document.getElementById("s3").classList.remove("active");document.getElementById("s2").classList.add("active");document.getElementById("btn-lbl").textContent="Vezi rezultatul";updSI(2);}
+}
+
+function goBack(){
+  if(S.step===2){S.step=1;document.getElementById("s2").classList.remove("active");document.getElementById("s1").classList.add("active");document.getElementById("btn-lbl").textContent="Configurează piesele";document.getElementById("btn-bk").style.display="none";updSI(1);}
+  else if(S.step===3){S.step=2;document.getElementById("s3").classList.remove("active");document.getElementById("s2").classList.add("active");document.getElementById("btn-lbl").textContent="Vezi rezultatul";updSI(2);}
+}
+
+function updSI(s){
+  [1,2,3].forEach(n=>{
+    const c=document.getElementById("sc"+n),l=document.getElementById("sl"+n);
+    if(n<s){c.className="si-circle done";l.className="si-lbl done";c.textContent="✓";}
+    else if(n===s){c.className="si-circle act";l.className="si-lbl act";c.textContent=n;}
+    else{c.className="si-circle idle";l.className="si-lbl";c.textContent=n;}
+  });
+  document.getElementById("c1").className="si-conn"+(s>1?" done":"");
+  document.getElementById("c2").className="si-conn"+(s>2?" done":s===2?" act":"");
+}
+
+const rNames={buc:"Bucătărie",ins:"Insulă bucătărie",liv:"Living / Sufragerie",dorm:"Dormitor matrimonial",hol:"Hol / Intrare",dres:"Dressing",d2:"Dormitor suplimentar",baie:"Baie — Accesorii"};
+
+function buildRes(){
+  const{mob,el,lf,risc,desStd,desPrem,totalStd,totalPrem,active}=calcAll();
+  let rent=350;if(S.mp>=45)rent=500;if(S.mp>=65)rent=700;if(S.mp>=85)rent=1000;if(S.mp>=110)rent=1350;
+  const rentP=Math.round(rent*1.2);
+  const roiStd=Math.round(totalStd/(rentP-rent));
+  const roiPrem=Math.round(totalPrem/(rentP-rent));
+
+  let rows="";
+  Object.keys(S.rooms).forEach(id=>{
+    if(!S.rooms[id].on)return;
+    const p=calcR(id);
+    rows+=`<div class="rrow"><div><div class="rname">${rNames[id]}</div></div><div class="rprice bl">${p.toLocaleString("ro")} €</div></div>`;
+  });
+  if(el>0)rows+=`<div class="rrow"><div><div class="rname">Montaj electrocasnice</div><div class="rsub">${S.electro} buc × 80 €</div></div><div class="rprice bl">${el.toLocaleString("ro")} €</div></div>`;
+  if(lf>0)rows+=`<div class="rrow"><div><div class="rname">Transport fără lift</div><div class="rsub">Etaj ${S.etaj} × ${P.lift} €</div></div><div class="rprice">${lf.toLocaleString("ro")} €</div></div>`;
+
+  document.getElementById("res-html").innerHTML=`
+    <div class="est-banner">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="flex-shrink:0"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      <span><strong>Estimare nivel low-mid.</strong> Prețurile afișate reprezintă o estimare orientativă. Valorile finale depind de complexitatea configurației, producătorul ales și condițiile de piață. Variație tipică ±10-15%.</span>
+    </div>
+
+    <div class="res-block"><div class="res-block-title">Ce primești pentru acești bani</div>${rows}
+      <div class="rrow"><div><div class="rname">Marjă risc și imprevizibili</div><div class="rsub">5% · cu proiect Rent Up</div></div><div class="rprice">${risc.toLocaleString("ro")} €</div></div>
+    </div>
+
+    <div class="res-block-title" style="padding:0 0 10px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)">Pachet Rent Up — alege varianta</div>
+    <div class="pkg-grid">
+      <div class="pkg-card">
+        <div class="pkg-tag std">Pachet</div>
+        <div class="pkg-name">Standard</div>
+        <div class="pkg-price">30 €/m² · ${S.mp} m²</div>
+        <div class="pkg-rows">
+          <div class="pkg-row"><span class="pkg-row-lbl">Mobilier total</span><span class="pkg-row-val bl">${mob.toLocaleString("ro")} €</span></div>
+          <div class="pkg-row"><span class="pkg-row-lbl">Marjă risc</span><span class="pkg-row-val">${risc.toLocaleString("ro")} €</span></div>
+          <div class="pkg-row"><span class="pkg-row-lbl">Design + Rental Kit</span><span class="pkg-row-val">${desStd.toLocaleString("ro")} €</span></div>
+          <div class="pkg-row"><span class="pkg-row-lbl">Fotografii profesionale</span><span class="pkg-row-val">—</span></div>
+          <div class="pkg-row"><span class="pkg-row-lbl">Listare + monitorizare</span><span class="pkg-row-val">—</span></div>
+        </div>
+        <div class="pkg-total-row"><div class="pkg-total-lbl">Investiție totală</div><div class="pkg-total-val bl">${totalStd.toLocaleString("ro")} €</div></div>
+        <div class="pkg-roi">Recuperare estimată: ~${roiStd} luni</div>
+      </div>
+      <div class="pkg-card recommended">
+        <div class="pkg-tag prem">Pachet recomandat</div>
+        <div class="pkg-name">Premium</div>
+        <div class="pkg-price">65 €/m² · ${S.mp} m²</div>
+        <div class="pkg-rows">
+          <div class="pkg-row"><span class="pkg-row-lbl">Mobilier total</span><span class="pkg-row-val bl">${mob.toLocaleString("ro")} €</span></div>
+          <div class="pkg-row"><span class="pkg-row-lbl">Marjă risc</span><span class="pkg-row-val">${risc.toLocaleString("ro")} €</span></div>
+          <div class="pkg-row"><span class="pkg-row-lbl">Design complet + Rental Kit full</span><span class="pkg-row-val">${desPrem.toLocaleString("ro")} €</span></div>
+          <div class="pkg-row"><span class="pkg-row-lbl">Fotografii profesionale</span><span class="pkg-row-val" style="color:var(--green)">incluse</span></div>
+          <div class="pkg-row"><span class="pkg-row-lbl">Listare + monitorizare</span><span class="pkg-row-val" style="color:var(--green)">incluse</span></div>
+        </div>
+        <div class="pkg-total-row"><div class="pkg-total-lbl">Investiție totală</div><div class="pkg-total-val bl">${totalPrem.toLocaleString("ro")} €</div></div>
+        <div class="pkg-roi">Recuperare estimată: ~${roiPrem} luni</div>
+      </div>
+    </div>
+
+    <div class="roi-block">
+      <div class="roi-ey">Cum se recuperează investiția</div>
+      <div class="roi-title">Potențialul de chirie al apartamentului tău</div>
+      <div class="roi-sub">Pe baza suprafeței de ${S.mp} m² și a chiriei medii estimate pentru zona București.</div>
+      <div class="roi-grid">
+        <div class="roi-stat"><div class="rsval">${rent}<em> €</em></div><div class="rslbl">Chirie medie piață / lună</div></div>
+        <div class="roi-stat"><div class="rsval">${rentP}<em> €</em></div><div class="rslbl">Estimat cu Rent Up +20%</div></div>
+        <div class="roi-stat"><div class="rsval">${rentP-rent}<em> €</em></div><div class="rslbl">Venit extra / lună</div></div>
+      </div>
+      <div class="roi-note">Valori orientative ±20% față de piața reală. Auditul Rent Up (200€) calculează chiria exactă pentru apartamentul tău specific pe baza zonei și a situației actuale. Cei 200€ se scad din pachetul ales.</div>
+      <div class="roi-cta-row"><div style="font-size:13px;color:var(--dark)">Vrei cifre exacte, nu orientative?</div><a href="audit.html" class="btn-audit">Programează audit → 200€</a></div>
+    </div>
+
+    <div class="pw-block" id="pw">
+      <div class="pw-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M12 15v2M8 11V7a4 4 0 018 0v4"/></svg></div>
+      <div class="pw-title">Raport Estimativ Complet</div>
+      <div class="pw-sub">Deblochează prețurile exacte per cameră, comparația celor două pachete Rent Up și un PDF gata de trimis producătorilor.</div>
+      <div class="pw-feats">
+        <div class="pw-feat"><svg class="pw-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Prețuri exacte per piesă de mobilier</div>
+        <div class="pw-feat"><svg class="pw-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Comparație Standard vs Premium deblurată</div>
+        <div class="pw-feat"><svg class="pw-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> ROI detaliat cu scenarii de chirie</div>
+        <div class="pw-feat"><svg class="pw-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> PDF descărcabil, gata de trimis producătorilor</div>
+      </div>
+      <button class="btn-pay" onclick="reveal()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg>
+        Plătește 15 € și deblochează raportul
+      </button>
+      <p class="pw-note">Estimare orientativă ±10-15% · fără TVA · plată procesată securizat</p>
+    </div>
+
+    <div class="save-block">
+      <div class="save-title">Salvează configurația pentru mai târziu</div>
+      <div class="save-sub">Nu vrei să plătești acum? Îți trimitem un link să revii când ești gata.</div>
+      <div class="save-inputs">
+        <input class="save-input" type="text" placeholder="Titlu (ex: Apartament Floreasca)" id="sv-t">
+        <input class="save-input" type="email" placeholder="Email" id="sv-e">
+        <button class="btn-save" onclick="saveConf()">Salvează</button>
+      </div>
+    </div>
+    <div class="info-note" style="margin-top:11px">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="flex-shrink:0"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8zM1 16l3 5"/></svg>
+      <span>Estimarea acoperă producție și montaj. La distanțe mari față de producător pot apărea costuri suplimentare de transport — negociate direct cu producătorul.</span>
+    </div>`;
+}
+
+function reveal(){
+  document.querySelectorAll(".bl").forEach(e=>e.classList.remove("bl"));
+  document.getElementById("pw").innerHTML='<div style="display:flex;align-items:center;gap:10px;padding:6px 0"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="9,12 11,14 15,10"/></svg><div><div style="font-size:15px;font-weight:500;color:var(--dark)">Raport deblocat</div><div style="font-size:13px;color:var(--muted)">PDF-ul va fi trimis pe email in cateva minute.</div></div></div>';
+  toast("Raport deblocat! Verifica emailul.");
+}
+
+function saveConf(){
+  const e=document.getElementById("sv-e");
+  if(!e||!e.value){toast("Adauga adresa de email");return;}
+  toast("Configuratie salvata! Verifica emailul.");
+}
+
+function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.style.display="block";setTimeout(()=>t.style.display="none",3000);}
+updT();
+
+// Show step 1 immediately - hero stays as intro, steps visible
+(function() {
+  // Don't auto-hide hero, but show the nav bar and steps right away
+  document.getElementById("step-ind").style.display = "flex";
+  document.getElementById("lb").style.display = "flex";
+  updSI(1);
+  
+  // When user scrolls past hero, ensure steps are visible
+  document.querySelector(".btn-start").addEventListener("click", function() {
+    document.getElementById("s1").scrollIntoView({behavior:"smooth", block:"start"});
+  });
+})();
+</script>
+
+<script>
+// Page fade-in
+document.addEventListener('DOMContentLoaded', function() {
+  requestAnimationFrame(() => document.body.classList.add('loaded'));
+});
+// Page fade-out before navigation
+document.addEventListener('click', function(e) {
+  const a = e.target.closest('a[href]');
+  if (!a) return;
+  const href = a.getAttribute('href');
+  if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
+  if (a.target === '_blank') return;
+  e.preventDefault();
+  document.body.style.opacity = '0';
+  setTimeout(() => { window.location.href = href; }, 220);
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  requestAnimationFrame(function(){ document.body.classList.add('loaded'); });
+});
+document.addEventListener('click',function(e){
+  var a = e.target.closest('a[href]');
+  if(!a) return;
+  var href = a.getAttribute('href');
+  if(!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
+  if(a.target==='_blank') return;
+  e.preventDefault();
+  document.body.style.opacity='0';
+  setTimeout(function(){ window.location.href=href; }, 200);
+});
+</script>
+</body>
+</html>

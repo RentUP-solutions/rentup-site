@@ -1,0 +1,10 @@
+Adaugă fotografiile tale în acest folder.
+
+Fișiere recomandate:
+- logo.svg (sau logo.png)
+- hero-before-after.jpg (homepage hero)
+- portfolio/ (fotografii proiecte)
+  - proiect-1-before.jpg
+  - proiect-1-after.jpg
+  - ...
+- og-image.jpg (1200x630px - pentru social media sharing)
