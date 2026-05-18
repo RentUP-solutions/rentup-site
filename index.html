@@ -478,6 +478,9 @@ body.loaded{opacity:1}
 }
 @media(max-width:1100px){#calc [style*="grid-template-columns:1fr 1fr 1fr"]{grid-template-columns:1fr 1fr!important}}
 @media(max-width:700px){#calc [style*="grid-template-columns"]{grid-template-columns:1fr!important;padding:0 20px!important}}
+
+/* Disable image right-click */
+img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 </style>
 </head>
 <body>
@@ -1068,6 +1071,11 @@ document.addEventListener('click',function(e){
   e.preventDefault();
   document.body.style.opacity='0';
   setTimeout(function(){ window.location.href=href; }, 200);
+});
+</script>
+<script>
+document.addEventListener('contextmenu', function(e){
+  if(e.target.tagName === 'IMG') e.preventDefault();
 });
 </script>
 </body>
