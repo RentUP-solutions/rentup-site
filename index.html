@@ -178,7 +178,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .cs-title{font-size:20px;font-weight:500;margin-bottom:14px}
 .cs-tags{display:flex;gap:8px;flex-wrap:wrap}
 .cs-tag{font-size:11px;background:var(--bg);border:.5px solid var(--brand-border);color:var(--brand);padding:4px 12px;border-radius:100px;font-weight:500}
-.cs-body{padding:32px}
+.cs-body{padding:32px;background:var(--bg)}
 .cs-g{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:28px}
 .cs-sl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--brand);margin-bottom:10px}
 .cs-p{font-size:13px;color:var(--mid);line-height:1.72}
@@ -252,7 +252,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .pm-price{font-size:36px;font-weight:300;color:var(--text);letter-spacing:-.03em}
 .pm-price span{font-size:13px;font-weight:400;color:var(--light)}
 .pm-tagline{font-size:12px;color:var(--muted);margin-top:7px;font-style:italic}
-.pm-b{padding:18px 20px;background:var(--bg-stone)}
+.pm-b{padding:18px 20px;background:var(--bg)}
 .pmf{font-size:12px;color:var(--mid);line-height:1.85;display:flex;gap:8px}
 .pm-sep{height:.5px;background:var(--border);margin:10px 0}
 .pm-sep-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:#A32D2D;margin:10px 0 6px;display:block}
@@ -260,7 +260,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 /* PM accents */
 .pm-std .pm-h{background:var(--brand-light)}
 .pm-std{border-color:var(--brand)}
-.pm-std .pm-b{background:var(--brand-light)}
+.pm-std .pm-b{background:var(--bg)}
 .pm-std .pm-name{color:var(--brand)}
 .pm-std .pm-h{border-color:var(--brand-border)}
 .pm-pre{border-color:#C8894E;background:#F5E8D5}
@@ -722,9 +722,8 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
       </div>
     </div>
     <div class="ba">
-      <div class="ba-photos">
-        <div class="ba-p b">ÎNAINTE</div>
-        <div class="ba-p a">DUPĂ</div>
+      <div class="ba-photos" style="display:block">
+        <img src="images/portofoliu2.jpg" style="width:100%;height:400px;object-fit:cover;display:block">
       </div>
       <div class="ba-info">
         <div><div class="ba-name">2 camere Floreasca · 55 mp</div><div class="ba-meta">Pachet Premium · 10 săptămâni</div></div>
@@ -977,11 +976,11 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     <a class="con-g" href="mailto:contact@rentup.ro">Email</a>
   </div>
   <div class="con-cards">
-    <div class="cc"><div class="cc-l">WhatsApp</div><div class="cc-v">[+40 7XX XXX XXX]</div></div>
-    <div class="cc"><div class="cc-l">Email</div><div class="cc-v">[contact@rentup.ro]</div></div>
-    <div class="cc"><div class="cc-l">Instagram</div><div class="cc-v">[@rentup]</div></div>
+    <div class="cc"><div class="cc-l">WhatsApp</div><div class="cc-v">+40 741 176 865</div></div>
+    <div class="cc"><div class="cc-l">Email</div><div class="cc-v">hello@rentup.solutions</div></div>
+    <div class="cc"><div class="cc-l">Instagram</div><div class="cc-v">@rentup.solutions</div></div>
   </div>
-  <p class="con-micro">Consultație inițială gratuită · Fără angajament · Răspuns în 3–5 zile lucrătoare</p>
+ 
 </section>
 
 <footer>

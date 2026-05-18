@@ -42,7 +42,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .cat-tab.active{color:var(--brand);border-bottom-color:var(--brand)}
 
 /* FAQ LAYOUT */
-.faq-layout{display:grid;grid-template-columns:240px 1fr;gap:0;background:linear-gradient(to right,#F5EFE6 240px,#E0DDD6 240px,#E0DDD6 241px,#FDFAF6 241px)}
+.faq-layout{display:grid;grid-template-columns:240px 1fr;gap:0;background:linear-gradient(to right,#F5EFE6 240px,#E0DDD6 240px,#E0DDD6 241px,#FDFAF6 241px);border-bottom-left-radius:16px;overflow:hidden}
 .faq-sidebar{}.faq-sidebar-inner{position:sticky;top:64px;padding:40px 32px}
 .sidebar-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:16px}
 .sidebar-link{display:block;font-size:13px;color:var(--muted);padding:8px 12px;border-radius:6px;cursor:pointer;transition:all .15s;margin-bottom:2px;text-decoration:none}
@@ -86,7 +86,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .btn-brand:hover{background:#a8622a}
 
 /* CTA */
-.cta-section{background:#F5EFE6;padding:80px 56px;text-align:center}
+.cta-section{background:#E0D0B8;padding:80px 56px;text-align:center}
 .cta-section h2{font-size:32px;font-weight:300;color:#2D2820;letter-spacing:-.02em;margin-bottom:12px}
 .cta-section p{font-size:15px;color:#7A6E62;line-height:1.7;max-width:460px;margin:0 auto 32px}
 .cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
@@ -429,23 +429,18 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
           <span class="fq-text">Ce este titlul executoriu și de ce contează?</span>
           <span class="fq-icon">+</span>
         </button>
-        <div class="faq-a"><p>Un titlu executoriu îți permite să acționezi direct împotriva unui debitor fără a obține mai întâi o hotărâre judecătorească — adică fără luni de instanță.</p><div style="margin-top:14px;padding:14px 16px;background:#FAF4EB;border:.5px solid #E8D5BC;border-radius:8px">
-      <div style="font-size:13px;font-weight:500;color:#C77936;margin-bottom:6px">Cum funcționează exact și cum te protejează?</div>
-      <div style="font-size:13px;color:#9A8E82;margin-bottom:10px">Protocoalele complete — contracte, clauze, executor judecătoresc — sunt incluse în Rental Kit.</div>
-      <a href="rental-kit.html" style="font-size:13px;font-weight:500;color:white;background:#C77936;padding:8px 18px;border-radius:100px;text-decoration:none">Descoperă Rental Kit →</a>
-    </div></div>
-            <div style="font-size:13px;color:var(--muted,#9A8E82);margin-bottom:12px">Protocolul complet — contracte, clauze, autentificare notarială, executor — este în Rental Kit.</div>
-            <a href="rental-kit.html" style="font-size:13px;font-weight:500;color:white;background:var(--brand,#C77936);padding:8px 18px;border-radius:100px;text-decoration:none">Descoperă Rental Kit →</a>
-          </div></div>
+        <div class="faq-a">
+          <p>Un titlu executoriu îți permite să acționezi direct împotriva unui debitor fără a obține mai întâi o hotărâre judecătorească — adică fără luni de instanță.</p>
+          <div style="margin-top:14px;padding:14px 16px;background:#FAF4EB;border:.5px solid #E8D5BC;border-radius:8px">
+            <div style="font-size:13px;font-weight:500;color:#C77936;margin-bottom:6px">Cum funcționează exact și cum te protejează?</div>
+            <div style="font-size:13px;color:#9A8E82;margin-bottom:10px">Protocoalele complete — contracte, clauze, executor judecătoresc — sunt incluse în Rental Kit.</div>
+            <a href="rental-kit.html" style="font-size:13px;font-weight:500;color:white;background:#C77936;padding:8px 18px;border-radius:100px;text-decoration:none">Descoperă Rental Kit →</a>
+          </div>
+        </div>
       </div>
-
-      
-      </div>
-
-      
 
     </div>
-
+    <!-- /CONTRACTE -->
     <!-- SITUATII DIFICILE -->
     <div class="faq-cat" id="probleme">
       <div class="faq-cat-header">

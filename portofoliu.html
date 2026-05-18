@@ -91,6 +91,28 @@ body.loaded{opacity:1}
 
 /* Disable image right-click */
 img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
+/* GALERIE + LIGHTBOX */
+.gallery{position:relative;overflow:hidden;height:220px;cursor:pointer}
+.gallery img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s}
+.gallery img.active{opacity:1}
+.gal-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.85);border:none;border-radius:50%;width:32px;height:32px;font-size:16px;cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center;color:#2D2820;transition:background .15s}
+.gal-btn:hover{background:white}
+.gal-prev{left:10px}
+.gal-next{right:10px}
+.gal-dots{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);display:flex;gap:5px;z-index:10}
+.gal-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer;transition:background .2s}
+.gal-dot.active{background:white}
+/* LIGHTBOX */
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:1000;align-items:center;justify-content:center}
+.lb.open{display:flex}
+.lb-inner{position:relative;max-width:90vw;max-height:90vh}
+.lb-inner img{max-width:90vw;max-height:85vh;object-fit:contain;border-radius:4px}
+.lb-close{position:fixed;top:20px;right:24px;background:none;border:none;color:white;font-size:32px;cursor:pointer;z-index:1001;line-height:1}
+.lb-btn{position:fixed;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);border:none;color:white;font-size:28px;cursor:pointer;padding:16px 20px;border-radius:8px;transition:background .2s;z-index:1001}
+.lb-btn:hover{background:rgba(255,255,255,.25)}
+.lb-prev{left:16px}
+.lb-next{right:16px}
+.lb-counter{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.6);font-size:13px;font-family:'Inter',sans-serif}
 </style>
 </head>
 <body>
@@ -123,10 +145,15 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 </div>
 
 <div class="projects" id="proj-grid">
+
   <div class="proj" data-type="garsoniera standard">
-    <div class="proj-photos">
-      <div class="proj-photo b"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>ÎNAINTE</div>
-      <div class="proj-photo a"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>DUPĂ</div>
+    <div class="gallery" onclick="openLb(this)">
+      <img src="images/portofoliu3.jpg" class="active">
+      <img src="images/portofoliu3b.jpg">
+      <img src="images/portofoliu3c.jpg">
+      <button class="gal-btn gal-prev" onclick="event.stopPropagation();moveGal(this.parentElement,-1)">‹</button>
+      <button class="gal-btn gal-next" onclick="event.stopPropagation();moveGal(this.parentElement,1)">›</button>
+      <div class="gal-dots"></div>
     </div>
     <div class="proj-info">
       <div class="proj-header">
@@ -144,14 +171,18 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   </div>
 
   <div class="proj" data-type="2camere premium">
-    <div class="proj-photos">
-      <div class="proj-photo b"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>ÎNAINTE</div>
-      <div class="proj-photo a"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>DUPĂ</div>
+    <div class="gallery" onclick="openLb(this)">
+      <img src="images/portofoliu2.jpg" class="active">
+      <img src="images/portofoliu_1.jpg">
+      <img src="images/portofoliu2c.jpg">
+      <button class="gal-btn gal-prev" onclick="event.stopPropagation();moveGal(this.parentElement,-1)">‹</button>
+      <button class="gal-btn gal-next" onclick="event.stopPropagation();moveGal(this.parentElement,1)">›</button>
+      <div class="gal-dots"></div>
     </div>
     <div class="proj-info">
       <div class="proj-header">
         <div><div class="proj-name">2 camere Floreasca</div><div class="proj-meta">București · Sector 1 · 55 mp</div></div>
-        <div class="proj-result">500€ → 720€</div>
+        <div class="proj-result">400€ → 620€</div>
       </div>
       <div class="proj-tags"><span class="proj-tag">Pachet Premium</span><span class="proj-tag">10 săptămâni</span><span class="proj-tag">2 camere</span></div>
       <div class="proj-stats">
@@ -164,9 +195,12 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   </div>
 
   <div class="proj" data-type="garsoniera premium">
-    <div class="proj-photos">
-      <div class="proj-photo b"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>ÎNAINTE</div>
-      <div class="proj-photo a"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>DUPĂ</div>
+    <div class="gallery" onclick="openLb(this)">
+      <img src="images/portofoliu4.jpg" class="active">
+      <img src="images/portofoliu4b.jpg">
+      <button class="gal-btn gal-prev" onclick="event.stopPropagation();moveGal(this.parentElement,-1)">‹</button>
+      <button class="gal-btn gal-next" onclick="event.stopPropagation();moveGal(this.parentElement,1)">›</button>
+      <div class="gal-dots"></div>
     </div>
     <div class="proj-info">
       <div class="proj-header">
@@ -184,9 +218,12 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   </div>
 
   <div class="proj" data-type="3camere premium">
-    <div class="proj-photos">
-      <div class="proj-photo b"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>ÎNAINTE</div>
-      <div class="proj-photo a"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>DUPĂ</div>
+    <div class="gallery" onclick="openLb(this)">
+      <img src="images/portofoliu1.jpg" class="active">
+      <img src="images/portofoliu1b.jpg">
+      <button class="gal-btn gal-prev" onclick="event.stopPropagation();moveGal(this.parentElement,-1)">‹</button>
+      <button class="gal-btn gal-next" onclick="event.stopPropagation();moveGal(this.parentElement,1)">›</button>
+      <div class="gal-dots"></div>
     </div>
     <div class="proj-info">
       <div class="proj-header">
@@ -202,6 +239,19 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
       </div>
     </div>
   </div>
+
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" onclick="closeLb()">
+  <button class="lb-close" onclick="closeLb()">×</button>
+  <button class="lb-btn lb-prev" onclick="event.stopPropagation();lbMove(-1)">‹</button>
+  <div class="lb-inner" onclick="event.stopPropagation()">
+    <img id="lb-img" src="">
+  </div>
+  <button class="lb-btn lb-next" onclick="event.stopPropagation();lbMove(1)">›</button>
+  <div class="lb-counter" id="lb-counter"></div>
+</div>
 </div>
 
 <footer style="background:#FDFAF6;border-top:.5px solid #EDE5D8;padding:48px 56px 32px">
@@ -292,6 +342,70 @@ document.addEventListener('click',function(e){
 <script>
 document.addEventListener('contextmenu', function(e){
   if(e.target.tagName === 'IMG') e.preventDefault();
+});
+</script>
+<script>
+// Inițializare dots pentru fiecare galerie
+document.querySelectorAll('.gallery').forEach(function(gal){
+  var imgs = gal.querySelectorAll('img');
+  var dots = gal.querySelector('.gal-dots');
+  imgs.forEach(function(_,i){
+    var d = document.createElement('div');
+    d.className = 'gal-dot' + (i===0?' active':'');
+    d.onclick = function(e){ e.stopPropagation(); goGal(gal,i); };
+    dots.appendChild(d);
+  });
+});
+
+function goGal(gal, idx){
+  var imgs = gal.querySelectorAll('img');
+  var dots = gal.querySelectorAll('.gal-dot');
+  imgs.forEach(function(img){ img.classList.remove('active'); });
+  dots.forEach(function(d){ d.classList.remove('active'); });
+  imgs[idx].classList.add('active');
+  dots[idx].classList.add('active');
+  gal._cur = idx;
+}
+
+function moveGal(gal, dir){
+  var imgs = gal.querySelectorAll('img');
+  var cur = gal._cur || 0;
+  var next = (cur + dir + imgs.length) % imgs.length;
+  goGal(gal, next);
+}
+
+// Lightbox
+var lbImgs = [], lbIdx = 0;
+
+function openLb(gal){
+  var imgs = gal.querySelectorAll('img');
+  lbImgs = Array.from(imgs).map(function(i){ return i.src; });
+  lbIdx = gal._cur || 0;
+  lbShow();
+  document.getElementById('lb').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function lbShow(){
+  document.getElementById('lb-img').src = lbImgs[lbIdx];
+  document.getElementById('lb-counter').textContent = (lbIdx+1) + ' / ' + lbImgs.length;
+}
+
+function lbMove(dir){
+  lbIdx = (lbIdx + dir + lbImgs.length) % lbImgs.length;
+  lbShow();
+}
+
+function closeLb(){
+  document.getElementById('lb').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e){
+  if(!document.getElementById('lb').classList.contains('open')) return;
+  if(e.key === 'ArrowLeft') lbMove(-1);
+  if(e.key === 'ArrowRight') lbMove(1);
+  if(e.key === 'Escape') closeLb();
 });
 </script>
 </body>
