@@ -80,9 +80,9 @@ h2.sh-dark{font-size:36px;font-weight:300;color:var(--dark);line-height:1.1;lett
 .qc-text{font-size:14px;color:var(--mid);line-height:1.7;font-style:italic;margin-bottom:16px}
 .qc-source{font-size:11px;color:var(--light);display:flex;align-items:center;gap:6px}
 .qc-dot{width:4px;height:4px;border-radius:50%;background:var(--brand);flex-shrink:0}
-.qc-positive{border-left:2px solid var(--green-border);background:var(--green-bg)}
-.qc-positive .qc-text{color:var(--green)}
-.qc-positive .qc-source{color:var(--green);opacity:.7}
+.qc-positive{background:var(--brand-light);border-color:var(--brand-border)}
+.qc-positive .qc-text{color:var(--mid)}
+.qc-positive .qc-source{color:var(--light)}
 .qc-highlight{grid-column:span 2;background:var(--brand-light);border-color:var(--brand-border)}
 
 /* THE SYSTEM */
@@ -141,6 +141,7 @@ body.loaded{opacity:1}
 
 /* Disable image right-click */
 img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
+.sec-tag-dark{display:flex;align-items:center;gap:8px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--brand)}
 </style>
 </head>
 <body>
