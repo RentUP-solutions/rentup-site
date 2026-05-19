@@ -75,15 +75,15 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .fl strong{color:var(--text);font-weight:500}
 .fhint{font-size:11px;color:var(--light);margin-top:4px}
 .tbns{display:flex;gap:8px}
-.tbn{flex:1;padding:10px 12px;background:var(--bg-stone);border:.5px solid var(--border);border-radius:8px;font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;text-align:center;font-family:'Inter',sans-serif;transition:all .15s}
-.tbn.on{background:var(--brand-light);color:var(--brand);border-color:var(--brand-border)}
+.tbn{flex:1;padding:10px 12px;background:#E8DDD0;border:.5px solid #D4C9B8;border-radius:8px;font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;text-align:center;font-family:'Inter',sans-serif;transition:all .15s}
+.tbn.on{background:#FDFAF6;color:var(--brand);border-color:var(--brand)}
 .tbn:hover{border-color:var(--brand);color:var(--brand)}
 .cr{background:var(--bg);border:.5px solid var(--border);border-radius:16px;padding:28px;margin-top:32px;box-shadow:0 2px 16px rgba(45,40,32,.04)}
 .crh{display:flex;justify-content:space-between;margin-bottom:22px;padding-bottom:16px;border-bottom:.5px solid var(--border)}
 .crh-l{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
 .crh-r{font-size:12px;color:var(--light)}
 .cr-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
-.cr-s{background:var(--bg-stone);border-radius:10px;padding:16px}
+.cr-s{background:#FDFAF6;border-radius:10px;padding:16px}
 .cr-sl{font-size:11px;color:var(--light);margin-bottom:5px}
 .cr-sv{font-size:24px;font-weight:300;color:var(--text)}
 .cr-sv.g{color:var(--green)}
@@ -509,7 +509,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
       <a class="btn-primary" href="#calc">Calculează câștigul tău →</a>
       <button class="btn-ghost" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">Vezi portofoliul</button>
     </div>
-    <p class="hero-micro">Consultație inițială gratuită · Fără angajament</p>
+    <p class="hero-micro"></p>
   </div>
   <div class="hero-r">
     <div class="hero-visual" style="padding:0;overflow:hidden;border-radius:2px 2px 80px 2px">
@@ -536,7 +536,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;align-items:stretch">
 
     <!-- COL 1 -->
-    <div style="background:#FAF4EB;border:.5px solid #EDE5D8;border-radius:14px;padding:28px">
+    <div style="background:#F5EFE6;border:.5px solid #E0DDD6;border-radius:14px;padding:28px">
       <div class="sec-tag" style="margin-bottom:12px"><div class="dot"></div>Calculator ROI</div>
       <h2 class="sh" style="font-size:22px;margin-bottom:8px">Cât pierde apartamentul tău în fiecare an fără optimizare?</h2>
       <p class="sec-sub" style="font-size:13px;margin-bottom:22px">Completează datele, vezi imediat diferența.</p>
@@ -565,7 +565,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     </div>
 
     <!-- COL 2 -->
-    <div style="background:#FAF4EB;border:.5px solid #EDE5D8;border-radius:14px;padding:24px">
+    <div style="background:#F5EFE6;border:.5px solid #E0DDD6;border-radius:14px;padding:24px">
       <div class="crh"><span class="crh-l">Estimare comparativă</span><span class="crh-r" id="yr-l">pe 5 ani</span></div>
       <div class="cr-stats">
         <div class="cr-s"><div class="cr-sl">Chirie actuală / lună</div><div class="cr-sv" id="r-cur">—</div></div>
