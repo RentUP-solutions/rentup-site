@@ -113,6 +113,12 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 .lb-prev{left:16px}
 .lb-next{right:16px}
 .lb-counter{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.6);font-size:13px;font-family:'Inter',sans-serif}
+.nav-mobile{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(253,250,246,.98);border-bottom:.5px solid #EDE5D8;padding:16px 20px;flex-direction:column;gap:4px;z-index:99}
+.nav-mobile a{font-family:'Inter',sans-serif;font-size:15px;color:#9A8E82;text-decoration:none;padding:12px 0;border-bottom:.5px solid #EDE5D8;display:block}
+.nav-mobile a:last-child{border-bottom:none}
+.nav-mobile.open{display:flex}
+.nav-hamburger{display:none}
+@media(max-width:768px){.nav-links{display:none}.nav-hamburger{display:flex}.nav-cta{display:none}}
 </style>
 </head>
 <body>
@@ -126,9 +132,21 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     <a href="realitatea-chiriei.html">Realitatea chiriei</a>
     <a href="faq.html">FAQ</a>
   </div>
-  <a class="nav-cta" href="audit.html">Audit 200€ →</a>
+  <button id="nav-hamburger" onclick="toggleMenu()" style="flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto">
+  <span style="width:22px;height:2px;background:#C77936;display:block"></span>
+  <span style="width:22px;height:2px;background:#C77936;display:block"></span>
+  <span style="width:22px;height:2px;background:#C77936;display:block"></span>
+</button>
+<a class="nav-cta" href="audit.html">Audit 200€ →</a>
 </nav>
-
+<div class="nav-mobile" id="nav-mobile">
+  <a href="index.html#process">Cum funcționează</a>
+  <a href="index.html#packages">Pachete</a>
+  <a href="portofoliu.html">Portofoliu</a>
+  <a href="rental-kit.html">Rental Kit</a>
+  <a href="realitatea-chiriei.html">Realitatea chiriei</a>
+  <a href="faq.html">FAQ</a>
+</div>
 <div class="header">
   <div class="sec-tag"><div class="dot"></div>Portofoliu</div>
   <h1>Rezultate reale.<br><em>Spații transformate.</em></h1>
@@ -196,7 +214,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 
   <div class="proj" data-type="garsoniera premium">
     <div class="gallery" onclick="openLb(this)">
-      <img src="images/portofoliu4.jpg" class="active">
+      <img src="images/hero_index.jpg" class="active">
       <img src="images/portofoliu4b.jpg">
       <button class="gal-btn gal-prev" onclick="event.stopPropagation();moveGal(this.parentElement,-1)">‹</button>
       <button class="gal-btn gal-next" onclick="event.stopPropagation();moveGal(this.parentElement,1)">›</button>
@@ -405,6 +423,23 @@ document.addEventListener('keydown', function(e){
   if(e.key === 'ArrowLeft') lbMove(-1);
   if(e.key === 'ArrowRight') lbMove(1);
   if(e.key === 'Escape') closeLb();
+});
+</script>
+<script>
+function toggleMenu(){
+  document.getElementById('nav-mobile').classList.toggle('open');
+}
+function checkHamburger(){
+  var btn=document.getElementById('nav-hamburger');
+  if(window.innerWidth<=768){btn.style.display='flex';}
+  else{btn.style.display='none';document.getElementById('nav-mobile').classList.remove('open');}
+}
+checkHamburger();
+window.addEventListener('resize',checkHamburger);
+document.addEventListener('click',function(e){
+  if(!e.target.closest('nav')&&!e.target.closest('.nav-mobile')){
+    document.getElementById('nav-mobile').classList.remove('open');
+  }
 });
 </script>
 </body>
