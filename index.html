@@ -6,10 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rent Up — Design interior pentru apartamente de închiriat</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-.nav-mobile{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(253,250,246,.98);border-bottom:.5px solid #EDE5D8;padding:16px 20px;flex-direction:column;gap:4px;z-index:99}
-.nav-mobile a{font-family:'Inter',sans-serif;font-size:15px;color:#9A8E82;text-decoration:none;padding:12px 0;border-bottom:.5px solid #EDE5D8;display:block}
-.nav-mobile a:last-child{border-bottom:none}
-.nav-mobile.open{display:flex}
 <style>
 :root{
   --brand:#C77936;--brand-light:#FAF4EB;--brand-border:#E8D5BC;
@@ -482,7 +478,10 @@ body.loaded{opacity:1}
 }
 @media(max-width:1100px){#calc [style*="grid-template-columns:1fr 1fr 1fr"]{grid-template-columns:1fr 1fr!important}}
 @media(max-width:700px){#calc [style*="grid-template-columns"]{grid-template-columns:1fr!important;padding:0 20px!important}}
-
+.nav-mobile{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(253,250,246,.98);border-bottom:.5px solid #EDE5D8;padding:16px 20px;flex-direction:column;gap:4px;z-index:99}
+.nav-mobile a{font-family:'Inter',sans-serif;font-size:15px;color:#9A8E82;text-decoration:none;padding:12px 0;border-bottom:.5px solid #EDE5D8;display:block}
+.nav-mobile a:last-child{border-bottom:none}
+.nav-mobile.open{display:flex}
 /* Disable image right-click */
 img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 @media(max-width:768px){
@@ -494,8 +493,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 }
 </style>
 </head>
-<script>
-function toggleMenu(){
+<body>
   document.getElementById('nav-mobile').classList.toggle('open');
 }
 document.addEventListener('click',function(e){
@@ -1110,6 +1108,16 @@ document.addEventListener('click',function(e){
 <script>
 document.addEventListener('contextmenu', function(e){
   if(e.target.tagName === 'IMG') e.preventDefault();
+});
+</script>
+<script>
+function toggleMenu(){
+  document.getElementById('nav-mobile').classList.toggle('open');
+}
+document.addEventListener('click',function(e){
+  if(!e.target.closest('nav')&&!e.target.closest('.nav-mobile')){
+    document.getElementById('nav-mobile').classList.remove('open');
+  }
 });
 </script>
 </body>
