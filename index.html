@@ -6,6 +6,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rent Up — Design interior pentru apartamente de închiriat</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+.nav-mobile{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(253,250,246,.98);border-bottom:.5px solid #EDE5D8;padding:16px 20px;flex-direction:column;gap:4px;z-index:99}
+.nav-mobile a{font-family:'Inter',sans-serif;font-size:15px;color:#9A8E82;text-decoration:none;padding:12px 0;border-bottom:.5px solid #EDE5D8;display:block}
+.nav-mobile a:last-child{border-bottom:none}
+.nav-mobile.open{display:flex}
 <style>
 :root{
   --brand:#C77936;--brand-light:#FAF4EB;--brand-border:#E8D5BC;
@@ -462,7 +466,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .nav-links a:hover,.nav-links a.active{color:#2D2820}
 .nav-cta{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:#C77936;border:.5px solid #C77936;padding:8px 18px;border-radius:100px;text-decoration:none;white-space:nowrap;transition:background .2s}
 .nav-cta:hover{background:#FAF4EB}
-@media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}}
+@media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}.nav-hamburger{display:flex}}
 
 /* Page transitions */
 body{opacity:0;transition:opacity .22s ease}
@@ -481,8 +485,25 @@ body.loaded{opacity:1}
 
 /* Disable image right-click */
 img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
+@media(max-width:768px){
+  .sc-tbl th:nth-child(3),.sc-tbl td:nth-child(3),
+  .sc-tbl th:nth-child(4),.sc-tbl td:nth-child(4){display:none}
+  .crh{flex-direction:column;gap:4px}
+  .diff-block{flex-direction:column;gap:8px;text-align:center}
+  .diff-v{font-size:24px}
+}
 </style>
 </head>
+<script>
+function toggleMenu(){
+  document.getElementById('nav-mobile').classList.toggle('open');
+}
+document.addEventListener('click',function(e){
+  if(!e.target.closest('nav')&&!e.target.closest('.nav-mobile')){
+    document.getElementById('nav-mobile').classList.remove('open');
+  }
+});
+</script>
 <body>
 
 <!-- NAV -->
@@ -496,8 +517,22 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     <a href="realitatea-chiriei.html">Realitatea chiriei</a>
     <a href="faq.html">FAQ</a>
   </div>
-  <a class="nav-cta" href="audit.html">Audit 200€ →</a>
+  <button class="nav-hamburger" onclick="toggleMenu()" style="display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px">
+  <span style="width:22px;height:2px;background:#2D2820;display:block"></span>
+  <span style="width:22px;height:2px;background:#2D2820;display:block"></span>
+  <span style="width:22px;height:2px;background:#2D2820;display:block"></span>
+</button>
+<a class="nav-cta" href="audit.html">Audit 200€ →</a>
 </nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="index.html#process">Cum funcționează</a>
+  <a href="index.html#packages">Pachete</a>
+  <a href="portofoliu.html">Portofoliu</a>
+  <a href="rental-kit.html">Rental Kit</a>
+  <a href="realitatea-chiriei.html">Realitatea chiriei</a>
+  <a href="faq.html">FAQ</a>
+  <a href="audit.html" style="color:#C77936;font-weight:500">Audit 200€ →</a>
+</div>
 
 <!-- S1 HERO -->
 <section id="hero">
