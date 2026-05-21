@@ -477,7 +477,7 @@ body.loaded{opacity:1}
 
 }
 @media(max-width:1100px){#calc [style*="grid-template-columns:1fr 1fr 1fr"]{grid-template-columns:1fr 1fr!important}}
-@media(max-width:700px){#calc [style*="grid-template-columns"]{grid-template-columns:1fr!important;padding:0 20px!important}}
+@media(max-width:900px){#calc [style*="grid-template-columns"]{grid-template-columns:1fr!important;padding:0 16px!important}}
 .nav-mobile{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(253,250,246,.98);border-bottom:.5px solid #EDE5D8;padding:16px 20px;flex-direction:column;gap:4px;z-index:99}
 .nav-mobile a{font-family:'Inter',sans-serif;font-size:15px;color:#9A8E82;text-decoration:none;padding:12px 0;border-bottom:.5px solid #EDE5D8;display:block}
 .nav-mobile a:last-child{border-bottom:none}
@@ -511,7 +511,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     <a href="realitatea-chiriei.html">Realitatea chiriei</a>
     <a href="faq.html">FAQ</a>
   </div>
-  <button class="nav-hamburger" onclick="toggleMenu()" style="flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px">
+  <button id="nav-hamburger" onclick="toggleMenu()" style="display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px">
   <span style="width:22px;height:2px;background:#2D2820;display:block"></span>
   <span style="width:22px;height:2px;background:#2D2820;display:block"></span>
   <span style="width:22px;height:2px;background:#2D2820;display:block"></span>
@@ -1110,6 +1110,13 @@ document.addEventListener('contextmenu', function(e){
 function toggleMenu(){
   document.getElementById('nav-mobile').classList.toggle('open');
 }
+function checkHamburger(){
+  var btn=document.getElementById('nav-hamburger');
+  if(window.innerWidth<=768){btn.style.display='flex';}
+  else{btn.style.display='none';document.getElementById('nav-mobile').classList.remove('open');}
+}
+checkHamburger();
+window.addEventListener('resize',checkHamburger);
 document.addEventListener('click',function(e){
   if(!e.target.closest('nav')&&!e.target.closest('.nav-mobile')){
     document.getElementById('nav-mobile').classList.remove('open');
