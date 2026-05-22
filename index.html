@@ -571,6 +571,13 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
       <div class="sec-tag" style="margin-bottom:12px"><div class="dot"></div>Calculator ROI</div>
       <h2 class="sh" style="font-size:22px;margin-bottom:8px">Cât pierde apartamentul tău în fiecare an fără optimizare?</h2>
       <p class="sec-sub" style="font-size:13px;margin-bottom:22px">Completează datele, vezi imediat diferența.</p>
+   <div class="fg"><span class="fl">Oraș</span>
+  <div class="tbns">
+    <button class="tbn on" onclick="setCity('buc',this)">București / Cluj</button>
+    <button class="tbn" onclick="setCity('med',this)">TM / BV / IS</button>
+    <button class="tbn" onclick="setCity('alt',this)">Alt oraș</button>
+  </div>
+</div>
       <div class="fg"><span class="fl">Tip proprietate</span>
         <div class="tbns">
           <button class="tbn on" onclick="setType('garsoniera',this)">Garsonieră</button>
@@ -612,7 +619,8 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
         <thead><tr><th>Scenariu</th><th>Chiriași</th><th>Luni goale</th><th>Venit brut</th><th>Net final</th></tr></thead>
         <tbody id="r-tb"></tbody>
       </table>
-      <p class="disc">* Estimările sunt orientative, bazate pe piața din București.</p>
+      <div id="mkt-note" style="display:none;font-size:12px;color:#854F0B;background:#FDF0D8;border:.5px solid #E8C49A;border-radius:8px;padding:10px 12px;margin-bottom:8px;line-height:1.5"></div>
+<p class="disc">* Estimările sunt orientative pentru orașele  București și Cluj-Napoca. În zonele premium prețurile pot depăși semnificativ aceste valori.</p>
     </div>
 
     <!-- COL 3 -->
@@ -1021,7 +1029,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 </footer>
 
 <script>
-let years=5,propType='garsoniera';
+let years=5,propType='garsoniera',city='buc';
 const CFG={
   garsoniera:{rd:350,rMin:200,rMax:700,md:40,mMin:20,mMax:60,up:150,mh:'Interval tipic garsonieră: 25–50 mp',rh:'Interval tipic neoptimizată: 300–450€',v5:5,v10:10,vo5:1,vo10:2,rep:400,ib:55,iMin:3500,iMax:7000,c5:'4 (rotație mare)',c10:'7–8',co5:'1–2 (stabili)',co10:'2–3'},
   '2camere':{rd:550,rMin:350,rMax:1000,md:60,mMin:40,mMax:80,up:200,mh:'Interval tipic 2 camere: 45–75 mp',rh:'Interval tipic neoptimizată: 450–700€',v5:4,v10:8,vo5:1,vo10:2,rep:550,ib:72,iMin:5000,iMax:10000,c5:'3 (rotație medie)',c10:'5–6',co5:'2 (stabili)',co10:'3–4'},
@@ -1038,11 +1046,55 @@ function setType(t,btn){
   document.getElementById('mp-h').textContent=c.mh;
   document.getElementById('re-h').textContent=c.rh;
   calc();
+  const cityMult={buc:1,med:0.78,alt:0.58};
+const m=cityMult[city]||1;
+document.getElementById('mp-s').min=c.mMin;
+document.getElementById('re-s').min=Math.round(c.rMin*m);
+document.getElementById('re-s').max=Math.round(c.rMax*m);
+document.getElementById('re-s').value=Math.round(c.rd*m);
 }
 function setYears(y,btn){
   years=y;
   document.querySelectorAll('.tbn[onclick*="setYears"]').forEach(b=>b.classList.remove('on'));
   btn.classList.add('on');calc();
+}
+function setCity(c,btn){
+  city=c;
+  document.querySelectorAll('.tbn[onclick*="setCity"]').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  calc();
+}
+function calcOptRent(type, rent){
+  const mult={buc:1, med:0.78, alt:0.58};
+  const m=mult[city]||1;
+  const caps={garsoniera:Math.round(550*m), '2camere':Math.round(800*m), '3camere':Math.round(1200*m)};
+  const cap=caps[type];
+
+  if(rent>=cap)return{opt:rent,msg:'⚠ Chiria actuală este la nivelul plafonului tipic pentru această categorie și oraș — optimizarea estetică nu aduce creștere semnificativă la acest nivel.'};
+
+  let up;
+  if(type==='garsoniera'){
+    const r=rent/m;
+    if(r<=350)up=Math.round(150*m);
+    else if(r<=400)up=Math.round(120*m);
+    else if(r<=450)up=Math.round(80*m);
+    else up=Math.round(50*m);
+  } else if(type==='2camere'){
+    const r=rent/m;
+    if(r<=500)up=Math.round(200*m);
+    else if(r<=600)up=Math.round(170*m);
+    else if(r<=650)up=Math.round(120*m);
+    else if(r<=700)up=Math.round(80*m);
+    else up=Math.round(50*m);
+  } else {
+    const r=rent/m;
+    if(r<=700)up=Math.round(260*m);
+    else if(r<=800)up=Math.round(200*m);
+    else if(r<=900)up=Math.round(150*m);
+    else if(r<=1000)up=Math.round(100*m);
+    else up=Math.round(50*m);
+  }
+  return{opt:Math.min(rent+up,cap),msg:null};
 }
 function fmt(n){return Math.round(n).toLocaleString('ro-RO')+'€';}
 function calc(){
@@ -1051,7 +1103,9 @@ function calc(){
   const rent=parseInt(document.getElementById('re-s').value);
   document.getElementById('mp-d').textContent=' '+mp+' mp';
   document.getElementById('re-d').textContent=' '+rent+'€/lună';
-  const rentOpt=rent+Math.min(c.up,c.rMax*.95-rent);
+  const {opt:rentOpt,msg:mktMsg}=calcOptRent(propType,rent);
+const mktNote=document.getElementById('mkt-note');
+if(mktNote){mktNote.textContent=mktMsg||'';mktNote.style.display=mktMsg?'block':'none';}
   const months=years*12;
   const vac=years===5?c.v5:c.v10,vacO=years===5?c.vo5:c.vo10;
   const gBad=(months-vac)*rent,nBad=gBad-c.rep*years;

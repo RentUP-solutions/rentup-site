@@ -700,7 +700,7 @@ function updT(){
   const{mob,totalStd,active}=calcAll();
   document.getElementById("lb-r").textContent=active;
   document.getElementById("lb-m").textContent=mob.toLocaleString("ro")+" €";
-  document.getElementById("lb-t").textContent=totalStd.toLocaleString("ro")+" €";
+  document.getElementById("lb-t").textContent="~"+Math.round(totalStd*0.85).toLocaleString("ro")+" €";
   const rNames={buc:"buc",ins:"ins",liv:"liv",dorm:"dorm",hol:"hol",dres:"dres",d2:"d2",baie:"baie"};
   Object.keys(S.rooms).forEach(id=>{
     const el=document.getElementById("rp-"+id);if(!el)return;
@@ -822,13 +822,15 @@ function buildRes(){
   if(lf>0)rows+=`<div class="rrow"><div><div class="rname">Transport fără lift</div><div class="rsub">Etaj ${S.etaj} × ${P.lift} €</div></div><div class="rprice">${lf.toLocaleString("ro")} €</div></div>`;
 
   document.getElementById("res-html").innerHTML=`
+  <div style="font-size:12px;color:var(--muted);margin-bottom:8px;font-style:italic">* Prețurile afișate reprezintă estimarea minimă a intervalului. Costul real poate fi cu 15–30% mai mare în funcție de producător și complexitate.</div>
     <div class="est-banner">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="flex-shrink:0"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
       <span><strong>Estimare nivel low-mid.</strong> Prețurile afișate reprezintă o estimare orientativă. Valorile finale depind de complexitatea configurației, producătorul ales și condițiile de piață. Variație tipică ±10-15%.</span>
     </div>
 
     <div class="res-block"><div class="res-block-title">Ce primești pentru acești bani</div>${rows}
-      <div class="rrow"><div><div class="rname">Marjă risc și imprevizibili</div><div class="rsub">5% · cu proiect Rent Up</div></div><div class="rprice">${risc.toLocaleString("ro")} €</div></div>
+      <div class="rrow"><div><div class="rname">Marjă risc și imprevizibilitate</div><div class="rsub">5% · cu proiect Rent Up</div></div><div class="rprice">${risc.toLocaleString("ro")} €</div></div>
+      <div class="rrow" style="background:#FDF8F2;border:.5px dashed #E8C49A;border-radius:8px;margin-top:6px;padding:12px 10px"><div style="display:flex;align-items:flex-start;gap:8px"><div style="font-size:16px;flex-shrink:0">⚠️</div><div><div class="rname" style="color:#854F0B;font-size:13px">Finisaje — buget orientativ (neinclusă în total)</div><div class="rsub" style="color:#9A8E82;margin-top:4px;line-height:1.5">Dacă apartamentul necesită intervenții la: pereți, faianță, parchet, demolare finisaje vechi, schimbare tâmplărie sau uși — costul total va crește în funcție de amploarea intervențiilor</div></div></div></div>
     </div>
 
     <div class="res-block-title" style="padding:0 0 10px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)">Pachet Rent Up — alege varianta</div>
@@ -844,7 +846,7 @@ function buildRes(){
           <div class="pkg-row"><span class="pkg-row-lbl">Fotografii profesionale</span><span class="pkg-row-val">—</span></div>
           <div class="pkg-row"><span class="pkg-row-lbl">Listare + monitorizare</span><span class="pkg-row-val">—</span></div>
         </div>
-        <div class="pkg-total-row"><div class="pkg-total-lbl">Investiție totală</div><div class="pkg-total-val bl">${totalStd.toLocaleString("ro")} €</div></div>
+        <div class="pkg-total-row"><div class="pkg-total-lbl">Investiție totală</div><div class="pkg-total-val bl">~${Math.round(totalStd*0.85).toLocaleString("ro")} €</div></div>
         <div class="pkg-roi">Recuperare estimată: ~${roiStd} luni</div>
       </div>
       <div class="pkg-card recommended">
@@ -858,7 +860,7 @@ function buildRes(){
           <div class="pkg-row"><span class="pkg-row-lbl">Fotografii profesionale</span><span class="pkg-row-val" style="color:var(--green)">incluse</span></div>
           <div class="pkg-row"><span class="pkg-row-lbl">Listare + monitorizare</span><span class="pkg-row-val" style="color:var(--green)">incluse</span></div>
         </div>
-        <div class="pkg-total-row"><div class="pkg-total-lbl">Investiție totală</div><div class="pkg-total-val bl">${totalPrem.toLocaleString("ro")} €</div></div>
+        <div class="pkg-total-row"><div class="pkg-total-lbl">Investiție totală</div><div class="pkg-total-val bl">~${Math.round(totalPrem*0.85).toLocaleString("ro")} €</div></div>
         <div class="pkg-roi">Recuperare estimată: ~${roiPrem} luni</div>
       </div>
     </div>
