@@ -422,6 +422,16 @@ function closeLb(){
   document.body.style.overflow = '';
 }
 
+// Swipe lightbox
+var lbTouchX=0;
+document.getElementById('lb').addEventListener('touchstart',function(e){
+  lbTouchX=e.touches[0].clientX;
+});
+document.getElementById('lb').addEventListener('touchend',function(e){
+  var diff=lbTouchX-e.changedTouches[0].clientX;
+  if(Math.abs(diff)>50){diff>0?lbMove(1):lbMove(-1);}
+});
+
 document.addEventListener('keydown', function(e){
   if(!document.getElementById('lb').classList.contains('open')) return;
   if(e.key === 'ArrowLeft') lbMove(-1);
