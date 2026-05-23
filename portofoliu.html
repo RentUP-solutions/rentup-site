@@ -267,11 +267,11 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 <!-- LIGHTBOX -->
 <div class="lb" id="lb" onclick="closeLb()">
   <button class="lb-close" onclick="closeLb()">×</button>
-  <button class="lb-btn lb-prev" onclick="event.stopPropagation();lbMove(-1)">‹</button>
+  
   <div class="lb-inner" onclick="event.stopPropagation()">
     <img id="lb-img" src="">
   </div>
-  <button class="lb-btn lb-next" onclick="event.stopPropagation();lbMove(1)">›</button>
+  
   <div class="lb-counter" id="lb-counter"></div>
 </div>
 </div>
@@ -430,6 +430,10 @@ document.getElementById('lb').addEventListener('touchstart',function(e){
 document.getElementById('lb').addEventListener('touchend',function(e){
   var diff=lbTouchX-e.changedTouches[0].clientX;
   if(Math.abs(diff)>50){diff>0?lbMove(1):lbMove(-1);}
+  else{
+    var x=e.changedTouches[0].clientX;
+    x>window.innerWidth/2?lbMove(1):lbMove(-1);
+  }
 });
 
 document.addEventListener('keydown', function(e){
