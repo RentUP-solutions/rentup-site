@@ -175,6 +175,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
       <img src="images/portofoliu2.jpg" class="active">
       <img src="images/portofoliu_1.jpg">
       <img src="images/portofoliu_3.jpg">
+      <img src="images/portofoliu_9.jpg">
       <button class="gal-btn gal-prev" onclick="event.stopPropagation();moveGal(this.parentElement,-1)">‹</button>
       <button class="gal-btn gal-next" onclick="event.stopPropagation();moveGal(this.parentElement,1)">›</button>
       <div class="gal-dots"></div>
@@ -342,7 +343,7 @@ document.addEventListener('click', function(e) {
   if (a.target === '_blank') return;
   e.preventDefault();
   document.body.style.opacity = '0';
-  setTimeout(() => { window.location.href = href; }, 220);
+  setTimeout(() => { window.location.href = href; }, 50);
 });
 </script>
 <script>
@@ -357,7 +358,7 @@ document.addEventListener('click',function(e){
   if(a.target==='_blank') return;
   e.preventDefault();
   document.body.style.opacity='0';
-  setTimeout(function(){ window.location.href=href; }, 200);
+  setTimeout(function(){ window.location.href=href; }, 50);
 });
 </script>
 <script>

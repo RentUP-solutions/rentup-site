@@ -1139,7 +1139,7 @@ if (url.pathname === window.location.pathname && url.hash) return;
   if (a.target === '_blank') return;
   e.preventDefault();
   document.body.style.opacity = '0';
-  setTimeout(() => { window.location.href = href; }, 220);
+  setTimeout(() => { window.location.href = href; }, 50);
 });
 </script>
 <script>
@@ -1156,7 +1156,7 @@ document.addEventListener('click',function(e){
   if(a.target==='_blank') return;
   e.preventDefault();
   document.body.style.opacity='0';
-  setTimeout(function(){ window.location.href=href; }, 200);
+  setTimeout(function(){ window.location.href=href; }, 50);
 });
 </script>
 <script>
