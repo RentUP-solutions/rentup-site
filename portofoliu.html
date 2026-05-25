@@ -428,6 +428,9 @@ document.getElementById('lb').addEventListener('touchstart',function(e){
   lbTouchX=e.touches[0].clientX;
 });
 document.getElementById('lb').addEventListener('touchend',function(e){
+  var img=document.getElementById('lb-img');
+  var isZoomed=img.offsetWidth>window.innerWidth*0.95;
+  if(isZoomed)return;
   var diff=lbTouchX-e.changedTouches[0].clientX;
   if(Math.abs(diff)>50){diff>0?lbMove(1):lbMove(-1);}
   else{

@@ -1134,6 +1134,8 @@ document.addEventListener('click', function(e) {
   if (!a) return;
   const href = a.getAttribute('href');
   if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
+const url = new URL(a.href);
+if (url.pathname === window.location.pathname && url.hash) return;
   if (a.target === '_blank') return;
   e.preventDefault();
   document.body.style.opacity = '0';
@@ -1149,6 +1151,8 @@ document.addEventListener('click',function(e){
   if(!a) return;
   var href = a.getAttribute('href');
   if(!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
+  var url = new URL(a.href);
+  if(url.pathname === window.location.pathname && url.hash) return;
   if(a.target==='_blank') return;
   e.preventDefault();
   document.body.style.opacity='0';
