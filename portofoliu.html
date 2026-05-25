@@ -222,7 +222,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   <div class="proj" data-type="garsoniera premium">
     <div class="gallery" onclick="openLb(this)">
       <img src="images/hero_index.png" class="active">
-      <img src="images/portofoliu4b.jpg">
+      <img src="images/portofoliu_10.jpg">
       <button class="gal-btn gal-prev" onclick="event.stopPropagation();moveGal(this.parentElement,-1)">‹</button>
       <button class="gal-btn gal-next" onclick="event.stopPropagation();moveGal(this.parentElement,1)">›</button>
       <div class="gal-dots"></div>
@@ -245,6 +245,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     <div class="gallery" onclick="openLb(this)">
       <img src="images/portofoliu_7.jpg" class="active">
       <img src="images/portofoliu_8.jpg">
+       <img src="images/portofoliu_11.jpg">
       <button class="gal-btn gal-prev" onclick="event.stopPropagation();moveGal(this.parentElement,-1)">‹</button>
       <button class="gal-btn gal-next" onclick="event.stopPropagation();moveGal(this.parentElement,1)">›</button>
       <div class="gal-dots"></div>
@@ -268,11 +269,11 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 <!-- LIGHTBOX -->
 <div class="lb" id="lb" onclick="closeLb()">
   <button class="lb-close" onclick="closeLb()">×</button>
-  
+  <button class="lb-btn lb-prev" onclick="event.stopPropagation();lbMove(-1)">‹</button>
   <div class="lb-inner" onclick="event.stopPropagation()">
     <img id="lb-img" src="">
   </div>
-  
+  <button class="lb-btn lb-next" onclick="event.stopPropagation();lbMove(1)">›</button>
   <div class="lb-counter" id="lb-counter"></div>
 </div>
 </div>
