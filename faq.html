@@ -55,7 +55,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 
 /* FAQ LAYOUT */
 .faq-layout{display:grid;grid-template-columns:240px 1fr;gap:0;background:linear-gradient(to right,#F5EFE6 240px,#E0DDD6 240px,#E0DDD6 241px,#FDFAF6 241px);border-bottom-left-radius:16px;overflow:hidden}
-.faq-sidebar{align-self:start}.faq-sidebar-inner{position:sticky;top:128px;padding:40px 32px}.sidebar-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:16px}
+.faq-sidebar{align-self:start}.faq-sidebar-inner{padding:40px 32px}.sidebar-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:16px}
 .sidebar-link{display:block;font-size:13px;color:var(--muted);padding:8px 12px;border-radius:6px;cursor:pointer;transition:all .15s;margin-bottom:2px;text-decoration:none}
 .sidebar-link:hover{background:var(--bg-warm);color:var(--text)}
 .sidebar-link.active{background:var(--brand-light);color:var(--brand)}
@@ -254,7 +254,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 
   <!-- SIDEBAR -->
   <div class="faq-sidebar">
-    <div class="faq-sidebar-inner">
+    <div class="faq-sidebar-inner" style="position:static">
     <div class="sidebar-label">Categorii</div>
     <a class="sidebar-link active" href="#despre">Despre Rent Up</a>
     <a class="sidebar-link" href="#audit">Auditul</a>
