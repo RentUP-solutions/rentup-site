@@ -363,6 +363,12 @@ document.addEventListener('click', function(e) {
 document.addEventListener('DOMContentLoaded',function(){
   requestAnimationFrame(function(){ document.body.classList.add('loaded'); });
 });
+window.addEventListener('pageshow', function(e) {
+  if (e.persisted) {
+    document.body.style.opacity = '1';
+    document.body.classList.add('loaded');
+  }
+});
 document.addEventListener('click',function(e){
   var a = e.target.closest('a[href]');
   if(!a) return;

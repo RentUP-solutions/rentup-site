@@ -473,6 +473,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 }
 .nav-hamburger{display:none}
 @media(max-width:900px){#rental-kit-teaser [style*="grid-template-columns:1fr 1fr"]{display:flex!important;flex-direction:column!important;gap:40px!important}}
+@media(max-width:900px){#rental-kit-teaser{padding:44px 16px!important}}
 </style>
 </head>
 <body>
@@ -1116,6 +1117,12 @@ if (url.pathname === window.location.pathname && url.hash) return;
 <script>
 document.addEventListener('DOMContentLoaded',function(){
   requestAnimationFrame(function(){ document.body.classList.add('loaded'); });
+});
+window.addEventListener('pageshow', function(e) {
+  if (e.persisted) {
+    document.body.style.opacity = '1';
+    document.body.classList.add('loaded');
+  }
 });
 document.addEventListener('click',function(e){
   var a = e.target.closest('a[href]');
