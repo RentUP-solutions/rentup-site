@@ -50,6 +50,8 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .hero-sub{font-size:17px;color:var(--muted);line-height:1.7;max-width:580px;margin-bottom:48px}
 .hero-stats{display:grid;grid-template-columns:repeat(3,auto);gap:48px;width:fit-content}
 .hs-val{font-size:34px;font-weight:300;color:var(--dark);letter-spacing:-.02em;margin-bottom:4px}
+.hs-label{font-size:12px;color:#9A8E82;line-height:1.4}
+@media(max-width:860px){.hero-stats{grid-template-columns:repeat(3,1fr)!important;gap:12px!important;width:100%!important}.hs-val{font-size:18px!important}.hs-label{font-size:9px!important;line-height:1.3}}
 .hs-val span{color:var(--brand)}
 .hs-label{font-size:12px;color:#9A8E82;line-height:1.4}
 
@@ -111,7 +113,7 @@ h2.sh-dark{font-size:36px;font-weight:300;color:var(--dark);line-height:1.1;lett
 /* CTA */
 .cta-section{background:var(--brand-light);border-top:.5px solid var(--brand-border);padding:88px 56px;text-align:center}
 .cta-section h2{font-size:34px;font-weight:300;letter-spacing:-.02em;margin-bottom:12px}
-.cta-section p{font-size:15px;color:var(--muted);line-height:1.7;max-width:480px;margin:0 auto 36px}
+.cta-section p{font-size:15px;color:var(--muted);line-height:1.7;max-width:680px;margin:0 auto 36px}
 .cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .btn-brand{font-size:14px;font-weight:500;background:var(--brand);color:var(--dark);padding:14px 28px;border-radius:100px;text-decoration:none;transition:background .2s}
 .btn-brand:hover{background:#a8622a}
@@ -469,10 +471,12 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 
 <!-- CTA -->
 <div class="cta-section">
-  <h2>Pornește cu un audit.</h2>
-  <p>200€ pentru a înțelege exact unde ești acum, ce poți face diferit și dacă investiția are sens pentru apartamentul tău.</p>
+  <h2>Nu ești sigur dacă merită un proiect complet?</h2>
+  <p>Vizităm apartamentul, evaluăm starea și livrăm un raport complet cu ce merită schimbat, cât costă și cât câștigați în plus. Se scade din pachetul ales dacă continui.</p>
+  <div style="font-size:44px;font-weight:300;color:var(--brand);letter-spacing:-.04em;margin-bottom:4px">200€</div>
+  <div style="font-size:13px;color:var(--muted);margin-bottom:28px">per apartament · livrat în 72h</div>
   <div class="cta-btns">
-    <a class="btn-brand" href="audit.html">Programează auditul → 200€</a>
+    <a class="btn-brand" href="audit.html">Află mai multe →</a>
     <a class="btn-outline" href="faq.html">Întrebări frecvente</a>
   </div>
 </div>

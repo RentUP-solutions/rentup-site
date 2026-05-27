@@ -351,8 +351,8 @@ footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56p
   .stat-v{font-size:22px}
   .stat-l{font-size:11px}
   .stat:nth-child(2){border-right:.5px solid var(--border)}
-  .stat:nth-child(3){border-right:none;border-top:.5px solid var(--border)}
-  .stat:nth-child(4){border-top:.5px solid var(--border)}
+.stat:nth-child(3){border-right:none!important;border-top:.5px solid var(--border)!important}
+.stat:nth-child(4){border-top:.5px solid var(--border)!important;border-right:none!important}
 
   /* Calculator */
   .tbn{padding:8px 8px;font-size:12px}
@@ -491,6 +491,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 @media(max-width:900px){#rental-kit-teaser [style*="grid-template-columns:1fr 1fr"]{display:flex!important;flex-direction:column!important;gap:40px!important}}
 @media(max-width:900px){#rental-kit-teaser{padding:40px 16px!important}}
 @media(max-width:900px){#rental-kit-teaser img{max-width:140%!important;margin-top:0!important;margin-left:-10%;margin-right:0;display:block}}
+@media(max-width:600px){#rental-kit-teaser svg{width:14px!important;height:14px!important;flex-shrink:0}}
 </style>
 <script type="application/ld+json">
 {
@@ -574,8 +575,8 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   <div class="stats-g">
     <div class="stat"><div class="stat-v">+200€</div><div class="stat-l">chirie lunară în plus, în medie</div></div>
     <div class="stat"><div class="stat-v">~8 luni</div><div class="stat-l">recuperare completă a investiției</div></div>
-    <div class="stat"><div class="stat-v">5 zile</div><div class="stat-l">până la primul chiriaș potrivit</div></div>
-    <div class="stat"><div class="stat-v">200€</div><div class="stat-l">costul consultației inițiale</div></div>
+    <div class="stat" style="border-top:.5px solid var(--border);border-right:.5px solid var(--border)"><div class="stat-v">5 zile</div><div class="stat-l">până la primul chiriaș potrivit</div></div>
+<div class="stat" style="border-top:.5px solid var(--border)"><div class="stat-v">200€</div><div class="stat-l">costul consultației inițiale</div></div>
   </div>
 </div>
 
@@ -787,8 +788,8 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
         <img src="images/portofoliu_3.webp" style="width:100%;height:400px;max-height:60vw;object-fit:cover;display:block">
       </div>
       <div class="ba-info">
-        <div><div class="ba-name">2 camere Floreasca · 55 mp</div><div class="ba-meta">Pachet Premium · 12 săptămâni</div></div>
-        <div class="ba-res">400€ → 620€</div>
+        <div><div class="ba-name">2 camere Drumul Taberei · 55 mp</div><div class="ba-meta">Pachet Premium · 12 săptămâni</div></div>
+        <div class="ba-res">400€ → 550€</div>
       </div>
     </div>
   </div>
@@ -806,53 +807,89 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 <section id="testimonials">
   <div class="sec-tag"><div class="dot"></div>Testimoniale</div>
   <h2 class="sh">Ce spun proprietarii.</h2>
-  <div class="te-g">
-    <div class="tec">
-      <div class="tec-q">"</div>
-      <p class="tec-t">Mă așteptam la randări frumoase și atât. Nu mă așteptam să am și un sistem clar pentru ce fac cu apartamentul după. Chiriașul de acum e cel mai bun pe care l-am avut.</p>
-      <div class="tec-n">Proprietar 1</div><div class="tec-m">Garsonieră · Pachet Standard</div>
-      <div class="tec-tag">380€ → 450€ / lună</div>
-    </div>
-  
-    <div class="tec">
-      <div class="tec-q">"</div>
-      <p class="tec-t">Ce m-a convins a fost simularea financiară. Când am văzut diferența pe 5 ani, decizia a fost simplă.</p>
-      <div class="tec-n">Proprietar 2</div><div class="tec-m">2 camere · Pachet Premium</div>
-      <div class="tec-tag">+13.200€ în 5 ani</div>
-    </div>
-  </div>
-  <div class="cs">
+
+  <!-- STUDIU DE CAZ 1: 2 camere Drumul Taberei -->
+  <div class="cs" style="margin-bottom:16px">
     <div class="cs-h">
-      <div class="cs-title">2 camere Drumul Taberei — de la rotație constantă la chiriaș pe 2 ani</div>
-      <div class="cs-tags"><span class="cs-tag">București · Sector 6</span><span class="cs-tag">55 mp</span><span class="cs-tag">Pachet Standard</span><span class="cs-tag">4 săptămâni</span></div>
+      <div class="cs-title">2 camere Drumul Taberei — de la apartament distrus la chiriaș în 4 zile</div>
+      <div class="cs-tags">
+        <span class="cs-tag">București · Sector 6</span>
+        <span class="cs-tag">55 mp</span>
+        <span class="cs-tag">Pachet Standard</span>
+        <span class="cs-tag">6 săptămâni</span>
+      </div>
     </div>
     <div class="cs-body">
       <div class="cs-g">
         <div>
           <div class="cs-sl">Situația inițială</div>
-          <p class="cs-p">Andrei, 37 de ani, moștenise apartamentulde la părinți. O închiria cu 400€/lună, dar nu reușea să păstreze chiriașii mai mult de 6–8 luni. Perioade de ~2 luni goale între fiecare chiriaș. Reparații după fiecare plecare. Credea că problema sunt chiriașii. Nu era.</p>
-          <div style="margin-top:18px"><div class="cs-sl">Ce am schimbat</div><p class="cs-p">Living reorganizat într-un spațiu mai coerent, pentru un flux mai eficient. Canapeaua existentă a fost repoziționată pentru a elibera vizual și functional camera. Perdele albe semitransparente și jaluzele discrete pe balcon pentru mai multă lumină, intimitate și o senzație amplificată de spațiu.
-Spații de depozitare maximalizate in dormitor prin dulapuri integrate. Covoarele repoziționate corect pentru a ancora zonele și a aduce mai mult echilibru vizual. </p></div>
+          <p class="cs-p">Cosmin Ciobianu, 49 de ani, avusese același chiriaș în vârstă timp de aproape 10 ani. Când acesta a plecat, a lăsat în urmă un apartament pe care nu îl îngrijise deloc: baie cu mucegai și faianță desprinsă, tavane parțial degradat, coridoare cu pereți scorojiți, instalații vechi. Cosmin știa că trebuie să facă totul de la zero și se temea că nu va vedea niciodată banii înapoi. Credea că un apartament atât de uzat nu mai poate arăta frumos. Se gândea să vândă.</p>
+          <div style="margin-top:18px">
+            <div class="cs-sl">Ce am schimbat</div>
+            <p class="cs-p">Am prioritizat intervențiile cu cel mai mare impact vizual și de durabilitate: baie renovată complet cu materiale moderne, tavane refăcute și finisate uniform, coridoarele reproiectate pentru un flux logic. Dormitorul a primit un decor structural discret și iluminat indirect pentru o senzație de confort imediat. Livingul a fost mobilat funcțional, cu depozitare integrată și materiale care rezistă la uzură intensă. Rezultatul a depășit așteptările proprietarului.</p>
+          </div>
+        </div>
+        <div>
+          <div class="cs-sl">Buget implementare</div>
+          <div class="bud-g">
+            <div class="bud-row"><span>Serviciu design (Standard)</span><strong>1.900€</strong></div>
+            <div class="bud-row"><span>Renovare + manoperă</span><strong>5.200€</strong></div>
+            <div class="bud-row"><span>Mobilier + accesorii</span><strong>4.100€</strong></div>
+            <div class="bud-tot"><span>Total investiție</span><span>11.200€</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="cs-res">
+        <div class="cs-r"><div class="cs-rv">+150€</div><div class="cs-rl">chirie lunară față de înainte</div></div>
+        <div class="cs-r"><div class="cs-rv">4 zile</div><div class="cs-rl">până la primul chiriaș potrivit</div></div>
+        <div class="cs-r"><div class="cs-rv">24 luni</div><div class="cs-rl">durata șederii<br>(contract semnat pe 2 ani de la început)</div></div>
+        <div class="cs-r"><div class="cs-rv">~48 luni</div><div class="cs-rl">recuperare completă a investiției (din chiria extra + rotația de chiriași eliminată)</div></div>
+      </div>
+      <div class="cs-q">„Ce m-a convins a fost simularea financiară. Când am văzut diferența pe 5 ani, decizia a fost simplă. Eram gata să vând apartamentul — acum îmi pare rău că m-am gândit la asta."<div class="cs-qa">— Gheorghe, proprietar apartament 2 camere · Pachet Standard</div></div>
+    </div>
+  </div>
+
+  <!-- STUDIU DE CAZ 2: 2 camere Floreasca -->
+  <div class="cs">
+    <div class="cs-h">
+      <div class="cs-title">2 camere Floreasca — de la rotație constantă la chiriaș pe 2 ani</div>
+      <div class="cs-tags">
+        <span class="cs-tag">București · Sector 1</span>
+        <span class="cs-tag">52 mp</span>
+        <span class="cs-tag">Pachet Standard</span>
+        <span class="cs-tag">4 săptămâni</span>
+      </div>
+    </div>
+    <div class="cs-body">
+      <div class="cs-g">
+        <div>
+          <div class="cs-sl">Situația inițială</div>
+          <p class="cs-p">Costin Mihai, 37 de ani, moștenise apartamentul de la părinți. Îl închiria cu 400€/lună, dar nu reușea să păstreze chiriașii mai mult de 6–8 luni. Perioade de ~2 luni goale între fiecare chiriaș. Reparații după fiecare plecare. Credea că problema sunt chiriașii. Nu era.</p>
+          <div style="margin-top:18px">
+            <div class="cs-sl">Ce am schimbat</div>
+            <p class="cs-p">Living reorganizat într-un spațiu mai coerent, pentru un flux mai eficient. Canapeaua existentă a fost repoziționată pentru a elibera vizual și funcțional camera. Perdele albe semitransparente și jaluzele discrete pe balcon pentru mai multă lumină, intimitate și o senzație amplificată de spațiu. Spații de depozitare maximizate în dormitor prin dulapuri integrate. Covoarele repoziționate corect pentru a ancora zonele și a aduce mai mult echilibru vizual.</p>
+          </div>
         </div>
         <div>
           <div class="cs-sl">Buget implementare</div>
           <div class="bud-g">
             <div class="bud-row"><span>Serviciu design (Standard)</span><strong>1.650€</strong></div>
-            <div class="bud-row"><span>Mobilier </span><strong>1.200€</strong></div>
+            <div class="bud-row"><span>Mobilier</span><strong>1.200€</strong></div>
             <div class="bud-row"><span>Accesorii + decor</span><strong>600€</strong></div>
             <div class="bud-tot"><span>Total investiție</span><span>3.450€</span></div>
           </div>
         </div>
       </div>
       <div class="cs-res">
-        <div class="cs-r"><div class="cs-rv">+150€</div><div class="cs-rl">chirie lunară față de înainte</div></div>
+        <div class="cs-r"><div class="cs-rv">+220€</div><div class="cs-rl">chirie lunară față de înainte</div></div>
         <div class="cs-r"><div class="cs-rv">5 zile</div><div class="cs-rl">până la primul chiriaș potrivit</div></div>
-        <div class="cs-r"><div class="cs-rv">24 luni</div><div class="cs-rl">durata șederii <br> (contract semnat pe 2 ani de la început)</div></div>
+        <div class="cs-r"><div class="cs-rv">24 luni</div><div class="cs-rl">durata șederii<br>(contract semnat pe 2 ani de la început)</div></div>
         <div class="cs-r"><div class="cs-rv">~14 luni</div><div class="cs-rl">recuperare completă a investiției (din chiria extra + rotația de chiriași eliminată)</div></div>
       </div>
-      <div class="cs-q">"Sincer, mă așteptam la randări frumoase și atât. Nu mă așteptam să am și un sistem clar pentru ce fac cu apartamentul după. Chiriașul de acum e cel mai bun pe care l-am avut și cred că asta nu e o coincidență."<div class="cs-qa">— Andrei, proprietar apartament 2 camere · Pachet Standard</div></div>
+      <div class="cs-q">„Sincer, mă așteptam la randări frumoase și atât. Nu mă așteptam să am și un sistem clar pentru ce fac cu apartamentul după. Chiriașul de acum e cel mai bun pe care l-am avut și cred că asta nu e o coincidență."<div class="cs-qa">— Costin, proprietar apartament 2 camere · Pachet Standard</div></div>
     </div>
   </div>
+
 </section>
 
 
@@ -869,7 +906,7 @@ Spații de depozitare maximalizate in dormitor prin dulapuri integrate. Covoarel
         <div class="tc-name">Czerwinski Cristiana</div>
         <p class="tc-bio">Absolventă a Facultății de Arhitectură "Ion Mincu" din București, cu studii extinse la Facultatea Tehnică din Viena. Din 2019 colaborez cu studiouri internaționale de top din arhitectură și vizualizare.</p>
         <p class="tc-bio" style="margin-top:10px">Mă concentrez pe estetică și impact vizual: cum arată un spațiu, cum se simte și cum este perceput din prima clipă. Lucrez intuitiv și experimental, explorând direcții vizuale îndrăznețe și memorabile.</p>
-        <p class="tc-bio" style="margin-top:10px;font-style:italic;color:var(--brand)">Cred în spații care nu sunt doar corecte, ci memorabile, cu personalitate și prezență.</p>
+        <p class="tc-bio" style="margin-top:10px;font-style:italic;color:var(--brand)">Am văzut destule apartamente închiriate prost ca să știu exact ce face diferența dintre un chiriaș care rămâne 3 ani și unul care pleacă în 6 luni.</p>
       </div>
     </div>
     <div class="tc">
@@ -879,7 +916,7 @@ Spații de depozitare maximalizate in dormitor prin dulapuri integrate. Covoarel
         <div class="tc-name">Avram Cătălina</div>
         <p class="tc-bio">Absolventă a Facultății de Arhitectură "Ion Mincu" din București, cu experiență construită lucrând cu numeroși proprietari care au ales să investească în apartamentele lor pentru a le crește valoarea și funcționalitatea.</p>
         <p class="tc-bio" style="margin-top:10px">Abordarea mea este serioasă și orientată spre rezultate reale. Pun accent pe organizare, logică și soluții durabile, pe spații care nu doar arată bine, ci funcționează corect în timp.</p>
-        <p class="tc-bio" style="margin-top:10px;font-style:italic;color:var(--brand)">Un proiect reușit înseamnă un spațiu mai ușor de utilizat, întreținut și valorificat.</p>
+        <p class="tc-bio" style="margin-top:10px;font-style:italic;color:var(--brand)">Cunosc proprietari care au cheltuit 10.000€ pe renovare și după 2 ani totul arăta uzat. Nu materialele erau problema, erau alegerile.</p>
       </div>
     </div>
   </div>
@@ -924,7 +961,7 @@ Spații de depozitare maximalizate in dormitor prin dulapuri integrate. Covoarel
         <div class="pf"><span class="fd">–</span><span>Randări 1–2 per cameră</span></div>
         <div class="pkg-sl">Execuție</div>
         <div class="pf"><span class="fd">–</span><span>1 vizită pe șantier</span></div>
-        <div class="pkg-sl"><a href="rental-kit.html" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--brand-border)">Rental Kit</a> <span style="font-size:11px;color:var(--brand);font-weight:500">(detalii →)</span></div>
+        <div class="pkg-sl"><a href="rental-kit.html" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--brand-border)">Rental Kit</a> <a href="rental-kit.html" style="font-size:11px;color:var(--brand);font-weight:500;text-decoration:none">(detalii →)</a></div>
         <div class="pf"><span class="fd">–</span><span>Ghid evaluare chiriaș + documente</span></div>
         <div class="pf"><span class="fd">–</span><span>Anunț foto + listare DIY</span></div>
       </div>
@@ -940,7 +977,7 @@ Spații de depozitare maximalizate in dormitor prin dulapuri integrate. Covoarel
         <div class="pkg-sl">Execuție</div>
         <div class="pf"><span class="fd">–</span><span>3 vizite pe șantier</span></div>
         <div class="pf"><span class="fd">–</span><span>Recomandări furnizori + agenție</span></div>
-        <div class="pkg-sl kit-label"><a href="rental-kit.html" style="color:inherit;text-decoration:none">Rental Kit Full Service</a> <span style="font-size:11px;font-weight:500">(detalii →)</span></div>
+        <div class="pkg-sl kit-label"><a href="rental-kit.html" style="color:inherit;text-decoration:none">Rental Kit Full Service</a> <a href="rental-kit.html" style="font-size:11px;font-weight:500;text-decoration:none;color:inherit">(detalii →)</a></div>
         <div class="pf"><span class="fd">–</span><span>Staging realizat de echipă</span></div>
         <div class="pf"><span class="fd">–</span><span>Fotografie profesională</span></div>
         <div class="pf"><span class="fd">–</span><span>Anunț redactat + optimizat</span></div>
@@ -948,17 +985,7 @@ Spații de depozitare maximalizate in dormitor prin dulapuri integrate. Covoarel
       </div>
     </div>
   </div>
-  <div class="audit-block">
-    <div>
-      <div class="ab-tag">Nu ești sigur dacă merită un proiect complet?</div>
-      <div class="ab-title">Audit de apartament</div>
-      <p class="ab-desc">Vizităm apartamentul, evaluăm starea și livrăm un raport complet cu ce merită schimbat, cât costă și cât câștigați în plus. Se scade din pachetul ales dacă continui.</p>
-    </div>
-    <div class="ab-r">
-      <div class="ab-price">200€</div>
-      <div class="ab-sub">per apartament · livrat în 48h</div>
-      <a class="ab-btn" href="audit.html">Află mai multe →</a>
-    </div>
+ 
   </div>
 </section>
 
@@ -988,7 +1015,7 @@ Spații de depozitare maximalizate in dormitor prin dulapuri integrate. Covoarel
 <!-- S11 CONTACT -->
 <section id="contact">
   <h2 class="con-h">Hai să vedem ce poate face<br><em>apartamentul tău.</em></h2>
-  <p class="con-sub">Trimite-ne un mesaj cu adresa apartamentului și chiria actuală sau dorită.<br>Îți răspundem în 3–5 zile lucrătoare cu o ofertă personalizată.</p>
+  <p class="con-sub">Spune-ne pe scurt cu ce te confrunți: chirie mică, chiriași care pleacă, apartament gol.<br>Îți răspundem în cel mai scurt timp cu o ofertă personalizată.</p>
   <div class="con-btns">
     <a class="con-p" href="https://wa.me/40741176865">WhatsApp direct →</a>
     <a class="con-g" href="mailto:hello@rentup.solutions">Email</a>
