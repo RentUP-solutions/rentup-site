@@ -48,14 +48,16 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .hero-sub{font-size:16px;color:var(--muted);line-height:1.72;max-width:520px}
 
 /* CATEGORY TABS */
-.cat-tabs{padding:0 56px;background:var(--bg);border-bottom:.5px solid var(--border);display:flex;gap:0;overflow-x:auto}
+.cat-tabs{padding:0 56px;background:var(--bg);border-bottom:.5px solid var(--border);display:flex;gap:0;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+.cat-tabs::-webkit-scrollbar{display:none}
+@media(max-width:768px){.cat-tabs{position:sticky;top:52px;z-index:90;background:rgba(253,250,246,.96);backdrop-filter:blur(12px)}}@media(max-width:768px){.cat-tabs{position:sticky;top:52px;z-index:90;background:rgba(253,250,246,.96);backdrop-filter:blur(12px)}}
 .cat-tab{font-size:13px;font-weight:500;color:var(--muted);padding:18px 22px;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s;background:none;border-top:none;border-left:none;border-right:none;font-family:'Inter',sans-serif}
 .cat-tab:hover{color:var(--text)}
 .cat-tab.active{color:var(--brand);border-bottom-color:var(--brand)}
 
 /* FAQ LAYOUT */
-.faq-layout{display:grid;grid-template-columns:240px 1fr;gap:0;background:linear-gradient(to right,#F5EFE6 240px,#E0DDD6 240px,#E0DDD6 241px,#FDFAF6 241px);border-bottom-left-radius:16px;overflow:hidden}
-.faq-sidebar{align-self:start}.faq-sidebar-inner{padding:40px 32px}.sidebar-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:16px}
+.faq-layout{display:grid;grid-template-columns:240px 1fr;gap:0;background:linear-gradient(to right,#F5EFE6 240px,#E0DDD6 240px,#E0DDD6 241px,#FDFAF6 241px);border-bottom-left-radius:16px}
+.faq-sidebar{align-self:start;position:sticky;top:80px}.faq-sidebar-inner{padding:20px 32px}.sidebar-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:16px}
 .sidebar-link{display:block;font-size:13px;color:var(--muted);padding:8px 12px;border-radius:6px;cursor:pointer;transition:all .15s;margin-bottom:2px;text-decoration:none}
 .sidebar-link:hover{background:var(--bg-warm);color:var(--text)}
 .sidebar-link.active{background:var(--brand-light);color:var(--brand)}
@@ -244,7 +246,6 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   <button class="cat-tab" onclick="scrollToSec('audit')">Auditul</button>
   <button class="cat-tab" onclick="scrollToSec('pachete')">Pachete & Prețuri</button>
   <button class="cat-tab" onclick="scrollToSec('selectie')">Selecția chiriașului</button>
-  <button class="cat-tab" onclick="scrollToSec('contract')">Contracte & Legal</button>
   <button class="cat-tab" onclick="scrollToSec('probleme')">Situații dificile</button>
   <button class="cat-tab" onclick="scrollToSec('rental-kit')">Rental Kit</button>
 </div>
@@ -254,13 +255,12 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 
   <!-- SIDEBAR -->
   <div class="faq-sidebar">
-    <div class="faq-sidebar-inner" style="position:static">
+    <div class="faq-sidebar-inner">
     <div class="sidebar-label">Categorii</div>
     <a class="sidebar-link active" href="#despre">Despre Rent Up</a>
     <a class="sidebar-link" href="#audit">Auditul</a>
     <a class="sidebar-link" href="#pachete">Pachete & Prețuri</a>
     <a class="sidebar-link" href="#selectie">Selecția chiriașului</a>
-    <a class="sidebar-link" href="#contract">Contracte & Legal</a>
     <a class="sidebar-link" href="#probleme">Situații dificile</a>
     <a class="sidebar-link" href="#rental-kit">Rental Kit</a>
     </div><!-- /sidebar-inner -->
@@ -490,18 +490,26 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 
       <div class="faq-item">
         <button class="faq-q" onclick="toggle(this)">
-          <span class="fq-text">Ce înseamnă sistemul de selecție pe 4 piloni?</span>
+          <span class="fq-text">Cum mă ajută Rental Kit-ul să găsesc și să păstrez un chiriaș bun?</span>
           <span class="fq-icon">+</span>
         </button>
         <div class="faq-a">
-          <p>Rental Kit-ul include un chestionar structurat care evaluează fiecare candidat pe patru dimensiuni:</p>
+          <p>Rental Kit-ul este sistemul complet care acoperă tot ce se întâmplă după design, de la primul anunț până la predarea cheilor la final.</p>
+          <p>Concret, în procesul de selecție și management, primești:</p>
           <ul class="fa-list">
-          <div><strong>Stabilitate financiară:</strong> venit verificabil, angajare stabilă</div>
-<div><strong>Istoric de chiriaș:</strong> referință de la proprietarul anterior, de ce a plecat</div>
-<div><strong>Stil de viață:</strong> fumător, animale, număr de persoane, activitate la domiciliu</div>
-<div><strong>Comunicare:</strong> cum răspunde, cum se prezintă, semnale de alarmă în conversație</div>
+            <li>Un chestionar structurat pentru evaluarea candidaților</li>
+            <li>Selecție pe criterii clare: stabilitate financiară, istoric, stil de viață, comunicare</li>
+            <li>Modele de comunicare pentru fiecare etapă: de la primul mesaj până la semnarea contractului</li>
+            <li>Contract personalizat pentru proprietatea ta, cu clauze care te protejează</li>
+            <li>Protocol pas cu pas pentru situații dificile: neplată, daune, refuz evacuare</li>
+            <li>Ghid chiriaș:documentul care construiește relația corect, de la prima zi</li>
           </ul>
-          <p>Documentul include și o fișă de evaluare internă (uz Rent Up) care ajută la decizia finală bazată pe dovezi, nu pe instinct.</p>
+          <p>Rental Kit-ul nu se vinde separat, vine cu proiectul de design, pentru că singur, fără apartamentul care filtrează, valorează mai puțin.</p>
+          <div style="margin-top:14px;padding:14px 16px;background:#FAF4EB;border:.5px solid #E8D5BC;border-radius:8px">
+            <div style="font-size:13px;font-weight:500;color:#C77936;margin-bottom:6px">Vrei să vezi exact ce conține?</div>
+            <div style="font-size:13px;color:#9A8E82;margin-bottom:10px">Toate modulele, documentele și protocoalele sunt detaliate pe pagina dedicată.</div>
+            <a href="rental-kit.html" style="font-size:13px;font-weight:500;color:white;background:#C77936;padding:8px 18px;border-radius:100px;text-decoration:none;display:inline-block;margin-top:8px">Descoperă Rental Kit →</a>
+          </div>
         </div>
       </div>
 
@@ -524,30 +532,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 
     </div>
 
-    <!-- CONTRACTE -->
-    <div class="faq-cat" id="contract">
-      <div class="faq-cat-header">
-        <div class="faq-cat-tag">05 · Contracte & Legal</div>
-        <div class="faq-cat-title">Contractul, ANAF și notarul.</div>
-        <div class="faq-cat-desc">Protecție legală reală. Ce documentele fac diferența.</div>
-      </div>
 
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggle(this)">
-          <span class="fq-text">Ce este titlul executoriu și de ce contează?</span>
-          <span class="fq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <p>Un titlu executoriu îți permite să acționezi direct împotriva unui debitor fără a obține mai întâi o hotărâre judecătorească. Adică fără luni de instanță.</p>
-          <div style="margin-top:14px;padding:14px 16px;background:#FAF4EB;border:.5px solid #E8D5BC;border-radius:8px">
-            <div style="font-size:13px;font-weight:500;color:#C77936;margin-bottom:6px">Cum funcționează exact și cum te protejează?</div>
-            <div style="font-size:13px;color:#9A8E82;margin-bottom:10px">Protocoalele complete: contracte, clauze, executor judecătoresc — incluse în Rental Kit.</div>
-<a href="rental-kit.html" style="font-size:13px;font-weight:500;color:white;background:#C77936;padding:8px 18px;border-radius:100px;text-decoration:none;display:inline-block;margin-top:8px">Descoperă Rental Kit →</a>          </div>
-        </div>
-      </div>
-
-    </div>
-    <!-- /CONTRACTE -->
     <!-- SITUATII DIFICILE -->
     <div class="faq-cat" id="probleme">
       <div class="faq-cat-header">
@@ -571,9 +556,12 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
           <span class="fq-icon">+</span>
         </button>
         <div class="faq-a">
-          <p><strong>Pasul 1:</strong> Încearcă medierea. Propune un acord scris: dacă pleacă în X zile, renunți la penalități. Mai rapid și mai ieftin decât orice altă cale.</p>
-          <p><strong>Pasul 2:</strong> Urmezi același protocol ca la neplata chiriei de la Ziua 15–30: notificare de reziliere, executor, evacuare judiciară dacă e necesar.</p>
-          <div class="fa-note">Atenție: evacuarea forțată e interzisă prin lege între 1 decembrie și 1 martie. Dacă apar semnale de problemă în octombrie-noiembrie, inițiezi procedura înainte de 1 decembrie.</div>
+          <p>Există un protocol clar pentru această situație. De la mediere amiabilă până la evacuare prin executor, fără luni de instanță judecătorească. Depinde de tipul contractului pe care îl ai.</p>
+          <div style="margin-top:12px;padding:14px 16px;background:#FAF4EB;border:.5px solid #E8D5BC;border-radius:8px">
+            <div style="font-size:13px;font-weight:500;color:#C77936;margin-bottom:6px">Protocolul complet este în Rental Kit.</div>
+            <div style="font-size:13px;color:#9A8E82;margin-bottom:10px">Pași exacți, termene, modele de notificări și clauze contractuale care fac diferența.</div>
+            <a href="rental-kit.html" style="font-size:13px;font-weight:500;color:white;background:#C77936;padding:8px 18px;border-radius:100px;text-decoration:none;display:inline-block;margin-top:8px">Descoperă Rental Kit →</a>
+          </div>
         </div>
       </div>
 

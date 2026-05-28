@@ -97,7 +97,7 @@ h2.sh-dark{font-size:36px;font-weight:300;color:var(--dark);line-height:1.1;lett
 .qc-positive{}
 .qc-positive .qc-text{}
 .qc-positive .qc-source{}
-.qc-highlight{grid-column:span 2}
+.qc-highlight{grid-column:span 1}
 
 /* THE SYSTEM */
 .system-section{padding:88px 56px;background:var(--bg)}
@@ -242,9 +242,10 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 
 <!-- PROBLEMS -->
 <section class="problems">
-  <div class="sec-tag-dark"><div class="dot"></div>Situații frecvente</div>
-  <h2 class="sh-dark">Ce merge prost<br>și de ce nu e inevitabil.</h2>
-  <p class="sec-sub-dark">Fiecare situație de mai jos are o soluție structurată. Diferența dintre stres și liniște nu e norocul, ci existența unui sistem.</p>
+  <div style="max-width:1100px;margin:0 auto">
+  <div class="sec-tag-dark" style="justify-content:center"><div class="dot"></div>Situații frecvente</div>
+  <h2 class="sh-dark" style="text-align:center">Ce merge prost<br>și de ce nu e inevitabil.</h2>
+  <p class="sec-sub-dark" style="text-align:center;max-width:520px;margin:0 auto 56px">Fiecare situație de mai jos are o soluție structurată. Diferența dintre stres și liniște nu e norocul, ci existența unui sistem.</p>
 
   <div class="problems-grid">
 
@@ -287,7 +288,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
           <li>Ghid cu acțiunile exacte de la Ziua 1 la Ziua 60+</li>
           <li>Modele de notificări formale (WhatsApp + email + recomandat)</li>
           <li>Contract ANAF = titlu executoriu pentru sumele datorate</li>
-          <li>Contract notarial = executor direct fără instanță separată</li>
+          <li>Contract notarial = executor direct fără instanță judecătorească</li>
         </ul>
       </div>
     </div>
@@ -306,10 +307,9 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
         <div class="p-sol-tag">Soluția Rent Up</div>
         <div class="p-sol-title">Design + selecție = retenție</div>
         <ul class="p-sol-items">
-          <li>Un apartament îngrijit și coerent atrage profilul care stă</li>
-          <li>Sistem de selecție pe 4 piloni</li>
+          <li>Un apartament îngrijit și coerent atrage profilul stabil</li>
+          <li>Sistem de selecție al chiriașilor</li>
           <li>Chiriașul potrivit stă 2-3 ani, nu 6-12 luni</li>
-          <li>Scrisoarea de referință creează continuitate și responsabilizare</li>
         </ul>
       </div>
     </div>
@@ -350,7 +350,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
         <div class="p-sol-tag">Soluția Rent Up</div>
         <div class="p-sol-title">Selecție structurată pe dovezi</div>
         <ul class="p-sol-items">
-          <li>Chestionar standardizat pe 4 piloni: comportament, stabilitate, istoric, comunicare</li>
+          <li>Chestionar standardizat pentru chiriași</li>
           <li>Verificarea referinței de la proprietarul anterior</li>
           <li>Designul apartamentului filtrează natural profilul neadecvat</li>
           <li>Prețul corect atrage profilul potrivit, nu cel mai mic preț</li>
@@ -380,18 +380,20 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     </div>
 
   </div>
+  </div>
 </section>
 
 <!-- QUOTES -->
 <section class="quotes-section">
-  <div class="sec-tag"><div class="dot"></div>Ce spun proprietarii</div>
-  <h2 class="sh">Experiențe reale.<br>Soluții reale.</h2>
-  <p style="font-size:15px;color:var(--muted);line-height:1.7;max-width:520px">Din sondajele noastre în comunitățile de proprietari din România. Pentru că înțelegem contextul în care lucrăm.</p>
+  <div style="max-width:1100px;margin:0 auto">
+  <div class="sec-tag" style="justify-content:center"><div class="dot"></div>Ce spun proprietarii</div>
+  <h2 class="sh" style="text-align:center">Experiențe reale.<br>Soluții reale.</h2>
+  <p style="font-size:15px;color:var(--muted);line-height:1.7;max-width:520px;text-align:center;margin:0 auto">Din sondajele noastre în comunitățile de proprietari din România. Pentru că înțelegem contextul în care lucrăm.</p>
 
   <div class="quotes-grid">
     <div class="quote-card">
       <div class="qc-mark">"</div>
-      <div class="qc-text">Aspectul cel mai traumatizant este investițiile în reparații și renovări în urma chiriașilor care nu își respectă obligațiile contractuale.</div>
+      <div class="qc-text">Aspectul cel mai traumatizant îl reprezintă investițiile în reparații și renovări în urma chiriașilor care nu își respectă obligațiile contractuale.</div>
       <div class="qc-source"><div class="qc-dot"></div>Proprietar, 25 ani experiență</div>
     </div>
     <div class="quote-card">
@@ -414,11 +416,12 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
       <div class="qc-text">Am preferat un om de încredere, i-am lăsat chiria sub prețul pieței. Când și-a pierdut serviciul, i-am lăsat câteva luni gratis. S-au făcut vreo 8 ani.</div>
       <div class="qc-source"><div class="qc-dot"></div>Proprietar, Facebook</div>
     </div>
-    <div class="quote-card">
+    <div class="quote-card qc-highlight">
       <div class="qc-mark">"</div>
       <div class="qc-text">Nu eram convins că există altceva în afară de noroc. Acum înțeleg că selecția și documentația fac cea mai mare diferență, nu întâmplarea.</div>
       <div class="qc-source"><div class="qc-dot"></div>Client Rent Up, după audit</div>
     </div>
+  </div>
   </div>
 </section>
 

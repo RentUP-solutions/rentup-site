@@ -122,7 +122,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .team-g{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:56px}
 .tc{border:.5px solid var(--border);border-radius:14px;overflow:hidden;background:var(--bg);transition:box-shadow .2s}
 .tc:hover{box-shadow:0 8px 32px rgba(45,40,32,.07)}
-.tc-photo{background:linear-gradient(140deg,var(--bg-warm) 0%,var(--bg-stone) 100%);height:680px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--light);letter-spacing:.04em}
+.tc-photo{background:linear-gradient(140deg,var(--bg-warm) 0%,var(--bg-stone) 100%);height:380px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--light);letter-spacing:.04em}
 .tc-body{padding:24px 26px}
 .tc-role{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--brand);margin-bottom:7px}
 .tc-name{font-size:19px;font-weight:500;margin-bottom:12px}
@@ -136,7 +136,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .rt strong{color:var(--text);font-weight:500}
 
 /* ── CLIENT FIT ── */
-#fit{background:var(--bg)}
+#fit{background:var(--bg);padding-top:50px}
 .fit-g{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
 .fc{border:.5px solid var(--border);border-radius:14px;padding:28px;background:var(--bg)}
 .fc-t{font-size:15px;font-weight:500;margin-bottom:18px;display:flex;align-items:center;gap:10px}
@@ -292,6 +292,9 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .con-micro{font-size:12px;color:#5A5248;margin-top:32px}
 
 footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.footer-bottom{display:flex;gap:0;align-items:center}
+.footer-bottom .f-t+.f-t::before{content:" · ";color:var(--light);margin-left:4px}
+@media(max-width:600px){.footer-bottom{flex-direction:column;gap:4px}.footer-bottom .f-t+.f-t::before{display:none}}
 .f-logo{font-size:15px;font-weight:500;color:var(--brand)}
 .f-t{font-size:12px;color:var(--light)}
 
@@ -708,8 +711,9 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 
 <!-- S4 CLIENT FIT -->
 <section id="fit">
-  <div class="sec-tag"><div class="dot"></div>Este pentru tine?</div>
-  <h2 class="sh">Lucrăm cu proprietarii<br>care vor rezultate reale.</h2>
+  <div style="max-width:960px;margin:0 auto">
+  <div class="sec-tag" style="justify-content:center"><div class="dot"></div>Este pentru tine?</div>
+  <h2 class="sh" style="text-align:center;margin-bottom:40px">Lucrăm cu proprietarii care vor rezultate reale.</h2>
   <div class="fit-g">
     <div class="fc">
       <div class="fc-t yes">✓ Potrivit pentru tine dacă...</div>
@@ -735,6 +739,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     </div>
   </div>
   <div class="fit-note">Nu colaborăm pentru a face un apartament DOAR mai frumos. Colaborăm pentru a-l transforma într-un activ stabil și profitabil. Dacă obiectivele tale se aliniază cu asta, suntem în locul potrivit.</div>
+  </div>
 </section>
 
 
@@ -756,7 +761,8 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 
 <!-- DE CE FUNCTIONEAZA -->
 <section style="background:var(--bg)">
-  <div class="sec-tag"><div class="dot"></div>De ce funcționează</div>
+  <div style="max-width:860px;margin:0 auto">
+  <div class="sec-tag" style="justify-content:center"><div class="dot"></div>De ce funcționează</div>
 <div class="reasons">
     <div class="reason"><span class="rn">01</span><div class="rt"><strong>Creștem venitul, nu doar aspectul</strong> — Nu vindem randări. Vindem rezultate: chirie mai mare, chiriași mai stabili, mai puține perioade goale. Diferența poate ajunge la mii de euro în câțiva ani.</div></div>
     <div class="reason"><span class="rn">02</span><div class="rt"><strong>Un sistem complet, nu un proiect izolat</strong> — Design + strategie de piață + listare + selecție chiriaș + protecție contractuală. Primești un proces clar, nu doar un concept.</div></div>
@@ -764,19 +770,20 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     <div class="reason"><span class="rn">04</span><div class="rt"><strong>Atragem tipul corect de chiriaș</strong> — Definim cui i se adresează apartamentul, cum îl prezentăm și cum îl selectăm. Chiriași mai stabili, contracte mai lungi.</div></div>
     <div class="reason"><span class="rn">05</span><div class="rt"><strong>Claritate și control în tot procesul</strong> — Fără improvizații. Pași definiți, termene clare, suport în implementare. Știi exact ce se întâmplă, când și de ce.</div></div>
   </div>
+  </div>
 </section>
 
 
 </section>
 <!-- S6 PORTFOLIO -->
 <section id="portfolio">
-  <div class="sec-tag"><div class="dot"></div>Portofoliu</div>
-  <h2 class="sh">Rezultate reale.<br>Spații transformate.</h2>
-  <p class="sec-sub">Fiecare proiect a urmărit același obiectiv: un apartament care produce mai mult, cu mai puțin efort pentru proprietar.</p>
-  <div class="port-g">
+  <div class="sec-tag" style="justify-content:center"><div class="dot"></div>Portofoliu</div>
+  <h2 class="sh" style="text-align:center">Rezultate reale.<br>Spații transformate.</h2>
+  <p class="sec-sub" style="text-align:center;margin:0 auto 44px">Fiecare proiect a urmărit același obiectiv: un apartament care produce mai mult, cu mai puțin efort pentru proprietar.</p>
+  <div class="port-g" style="grid-template-columns:1fr;max-width:860px;margin:0 auto 28px">
     <div class="ba">
       <div class="ba-photos" style="display:block">
-        <img src="images/portofoliu_4.webp" style="width:100%;height:400px;max-height:60vw;object-fit:cover;display:block">
+        <img src="images/portofoliu_4.webp" style="width:100%;height:400px;max-height:60vw;object-fit:cover;object-position:center bottom;display:block">
       </div>
       <div class="ba-info">
         <div><div class="ba-name">Garsonieră Vatra Luminoasă · 32 mp</div><div class="ba-meta">Pachet Standard · 2 săptămâni</div></div>
@@ -785,7 +792,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     </div>
     <div class="ba">
       <div class="ba-photos" style="display:block">
-        <img src="images/portofoliu_3.webp" style="width:100%;height:400px;max-height:60vw;object-fit:cover;display:block">
+        <img src="images/portofoliu_3.webp" style="width:100%;height:400px;max-height:60vw;object-fit:cover;object-position:center bottom;display:block">
       </div>
       <div class="ba-info">
         <div><div class="ba-name">2 camere Drumul Taberei · 55 mp</div><div class="ba-meta">Pachet Premium · 12 săptămâni</div></div>
@@ -793,7 +800,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
       </div>
     </div>
   </div>
-  <a class="port-cta" href="portofoliu.html">
+  <a class="port-cta" href="portofoliu.html" style="max-width:860px;margin:0 auto">
     <div>
       <div class="port-cta-l">Vezi toate proiectele</div>
       <div class="port-cta-sub">4 proiecte finalizate · Before & after complet · Statistici detaliate</div>
@@ -805,8 +812,9 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 
 <!-- S7 TESTIMONIALS -->
 <section id="testimonials">
-  <div class="sec-tag"><div class="dot"></div>Testimoniale</div>
-  <h2 class="sh">Ce spun proprietarii.</h2>
+ <div style="max-width:860px;margin:0 auto">
+  <div class="sec-tag" style="justify-content:center"><div class="dot"></div>Testimoniale</div>
+  <h2 class="sh" style="text-align:center;margin-bottom:40px">Ce spun proprietarii.</h2>
 
   <!-- STUDIU DE CAZ 1: 2 camere Drumul Taberei -->
   <div class="cs" style="margin-bottom:16px">
@@ -889,16 +897,18 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
       <div class="cs-q">„Sincer, mă așteptam la randări frumoase și atât. Nu mă așteptam să am și un sistem clar pentru ce fac cu apartamentul după. Chiriașul de acum e cel mai bun pe care l-am avut și cred că asta nu e o coincidență."<div class="cs-qa">— Costin, proprietar apartament 2 camere · Pachet Standard</div></div>
     </div>
   </div>
+  </div>
 
 </section>
 
 
 <!-- S3 ABOUT -->
 <section id="about">
-  <div class="sec-tag"><div class="dot"></div>Despre noi</div>
+  <div style="max-width:960px;margin:0 auto;text-align:center">
+  <div class="sec-tag" style="justify-content:center"><div class="dot"></div>Despre noi</div>
   <h2 class="sh">Nu facem design.<br>Optimizăm active imobiliare.</h2>
-  <p class="sec-sub">Misiunea noastră este să transformăm apartamentele obișnuite în active stabile și profitabile. Nu ne concentrăm doar pe estetică, ci pe performanța reală a spațiului în timp.</p>
-  <div class="team-g">
+  <p class="sec-sub" style="margin:0 auto 44px">Misiunea noastră este să transformăm apartamentele obișnuite în active stabile și profitabile. Nu ne concentrăm doar pe estetică, ci pe performanța reală a spațiului în timp.</p>
+  <div class="team-g" style="text-align:left;max-width:860px;margin:0 auto">
     <div class="tc">
       <div class="tc-photo" style="padding:0;overflow:hidden"><img src="images/about us_cristiana.webp" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></div>
       <div class="tc-body">
@@ -910,7 +920,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
       </div>
     </div>
     <div class="tc">
-      <div class="tc-photo" style="padding:0;overflow:hidden"><img src="images/about us_catalina.webp" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></div>
+      <div class="tc-photo" style="padding:0;overflow:hidden"><img src="images/about us_catalina.webp" style="width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;transform:scale(1.16);transform-origin:center 5%"></div>
       <div class="tc-body">
         <div class="tc-role">Co-fondator</div>
         <div class="tc-name">Avram Cătălina</div>
@@ -922,6 +932,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   </div>
 
   <!-- CE OFERIM -->
+  </div>
 </section>
 
 <!-- S8 PACKAGES -->
@@ -1032,12 +1043,13 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 <footer style="flex-direction:column;align-items:center;text-align:center;gap:6px">
 
   <div class="f-t">București · Rental Performance System </div>
-  <div class="f-t">
-    © 2025–2026 Rent Up. Toate drepturile rezervate.
-    &nbsp;·&nbsp;
-    <a href="termeni.html" style="color:var(--light);text-decoration:none">Termeni și condiții</a>
-    &nbsp;·&nbsp;
-    <a href="confidentialitate.html" style="color:var(--light);text-decoration:none">Politică de confidențialitate</a>
+  <div class="footer-bottom">
+    <div class="f-t">© 2025–2026 Rent Up. Toate drepturile rezervate  </div>
+    <div class="f-t">
+      <a href="termeni.html" style="color:var(--light);text-decoration:none"> Termeni și condiții</a>
+      &nbsp;·&nbsp;
+      <a href="confidentialitate.html" style="color:var(--light);text-decoration:none">Politică de confidențialitate</a>
+    </div>
   </div>
 </footer>
 

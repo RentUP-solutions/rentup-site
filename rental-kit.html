@@ -70,7 +70,7 @@ h2.sh{font-size:36px;font-weight:300;letter-spacing:-.025em;margin-bottom:12px}
 
 /* MODULE LIST */
 .modules{display:flex;flex-direction:column;gap:4px;margin-bottom:40px}
-.mod-row{display:flex;gap:14px;padding:14px 18px;border:.5px solid var(--border);border-radius:8px;background:var(--bg);align-items:center;transition:all .15s}
+.mod-row{display:flex;gap:14px;padding:14px 18px;border:1px solid var(--border);border-radius:8px;background:var(--bg);align-items:center;transition:all .15s}
 .mod-row:hover{background:var(--brand-light);border-color:var(--brand-border)}
 .mod-num{font-size:11px;font-weight:600;color:var(--brand);width:22px;flex-shrink:0}
 .mod-title{font-size:14px;font-weight:500;flex:1}
@@ -127,7 +127,7 @@ h2.sh{font-size:36px;font-weight:300;letter-spacing:-.025em;margin-bottom:12px}
 
 /* ANNEXES */
 .annexes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:0}
-.ann{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:18px 20px;transition:all .2s}
+.ann{background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:18px 20px;transition:all .2s}
 .ann:hover{background:var(--brand-light);border-color:var(--brand-border)}
 .ann-code{font-size:10px;font-weight:600;color:var(--brand);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
 .ann-title{font-size:13px;font-weight:500;margin-bottom:6px}
@@ -256,12 +256,12 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 </div>
 
 <!-- WHAT IS -->
-<div class="what-is">
-  <div class="wi-l">
-    <h2>Ce este un Rental Kit?</h2>
-    <p>Cel mai frecvent auzim că designul e clar. Ce nu e clar e ce urmează după.</em></p>
-    <p>Designul rezolvă cum arată apartamentul. Rental Kit-ul rezolvă ce faci cu el după, cum listezi, pe cine primești, cum predai cheile fără să-ți pară rău.
-</p>
+<div class="what-is" style="display:block">
+  <div style="max-width:860px;margin:0 auto">
+  <div class="wi-l" style="text-align:center;max-width:600px;margin:0 auto 40px">
+    <h2 style="text-align:center">Ce este un Rental Kit?</h2>
+    <p>Cel mai frecvent auzim că designul e clar. Ce nu e clar e ce urmează după.</p>
+    <p>Designul rezolvă cum arată apartamentul. Rental Kit-ul rezolvă ce faci cu el după, cum listezi, pe cine primești, cum predai cheile fără să-ți pară rău.</p>
     <p>Rental Kit-ul este documentul care transformă un apartament frumos într-o închiriere fără bătăi de cap.</p>
   </div>
   <div class="wi-r">
@@ -283,13 +283,15 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     </div>
     </div>
   </div>
+  </div>
 </div>
 
 <!-- GHID PROPRIETAR PREVIEW -->
 <section style="background:var(--bg)">
-  <div class="sec-tag"><div class="dot"></div>Ghid Proprietar</div>
-  <h2 class="sh">Tot ce ai nevoie<br>de la anunț până la predare.</h2>
-  <p class="sec-sub">Șapte module care acoperă întregul ciclu de viață al chiriei. Nu e un template generic, e un document personalizat pentru proprietatea ta, zona ta și profilul de chiriaș urmărit.</p>
+  <div style="max-width:860px;margin:0 auto">
+  <div class="sec-tag" style="justify-content:center"><div class="dot"></div>Ghid Proprietar</div>
+  <h2 class="sh" style="text-align:center">Tot ce ai nevoie<br>de la anunț până la predare.</h2>
+  <p class="sec-sub" style="text-align:center;margin:0 auto 44px">Șapte module care acoperă întregul ciclu de viață al chiriei. Nu e un template generic, e un document personalizat pentru proprietatea ta, zona ta și profilul de chiriaș urmărit.</p>
 
   <div class="modules">
     <div class="mod-row"><span class="mod-num">01</span><span class="mod-title">Poziționarea proprietății: public țintă, mesaj, prețul corect</span><div class="mod-tags"><span class="mod-tag">strategie</span></div></div>
@@ -384,13 +386,15 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     <div class="ann"><div class="ann-code"></div><div class="ann-title">Politica de garanție</div><div class="ann-desc">Condiții clare + procedura de avertisment în 3 pași (5 zile notificare, 10 zile remediere, reținere justificată).</div></div>
     <div class="ann"><div class="ann-code"></div><div class="ann-title">Check-list inspecție periodică</div><div class="ann-desc">12 elemente verificate, concluzie în 3 variante, semnat de ambele părți. Opțional.</div></div>
   </div>
+  </div>
 </section>
 
 <!-- GHID CHIRIAS PREVIEW -->
 <section style="background:var(--bg-stone)">
-  <div class="sec-tag"><div class="dot"></div>Ghid Chiriaș</div>
-  <h2 class="sh">Un chiriaș informat<br>e un chiriaș responsabil.</h2>
-  <p class="sec-sub">Ghidul de chiriaș nu e o listă de reguli. E un document care construiește relația de la prima zi, cu ton cald, informații clare și zero ambiguitate despre garanție.</p>
+  <div style="max-width:860px;margin:0 auto">
+  <div class="sec-tag" style="justify-content:center"><div class="dot"></div>Ghid Chiriaș</div>
+  <h2 class="sh" style="text-align:center">Un chiriaș informat<br>e un chiriaș responsabil.</h2>
+  <p class="sec-sub" style="text-align:center;margin:0 auto 44px">Ghidul de chiriaș nu e o listă de reguli. E un document care construiește relația de la prima zi, cu ton cald, informații clare și zero ambiguitate despre garanție.</p>
 
   <div class="previews">
     <div class="doc-frame">
@@ -463,8 +467,9 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   <div class="sec-tag"><div class="dot"></div>Documente pentru chiriaș</div>
   <div class="annexes">
     <div class="ann"><div class="ann-code"></div><div class="ann-title">Reguli de utilizare</div><div class="ann-desc">Ce e interzis și ce e obligatoriu, clar și fără ambiguitate, semnat la predarea cheilor.</div></div>
-    <div class="ann"><div class="ann-code"></div><div class="ann-title">Garanție — rezumat chiriaș</div><div class="ann-desc">Mecanismul complet în limbaj simplu. Procedura de avertisment în 3 pași, fără surprize la final.</div></div>
+    <div class="ann"><div class="ann-code"></div><div class="ann-title">Ghid de returnare garanție</div><div class="ann-desc">Mecanismul complet în limbaj simplu. Procedura de avertisment în 3 pași, fără surprize la final.</div></div>
     <div class="ann"><div class="ann-code"></div><div class="ann-title">Fișă de urgențe</div><div class="ann-desc">Instalator, electrician, administrator bloc, urgențe gaz, 112. Completată înainte de predare.</div></div>
+  </div>
   </div>
 </section>
 
