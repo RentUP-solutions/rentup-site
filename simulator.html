@@ -982,7 +982,9 @@ function saveConf(){
   const e=document.getElementById("sv-e");
   const t=document.getElementById("sv-t");
   if(!e||!e.value){toast("Adaugă adresa de email");return;}
-  const encoded=btoa(unescape(encodeURIComponent(JSON.stringify(S))));
+  const slim={mp:S.mp,locatie:S.locatie,imobil:S.imobil,lift:S.lift,etaj:S.etaj,electro:S.electro,r:{}};
+  Object.keys(S.rooms).forEach(id=>{const r=S.rooms[id];if(r.on)slim.r[id]=r.opts;});
+  const encoded=btoa(unescape(encodeURIComponent(JSON.stringify(slim))));
   const link='https://www.rentup.solutions/simulator.html?config='+encoded;
   emailjs.send(EMAILJS_SERVICE,'template_x1urivg',{
     to_name:t?.value||'Configurație salvată',
@@ -1002,9 +1004,17 @@ updT();
     const p=new URLSearchParams(window.location.search).get('config');
     if(!p)return;
     const saved=JSON.parse(decodeURIComponent(escape(atob(p))));
-    if(!saved||!saved.rooms)return;
-    Object.assign(S,saved);
+    if(!saved||!saved.r)return;
     S.mp=saved.mp||65;
+    S.locatie=saved.locatie||'buc';
+    S.imobil=saved.imobil||'nou';
+    S.lift=saved.lift||'nu';
+    S.etaj=saved.etaj||0;
+    S.electro=saved.electro||0;
+    Object.keys(S.rooms).forEach(id=>{
+      if(saved.r[id]){S.rooms[id].on=true;S.rooms[id].opts=saved.r[id];}
+      else S.rooms[id].on=false;
+    });
     document.getElementById("mp-v").textContent=S.mp;
     document.querySelector("input[type=range]").value=S.mp;
     Object.keys(S.rooms).forEach(id=>{
