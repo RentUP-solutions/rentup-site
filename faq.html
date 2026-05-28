@@ -3,7 +3,7 @@
 <head>
   <meta name="format-detection" content="telephone=no">
 <meta charset="UTF-8">
-<link rel="icon" type="image/png" href="favicon.png">
+<link rel="icon" type="image/webp" href="favicon.webp">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Întrebări Frecvente despre Închiriere și Design Interior | Rent Up</title>
 <meta name="keywords" content="întrebări frecvente închiriere, cum găsesc chiriaș bun, merit să investesc în design apartament, cât durează proiect design interior">
@@ -130,6 +130,13 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .nav-cta{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:#C77936;border:.5px solid #C77936;padding:8px 18px;border-radius:100px;text-decoration:none;white-space:nowrap;transition:background .2s}
 .nav-cta:hover{background:#FAF4EB}
 @media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}}
+@media(max-width:768px){
+  footer > div > div:first-child > div:last-child{
+    display:flex!important;
+    flex-direction:column!important;
+    gap:32px!important;
+  }
+}
 
 /* Page transitions */
 body{opacity:0;transition:opacity .22s ease}
@@ -644,11 +651,11 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 <footer style="background:#FDFAF6;border-top:.5px solid #EDE5D8;padding:48px 56px 32px">
   <div style="max-width:1200px;margin:0 auto">
     <div style="display:flex;flex-wrap:wrap;gap:48px;justify-content:space-between;margin-bottom:40px">
-      <div>
-        <div style="font-size:17px;font-weight:500;color:#C77936;font-family:Inter,sans-serif;margin-bottom:8px">Rent Up</div>
+      <div style="flex:0 0 200px;max-width:200px">
+        <a href="index.html" style="font-size:17px;font-weight:600;color:#C77936;font-family:Inter,sans-serif;margin-bottom:8px;text-decoration:none;letter-spacing:-.01em;display:inline-block">Rent<span style="color:#2D2820;font-weight:300">Up</span></a>
         <div style="font-size:13px;color:#9A8E82;line-height:1.6">Prima firmă de<br>rental optimization<br>din România.<br>București · 2025</div>
       </div>
-      <div style="display:flex;gap:48px;flex-wrap:wrap">
+      <div style="display:flex;gap:32px;flex-wrap:wrap;flex:1;justify-content:space-between">
         <div>
           <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:#B8AFA4;margin-bottom:14px">Servicii</div>
           <div style="display:flex;flex-direction:column;gap:10px">
@@ -671,14 +678,16 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
           <div style="display:flex;flex-direction:column;gap:10px">
             <span style="font-size:13px;color:#7A6E62">hello@rentup.solutions</span>
             <span style="font-size:13px;color:#7A6E62">+40 741 176 865</span>
-            <a href="https://instagram.com/rentup.ro" style="font-size:13px;color:#7A6E62;text-decoration:none">@rentup.solutions</a>
+            <a href="https://instagram.com/rentup.solutions" style="font-size:13px;color:#7A6E62;text-decoration:none">@rentup.solutions</a>
           </div>
         </div>
       </div>
     </div>
-    <div style="padding-top:20px;border-top:.5px solid #EDE5D8;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px">
-      <div style="font-size:12px;color:#B8AFA4">© 2025 Rent Up · Toate drepturile rezervate</div>
-      <div style="font-size:12px;color:#B8AFA4">Rental Performance System · Verificat juridic</div>
+    <div style="padding-top:20px;border-top:.5px solid #EDE5D8;display:flex;justify-content:center;flex-wrap:wrap;gap:6px 24px;text-align:center;width:100%">
+    <div style="font-size:12px;color:#B8AFA4;white-space:nowrap">București · Rental Performance System</div>
+<div style="font-size:12px;color:#B8AFA4;white-space:nowrap">© 2025–2026 Rent Up · Toate drepturile rezervate</div>
+<a href="termeni.html" style="font-size:12px;color:#B8AFA4;text-decoration:none;white-space:nowrap">Termeni și condiții</a>
+<a href="confidentialitate.html" style="font-size:12px;color:#B8AFA4;text-decoration:none;white-space:nowrap">Politică de confidențialitate</a>
     </div>
   </div>
 </footer>
