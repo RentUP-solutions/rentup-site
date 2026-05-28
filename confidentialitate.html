@@ -27,10 +27,11 @@ ul li::before{content:"–";position:absolute;left:0;color:var(--brand);font-wei
 a{color:var(--brand);text-decoration:none}
 a:hover{text-decoration:underline}
 .divider{height:.5px;background:var(--border);margin:36px 0}
+.scope-table{width:100%;border-collapse:collapse;margin:12px 0 20px}
+.scope-table th{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--dark);padding:8px 12px;background:var(--bg-stone);border:.5px solid var(--border);text-align:left}
+.scope-table td{font-size:13px;color:var(--mid);line-height:1.65;padding:8px 12px;border:.5px solid var(--border);vertical-align:top}
 footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
-.f-logo{font-size:15px;font-weight:500;color:var(--brand)}
-.f-t{font-size:12px;color:var(--muted)}
-@media(max-width:600px){nav{padding:0 16px}.container{padding:48px 16px 72px}h1{font-size:26px}footer{padding:18px 16px;flex-direction:column;align-items:flex-start;gap:6px}}
+@media(max-width:600px){nav{padding:0 16px}.container{padding:48px 16px 72px}h1{font-size:26px}footer{padding:18px 16px;flex-direction:column;align-items:flex-start;gap:6px}.scope-table{font-size:12px}}
 </style>
 </head>
 <body>
@@ -45,7 +46,8 @@ footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56p
   <h1>Politică de Confidențialitate</h1>
   <p class="update">Ultima actualizare: mai 2026</p>
 
-  <p>Wirtual Design & Architecture SRL, cu sediul în Clinceni, Ilfov, CUI 44170236, J23/2626/2021 („noi", „RentUp"), operează website-ul <a href="https://www.rentup.solutions">www.rentup.solutions</a>. Această politică descrie ce date personale colectăm, de ce le colectăm și cum le protejăm, în conformitate cu Regulamentul (UE) 2016/679 (GDPR) și legislația română în vigoare.</p>
+  <p>Wirtual Design &amp; Architecture SRL, cu sediul în Clinceni, Ilfov, CUI 44170236, J23/2626/2021 („noi", „RentUp"), operează website-ul <a href="https://www.rentup.solutions">www.rentup.solutions</a>. Această politică descrie ce date personale colectăm, de ce le colectăm, cum le protejăm și care sunt drepturile tale, în conformitate cu Regulamentul (UE) 2016/679 (GDPR) și legislația română în vigoare.</p>
+  <p>Nu avem obligația legală de a desemna un responsabil cu protecția datelor (DPO). Pentru orice întrebare privind prelucrarea datelor tale, ne poți contacta direct la adresa de mai jos.</p>
 
   <div class="divider"></div>
 
@@ -55,69 +57,116 @@ footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56p
     <li>Formularul de contact de pe site (nume, email, telefon, mesaj)</li>
     <li>Contactul direct prin WhatsApp (+40 741 176 865)</li>
     <li>Contactul prin email (hello@rentup.solutions)</li>
+    <li>Semnarea și executarea unui Contract (date de identificare, date despre proprietate, date de facturare)</li>
   </ul>
   <p>De asemenea, site-ul poate colecta automat date tehnice anonime (tipul browserului, pagini vizitate, durata sesiunii) prin instrumente de analiză, fără a le asocia unei persoane identificate.</p>
+  <p>Nu colectăm categorii speciale de date cu caracter personal (date de sănătate, date genetice, date biometrice, convingeri religioase sau politice, orientare sexuală).</p>
 
-  <h2>2. De ce colectăm datele</h2>
-  <p>Utilizăm datele tale personale pentru:</p>
-  <ul>
-    <li>Răspunderea la solicitările tale de informații sau ofertă</li>
-    <li>Furnizarea serviciilor contractate (audit, design, Rental Kit)</li>
-    <li>Transmiterea de informații relevante despre proiectul tău</li>
-    <li>Îndeplinirea obligațiilor legale și contractuale</li>
-  </ul>
-  <p>Temeiul juridic al prelucrării este: executarea unui contract (art. 6 alin. 1 lit. b GDPR), interesul nostru legitim de a răspunde solicitărilor primite (art. 6 alin. 1 lit. f GDPR) și, după caz, consimțământul tău explicit (art. 6 alin. 1 lit. a GDPR).</p>
+  <h2>2. De ce colectăm datele — scopuri și temeiuri legale</h2>
+  <p>Utilizăm datele tale personale exclusiv pentru scopurile de mai jos. Lângă fiecare scop am indicat temeiul legal conform GDPR:</p>
+  <table class="scope-table">
+    <tr>
+      <th>Scop</th>
+      <th>Temei legal (GDPR)</th>
+    </tr>
+    <tr>
+      <td>Răspunderea la solicitările de informații sau ofertă</td>
+      <td>Interes legitim (art. 6 alin. 1 lit. f)</td>
+    </tr>
+    <tr>
+      <td>Executarea Contractului de servicii (audit, design, Rental Kit)</td>
+      <td>Executarea unui contract (art. 6 alin. 1 lit. b)</td>
+    </tr>
+    <tr>
+      <td>Emiterea facturilor și îndeplinirea obligațiilor fiscale</td>
+      <td>Obligație legală (art. 6 alin. 1 lit. c)</td>
+    </tr>
+    <tr>
+      <td>Transmiterea de informații relevante despre proiectul tău</td>
+      <td>Executarea unui contract (art. 6 alin. 1 lit. b)</td>
+    </tr>
+    <tr>
+      <td>Trimiterea de comunicări de marketing (newsletter, oferte)</td>
+      <td>Consimțământ explicit (art. 6 alin. 1 lit. a)</td>
+    </tr>
+    <tr>
+      <td>Analiza anonimă a traficului pe site</td>
+      <td>Interes legitim (art. 6 alin. 1 lit. f)</td>
+    </tr>
+  </table>
+  <p>Nu luăm decizii exclusiv automatizate cu privire la tine, inclusiv profilare automată cu efecte juridice sau efecte semnificative similare.</p>
 
   <h2>3. Cât timp păstrăm datele</h2>
   <ul>
     <li>Date din formularul de contact: maxim 2 ani de la ultima interacțiune</li>
-    <li>Date aferente unui contract activ: pe durata contractului și 5 ani după finalizare (obligații fiscale și legale)</li>
+    <li>Date aferente unui contract activ: pe durata contractului și 5 ani după finalizare (obligații fiscale și legale conform legislației române)</li>
     <li>Date tehnice anonime: conform politicii furnizorului de analiză (de regulă 26 de luni)</li>
+    <li>Date de marketing (e-mail newsletter): până la retragerea consimțământului</li>
   </ul>
 
   <h2>4. Cu cine împărtășim datele</h2>
-  <p>Nu vindem și nu transmitem datele tale către terți în scopuri comerciale. Datele pot fi accesate de:</p>
+  <p>Nu vindem și nu transmitem datele tale către terți în scopuri comerciale proprii ale terților. Datele pot fi accesate de:</p>
   <ul>
-    <li>Colaboratorii noștri implicați în executarea serviciului (arhitecți, fotografi, furnizori) — strict în măsura necesară</li>
-    <li>Furnizori de servicii tehnice (hosting, email, instrumente de analiză) — în baza unor acorduri de prelucrare a datelor</li>
-    <li>Autorități publice, dacă suntem obligați prin lege</li>
+    <li>Colaboratorii noștri implicați în executarea serviciului (arhitecți, fotografi, furnizori) — strict în măsura necesară și în baza unor clauze de confidențialitate</li>
+    <li>Furnizori de servicii tehnice (hosting, email, instrumente de analiză) — în baza unor acorduri de prelucrare a datelor conform art. 28 GDPR</li>
+    <li>Autorități publice, dacă suntem obligați prin lege (autorități fiscale, judecătorești etc.)</li>
   </ul>
 
-  <h2>5. Drepturile tale</h2>
+  <h2>5. Transferuri internaționale de date</h2>
+  <p>Ca regulă generală, datele tale sunt prelucrate în interiorul Spațiului Economic European (SEE). În măsura în care anumiți furnizori de servicii tehnice (ex. servicii de hosting, e-mail, analiză web) sunt localizați în afara SEE, ne asigurăm că transferul se realizează prin unul dintre mecanismele de protecție prevăzute de GDPR:</p>
+  <ul>
+    <li>Transfer către țări cu nivel adecvat de protecție, recunoscute de Comisia Europeană</li>
+    <li>Clauze contractuale standard aprobate de Comisia Europeană</li>
+    <li>Alte garanții adecvate conform art. 46 GDPR</li>
+  </ul>
+  <p>Poți solicita detalii despre furnizorii specifici și mecanismele de transfer utilizate la <a href="mailto:hello@rentup.solutions">hello@rentup.solutions</a>.</p>
+
+  <h2>6. Drepturile tale</h2>
   <p>În conformitate cu GDPR, ai dreptul de a:</p>
   <ul>
-    <li>Accesa datele pe care le deținem despre tine</li>
-    <li>Solicita rectificarea datelor incorecte</li>
-    <li>Solicita ștergerea datelor („dreptul de a fi uitat")</li>
-    <li>Restricționa prelucrarea datelor tale</li>
-    <li>Te opune prelucrării bazate pe interes legitim</li>
-    <li>Solicita portabilitatea datelor</li>
-    <li>Retrage consimțământul în orice moment, fără a afecta legalitatea prelucrării anterioare</li>
+    <li><strong>Accesa</strong> datele pe care le deținem despre tine</li>
+    <li><strong>Rectifica</strong> datele incorecte sau incomplete</li>
+    <li><strong>Șterge</strong> datele („dreptul de a fi uitat"), în condițiile prevăzute de lege</li>
+    <li><strong>Restricționa</strong> prelucrarea datelor tale</li>
+    <li><strong>Te opune</strong> prelucrării bazate pe interes legitim</li>
+    <li><strong>Solicita portabilitatea</strong> datelor furnizate în baza unui contract sau consimțământ</li>
+    <li><strong>Retrage consimțământul</strong> în orice moment, fără a afecta legalitatea prelucrării anterioare</li>
+    <li><strong>Nu face obiectul</strong> unei decizii bazate exclusiv pe prelucrare automată cu efecte semnificative</li>
   </ul>
-  <p>Pentru exercitarea acestor drepturi, ne poți contacta la <a href="mailto:hello@rentup.solutions">hello@rentup.solutions</a>. Vei primi răspuns în maxim 30 de zile.</p>
-  <p>Ai, de asemenea, dreptul de a depune o plângere la <strong>Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal (ANSPDCP)</strong> — <a href="https://www.dataprotection.ro" target="_blank">www.dataprotection.ro</a>.</p>
+  <p>Pentru exercitarea acestor drepturi, ne poți contacta la <a href="mailto:hello@rentup.solutions">hello@rentup.solutions</a>. Vei primi răspuns în maxim <strong>30 de zile</strong>. Termenul poate fi prelungit cu încă 60 de zile în cazuri complexe, cu notificarea ta prealabilă.</p>
+  <p>Ai, de asemenea, dreptul de a depune o plângere la <strong>Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal (ANSPDCP)</strong> — <a href="https://www.dataprotection.ro" target="_blank" rel="noopener">www.dataprotection.ro</a>, B-dul G-ral Gheorghe Magheru nr. 28–30, Sector 1, București.</p>
 
-  <h2>6. Cookie-uri</h2>
-  <p>Site-ul poate utiliza cookie-uri tehnice necesare funcționării și cookie-uri analitice anonime. Nu utilizăm cookie-uri de publicitate sau tracking terț fără consimțământul tău. Poți controla setările cookie-urilor din browserul tău.</p>
+  <h2>7. Cookie-uri</h2>
+  <p>Site-ul poate utiliza cookie-uri tehnice necesare funcționării și cookie-uri analitice anonime. Nu utilizăm cookie-uri de publicitate sau tracking terț fără consimțământul tău explicit. Poți controla și revoca setările cookie-urilor din browserul tău sau din bannerul de cookies afișat la prima vizită.</p>
 
-  <h2>7. Securitatea datelor</h2>
-  <p>Luăm măsuri tehnice și organizatorice adecvate pentru a proteja datele tale împotriva accesului neautorizat, pierderii sau divulgării. Transmisia datelor pe site este protejată prin protocol HTTPS.</p>
+  <h2>8. Securitatea datelor</h2>
+  <p>Luăm măsuri tehnice și organizatorice adecvate pentru a proteja datele tale împotriva accesului neautorizat, pierderii sau divulgării, inclusiv:</p>
+  <ul>
+    <li>Transmisia datelor pe site este protejată prin protocol HTTPS</li>
+    <li>Accesul la datele personale este restricționat la persoanele care au nevoie de ele pentru executarea Serviciilor</li>
+    <li>Colaboratorii și furnizorii sunt supuși unor obligații contractuale de confidențialitate</li>
+  </ul>
+  <p>În eventualitatea unui incident de securitate care îți afectează datele, te vom notifica în termenele prevăzute de GDPR (72 de ore față de autoritatea de supraveghere, respectiv fără întârzieri nejustificate față de tine, dacă riscul este ridicat).</p>
 
-  <h2>8. Modificări ale acestei politici</h2>
-  <p>Putem actualiza această politică periodic. Versiunea actualizată va fi publicată pe această pagină, cu data revizuirii. Îți recomandăm să o consulți periodic.</p>
+  <h2>9. Marketing</h2>
+  <p>Îți vom trimite comunicări de marketing (newsletter, oferte, noutăți) doar dacă ți-ai exprimat consimțământul explicit în acest sens. Te poți dezabona oricând, gratuit, prin link-ul de dezabonare din orice e-mail sau prin solicitare directă la <a href="mailto:hello@rentup.solutions">hello@rentup.solutions</a>.</p>
+  <p>Dezabonarea de la marketing nu afectează prelucrarea datelor necesare pentru executarea unui Contract existent.</p>
 
-  <h2>9. Contact</h2>
+  <h2>10. Modificări ale acestei politici</h2>
+  <p>Putem actualiza această politică periodic. Versiunea actualizată va fi publicată pe această pagină, cu data revizuirii. Îți recomandăm să o consulți periodic. Dacă modificările sunt semnificative, te vom notifica prin e-mail sau printr-un mesaj vizibil pe site.</p>
+
+  <h2>11. Contact</h2>
   <p>Pentru orice întrebări legate de prelucrarea datelor tale personale:</p>
   <ul>
     <li>Email: <a href="mailto:hello@rentup.solutions">hello@rentup.solutions</a></li>
     <li>WhatsApp / Telefon: +40 741 176 865</li>
-    <li>Adresă: Wirtual Design & Architecture SRL, Clinceni, Ilfov</li>
+    <li>Adresă: Wirtual Design &amp; Architecture SRL, Clinceni, Ilfov</li>
   </ul>
 </div>
 
 <footer style="background:#FDFAF6;border-top:.5px solid #EDE5D8;padding:24px 56px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center">
   <a href="index.html" style="font-size:17px;font-weight:600;color:#C77936;font-family:Inter,sans-serif;text-decoration:none;letter-spacing:-.01em">Rent<span style="color:#2D2820;font-weight:300">Up</span></a>
-  <div style="font-size:12px;color:#B8AFA4">Wirtual Design & Architecture SRL · CUI 44170236 · J23/2626/2021 · Clinceni, Ilfov</div>
+  <div style="font-size:12px;color:#B8AFA4">Wirtual Design &amp; Architecture SRL · CUI 44170236 · J23/2626/2021 · Clinceni, Ilfov</div>
   <div style="font-size:12px;color:#B8AFA4">© 2025–2026 Rent Up · Toate drepturile rezervate · <a href="termeni.html" style="color:#B8AFA4;text-decoration:none">Termeni și condiții</a> · <a href="confidentialitate.html" style="color:#B8AFA4;text-decoration:none">Politică de confidențialitate</a></div>
 </footer>
 
