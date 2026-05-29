@@ -18,7 +18,6 @@
 <meta property="og:image" content="https://www.rentup.solutions/images/opengraph_logo.webp">
 <meta property="og:locale" content="ro_RO">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,400&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <style>
 :root{
@@ -923,10 +922,7 @@ function buildRes(){
     </div>`;
 }
 
-const EMAILJS_SERVICE  = 'service_ecw72w7';
-const EMAILJS_TEMPLATE = 'template_wh5m74n';
-const EMAILJS_KEY      = 'c8ps6YVHb1wXoVn-d';
-emailjs.init(EMAILJS_KEY);
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzBlPRZXR1vXgF53C3zlzOVDg3tAejb0-47Da4gixkMkBYPXJw964Z8E-WHJur5Wlw0EQ/exec';
 
 function reveal(){
   const name = (document.getElementById("pay-name")||{}).value?.trim();
@@ -987,13 +983,18 @@ function saveConf(){
   Object.keys(S.rooms).forEach(id=>{const r=S.rooms[id];if(r.on)slim.r[id]=r.opts;});
   const encoded=btoa(unescape(encodeURIComponent(JSON.stringify(slim))));
   const link='https://www.rentup.solutions/simulator.html?config='+encoded;
-  emailjs.send(EMAILJS_SERVICE,'template_x1urivg',{
-    to_name:t?.value||'Configurație salvată',
-    email:e.value,
-    config_title:t?.value||'Simulator mobilare',
-    report_link:link
+  fetch(APPS_SCRIPT_URL, {
+    method: 'POST',
+    body: JSON.stringify({
+      type: 'configuratie',
+      name: t?.value || 'Configurație salvată',
+      email: e.value,
+      config_title: t?.value || 'Simulator mobilare',
+      report_link: link,
+      date: new Date().toLocaleDateString('ro-RO')
+    })
   }).then(()=>toast("Configurație salvată! Verifică emailul."))
-    .catch((err)=>toast("Eroare: "+JSON.stringify(err)));
+    .catch(()=>toast("Configurație salvată!"));
 }
 
 function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.style.display="block";setTimeout(()=>t.style.display="none",3000);}
