@@ -1001,11 +1001,11 @@ function saveConf(){
       report_link: link,
       date: new Date().toLocaleDateString('ro-RO')
     })
-  }).then(()=>toast("Configurație salvată! Verifică emailul."))
+  }).then(()=>toast("Configurație salvată! Verifică emailul, inclusiv folderul Spam."))
     .catch(()=>toast("Configurație salvată!"));
 }
 
-function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.style.display="block";setTimeout(()=>t.style.display="none",3000);}
+function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.style.display="block";setTimeout(()=>t.style.display="none",6000);}
 updT();
 
 // Restore config from URL

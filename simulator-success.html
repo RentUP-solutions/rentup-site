@@ -273,7 +273,7 @@ async function init() {
     body: JSON.stringify({...simData, type: 'raport', report_link: reportLink})
   });
     setStatus('email', 'done', `Email trimis la ${simData.email} ✓`);
-    document.getElementById('email-note').textContent = `O confirmare a fost trimisă la ${simData.email}.`;
+    document.getElementById('email-note').textContent = `O confirmare a fost trimisă la ${simData.email}. Dacă nu o găsești în inbox, verifică folderul Spam.`;
   } catch(e) {
     setStatus('email', 'done', 'Verifică emailul pentru confirmare');
   }
