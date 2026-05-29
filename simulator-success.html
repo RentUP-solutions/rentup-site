@@ -266,7 +266,8 @@ async function generatePDF(data) {
     </table>
   `;
 
-  overlay.appendChild(el);
+  document.body.appendChild(el);
+  await new Promise(r => setTimeout(r, 800));
   const opt = {
     margin: 0,
     filename: 'RentUp_Raport_Mobilare.pdf',
@@ -275,6 +276,7 @@ async function generatePDF(data) {
     jsPDF: { unit: 'px', format: [794, 1123], orientation: 'portrait' }
   };
   const pdf = await html2pdf().set(opt).from(el).output('blob');
+  document.body.removeChild(el);
   document.body.removeChild(overlay);
   return { blob: pdf, filename: opt.filename };
 }
