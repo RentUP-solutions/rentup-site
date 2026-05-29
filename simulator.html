@@ -1036,7 +1036,10 @@ updT();
       });
     });
     startSim();
-    setTimeout(()=>{S.step=2;goNext();},100);
+    setTimeout(()=>{
+      goNext(); // pas 1 → 2
+      setTimeout(()=>{ goNext(); }, 50); // pas 2 → 3
+    }, 100);
     toast("Configurație restaurată!");
   }catch(e){console.log("Config restore error",e);}
 })();
