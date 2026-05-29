@@ -299,6 +299,19 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   <div class="sec-sub">Parametrii globali influențează toate prețurile calculate.</div>
 
   <div class="card">
+    <div class="cc-title">Tipul apartamentului</div>
+    <div class="cc-sub">Folosit pentru raportul PDF și calculele de recuperare investiție.</div>
+    <div class="ch2">
+      <div class="chbtn" onclick="pick(this,'apartmentType','Garsonieră')" data-g="apartmentType"><div class="ct">Garsonieră</div><div class="cd">Studio · 1 cameră</div></div>
+      <div class="chbtn sel" onclick="pick(this,'apartmentType','2 camere')" data-g="apartmentType"><div class="ct">2 camere</div><div class="cd">Living + dormitor</div></div>
+    </div>
+    <div class="ch2" style="margin-top:10px">
+      <div class="chbtn" onclick="pick(this,'apartmentType','3 camere')" data-g="apartmentType"><div class="ct">3 camere</div><div class="cd">Living + 2 dormitoare</div></div>
+      <div class="chbtn" onclick="pick(this,'apartmentType','4+ camere')" data-g="apartmentType"><div class="ct">4+ camere</div><div class="cd">Apartament mare</div></div>
+    </div>
+  </div>
+  
+  <div class="card">
     <div class="cc-title">Locație</div>
     <div class="cc-sub">Afectează costul manoperei și logisticii.</div>
     <div class="ch2">
@@ -614,7 +627,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 <div class="toast" id="toast"></div>
 
 <script>
-const S={step:1,locatie:"buc",imobil:"nou",lift:"nu",etaj:0,electro:0,mp:65,
+const S={step:1,locatie:"buc",imobil:"nou",lift:"nu",etaj:0,electro:0,mp:65,apartmentType:"2 camere",
   rooms:{
     buc:{on:true,exp:true,opts:{ml:3.5,tier:"pf-std",blat:"hpl",led:"std"}},
     ins:{on:false,exp:false,opts:{ml:1.5,tier:"pf-std"}},
@@ -948,12 +961,7 @@ function reveal(){
     const hasPfStd=Object.values(S.rooms).some(r=>r.on&&(r.opts.tier==='pf-std'||r.opts.dulap==='pf-std'));
     return hasCom?'La comandă PAL+MDF':hasPfStd?'Standard':'Prefabricat buget';
   };
-  const typeLabel=()=>{
-    const active=Object.keys(S.rooms).filter(id=>S.rooms[id].on);
-    if(active.includes('dres')||active.includes('d2'))return '3 camere';
-    if(active.includes('dorm'))return '2 camere';
-    return 'Garsonieră';
-  };
+  const typeLabel=()=>S.apartmentType||'Nespecificat';
   let rentBase=350;
   if(S.mp>=45)rentBase=500;if(S.mp>=65)rentBase=700;if(S.mp>=85)rentBase=1000;if(S.mp>=110)rentBase=1350;
   const rentP=Math.round(rentBase*1.2);
