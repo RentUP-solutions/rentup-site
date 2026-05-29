@@ -7,7 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Raport generat — Rent Up</title>
 <meta name="robots" content="noindex, nofollow">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <style>
 :root{
@@ -93,7 +92,7 @@ footer span,footer a{font-size:12px;color:var(--light);text-decoration:none}
 
 <script>
 // ── CONFIG ──
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxYhCEUIN6iEzoUyqj98Msn9S4ixU4llApAQ1zyOwjsQRnVXoa_O5VMUxVbqgsc20Mq0A/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzKOo-B5Mz2xDeHnNLvUQ9K3IBclfkt-H1jYLXSbqVGdUIvr1u5aTBaNHS8qeVv9KSl/exec';
 
 let pdfBlob = null;
 let simData = null;
@@ -112,7 +111,7 @@ function setStatus(id, state, text) {
 
 async function generatePDF(data) {
   const el = document.createElement('div');
-  el.style.cssText = 'width:794px;padding:48px;font-family:Inter,sans-serif;background:#ffffff;color:#2D2820;position:fixed;left:-9999px;top:-9999px';
+  el.style.cssText = 'width:794px;padding:48px;font-family:Arial,sans-serif;background:#ffffff;color:#2D2820;position:absolute;left:0;top:0;z-index:-9999;opacity:0';
   el.innerHTML = `
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -231,9 +230,6 @@ async function generatePDF(data) {
     html2canvas: { scale: 2, useCORS: true, backgroundColor: '#ffffff' },
     jsPDF: { unit: 'px', format: [794, 1123], orientation: 'portrait' }
   };
-  el.style.position = 'fixed';
-  el.style.left = '-9999px';
-  el.style.top = '-9999px';
   const pdf = await html2pdf().set(opt).from(el).output('blob');
   document.body.removeChild(el);
   return { blob: pdf, filename: opt.filename };
@@ -265,7 +261,7 @@ async function init() {
     const url = URL.createObjectURL(pdfBlob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `RentUp_Raport_Mobilare_${simData.type}.pdf`;
+    a.download = `RentUp_Raport_Mobilare.pdf`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
