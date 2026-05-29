@@ -272,7 +272,7 @@ async function generatePDF(data) {
     margin: 0,
     filename: 'RentUp_Raport_Mobilare.pdf',
     image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 6, useCORS: true, backgroundColor: '#ffffff', logging: false, dpi: 300, width: 794 },
+    html2canvas: { scale: 2, useCORS: true, backgroundColor: '#ffffff', logging: false },
     jsPDF: { unit: 'px', format: [620, 877], orientation: 'portrait' }
   };
   const pdf = await html2pdf().set(opt).from(el).output('blob');
