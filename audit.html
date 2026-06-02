@@ -366,8 +366,8 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   <h2 class="cta-h">Programează un audit.<br><em>Vorbim despre apartamentul tău.</em></h2>
   <p class="cta-s">Trimite-ne adresa apartamentului și chiria actuală sau dorită.<br>Îți răspundem în 24h cu disponibilitate.</p>
   <div class="cta-btns">
-    <a class="btn-p" href="https://wa.me/40741176865">WhatsApp direct →</a>
-    <a class="btn-g" href="mailto:hello@rentup.solutions">Email</a>
+    <a class="btn-p" href="https://wa.me/40741176865" onclick="gtag('event','click_whatsapp')">WhatsApp direct →</a>
+<a class="btn-g" href="mailto:hello@rentup.solutions" onclick="gtag('event','click_email')">Email</a>
   </div>
   <div class="cta-cards">
     <div class="cc"><div class="cc-l">WhatsApp</div><div class="cc-v">+40 741 176 865</div></div>
@@ -460,3 +460,39 @@ document.addEventListener('click',function(e){
   }
 });
 </script>
+
+<!-- Back to Top -->
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="display:none;position:fixed;bottom:24px;right:24px;width:44px;height:44px;background:#C77936;border:none;border-radius:50%;cursor:pointer;z-index:998;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(199,121,54,.3);transition:all .2s;font-size:18px;color:#FDFAF6">↑</button>
+<script>
+window.addEventListener('scroll',function(){
+  var btn=document.getElementById('btt');
+  if(window.scrollY>400){btn.style.display='flex';}
+  else{btn.style.display='none';}
+});
+</script>
+
+<!-- Cookie Banner -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#2D2820;border-top:0.5px solid #4D4238;padding:18px 24px;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;z-index:999;font-family:'Inter',sans-serif">
+  <div style="flex:1;min-width:200px">
+    <div style="font-size:13px;font-weight:500;color:#FDFAF6;margin-bottom:4px">Folosim cookie-uri</div>
+    <div style="font-size:12px;color:#9A8E82;line-height:1.5">Folosim cookie-uri pentru analiză și îmbunătățirea experienței. Poți accepta sau refuza cookie-urile opționale. <a href="confidentialitate.html" style="color:#C77936;text-decoration:none">Politică de confidențialitate →</a></div>
+  </div>
+  <div style="display:flex;gap:8px;align-items:center;flex-shrink:0">
+    <button onclick="setCookies('refused')" style="font-size:12px;font-weight:500;color:#9A8E82;background:none;border:0.5px solid #4D4238;padding:8px 16px;border-radius:100px;cursor:pointer;font-family:'Inter',sans-serif">Refuz</button>
+    <button onclick="setCookies('accepted')" style="font-size:12px;font-weight:500;color:#FDFAF6;background:#C77936;border:none;padding:8px 16px;border-radius:100px;cursor:pointer;font-family:'Inter',sans-serif">Accept</button>
+  </div>
+</div>
+<script>
+function setCookies(choice){
+  localStorage.setItem('cookieConsent', choice);
+  document.getElementById('cookie-banner').style.display='none';
+}
+var banner=document.getElementById('cookie-banner');
+if(localStorage.getItem('cookieConsent')){
+  banner.style.display='none';
+} else {
+  banner.style.display='flex';
+}
+</script>
+</body>
+</html>
