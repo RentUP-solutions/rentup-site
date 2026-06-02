@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5WXD9BGS3T"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5WXD9BGS3T');
+</script>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x0n2w9bm9r");
+  </script>
+
   <meta name="format-detection" content="telephone=no">
 <meta charset="UTF-8">
 <link rel="icon" type="image/webp" href="favicon.webp">
@@ -531,7 +550,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     <a href="index.html#packages" class="active">Pachete</a>
     <a href="portofoliu.html">Portofoliu</a>
     <a href="rental-kit.html">Rental Kit</a>
-    <a href="simulator.html">Simulator</a>
+    <a href="simulator.html" onclick="gtag('event','click_simulator_nav')">Simulator</a>
     <a href="realitatea-chiriei.html">Realitatea chiriei</a>
     <a href="faq.html">FAQ</a>
   </div>
@@ -547,7 +566,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   <a href="index.html#packages">Pachete</a>
   <a href="portofoliu.html">Portofoliu</a>
   <a href="rental-kit.html">Rental Kit</a>
-  <a href="simulator.html">Simulator</a>
+  <a href="simulator.html" onclick="gtag('event','click_simulator_nav')">Simulator</a>
   <a href="realitatea-chiriei.html">Realitatea chiriei</a>
   <a href="faq.html">FAQ</a>
 </div>
@@ -559,7 +578,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     <h1 class="hero-h1">Chiriași stabili.<br><em>Venituri predictibile.</em></h1>
     <p class="hero-sub">Transformăm apartamente obișnuite în active care produc venituri stabile prin: design funcțional, sistem complet de închiriere și selecție profesională a chiriașilor.</p>
     <div class="hero-btns">
-      <a class="btn-primary" href="#calc">Calculează câștigul tău →</a>
+      <a class="btn-primary" href="#calc" onclick="gtag('event','click_calculator_roi')">Calculează câștigul tău →</a>
       <button class="btn-ghost" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">Vezi portofoliul</button>
     </div>
     <p class="hero-micro"></p>
@@ -703,7 +722,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
         <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#7A6E62"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Raport PDF complet cu detalii per cameră </div>
       </div>
       <div style="flex:1"></div>
-      <a href="simulator.html" style="display:block;text-align:center;background:#C77936;color:white;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;padding:13px 20px;border-radius:100px;text-decoration:none;margin-bottom:8px">Calculează costul mobilării →</a>
+      <a href="simulator.html" onclick="gtag('event','click_simulator_cta')" style="display:block;text-align:center;background:#C77936;color:white;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;padding:13px 20px;border-radius:100px;text-decoration:none;margin-bottom:8px">Calculează costul mobilării →</a>
       <p style="font-size:11px;color:#B8AFA4;text-align:center">Estimare nivel low-mid · fără TVA</p>
     </div>
 
@@ -961,7 +980,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
         <div class="pf"><span class="fd">→</span><span>Cei 200€ se scad integral din pachetul Standard sau Premium ales în 90 de zile.</span></div>
       </div>
       <div style="padding:16px 24px 20px">
-        <a href="audit.html" class="btn-primary" style="display:block;text-align:center;padding:11px;font-size:14px">Află mai multe →</a>
+        <a href="audit.html" onclick="gtag('event','click_audit_cta')" class="btn-primary" style="display:block;text-align:center;padding:11px;font-size:14px">Află mai multe →</a>
       </div>
     </div>
     <div class="pkg pkg-std">
@@ -1030,13 +1049,12 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   <h2 class="con-h">Hai să vedem ce poate face<br><em>apartamentul tău.</em></h2>
   <p class="con-sub">Spune-ne pe scurt cu ce te confrunți: chirie mică, chiriași care pleacă, apartament gol.<br>Îți răspundem în cel mai scurt timp cu o ofertă personalizată.</p>
   <div class="con-btns">
-    <a class="con-p" href="https://wa.me/40741176865">WhatsApp direct →</a>
-    <a class="con-g" href="mailto:hello@rentup.solutions">Email</a>
+    <a class="con-p" href="https://wa.me/40741176865" onclick="gtag('event','click_whatsapp')">WhatsApp direct →</a>    <a class="con-g" href="mailto:hello@rentup.solutions" onclick="gtag('event','click_email')">Email</a>
   </div>
   <div class="con-cards">
-<a class="cc" href="tel:+40741176865" style="text-decoration:none"><div class="cc-l">Telefon</div><div class="cc-v">+40 741 176 865</div></a>
-<a class="cc" href="mailto:hello@rentup.solutions" style="text-decoration:none"><div class="cc-l">Email</div><div class="cc-v">hello@rentup.solutions</div></a>
-<a class="cc" href="https://instagram.com/rentup.solutions" target="_blank" style="text-decoration:none"><div class="cc-l">Instagram</div><div class="cc-v">@rentup.solutions</div></a>
+<a class="cc" href="tel:+40741176865" style="text-decoration:none" onclick="gtag('event','click_phone')"></a>><div class="cc-l">Telefon</div><div class="cc-v">+40 741 176 865</div></a>
+<a class="cc" href="mailto:hello@rentup.solutions" style="text-decoration:none" onclick="gtag('event','click_email')">><div class="cc-l">Email</div><div class="cc-v">hello@rentup.solutions</div></a>
+<a class="cc" href="https://instagram.com/rentup.solutions" target="_blank" style="text-decoration:none" onclick="gtag('event','click_instagram')">><div class="cc-l">Instagram</div><div class="cc-v">@rentup.solutions</div></a>
   </div>
  
 </section>

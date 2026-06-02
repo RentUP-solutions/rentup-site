@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5WXD9BGS3T"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5WXD9BGS3T');
+</script>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x0n2w9bm9r");
+  </script>
+  
   <meta name="format-detection" content="telephone=no">
 <meta charset="UTF-8">
 <link rel="icon" type="image/webp" href="favicon.webp">
@@ -222,7 +241,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     <a href="index.html#packages">Pachete</a>
     <a href="portofoliu.html">Portofoliu</a>
     <a href="rental-kit.html">Rental Kit</a>
-    <a href="simulator.html">Simulator</a>
+    <a href="simulator.html" onclick="gtag('event','click_simulator_nav')">Simulator</a>
     <a href="realitatea-chiriei.html">Realitatea chiriei</a>
     <a href="faq.html" class="active">FAQ</a>
   </div>
@@ -238,7 +257,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   <a href="index.html#packages">Pachete</a>
   <a href="portofoliu.html">Portofoliu</a>
   <a href="rental-kit.html">Rental Kit</a>
-  <a href="simulator.html">Simulator</a>
+  <a href="simulator.html" onclick="gtag('event','click_simulator_nav')">Simulator</a>
   <a href="realitatea-chiriei.html">Realitatea chiriei</a>
   <a href="faq.html">FAQ</a>
 </div>
@@ -569,7 +588,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
           <div style="margin-top:12px;padding:14px 16px;background:#FAF4EB;border:.5px solid #E8D5BC;border-radius:8px">
             <div style="font-size:13px;font-weight:500;color:#C77936;margin-bottom:6px">Protocolul complet este în Rental Kit.</div>
             <div style="font-size:13px;color:#9A8E82;margin-bottom:10px">Pași exacți, termene, modele de notificări și clauze contractuale care fac diferența.</div>
-            <a href="rental-kit.html" style="font-size:13px;font-weight:500;color:white;background:#C77936;padding:8px 18px;border-radius:100px;text-decoration:none;display:inline-block;margin-top:8px">Descoperă Rental Kit →</a>
+            <a href="rental-kit.html" style="font-size:13px;font-weight:500;color:white;background:#C77936;padding:8px 18px;border-radius:100px;text-decoration:none;display:inline-block;margin-top:8px" onclick="gtag('event','click_rental_kit_faq')">Descoperă Rental Kit →</a>
           </div>
         </div>
       </div>
@@ -634,7 +653,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
         <h3>Nu ai găsit răspunsul?</h3>
         <p>Scrie-ne sau programează un apel de 15 minute, fără angajament.</p>
       </div>
-      <a class="btn-brand" href="index.html#contact">Contactează-ne →</a>
+      <a class="btn-brand" href="index.html#contact" onclick="gtag('event','click_contact_faq')">Contactează-ne →</a>
     </div>
 
   </div>
@@ -645,7 +664,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   <h2>Pornește cu un audit.</h2>
   <p>200€ pentru o evaluare completă. Afli exact unde ești și ce are sens să faci diferit.</p>
   <div class="cta-btns">
-    <a class="btn-brand" href="audit.html">Programează auditul →</a>
+    <a class="btn-brand" href="audit.html" onclick="gtag('event','click_audit_cta')">Programează auditul →</a>
     <a class="btn-outline-w" href="realitatea-chiriei.html">Realitatea chiriei</a>
   </div>
 </div>
