@@ -654,6 +654,17 @@ document.addEventListener('click',function(e){
   }
 });
 </script>
+
+<!-- Back to Top -->
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="display:none;position:fixed;bottom:24px;right:24px;width:44px;height:44px;background:#C77936;border:none;border-radius:50%;cursor:pointer;z-index:998;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(199,121,54,.3);transition:all .2s;font-size:18px;color:#FDFAF6">↑</button>
+<script>
+window.addEventListener('scroll',function(){
+  var btn=document.getElementById('btt');
+  if(window.scrollY>400){btn.style.display='flex';}
+  else{btn.style.display='none';}
+});
+</script>
+
 <!-- Cookie Banner -->
 <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#2D2820;border-top:0.5px solid #4D4238;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;z-index:999;font-family:'Inter',sans-serif">
   <div style="flex:1;min-width:200px">
