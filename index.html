@@ -514,6 +514,24 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 @media(max-width:900px){#rental-kit-teaser{padding:40px 16px!important}}
 @media(max-width:900px){#rental-kit-teaser img{max-width:140%!important;margin-top:0!important;margin-left:-10%;margin-right:0;display:block}}
 @media(max-width:600px){#rental-kit-teaser svg{width:14px!important;height:14px!important;flex-shrink:0}}
+
+.ba-photos { position: relative; }
+.ba-overlay {
+  position: absolute; inset: 0;
+  background: rgba(45,40,32,0);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.25s;
+}
+.ba-overlay span {
+  color: #FDFAF6; font-size: 14px; font-weight: 500;
+  background: rgba(199,121,54,0.92);
+  padding: 10px 22px; border-radius: 100px;
+  opacity: 0; transform: translateY(6px);
+  transition: opacity 0.25s, transform 0.25s;
+}
+.ba:hover .ba-overlay { background: rgba(45,40,32,0.38); }
+.ba:hover .ba-overlay span { opacity: 1; transform: translateY(0); }
+.ba { cursor: pointer; }
 </style>
 <script type="application/ld+json">
 {
@@ -802,24 +820,30 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   <h2 class="sh" style="text-align:center">Rezultate reale.<br>Spații transformate.</h2>
   <p class="sec-sub" style="text-align:center;margin:0 auto 44px">Fiecare proiect a urmărit același obiectiv: un apartament care produce mai mult, cu mai puțin efort pentru proprietar.</p>
   <div class="port-g" style="grid-template-columns:1fr;max-width:860px;margin:0 auto 28px">
-    <div class="ba">
-      <div class="ba-photos" style="display:block">
-        <img src="images/portofoliu_4.webp" style="width:100%;height:400px;max-height:60vw;object-fit:cover;object-position:center bottom;display:block">
+    <a href="portofoliu.html" style="text-decoration:none;display:block;color:inherit" onclick="gtag('event','click_portfolio_preview')">
+      <div class="ba">
+        <div class="ba-photos" style="display:block">
+          <img src="images/portofoliu_4.webp" style="width:100%;height:400px;max-height:60vw;object-fit:cover;object-position:center bottom;display:block">
+          <div class="ba-overlay"><span>Vezi toate proiectele →</span></div>
+        </div>
+        <div class="ba-info">
+          <div><div class="ba-name">Garsonieră Vatra Luminoasă · 32 mp</div><div class="ba-meta">Pachet Standard · 2 săptămâni</div></div>
+          <div class="ba-res">380€ → 450€</div>
+        </div>
       </div>
-      <div class="ba-info">
-        <div><div class="ba-name">Garsonieră Vatra Luminoasă · 32 mp</div><div class="ba-meta">Pachet Standard · 2 săptămâni</div></div>
-        <div class="ba-res">380€ → 450€</div>
+    </a>
+    <a href="portofoliu.html" style="text-decoration:none;display:block;color:inherit" onclick="gtag('event','click_portfolio_preview')">
+      <div class="ba">
+        <div class="ba-photos" style="display:block">
+          <img src="images/portofoliu_3.webp" style="width:100%;height:400px;max-height:60vw;object-fit:cover;object-position:center bottom;display:block">
+          <div class="ba-overlay"><span>Vezi toate proiectele →</span></div>
+        </div>
+        <div class="ba-info">
+          <div><div class="ba-name">2 camere Drumul Taberei · 55 mp</div><div class="ba-meta">Pachet Premium · 12 săptămâni</div></div>
+          <div class="ba-res">400€ → 550€</div>
+        </div>
       </div>
-    </div>
-    <div class="ba">
-      <div class="ba-photos" style="display:block">
-        <img src="images/portofoliu_3.webp" style="width:100%;height:400px;max-height:60vw;object-fit:cover;object-position:center bottom;display:block">
-      </div>
-      <div class="ba-info">
-        <div><div class="ba-name">2 camere Drumul Taberei · 55 mp</div><div class="ba-meta">Pachet Premium · 12 săptămâni</div></div>
-        <div class="ba-res">400€ → 550€</div>
-      </div>
-    </div>
+    </a>
   </div>
   <a class="port-cta" href="portofoliu.html" style="max-width:860px;margin:0 auto">
     <div>
@@ -1052,10 +1076,19 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     <a class="con-p" href="https://wa.me/40741176865" onclick="gtag('event','click_whatsapp')">WhatsApp direct →</a>    <a class="con-g" href="mailto:hello@rentup.solutions" onclick="gtag('event','click_email')">Email</a>
   </div>
   <div class="con-cards">
-<a class="cc" href="tel:+40741176865" style="text-decoration:none" onclick="gtag('event','click_phone')"></a>><div class="cc-l">Telefon</div><div class="cc-v">+40 741 176 865</div></a>
-<a class="cc" href="mailto:hello@rentup.solutions" style="text-decoration:none" onclick="gtag('event','click_email')">><div class="cc-l">Email</div><div class="cc-v">hello@rentup.solutions</div></a>
-<a class="cc" href="https://instagram.com/rentup.solutions" target="_blank" style="text-decoration:none" onclick="gtag('event','click_instagram')">><div class="cc-l">Instagram</div><div class="cc-v">@rentup.solutions</div></a>
-  </div>
+  <a class="cc" href="tel:+40741176865" style="text-decoration:none" onclick="gtag('event','click_phone')">
+    <div class="cc-l">Telefon</div>
+    <div class="cc-v">+40 741 176 865</div>
+  </a>
+  <a class="cc" href="mailto:hello@rentup.solutions" style="text-decoration:none" onclick="gtag('event','click_email')">
+    <div class="cc-l">Email</div>
+    <div class="cc-v">hello@rentup.solutions</div>
+  </a>
+  <a class="cc" href="https://instagram.com/rentup.solutions" target="_blank" style="text-decoration:none" onclick="gtag('event','click_instagram')">
+    <div class="cc-l">Instagram</div>
+    <div class="cc-v">@rentup.solutions</div>
+  </a>
+</div>
  
 </section>
 
