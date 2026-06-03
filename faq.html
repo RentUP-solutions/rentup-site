@@ -75,7 +75,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .cat-tab.active{color:var(--brand);border-bottom-color:var(--brand)}
 
 /* FAQ LAYOUT */
-.faq-layout{display:grid;grid-template-columns:240px 1fr;gap:0;background:linear-gradient(to right,#F5EFE6 240px,#E0DDD6 240px,#E0DDD6 241px,#FDFAF6 241px);border-bottom-left-radius:16px}
+.faq-layout{display:grid;grid-template-columns:240px 1fr;gap:0;background:linear-gradient(to right,#F5EFE6 240px,#E0DDD6 240px,#E0DDD6 241px,#FDFAF6 241px);border-bottom-left-radius:16px;border-bottom:.5px solid #EDE5D8;}
 .faq-sidebar{align-self:start;position:sticky;top:80px}.faq-sidebar-inner{padding:20px 32px}.sidebar-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:16px}
 .sidebar-link{display:block;font-size:13px;color:var(--muted);padding:8px 12px;border-radius:6px;cursor:pointer;transition:all .15s;margin-bottom:2px;text-decoration:none}
 .sidebar-link:hover{background:var(--bg-warm);color:var(--text)}
@@ -140,7 +140,7 @@ footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56p
 
 
 /* ── NAV ── */
-nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-filter:blur(12px);border-bottom:.5px solid #EDE5D8;padding:0 56px;height:64px;display:flex;align-items:center;justify-content:space-between}
+nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-filter:blur(12px);border-bottom:.5px solid #D4CEC6;padding:0 56px;height:64px;display:flex;align-items:center;justify-content:space-between}
 .logo{font-family:'Inter',sans-serif;font-size:17px;font-weight:600;color:#C77936;text-decoration:none;letter-spacing:-.01em}
 .logo span{color:#2D2820;font-weight:300}
 .nav-links{display:flex;align-items:center;gap:28px}
@@ -654,7 +654,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     <div style="font-size:14px;color:#2D2820;font-weight:500;margin-bottom:4px">Fiecare situație dificilă are o soluție structurată.</div>
     <div style="font-size:13px;color:#9A8E82">Neplată, daune, evacuare, rotație frecventă — vezi cum arată rezolvarea cu un sistem.</div>
   </div>
-  <a href="realitatea-chiriei.html" style="font-size:13px;font-weight:500;color:white;background:#C77936;padding:10px 20px;border-radius:100px;text-decoration:none;white-space:nowrap;flex-shrink:0">Probleme & soluții →</a>
+  <a href="realitatea-chiriei.html" style="font-size:14px;font-weight:500;color:white;background:#C77936;padding:13px 24px;border-radius:100px;text-decoration:none;white-space:nowrap;flex-shrink:0">Probleme & soluții →</a>
 </div>
     <div class="contact-box">
       <div class="cb-l">
@@ -667,8 +667,9 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   </div>
 </div>
 
+
 <!-- CTA -->
-<div class="cta-section">
+<div class="cta-section" style="border-top:.2px solid #ebd7bd">
   <h2>Pornește cu un audit.</h2>
   <p>200€ pentru o evaluare completă. Afli exact unde ești și ce are sens să faci diferit.</p>
   <div class="cta-btns">
