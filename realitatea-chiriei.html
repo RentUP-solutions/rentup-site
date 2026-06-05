@@ -102,7 +102,7 @@ h2.sh-dark{font-size:36px;font-weight:300;color:var(--dark);line-height:1.1;lett
 .sec-sub-dark{font-size:15px;color:var(--muted);line-height:1.72;max-width:540px;margin-bottom:56px}
 
 .problems-grid{display:flex;flex-direction:column;gap:10px}
-.problem-item{display:grid;grid-template-columns:56px 1fr 1fr;gap:0;background:var(--bg2);border:.5px solid var(--border);border-radius:12px;overflow:hidden;transition:all .2s}
+.problem-item{scroll-margin-top:80px;display:grid;grid-template-columns:56px 1fr 1fr;gap:0;background:var(--bg2);border:.5px solid var(--border);border-radius:12px;overflow:hidden;transition:all .2s, transform .4s ease}
 .problem-item:hover{background:var(--bg3)}
 .p-num{background:rgba(199,121,54,.12);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:300;color:var(--brand);border-right:.5px solid rgba(255,255,255,.07)}
 .p-problem{padding:28px 32px;border-right:.5px solid rgba(255,255,255,.07)}
@@ -203,6 +203,41 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 .nav-mobile.open{display:flex}
 .nav-hamburger{display:none}
 @media(max-width:768px){.nav-links{display:none}.nav-hamburger{display:flex}.nav-cta{display:none}}
+
+/* URGENT */
+.urgent-nav{background:var(--bg);border-bottom:.5px solid var(--border);padding:40px 56px}
+.urgent-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}
+.urgent-card{background:var(--bg-stone);border:.5px solid var(--border);border-radius:10px;padding:16px 18px;text-decoration:none;transition:all .15s;display:flex;flex-direction:column;gap:6px}
+.urgent-card:hover{background:var(--brand-light);border-color:var(--brand-border)}
+.uc-tag{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--red)}
+.uc-title{font-size:14px;font-weight:500;color:var(--dark);line-height:1.35}
+.uc-arrow{font-size:12px;color:var(--brand);margin-top:4px}
+/* COST SECTION */
+.cost-section{background:var(--dark);padding:72px 56px}
+.cost-inner{max-width:960px;margin:0 auto}
+.cost-tag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--brand);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.cost-dot{width:5px;height:5px;border-radius:50%;background:var(--brand)}
+.cost-h{font-size:38px;font-weight:300;color:white;letter-spacing:-.025em;line-height:1.15;margin-bottom:10px}
+.cost-h em{font-style:normal;color:var(--brand)}
+.cost-sub{font-size:15px;color:var(--muted);line-height:1.7;max-width:560px;margin-bottom:48px}
+.cost-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:40px}
+.cost-card{background:#3D3228;border-radius:12px;padding:22px 20px}
+.cc-val{font-size:26px;font-weight:300;color:var(--brand);letter-spacing:-.02em;margin-bottom:8px;line-height:1}
+.cc-label{font-size:12px;color:var(--muted);line-height:1.5}
+.cost-note{font-size:13px;color:var(--muted);line-height:1.7;padding:20px 24px;background:rgba(199,121,54,.08);border-radius:10px;border-left:2px solid var(--brand)}
+.cost-note strong{color:white}
+@media(max-width:860px){
+  .urgent-nav{padding-left:20px;padding-right:20px}
+  .cost-section{padding-left:20px;padding-right:20px}
+  .urgent-grid{grid-template-columns:1fr 1fr}
+  .cost-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.urgent-grid{grid-template-columns:1fr}}
+.problem-item.flash{animation:highlight 1s ease}
+@keyframes highlight{
+  0%,40%{transform:scale(1.012)}
+  100%{transform:scale(1)}
+}
 </style>
 <script type="application/ld+json">
 {
@@ -255,10 +290,10 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 </div>
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-eyebrow"><div class="hero-dot"></div>Date reale · Proprietari români</div>
-  <h1 class="hero-h1">Probleme reale.<br><em>Soluții reale.</em></h1>
-  <p class="hero-sub">Ai avut un chiriaș care nu a plătit, a lăsat daune sau nu a vrut să plece? Fiecare situație are o rezolvare structurată. Nu e noroc, e sistem.</p>
-  <div class="hero-stats">
+  <div class="hero-eyebrow"><div class="hero-dot"></div>Din grupurile de proprietari români · Date reale 2025–2026</div>
+  <h1 class="hero-h1">Nu e ghinion.<br><em>E lipsă de sistem.</em></h1>
+  <p class="hero-sub">Sute de proprietari spun același lucru: „E chestie de noroc." Nu e. 80–90% din problemele cu chiriașii pot fi prevenite sau rezolvate rapid, dacă există un proces. Iată cum arată.</p>
+  <div class="hero-stats" style="grid-template-columns:repeat(4,auto)">
     <div>
       <div class="hs-val"><span>3–4</span></div>
       <div class="hs-label">chiriași în medie<br>pe 5 ani, fără sistem</div>
@@ -270,6 +305,10 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     <div>
       <div class="hs-val"><span>80–90%</span></div>
       <div class="hs-label">din probleme pot fi<br>filtrate prin selecție corectă</div>
+    </div>
+    <div>
+      <div class="hs-val"><span>8.000–15.000€</span></div>
+      <div class="hs-label">costul real al lui<br>"nu fac nimic" pe 5 ani</div>
     </div>
   </div>
 </div>
@@ -283,188 +322,270 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   </div>
 </div>
 
+<!-- URGENT NAVIGATOR -->
+<div class="urgent-nav">
+  <div style="max-width:960px;margin:0 auto">
+    <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--red);margin-bottom:8px">Ai o situație activă acum?</div>
+    <div style="font-size:20px;font-weight:500;color:var(--dark);margin-bottom:4px">Mergi direct la problema ta.</div>
+    <p style="font-size:14px;color:var(--muted);margin-bottom:20px">Selectează situația în care te afli. Fiecare are pași concreți mai jos.</p>
+    <div class="urgent-grid">
+      <a href="#p02" class="urgent-card">
+        <div class="uc-tag">Urgent</div>
+        <div class="uc-title">Chiriașul nu plătește chiria sau utilitățile</div>
+        <div class="uc-arrow">Mergi la soluție →</div>
+      </a>
+      <a href="#p04" class="urgent-card">
+        <div class="uc-tag">Urgent</div>
+        <div class="uc-title">Chiriașul refuză să plece. Ce fac?</div>
+        <div class="uc-arrow">Mergi la soluție →</div>
+      </a>
+      <a href="#p01" class="urgent-card">
+        <div class="uc-tag">Frecvent</div>
+        <div class="uc-title">A plecat și a lăsat daune. Cum recuperez?</div>
+        <div class="uc-arrow">Mergi la soluție →</div>
+      </a>
+      <a href="#p05" class="urgent-card">
+        <div class="uc-tag">Prevenție</div>
+        <div class="uc-title">Nu știu pe cine să bag. E noroc sau există sistem?</div>
+        <div class="uc-arrow">Mergi la soluție →</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- COSTUL INACȚIUNII -->
+<div class="cost-section">
+  <div class="cost-inner">
+    <div class="cost-tag"><div class="cost-dot"></div>Calculul pe care proprietarii îl ignoră</div>
+    <h2 class="cost-h">Varianta „nu fac nimic"<br>nu costă <em>zero.</em></h2>
+    <p class="cost-sub">Proprietarii care nu au sistem rulează în medie 3–4 chiriași în 5 ani. Fiecare schimbare are un cost real, invizibil pe moment. Iată calculul.</p>
+    <div class="cost-grid">
+      <div class="cost-card">
+        <div class="cc-val">1,5–2 luni</div>
+        <div class="cc-label">chirie pierdută anual din perioadele goale între chiriași</div>
+      </div>
+      <div class="cost-card">
+        <div class="cc-val">1.500–3.000€</div>
+        <div class="cc-label">reparații și uzură accelerată după fiecare chiriaș care pleacă</div>
+      </div>
+      <div class="cost-card">
+        <div class="cc-val">50–200€ / an</div>
+        <div class="cc-label">chirie sub prețul pieței din cauza unui apartament neatrăgător</div>
+      </div>
+      <div class="cost-card">
+        <div class="cc-val">8.000–15.000€</div>
+        <div class="cc-label">costul total estimat al lui „nu fac nimic" pe 5 ani, pentru un apartament obișnuit</div>
+      </div>
+    </div>
+    <div class="cost-note">
+      <strong>Auditul de 200€</strong> îți calculează exact cât costă situația ta actuală față de cea optimizată și cât durează recuperarea. Cei 200€ se scad din orice pachet ales în 90 de zile.
+    </div>
+  </div>
+</div>
+
 <!-- PROBLEMS -->
 <section class="problems">
   <div style="max-width:1100px;margin:0 auto">
-  <div class="sec-tag-dark" style="justify-content:center"><div class="dot"></div>Situații frecvente</div>
-  <h2 class="sh-dark" style="text-align:center">Ce merge prost<br>și de ce nu e inevitabil.</h2>
-  <p class="sec-sub-dark" style="text-align:center;max-width:520px;margin:0 auto 56px">Fiecare situație de mai jos are o soluție structurată. Diferența dintre stres și liniște nu e norocul, ci existența unui sistem.</p>
+    <div class="sec-tag-dark" style="justify-content:center"><div class="dot"></div>Situații frecvente</div>
+    <h2 class="sh-dark" style="text-align:center">Ce merge prost<br>și de ce nu e inevitabil.</h2>
+    <p class="sec-sub-dark" style="text-align:center;max-width:540px;margin:0 auto 56px">Fiecare situație de mai jos are o soluție structurată. Diferența dintre stres și liniște nu e norocul, ci existența unui sistem înaintea problemei.</p>
 
-  <div class="problems-grid">
+    <div class="problems-grid">
 
-    <div class="problem-item">
-      <div class="p-num">01</div>
-      <div class="p-problem">
-        <div class="p-tag">Cel mai frecvent</div>
-        <div class="p-title">Chiriașul a plecat și a lăsat daune</div>
-        <div class="p-desc">Mobilier deteriorat, pereți zgâriați, mizerie acumulată, obiecte lipsă. Garanția nu acoperă totul, nu există documentație care să dovedească starea inițială.</div>
-        <div class="p-voice">
-          <div class="p-voice-text">"Paguba totală a depășit 20.000 de lei. Nu aveam toate facturile ca să dovedesc costul real."</div>
+      <div class="problem-item" id="p01">
+        <div class="p-num">01</div>
+        <div class="p-problem">
+          <div class="p-tag">Cel mai frecvent</div>
+          <div class="p-title">Chiriașul a plecat și a lăsat daune</div>
+          <div class="p-desc">Mobilier deteriorat, pereți zgâriați, mizerie acumulată, obiecte lipsă. Garanția nu acoperă totul, iar fără documentație semnată la intrare nu poți dovedi nimic în fața niciunui for.</div>
+          <div class="p-voice">
+            <div class="p-voice-text">"Paguba totală a depășit 20.000 de lei. Nu aveam toate facturile ca să dovedesc costul real. Am plătit eu din buzunar."</div>
+          </div>
+        </div>
+        <div class="p-solution">
+          <div class="p-sol-tag">Soluția Rent UP</div>
+          <div class="p-sol-title">Documentație care ține în fața legii</div>
+          <ul class="p-sol-items">
+            <li>Inventar detaliat cu stare și valoare estimată, semnat de ambele părți la predare</li>
+            <li>Set foto cu timestamp per element, ca dovadă legală la ieșire</li>
+            <li>Clauze contractuale clare pentru reținere din garanție, pas cu pas</li>
+            <li>Procedura de avertisment în 5 zile, cu modele de notificări incluse în Rental Kit</li>
+          </ul>
         </div>
       </div>
-      <div class="p-solution">
-        <div class="p-sol-tag">Soluția Rent UP</div>
-        <div class="p-sol-title">Documentație care ține în fața legii</div>
-        <ul class="p-sol-items">
-          <li>Inventar detaliat cu stare și valoare estimată, semnat la predarea imobilului</li>
-          <li>Set foto cu timestamp per element, ca dovadă legală</li>
-          <li>Clauze contractuale clare pentru reținere din garanție</li>
-          <li>Procedura de avertisment în 5 zile </li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="problem-item">
-      <div class="p-num">02</div>
-      <div class="p-problem">
-        <div class="p-tag">Cel mai stresant</div>
-        <div class="p-title">Neplata chiriei sau a utilităților</div>
-        <div class="p-desc">Întârzieri, scuze, promisiuni. Proprietarul nu știe când să acționeze, cum să formuleze notificarea sau ce urmează după ce nu se plătește.</div>
-        <div class="p-voice">
-          <div class="p-voice-text">"M-am trezit că plătesc facturi de 2.000 de lei pe consumul altuia. Nu știam ce să fac."</div>
+      <div class="problem-item" id="p02">
+        <div class="p-num">02</div>
+        <div class="p-problem">
+          <div class="p-tag">Cel mai stresant</div>
+          <div class="p-title">Chiriașul nu plătește chiria sau utilitățile</div>
+          <div class="p-desc">Întârzieri, scuze, promisiuni. Proprietarul nu știe când să acționeze, cum să formuleze notificarea sau ce urmează dacă tăcerea continuă. Între timp, facturile curg.</div>
+          <div class="p-voice">
+            <div class="p-voice-text">"M-am trezit că plătesc facturi de 2.000 de lei pe consumul altuia. Nu știam ce să fac sau de unde să încep."</div>
+          </div>
+        </div>
+        <div class="p-solution">
+          <div class="p-sol-tag">Soluția Rent UP</div>
+          <div class="p-sol-title">Protocol pas cu pas, pe zile</div>
+          <ul class="p-sol-items">
+            <li>Ghid cu acțiunile exacte de la Ziua 1 la Ziua 60+</li>
+            <li>Modele de notificări formale: WhatsApp, email, recomandat</li>
+            <li>Contract ANAF înregistrat = titlu executoriu pentru chiria neachitată</li>
+            <li>Contract autentificat notarial = executor direct, fără instanță de judecată</li>
+          </ul>
         </div>
       </div>
-      <div class="p-solution">
-        <div class="p-sol-tag">Soluția Rent UP</div>
-        <div class="p-sol-title">Protocol pas cu pas, pe zile</div>
-        <ul class="p-sol-items">
-          <li>Ghid cu acțiunile exacte de la Ziua 1 la Ziua 60+</li>
-          <li>Modele de notificări formale: WhatsApp, email, recomandat</li>
-          <li>Contract ANAF = titlu executoriu pentru sumele datorate</li>
-          <li>Contract notarial = executor direct fără instanță judecătorească</li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="problem-item">
-      <div class="p-num">03</div>
-      <div class="p-problem">
-        <div class="p-tag">Cel mai costisitor pe termen lung</div>
-        <div class="p-title">Chiriașul bun nu stă mult — rotație frecventă</div>
-        <div class="p-desc">Fiecare schimbare de chiriaș înseamnă luni goale, curățenie, zugrăvit, selecție nouă. Proprietarii nu calculează cât costă rotația reală.</div>
-        <div class="p-voice">
-          <div class="p-voice-text">"Am avut 4 chiriași în 3 ani. La fiecare schimbare, câștigul pe 2 luni s-a dus pe reparații."</div>
+      <div class="problem-item" id="p03">
+        <div class="p-num">03</div>
+        <div class="p-problem">
+          <div class="p-tag">Cel mai costisitor pe termen lung</div>
+          <div class="p-title">Chiriașul bun nu stă mult. Rotație frecventă.</div>
+          <div class="p-desc">Fiecare schimbare înseamnă luni goale, curățenie, zugrăvit, selecție nouă. Proprietarii nu calculează că pierd câștigul pe 2 luni la fiecare tranziție, și asta de 3–4 ori în 5 ani.</div>
+          <div class="p-voice">
+            <div class="p-voice-text">"Am avut 4 chiriași în 3 ani. La fiecare schimbare, câștigul pe 2 luni s-a dus pe reparații. Stăteam cu el gol câte o lună."</div>
+          </div>
+        </div>
+        <div class="p-solution">
+          <div class="p-sol-tag">Soluția Rent UP</div>
+          <div class="p-sol-title">Design + selecție = retenție reală</div>
+          <ul class="p-sol-items">
+            <li>Un apartament coerent și îngrijit atrage profilul stabil, nu profilul de tranziție</li>
+            <li>Sistemul de selecție pe 4 piloni reduce rotația de la 3–4 chiriași la 1–2 în 5 ani</li>
+            <li>Chiriașul potrivit stă 2–3 ani, nu 6–12 luni</li>
+          </ul>
         </div>
       </div>
-      <div class="p-solution">
-        <div class="p-sol-tag">Soluția Rent UP</div>
-        <div class="p-sol-title">Design + selecție = retenție</div>
-        <ul class="p-sol-items">
-          <li>Un apartament îngrijit și coerent atrage profilul stabil</li>
-          <li>Sistem de selecție al chiriașilor</li>
-          <li>Chiriașul potrivit stă 2-3 ani, nu 6-12 luni</li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="problem-item">
-      <div class="p-num">04</div>
-      <div class="p-problem">
-        <div class="p-tag">Cel mai subestimat</div>
-        <div class="p-title">Chiriașul refuză să plece la expirarea contractului</div>
-        <div class="p-desc">Contractul a expirat, chiriașul nu mai plătește sau nu pleacă. Fără autentificare notarială, evacuarea necesită luni sau ani de instanță.</div>
-        <div class="p-voice">
-          <div class="p-voice-text">"Nu au mai vrut să plece și nici nu plăteau. Eram în proces de evacuare 8 luni."</div>
+      <div class="problem-item" id="p04">
+        <div class="p-num">04</div>
+        <div class="p-problem">
+          <div class="p-tag">Cel mai subestimat</div>
+          <div class="p-title">Chiriașul refuză să plece. Ce fac acum?</div>
+          <div class="p-desc">Contractul a expirat sau nu mai plătește. Chiriașul știe că evacuarea prin instanță durează. Dacă nu ai autentificare notarială sau contract cu titlu executoriu, nu poți face aproape nimic rapid, mai ales iarna (1 dec – 1 mart).</div>
+          <div class="p-voice">
+            <div class="p-voice-text">"Nu au mai vrut să plece și nici nu plăteau. Eram în proces de evacuare 8 luni. Casa distrusă, poliția nu a făcut nimic."</div>
+          </div>
+        </div>
+        <div class="p-solution">
+          <div class="p-sol-tag">Soluția Rent UP</div>
+          <div class="p-sol-title">Titlu executoriu pentru evacuare</div>
+          <ul class="p-sol-items">
+            <li>Contract autentificat notarial = executor judecătoresc direct, fără instanță separată</li>
+            <li>Durată 1–3 luni, cost 500–1.500 RON față de ani de tribunal</li>
+            <li>Clauze clare privind interdicția sezonieră 1 dec – 1 mart și excepțiile legale</li>
+            <li>Ghid de mediere înainte de procedură. Multe situații se rezolvă amiabil cu pașii corecți.</li>
+          </ul>
         </div>
       </div>
-      <div class="p-solution">
-        <div class="p-sol-tag">Soluția Rent UP</div>
-        <div class="p-sol-title">Titlu executoriu pentru evacuare</div>
-        <ul class="p-sol-items">
-          <li>Contract autentificat notarial = executor judecătoresc direct</li>
-          <li>Durată 1-3 luni, cost 500-1.500 RON. Fără instanță de judecată.</li>
-          <li>Ghid de mediere înainte de orice procedură legală</li>
-          <li>Clauze clare privind interdicția din 1 dec – 1 martie</li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="problem-item">
-      <div class="p-num">05</div>
-      <div class="p-problem">
-        <div class="p-tag">Cel mai emoțional</div>
-        <div class="p-title">Nu știu pe cine bag în casă, "e noroc"</div>
-        <div class="p-desc">Proprietarii selectează după instinct, aspect, profesie sau recomandări vagi. Toți chiriașii par serioși la început. Nu există un sistem de diferențiere.</div>
-        <div class="p-voice">
-          <div class="p-voice-text">"Am ales după profesie și tot am greșit. Am ajuns la concluzia că e pur și simplu noroc."</div>
+      <div class="problem-item" id="p05">
+        <div class="p-num">05</div>
+        <div class="p-problem">
+          <div class="p-tag">Cel mai emoțional</div>
+          <div class="p-title">Nu știu pe cine bag în casă. "E noroc."</div>
+          <div class="p-desc">Proprietarii selectează după instinct, aspect, profesie sau recomandări vagi. Toți chiriașii par serioși la prima vizionare. Nu există un sistem de diferențiere. Toți știu că poți greși indiferent cât de bine pare omul.</div>
+          <div class="p-voice">
+            <div class="p-voice-text">"Am ales după profesie: educatoare, redactor la o revistă. Tot dezastru. Am ajuns la concluzia că e pur și simplu noroc."</div>
+          </div>
+        </div>
+        <div class="p-solution">
+          <div class="p-sol-tag">Soluția Rent UP</div>
+          <div class="p-sol-title">Selecție structurată pe dovezi, nu pe feeling</div>
+          <ul class="p-sol-items">
+            <li>Chestionar standardizat + fișă de evaluare pe 4 piloni</li>
+            <li>Verificare portal instanțe, birou de credite, adeverință salariu</li>
+            <li>Referința de la proprietarul anterior, sunată de față cu candidatul</li>
+            <li>Designul apartamentului filtrează natural profilul neadecvat înainte să ajungi la selecție</li>
+          </ul>
         </div>
       </div>
-      <div class="p-solution">
-        <div class="p-sol-tag">Soluția Rent UP</div>
-        <div class="p-sol-title">Selecție structurată pe dovezi</div>
-        <ul class="p-sol-items">
-          <li>Chestionar standardizat pentru chiriași</li>
-          <li>Verificarea referinței de la proprietarul anterior</li>
-          <li>Designul apartamentului filtrează natural profilul neadecvat</li>
-          <li>Prețul corect atrage profilul potrivit, nu cel mai mic preț</li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="problem-item">
-      <div class="p-num">06</div>
-      <div class="p-problem">
-        <div class="p-tag">Segment neacoperit</div>
-        <div class="p-title">Nu accept animale de companie, dar pierd chiriași buni</div>
-        <div class="p-desc">Proprietarii refuză automat chiriașii cu animale din cauza experiențelor anterioare sau fricii. Nu există un instrument de protecție — doar refuzul sau asumarea riscului.</div>
-        <div class="p-voice">
-          <div class="p-voice-text">"Refuz pentru că nu am cu ce mă proteja. Nu pentru că nu vreau."</div>
+      <div class="problem-item" id="p06">
+        <div class="p-num">06</div>
+        <div class="p-problem">
+          <div class="p-tag">Segment neacoperit</div>
+          <div class="p-title">Nu accept animale, dar pierd chiriași buni</div>
+          <div class="p-desc">Proprietarii refuză automat din cauza experiențelor anterioare. Nu există un instrument de protecție concret: doar refuzul total sau asumarea riscului orb. Ambele variante au un cost.</div>
+          <div class="p-voice">
+            <div class="p-voice-text">"Refuz pentru că nu am cu ce mă proteja. Nu pentru că nu vreau. Știu că pierd oameni buni, dar nu știu cum să mă acopăr."</div>
+          </div>
+        </div>
+        <div class="p-solution">
+          <div class="p-sol-tag">Soluția Rent UP</div>
+          <div class="p-sol-title">Protecție specifică, nu refuz automat</div>
+          <ul class="p-sol-items">
+            <li>Clauze contractuale specifice pentru animale: responsabilitate, tip, sterilizare</li>
+            <li>Garanție extinsă recomandată: 1+2 în loc de 1+1</li>
+            <li>PV foto detaliat la predare, documentație care acoperă orice daune</li>
+          </ul>
         </div>
       </div>
-      <div class="p-solution">
-        <div class="p-sol-tag">Soluția Rent UP</div>
-        <div class="p-sol-title">Instrument de protecție specific</div>
-        <ul class="p-sol-items">
-          <li>Clauze contractuale specifice pentru animale de companie</li>
-          <li>Garanție extinsă recomandată (1+2 în loc de 1+1)</li>
-          <li>Proces verbal foto detaliat la predarea imobilului</li>
-        </ul>
-      </div>
-    </div>
 
-  </div>
+      <div class="problem-item" id="p07">
+        <div class="p-num">07</div>
+        <div class="p-problem">
+          <div class="p-tag">Mai rar discutat</div>
+          <div class="p-title">Chiriașul face gălăgie. Vecinii reclamă constant.</div>
+          <div class="p-desc">Chiriașul plătește la timp, dar vecinii se plâng de zgomot. Proprietarul e pus în mijloc fără instrumente: nu poate obliga un adult să fie liniștit, dar nici nu vrea să piardă un chiriaș platnic.</div>
+          <div class="p-voice">
+            <div class="p-voice-text">"Achita chiria, utilitățile, nu ne deranjam unii pe alții, dar cu vecinii era dezastru. Am fost obligat să reziliez contractul."</div>
+          </div>
+        </div>
+        <div class="p-solution">
+          <div class="p-sol-tag">Soluția Rent UP</div>
+          <div class="p-sol-title">Clauze de comportament în contract</div>
+          <ul class="p-sol-items">
+            <li>Clauze clare privind respectarea programului de liniște și regulamentul condominiului</li>
+            <li>Mecanismul de avertisment scris în 3 pași înaintea rezilierii</li>
+            <li>Clauza de reziliere la constatare PV poliție, baza legală pentru a acționa rapid</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
 <!-- QUOTES -->
 <section class="quotes-section">
   <div style="max-width:1100px;margin:0 auto">
-  <div class="sec-tag" style="justify-content:center"><div class="dot"></div>Ce spun proprietarii</div>
-  <h2 class="sh" style="text-align:center">Experiențe reale.<br>Soluții reale.</h2>
-  <p style="font-size:15px;color:var(--muted);line-height:1.7;max-width:520px;text-align:center;margin:0 auto">Din sondajele noastre în comunitățile de proprietari din România. Pentru că înțelegem contextul în care lucrăm.</p>
-
-  <div class="quotes-grid">
-    <div class="quote-card">
-      <div class="qc-mark">"</div>
-      <div class="qc-text">Aspectul cel mai traumatizant îl reprezintă investițiile în reparații și renovări în urma chiriașilor care nu își respectă obligațiile contractuale.</div>
-      <div class="qc-source"><div class="qc-dot"></div>Proprietar, 25 ani experiență</div>
+    <div class="sec-tag" style="justify-content:center"><div class="dot"></div>Ce spun proprietarii</div>
+    <h2 class="sh" style="text-align:center">Experiențe reale.<br>Necenzurate.</h2>
+    <p style="font-size:15px;color:var(--muted);line-height:1.7;max-width:540px;text-align:center;margin:0 auto 8px">Din sondajele noastre în comunitățile de proprietari din România: Facebook, Reddit, grupuri specializate. Cităm exact ce spun ei.</p>
+    <p style="font-size:12px;color:var(--light);text-align:center;margin:0 auto 48px">Nu filtrăm experiențele negative. Le înțelegem.</p>
+    <div class="quotes-grid">
+      <div class="quote-card">
+        <div class="qc-mark">"</div>
+        <div class="qc-text">Aspectul cel mai traumatizant îl reprezintă investițiile în reparații și renovări în urma chiriașilor care nu își respectă obligațiile contractuale.</div>
+        <div class="qc-source"><div class="qc-dot"></div>Proprietar, 25 ani experiență · Facebook</div>
+      </div>
+      <div class="quote-card">
+        <div class="qc-mark">"</div>
+        <div class="qc-text">În 3 luni au distrus tot. Am cumpărat apartamentul nou nouț, utilat și mobilat la cheie. Din garanție nu se putea acoperi nici jumătate din distrugeri.</div>
+        <div class="qc-source"><div class="qc-dot"></div>Proprietar București · Facebook, 2025</div>
+      </div>
+      <div class="quote-card">
+        <div class="qc-mark">"</div>
+        <div class="qc-text">Dacă nu aveam contract ANAF și inventar semnat, nu aveam absolut nimic cu care să dovedesc. Am pierdut totul. Legea e de partea chiriașilor.</div>
+        <div class="qc-source"><div class="qc-dot"></div>Proprietar, thread Facebook evacuare</div>
+      </div>
+      <div class="quote-card qc-positive">
+        <div class="qc-mark">"</div>
+        <div class="qc-text">Profilul + prețul filtrează cam 80–90% din chiriașii problematici. Un apartament renovat și poziționat corect nu a stat gol nicio zi în 14 ani.</div>
+        <div class="qc-source"><div class="qc-dot"></div>Proprietar cu 7 apartamente închiriate · Reddit</div>
+      </div>
+      <div class="quote-card qc-positive">
+        <div class="qc-mark">"</div>
+        <div class="qc-text">Am preferat un om de încredere și i-am lăsat chiria puțin sub prețul pieței. Când și-a pierdut serviciul, i-am lăsat câteva luni gratis. S-au făcut vreo 8 ani.</div>
+        <div class="qc-source"><div class="qc-dot"></div>Proprietar, grup Facebook proprietari 2026</div>
+      </div>
+      <div class="quote-card qc-positive">
+        <div class="qc-mark">"</div>
+        <div class="qc-text">Nu eram convins că există altceva în afară de noroc. Acum înțeleg că selecția și documentația fac cea mai mare diferență, nu întâmplarea.</div>
+        <div class="qc-source"><div class="qc-dot"></div>Client Rent UP, după audit</div>
+      </div>
     </div>
-    <div class="quote-card">
-      <div class="qc-mark">"</div>
-      <div class="qc-text">E chestie de noroc, poți să ai chiriași care îți plătesc dările la timp mulți ani la rând sau poți nimeri pe cineva care îți vandalizează apartamentul.</div>
-      <div class="qc-source"><div class="qc-dot"></div>Proprietar, Reddit</div>
-    </div>
-    <div class="quote-card qc-positive">
-      <div class="qc-mark">"</div>
-      <div class="qc-text">Profilul + prețul filtrează cam 80-90% din chiriașii problematici. Un apartament renovat și poziționat bine n-a stat gol nicio zi.</div>
-      <div class="qc-source"><div class="qc-dot"></div>Proprietar cu 7 apartamente închiriate, Reddit</div>
-    </div>
-    <div class="quote-card qc-highlight">
-      <div class="qc-mark">"</div>
-      <div class="qc-text">Un apartament gândit, coerent, îngrijit atrage automat oameni mai educați și mai atenți. Nu e o iluzie, ci un filtru real. Am verificat asta pe 14 ani de experiență.</div>
-      <div class="qc-source"><div class="qc-dot"></div>Proprietar, thread Reddit "Chiriașii distrug mai rar apartamentele amenajate bine?"</div>
-    </div>
-    <div class="quote-card">
-      <div class="qc-mark">"</div>
-      <div class="qc-text">Am preferat un om de încredere, i-am lăsat chiria sub prețul pieței. Când și-a pierdut serviciul, i-am lăsat câteva luni gratis. S-au făcut vreo 8 ani.</div>
-      <div class="qc-source"><div class="qc-dot"></div>Proprietar, Facebook</div>
-    </div>
-    <div class="quote-card qc-highlight">
-      <div class="qc-mark">"</div>
-      <div class="qc-text">Nu eram convins că există altceva în afară de noroc. Acum înțeleg că selecția și documentația fac cea mai mare diferență, nu întâmplarea.</div>
-      <div class="qc-source"><div class="qc-dot"></div>Client Rent UP, după audit</div>
-    </div>
-  </div>
   </div>
 </section>
 
@@ -517,12 +638,12 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 
 <!-- CTA -->
 <div class="cta-section">
-  <h2>Nu ești sigur dacă merită un proiect complet?</h2>
-  <p>Vizităm apartamentul, evaluăm starea și livrăm un raport complet cu ce merită schimbat, cât costă și cât câștigați în plus. Se scade din pachetul ales dacă continui.</p>
+  <h2>Vrei să știi exact ce costă situația ta actuală?</h2>
+  <p>Vizităm apartamentul, evaluăm starea, calculăm ce pierzi acum față de potențialul optimizat și livrăm un raport complet în 72h. Fără angajament, se scade din orice pachet ales.</p>
   <div style="font-size:44px;font-weight:300;color:var(--brand);letter-spacing:-.04em;margin-bottom:4px">200€</div>
-  <div style="font-size:13px;color:var(--muted);margin-bottom:28px">per apartament · livrat în 72h</div>
+  <div style="font-size:13px;color:var(--muted);margin-bottom:28px">per apartament · raport livrat în 72h · fără angajament</div>
   <div class="cta-btns">
-    <a class="btn-brand" href="audit.html" onclick="gtag('event','click_audit_cta')">Află mai multe →</a>
+    <a class="btn-brand" href="audit.html" onclick="gtag('event','click_audit_cta')">Programează auditul →</a>
     <a class="btn-outline" href="faq.html">Întrebări frecvente</a>
   </div>
 </div>
@@ -571,6 +692,20 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   </div>
 </footer>
 
+<script>
+document.querySelectorAll('.urgent-card').forEach(function(card){
+  card.addEventListener('click',function(){
+    var target=document.querySelector(this.getAttribute('href'));
+    if(!target) return;
+    target.classList.remove('flash');
+    void target.offsetWidth;
+    target.classList.add('flash');
+    target.addEventListener('animationend',function(){
+      target.classList.remove('flash');
+    },{once:true});
+  });
+});
+</script>
 
 <script>
 // Page fade-in
