@@ -35,4 +35,33 @@
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://www.rentup.solutions/blog/</loc>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.rentup.solutions/blog/cum-selectezi-chiriasii.html</loc>
+    <lastmod>2026-06-06</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.rentup.solutions/blog/chirias-nu-plateste-chiria.html</loc>
+    <lastmod>2026-06-06</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.rentup.solutions/blog/cat-costa-sa-nu-faci-nimic.html</loc>
+    <lastmod>2026-06-06</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.rentup.solutions/blog/procesul-verbal-foto.html</loc>
+    <lastmod>2026-06-06</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>
