@@ -2,41 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.rentup.solutions/</loc>
+    <lastmod>2026-06-07</lastmod>
     <priority>1.0</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.rentup.solutions/audit.html</loc>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.rentup.solutions/rental-kit.html</loc>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.rentup.solutions/realitatea-chiriei.html</loc>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.rentup.solutions/portofoliu.html</loc>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.rentup.solutions/faq.html</loc>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.rentup.solutions/simulator.html</loc>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.rentup.solutions/blog/</loc>
+    <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>

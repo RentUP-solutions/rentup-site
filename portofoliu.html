@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
+<meta charset="UTF-8">
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5WXD9BGS3T"></script>
 <script>
@@ -21,7 +22,6 @@
   </script>
   
   <meta name="format-detection" content="telephone=no">
-<meta charset="UTF-8">
 <link rel="preload" href="fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/inter-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <meta name="description" content="Proiecte reale de design interior pentru apartamente de închiriat. Before & after cu rezultate concrete: chirii crescute, chiriași stabili, investiții recuperate.">
@@ -55,7 +55,7 @@
 
 :root{--brand:#C77936;--brand-light:#FAF4EB;--brand-border:#E8D5BC;--bg:#FDFAF6;--bg-stone:#F5EFE6;--bg-warm:#F0E8DA;--border:#EDE5D8;--dark:#2D2820;--text:#2D2820;--mid:#7A6E62;--muted:#9A8E82;--light:#B8AFA4;--green:#0F6E56;--green-bg:#E1F5EE;}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;-webkit-user-select:none;user-select:none}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
 nav{background:rgba(253,250,246,.95);backdrop-filter:blur(10px);border-bottom:.5px solid var(--border);padding:0 48px;height:60px;display:flex;align-items:center;justify-content:space-between}
 
 
@@ -143,7 +143,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 body{opacity:0.01;transition:opacity .34s cubic-bezier(0.23,1,0.32,1)}
 
 /* Disable image right-click */
-img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
+img{-webkit-user-drag:none;user-drag:none}
 /* GALERIE + LIGHTBOX */
 .gallery{position:relative;overflow:hidden;height:350px;cursor:pointer}
 .gallery img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s}

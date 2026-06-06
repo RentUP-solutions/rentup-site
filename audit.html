@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
+<meta charset="UTF-8">
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5WXD9BGS3T"></script>
 <script>
@@ -21,7 +22,6 @@
   </script>
   
   <meta name="format-detection" content="telephone=no">
-<meta charset="UTF-8">
 <link rel="preload" href="fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/inter-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <meta name="description" content="Audit complet al apartamentului tău. Chirie corectă, intervenții prioritizate și ROI estimat. Livrat în 72h.">
@@ -49,7 +49,7 @@
 
 :root{--brand:#C77936;--brand-light:#FAF4EB;--brand-border:#E8D5BC;--bg:#FDFAF6;--bg-stone:#F5EFE6;--bg-warm:#F0E8DA;--border:#EDE5D8;--dark:#2D2820;--text:#2D2820;--mid:#7A6E62;--muted:#9A8E82;--light:#B8AFA4;--green:#0F6E56;--green-bg:#E1F5EE;}
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;-webkit-user-select:none;user-select:none}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
 
 /* ── NAV ── */
 nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-filter:blur(12px);border-bottom:.5px solid #EDE5D8;padding:0 56px;height:64px;display:flex;align-items:center;justify-content:space-between}
@@ -147,7 +147,7 @@ section{padding:64px 48px}
 
 /* Page transitions */
 body{opacity:0.01;transition:opacity .34s cubic-bezier(0.23,1,0.32,1)}
-img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
+img{-webkit-user-drag:none;user-drag:none}
 
 .nav-mobile{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(253,250,246,.98);border-bottom:.5px solid #EDE5D8;padding:16px 20px;flex-direction:column;gap:4px;z-index:99}
 .nav-mobile a{font-family:'Inter',sans-serif;font-size:15px;color:#9A8E82;text-decoration:none;padding:12px 0;border-bottom:.5px solid #EDE5D8;display:block}

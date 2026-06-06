@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
+<meta charset="UTF-8">
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5WXD9BGS3T"></script>
 <script>
@@ -11,7 +12,7 @@
   gtag('config', 'G-5WXD9BGS3T');
 </script>
 
-<link rel="preconnect" href="https://www.clarity.ms">
+<link rel="preconnect" href="https://www.clarity.ms" crossorigin>
   <!-- Microsoft Clarity -->
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -22,13 +23,11 @@
   </script>
 
   <meta name="format-detection" content="telephone=no">
-<meta charset="UTF-8">
 <link rel="preload" href="fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/inter-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" type="image/webp" href="favicon.webp">
 <meta name="description" content="Design interior optimizat pentru închiriere, plus sistemul complet: selecție chiriaș, contract, protocoale. Chiriași stabili, bătăi de cap mai puține."><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rent UP — Design Interior și Sistem de Închiriere | București</title>
-<meta name="keywords" content="design interior închiriere, optimizare apartament închiriat, rental management București, chiriaș stabil, randări apartament">
 <meta name="author" content="Rent UP">
 <meta name="robots" content="index, follow">
 
@@ -65,7 +64,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;-webkit-user-select:none;user-select:none}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
 
 
 nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-filter:blur(12px);border-bottom:.5px solid var(--border);padding:0 56px;height:64px;display:flex;align-items:center;justify-content:space-between}
@@ -472,8 +471,6 @@ footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56p
 .calc-col-inputs{min-width:0}
 .calc-col-results{min-width:0}
 .calc-col-results .cr{border:.5px solid var(--border);border-radius:12px;padding:20px;background:var(--bg)}
-}
-}
 
 
 
@@ -491,15 +488,6 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 /* Page transitions */
 body{opacity:0.01;transition:opacity .34s cubic-bezier(0.23,1,0.32,1)}
 body.loaded{opacity:1}
-
-}
-}
-
-
-
-}
-
-}
 @media(max-width:1100px){#calc [style*="grid-template-columns:1fr 1fr 1fr"]{grid-template-columns:1fr 1fr!important}}
 @media(max-width:900px){#calc [style*="grid-template-columns"]{grid-template-columns:1fr!important;padding:0!important}}
 @media(max-width:900px){#calc{padding:16px!important}}
@@ -509,7 +497,7 @@ body.loaded{opacity:1}
 .nav-mobile a:last-child{border-bottom:none}
 .nav-mobile.open{display:flex}
 /* Disable image right-click */
-img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
+img{-webkit-user-drag:none;user-drag:none}
 @media(max-width:500px){
   .tbns{flex-wrap:wrap}
   .tbn{flex:none;width:calc(50% - 4px)}
@@ -704,6 +692,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 </script>
 </head>
 <body>
+<noscript><style>body{opacity:1}</style></noscript>
 
 <!-- NAV -->
 <nav>
@@ -751,7 +740,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
   </div>
   <div class="hero-r">
     <div class="hero-visual" style="padding:0;overflow:hidden;border-radius:2px 2px 80px 2px">
-      <img src="images/hero_index.webp" alt="Before & After — RentUP" style="width:100%;height:100%;object-fit:cover;display:block"/>
+      <img src="images/hero_index.webp" alt="Before & After — RentUP" width="900" height="600" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;display:block"/>
       <div class="hero-badge">
         <div><div class="hb-val count-anim" data-val="200" data-pre="+" data-suf="€">+200€</div><div class="hb-label">chirie lunară<br>în plus</div></div>
       </div>
@@ -802,7 +791,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
   <p style="font-size:13px;color:#7A6E62;margin-bottom:16px;line-height:1.65">Varianta zero nu costă zero. Un proprietar fără sistem rulează în medie 3–4 chiriași în 5 ani.</p>
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
     <div style="background:#F5EFE6;border:.5px solid #E0DDD6;border-radius:10px;padding:14px 16px">
-      <div style="font-size:20px;font-weight:300;color:#C77936;margin-bottom:4px"id="ci-1"id="ci-1">1,5–2 luni</div>
+      <div style="font-size:20px;font-weight:300;color:#C77936;margin-bottom:4px" id="ci-1">1,5–2 luni</div>
       <div style="font-size:12px;color:#9A8E82;line-height:1.4">pierdute anual cu chiria neachitată între chiriași</div>
     </div>
     <div style="background:#F5EFE6;border:.5px solid #E0DDD6;border-radius:10px;padding:14px 16px">
@@ -1212,13 +1201,13 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
   <h2 class="sh" style="text-align:center">Întrebări frecvente.</h2>
   <p class="sec-sub" style="text-align:center;margin:0 auto 44px">Răspunsuri la ce ne întreabă proprietarii cel mai des.</p>
   <div class="faq-inner">
-    <div class="fi" onclick="this.classList.toggle('open')"><div class="fq">Garantați că voi găsi un chiriaș bun?<span class="fi-icon">+</span></div><div class="fa">Nu. Niciun sistem nu poate garanta comportamentul unui om. Ce garantăm este că procesul de selecție, documentație și design reduce semnificativ probabilitatea unui chiriaș problematic. Proprietarii care aplică sistematic un proces au cu 80–90% mai puține probleme decât cei care selectează după instinct.</div></div>
-    <div class="fi" onclick="this.classList.toggle('open')"><div class="fq">De ce un apartament amenajat bine atrage un chiriaș mai bun?<span class="fi-icon">+</span></div><div class="fa">Un anunț cu fotografii profesionale și un apartament coerent filtrează natural. Chiriașul care vede un apartament îngrijit înțelege că proprietarul e serios. Cei care nu se vor comporta corespunzător preferă spații cu standarde mai relaxate. Designul nu e estetică, ci un filtru de selecție.</div></div>
-    <div class="fi" onclick="this.classList.toggle('open')"><div class="fq">Ce fac dacă chiriașul nu plătește sau pleacă cu datorii?<span class="fi-icon">+</span></div><div class="fa">Rental Kit-ul include un protocol pas cu pas pentru exact această situație, de la primul reminder la Ziua 1 până la executare silită. Contractul înregistrat la ANAF este titlu executoriu pentru sume. Contractul autentificat notarial permite evacuare prin executor direct, fără instanță separată.</div></div>
-    <div class="fi" onclick="this.classList.toggle('open')"><div class="fq">Cât durează să găsesc chiriaș după finalizarea proiectului?<span class="fi-icon">+</span></div><div class="fa">Un apartament fotografiat profesional și listat corect pe 3 platforme găsește chiriaș în 1–3 săptămâni în București. Comparativ, un anunț cu fotografii de telefon și text slab poate sta neînchiriat 1–3 luni la același preț și aceeași zonă.</div></div>
-    <div class="fi" onclick="this.classList.toggle('open')"><div class="fq">Merită să investesc în design pentru un apartament de închiriat?<span class="fi-icon">+</span></div><div class="fa">Depinde de cât costă să nu o faci. Un proprietar fără sistem rulează în medie 3–4 chiriași în 5 ani. Fiecare schimbare înseamnă luni goale, reparații și selecție nouă. Auditul calculează exact cât costă situația ta actuală față de situația optimizată. Cei 200€ se scad din pachetul ales.</div></div>
-    <div class="fi" onclick="this.classList.toggle('open')"><div class="fq">Cât durează un proiect?<span class="fi-icon">+</span></div><div class="fa">Standard: 4–6 săptămâni. Premium cu suport complet în execuție: 8–12 săptămâni. Cea mai mare variabilă e viteza de feedback din partea ta și disponibilitatea meșterilor dacă sunt lucrări.</div></div>
-    <div class="fi" onclick="this.classList.toggle('open')"><div class="fq">Lucrați doar în București?<span class="fi-icon">+</span></div><div class="fa">Vizitele pe teren le facem în București și zona metropolitană. Proiectele de design le realizăm pentru orice locație din România, livrăm digital. Contactează-ne cu detalii.</div></div>
+    <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">Garantați că voi găsi un chiriaș bun?<span class="fi-icon">+</span></div><div class="fa">Nu. Niciun sistem nu poate garanta comportamentul unui om. Ce garantăm este că procesul de selecție, documentație și design reduce semnificativ probabilitatea unui chiriaș problematic. Proprietarii care aplică sistematic un proces au cu 80–90% mai puține probleme decât cei care selectează după instinct.</div></div>
+    <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">De ce un apartament amenajat bine atrage un chiriaș mai bun?<span class="fi-icon">+</span></div><div class="fa">Un anunț cu fotografii profesionale și un apartament coerent filtrează natural. Chiriașul care vede un apartament îngrijit înțelege că proprietarul e serios. Cei care nu se vor comporta corespunzător preferă spații cu standarde mai relaxate. Designul nu e estetică, ci un filtru de selecție.</div></div>
+    <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">Ce fac dacă chiriașul nu plătește sau pleacă cu datorii?<span class="fi-icon">+</span></div><div class="fa">Rental Kit-ul include un protocol pas cu pas pentru exact această situație, de la primul reminder la Ziua 1 până la executare silită. Contractul înregistrat la ANAF este titlu executoriu pentru sume. Contractul autentificat notarial permite evacuare prin executor direct, fără instanță separată.</div></div>
+    <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">Cât durează să găsesc chiriaș după finalizarea proiectului?<span class="fi-icon">+</span></div><div class="fa">Un apartament fotografiat profesional și listat corect pe 3 platforme găsește chiriaș în 1–3 săptămâni în București. Comparativ, un anunț cu fotografii de telefon și text slab poate sta neînchiriat 1–3 luni la același preț și aceeași zonă.</div></div>
+    <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">Merită să investesc în design pentru un apartament de închiriat?<span class="fi-icon">+</span></div><div class="fa">Depinde de cât costă să nu o faci. Un proprietar fără sistem rulează în medie 3–4 chiriași în 5 ani. Fiecare schimbare înseamnă luni goale, reparații și selecție nouă. Auditul calculează exact cât costă situația ta actuală față de situația optimizată. Cei 200€ se scad din pachetul ales.</div></div>
+    <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">Cât durează un proiect?<span class="fi-icon">+</span></div><div class="fa">Standard: 4–6 săptămâni. Premium cu suport complet în execuție: 8–12 săptămâni. Cea mai mare variabilă e viteza de feedback din partea ta și disponibilitatea meșterilor dacă sunt lucrări.</div></div>
+    <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">Lucrați doar în București?<span class="fi-icon">+</span></div><div class="fa">Vizitele pe teren le facem în București și zona metropolitană. Proiectele de design le realizăm pentru orice locație din România, livrăm digital. Contactează-ne cu detalii.</div></div>
   </div>
   <div style="text-align:center;margin-top:32px">
     <a href="faq.html" class="btn-ghost" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:14px;color:var(--brand);border:.5px solid var(--brand);padding:11px 22px;border-radius:100px;transition:background .2s">
@@ -1398,6 +1387,8 @@ document.addEventListener('contextmenu', function(e){
 function toggleMenu(){
   const nav=document.getElementById('nav-mobile');
   nav.classList.toggle('open');
+  const btn=document.getElementById('nav-hamburger');
+  if(btn) btn.setAttribute('aria-label',nav.classList.contains('open')?'Închide meniul':'Deschide meniul');
 }
 function checkHamburger(){
   var btn=document.getElementById('nav-hamburger');
