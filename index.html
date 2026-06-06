@@ -489,7 +489,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 @media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}.nav-hamburger{display:flex}.nav-cta{display:none}}
 
 /* Page transitions */
-body{opacity:0.01;transition:opacity .22s ease}
+body{opacity:0.01;transition:opacity .34s cubic-bezier(0.23,1,0.32,1)}
 body.loaded{opacity:1}
 
 }
@@ -545,17 +545,18 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 .ba:hover .ba-overlay span { opacity: 1; transform: translateY(0); }
 .ba { cursor: pointer; }
 /* ── HERO STAGGER ── */
-@keyframes heroIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.hero-l>*{animation:heroIn 350ms cubic-bezier(0.23,1,0.32,1) both}
-.hero-l>*:nth-child(1){animation-delay:.08s}
+@keyframes heroIn{from{opacity:0;transform:translateY(18px) scale(0.975);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+.hero-l>*{animation:heroIn 560ms cubic-bezier(0.23,1,0.32,1) both}
+.hero-l>*:nth-child(1){animation-delay:.06s}
 .hero-l>*:nth-child(2){animation-delay:.14s}
-.hero-l>*:nth-child(3){animation-delay:.20s}
-.hero-l>*:nth-child(4){animation-delay:.26s}
-.hero-l>*:nth-child(5){animation-delay:.32s}
+.hero-l>*:nth-child(3){animation-delay:.22s}
+.hero-l>*:nth-child(4){animation-delay:.30s}
+.hero-l>*:nth-child(5){animation-delay:.38s}
 /* ── SCROLL REVEAL ── */
-.sr{opacity:0;transform:translateY(10px);transition:opacity 340ms cubic-bezier(0.23,1,0.32,1),transform 340ms cubic-bezier(0.23,1,0.32,1)}
-.sr.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.hero-l>*,.sr{animation:none;opacity:1;transform:none}.hero-l>*{transition:opacity 200ms ease-out}.sr{transition:opacity 200ms ease-out}}
+.sr{opacity:0;transform:translateY(24px) scale(0.98);filter:blur(4px);will-change:transform,opacity,filter;transition:opacity 620ms cubic-bezier(0.23,1,0.32,1),transform 620ms cubic-bezier(0.23,1,0.32,1),filter 500ms ease}
+.sr.in{opacity:1;transform:none;filter:none;will-change:auto}
+@media(prefers-reduced-motion:reduce){.hero-l>*,.sr{animation:none!important;opacity:1!important;transform:none!important;filter:none!important}.sr{transition:opacity 200ms ease-out!important}}
+@media(max-width:600px){.sr{filter:none}.sr.in{filter:none}}
 /* ── TEXT SELECTION ── */
 ::selection{background:var(--brand);color:var(--bg)}
 
@@ -594,6 +595,88 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 .pkg-price .count-anim{font-size:inherit;font-weight:inherit;color:inherit;letter-spacing:inherit}
 .rk-item{align-items:flex-start!important}
 .rk-item svg{margin-top:2px;flex-shrink:0}
+
+/* ── ENHANCED MOTION v2 ── */
+/* Stat hover lift */
+.stat{transition:background 180ms ease,transform 220ms cubic-bezier(0.23,1,0.32,1)}
+.stat:hover{transform:translateY(-2px)}
+/* Reason slide on hover */
+.reason{transition:background 150ms ease-out,transform 240ms cubic-bezier(0.23,1,0.32,1)}
+.reason:hover{transform:translateX(5px)}
+/* Contact card lift */
+.cc{transition:background .15s,transform 220ms cubic-bezier(0.23,1,0.32,1),box-shadow 220ms ease}
+.cc:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.15)}
+/* Team card lift */
+.tc{transition:box-shadow 260ms cubic-bezier(0.23,1,0.32,1),transform 260ms cubic-bezier(0.23,1,0.32,1)}
+.tc:hover{box-shadow:0 18px 52px rgba(45,40,32,.1);transform:translateY(-4px)}
+/* Process card lift */
+.pc{transition:background 200ms cubic-bezier(0.23,1,0.32,1),transform 200ms cubic-bezier(0.23,1,0.32,1)}
+.pc:hover{transform:translateY(-3px)}
+/* Portfolio CTA slide */
+.port-cta{transition:background 200ms cubic-bezier(0.23,1,0.32,1),border-color 200ms cubic-bezier(0.23,1,0.32,1),transform 220ms cubic-bezier(0.23,1,0.32,1)}
+.port-cta:hover{transform:translateX(5px)}
+/* Portfolio card deeper shadow */
+.ba:hover{box-shadow:0 14px 44px rgba(45,40,32,.11);transform:translateY(-4px)}
+/* Package deeper hover */
+.pkg:hover{box-shadow:0 22px 60px rgba(45,40,32,.13);transform:translateY(-6px)}
+/* Fit card hover */
+.fc{transition:box-shadow 200ms cubic-bezier(0.23,1,0.32,1),transform 200ms cubic-bezier(0.23,1,0.32,1)}
+.fc:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(45,40,32,.07)}
+/* Testimonial card hover */
+.tec{transition:box-shadow 220ms cubic-bezier(0.23,1,0.32,1),transform 220ms cubic-bezier(0.23,1,0.32,1)}
+.tec:hover{box-shadow:0 12px 40px rgba(45,40,32,.09);transform:translateY(-3px)}
+/* Nav link underline slide */
+.nav-links a{position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--brand);transform:scaleX(0);transform-origin:right;transition:transform 270ms cubic-bezier(0.23,1,0.32,1)}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+/* Hero badge glow pulse */
+@keyframes badgePulse{0%,100%{box-shadow:0 4px 16px rgba(45,40,32,.06)}55%{box-shadow:0 8px 40px rgba(15,110,86,.22)}}
+.hero-badge{animation:badgePulse 4.2s ease-in-out infinite}
+/* Section dot pulse */
+@keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.7)}}
+.sec-tag .dot,.hero-dot{animation:dotPulse 2.8s ease-in-out infinite}
+/* Premium shimmer on hover */
+.pkg-pre{position:relative}
+.pkg-pre::after{content:'';position:absolute;top:0;left:-90%;width:55%;height:100%;background:linear-gradient(105deg,transparent 0%,rgba(255,255,255,.1) 50%,transparent 100%);transform:skewX(-18deg);transition:left 750ms cubic-bezier(0.23,1,0.32,1);pointer-events:none;z-index:1}
+.pkg-pre:hover::after{left:190%}
+/* Back-to-top hover */
+#btt:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(199,121,54,.42)!important}
+/* Hero image parallax hint */
+.hero-visual img{transition:transform 0ms linear}
+/* Smooth audit block hover */
+.audit-block{transition:box-shadow 220ms cubic-bezier(0.23,1,0.32,1),transform 220ms cubic-bezier(0.23,1,0.32,1)}
+.audit-block:hover{box-shadow:0 10px 36px rgba(45,40,32,.09);transform:translateY(-2px)}
+/* Testimonial cs box subtle lift */
+.cs{transition:box-shadow 250ms cubic-bezier(0.23,1,0.32,1)}
+.cs:hover{box-shadow:0 8px 32px rgba(45,40,32,.07)}
+
+/* ── CALCULATOR ANIMATIONS ── */
+/* Range thumb feel */
+input[type=range]::-webkit-slider-thumb{transition:transform 120ms cubic-bezier(0.23,1,0.32,1),box-shadow 150ms ease}
+input[type=range]:hover::-webkit-slider-thumb{box-shadow:0 3px 14px rgba(199,121,54,.38)}
+input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shadow:0 4px 18px rgba(199,121,54,.45)}
+/* Starea "live" — valorile se estompează în timp ce user-ul ține apăsat pe slider */
+.cr-sv.calc-live{opacity:0.42;transition:opacity 100ms ease}
+/* Settle pop — se joacă O SINGURĂ DATĂ la ridicarea degetului/click-ului */
+@keyframes valSettle{
+  0%  {transform:scale(0.88);opacity:0.42}
+  52% {transform:scale(1.07);opacity:1}
+  78% {transform:scale(0.97)}
+  100%{transform:scale(1);opacity:1}
+}
+.val-settle{animation:valSettle 440ms ease-out}
+/* Label strong flash (color only — pentru afișarea valorii curente la drag) */
+@keyframes labelPop{0%{color:#C77936}55%{color:#a8622a}100%{color:var(--text)}}
+.label-pop{animation:labelPop 380ms ease}
+/* Diff block ring glow — se activează la schimbări de tip/oraș/ani */
+@keyframes diffPulse{0%{box-shadow:0 2px 8px rgba(15,110,86,.06)}45%{box-shadow:0 0 0 7px rgba(15,110,86,.11),0 4px 20px rgba(15,110,86,.09)}100%{box-shadow:0 2px 8px rgba(15,110,86,.06)}}
+.diff-pulse{animation:diffPulse 620ms cubic-bezier(0.23,1,0.32,1)}
+/* Table body transition */
+#r-tb{transition:opacity 200ms ease}
+/* Calc col entrance stagger */
+#calc>div>div:nth-child(1){transition-delay:0ms}
+#calc>div>div:nth-child(2){transition-delay:80ms}
+#calc>div>div:nth-child(3){transition-delay:160ms}
 </style>
 <script type="application/ld+json">
 {
@@ -1283,25 +1366,6 @@ calc();
 </script>
 
 <script>
-// Page fade-in
-document.addEventListener('DOMContentLoaded', function() {
-  requestAnimationFrame(() => document.body.classList.add('loaded'));
-});
-// Page fade-out before navigation
-document.addEventListener('click', function(e) {
-  const a = e.target.closest('a[href]');
-  if (!a) return;
-  const href = a.getAttribute('href');
-  if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
-const url = new URL(a.href);
-if (url.pathname === window.location.pathname && url.hash) return;
-  if (a.target === '_blank') return;
-  e.preventDefault();
-  document.body.style.opacity = '0';
-  setTimeout(() => { window.location.href = href; }, 50);
-});
-</script>
-<script>
 document.addEventListener('DOMContentLoaded',function(){
   requestAnimationFrame(function(){ document.body.classList.add('loaded'); });
 });
@@ -1320,8 +1384,9 @@ document.addEventListener('click',function(e){
   if(url.pathname === window.location.pathname && url.hash) return;
   if(a.target==='_blank') return;
   e.preventDefault();
+  document.body.style.transition='opacity .32s cubic-bezier(0.23,1,0.32,1)';
   document.body.style.opacity='0';
-  setTimeout(function(){ window.location.href=href; }, 50);
+  setTimeout(function(){ window.location.href=href; }, 340);
 });
 </script>
 <script>
@@ -1355,7 +1420,7 @@ window.addEventListener('scroll',function(){
   var btn=document.getElementById('btt');
   if(window.scrollY>400){btn.style.display='flex';}
   else{btn.style.display='none';}
-});
+},{passive:true});
 </script>
 
 <!-- Cookie Banner -->
@@ -1509,9 +1574,9 @@ if(idx>0) el.style.transitionDelay=(idx*(isListItem?40:55))+'ms';
     },{passive:true});
   });
 })();
-
-// Smooth diff — transition retargetează, nu mai face glitch
+</script>
 <script>
+// Smooth diff — transition retargetează, nu mai face glitch
 window.animateCalcDiff=(function(){
   var displayed=0,raf=null;
   function ease(t){return 1-Math.pow(1-t,3)}
@@ -1585,6 +1650,174 @@ window.animateCalcDiff=(function(){
 
   document.querySelectorAll('.count-anim').forEach(function(el){
     io.observe(el);
+  });
+})();
+</script>
+<script>
+// ── CALCULATOR ANIMATIONS ──
+(function(){
+  if(typeof window.calc!=='function') return;
+
+  var RESULT_IDS = ['r-cur','r-opt','r-nb','r-ng'];
+  var isSliderDragging = false;
+
+  /* ── Range fill — colorează bara slider ── */
+  function fillRange(r){
+    var pct = Math.round(((+r.value - +r.min)/(+r.max - +r.min))*1000)/10;
+    r.style.background = 'linear-gradient(to right,#C77936 '+pct+'%,#D8CFC4 '+pct+'%)';
+  }
+
+  /* ── Settle pop (double-rAF, fără forced reflow) ── */
+  function settle(el){
+    if(!el) return;
+    el.classList.remove('val-settle','calc-live');
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){ el.classList.add('val-settle'); });
+    });
+  }
+
+  /* ── Diff glow (double-rAF) ── */
+  function diffGlow(){
+    var db = document.querySelector('.diff-block');
+    if(!db) return;
+    db.classList.remove('diff-pulse');
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){ db.classList.add('diff-pulse'); });
+    });
+  }
+
+  /* ── Inițializare range inputs ── */
+  document.querySelectorAll('input[type=range]').forEach(function(r){
+    fillRange(r);
+    r.addEventListener('input', function(){ fillRange(r); }, {passive:true});
+
+    r.addEventListener('pointerdown', function(){
+      isSliderDragging = true;
+      r.classList.add('dragging');
+      /* Intră în starea "live": estompează valorile */
+      RESULT_IDS.forEach(function(id){
+        var el = document.getElementById(id);
+        if(el){ el.classList.remove('val-settle'); el.classList.add('calc-live'); }
+      });
+    });
+  });
+
+  /* ── La ridicarea click-ului/degetului → settle ── */
+  window.addEventListener('pointerup', function(){
+    if(!isSliderDragging) return;
+    isSliderDragging = false;
+    document.querySelectorAll('input[type=range].dragging').forEach(function(r){
+      r.classList.remove('dragging');
+    });
+    /* Lasă ultimul calc() să ruleze, apoi joacă animația o singură dată */
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        RESULT_IDS.forEach(function(id){ settle(document.getElementById(id)); });
+        diffGlow();
+      });
+    });
+  }, {passive:true});
+
+  /* ── Label pop la drag (afișarea valorii curente) ── */
+  function popLabel(el){
+    if(!el) return;
+    el.classList.remove('label-pop');
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){ el.classList.add('label-pop'); });
+    });
+  }
+  var mpS = document.getElementById('mp-s');
+  var reS = document.getElementById('re-s');
+  if(mpS) mpS.addEventListener('input', function(){ popLabel(document.getElementById('mp-d')); }, {passive:true});
+  if(reS) reS.addEventListener('input', function(){ popLabel(document.getElementById('re-d')); }, {passive:true});
+
+  /* ── Patch calc() ── */
+  var origCalc = window.calc;
+  var lastTableFade = 0;
+
+  window.calc = function(){
+    origCalc.apply(this, arguments);
+
+    /* Re-fill ranges mereu (type/city/years pot reseta valorile sliderelor) */
+    document.querySelectorAll('input[type=range]').forEach(fillRange);
+
+    /* Dacă user-ul NU trage sliderul (e.g. a schimbat tip/oraș/ani prin butoane)
+       → joacă animația de settle imediat */
+    if(!isSliderDragging){
+      RESULT_IDS.forEach(function(id){ settle(document.getElementById(id)); });
+      diffGlow();
+    }
+
+    /* Tabel fade — throttled, nu depinde de slider */
+    var now = Date.now();
+    if(now - lastTableFade > 200){
+      lastTableFade = now;
+      var tb = document.getElementById('r-tb');
+      if(tb){
+        tb.style.opacity = '0';
+        requestAnimationFrame(function(){
+          requestAnimationFrame(function(){ tb.style.opacity = '1'; });
+        });
+      }
+    }
+  };
+
+  /* ── First-view: settle o dată când secțiunea intră în viewport ── */
+  var calcSec = document.getElementById('calc');
+  if(calcSec){
+    var firstFired = false;
+    new IntersectionObserver(function(entries){
+      if(entries[0].isIntersecting && !firstFired){
+        firstFired = true;
+        setTimeout(function(){
+          RESULT_IDS.forEach(function(id){ settle(document.getElementById(id)); });
+          diffGlow();
+        }, 450);
+      }
+    }, {threshold:0.18}).observe(calcSec);
+  }
+})();
+
+// Hero parallax — imagine se mișcă ușor la scroll
+(function(){
+  var heroImg = document.querySelector('#hero .hero-visual img');
+  if(!heroImg || window.innerWidth < 900) return;
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY;
+    if(y > 700) return;
+    heroImg.style.transform = 'translateY(' + (y * 0.10) + 'px) scale(1.04)';
+  }, {passive:true});
+  // reset la resize mic
+  window.addEventListener('resize', function(){
+    if(window.innerWidth < 900) heroImg.style.transform = '';
+  }, {passive:true});
+})();
+
+// Stagger mai fin pe grupuri de elemente sr
+(function(){
+  var groups = ['.proc-g', '.pkg-g', '.te-g', '.fit-g', '.team-g', '.port-g', '.stats-g'];
+  groups.forEach(function(sel){
+    var parent = document.querySelector(sel);
+    if(!parent) return;
+    var children = Array.from(parent.querySelectorAll('.sr'));
+    children.forEach(function(el, i){
+      el.style.transitionDelay = (i * 65) + 'ms';
+    });
+  });
+})();
+
+// Fade-in pe hero visual cu un mic delay de luxe
+(function(){
+  var heroR = document.querySelector('.hero-r');
+  if(!heroR) return;
+  heroR.style.opacity = '0';
+  heroR.style.transform = 'translateY(12px) scale(0.97)';
+  heroR.style.transition = 'opacity 700ms 300ms cubic-bezier(0.23,1,0.32,1), transform 700ms 300ms cubic-bezier(0.23,1,0.32,1)';
+  requestAnimationFrame(function(){
+    requestAnimationFrame(function(){
+      heroR.style.opacity = '1';
+      heroR.style.transform = '';
+    });
   });
 })();
 </script>
