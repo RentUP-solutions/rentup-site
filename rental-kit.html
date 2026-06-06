@@ -224,11 +224,47 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 }
 
 /* Page transitions */
-body{opacity:0.01;transition:opacity .22s ease}
-body.loaded{opacity:1}
+body{opacity:0.01;transition:opacity .34s cubic-bezier(0.23,1,0.32,1)}
 
 /* Disable image right-click */
 img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
+
+/* ── MOTION ENHANCEMENTS ── */
+/* Dot pulse */
+@keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.7)}}
+.hero-dot,.dot{animation:dotPulse 2.8s ease-in-out infinite}
+
+/* Hero entrance */
+@keyframes hdrIn{from{opacity:0;transform:translateY(18px) scale(0.977);filter:blur(5px)}to{opacity:1;transform:none;filter:none}}
+.hero-tag{animation:hdrIn 480ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:60ms}
+.hero-h1{animation:hdrIn 560ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:130ms}
+.hero-sub{animation:hdrIn 520ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:220ms}
+.hero-meta{animation:hdrIn 480ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:310ms}
+
+/* Nav underline */
+.nav-links a{position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--brand);transform:scaleX(0);transform-origin:right;transition:transform 270ms cubic-bezier(0.23,1,0.32,1)}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);transform-origin:left}
+
+/* Scroll reveal */
+.sr{opacity:0;transform:translateY(22px) scale(0.98);filter:blur(4px);will-change:transform,opacity,filter;transition:opacity 580ms cubic-bezier(0.23,1,0.32,1),transform 580ms cubic-bezier(0.23,1,0.32,1),filter 460ms ease}
+.sr.in{opacity:1;transform:none;filter:none;will-change:auto}
+@media(max-width:600px){.sr{filter:none}.sr.in{filter:none}}
+
+/* Enhanced card/row hover */
+.wi-item{transition:box-shadow 260ms cubic-bezier(0.23,1,0.32,1),transform 240ms cubic-bezier(0.23,1,0.32,1),background 150ms ease}
+.wi-item:hover{box-shadow:0 6px 24px rgba(45,40,32,.09);transform:translateX(4px)}
+.mod-row{transition:background 180ms ease,border-color 180ms ease,transform 200ms cubic-bezier(0.23,1,0.32,1)}
+.mod-row:hover{transform:translateX(3px)}
+.doc-frame{transition:transform 280ms cubic-bezier(0.23,1,0.32,1),box-shadow 280ms cubic-bezier(0.23,1,0.32,1)}
+.ann{transition:background 180ms ease,border-color 180ms ease,transform 220ms cubic-bezier(0.23,1,0.32,1)}
+.ann:hover{transform:translateY(-2px)}
+.tc{transition:background 200ms ease,transform 240ms cubic-bezier(0.23,1,0.32,1)}
+.tc:hover{background:#4A3E32;transform:translateY(-2px)}
+.btn-p,.btn-brand{transition:background 180ms ease,transform 160ms ease}
+.btn-p:hover,.btn-brand:hover{transform:translateY(-1px)}
+.btn-outline,.btn-g{transition:background 180ms ease,transform 160ms ease}
+.btn-outline:hover,.btn-g:hover{transform:translateY(-1px)}
 .nav-mobile{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(253,250,246,.98);border-bottom:.5px solid #EDE5D8;padding:16px 20px;flex-direction:column;gap:4px;z-index:99}
 .nav-mobile a{font-family:'Inter',sans-serif;font-size:15px;color:#9A8E82;text-decoration:none;padding:12px 0;border-bottom:.5px solid #EDE5D8;display:block}
 .nav-mobile a:last-child{border-bottom:none}
@@ -303,26 +339,26 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 <!-- WHAT IS -->
 <div class="what-is" style="display:block">
   <div style="max-width:860px;margin:0 auto">
-  <div class="wi-l" style="text-align:center;max-width:600px;margin:0 auto 40px">
+  <div class="wi-l sr" style="text-align:center;max-width:600px;margin:0 auto 40px">
     <h2 style="text-align:center">Ce este un Rental Kit?</h2>
     <p>Cel mai frecvent auzim că designul e clar. Ce nu e clar e ce urmează după.</p>
     <p>Designul rezolvă cum arată apartamentul. Rental Kit-ul rezolvă ce faci cu el după, cum listezi, pe cine primești, cum predai cheile fără să-ți pară rău.</p>
     <p>Rental Kit-ul este documentul care transformă un apartament frumos într-o închiriere fără bătăi de cap.</p>
   </div>
   <div class="wi-r">
-    <div class="wi-item">
+    <div class="wi-item sr">
       <span class="wi-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
       <div><div class="wi-title">Strategie de piață</div><div class="wi-desc">Cum stabilești chiria corectă, cum listezi, ce fotografii faci și ce scrie în anunț ca să atragă omul potrivit.</div></div>
     </div>
-    <div class="wi-item">
+    <div class="wi-item sr">
       <span class="wi-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
       <div><div class="wi-title">Sistem de selecție chiriaș</div><div class="wi-desc">Chestionar structurat, 4 piloni de evaluare, red flags cu explicații. Nu instinct, ci un sistem bine gândit.</div></div>
     </div>
-    <div class="wi-item">
+    <div class="wi-item sr">
       <span class="wi-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="8" y="2" width="8" height="4" rx="1"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 12h8M8 16h5"/></svg></span>
       <div><div class="wi-title">Documente complete</div><div class="wi-desc">PV foto extins, inventar detaliat, contract custom, politica de garanție cu proceduri clare.</div></div>
     </div>
-    <div class="wi-item">
+    <div class="wi-item sr">
       <span class="wi-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
       <div><div class="wi-title">Ghid chiriaș</div><div class="wi-desc">Primești un chiriaș informat și responsabilizat. El știe ce se așteaptă de la el și cum funcționează garanția.</div></div>
     </div>
@@ -338,7 +374,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   <h2 class="sh" style="text-align:center">Tot ce ai nevoie<br>de la anunț până la predare.</h2>
   <p class="sec-sub" style="text-align:center;margin:0 auto 44px">Șapte module care acoperă întregul ciclu de viață al chiriei. Nu e un template generic, e un document personalizat pentru proprietatea ta, zona ta și profilul de chiriaș urmărit.</p>
 
-  <div class="modules">
+  <div class="modules sr">
     <div class="mod-row"><span class="mod-num">01</span><span class="mod-title">Poziționarea proprietății: public țintă, mesaj, prețul corect</span><div class="mod-tags"><span class="mod-tag">strategie</span></div></div>
     <div class="mod-row"><span class="mod-num">02</span><span class="mod-title">Listarea: platforme, fotografii, modelul de anunț</span><div class="mod-tags"><span class="mod-tag">marketing</span></div></div>
     <div class="mod-row"><span class="mod-num">03</span><span class="mod-title">Evaluarea chiriașului: 4 piloni, sistem de decizie, red flags</span><div class="mod-tags"><span class="mod-tag">selecție</span><span class="mod-tag new">sistem</span></div></div>
@@ -350,7 +386,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 
   <!-- DOCUMENT PREVIEW -->
   <div class="previews">
-  <div class="doc-frame">
+  <div class="doc-frame sr">
   <span class="doc-label sec">Ce primești</span>
   <div class="doc-inner">
     <div class="doc-header" style="border-color:var(--border)">
@@ -384,7 +420,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   <div class="blur-overlay"><a class="see-more" href="/#contact">Primește tot kitul → contactează-ne</a></div>
 </div>
 
-    <div class="doc-frame">
+    <div class="doc-frame sr">
       <span class="doc-label sec">Previzualizare</span>
       <div class="doc-inner">
         <div class="doc-header" style="border-color:var(--border)">
@@ -424,12 +460,12 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   <!-- ANEXE -->
   <div class="sec-tag"><div class="dot"></div>Documente incluse</div>
   <div class="annexes">
-    <div class="ann"><div class="ann-code"></div><div class="ann-title">Chestionar standard chiriaș</div><div class="ann-desc">Chestionar structurat care acoperă toate dimensiunile relevante pentru o decizie corectă.</div></div>
-    <div class="ann"><div class="ann-code"></div><div class="ann-title">Fișă internă de evaluare</div><div class="ann-desc">Fișă de evaluare internă a posibililor chiriași. </div></div>
-    <div class="ann"><div class="ann-code"></div><div class="ann-title">Inventar proprietate</div><div class="ann-desc">Fiecare element cu stare inițială, valoare estimată, scala FB/B/A/D + uzură acceptată explicată.</div></div>
-    <div class="ann"><div class="ann-code"></div><div class="ann-title">Proces verbal foto extins</div><div class="ann-desc">PV clasic + registru fotografic cu timestamp, 12 câmpuri, semnat pe pagină de ambele părți.</div><div class="ann-badge">Foto cu timestamp</div></div>
-    <div class="ann"><div class="ann-code"></div><div class="ann-title">Politica de garanție</div><div class="ann-desc">Condiții clare + procedura de avertisment în 3 pași (5 zile notificare, 10 zile remediere, reținere justificată).</div></div>
-    <div class="ann"><div class="ann-code"></div><div class="ann-title">Protocol evacuare pas cu pas</div><div class="ann-desc">Pași concreți de la Ziua 1 la Ziua 60+: notificări, executor, instanță. Modele de texte gata de trimis.</div><div class="ann-badge">Situații dificile</div></div>
+    <div class="ann sr"><div class="ann-code"></div><div class="ann-title">Chestionar standard chiriaș</div><div class="ann-desc">Chestionar structurat care acoperă toate dimensiunile relevante pentru o decizie corectă.</div></div>
+    <div class="ann sr"><div class="ann-code"></div><div class="ann-title">Fișă internă de evaluare</div><div class="ann-desc">Fișă de evaluare internă a posibililor chiriași. </div></div>
+    <div class="ann sr"><div class="ann-code"></div><div class="ann-title">Inventar proprietate</div><div class="ann-desc">Fiecare element cu stare inițială, valoare estimată, scala FB/B/A/D + uzură acceptată explicată.</div></div>
+    <div class="ann sr"><div class="ann-code"></div><div class="ann-title">Proces verbal foto extins</div><div class="ann-desc">PV clasic + registru fotografic cu timestamp, 12 câmpuri, semnat pe pagină de ambele părți.</div><div class="ann-badge">Foto cu timestamp</div></div>
+    <div class="ann sr"><div class="ann-code"></div><div class="ann-title">Politica de garanție</div><div class="ann-desc">Condiții clare + procedura de avertisment în 3 pași (5 zile notificare, 10 zile remediere, reținere justificată).</div></div>
+    <div class="ann sr"><div class="ann-code"></div><div class="ann-title">Protocol evacuare pas cu pas</div><div class="ann-desc">Pași concreți de la Ziua 1 la Ziua 60+: notificări, executor, instanță. Modele de texte gata de trimis.</div><div class="ann-badge">Situații dificile</div></div>
 <div class="ann"><div class="ann-code"></div><div class="ann-title">Protocol sezon rece (1 dec – 1 mart)</div><div class="ann-desc">Ce poți face legal în perioada de protecție, excepțiile valabile și cum documentezi rea-credința chiriașului.</div><div class="ann-badge">Situații dificile</div></div>
 <div class="ann"><div class="ann-code"></div><div class="ann-title">Notificări pentru neplată: texte gata de trimis</div><div class="ann-desc">Mesaj WhatsApp ziua 5, email formal ziua 15, notificare recomandată ziua 30. Ton calibrat pentru fiecare etapă, fără să enervezi inutil.</div><div class="ann-badge">Cel mai solicitat</div></div>
 <div class="ann"><div class="ann-code"></div><div class="ann-title">Clauza specifică animale de companie</div><div class="ann-desc">Text complet de inserat în contract: tip animal, garanție extinsă 1+2, responsabilități clare, procedură daune.</div><div class="ann-badge">Situații dificile</div></div>
@@ -445,7 +481,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   <p class="sec-sub" style="text-align:center;margin:0 auto 44px">Ghidul de chiriaș nu e o listă de reguli. E un document care construiește relația de la prima zi, cu ton cald, informații clare și zero ambiguitate despre garanție.</p>
 
   <div class="previews">
-    <div class="doc-frame">
+    <div class="doc-frame sr">
       <span class="doc-label sec">Previzualizare</span>
       <div class="doc-inner">
         <div class="doc-header" style="border-color:var(--border)">
@@ -478,7 +514,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
       <div class="blur-overlay"><a class="see-more" href="/#contact">Primește tot kitul → contactează-ne</a></div>
     </div>
 
-    <div class="doc-frame">
+    <div class="doc-frame sr">
   <span class="doc-label sec">Previzualizare</span>
   <div class="doc-inner">
     <div class="doc-header" style="border-color:var(--border)">
@@ -514,9 +550,9 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   <!-- Chiriaș anexe -->
   <div class="sec-tag"><div class="dot"></div>Documente pentru chiriaș</div>
   <div class="annexes">
-    <div class="ann"><div class="ann-code"></div><div class="ann-title">Reguli de utilizare</div><div class="ann-desc">Ce e interzis și ce e obligatoriu, clar și fără ambiguitate, semnat la predarea cheilor.</div></div>
-    <div class="ann"><div class="ann-code"></div><div class="ann-title">Ghid de returnare garanție</div><div class="ann-desc">Mecanismul complet în limbaj simplu. Procedura de avertisment în 3 pași, fără surprize la final.</div></div>
-    <div class="ann"><div class="ann-code"></div><div class="ann-title">Fișă de urgențe</div><div class="ann-desc">Instalator, electrician, administrator bloc, urgențe gaz, 112. Completată înainte de predare.</div></div>
+    <div class="ann sr"><div class="ann-code"></div><div class="ann-title">Reguli de utilizare</div><div class="ann-desc">Ce e interzis și ce e obligatoriu, clar și fără ambiguitate, semnat la predarea cheilor.</div></div>
+    <div class="ann sr"><div class="ann-code"></div><div class="ann-title">Ghid de returnare garanție</div><div class="ann-desc">Mecanismul complet în limbaj simplu. Procedura de avertisment în 3 pași, fără surprize la final.</div></div>
+    <div class="ann sr"><div class="ann-code"></div><div class="ann-title">Fișă de urgențe</div><div class="ann-desc">Instalator, electrician, administrator bloc, urgențe gaz, 112. Completată înainte de predare.</div></div>
   </div>
   </div>
 </section>
@@ -529,21 +565,21 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     <p class="trauma-sub">Am citit sute de comentarii de la proprietari români. Știm cum arată trauma unui apartament distrus, a unui chiriaș care nu pleacă, a garanției care nu acoperă daunele. Nu îți spunem că n-o să se mai întâmple niciodată. Îți spunem că se poate gestiona dacă ai sistemul potrivit.</p>
 
    <div class="trauma-cards">
-  <div class="tc">
+  <div class="tc sr">
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
       <div class="tc-icon" style="margin-bottom:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
       <div class="tc-title" style="margin-bottom:0">Inspectezi când ai nevoie</div>
     </div>
     <div class="tc-desc">Calendar flexibil: 30 zile (opțional), 6 luni, anual. Spui transparent chiriașului de la început. Fără surprize pentru nimeni.</div>
   </div>
-  <div class="tc">
+  <div class="tc sr">
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
       <div class="tc-icon" style="margin-bottom:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
       <div class="tc-title" style="margin-bottom:0">Garanție adaptată la nivelul tău de risc</div>
     </div>
     <div class="tc-desc">Standard (1+1) sau varianta cu protecție mai mare (1+2). Noi îți oferim opțiunile, tu alegi.</div>
   </div>
-  <div class="tc">
+  <div class="tc sr">
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
       <div class="tc-icon" style="margin-bottom:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v16"/><path d="M5 20h14"/><path d="M8 3h8"/><path d="M5 9l-2 5h4l-2-5z"/><path d="M19 9l-2 5h4l-2-5z"/><path d="M5 9h14"/></svg></div>
       <div class="tc-title" style="margin-bottom:0">Ghid pentru situații dificile</div>
@@ -560,7 +596,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 </div>
 
 <!-- CTA FINAL -->
-<div class="cta-final">
+<div class="cta-final sr">
   <h2>Rental Kit-ul vine cu proiectul de design.</h2>
   <p>Nu îl vindem separat. Deoarece singur, fără designul care filtrează chiriașii, valorează mai puțin. Împreună, sunt sistemul complet.</p>
   <div class="cta-btns">
@@ -615,41 +651,25 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 
 
 <script>
-// Page fade-in
-document.addEventListener('DOMContentLoaded', function() {
-  requestAnimationFrame(() => document.body.classList.add('loaded'));
-});
-// Page fade-out before navigation
-document.addEventListener('click', function(e) {
-  const a = e.target.closest('a[href]');
-  if (!a) return;
-  const href = a.getAttribute('href');
-  if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
-  if (a.target === '_blank') return;
-  e.preventDefault();
-  document.body.style.opacity = '0';
-  setTimeout(() => { window.location.href = href; }, 50);
-});
-</script>
-<script>
 document.addEventListener('DOMContentLoaded',function(){
-  requestAnimationFrame(function(){ document.body.classList.add('loaded'); });
+  requestAnimationFrame(function(){ document.body.style.opacity='1'; });
 });
-window.addEventListener('pageshow', function(e) {
-  if (e.persisted) {
-    document.body.style.opacity = '1';
-    document.body.classList.add('loaded');
+window.addEventListener('pageshow',function(e){
+  if(e.persisted){
+    document.body.style.transition='none';
+    document.body.style.opacity='1';
   }
 });
 document.addEventListener('click',function(e){
-  var a = e.target.closest('a[href]');
+  var a=e.target.closest('a[href]');
   if(!a) return;
-  var href = a.getAttribute('href');
-  if(!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
+  var href=a.getAttribute('href');
+  if(!href||href.startsWith('#')||href.startsWith('http')||href.startsWith('mailto')||href.startsWith('tel')) return;
   if(a.target==='_blank') return;
   e.preventDefault();
+  document.body.style.transition='opacity .32s cubic-bezier(0.23,1,0.32,1)';
   document.body.style.opacity='0';
-  setTimeout(function(){ window.location.href=href; }, 50);
+  setTimeout(function(){ window.location.href=href; },340);
 });
 </script>
 <script>
@@ -682,7 +702,28 @@ window.addEventListener('scroll',function(){
   var btn=document.getElementById('btt');
   if(window.scrollY>400){btn.style.display='flex';}
   else{btn.style.display='none';}
-});
+},{passive:true});
+</script>
+
+<script>
+// Scroll reveal cu stagger
+(function(){
+  var io = new IntersectionObserver(function(entries){
+    var delay = 0;
+    entries.forEach(function(entry){
+      if(!entry.isIntersecting) return;
+      var el = entry.target;
+      (function(el, d){
+        setTimeout(function(){ el.classList.add('in'); }, d);
+      })(el, delay);
+      delay += 80;
+      io.unobserve(el);
+    });
+  }, {threshold:0.08});
+  document.querySelectorAll('.sr').forEach(function(el){
+    io.observe(el);
+  });
+})();
 </script>
 
 <!-- Cookie Banner -->

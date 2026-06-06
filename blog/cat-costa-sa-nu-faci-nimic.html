@@ -26,8 +26,8 @@
 @font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url('../fonts/inter-latin-600-normal.woff2') format('woff2');}
 :root{--brand:#C77936;--brand-light:#FAF4EB;--brand-border:#E8D5BC;--bg:#FDFAF6;--bg-stone:#F5EFE6;--border:#EDE5D8;--dark:#2D2820;--mid:#7A6E62;--muted:#9A8E82;--light:#B8AFA4;--green:#0F6E56;--green-bg:#E1F5EE;--red:#A32D2D;--red-bg:#FCEBEB;}
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);-webkit-font-smoothing:antialiased;opacity:0.01;transition:opacity .22s ease}
-body.loaded{opacity:1}img{-webkit-user-drag:none;pointer-events:none}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);-webkit-font-smoothing:antialiased;opacity:0.01;transition:opacity .34s cubic-bezier(0.23,1,0.32,1)}
+img{-webkit-user-drag:none;pointer-events:none}
 nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-filter:blur(12px);border-bottom:.5px solid var(--border);padding:0 56px;height:64px;display:flex;align-items:center;justify-content:space-between}
 .logo{font-size:17px;font-weight:600;color:#C77936;text-decoration:none;letter-spacing:-.01em}.logo span{color:#2D2820;font-weight:300}
 .nav-links{display:flex;align-items:center;gap:28px}.nav-links a{font-size:13px;color:#9A8E82;text-decoration:none;transition:color .15s}.nav-links a:hover,.nav-links a.active{color:#2D2820}
@@ -91,6 +91,24 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
     gap:32px!important;
   }
 }
+/* ── MOTION ENHANCEMENTS ── */
+@keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.7)}}
+.tag-dot{animation:dotPulse 2.8s ease-in-out infinite}
+@keyframes hdrIn{from{opacity:0;transform:translateY(18px) scale(0.977);filter:blur(5px)}to{opacity:1;transform:none;filter:none}}
+.art-tag{animation:hdrIn 480ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:60ms}
+.art-h1{animation:hdrIn 560ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:130ms}
+.art-intro{animation:hdrIn 520ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:220ms}
+.art-meta{animation:hdrIn 480ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:310ms}
+.nav-links a{position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--brand);transform:scaleX(0);transform-origin:right;transition:transform 270ms cubic-bezier(0.23,1,0.32,1)}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);transform-origin:left}
+.sr{opacity:0;transform:translateY(18px);filter:blur(2px);will-change:transform,opacity,filter;transition:opacity 540ms cubic-bezier(0.23,1,0.32,1),transform 540ms cubic-bezier(0.23,1,0.32,1),filter 420ms ease}
+.sr.in{opacity:1;transform:none;filter:none;will-change:auto}
+@media(max-width:600px){.sr{filter:none}.sr.in{filter:none}}
+.rel-card{transition:background 180ms ease,border-color 180ms ease,transform 200ms cubic-bezier(0.23,1,0.32,1)}
+.rel-card:hover{transform:translateY(-1px)}
+.kit-btn{transition:background 180ms ease,transform 160ms ease}
+.kit-btn:hover{transform:translateY(-1px)}
 </style>
 </head>
 <body>
@@ -137,7 +155,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 
   <p>Un proprietar fără sistem nu pierde dintr-un singur loc mare. Pierde din mai multe locuri mici, care se cumulează în timp:</p>
 
-  <div class="cost-grid">
+  <div class="cost-grid sr">
     <div class="cost-card">
       <div class="cc-val">1,5–2 luni</div>
       <div class="cc-label">chirie pierdută anual</div>
@@ -170,7 +188,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
     <li>Chirie sub piața cu 100€/lună față de potențial: 5 ani × 12 luni × 100€ = 6.000€</li>
   </ul>
 
-  <div class="total-card">
+  <div class="total-card sr">
     <div>
       <div class="tc-label">Pierdere totală estimată pe 5 ani</div>
       <div class="tc-sub">Luni goale + reparații + chiria sub piață. Calculat conservator, fără cazuri extreme.</div>
@@ -182,7 +200,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 
   <h2>Comparația directă: cu sistem vs. fără sistem</h2>
 
-  <div class="compare-table">
+  <div class="compare-table sr">
     <div class="ct-header"><div>Indicator</div><div>Fără sistem</div><div>Cu sistem</div></div>
     <div class="ct-row"><div class="ct-neutral">Chiriași în 5 ani</div><div class="ct-bad">3–4</div><div class="ct-good">1–2</div></div>
     <div class="ct-row"><div class="ct-neutral">Luni goale / an</div><div class="ct-bad">1,5–2 luni</div><div class="ct-good">sub 0,5 luni</div></div>
@@ -202,7 +220,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
     <li>Costul se distribuie pe ani și nu apare niciodată ca o sumă unică pe o factură</li>
   </ul>
 
-  <div class="pullquote">
+  <div class="pullquote sr">
     "Am avut 4 chiriași în 3 ani. La fiecare schimbare, câștigul pe 2 luni s-a dus pe reparații. Stăteam cu apartamentul gol câte o lună."
     <div class="pullquote-source">Proprietar, grup Facebook proprietari · 2025</div>
   </div>
@@ -213,7 +231,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 
   <p>Nu din câștigul extra singur. Din combinația câștig extra plus luni goale eliminate plus reparații reduse. Cele trei fluxuri împreună produc un număr total diferit față de ce arată calculatorul simplu.</p>
 
-  <div class="info-box">
+  <div class="info-box sr">
     <strong>Ce calculează Auditul de 200€:</strong> Exact aceasta. Nu doar cât poți câștiga în plus, ci și cât pierzi acum din luni goale, din chirie sub piață și din reparații predictibile. Cei 200€ se scad din orice pachet ales în 90 de zile.
   </div>
 
@@ -223,7 +241,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 
   <p>Cele două întrebări arată situația complet diferit.</p>
 
-  <div class="kit-cta">
+  <div class="kit-cta sr">
     <div class="kit-cta-tag">Calculator ROI · RentUP</div>
     <h3 class="kit-cta-h">Calculează exact cât costă<br><em>situația ta actuală.</em></h3>
     <p class="kit-cta-sub">Calculatorul de pe homepage îți arată diferența dintre scenariul actual și cel optimizat, cu numerele tale reale. Auditul de 200€ merge mai adânc: evaluare pe teren, intervenții prioritizate, ROI estimat pentru proprietatea ta specifică.</p>
@@ -238,15 +256,15 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
     <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--brand);margin-bottom:6px">Continuă să citești</div>
     <div style="font-size:22px;font-weight:300;color:var(--dark);margin-bottom:4px">Articole relevante</div>
     <div class="related-grid">
-      <a href="/blog/cum-selectezi-chiriasii.html" class="rel-card">
+      <a href="/blog/cum-selectezi-chiriasii.html" class="rel-card sr">
         <div class="rel-tag">Selecție chiriaș</div>
         <div class="rel-title">Cum selectezi chiriașii: metoda cu care eviți 90% din probleme</div>
       </a>
-      <a href="/blog/chirias-nu-plateste-chiria.html" class="rel-card">
+      <a href="/blog/chirias-nu-plateste-chiria.html" class="rel-card sr">
         <div class="rel-tag">Situații dificile</div>
         <div class="rel-title">Chiriașul nu plătește chiria: cum reacționezi corect și ce instrumente ai</div>
       </a>
-      <a href="/blog/procesul-verbal-foto.html" class="rel-card">
+      <a href="/blog/procesul-verbal-foto.html" class="rel-card sr">
         <div class="rel-tag">Documentație</div>
         <div class="rel-title">Procesul verbal foto: singura ta protecție legală reală</div>
       </a>
@@ -298,9 +316,10 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
   </div>
 </footer>
 <script>
-document.addEventListener('DOMContentLoaded',function(){requestAnimationFrame(function(){document.body.classList.add('loaded');});});
-window.addEventListener('pageshow',function(e){if(e.persisted){document.body.style.opacity='1';document.body.classList.add('loaded');}});
-document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a)return;var href=a.getAttribute('href');if(!href||href.startsWith('#')||href.startsWith('http')||href.startsWith('mailto')||href.startsWith('tel'))return;if(a.target==='_blank')return;e.preventDefault();document.body.style.opacity='0';setTimeout(function(){window.location.href=href;},50);});
+document.addEventListener('DOMContentLoaded',function(){requestAnimationFrame(function(){document.body.style.opacity='1';});});
+window.addEventListener('pageshow',function(e){if(e.persisted){document.body.style.transition='none';document.body.style.opacity='1';}});
+document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a)return;var href=a.getAttribute('href');if(!href||href.startsWith('#')||href.startsWith('http')||href.startsWith('mailto')||href.startsWith('tel'))return;if(a.target==='_blank')return;e.preventDefault();document.body.style.transition='opacity .32s cubic-bezier(0.23,1,0.32,1)';document.body.style.opacity='0';setTimeout(function(){window.location.href=href;},340);});
+(function(){var io=new IntersectionObserver(function(entries){var s=0;entries.forEach(function(e){if(!e.isIntersecting)return;var el=e.target;(function(el,d){setTimeout(function(){el.classList.add('in');},d);})(el,s);s+=70;io.unobserve(el);});},{threshold:0.06});document.querySelectorAll('.sr').forEach(function(el){io.observe(el);});})();
 function toggleMenu(){document.getElementById('nav-mobile').classList.toggle('open');}
 function checkHamburger(){var btn=document.getElementById('nav-hamburger');if(window.innerWidth<=768){btn.style.display='flex';}else{btn.style.display='none';document.getElementById('nav-mobile').classList.remove('open');}}
 checkHamburger();window.addEventListener('resize',checkHamburger);

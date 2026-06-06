@@ -140,8 +140,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 }
 
 /* Page transitions */
-body{opacity:0.01;transition:opacity .22s ease}
-body.loaded{opacity:1}
+body{opacity:0.01;transition:opacity .34s cubic-bezier(0.23,1,0.32,1)}
 
 /* Disable image right-click */
 img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
@@ -195,14 +194,42 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 }
 @media(max-width:768px){
   .gal-hint { display: flex; }
-}: 11px; font-weight: 500; color: #2D2820;
-  font-family: 'Inter', sans-serif;
-  pointer-events: none;
-  z-index: 5;
-  box-shadow: 0 2px 8px rgba(45,40,32,0.12);
-  transition: opacity 0.25s;
 }
 .gallery:hover .gal-hint { opacity: 0; }
+
+/* ── MOTION ENHANCEMENTS ── */
+/* Dot pulse */
+@keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.7)}}
+.sec-tag .dot{animation:dotPulse 2.8s ease-in-out infinite}
+
+/* Header entrance */
+@keyframes hdrIn{from{opacity:0;transform:translateY(18px) scale(0.977);filter:blur(5px)}to{opacity:1;transform:none;filter:none}}
+.header .sec-tag{animation:hdrIn 500ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:70ms}
+.header h1{animation:hdrIn 560ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:140ms}
+.header-sub{animation:hdrIn 520ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:230ms}
+.filters{animation:hdrIn 480ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:310ms}
+
+/* Nav underline */
+.nav-links a{position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--brand);transform:scaleX(0);transform-origin:right;transition:transform 270ms cubic-bezier(0.23,1,0.32,1)}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);transform-origin:left}
+
+/* Filter buttons */
+.filter-btn{transition:background 180ms cubic-bezier(0.23,1,0.32,1),border-color 180ms ease,color 150ms ease,transform 150ms ease}
+.filter-btn:not(.on):hover{transform:translateY(-1px)}
+
+/* Scroll reveal */
+.sr{opacity:0;transform:translateY(24px) scale(0.98);filter:blur(4px);will-change:transform,opacity,filter;transition:opacity 600ms cubic-bezier(0.23,1,0.32,1),transform 600ms cubic-bezier(0.23,1,0.32,1),filter 480ms ease}
+.sr.in{opacity:1;transform:none;filter:none;will-change:auto}
+@media(max-width:600px){.sr{filter:none}.sr.in{filter:none}}
+
+/* Project cards hover */
+.proj{transition:box-shadow 300ms cubic-bezier(0.23,1,0.32,1),transform 300ms cubic-bezier(0.23,1,0.32,1),border-color 200ms ease}
+.proj:hover{box-shadow:0 14px 44px rgba(45,40,32,.1);transform:translateY(-3px);border-color:var(--brand-border)}
+
+/* Stats pop */
+@keyframes statPop{0%{transform:translateY(8px) scale(0.84)}62%{transform:scale(1.08)}100%{transform:none}}
+.ps-v.popped{animation:statPop 420ms cubic-bezier(0.23,1,0.32,1) both}
 </style>
 <script type="application/ld+json">
 {
@@ -275,7 +302,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 
 <div class="projects" id="proj-grid">
 
-  <div class="proj" data-type="2camere premium">
+  <div class="proj sr" data-type="2camere premium">
     <div class="gallery" onclick="openLb(this)">
       <img src="images/portofoliu_2.webp" class="active" alt="2 camere Drumul Taberei — before design RentUP">
       <img src="images/portofoliu_1.webp" alt="2 camere Drumul Taberei — after design RentUP">
@@ -299,7 +326,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     </div>
   </div>
 
-  <div class="proj" data-type="garsoniera standard">
+  <div class="proj sr" data-type="garsoniera standard">
     <div class="gallery" onclick="openLb(this)">
       <img src="images/portofoliu_4.webp" class="active" alt="Garsonieră Vatra Luminoasă — before design RentUP">
       <img src="images/portofoliu_5.webp" alt="Garsonieră Vatra Luminoasă — after design RentUP">
@@ -324,7 +351,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 
   
 
-  <div class="proj" data-type="garsoniera premium">
+  <div class="proj sr" data-type="garsoniera premium">
     <div class="gallery" onclick="openLb(this)">
       <img src="images/hero_index.webp" class="active" alt="Garsonieră Tineretului — after design RentUP">
       <img src="images/portofoliu_10.webp" alt="Garsonieră Tineretului — detaliu dormitor after RentUP">
@@ -346,7 +373,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     </div>
   </div>
 
-  <div class="proj" data-type="2camere standard">
+  <div class="proj sr" data-type="2camere standard">
     <div class="gallery" onclick="openLb(this)">
       <img src="images/portofoliu_7.webp" class="active" alt="2 camere Floreasca — before design RentUP">
       <img src="images/portofoliu_8.webp" alt="2 camere Floreasca — after design RentUP">
@@ -431,48 +458,40 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 function filter(type, btn){
   document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('on'));
   btn.classList.add('on');
-  document.querySelectorAll('.proj').forEach(p=>{
-    if(type==='all'||p.dataset.type.includes(type)){p.style.display='';} else{p.style.display='none';}
+  document.querySelectorAll('.proj').forEach(function(p){
+    var match = type==='all' || p.dataset.type.includes(type);
+    if(match){
+      p.style.display='';
+      if(!p.classList.contains('in')){
+        requestAnimationFrame(function(){ requestAnimationFrame(function(){ p.classList.add('in'); }); });
+      }
+    } else {
+      p.style.display='none';
+    }
   });
 }
 </script>
 
 <script>
-// Page fade-in
-document.addEventListener('DOMContentLoaded', function() {
-  requestAnimationFrame(() => document.body.classList.add('loaded'));
-});
-// Page fade-out before navigation
-document.addEventListener('click', function(e) {
-  const a = e.target.closest('a[href]');
-  if (!a) return;
-  const href = a.getAttribute('href');
-  if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
-  if (a.target === '_blank') return;
-  e.preventDefault();
-  document.body.style.opacity = '0';
-  setTimeout(() => { window.location.href = href; }, 50);
-});
-</script>
-<script>
 document.addEventListener('DOMContentLoaded',function(){
-  requestAnimationFrame(function(){ document.body.classList.add('loaded'); });
+  requestAnimationFrame(function(){ document.body.style.opacity='1'; });
 });
-window.addEventListener('pageshow', function(e) {
-  if (e.persisted) {
-    document.body.style.opacity = '1';
-    document.body.classList.add('loaded');
+window.addEventListener('pageshow',function(e){
+  if(e.persisted){
+    document.body.style.transition='none';
+    document.body.style.opacity='1';
   }
 });
 document.addEventListener('click',function(e){
-  var a = e.target.closest('a[href]');
+  var a=e.target.closest('a[href]');
   if(!a) return;
-  var href = a.getAttribute('href');
-  if(!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
+  var href=a.getAttribute('href');
+  if(!href||href.startsWith('#')||href.startsWith('http')||href.startsWith('mailto')||href.startsWith('tel')) return;
   if(a.target==='_blank') return;
   e.preventDefault();
+  document.body.style.transition='opacity .32s cubic-bezier(0.23,1,0.32,1)';
   document.body.style.opacity='0';
-  setTimeout(function(){ window.location.href=href; }, 50);
+  setTimeout(function(){ window.location.href=href; },340);
 });
 </script>
 <script>
@@ -582,6 +601,64 @@ document.addEventListener('click',function(e){
   }
 });
 </script>
+<script>
+// Scroll reveal + stats count-up
+(function(){
+  function parseVal(txt){
+    var m = txt.match(/^([^0-9]*)(\d+)(.*)$/);
+    return m ? {pre:m[1], n:parseInt(m[2],10), suf:m[3]} : null;
+  }
+
+  function countUp(el, startDelay){
+    var parsed = parseVal(el.textContent.trim());
+    if(!parsed || parsed.n === 0) return;
+    var target = parsed.n;
+    var duration = 1200;
+    /* Setăm "0" imediat (cardul e încă transparent) */
+    el.textContent = parsed.pre + '0' + parsed.suf;
+    setTimeout(function(){
+      var startTime = null;
+      function step(ts){
+        if(!startTime) startTime = ts;
+        var p = Math.min((ts - startTime) / duration, 1);
+        /* ease-out cubic */
+        var ease = 1 - Math.pow(1 - p, 3);
+        el.textContent = parsed.pre + Math.round(ease * target) + parsed.suf;
+        if(p < 1){
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = parsed.pre + target + parsed.suf;
+        }
+      }
+      requestAnimationFrame(step);
+    }, startDelay);
+  }
+
+  var io = new IntersectionObserver(function(entries){
+    var stagger = 0;
+    entries.forEach(function(entry){
+      if(!entry.isIntersecting) return;
+      var el = entry.target;
+      (function(el, d){
+        setTimeout(function(){
+          el.classList.add('in');
+          el.querySelectorAll('.ps-v').forEach(function(v, i){
+            v.classList.add('popped');
+            countUp(v, i * 120);
+          });
+        }, d);
+      })(el, stagger);
+      stagger += 90;
+      io.unobserve(el);
+    });
+  }, {threshold:0.12});
+
+  document.querySelectorAll('.sr').forEach(function(el){
+    io.observe(el);
+  });
+})();
+</script>
+
 <!-- Cookie Banner -->
 <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#2D2820;border-top:0.5px solid #4D4238;padding:18px 24px;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;z-index:999;font-family:'Inter',sans-serif">
   <div style="flex:1;min-width:200px">

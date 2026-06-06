@@ -191,8 +191,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 }
 
 /* Page transitions */
-body{opacity:0.01;transition:opacity .22s ease}
-body.loaded{opacity:1}
+body{opacity:0.01;transition:opacity .34s cubic-bezier(0.23,1,0.32,1)}
 
 /* Disable image right-click */
 img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
@@ -238,6 +237,35 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   0%,40%{transform:scale(1.012)}
   100%{transform:scale(1)}
 }
+
+/* ── MOTION ENHANCEMENTS ── */
+@keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.7)}}
+.hero-dot,.dot,.cost-dot{animation:dotPulse 2.8s ease-in-out infinite}
+@keyframes hdrIn{from{opacity:0;transform:translateY(18px) scale(0.977);filter:blur(5px)}to{opacity:1;transform:none;filter:none}}
+.hero-eyebrow{animation:hdrIn 480ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:60ms}
+.hero-h1{animation:hdrIn 560ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:130ms}
+.hero-sub{animation:hdrIn 520ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:220ms}
+.hero-stats{animation:hdrIn 480ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:320ms}
+.nav-links a{position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--brand);transform:scaleX(0);transform-origin:right;transition:transform 270ms cubic-bezier(0.23,1,0.32,1)}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);transform-origin:left}
+.sr{opacity:0;transform:translateY(22px) scale(0.985);filter:blur(3px);will-change:transform,opacity,filter;transition:opacity 580ms cubic-bezier(0.23,1,0.32,1),transform 580ms cubic-bezier(0.23,1,0.32,1),filter 460ms ease}
+.sr.in{opacity:1;transform:none;filter:none;will-change:auto}
+@media(max-width:600px){.sr{filter:none}.sr.in{filter:none}}
+.problem-item{transition:box-shadow 280ms cubic-bezier(0.23,1,0.32,1),transform 280ms cubic-bezier(0.23,1,0.32,1)}
+.problem-item:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(45,40,32,.1)}
+.urgent-card{transition:background 160ms ease,border-color 160ms ease,transform 200ms cubic-bezier(0.23,1,0.32,1)}
+.urgent-card:hover{transform:translateY(-1px)}
+.quote-card{transition:box-shadow 260ms cubic-bezier(0.23,1,0.32,1),transform 240ms cubic-bezier(0.23,1,0.32,1)}
+.quote-card:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(45,40,32,.1)}
+.sys-card{transition:background 180ms ease,border-color 180ms ease,transform 220ms cubic-bezier(0.23,1,0.32,1)}
+.sys-card:hover{transform:translateY(-2px)}
+.cost-card{transition:background 180ms ease,transform 220ms cubic-bezier(0.23,1,0.32,1)}
+.cost-card:hover{background:#453A2E;transform:translateY(-1px)}
+.btn-brand{transition:background 180ms ease,transform 160ms ease}
+.btn-brand:hover{transform:translateY(-1px)}
+.btn-outline{transition:background 180ms ease,transform 160ms ease,color 150ms ease}
+.btn-outline:hover{transform:translateY(-1px)}
 </style>
 <script type="application/ld+json">
 {
@@ -316,7 +344,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 </div>
 
 <!-- QUOTE BANNER -->
-<div class="quote-banner">
+<div class="quote-banner sr">
   <div class="qb-mark">"</div>
   <div>
     <div class="qb-text">Când suna telefonul, tresăream. Nu mai închiriez niciodată.</div>
@@ -330,7 +358,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--red);margin-bottom:8px">Ai o situație activă acum?</div>
     <div style="font-size:20px;font-weight:500;color:var(--dark);margin-bottom:4px">Mergi direct la problema ta.</div>
     <p style="font-size:14px;color:var(--muted);margin-bottom:20px">Selectează situația în care te afli. Fiecare are pași concreți mai jos.</p>
-    <div class="urgent-grid">
+    <div class="urgent-grid sr">
       <a href="#p02" class="urgent-card">
         <div class="uc-tag">Urgent</div>
         <div class="uc-title">Chiriașul nu plătește chiria sau utilitățile</div>
@@ -362,24 +390,24 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     <h2 class="cost-h">Varianta „nu fac nimic"<br>nu costă <em>zero.</em></h2>
     <p class="cost-sub">Proprietarii care nu au sistem rulează în medie 3–4 chiriași în 5 ani. Fiecare schimbare are un cost real, invizibil pe moment. Iată calculul.</p>
     <div class="cost-grid">
-      <div class="cost-card">
+      <div class="cost-card sr">
         <div class="cc-val">1,5–2 luni</div>
         <div class="cc-label">chirie pierdută anual din perioadele goale între chiriași</div>
       </div>
-      <div class="cost-card">
+      <div class="cost-card sr">
         <div class="cc-val">1.500–3.000€</div>
         <div class="cc-label">reparații și uzură accelerată după fiecare chiriaș care pleacă</div>
       </div>
-      <div class="cost-card">
+      <div class="cost-card sr">
         <div class="cc-val">50–200€ / an</div>
         <div class="cc-label">chirie sub prețul pieței din cauza unui apartament neatrăgător</div>
       </div>
-      <div class="cost-card">
+      <div class="cost-card sr">
         <div class="cc-val">8.000–15.000€</div>
         <div class="cc-label">costul total estimat al lui „nu fac nimic" pe 5 ani, pentru un apartament obișnuit</div>
       </div>
     </div>
-    <div class="cost-note">
+    <div class="cost-note sr">
       <strong>Auditul de 200€</strong> îți calculează exact cât costă situația ta actuală față de cea optimizată și cât durează recuperarea. Cei 200€ se scad din orice pachet ales în 90 de zile.
     </div>
   </div>
@@ -394,7 +422,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 
     <div class="problems-grid">
 
-      <div class="problem-item" id="p01">
+      <div class="problem-item sr" id="p01">
         <div class="p-num">01</div>
         <div class="p-problem">
           <div class="p-tag">Cel mai frecvent</div>
@@ -416,7 +444,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
         </div>
       </div>
 
-      <div class="problem-item" id="p02">
+      <div class="problem-item sr" id="p02">
         <div class="p-num">02</div>
         <div class="p-problem">
           <div class="p-tag">Cel mai stresant</div>
@@ -438,7 +466,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
         </div>
       </div>
 
-      <div class="problem-item" id="p03">
+      <div class="problem-item sr" id="p03">
         <div class="p-num">03</div>
         <div class="p-problem">
           <div class="p-tag">Cel mai costisitor pe termen lung</div>
@@ -459,7 +487,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
         </div>
       </div>
 
-      <div class="problem-item" id="p04">
+      <div class="problem-item sr" id="p04">
         <div class="p-num">04</div>
         <div class="p-problem">
           <div class="p-tag">Cel mai subestimat</div>
@@ -481,7 +509,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
         </div>
       </div>
 
-      <div class="problem-item" id="p05">
+      <div class="problem-item sr" id="p05">
         <div class="p-num">05</div>
         <div class="p-problem">
           <div class="p-tag">Cel mai emoțional</div>
@@ -503,7 +531,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
         </div>
       </div>
 
-      <div class="problem-item" id="p06">
+      <div class="problem-item sr" id="p06">
         <div class="p-num">06</div>
         <div class="p-problem">
           <div class="p-tag">Segment neacoperit</div>
@@ -524,7 +552,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
         </div>
       </div>
 
-      <div class="problem-item" id="p07">
+      <div class="problem-item sr" id="p07">
         <div class="p-num">07</div>
         <div class="p-problem">
           <div class="p-tag">Mai rar discutat</div>
@@ -557,32 +585,32 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     <p style="font-size:15px;color:var(--muted);line-height:1.7;max-width:540px;text-align:center;margin:0 auto 8px">Din sondajele noastre în comunitățile de proprietari din România: Facebook, Reddit, grupuri specializate. Cităm exact ce spun ei.</p>
     <p style="font-size:12px;color:var(--light);text-align:center;margin:0 auto 48px">Nu filtrăm experiențele negative. Le înțelegem.</p>
     <div class="quotes-grid">
-      <div class="quote-card">
+      <div class="quote-card sr">
         <div class="qc-mark">"</div>
         <div class="qc-text">Aspectul cel mai traumatizant îl reprezintă investițiile în reparații și renovări în urma chiriașilor care nu își respectă obligațiile contractuale.</div>
         <div class="qc-source"><div class="qc-dot"></div>Proprietar, 25 ani experiență · Facebook</div>
       </div>
-      <div class="quote-card">
+      <div class="quote-card sr">
         <div class="qc-mark">"</div>
         <div class="qc-text">În 3 luni au distrus tot. Am cumpărat apartamentul nou nouț, utilat și mobilat la cheie. Din garanție nu se putea acoperi nici jumătate din distrugeri.</div>
         <div class="qc-source"><div class="qc-dot"></div>Proprietar București · Facebook, 2025</div>
       </div>
-      <div class="quote-card">
+      <div class="quote-card sr">
         <div class="qc-mark">"</div>
         <div class="qc-text">Dacă nu aveam contract ANAF și inventar semnat, nu aveam absolut nimic cu care să dovedesc. Am pierdut totul. Legea e de partea chiriașilor.</div>
         <div class="qc-source"><div class="qc-dot"></div>Proprietar, thread Facebook evacuare</div>
       </div>
-      <div class="quote-card qc-positive">
+      <div class="quote-card qc-positive sr">
         <div class="qc-mark">"</div>
         <div class="qc-text">Profilul + prețul filtrează cam 80–90% din chiriașii problematici. Un apartament renovat și poziționat corect nu a stat gol nicio zi în 14 ani.</div>
         <div class="qc-source"><div class="qc-dot"></div>Proprietar cu 7 apartamente închiriate · Reddit</div>
       </div>
-      <div class="quote-card qc-positive">
+      <div class="quote-card qc-positive sr">
         <div class="qc-mark">"</div>
         <div class="qc-text">Am preferat un om de încredere și i-am lăsat chiria puțin sub prețul pieței. Când și-a pierdut serviciul, i-am lăsat câteva luni gratis. S-au făcut vreo 8 ani.</div>
         <div class="qc-source"><div class="qc-dot"></div>Proprietar, grup Facebook proprietari 2026</div>
       </div>
-      <div class="quote-card qc-positive">
+      <div class="quote-card qc-positive sr">
         <div class="qc-mark">"</div>
         <div class="qc-text">Nu eram convins că există altceva în afară de noroc. Acum înțeleg că selecția și documentația fac cea mai mare diferență, nu întâmplarea.</div>
         <div class="qc-source"><div class="qc-dot"></div>Client Rent UP, după audit</div>
@@ -594,42 +622,42 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 <!-- SYSTEM -->
 <section class="system-section">
   <div class="sec-tag"><div class="dot"></div>Cum răspunde Rent UP</div>
-  <div class="system-intro">
+  <div class="system-intro sr">
     <h2 class="sh">Un sistem pentru<br>fiecare situație.</h2>
     <p class="sec-sub">Nu eliminăm riscul. Niciun sistem nu poate. Dar reducem sistematic probabilitatea fiecărei situații și îți dăm instrumentele să o rezolvi când apare.</p>
   </div>
   <div class="system-grid">
-    <div class="sys-card">
+    <div class="sys-card sr">
       <div class="sys-num">01</div>
       <div class="sys-title">Selecție structurată</div>
       <div class="sys-desc">Chestionar pe 4 piloni, verificare referințe, filtrul implicit prin design și preț corect. Nu instinct e cel care influenteaza norocul, ci un sistem bine gândit.</div>
      
     </div>
-    <div class="sys-card">
+    <div class="sys-card sr">
       <div class="sys-num">02</div>
       <div class="sys-title">Documentație completă</div>
       <div class="sys-desc">Inventar cu stare, PV foto cu timestamp, contract cu clauze pentru orice situație. Fiecare document ține în fața legii.</div>
    
     </div>
-    <div class="sys-card">
+    <div class="sys-card sr">
       <div class="sys-num">03</div>
       <div class="sys-title">Protocoale de acțiune</div>
       <div class="sys-desc">Ghid pas cu pas pentru neplată, daune, refuz evacuare, animale, administrare. Nu te lăsăm să improvizezi.</div>
  
     </div>
-    <div class="sys-card">
+    <div class="sys-card sr">
       <div class="sys-num">04</div>
       <div class="sys-title">Design care filtrează</div>
       <div class="sys-desc">Un apartament îngrijit și coerent comunică că proprietarul e serios. Profilul nepotrivit se auto-selectează afară.</div>
       
     </div>
-    <div class="sys-card">
+    <div class="sys-card sr">
       <div class="sys-num">05</div>
       <div class="sys-title">Audit înainte de orice</div>
       <div class="sys-desc">200€ pentru o evaluare reală: scor de estetică, intervenții prioritizate, ROI estimat, recomandare pachet. Fără angajament.</div>
 
     </div>
-    <div class="sys-card">
+    <div class="sys-card sr">
       <div class="sys-num">06</div>
       <div class="sys-title">Protecție legală solidă</div>
       <div class="sys-desc">Contract înregistrat ANAF + autentificare notarială recomandată. Titlu executoriu pentru bani și pentru evacuare.</div>
@@ -639,7 +667,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 </section>
 
 <!-- CTA -->
-<div class="cta-section">
+<div class="cta-section sr">
   <h2>Vrei să știi exact ce costă situația ta actuală?</h2>
   <p>Vizităm apartamentul, evaluăm starea, calculăm ce pierzi acum față de potențialul optimizat și livrăm un raport complet în 72h. Fără angajament, se scade din orice pachet ales.</p>
   <div style="font-size:44px;font-weight:300;color:var(--brand);letter-spacing:-.04em;margin-bottom:4px">200€</div>
@@ -710,41 +738,25 @@ document.querySelectorAll('.urgent-card').forEach(function(card){
 </script>
 
 <script>
-// Page fade-in
-document.addEventListener('DOMContentLoaded', function() {
-  requestAnimationFrame(() => document.body.classList.add('loaded'));
-});
-// Page fade-out before navigation
-document.addEventListener('click', function(e) {
-  const a = e.target.closest('a[href]');
-  if (!a) return;
-  const href = a.getAttribute('href');
-  if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
-  if (a.target === '_blank') return;
-  e.preventDefault();
-  document.body.style.opacity = '0';
-  setTimeout(() => { window.location.href = href; }, 50);
-});
-</script>
-<script>
 document.addEventListener('DOMContentLoaded',function(){
-  requestAnimationFrame(function(){ document.body.classList.add('loaded'); });
+  requestAnimationFrame(function(){ document.body.style.opacity='1'; });
 });
-window.addEventListener('pageshow', function(e) {
-  if (e.persisted) {
-    document.body.style.opacity = '1';
-    document.body.classList.add('loaded');
+window.addEventListener('pageshow',function(e){
+  if(e.persisted){
+    document.body.style.transition='none';
+    document.body.style.opacity='1';
   }
 });
 document.addEventListener('click',function(e){
-  var a = e.target.closest('a[href]');
+  var a=e.target.closest('a[href]');
   if(!a) return;
-  var href = a.getAttribute('href');
-  if(!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
+  var href=a.getAttribute('href');
+  if(!href||href.startsWith('#')||href.startsWith('http')||href.startsWith('mailto')||href.startsWith('tel')) return;
   if(a.target==='_blank') return;
   e.preventDefault();
+  document.body.style.transition='opacity .32s cubic-bezier(0.23,1,0.32,1)';
   document.body.style.opacity='0';
-  setTimeout(function(){ window.location.href=href; }, 50);
+  setTimeout(function(){ window.location.href=href; },340);
 });
 </script>
 <script>
@@ -777,7 +789,25 @@ window.addEventListener('scroll',function(){
   var btn=document.getElementById('btt');
   if(window.scrollY>400){btn.style.display='flex';}
   else{btn.style.display='none';}
-});
+},{passive:true});
+</script>
+
+<script>
+(function(){
+  var io = new IntersectionObserver(function(entries){
+    var stagger = 0;
+    entries.forEach(function(entry){
+      if(!entry.isIntersecting) return;
+      var el = entry.target;
+      (function(el, d){
+        setTimeout(function(){ el.classList.add('in'); }, d);
+      })(el, stagger);
+      stagger += 80;
+      io.unobserve(el);
+    });
+  }, {threshold:0.08});
+  document.querySelectorAll('.sr').forEach(function(el){ io.observe(el); });
+})();
 </script>
 
 <!-- Cookie Banner -->

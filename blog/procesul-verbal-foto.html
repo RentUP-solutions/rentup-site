@@ -26,8 +26,8 @@
 @font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url('../fonts/inter-latin-600-normal.woff2') format('woff2');}
 :root{--brand:#C77936;--brand-light:#FAF4EB;--brand-border:#E8D5BC;--bg:#FDFAF6;--bg-stone:#F5EFE6;--border:#EDE5D8;--dark:#2D2820;--mid:#7A6E62;--muted:#9A8E82;--light:#B8AFA4;--green:#0F6E56;--green-bg:#E1F5EE;--red:#A32D2D;--red-bg:#FCEBEB;}
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);-webkit-font-smoothing:antialiased;opacity:0.01;transition:opacity .22s ease}
-body.loaded{opacity:1}img{-webkit-user-drag:none;pointer-events:none}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);-webkit-font-smoothing:antialiased;opacity:0.01;transition:opacity .34s cubic-bezier(0.23,1,0.32,1)}
+img{-webkit-user-drag:none;pointer-events:none}
 nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-filter:blur(12px);border-bottom:.5px solid var(--border);padding:0 56px;height:64px;display:flex;align-items:center;justify-content:space-between}
 .logo{font-size:17px;font-weight:600;color:#C77936;text-decoration:none;letter-spacing:-.01em}.logo span{color:#2D2820;font-weight:300}
 .nav-links{display:flex;align-items:center;gap:28px}.nav-links a{font-size:13px;color:#9A8E82;text-decoration:none;transition:color .15s}.nav-links a:hover,.nav-links a.active{color:#2D2820}
@@ -78,6 +78,24 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .rel-tag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--brand);margin-bottom:8px}
 .rel-title{font-size:13px;font-weight:500;line-height:1.4;color:var(--dark)}
 @media(max-width:860px){nav,.art-hero,.art-body,.related{padding-left:20px;padding-right:20px}.art-h1{font-size:28px}.cl-item{grid-template-columns:24px 1fr}.related-grid{grid-template-columns:1fr}}
+/* ── MOTION ENHANCEMENTS ── */
+@keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.7)}}
+.tag-dot{animation:dotPulse 2.8s ease-in-out infinite}
+@keyframes hdrIn{from{opacity:0;transform:translateY(18px) scale(0.977);filter:blur(5px)}to{opacity:1;transform:none;filter:none}}
+.art-tag{animation:hdrIn 480ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:60ms}
+.art-h1{animation:hdrIn 560ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:130ms}
+.art-intro{animation:hdrIn 520ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:220ms}
+.art-meta{animation:hdrIn 480ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:310ms}
+.nav-links a{position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--brand);transform:scaleX(0);transform-origin:right;transition:transform 270ms cubic-bezier(0.23,1,0.32,1)}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);transform-origin:left}
+.sr{opacity:0;transform:translateY(18px);filter:blur(2px);will-change:transform,opacity,filter;transition:opacity 540ms cubic-bezier(0.23,1,0.32,1),transform 540ms cubic-bezier(0.23,1,0.32,1),filter 420ms ease}
+.sr.in{opacity:1;transform:none;filter:none;will-change:auto}
+@media(max-width:600px){.sr{filter:none}.sr.in{filter:none}}
+.rel-card{transition:background 180ms ease,border-color 180ms ease,transform 200ms cubic-bezier(0.23,1,0.32,1)}
+.rel-card:hover{transform:translateY(-1px)}
+.kit-btn{transition:background 180ms ease,transform 160ms ease}
+.kit-btn:hover{transform:translateY(-1px)}
 </style>
 </head>
 <body>
@@ -120,7 +138,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 
   <p>Garanția e o sumă de bani. Dar suma aia nu poate fi reținută legal dacă nu ai un document care să arate starea apartamentului la momentul predării. Fără dovada stării inițiale, chiriașul poate spune că pata de pe perete sau urma pe parchet era acolo dinainte. Și are dreptate, din punct de vedere legal, dacă nu poți contrazice.</p>
 
-  <div class="pullquote">
+  <div class="pullquote sr">
     "Paguba totală a depășit 20.000 de lei. Nu aveam toate facturile ca să dovedesc costul real. Am plătit eu din buzunar."
     <div class="pullquote-source">Proprietar, grup Facebook proprietari · 2025</div>
   </div>
@@ -146,7 +164,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 
   <p>Un PV foto complet acoperă fiecare element care poate genera dispută la ieșire. Categoriile principale:</p>
 
-  <div class="checklist">
+  <div class="checklist sr">
     <div class="cl-item"><div class="cl-num">01</div><div><strong style="color:var(--dark);display:block;margin-bottom:3px">Pereți și tavane</strong>Fiecare perete fotografiat cu lumina bună. Orice urmă, zgârietură, pat de vopsea neuniform documentat explicit.</div></div>
     <div class="cl-item"><div class="cl-num">02</div><div><strong style="color:var(--dark);display:block;margin-bottom:3px">Pardoseli</strong>Parchet, gresie, linoleum. Colțuri, zone de trecere, zona de sub mobilier acolo unde e posibil.</div></div>
     <div class="cl-item"><div class="cl-num">03</div><div><strong style="color:var(--dark);display:block;margin-bottom:3px">Mobilier și electrocasnice</strong>Fiecare piesă de mobilier, starea suprafețelor, funcționalitatea electrocasnicelor testată și documentată.</div></div>
@@ -163,7 +181,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 
   <h2>Greșelile comune care anulează protecția</h2>
 
-  <div class="mistake-list">
+  <div class="mistake-list sr">
     <div class="mistake-item">
       <div class="mistake-icon">✗</div>
       <div><strong>PV semnat doar de tine</strong> — Un document nesemnat de chiriaș poate fi contestat. Ambele semnături pe fiecare pagină, nu doar la final.</div>
@@ -192,11 +210,11 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 
   <p>Uzura normală înseamnă ce se întâmplă natural prin folosire corectă în timp: patina ușoară pe mobilier, urme normale de pași pe parchet, mici imperfecțiuni pe pereți după ani de locuit. O lovitură în parchet, un perete zgâriat de la mutat mobilă, un obiect spart nu sunt uzură normală.</p>
 
-  <div class="info-box">
+  <div class="info-box sr">
     <strong>Recomandare practică:</strong> Treci prin apartament la ieșire cu PV-ul de intrare deschis pe telefon sau printat. Element cu element, fotografie lângă fotografie. Notezi diferențele în scris, cu chiriaș de față, și ambii semnați constatarea la ieșire la fel cum ați semnat-o la intrare.
   </div>
 
-  <div class="warn-box">
+  <div class="warn-box sr">
     <strong>Atenție la uzura normală vs. daune:</strong> Legea protejează chiriașul pentru uzura normală a bunurilor. Nu poți reține din garanție pentru un scaun vechi de 8 ani care s-a uzat normal. Poți reține pentru un scaun cumpărat nou care a fost rupt. Documentarea stării și valorii la intrare e singura modalitate de a face această distincție în fața legii.
   </div>
 
@@ -206,7 +224,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 
   <p>Un chiriaș care refuză sau amână semnarea PV-ului la intrare e deja un semnal. Un chiriaș care citește inventarul cu atenție și pune întrebări e, de obicei, un chiriaș care intenționează să returneze apartamentul în starea în care l-a primit.</p>
 
-  <div class="kit-cta">
+  <div class="kit-cta sr">
     <div class="kit-cta-tag">Rental Kit · RentUP</div>
     <h3 class="kit-cta-h" style="color:white">Articolul explică ce trebuie documentat.<br>Rental Kit-ul îți dă <em>documentele gata de completat.</em></h3>
     <p class="kit-cta-sub">PV foto extins cu toate câmpurile necesare, inventarul cu scala de evaluare a stării și valoare estimată, politica de garanție cu procedura completă în 3 pași și toate modelele de notificări pentru reținere justificată.</p>
@@ -228,15 +246,15 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
     <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--brand);margin-bottom:6px">Continuă să citești</div>
     <div style="font-size:22px;font-weight:300;color:var(--dark);margin-bottom:24px">Articole relevante</div>
     <div class="related-grid">
-      <a href="/blog/cum-selectezi-chiriasii.html" class="rel-card">
+      <a href="/blog/cum-selectezi-chiriasii.html" class="rel-card sr">
         <div class="rel-tag">Selecție chiriaș</div>
         <div class="rel-title">Cum selectezi chiriașii: metoda cu care eviți 90% din probleme</div>
       </a>
-      <a href="/blog/chirias-nu-plateste-chiria.html" class="rel-card">
+      <a href="/blog/chirias-nu-plateste-chiria.html" class="rel-card sr">
         <div class="rel-tag">Situații dificile</div>
         <div class="rel-title">Chiriașul nu plătește chiria: cum reacționezi corect și ce instrumente ai</div>
       </a>
-      <a href="/blog/cat-costa-sa-nu-faci-nimic.html" class="rel-card">
+      <a href="/blog/cat-costa-sa-nu-faci-nimic.html" class="rel-card sr">
         <div class="rel-tag">Financiar</div>
         <div class="rel-title">Cât te costă să nu faci nimic: calculul ignorat de proprietari</div>
       </a>
@@ -262,9 +280,10 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
   </div>
 </footer>
 <script>
-document.addEventListener('DOMContentLoaded',function(){requestAnimationFrame(function(){document.body.classList.add('loaded');});});
-window.addEventListener('pageshow',function(e){if(e.persisted){document.body.style.opacity='1';document.body.classList.add('loaded');}});
-document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a)return;var href=a.getAttribute('href');if(!href||href.startsWith('#')||href.startsWith('http')||href.startsWith('mailto')||href.startsWith('tel'))return;if(a.target==='_blank')return;e.preventDefault();document.body.style.opacity='0';setTimeout(function(){window.location.href=href;},50);});
+document.addEventListener('DOMContentLoaded',function(){requestAnimationFrame(function(){document.body.style.opacity='1';});});
+window.addEventListener('pageshow',function(e){if(e.persisted){document.body.style.transition='none';document.body.style.opacity='1';}});
+document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a)return;var href=a.getAttribute('href');if(!href||href.startsWith('#')||href.startsWith('http')||href.startsWith('mailto')||href.startsWith('tel'))return;if(a.target==='_blank')return;e.preventDefault();document.body.style.transition='opacity .32s cubic-bezier(0.23,1,0.32,1)';document.body.style.opacity='0';setTimeout(function(){window.location.href=href;},340);});
+(function(){var io=new IntersectionObserver(function(entries){var s=0;entries.forEach(function(e){if(!e.isIntersecting)return;var el=e.target;(function(el,d){setTimeout(function(){el.classList.add('in');},d);})(el,s);s+=70;io.unobserve(el);});},{threshold:0.06});document.querySelectorAll('.sr').forEach(function(el){io.observe(el);});})();
 function toggleMenu(){document.getElementById('nav-mobile').classList.toggle('open');}
 function checkHamburger(){var btn=document.getElementById('nav-hamburger');if(window.innerWidth<=768){btn.style.display='flex';}else{btn.style.display='none';document.getElementById('nav-mobile').classList.remove('open');}}
 checkHamburger();window.addEventListener('resize',checkHamburger);

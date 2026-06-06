@@ -113,8 +113,8 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .fq-text{font-size:15px;font-weight:500;color:var(--text);line-height:1.4;transition:color .15s}
 .fq-icon{width:24px;height:24px;border:.5px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;color:var(--muted);transition:all .2s}
 .faq-item.open .fq-icon{background:var(--brand-light);border-color:var(--brand-border);color:var(--brand);transform:rotate(45deg)}
-.faq-a{display:none;padding:0 0 20px;max-width:680px}
-.faq-item.open .faq-a{display:block}
+.faq-a{display:block;overflow:hidden;max-height:0;opacity:0;padding:0;max-width:680px;transition:max-height 400ms cubic-bezier(0.23,1,0.32,1),opacity 280ms ease,padding 320ms ease}
+.faq-item.open .faq-a{max-height:1200px;opacity:1;padding:0 0 20px}
 .faq-a p{font-size:14px;color:var(--mid);line-height:1.75;margin-bottom:12px}
 .faq-a p:last-child{margin-bottom:0}
 .faq-a strong{color:var(--text);font-weight:500}
@@ -173,8 +173,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 }
 
 /* Page transitions */
-body{opacity:0.01;transition:opacity .22s ease}
-body.loaded{opacity:1}
+body{opacity:0.01;transition:opacity .34s cubic-bezier(0.23,1,0.32,1)}
 
 
 /* Disable image right-click */
@@ -189,6 +188,40 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   .faq-a .fa-list li{flex-direction:row;gap:8px;align-items:baseline}
   .faq-a .fa-list li::before{align-self:flex-start}
 }
+
+/* ── MOTION ENHANCEMENTS ── */
+/* Dot pulse */
+@keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.7)}}
+.hero-dot{animation:dotPulse 2.8s ease-in-out infinite}
+
+/* Hero entrance */
+@keyframes hdrIn{from{opacity:0;transform:translateY(18px) scale(0.977);filter:blur(5px)}to{opacity:1;transform:none;filter:none}}
+.hero-eyebrow{animation:hdrIn 480ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:60ms}
+.hero-h1{animation:hdrIn 560ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:130ms}
+.hero-sub{animation:hdrIn 520ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:220ms}
+.cat-tabs{animation:hdrIn 460ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:300ms}
+
+/* Nav underline */
+.nav-links a{position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--brand);transform:scaleX(0);transform-origin:right;transition:transform 270ms cubic-bezier(0.23,1,0.32,1)}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);transform-origin:left}
+
+/* fq-icon smooth rotation + color */
+.fq-icon{transition:background 200ms ease,border-color 200ms ease,color 200ms ease,transform 300ms cubic-bezier(0.34,1.56,0.64,1)}
+
+/* Sidebar + cat-tab transitions */
+.sidebar-link{transition:background 150ms ease,color 150ms ease}
+.cat-tab{transition:color 160ms ease,border-color 200ms ease}
+
+/* Scroll reveal */
+.sr{opacity:0;transform:translateY(20px) scale(0.987);will-change:transform,opacity;transition:opacity 560ms cubic-bezier(0.23,1,0.32,1),transform 560ms cubic-bezier(0.23,1,0.32,1)}
+.sr.in{opacity:1;transform:none;will-change:auto}
+
+/* Contact + CTA hover */
+.btn-brand{transition:background 180ms ease,transform 160ms ease}
+.btn-brand:hover{transform:translateY(-1px)}
+.btn-outline-w{transition:border-color 180ms ease,color 180ms ease,transform 160ms ease}
+.btn-outline-w:hover{transform:translateY(-1px)}
 </style>
 <script type="application/ld+json">
 {
@@ -313,7 +346,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   <div class="faq-content">
 
     <!-- DESPRE RENT UP -->
-    <div class="faq-cat" id="despre">
+    <div class="faq-cat sr" id="despre">
       <div class="faq-cat-header">
         <div class="faq-cat-tag">01 · Despre Rent UP</div>
         <div class="faq-cat-title">Ce este Rent UP și cum funcționează?</div>
@@ -374,7 +407,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     </div>
 
     <!-- AUDITUL -->
-    <div class="faq-cat" id="audit">
+    <div class="faq-cat sr" id="audit">
       <div class="faq-cat-header">
         <div class="faq-cat-tag">02 · Auditul</div>
         <div class="faq-cat-title">Ce este auditul și ce primesc?</div>
@@ -425,7 +458,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     </div>
 
     <!-- PACHETE -->
-    <div class="faq-cat" id="pachete">
+    <div class="faq-cat sr" id="pachete">
       <div class="faq-cat-header">
         <div class="faq-cat-tag">03 · Pachete & Prețuri</div>
         <div class="faq-cat-title">Cât costă și ce primesc?</div>
@@ -537,7 +570,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     </div>
 
     <!-- SELECTIA CHIRIASULUI -->
-    <div class="faq-cat" id="selectie">
+    <div class="faq-cat sr" id="selectie">
       <div class="faq-cat-header">
         <div class="faq-cat-tag">04 · Selecția chiriașului</div>
         <div class="faq-cat-title">Cum găsesc un chiriaș potrivit?</div>
@@ -602,7 +635,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 
 
     <!-- SITUATII DIFICILE -->
-    <div class="faq-cat" id="probleme">
+    <div class="faq-cat sr" id="probleme">
       <div class="faq-cat-header">
         <div class="faq-cat-tag">06 · Situații dificile</div>
         <div class="faq-cat-title">Ce fac când lucrurile merg prost?</div>
@@ -663,7 +696,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     </div>
 
     <!-- RENTAL KIT -->
-    <div class="faq-cat" id="rental-kit">
+    <div class="faq-cat sr" id="rental-kit">
       <div class="faq-cat-header">
         <div class="faq-cat-tag">07 · Rental Kit</div>
         <div class="faq-cat-title">Ce este Rental Kit-ul și cât timp îl folosesc?</div>
@@ -709,7 +742,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 
 
 <!-- CTA -->
-<div class="cta-section" style="border-top:.2px solid #ebd7bd">
+<div class="cta-section sr" style="border-top:.2px solid #ebd7bd">
   <h2>Pornește cu un audit.</h2>
   <p>200€ pentru o evaluare completă. Afli exact unde ești și ce are sens să faci diferit.</p>
   <div class="cta-btns">
@@ -794,48 +827,48 @@ window.addEventListener('scroll', function() {
   document.querySelectorAll('.sidebar-link').forEach(function(l) {
     l.classList.toggle('active', l.getAttribute('href') === '#' + current);
   });
-});
+},{passive:true});
 
 </script>
 
 
-<script>
-// Page fade-in
-document.addEventListener('DOMContentLoaded', function() {
-  requestAnimationFrame(() => document.body.classList.add('loaded'));
-});
-// Page fade-out before navigation
-document.addEventListener('click', function(e) {
-  const a = e.target.closest('a[href]');
-  if (!a) return;
-  const href = a.getAttribute('href');
-  if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
-  if (a.target === '_blank') return;
-  e.preventDefault();
-  document.body.style.opacity = '0';
-  setTimeout(() => { window.location.href = href; }, 50);
-});
-</script>
 <script>
 document.addEventListener('DOMContentLoaded',function(){
-  requestAnimationFrame(function(){ document.body.classList.add('loaded'); });
+  requestAnimationFrame(function(){ document.body.style.opacity='1'; });
 });
-window.addEventListener('pageshow', function(e) {
-  if (e.persisted) {
-    document.body.style.opacity = '1';
-    document.body.classList.add('loaded');
+window.addEventListener('pageshow',function(e){
+  if(e.persisted){
+    document.body.style.transition='none';
+    document.body.style.opacity='1';
   }
 });
 document.addEventListener('click',function(e){
-  var a = e.target.closest('a[href]');
+  var a=e.target.closest('a[href]');
   if(!a) return;
-  var href = a.getAttribute('href');
-  if(!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
+  var href=a.getAttribute('href');
+  if(!href||href.startsWith('#')||href.startsWith('http')||href.startsWith('mailto')||href.startsWith('tel')) return;
   if(a.target==='_blank') return;
   e.preventDefault();
+  document.body.style.transition='opacity .32s cubic-bezier(0.23,1,0.32,1)';
   document.body.style.opacity='0';
-  setTimeout(function(){ window.location.href=href; }, 50);
+  setTimeout(function(){ window.location.href=href; },340);
 });
+</script>
+<script>
+// Scroll reveal
+(function(){
+  var io = new IntersectionObserver(function(entries){
+    var delay = 0;
+    entries.forEach(function(entry){
+      if(!entry.isIntersecting) return;
+      var el = entry.target;
+      (function(el,d){ setTimeout(function(){ el.classList.add('in'); }, d); })(el, delay);
+      delay += 70;
+      io.unobserve(el);
+    });
+  },{threshold:0.06});
+  document.querySelectorAll('.sr').forEach(function(el){ io.observe(el); });
+})();
 </script>
 <script>
 document.addEventListener('contextmenu', function(e){

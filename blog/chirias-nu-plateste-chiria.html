@@ -26,8 +26,8 @@
 @font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url('../fonts/inter-latin-600-normal.woff2') format('woff2');}
 :root{--brand:#C77936;--brand-light:#FAF4EB;--brand-border:#E8D5BC;--bg:#FDFAF6;--bg-stone:#F5EFE6;--border:#EDE5D8;--dark:#2D2820;--mid:#7A6E62;--muted:#9A8E82;--light:#B8AFA4;--green:#0F6E56;--green-bg:#E1F5EE;--red:#A32D2D;--red-bg:#FCEBEB;}
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);-webkit-font-smoothing:antialiased;opacity:0.01;transition:opacity .22s ease}
-body.loaded{opacity:1}img{-webkit-user-drag:none;pointer-events:none}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);-webkit-font-smoothing:antialiased;opacity:0.01;transition:opacity .34s cubic-bezier(0.23,1,0.32,1)}
+img{-webkit-user-drag:none;pointer-events:none}
 nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-filter:blur(12px);border-bottom:.5px solid var(--border);padding:0 56px;height:64px;display:flex;align-items:center;justify-content:space-between}
 .logo{font-size:17px;font-weight:600;color:#C77936;text-decoration:none;letter-spacing:-.01em}.logo span{color:#2D2820;font-weight:300}
 .nav-links{display:flex;align-items:center;gap:28px}.nav-links a{font-size:13px;color:#9A8E82;text-decoration:none;transition:color .15s}.nav-links a:hover,.nav-links a.active{color:#2D2820}
@@ -88,6 +88,24 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .rel-tag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--brand);margin-bottom:8px}
 .rel-title{font-size:13px;font-weight:500;line-height:1.4;color:var(--dark)}
 @media(max-width:860px){nav,.art-hero,.art-body,.related{padding-left:20px;padding-right:20px}.art-h1{font-size:28px}.step-row{grid-template-columns:80px 1fr}.related-grid{grid-template-columns:1fr}.lb-item{grid-template-columns:1fr}}
+/* ── MOTION ENHANCEMENTS ── */
+@keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.7)}}
+.tag-dot{animation:dotPulse 2.8s ease-in-out infinite}
+@keyframes hdrIn{from{opacity:0;transform:translateY(18px) scale(0.977);filter:blur(5px)}to{opacity:1;transform:none;filter:none}}
+.art-tag{animation:hdrIn 480ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:60ms}
+.art-h1{animation:hdrIn 560ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:130ms}
+.art-intro{animation:hdrIn 520ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:220ms}
+.art-meta{animation:hdrIn 480ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:310ms}
+.nav-links a{position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--brand);transform:scaleX(0);transform-origin:right;transition:transform 270ms cubic-bezier(0.23,1,0.32,1)}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);transform-origin:left}
+.sr{opacity:0;transform:translateY(18px);filter:blur(2px);will-change:transform,opacity,filter;transition:opacity 540ms cubic-bezier(0.23,1,0.32,1),transform 540ms cubic-bezier(0.23,1,0.32,1),filter 420ms ease}
+.sr.in{opacity:1;transform:none;filter:none;will-change:auto}
+@media(max-width:600px){.sr{filter:none}.sr.in{filter:none}}
+.rel-card{transition:background 180ms ease,border-color 180ms ease,transform 200ms cubic-bezier(0.23,1,0.32,1)}
+.rel-card:hover{transform:translateY(-1px)}
+.kit-btn{transition:background 180ms ease,transform 160ms ease}
+.kit-btn:hover{transform:translateY(-1px)}
 </style>
 </head>
 <body>
@@ -130,7 +148,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 
   <p>Există o cale de mijloc. Se numește protocol, și funcționează pentru că are tonul potrivit la momentul potrivit.</p>
 
-  <div class="pullquote">
+  <div class="pullquote sr">
     "M-am trezit că plătesc facturi de 2.000 de lei pe consumul altuia. Nu știam ce să fac sau de unde să încep."
     <div class="pullquote-source">Proprietar, grup Facebook proprietari · 2025</div>
   </div>
@@ -150,7 +168,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 
   <p style="font-size:15px;color:var(--mid);line-height:1.75">Există un protocol în 5 etape, fiecare cu tonul ei, de la reminder prietenos în primele zile până la acțiunea legală după 30 de zile. Ce contează e că fiecare etapă are un ton diferit și o acțiune precisă, iar sărirea sau amânarea uneia îți reduce opțiunile la etapele următoare.</p>
   <p style="font-size:15px;color:var(--mid);line-height:1.75">Diferența dintre un proprietar care recuperează banii și unul care nu recuperează nimic nu e contractul. E dacă a știut ce să facă în ziua 5, nu în ziua 45.</p>
-  <div style="background:var(--brand-light);border:.5px solid var(--brand-border);border-radius:12px;padding:24px;margin:24px 0">
+  <div class="sr" style="background:var(--brand-light);border:.5px solid var(--brand-border);border-radius:12px;padding:24px;margin:24px 0">
     <p style="font-size:13px;color:var(--mid);line-height:1.65;margin-bottom:12px">Rental Kit-ul include protocolul complet: ce faci exact în fiecare etapă, ce ton folosești și textele gata de trimis pentru WhatsApp, email, notificare formală sau scrisoare recomandată.</p>
     <a href="/rental-kit.html" style="font-size:13px;font-weight:500;color:var(--brand);text-decoration:none">Vezi protocolul complet în Rental Kit →</a>
   </div>
@@ -159,7 +177,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 
   <p>Diferența dintre un contract înregistrat la ANAF și un contract autentificat notarial e uriașă în momentul în care trebuie să acționezi.</p>
 
-  <div class="legal-box">
+  <div class="legal-box sr">
     <div class="lb-title">Comparație instrumente legale</div>
     <div class="lb-item">
       <div class="lb-label">Contract ANAF</div>
@@ -179,7 +197,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 
   <h2>Ce nu faci niciodată</h2>
 
-  <div class="warn-box">
+  <div class="warn-box sr">
     <strong>Ilegal în România, indiferent de situație:</strong> Tăierea curentului electric, a apei sau a gazului pentru a forța plata sau plecarea chiriașului. Constituie infracțiune și îți elimină toate avantajele legale pe care le-ai acumulat până atunci. Dacă faci asta, chiriașul devine victima și tu devii agresorul.
   </div>
 
@@ -209,11 +227,11 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
     <li>Chiriașul știe de la început că există penalități clare pentru întârziere</li>
   </ul>
 
-  <div class="info-box">
+  <div class="info-box sr">
     <strong>Realitatea din grupurile de proprietari:</strong> Proprietarii care au contracte notariale și au comunicat clar condițiile de la început raportează de 3–4 ori mai rar situații de neplată prelungită. Nu pentru că nu există chiriași rău-platnici, ci pentru că aceștia preferă să nu riște un executor direct și aleg proprietari mai puțin pregătiți.
   </div>
 
-  <div class="kit-cta">
+  <div class="kit-cta sr">
     <div class="kit-cta-tag">Rental Kit · RentUP</div>
     <h3 class="kit-cta-h" style="color:white">Articolul explică etapele.<br>Rental Kit-ul îți dă <em>textele exacte gata de trimis.</em></h3>
     <p class="kit-cta-sub">Mesajul de WhatsApp pentru ziua 5, notificarea formală pentru ziua 15, notificarea de reziliere pentru ziua 30. Fiecare cu tonul calibrat pentru etapa respectivă, gata de copiat și trimis.</p>
@@ -235,15 +253,15 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
     <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--brand);margin-bottom:6px">Continuă să citești</div>
     <div style="font-size:22px;font-weight:300;color:var(--dark);margin-bottom:24px">Articole relevante</div>
     <div class="related-grid">
-      <a href="/blog/cum-selectezi-chiriasii.html" class="rel-card">
+      <a href="/blog/cum-selectezi-chiriasii.html" class="rel-card sr">
         <div class="rel-tag">Selecție chiriaș</div>
         <div class="rel-title">Cum selectezi chiriașii: metoda cu care eviți 90% din probleme</div>
       </a>
-      <a href="/blog/procesul-verbal-foto.html" class="rel-card">
+      <a href="/blog/procesul-verbal-foto.html" class="rel-card sr">
         <div class="rel-tag">Documentație</div>
         <div class="rel-title">Procesul verbal foto: singura ta protecție legală reală</div>
       </a>
-      <a href="/blog/cat-costa-sa-nu-faci-nimic.html" class="rel-card">
+      <a href="/blog/cat-costa-sa-nu-faci-nimic.html" class="rel-card sr">
         <div class="rel-tag">Financiar</div>
         <div class="rel-title">Cât te costă să nu faci nimic: calculul pe care proprietarii îl ignoră</div>
       </a>
@@ -269,9 +287,10 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
   </div>
 </footer>
 <script>
-document.addEventListener('DOMContentLoaded',function(){requestAnimationFrame(function(){document.body.classList.add('loaded');});});
-window.addEventListener('pageshow',function(e){if(e.persisted){document.body.style.opacity='1';document.body.classList.add('loaded');}});
-document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a)return;var href=a.getAttribute('href');if(!href||href.startsWith('#')||href.startsWith('http')||href.startsWith('mailto')||href.startsWith('tel'))return;if(a.target==='_blank')return;e.preventDefault();document.body.style.opacity='0';setTimeout(function(){window.location.href=href;},50);});
+document.addEventListener('DOMContentLoaded',function(){requestAnimationFrame(function(){document.body.style.opacity='1';});});
+window.addEventListener('pageshow',function(e){if(e.persisted){document.body.style.transition='none';document.body.style.opacity='1';}});
+document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a)return;var href=a.getAttribute('href');if(!href||href.startsWith('#')||href.startsWith('http')||href.startsWith('mailto')||href.startsWith('tel'))return;if(a.target==='_blank')return;e.preventDefault();document.body.style.transition='opacity .32s cubic-bezier(0.23,1,0.32,1)';document.body.style.opacity='0';setTimeout(function(){window.location.href=href;},340);});
+(function(){var io=new IntersectionObserver(function(entries){var s=0;entries.forEach(function(e){if(!e.isIntersecting)return;var el=e.target;(function(el,d){setTimeout(function(){el.classList.add('in');},d);})(el,s);s+=70;io.unobserve(el);});},{threshold:0.06});document.querySelectorAll('.sr').forEach(function(el){io.observe(el);});})();
 function toggleMenu(){document.getElementById('nav-mobile').classList.toggle('open');}
 function checkHamburger(){var btn=document.getElementById('nav-hamburger');if(window.innerWidth<=768){btn.style.display='flex';}else{btn.style.display='none';document.getElementById('nav-mobile').classList.remove('open');}}
 checkHamburger();window.addEventListener('resize',checkHamburger);

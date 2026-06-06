@@ -146,8 +146,7 @@ section{padding:64px 48px}
 .cc-v{font-size:14px;font-weight:500;color:var(--bg)}
 
 /* Page transitions */
-body{opacity:0.01;transition:opacity .22s ease}
-body.loaded{opacity:1}
+body{opacity:0.01;transition:opacity .34s cubic-bezier(0.23,1,0.32,1)}
 img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 
 .nav-mobile{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(253,250,246,.98);border-bottom:.5px solid #EDE5D8;padding:16px 20px;flex-direction:column;gap:4px;z-index:99}
@@ -163,6 +162,32 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   .audit-hero h1{font-size:32px}
   .cta-cards{grid-template-columns:1fr}
 }
+
+/* ── MOTION ENHANCEMENTS ── */
+@keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.7)}}
+.dot{animation:dotPulse 2.8s ease-in-out infinite}
+@keyframes hdrIn{from{opacity:0;transform:translateY(18px) scale(0.977);filter:blur(5px)}to{opacity:1;transform:none;filter:none}}
+.sec-tag{animation:hdrIn 480ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:60ms}
+.audit-hero h1{animation:hdrIn 560ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:130ms}
+.audit-hero-sub{animation:hdrIn 520ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:220ms}
+.audit-hero-meta{animation:hdrIn 480ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:310ms}
+.sr{opacity:0;transform:translateY(22px) scale(0.985);filter:blur(3px);will-change:transform,opacity,filter;transition:opacity 580ms cubic-bezier(0.23,1,0.32,1),transform 580ms cubic-bezier(0.23,1,0.32,1),filter 460ms ease}
+.sr.in{opacity:1;transform:none;filter:none;will-change:auto}
+@media(max-width:600px){.sr{filter:none}.sr.in{filter:none}}
+.card{transition:box-shadow 260ms cubic-bezier(0.23,1,0.32,1),transform 240ms cubic-bezier(0.23,1,0.32,1)}
+.card:hover{box-shadow:0 8px 28px rgba(45,40,32,.08);transform:translateY(-2px)}
+.step{transition:background 180ms ease}
+.step:hover{background:var(--brand-light)}
+.price-card{transition:box-shadow 260ms cubic-bezier(0.23,1,0.32,1),transform 240ms cubic-bezier(0.23,1,0.32,1)}
+.price-card:hover{box-shadow:0 8px 28px rgba(45,40,32,.07);transform:translateY(-2px)}
+.fw-c{transition:box-shadow 240ms cubic-bezier(0.23,1,0.32,1),transform 220ms cubic-bezier(0.23,1,0.32,1)}
+.fw-c:hover{box-shadow:0 6px 22px rgba(45,40,32,.07);transform:translateY(-1px)}
+.btn-p{transition:background 180ms ease,transform 160ms ease}
+.btn-p:hover{transform:translateY(-1px)}
+.btn-g{transition:background 180ms ease,color 150ms ease,transform 160ms ease}
+.btn-g:hover{transform:translateY(-1px)}
+.cc{transition:background 180ms ease,transform 180ms cubic-bezier(0.23,1,0.32,1)}
+.cc:hover{background:#453A2E;transform:translateY(-1px)}
 </style>
 <script type="application/ld+json">
 {
@@ -220,7 +245,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     <div class="sec-tag"><div class="dot"></div>De ce ai nevoie de un audit</div>
     <h2 class="sec-h">Situații tipice și ce obții.</h2>
     <div class="card-stack">
-      <div class="card">
+      <div class="card sr">
         <div class="card-title">Situații tipice</div>
         <ul>
           <li>Ai un apartament deja amenajat dar chiria stagnează</li>
@@ -230,7 +255,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
           <li>Vrei o opinie profesională înainte de orice decizie</li>
         </ul>
       </div>
-      <div class="card">
+      <div class="card sr">
         <div class="card-title">Ce obții</div>
         <ul>
           <li>Claritate: știi exact ce schimbi și ce lași</li>
@@ -250,17 +275,17 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     <div class="sec-tag"><div class="dot"></div>Cum funcționează — 3 pași</div>
     <h2 class="sec-h">De la programare la raport în 72h.</h2>
     <div class="steps-stack">
-      <div class="step">
+      <div class="step sr">
         <div class="step-n">01</div>
         <div class="step-t">Vizita</div>
         <p class="step-d">1–2 ore la fața locului. Evaluăm fiecare cameră, fiecare element de mobilier, fluxul spațiului, lumina, depozitarea și starea generală a fiecărui element.</p>
       </div>
-      <div class="step">
+      <div class="step sr">
         <div class="step-n">02</div>
         <div class="step-t">Analiza</div>
         <p class="step-d">72 de ore după vizită. Comparăm cu piața actuală din zona ta, evaluăm potențialul de chirie și construim lista de intervenții prioritizate cu impact și cost estimat.</p>
       </div>
-      <div class="step">
+      <div class="step sr">
         <div class="step-n">03</div>
         <div class="step-t">Raportul</div>
         <p class="step-d">Document PDF livrat digital. Include toate concluziile, prioritizarea intervențiilor și estimarea impactului financiar, gata de implementat sau de discutat.</p>
@@ -274,7 +299,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   <div class="inner">
     <div class="sec-tag"><div class="dot"></div>Ce conține raportul</div>
     <h2 class="sec-h">7 secțiuni. Un document complet.</h2>
-    <div class="tbl-wrap">
+    <div class="tbl-wrap sr">
       <table class="report-tbl">
         <thead>
           <tr><th style="width:48px">#</th><th style="width:220px">Secțiune</th><th>Ce include</th></tr>
@@ -299,13 +324,13 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     <div class="sec-tag"><div class="dot"></div>Prețul serviciului</div>
     <h2 class="sec-h">Simplu și transparent.</h2>
     <div class="price-stack">
-      <div class="price-card pc-main">
+      <div class="price-card pc-main sr">
         <div class="pc-label">Audit standard</div>
         <div class="pc-price">200€</div>
         <div class="pc-sub">per apartament · garsoniere și apartamente 2–3 camere în București · livrat în 72h de la vizită</div>
         <div class="pc-note"><strong>Dacă continui cu un proiect complet:</strong> cei 200€ ai auditului se scad integral din valoarea pachetului ales. Auditul devine parte din procesul de discovery.</div>
       </div>
-      <div class="price-card pc-side">
+      <div class="price-card pc-side sr">
         <div class="pc-label" style="color:var(--muted)">Ce NU include</div>
         <ul>
           <li>Proiect de design sau randări</li>
@@ -328,7 +353,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     <div class="sec-tag"><div class="dot"></div>Potrivit dacă</div>
     <h2 class="sec-h">Este auditul pentru tine?</h2>
     <div class="fw-stack">
-      <div class="fw-c">
+      <div class="fw-c sr">
         <div class="fw-t yes">✓ Merită auditul dacă...</div>
         <ul>
           <li>Ai un apartament deja mobilat pe care îl închiriezi sau vrei să îl închiriezi</li>
@@ -337,7 +362,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
           <li>Chiria actuală e sub potențialul pieței și nu știi de ce</li>
         </ul>
       </div>
-      <div class="fw-c no-c">
+      <div class="fw-c no-c sr">
         <div class="fw-t no">✗ Probabil nu ai nevoie dacă...</div>
         <ul>
           <li>Apartamentul e gol și neamenajat complet. Poți începe direct cu pachetul Standard sau Premium</li>
@@ -346,7 +371,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
         </ul>
       </div>
     </div>
-    <div class="fw-note">Auditul e cel mai bun prim pas dacă ești nehotărât. Plătești puțin, primești claritate și decizi în cunoștință de cauză dacă și cât merită să investești. Fără angajament pentru nimic ulterior.</div>
+    <div class="fw-note sr">Auditul e cel mai bun prim pas dacă ești nehotărât. Plătești puțin, primești claritate și decizi în cunoștință de cauză dacă și cât merită să investești. Fără angajament pentru nimic ulterior.</div>
   </div>
 </section>
 
@@ -358,7 +383,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     <a class="btn-p" href="https://wa.me/40741176865" onclick="gtag('event','click_whatsapp')">WhatsApp direct →</a>
 <a class="btn-g" href="mailto:hello@rentup.solutions" onclick="gtag('event','click_email')">Email</a>
   </div>
-  <div class="cta-cards">
+  <div class="cta-cards sr">
     <div class="cc"><div class="cc-l">WhatsApp</div><div class="cc-v">+40 741 176 865</div></div>
     <div class="cc"><div class="cc-l">Email</div><div class="cc-v">hello@rentup.solutions</div></div>
     <div class="cc"><div class="cc-l">Instagram</div><div class="cc-v">@rentup.solutions</div></div>
@@ -412,23 +437,24 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 
 <script>
 document.addEventListener('DOMContentLoaded',function(){
-  requestAnimationFrame(function(){ document.body.classList.add('loaded'); });
+  requestAnimationFrame(function(){ document.body.style.opacity='1'; });
 });
-window.addEventListener('pageshow', function(e) {
-  if (e.persisted) {
-    document.body.style.opacity = '1';
-    document.body.classList.add('loaded');
+window.addEventListener('pageshow',function(e){
+  if(e.persisted){
+    document.body.style.transition='none';
+    document.body.style.opacity='1';
   }
 });
 document.addEventListener('click',function(e){
-  var a = e.target.closest('a[href]');
+  var a=e.target.closest('a[href]');
   if(!a) return;
-  var href = a.getAttribute('href');
-  if(!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
+  var href=a.getAttribute('href');
+  if(!href||href.startsWith('#')||href.startsWith('http')||href.startsWith('mailto')||href.startsWith('tel')) return;
   if(a.target==='_blank') return;
   e.preventDefault();
+  document.body.style.transition='opacity .32s cubic-bezier(0.23,1,0.32,1)';
   document.body.style.opacity='0';
-  setTimeout(function(){ window.location.href=href; }, 50);
+  setTimeout(function(){ window.location.href=href; },340);
 });
 document.addEventListener('contextmenu', function(e){
   if(e.target.tagName === 'IMG') e.preventDefault();
@@ -457,7 +483,25 @@ window.addEventListener('scroll',function(){
   var btn=document.getElementById('btt');
   if(window.scrollY>400){btn.style.display='flex';}
   else{btn.style.display='none';}
-});
+},{passive:true});
+</script>
+
+<script>
+(function(){
+  var io = new IntersectionObserver(function(entries){
+    var stagger = 0;
+    entries.forEach(function(entry){
+      if(!entry.isIntersecting) return;
+      var el = entry.target;
+      (function(el, d){
+        setTimeout(function(){ el.classList.add('in'); }, d);
+      })(el, stagger);
+      stagger += 80;
+      io.unobserve(el);
+    });
+  }, {threshold:0.1});
+  document.querySelectorAll('.sr').forEach(function(el){ io.observe(el); });
+})();
 </script>
 
 <!-- Cookie Banner -->
