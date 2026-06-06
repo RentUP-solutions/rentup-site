@@ -93,9 +93,9 @@ h2.sh{font-size:38px;font-weight:300;color:var(--text);line-height:1.08;letter-s
 .hero-h1 em{font-style:normal;font-weight:500;color:var(--brand)}
 .hero-sub{font-size:16px;color:var(--muted);line-height:1.75;margin-bottom:40px;max-width:420px}
 .hero-btns{display:flex;gap:16px;align-items:center;margin-bottom:24px;flex-wrap:wrap}
-.btn-primary{font-size:14px;font-weight:500;background:var(--brand);color:var(--bg);padding:14px 28px;border-radius:100px;text-decoration:none;border:none;cursor:pointer;transition:all .2s}
+.btn-primary{font-size:14px;font-weight:500;background:var(--brand);color:var(--bg);padding:14px 28px;border-radius:100px;text-decoration:none;border:none;cursor:pointer;transition:background 180ms cubic-bezier(0.23,1,0.32,1),transform 150ms cubic-bezier(0.23,1,0.32,1)}
 .btn-primary:hover{background:#a8622a;transform:translateY(-1px)}
-.btn-ghost{font-size:14px;color:var(--muted);text-decoration:none;cursor:pointer;background:none;border:none;transition:color .15s}
+.btn-ghost{font-size:14px;color:var(--muted);text-decoration:none;cursor:pointer;background:none;border:none;transition:color 150ms ease-out}
 .btn-ghost:hover{color:var(--text)}
 .hero-micro{font-size:12px;color:var(--light)}
 .hero-r{height:100%;display:flex;align-items:center}
@@ -108,7 +108,7 @@ h2.sh{font-size:38px;font-weight:300;color:var(--text);line-height:1.08;letter-s
 /* ── STATS ── */
 #stats{padding:0;border-top:.5px solid var(--border);border-bottom:.5px solid var(--border);background:var(--bg-stone)}
 .stats-g{display:grid;grid-template-columns:repeat(4,1fr)}
-.stat{padding:32px 28px;border-right:.5px solid var(--border);text-align:center;transition:background .15s}
+.stat{padding:32px 28px;border-right:.5px solid var(--border);text-align:center;transition:background 150ms ease-out}
 .stat:last-child{border-right:none}
 .stat:hover{background:var(--brand-light)}
 .stat-v{font-size:32px;font-weight:300;color:var(--brand);letter-spacing:-.025em;margin-bottom:7px}
@@ -159,7 +159,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .tc-name{font-size:19px;font-weight:500;margin-bottom:12px}
 .tc-bio{font-size:13px;color:var(--muted);line-height:1.7}
 .reasons{display:flex;flex-direction:column;gap:0;border:1px solid var(--border);border-radius:14px;overflow:hidden}
-.reason{display:flex;gap:20px;padding:22px 26px;border-bottom:1px solid var(--border);background:var(--bg);transition:background .15s}
+.reason{display:flex;gap:20px;padding:22px 26px;border-bottom:1px solid var(--border);background:var(--bg);transition:background 150ms ease-out}
 .reason:last-child{border-bottom:none}
 .reason:hover{background:var(--brand-light)}
 .rn{font-size:13px;font-weight:600;color:var(--brand);flex-shrink:0;width:24px;padding-top:2px}
@@ -181,10 +181,10 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 /* ── PROCESS ── */
 #process{background:var(--bg-stone)}
 .proc-g{display:grid;grid-template-columns:repeat(4,1fr);border:.5px solid var(--border);border-radius:14px;overflow:hidden}
-.pc{padding:30px 26px;border-right:.5px solid var(--border);background:var(--bg);transition:background .2s}
+.pc{padding:30px 26px;border-right:.5px solid var(--border);background:var(--bg);transition:background 200ms cubic-bezier(0.23,1,0.32,1)}
 .pc:last-child{border-right:none}
 .pc:hover{background:var(--brand-light)}
-.pc-n{font-size:52px;font-weight:200;color:var(--border);line-height:1;margin-bottom:16px;letter-spacing:-.04em;transition:color .2s}
+.pc-n{font-size:52px;font-weight:200;color:var(--border);line-height:1;margin-bottom:16px;letter-spacing:-.04em;transition:color 200ms ease-out}
 .pc:hover .pc-n{color:var(--brand-border)}
 .pc-t{font-size:15px;font-weight:500;margin-bottom:10px}
 .pc-d{font-size:13px;color:var(--muted);line-height:1.62}
@@ -204,17 +204,17 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .ba-name{font-size:14px;font-weight:500}
 .ba-meta{font-size:12px;color:var(--muted);margin-top:3px}
 .ba-res{font-size:13px;font-weight:500;color:#8B5E10;background:#FDF0D8;padding:5px 14px;border-radius:100px;border:.5px solid #E8C87C}
-.port-cta{display:flex;align-items:center;justify-content:space-between;padding:22px 28px;border:.5px solid var(--border);border-radius:12px;background:var(--bg-stone);text-decoration:none;transition:all .2s}
+.port-cta{display:flex;align-items:center;justify-content:space-between;padding:22px 28px;border:.5px solid var(--border);border-radius:12px;background:var(--bg-stone);text-decoration:none;transition:background 180ms cubic-bezier(0.23,1,0.32,1),border-color 180ms cubic-bezier(0.23,1,0.32,1),transform 150ms cubic-bezier(0.23,1,0.32,1)}
 .port-cta:hover{background:var(--brand-light);border-color:var(--brand-border)}
 .port-cta-l{font-size:15px;font-weight:500;color:var(--text)}
 .port-cta-sub{font-size:13px;color:var(--muted);margin-top:3px}
-.port-cta-arrow{font-size:28px;font-weight:300;color:var(--brand);transition:transform .2s}
+.port-cta-arrow{font-size:28px;font-weight:300;color:var(--brand);transition:transform 200ms cubic-bezier(0.23,1,0.32,1)}
 .port-cta:hover .port-cta-arrow{transform:translateX(6px)}
 
 /* ── TESTIMONIALS ── */
 #testimonials{background:var(--bg-stone)}
 .te-g{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:36px}
-.tec{background:var(--bg);border:.5px solid var(--border);border-radius:14px;padding:24px;transition:box-shadow .2s}
+.tec{background:var(--bg);border:.5px solid var(--border);border-radius:14px;padding:24px;transition:box-shadow 200ms ease-out}
 .tec:hover{box-shadow:0 6px 24px rgba(45,40,32,.06)}
 .tec-q{font-size:36px;font-weight:200;color:var(--border);line-height:1;margin-bottom:12px}
 .tec-t{font-size:13px;color:var(--mid);line-height:1.75;font-style:italic;margin-bottom:16px}
@@ -298,9 +298,9 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .fi{border-bottom:.5px solid var(--border);padding:22px 0;cursor:pointer}
 .fi:last-child{border-bottom:.5px solid #EDE0CE}
 .fq{font-size:15px;font-weight:500;display:flex;justify-content:space-between;gap:16px;user-select:none;transition:color .15s}
-.fi-icon{font-size:22px;color:var(--brand);flex-shrink:0;transition:transform .2s;font-weight:300}
-.fa{font-size:14px;color:var(--muted);line-height:1.75;margin-top:14px;display:none}
-.fi.open .fa{display:block}
+.fi-icon{font-size:22px;color:var(--brand);flex-shrink:0;transition:transform 160ms cubic-bezier(0.23,1,0.32,1);font-weight:300}
+.fa{font-size:14px;color:var(--muted);line-height:1.75;overflow:hidden;max-height:0;opacity:0;margin-top:0;transition:max-height 380ms cubic-bezier(0.23,1,0.32,1),opacity 280ms ease,margin-top 280ms ease}
+.fi.open .fa{max-height:600px;opacity:1;margin-top:14px}
 .fi.open .fq{color:var(--brand)}
 .fi.open .fi-icon{transform:rotate(45deg)}
 
@@ -311,9 +311,9 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .con-h em{font-style:normal;color:var(--brand)}
 .con-sub{font-size:15px;color:var(--muted);margin-bottom:44px;line-height:1.7}
 .con-btns{display:flex;gap:12px;justify-content:center;margin-bottom:56px;flex-wrap:wrap}
-.con-p{background:var(--brand);color:var(--bg);font-size:14px;font-weight:500;padding:14px 30px;border-radius:100px;text-decoration:none;transition:all .2s}
+.con-p{background:var(--brand);color:var(--bg);font-size:14px;font-weight:500;padding:14px 30px;border-radius:100px;text-decoration:none;transition:background 180ms cubic-bezier(0.23,1,0.32,1),transform 150ms cubic-bezier(0.23,1,0.32,1)}
 .con-p:hover{background:#a8622a;transform:translateY(-1px)}
-.con-g{color:var(--muted);font-size:14px;padding:14px 26px;border:.5px solid #4D4238;border-radius:100px;text-decoration:none;transition:all .15s}
+.con-g{color:var(--muted);font-size:14px;padding:14px 26px;border:.5px solid #4D4238;border-radius:100px;text-decoration:none;transition:border-color 150ms ease-out,color 150ms ease-out}
 .con-g:hover{border-color:var(--muted);color:var(--light)}
 .con-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:580px;margin:0 auto}
 .cc{background:#3D3228;border-radius:12px;padding:20px;text-align:left;transition:background .15s}
@@ -484,7 +484,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .nav-links{display:flex;align-items:center;gap:28px}
 .nav-links a{font-family:'Inter',sans-serif;font-size:13px;color:#9A8E82;text-decoration:none;transition:color .15s}
 .nav-links a:hover,.nav-links a.active{color:#2D2820}
-.nav-cta{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:#C77936;border:.5px solid #C77936;padding:8px 18px;border-radius:100px;text-decoration:none;white-space:nowrap;transition:background .2s}
+.nav-cta{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:#C77936;border:.5px solid #C77936;padding:8px 18px;border-radius:100px;text-decoration:none;white-space:nowrap;transition:background 150ms ease-out,border-color 150ms ease-out}
 .nav-cta:hover{background:#FAF4EB}
 @media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}.nav-hamburger{display:flex}.nav-cta{display:none}}
 
@@ -527,7 +527,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 @media(max-width:900px){#rental-kit-teaser img{max-width:140%!important;margin-top:0!important;margin-left:-10%;margin-right:0;display:block}}
 @media(max-width:600px){#rental-kit-teaser svg{width:14px!important;height:14px!important;flex-shrink:0}}
 
-.ba-photos { position: relative; }
+.ba-photos { position: relative; overflow: hidden; }
 .ba-overlay {
   position: absolute; inset: 0;
   background: rgba(45,40,32,0);
@@ -539,11 +539,59 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   background: rgba(199,121,54,0.92);
   padding: 10px 22px; border-radius: 100px;
   opacity: 0; transform: translateY(6px);
-  transition: opacity 0.25s, transform 0.25s;
+  transition: opacity 200ms ease-out, transform 200ms cubic-bezier(0.23,1,0.32,1);
 }
 .ba:hover .ba-overlay { background: rgba(45,40,32,0.38); }
 .ba:hover .ba-overlay span { opacity: 1; transform: translateY(0); }
 .ba { cursor: pointer; }
+/* ── HERO STAGGER ── */
+@keyframes heroIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.hero-l>*{animation:heroIn 350ms cubic-bezier(0.23,1,0.32,1) both}
+.hero-l>*:nth-child(1){animation-delay:.08s}
+.hero-l>*:nth-child(2){animation-delay:.14s}
+.hero-l>*:nth-child(3){animation-delay:.20s}
+.hero-l>*:nth-child(4){animation-delay:.26s}
+.hero-l>*:nth-child(5){animation-delay:.32s}
+/* ── SCROLL REVEAL ── */
+.sr{opacity:0;transform:translateY(10px);transition:opacity 340ms cubic-bezier(0.23,1,0.32,1),transform 340ms cubic-bezier(0.23,1,0.32,1)}
+.sr.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.hero-l>*,.sr{animation:none;opacity:1;transform:none}.hero-l>*{transition:opacity 200ms ease-out}.sr{transition:opacity 200ms ease-out}}
+/* ── TEXT SELECTION ── */
+::selection{background:var(--brand);color:var(--bg)}
+
+/* ── ACTIVE STATES ── */
+.btn-primary:active,.con-p:active,.ab-btn:active{transform:scale(0.97);transition-duration:80ms}
+.pkg:active{transform:scale(0.99);transition-duration:60ms}
+.ba:active{transform:scale(0.99);transition-duration:60ms}
+.reason:active{background:var(--brand-light)}
+.fi:active .fq{opacity:.7}
+.stat:active{background:var(--brand-light)}
+
+/* ── IMAGE ZOOM PORTFOLIO ── */
+.ba-photos img{transition:transform 300ms cubic-bezier(0.23,1,0.32,1)}
+.ba:hover .ba-photos img{transform:scale(1.04)}
+
+/* ── ASYMMETRIC HOVER — intru rapid, ies lent ── */
+.pkg{transition:box-shadow 200ms cubic-bezier(0.23,1,0.32,1),transform 200ms cubic-bezier(0.23,1,0.32,1)}
+.pkg:not(:hover){transition:box-shadow 400ms ease,transform 400ms ease}
+.ba{transition:box-shadow 200ms cubic-bezier(0.23,1,0.32,1),transform 200ms cubic-bezier(0.23,1,0.32,1)}
+.ba:not(:hover){transition:box-shadow 400ms ease,transform 400ms ease}
+.tc{transition:box-shadow 200ms cubic-bezier(0.23,1,0.32,1)}
+.tc:not(:hover){transition:box-shadow 400ms ease}
+/* ── DIFF SMOOTH (no reflow trick) ── */
+
+
+/* ── SLIDING PILL ── */
+.tbns{position:relative}
+.tbn{position:relative;z-index:1}
+.tbn-pill{position:absolute;background:#FDFAF6;border-radius:7px;pointer-events:none;z-index:0;top:0;left:0;transition:left 240ms cubic-bezier(0.23,1,0.32,1),top 240ms cubic-bezier(0.23,1,0.32,1),width 240ms cubic-bezier(0.23,1,0.32,1),height 240ms cubic-bezier(0.23,1,0.32,1)}
+.tbn:active{transform:scale(0.97);transition:transform 80ms}
+@media not all and (hover:hover){
+  .btn-primary:hover,.con-p:hover,.ab-btn:hover{transform:none}
+  .pkg:hover,.ba:hover{transform:none;box-shadow:none}
+  .port-cta:hover{transform:none}
+}
+.pkg-price .count-anim{font-size:inherit;font-weight:inherit;color:inherit;letter-spacing:inherit}
 </style>
 <script type="application/ld+json">
 {
@@ -669,15 +717,15 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
   <p style="font-size:13px;color:#7A6E62;margin-bottom:16px;line-height:1.65">Varianta zero nu costă zero. Un proprietar fără sistem rulează în medie 3–4 chiriași în 5 ani.</p>
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
     <div style="background:#F5EFE6;border:.5px solid #E0DDD6;border-radius:10px;padding:14px 16px">
-      <div style="font-size:20px;font-weight:300;color:#C77936;margin-bottom:4px">1,5–2 luni</div>
+      <div style="font-size:20px;font-weight:300;color:#C77936;margin-bottom:4px"id="ci-1"id="ci-1">1,5–2 luni</div>
       <div style="font-size:12px;color:#9A8E82;line-height:1.4">pierdute anual cu chiria neachitată între chiriași</div>
     </div>
     <div style="background:#F5EFE6;border:.5px solid #E0DDD6;border-radius:10px;padding:14px 16px">
-      <div style="font-size:20px;font-weight:300;color:#C77936;margin-bottom:4px">1.500–3.000€</div>
+      <div style="font-size:20px;font-weight:300;color:#C77936;margin-bottom:4px"id="ci-2">1.500–3.000€</div>
       <div style="font-size:12px;color:#9A8E82;line-height:1.4">reparații și uzură după fiecare chiriaș</div>
     </div>
     <div style="background:#F5EFE6;border:.5px solid #E0DDD6;border-radius:10px;padding:14px 16px">
-      <div style="font-size:20px;font-weight:300;color:#C77936;margin-bottom:4px">8.000–15.000€</div>
+      <div style="font-size:20px;font-weight:300;color:#C77936;margin-bottom:4px"id="ci-3">8.000–15.000€</div>
       <div style="font-size:12px;color:#9A8E82;line-height:1.4">cost real estimat al lui „nu fac nimic" pe 5 ani</div>
     </div>  
   </div>
@@ -908,10 +956,10 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
         </div>
       </div>
       <div class="cs-res">
-        <div class="cs-r"><div class="cs-rv">+150€</div><div class="cs-rl">chirie lunară față de înainte</div></div>
-        <div class="cs-r"><div class="cs-rv">4 zile</div><div class="cs-rl">până la primul chiriaș potrivit</div></div>
-        <div class="cs-r"><div class="cs-rv">12 luni</div><div class="cs-rl">durata șederii<br>(contract semnat pe 2 ani de la început)</div></div>
-        <div class="cs-r"><div class="cs-rv">~48 luni</div><div class="cs-rl">recuperare completă a investiției (din chiria extra + rotația de chiriași eliminată)</div></div>
+        <div class="cs-r"><div class="cs-rv count-anim" data-val="150" data-pre="+" data-suf="€">+150€</div><div class="cs-rl">chirie lunară față de înainte</div></div>
+        <div class="cs-r"><div class="cs-rv count-anim" data-val="4" data-pre="" data-suf=" zile">4 zile</div><div class="cs-rl">până la primul chiriaș potrivit</div></div>
+        <div class="cs-r"><div class="cs-rv count-anim" data-val="12" data-pre="" data-suf=" luni">12 luni</div><div class="cs-rl">durata șederii<br>(contract semnat pe 2 ani de la început)</div></div>
+        <div class="cs-r"><div class="cs-rv count-anim" data-val="48" data-pre="" data-suf=" luni">~48 luni</div><div class="cs-rl">recuperare completă a investiției (din chiria extra + rotația de chiriași eliminată)</div></div>
       </div>
       <div class="cs-q">„Am fost foarte mulțumit de rezultat. Apartamentul a ieșit exact așa cum mi-a fost prezentat, iar găsirea noilor chiriași a fost mult mai ușoară decât mă așteptam.”<div class="cs-qa">— Dl. Ciobanu, proprietar apartament 2 camere · Pachet Premium</div></div>
     </div>
@@ -949,10 +997,10 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
         </div>
       </div>
       <div class="cs-res">
-        <div class="cs-r"><div class="cs-rv">+220€</div><div class="cs-rl">chirie lunară față de înainte</div></div>
-        <div class="cs-r"><div class="cs-rv">5 zile</div><div class="cs-rl">până la primul chiriaș potrivit</div></div>
-        <div class="cs-r"><div class="cs-rv">24 luni</div><div class="cs-rl">durata șederii<br>(contract semnat pe 2 ani de la început)</div></div>
-        <div class="cs-r"><div class="cs-rv">~14 luni</div><div class="cs-rl">recuperare completă a investiției (din chiria extra + rotația de chiriași eliminată)</div></div>
+        <div class="cs-r"><div class="cs-rv count-anim" data-val="220" data-pre="+" data-suf="€">+220€</div><div class="cs-rl">chirie lunară față de înainte</div></div>
+        <div class="cs-r"><div class="cs-rv count-anim" data-val="5" data-pre="" data-suf=" zile">5 zile</div><div class="cs-rl">până la primul chiriaș potrivit</div></div>
+        <div class="cs-r"><div class="cs-rv count-anim" data-val="24" data-pre="" data-suf=" luni">24 luni</div><div class="cs-rl">durata șederii<br>(contract semnat pe 2 ani de la început)</div></div>
+        <div class="cs-r"><div class="cs-rv count-anim" data-val="14" data-pre="" data-suf=" luni">~14 luni</div><div class="cs-rl">recuperare completă a investiției (din chiria extra + rotația de chiriași eliminată)</div></div>
       </div>
       <div class="cs-q">„Sincer, mă așteptam la randări frumoase și atât. Nu mă așteptam să am și un sistem clar pentru ce fac cu apartamentul după. Chiriașul de acum e cel mai bun pe care l-am avut și cred că asta nu e o coincidență."<div class="cs-qa">— Costin, proprietar apartament 2 camere · Pachet Standard</div></div>
     </div>
@@ -1016,7 +1064,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
     <div class="pkg">
       <div class="pkg-h">
         <div class="pkg-name">Audit</div>
-        <div class="pkg-price">200€<span style="font-size:14px;font-weight:400"> fix</span></div>
+        <div class="pkg-price"><span class="count-anim" data-val="200" data-pre="" data-suf="€">200€</span><span style="font-size:14px;font-weight:400"> fix</span></div>
         <div class="pkg-desc">Evaluare completă. Raport livrat în 72h.</div>
       </div>
       <div class="pkg-div"></div>
@@ -1035,7 +1083,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
       </div>
     </div>
     <div class="pkg pkg-std">
-      <div class="pkg-h"><div class="pkg-name">Standard</div><div class="pkg-price">30€<span> / mp</span></div><div class="pkg-desc">Design + vizualizare + Rental Kit DIY.</div></div>
+      <div class="pkg-h"><div class="pkg-name">Standard</div><div class="pkg-price"><span class="count-anim" data-val="30" data-pre="" data-suf="€">30€</span><span> / mp</span></div><div class="pkg-desc">Design + vizualizare + Rental Kit DIY.</div></div>
       <div class="pkg-div"></div>
       <div class="pkg-b">
         <div class="pkg-sl">Design</div>
@@ -1050,7 +1098,7 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
       </div>
     </div>
     <div class="pkg pkg-pre">
-      <div class="pkg-h"><div class="pkg-name">Premium</div><div class="pkg-price">65€<span> / mp</span></div><div class="pkg-desc">Complet — de la design la primul chiriaș.</div></div>
+      <div class="pkg-h"><div class="pkg-name">Premium</div><div class="pkg-price"><span class="count-anim" data-val="65" data-pre="" data-suf="€">65€</span><span> / mp</span></div><div class="pkg-desc">Complet — de la design la primul chiriaș.</div></div>
       <div class="pkg-div"></div>
       <div class="pkg-b">
         <div class="pkg-sl">Design</div>
@@ -1227,6 +1275,7 @@ if(mktNote){mktNote.textContent=mktMsg||'';mktNote.style.display=mktMsg?'block':
   document.getElementById('r-roi').textContent='Investiție recuperată în ~'+roi+' luni · total ~'+fmt(inv);
   const ch=years===5?c.c5:c.c10,cho=years===5?c.co5:c.co10;
   document.getElementById('r-tb').innerHTML=`<tr><td>Fără optimizare</td><td>${ch}</td><td>~${vac} luni</td><td>${fmt(gBad)}</td><td>${fmt(nBad)}</td></tr><tr class="hl"><td>Cu optimizare</td><td>${cho}</td><td>~${vacO} luni</td><td>${fmt(gGood)}</td><td class="vg">${fmt(nGood)}</td></tr>`;
+  if(window.animateCalcDiff)window.animateCalcDiff();
 }
 calc();
 </script>
@@ -1329,6 +1378,212 @@ function setCookies(choice){
 if(!localStorage.getItem('cookieConsent')){
   document.getElementById('cookie-banner').style.display='flex';
 }
+</script>
+<script>
+(function(){
+  var sel='h2.sh,.sec-sub,.sec-tag,.stat,.pc,.pkg,.reason,.ba,.cs,.tc,.tec,.fc,.fit-note,.audit-block';
+  document.querySelectorAll(sel).forEach(function(el){
+    el.classList.add('sr');
+    var siblings=Array.from(el.parentElement.children).filter(function(c){return c.classList.contains('sr')});
+    var idx=siblings.indexOf(el);
+    if(idx>0) el.style.transitionDelay=(idx*55)+'ms';
+  });
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('.sr').forEach(function(el){io.observe(el);});
+})();
+</script>
+<script>
+// Nav shadow la scroll
+(function(){
+  var nav=document.querySelector('nav');
+  window.addEventListener('scroll',function(){
+    nav.style.boxShadow=window.scrollY>10?'0 1px 20px rgba(45,40,32,.07)':'none';
+  },{passive:true});
+})();
+
+// Counter animat pe stats
+(function(){
+  var defs=[
+    {sel:'.stats-g .stat:nth-child(1) .stat-v',from:0,to:200,pre:'+',suf:'€',dur:1200},
+    {sel:'.stats-g .stat:nth-child(2) .stat-v',from:0,to:8,pre:'~',suf:' luni',dur:1000},
+    {sel:'.stats-g .stat:nth-child(3) .stat-v',from:0,to:5,pre:'',suf:' zile',dur:800},
+    {sel:'.stats-g .stat:nth-child(4) .stat-v',from:0,to:200,pre:'',suf:'€',dur:1000}
+  ];
+  var done=false;
+  function ease(t){return 1-Math.pow(1-t,3)}
+  function run(d){
+    var el=document.querySelector(d.sel);
+    if(!el)return;
+    var t0=null;
+    function step(ts){
+      if(!t0)t0=ts;
+      var p=Math.min((ts-t0)/d.dur,1);
+      el.textContent=d.pre+Math.round(d.from+(d.to-d.from)*ease(p))+d.suf;
+      if(p<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var io=new IntersectionObserver(function(entries){
+    if(entries[0].isIntersecting&&!done){done=true;defs.forEach(run);}
+  },{threshold:0.5});
+  var s=document.getElementById('stats');
+  if(s)io.observe(s);
+})();
+</script>
+<script>
+// Counter animat — carduri "cost inactiune"
+(function(){
+  var done=false;
+  function ease(t){return 1-Math.pow(1-t,3)}
+  function countEl(id,from,to,dur,fmtFn,finalText){
+    var el=document.getElementById(id);if(!el)return;
+    var start=null;
+    function step(ts){
+      if(!start)start=ts;
+      var p=Math.min((ts-start)/dur,1);
+      if(p>=1){el.textContent=finalText;return;}
+      el.textContent=fmtFn(from+(to-from)*ease(p));
+      requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var s=document.getElementById('cost-inactiune');
+  if(!s)return;
+  new IntersectionObserver(function(entries){
+    if(!entries[0].isIntersecting||done)return;
+    done=true;
+    countEl('ci-1',0,2,1000,
+      function(v){return v.toFixed(1).replace('.',',')+' luni'},
+      '1,5–2 luni');
+    countEl('ci-2',0,3000,1200,
+      function(v){return Math.round(v).toLocaleString('ro-RO')+'€'},
+      '1.500–3.000€');
+    countEl('ci-3',0,15000,1400,
+      function(v){return Math.round(v).toLocaleString('ro-RO')+'€'},
+      '8.000–15.000€');
+  },{threshold:0.5}).observe(s);
+})();
+
+
+</script>
+<script>
+// Sliding pill pe toate grupurile de butoane
+(function(){
+  var style=document.createElement('style');
+  style.textContent='.tbn.on{background:transparent!important;border-color:transparent!important}.tbn:hover:not(.on){background:rgba(199,121,54,.06)}';
+  document.head.appendChild(style);
+
+  document.querySelectorAll('.tbns').forEach(function(grp){
+    var pill=document.createElement('span');
+    pill.className='tbn-pill';
+    grp.appendChild(pill);
+
+    function move(btn,instant){
+      if(!btn)return;
+      var gr=grp.getBoundingClientRect();
+      var br=btn.getBoundingClientRect();
+      if(instant){pill.style.transition='none';}
+      else{pill.style.transition='';}
+      pill.style.left=(br.left-gr.left)+'px';
+      pill.style.top=(br.top-gr.top)+'px';
+      pill.style.width=br.width+'px';
+      pill.style.height=br.height+'px';
+    }
+
+    requestAnimationFrame(function(){
+      move(grp.querySelector('.tbn.on'),true);
+    });
+
+    grp.addEventListener('click',function(e){
+      var btn=e.target.closest('.tbn');
+      if(btn) requestAnimationFrame(function(){move(btn,false);});
+    });
+
+    window.addEventListener('resize',function(){
+      move(grp.querySelector('.tbn.on'),true);
+    },{passive:true});
+  });
+})();
+
+// Smooth diff — transition retargetează, nu mai face glitch
+<script>
+window.animateCalcDiff=(function(){
+  var displayed=0,raf=null;
+  function ease(t){return 1-Math.pow(1-t,3)}
+  function fmtD(n){
+    var r=Math.round(n);
+    return(r>=0?'+':'')+r.toLocaleString('ro-RO')+'€';
+  }
+  function parseVal(text){
+    if(!text||text==='—')return 0;
+    var neg=text.trim().startsWith('-');
+    var n=parseFloat(text.replace(/[^0-9]/g,''))||0;
+    return neg?-n:n;
+  }
+  return function(){
+    var el=document.getElementById('r-df');
+    if(!el)return;
+    var target=parseVal(el.textContent);
+    var from=displayed;
+    var to=target;
+    var t0=null,dur=380;
+    if(raf)cancelAnimationFrame(raf);
+    function step(ts){
+      if(!t0)t0=ts;
+      var p=Math.min((ts-t0)/dur,1);
+      displayed=from+(to-from)*ease(p);
+      el.textContent=fmtD(displayed);
+      if(p<1)raf=requestAnimationFrame(step);
+      else raf=null;
+    }
+    raf=requestAnimationFrame(step);
+  };
+})();
+</script>
+<script>
+(function(){
+  var fired = new Set();
+  function ease(t){ return 1 - Math.pow(1 - t, 3); }
+
+  function runCount(el, delay){
+    var val  = parseInt(el.dataset.val);
+    var pre  = el.dataset.pre || '';
+    var suf  = el.dataset.suf || '';
+    var dur  = val >= 100 ? 1000 : val >= 30 ? 700 : 500;
+    setTimeout(function(){
+      var start = null;
+      function step(ts){
+        if(!start) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        el.textContent = pre + Math.round(val * ease(p)) + suf;
+        if(p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }, delay);
+  }
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(!entry.isIntersecting) return;
+      var el = entry.target;
+      if(fired.has(el)) return;
+      // detectează grupul: cs-res (testimoniale) sau pkg-g (pachete)
+      var parent = el.closest('.cs-res, .pkg-g');
+      var group  = parent
+        ? Array.from(parent.querySelectorAll('.count-anim'))
+        : [el];
+      // marchează tot grupul și pornește cu stagger
+      group.forEach(function(s){ fired.add(s); io.unobserve(s); });
+      group.forEach(function(s, i){ runCount(s, i * 90); });
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.count-anim').forEach(function(el){
+    io.observe(el);
+  });
+})();
 </script>
 </body>
 </html>
