@@ -2,6 +2,7 @@
 <html lang="ro">
 <head>
 <meta charset="UTF-8">
+<link rel="preconnect" href="https://www.googletagmanager.com">
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5WXD9BGS3T"></script>
 <script>
@@ -24,6 +25,7 @@
 <link rel="preload" href="fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/inter-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FDFAF6">
 <title>Termeni și Condiții — Rent UP</title>
 <link rel="icon" type="image/webp" href="favicon.webp">
 
@@ -45,9 +47,13 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .logo span{color:var(--dark);font-weight:300}
 .nav-back{font-size:13px;color:var(--muted);text-decoration:none;transition:color .15s}
 .nav-back:hover{color:var(--dark)}
+.skip-link{position:absolute;left:-9999px;top:4px;z-index:9999;background:var(--bg);color:var(--brand);padding:8px 18px;border-radius:0 0 8px 8px;font-size:13px;font-weight:500;border:1px solid var(--border);text-decoration:none}
+.skip-link:focus{left:4px}
+.nav-back:focus-visible,a:focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:2px}
+button,a{touch-action:manipulation}
 .container{max-width:720px;margin:0 auto;padding:72px 24px 96px}
 .page-tag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--brand);margin-bottom:16px}
-h1{font-size:36px;font-weight:300;line-height:1.08;letter-spacing:-.028em;margin-bottom:10px}
+h1{font-size:36px;font-weight:300;line-height:1.08;letter-spacing:-.028em;margin-bottom:10px;text-wrap:balance}
 .update{font-size:13px;color:var(--muted);margin-bottom:48px}
 h2{font-size:16px;font-weight:600;color:var(--dark);margin:36px 0 10px;text-transform:uppercase;letter-spacing:.06em}
 p{font-size:14px;color:var(--mid);line-height:1.78;margin-bottom:12px}
@@ -65,13 +71,14 @@ footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56p
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Sari la conținut</a>
 
 <nav>
   <a class="logo" href="/">Rent<span>UP</span></a>
   <a class="nav-back" href="/">← Înapoi</a>
 </nav>
 
-<div class="container">
+<div class="container" id="main-content">
   <div class="page-tag">Legal</div>
   <h1>Termeni și Condiții</h1>
   <p class="update">Ultima actualizare: mai 2026</p>

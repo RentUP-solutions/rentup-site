@@ -2,6 +2,7 @@
 <html lang="ro">
 <head>
 <meta charset="UTF-8">
+<link rel="preconnect" href="https://www.googletagmanager.com">
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5WXD9BGS3T"></script>
 <script>
@@ -27,6 +28,7 @@
 <link rel="icon" type="image/webp" href="favicon.webp">
 <meta name="description" content="Sistemul complet pentru proprietari: selecție chiriaș pe 4 piloni, contract personalizat, PV foto cu timestamp, inventar și protocoale pentru situații dificile. Inclus în pachetele Standard și Premium.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FDFAF6">
 <title>Rental Kit — Sistemul Complet pentru Proprietari | Rent UP</title>
 <meta name="keywords" content="rental kit proprietar, contract închiriere, selecție chiriaș, documente închiriere, protocol evacuare, garanție chirie">
 <meta name="robots" content="index, follow">
@@ -78,7 +80,7 @@ nav{background:rgba(253,250,246,.96);backdrop-filter:blur(12px);border-bottom:.5
 .hero{padding:88px 56px 72px;background:var(--bg);border-bottom:.5px solid var(--border)}
 .hero-tag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--brand);margin-bottom:18px;display:flex;align-items:center;gap:8px}
 .hero-dot{width:5px;height:5px;border-radius:50%;background:var(--brand)}
-.hero-h1{font-size:52px;font-weight:300;line-height:1.05;letter-spacing:-.03em;margin-bottom:20px}
+.hero-h1{font-size:52px;font-weight:300;line-height:1.05;letter-spacing:-.03em;margin-bottom:20px;text-wrap:balance}
 .hero-h1 em{font-style:normal;font-weight:500;color:var(--brand)}
 .hero-sub{font-size:16px;color:var(--muted);line-height:1.75;max-width:580px;margin-bottom:48px}
 .hero-meta{display:flex;gap:10px;flex-wrap:wrap}
@@ -104,7 +106,7 @@ h2.sh{font-size:36px;font-weight:300;letter-spacing:-.025em;margin-bottom:12px}
 
 /* MODULE LIST */
 .modules{display:flex;flex-direction:column;gap:4px;margin-bottom:40px}
-.mod-row{display:flex;gap:14px;padding:14px 18px;border:1px solid var(--border);border-radius:8px;background:var(--bg);align-items:center;transition:all .15s}
+.mod-row{display:flex;gap:14px;padding:14px 18px;border:1px solid var(--border);border-radius:8px;background:var(--bg);align-items:center;transition:background .15s,border-color .15s}
 .mod-row:hover{background:var(--brand-light);border-color:var(--brand-border)}
 .mod-num{font-size:11px;font-weight:600;color:var(--brand);width:22px;flex-shrink:0}
 .mod-title{font-size:14px;font-weight:500;flex:1}
@@ -161,7 +163,7 @@ h2.sh{font-size:36px;font-weight:300;letter-spacing:-.025em;margin-bottom:12px}
 
 /* ANNEXES */
 .annexes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:0}
-.ann{background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:18px 20px;transition:all .2s}
+.ann{background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:18px 20px;transition:background .2s,border-color .2s}
 .ann:hover{background:var(--brand-light);border-color:var(--brand-border)}
 .ann-code{font-size:10px;font-weight:600;color:var(--brand);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
 .ann-title{font-size:13px;font-weight:500;margin-bottom:6px}
@@ -181,7 +183,7 @@ h2.sh{font-size:36px;font-weight:300;letter-spacing:-.025em;margin-bottom:12px}
 .tc-title{font-size:14px;font-weight:500;color:white;margin-bottom:8px}
 .tc-desc{font-size:13px;color:var(--muted);line-height:1.6}
 .trauma-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn-p{font-size:14px;font-weight:500;background:var(--brand);color:white;padding:13px 28px;border-radius:100px;text-decoration:none;transition:all .2s}
+.btn-p{font-size:14px;font-weight:500;background:var(--brand);color:white;padding:13px 28px;border-radius:100px;text-decoration:none;transition:background .2s,transform .2s}
 .btn-p:hover{background:#a8622a}
 .btn-g{font-size:14px;color:var(--muted);padding:13px 24px;border:.5px solid #4D4238;border-radius:100px;text-decoration:none}
 
@@ -265,12 +267,23 @@ img{-webkit-user-drag:none;user-drag:none}
 .btn-p:hover,.btn-brand:hover{transform:translateY(-1px)}
 .btn-outline,.btn-g{transition:background 180ms ease,transform 160ms ease}
 .btn-outline:hover,.btn-g:hover{transform:translateY(-1px)}
-.nav-mobile{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(253,250,246,.98);border-bottom:.5px solid #EDE5D8;padding:16px 20px;flex-direction:column;gap:4px;z-index:99}
+.nav-mobile{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(253,250,246,.98);border-bottom:.5px solid #EDE5D8;padding:16px 20px;flex-direction:column;gap:4px;z-index:99;overscroll-behavior:contain}
 .nav-mobile a{font-family:'Inter',sans-serif;font-size:15px;color:#9A8E82;text-decoration:none;padding:12px 0;border-bottom:.5px solid #EDE5D8;display:block}
 .nav-mobile a:last-child{border-bottom:none}
 .nav-mobile.open{display:flex}
 .nav-hamburger{display:none}
 @media(max-width:768px){.nav-links{display:none}.nav-hamburger{display:flex}.nav-cta{display:none}}
+
+/* ── FOCUS VISIBLE ── */
+.skip-link{position:absolute;left:-9999px;top:4px;z-index:9999;background:var(--bg);color:var(--brand);padding:8px 18px;border-radius:0 0 8px 8px;font-size:13px;font-weight:500;border:1px solid var(--brand-border);text-decoration:none}
+.skip-link:focus{left:4px}
+.btn-p:focus-visible,.btn-brand:focus-visible,.btn-outline:focus-visible,.btn-g:focus-visible,.nav-cta:focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:100px}
+.nav-links a:focus-visible{outline:2px solid var(--brand);outline-offset:4px;border-radius:2px}
+.mod-row:focus-visible,.ann:focus-visible,.tc:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:10px}
+#btt:focus-visible{outline:2px solid var(--brand);outline-offset:4px}
+
+/* ── TOUCH ── */
+button,a{touch-action:manipulation}
 </style>
 <script type="application/ld+json">
 {
@@ -293,6 +306,7 @@ img{-webkit-user-drag:none;user-drag:none}
 </script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Sari la conținut</a>
 
 <nav>
   <a class="logo" href="/">Rent<span>UP</span></a>
@@ -306,7 +320,7 @@ img{-webkit-user-drag:none;user-drag:none}
     <a href="/blog/">Blog</a>
     <a href="faq.html">FAQ</a>
   </div>
-  <button id="nav-hamburger" onclick="toggleMenu()" style="flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto">
+  <button id="nav-hamburger" aria-label="Deschide meniul" onclick="toggleMenu()" style="flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto">
   <span style="width:22px;height:2px;background:#C77936;display:block"></span>
   <span style="width:22px;height:2px;background:#C77936;display:block"></span>
   <span style="width:22px;height:2px;background:#C77936;display:block"></span>
@@ -324,7 +338,7 @@ img{-webkit-user-drag:none;user-drag:none}
   <a href="faq.html">FAQ</a>
 </div>
 <!-- HERO -->
-<div class="hero">
+<div class="hero" id="main-content">
   <div class="hero-tag"><div class="hero-dot"></div>Rental Performance System · Produs exclusiv</div>
   <h1 class="hero-h1">Rental Kit. <br><em>Sistemul din spatele chiriei stabile.</em></h1>
   <p class="hero-sub">Nu e un dosar cu hârtii. E un sistem complet care traduce designul în bani: cum găsești chiriașul potrivit, cum îl evaluezi, cum îl primești, cum îl ții și cum te desparți fără surprize.</p>
@@ -347,19 +361,19 @@ img{-webkit-user-drag:none;user-drag:none}
   </div>
   <div class="wi-r">
     <div class="wi-item sr">
-      <span class="wi-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+      <span class="wi-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
       <div><div class="wi-title">Strategie de piață</div><div class="wi-desc">Cum stabilești chiria corectă, cum listezi, ce fotografii faci și ce scrie în anunț ca să atragă omul potrivit.</div></div>
     </div>
     <div class="wi-item sr">
-      <span class="wi-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
+      <span class="wi-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
       <div><div class="wi-title">Sistem de selecție chiriaș</div><div class="wi-desc">Chestionar structurat, 4 piloni de evaluare, red flags cu explicații. Nu instinct, ci un sistem bine gândit.</div></div>
     </div>
     <div class="wi-item sr">
-      <span class="wi-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="8" y="2" width="8" height="4" rx="1"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 12h8M8 16h5"/></svg></span>
+      <span class="wi-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="8" y="2" width="8" height="4" rx="1"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 12h8M8 16h5"/></svg></span>
       <div><div class="wi-title">Documente complete</div><div class="wi-desc">PV foto extins, inventar detaliat, contract custom, politica de garanție cu proceduri clare.</div></div>
     </div>
     <div class="wi-item sr">
-      <span class="wi-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+      <span class="wi-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
       <div><div class="wi-title">Ghid chiriaș</div><div class="wi-desc">Primești un chiriaș informat și responsabilizat. El știe ce se așteaptă de la el și cum funcționează garanția.</div></div>
     </div>
     </div>
@@ -567,21 +581,21 @@ img{-webkit-user-drag:none;user-drag:none}
    <div class="trauma-cards">
   <div class="tc sr">
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
-      <div class="tc-icon" style="margin-bottom:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+      <div class="tc-icon" style="margin-bottom:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
       <div class="tc-title" style="margin-bottom:0">Inspectezi când ai nevoie</div>
     </div>
     <div class="tc-desc">Calendar flexibil: 30 zile (opțional), 6 luni, anual. Spui transparent chiriașului de la început. Fără surprize pentru nimeni.</div>
   </div>
   <div class="tc sr">
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
-      <div class="tc-icon" style="margin-bottom:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+      <div class="tc-icon" style="margin-bottom:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
       <div class="tc-title" style="margin-bottom:0">Garanție adaptată la nivelul tău de risc</div>
     </div>
     <div class="tc-desc">Standard (1+1) sau varianta cu protecție mai mare (1+2). Noi îți oferim opțiunile, tu alegi.</div>
   </div>
   <div class="tc sr">
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
-      <div class="tc-icon" style="margin-bottom:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v16"/><path d="M5 20h14"/><path d="M8 3h8"/><path d="M5 9l-2 5h4l-2-5z"/><path d="M19 9l-2 5h4l-2-5z"/><path d="M5 9h14"/></svg></div>
+      <div class="tc-icon" style="margin-bottom:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v16"/><path d="M5 20h14"/><path d="M8 3h8"/><path d="M5 9l-2 5h4l-2-5z"/><path d="M19 9l-2 5h4l-2-5z"/><path d="M5 9h14"/></svg></div>
       <div class="tc-title" style="margin-bottom:0">Ghid pentru situații dificile</div>
     </div>
     <div class="tc-desc">Petreceri, neplată, refuz evacuare, cheie nepredată, ANAF. Pași concreți pentru fiecare, inclusiv clauze de adăugat în contract.</div>
@@ -696,7 +710,7 @@ document.addEventListener('click',function(e){
 </script>
 
 <!-- Back to Top -->
-<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="display:none;position:fixed;bottom:24px;right:24px;width:44px;height:44px;background:#C77936;border:none;border-radius:50%;cursor:pointer;z-index:998;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(199,121,54,.3);transition:all .2s;font-size:18px;color:#FDFAF6">↑</button>
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Înapoi sus" style="display:none;position:fixed;bottom:24px;right:24px;width:44px;height:44px;background:#C77936;border:none;border-radius:50%;cursor:pointer;z-index:998;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(199,121,54,.3);transition:background .2s,transform .2s,box-shadow .2s;font-size:18px;color:#FDFAF6">↑</button>
 <script>
 window.addEventListener('scroll',function(){
   var btn=document.getElementById('btt');

@@ -2,6 +2,7 @@
 <html lang="ro">
 <head>
 <meta charset="UTF-8">
+<link rel="preconnect" href="https://www.googletagmanager.com">
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5WXD9BGS3T"></script>
 <script>
@@ -26,6 +27,7 @@
 <link rel="preload" href="fonts/inter-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" type="image/webp" href="favicon.webp">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FDFAF6">
 <title>Realitatea chiriei în România — Probleme frecvente și soluții | RentUP</title>
 <meta name="keywords" content="probleme chirie România, chiriaș care nu plătește, daune apartament închiriat, evacuare chiriaș, garanție chirie, proprietar apartament">
 <meta name="robots" content="index, follow">
@@ -78,7 +80,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .hero{background:var(--bg-stone);padding:80px 56px 64px;border-bottom:.5px solid var(--border)}
 .hero-eyebrow{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--brand);margin-bottom:22px;display:flex;align-items:center;gap:8px}
 .hero-dot{width:5px;height:5px;border-radius:50%;background:var(--brand)}
-.hero-h1{font-size:58px;font-weight:300;line-height:1.15;letter-spacing:-.035em;color:var(--dark);margin-bottom:16px}
+.hero-h1{font-size:58px;font-weight:300;line-height:1.15;letter-spacing:-.035em;color:var(--dark);margin-bottom:16px;text-wrap:balance}
 .hero-h1 em{font-style:normal;font-weight:500;color:var(--brand)}
 .hero-sub{font-size:17px;color:var(--muted);line-height:1.7;max-width:580px;margin-bottom:48px}
 .hero-stats{display:grid;grid-template-columns:repeat(3,auto);gap:48px;width:fit-content}
@@ -102,7 +104,7 @@ h2.sh-dark{font-size:36px;font-weight:300;color:var(--dark);line-height:1.1;lett
 .sec-sub-dark{font-size:15px;color:var(--muted);line-height:1.72;max-width:540px;margin-bottom:56px}
 
 .problems-grid{display:flex;flex-direction:column;gap:10px}
-.problem-item{scroll-margin-top:80px;display:grid;grid-template-columns:56px 1fr 1fr;gap:0;background:var(--bg2);border:.5px solid var(--border);border-radius:12px;overflow:hidden;transition:all .2s, transform .4s ease}
+.problem-item{scroll-margin-top:80px;display:grid;grid-template-columns:56px 1fr 1fr;gap:0;background:var(--bg2);border:.5px solid var(--border);border-radius:12px;overflow:hidden;transition:background .2s,border-color .2s,box-shadow .2s,transform .4s ease}
 .problem-item:hover{background:var(--bg3)}
 .p-num{background:rgba(199,121,54,.12);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:300;color:var(--brand);border-right:.5px solid rgba(255,255,255,.07)}
 .p-problem{padding:28px 32px;border-right:.5px solid rgba(255,255,255,.07)}
@@ -122,7 +124,7 @@ h2.sh-dark{font-size:36px;font-weight:300;color:var(--dark);line-height:1.1;lett
 /* QUOTE GRID */
 .quotes-section{padding:88px 56px;background:var(--bg-stone)}
 .quotes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
-.quote-card{background:var(--bg);border:.5px solid var(--border);border-radius:14px;padding:28px;position:relative;transition:all .2s}
+.quote-card{background:var(--bg);border:.5px solid var(--border);border-radius:14px;padding:28px;position:relative;transition:box-shadow .2s,transform .2s}
 .quote-card:hover{box-shadow:0 8px 32px rgba(45,40,32,.08)}
 .qc-mark{font-size:36px;color:var(--brand);opacity:.3;line-height:1;margin-bottom:12px}
 .qc-text{font-size:14px;color:var(--mid);line-height:1.7;font-style:italic;margin-bottom:16px}
@@ -137,7 +139,7 @@ h2.sh-dark{font-size:36px;font-weight:300;color:var(--dark);line-height:1.1;lett
 .system-section{padding:88px 56px;background:var(--bg)}
 .system-intro{max-width:600px;margin-bottom:60px}
 .system-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.sys-card{padding:28px 26px;border:.5px solid var(--border);border-radius:14px;background:var(--bg-stone);transition:all .2s}
+.sys-card{padding:28px 26px;border:.5px solid var(--border);border-radius:14px;background:var(--bg-stone);transition:background .2s,border-color .2s,box-shadow .2s}
 .sys-card:hover{background:var(--brand-light);border-color:var(--brand-border)}
 .sys-num{font-size:32px;font-weight:300;color:var(--brand);margin-bottom:14px;opacity:.5}
 .sys-title{font-size:16px;font-weight:500;margin-bottom:10px}
@@ -196,7 +198,7 @@ body{opacity:0.01;transition:opacity .34s cubic-bezier(0.23,1,0.32,1)}
 /* Disable image right-click */
 img{-webkit-user-drag:none;user-drag:none}
 .sec-tag-dark{display:flex;align-items:center;gap:8px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--brand)}
-.nav-mobile{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(253,250,246,.98);border-bottom:.5px solid #EDE5D8;padding:16px 20px;flex-direction:column;gap:4px;z-index:99}
+.nav-mobile{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(253,250,246,.98);border-bottom:.5px solid #EDE5D8;padding:16px 20px;flex-direction:column;gap:4px;z-index:99;overscroll-behavior:contain}
 .nav-mobile a{font-family:'Inter',sans-serif;font-size:15px;color:#9A8E82;text-decoration:none;padding:12px 0;border-bottom:.5px solid #EDE5D8;display:block}
 .nav-mobile a:last-child{border-bottom:none}
 .nav-mobile.open{display:flex}
@@ -206,7 +208,7 @@ img{-webkit-user-drag:none;user-drag:none}
 /* URGENT */
 .urgent-nav{background:var(--bg);border-bottom:.5px solid var(--border);padding:40px 56px}
 .urgent-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}
-.urgent-card{background:var(--bg-stone);border:.5px solid var(--border);border-radius:10px;padding:16px 18px;text-decoration:none;transition:all .15s;display:flex;flex-direction:column;gap:6px}
+.urgent-card{background:var(--bg-stone);border:.5px solid var(--border);border-radius:10px;padding:16px 18px;text-decoration:none;transition:background .15s,border-color .15s,box-shadow .15s;display:flex;flex-direction:column;gap:6px}
 .urgent-card:hover{background:var(--brand-light);border-color:var(--brand-border)}
 .uc-tag{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--red)}
 .uc-title{font-size:14px;font-weight:500;color:var(--dark);line-height:1.35}
@@ -266,6 +268,17 @@ img{-webkit-user-drag:none;user-drag:none}
 .btn-brand:hover{transform:translateY(-1px)}
 .btn-outline{transition:background 180ms ease,transform 160ms ease,color 150ms ease}
 .btn-outline:hover{transform:translateY(-1px)}
+
+/* ── FOCUS VISIBLE ── */
+.skip-link{position:absolute;left:-9999px;top:4px;z-index:9999;background:var(--bg);color:var(--brand);padding:8px 18px;border-radius:0 0 8px 8px;font-size:13px;font-weight:500;border:1px solid var(--brand-border);text-decoration:none}
+.skip-link:focus{left:4px}
+.btn-brand:focus-visible,.btn-outline:focus-visible,.nav-cta:focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:100px}
+.nav-links a:focus-visible{outline:2px solid var(--brand);outline-offset:4px;border-radius:2px}
+.problem-item:focus-visible,.quote-card:focus-visible,.sys-card:focus-visible,.urgent-card:focus-visible,.cost-card:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:14px}
+#btt:focus-visible{outline:2px solid var(--brand);outline-offset:4px}
+
+/* ── TOUCH ── */
+button,a{touch-action:manipulation}
 </style>
 <script type="application/ld+json">
 {
@@ -288,6 +301,7 @@ img{-webkit-user-drag:none;user-drag:none}
 </script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Sari la conținut</a>
 
 <nav>
   <a class="logo" href="/">Rent<span>UP</span></a>
@@ -301,7 +315,7 @@ img{-webkit-user-drag:none;user-drag:none}
     <a href="/blog/">Blog</a>
     <a href="faq.html">FAQ</a>
   </div>
-  <button id="nav-hamburger" onclick="toggleMenu()" style="flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto">
+  <button id="nav-hamburger" aria-label="Deschide meniul" onclick="toggleMenu()" style="flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto">
   <span style="width:22px;height:2px;background:#C77936;display:block"></span>
   <span style="width:22px;height:2px;background:#C77936;display:block"></span>
   <span style="width:22px;height:2px;background:#C77936;display:block"></span>
@@ -319,7 +333,7 @@ img{-webkit-user-drag:none;user-drag:none}
   <a href="faq.html">FAQ</a>
 </div>
 <!-- HERO -->
-<div class="hero">
+<div class="hero" id="main-content">
   <div class="hero-eyebrow"><div class="hero-dot"></div>Din grupurile de proprietari români · Date reale 2025–2026</div>
   <h1 class="hero-h1">Nu e ghinion.<br><em>E lipsă de sistem.</em></h1>
   <p class="hero-sub">Sute de proprietari spun același lucru: „E chestie de noroc." Nu e. 80–90% din problemele cu chiriașii pot fi prevenite sau rezolvate rapid, dacă există un proces. Iată cum arată.</p>
@@ -783,7 +797,7 @@ document.addEventListener('click',function(e){
 </script>
 
 <!-- Back to Top -->
-<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="display:none;position:fixed;bottom:24px;right:24px;width:44px;height:44px;background:#C77936;border:none;border-radius:50%;cursor:pointer;z-index:998;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(199,121,54,.3);transition:all .2s;font-size:18px;color:#FDFAF6">↑</button>
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Înapoi sus" style="display:none;position:fixed;bottom:24px;right:24px;width:44px;height:44px;background:#C77936;border:none;border-radius:50%;cursor:pointer;z-index:998;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(199,121,54,.3);transition:background .2s,transform .2s,box-shadow .2s;font-size:18px;color:#FDFAF6">↑</button>
 <script>
 window.addEventListener('scroll',function(){
   var btn=document.getElementById('btt');

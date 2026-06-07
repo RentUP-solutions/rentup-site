@@ -2,6 +2,7 @@
 <html lang="ro">
 <head>
 <meta charset="UTF-8">
+<link rel="preconnect" href="https://www.googletagmanager.com">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5WXD9BGS3T"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-5WXD9BGS3T');</script>
 <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","x0n2w9bm9r");</script>
@@ -9,6 +10,7 @@
 <link rel="preload" href="../fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" type="image/webp" href="../favicon.webp">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FDFAF6">
 <title>Chiriașul nu plătește chiria: cum reacționezi corect și ce instrumente ai | RentUP</title>
 <meta name="description" content="Protocol pas cu pas pentru neplata chiriei. Ce faci în fiecare etapă, ce ton folosești, când acționezi legal și cum nu pierzi instrumentele de protecție.">
 <meta name="robots" content="index, follow">
@@ -33,13 +35,13 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .logo{font-size:17px;font-weight:600;color:#C77936;text-decoration:none;letter-spacing:-.01em}.logo span{color:#2D2820;font-weight:300}
 .nav-links{display:flex;align-items:center;gap:28px}.nav-links a{font-size:13px;color:#9A8E82;text-decoration:none;transition:color .15s}.nav-links a:hover,.nav-links a.active{color:#2D2820}
 .nav-cta{font-size:13px;font-weight:500;color:#C77936;border:.5px solid #C77936;padding:8px 18px;border-radius:100px;text-decoration:none;white-space:nowrap}.nav-cta:hover{background:#FAF4EB}
-.nav-mobile{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(253,250,246,.98);border-bottom:.5px solid #EDE5D8;padding:16px 20px;flex-direction:column;gap:4px;z-index:99}
+.nav-mobile{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(253,250,246,.98);border-bottom:.5px solid #EDE5D8;padding:16px 20px;flex-direction:column;gap:4px;z-index:99;overscroll-behavior:contain}
 .nav-mobile a{font-size:15px;color:#9A8E82;text-decoration:none;padding:12px 0;border-bottom:.5px solid #EDE5D8;display:block}.nav-mobile a:last-child{border-bottom:none}.nav-mobile.open{display:flex}
 .nav-hamburger{display:none}@media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}.nav-hamburger{display:flex}.nav-cta{display:none}}
 .art-hero{background:var(--bg-stone);padding:64px 56px 52px;border-bottom:.5px solid var(--border)}
 .breadcrumb{font-size:12px;color:var(--light);margin-bottom:20px;display:flex;align-items:center;gap:8px}.breadcrumb a{color:var(--muted);text-decoration:none}.breadcrumb a:hover{color:var(--dark)}
 .art-tag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--brand);margin-bottom:16px;display:flex;align-items:center;gap:8px}.tag-dot{width:5px;height:5px;border-radius:50%;background:var(--brand)}
-.art-h1{font-size:42px;font-weight:400;line-height:1.08;letter-spacing:-.03em;margin-bottom:16px;max-width:700px}.art-h1 em{font-style:normal;font-weight:500;color:var(--brand)}
+.art-h1{font-size:42px;font-weight:400;line-height:1.08;letter-spacing:-.03em;margin-bottom:16px;max-width:700px;text-wrap:balance}.art-h1 em{font-style:normal;font-weight:500;color:var(--brand)}
 .art-intro{font-size:17px;color:var(--muted);line-height:1.75;max-width:640px;margin-bottom:28px}
 .art-meta{display:flex;gap:20px;align-items:center;flex-wrap:wrap}.art-meta-item{font-size:12px;color:var(--light)}
 .art-body{max-width:720px;margin:0 auto;padding:64px 56px}
@@ -84,7 +86,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .related{background:var(--bg-stone);padding:56px;border-top:.5px solid var(--border)}
 .related-inner{max-width:720px;margin:0 auto}
 .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
-.rel-card{background:var(--bg);border:.5px solid var(--border);border-radius:10px;padding:18px;text-decoration:none;color:inherit;transition:all .15s}
+.rel-card{background:var(--bg);border:.5px solid var(--border);border-radius:10px;padding:18px;text-decoration:none;color:inherit;transition:background .15s,border-color .15s,box-shadow .15s}
 .rel-card:hover{background:var(--brand-light);border-color:var(--brand-border)}
 .rel-tag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--brand);margin-bottom:8px}
 .rel-title{font-size:13px;font-weight:500;line-height:1.4;color:var(--dark)}
@@ -104,12 +106,23 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .sr.in{opacity:1;transform:none;filter:none;will-change:auto}
 @media(max-width:600px){.sr{filter:none}.sr.in{filter:none}}
 .rel-card{transition:background 180ms ease,border-color 180ms ease,transform 200ms cubic-bezier(0.23,1,0.32,1)}
+
+/* ── FOCUS VISIBLE ── */
+.skip-link{position:absolute;left:-9999px;top:4px;z-index:9999;background:var(--bg);color:var(--brand);padding:8px 18px;border-radius:0 0 8px 8px;font-size:13px;font-weight:500;border:1px solid var(--brand-border);text-decoration:none}
+.skip-link:focus{left:4px}
+.nav-cta:focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:100px}
+.nav-links a:focus-visible{outline:2px solid var(--brand);outline-offset:4px;border-radius:2px}
+.rel-card:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:10px}
+
+/* ── TOUCH ── */
+button,a,.rel-card{touch-action:manipulation}
 .rel-card:hover{transform:translateY(-1px)}
 .kit-btn{transition:background 180ms ease,transform 160ms ease}
 .kit-btn:hover{transform:translateY(-1px)}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Sari la conținut</a>
 <nav>
   <a class="logo" href="/">Rent<span>UP</span></a>
   <div class="nav-links">
@@ -117,7 +130,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
     <a href="/rental-kit.html">Rental Kit</a><a href="/simulator.html">Simulator</a>
     <a href="/realitatea-chiriei.html">Probleme & soluții</a><a href="/blog/" class="active">Blog</a><a href="/faq.html">FAQ</a>
   </div>
-  <button id="nav-hamburger" onclick="toggleMenu()" style="flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto">
+  <button id="nav-hamburger" aria-label="Deschide meniul" onclick="toggleMenu()" style="flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto">
     <span style="width:22px;height:2px;background:#C77936;display:block"></span>
     <span style="width:22px;height:2px;background:#C77936;display:block"></span>
     <span style="width:22px;height:2px;background:#C77936;display:block"></span>
@@ -130,7 +143,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
   <a href="/realitatea-chiriei.html">Probleme & soluții</a><a href="/blog/">Blog</a><a href="/faq.html">FAQ</a>
 </div>
 
-<div class="art-hero">
+<div class="art-hero" id="main-content">
   <div style="max-width:720px">
     <div class="breadcrumb"><a href="/blog/">Blog</a> <span>›</span> Situații dificile</div>
     <div class="art-tag"><div class="tag-dot"></div>Situații dificile · Protocol</div>

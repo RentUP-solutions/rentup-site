@@ -2,6 +2,7 @@
 <html lang="ro">
 <head>
 <meta charset="UTF-8">
+<link rel="preconnect" href="https://www.googletagmanager.com">
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5WXD9BGS3T"></script>
 <script>
@@ -26,6 +27,7 @@
 <link rel="preload" href="fonts/inter-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" type="image/webp" href="favicon.webp">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FDFAF6">
 <title>Întrebări Frecvente despre Închiriere și Design Interior | Rent UP</title>
 <meta name="keywords" content="întrebări frecvente închiriere, cum găsesc chiriaș bun, merit să investesc în design apartament, cât durează proiect design interior">
 <meta name="robots" content="index, follow">
@@ -77,7 +79,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .hero{padding:88px 56px 72px;background:var(--bg-stone);border-bottom:.5px solid var(--border)}
 .hero-eyebrow{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--brand);margin-bottom:18px;display:flex;align-items:center;gap:8px}
 .hero-dot{width:5px;height:5px;border-radius:50%;background:var(--brand)}
-.hero-h1{font-size:52px;font-weight:300;line-height:1.0;letter-spacing:-.03em;margin-bottom:14px}
+.hero-h1{font-size:52px;font-weight:300;line-height:1.0;letter-spacing:-.03em;margin-bottom:14px;text-wrap:balance}
 .hero-h1 em{font-style:normal;font-weight:500;color:var(--brand)}
 .hero-sub{font-size:16px;color:var(--muted);line-height:1.72;max-width:520px}
 
@@ -85,14 +87,14 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .cat-tabs{padding:0 56px;background:var(--bg);border-bottom:.5px solid var(--border);display:flex;gap:0;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
 .cat-tabs::-webkit-scrollbar{display:none}
 @media(max-width:768px){.cat-tabs{position:sticky;top:52px;z-index:90;background:rgba(253,250,246,.96);backdrop-filter:blur(12px)}}@media(max-width:768px){.cat-tabs{position:sticky;top:52px;z-index:90;background:rgba(253,250,246,.96);backdrop-filter:blur(12px)}}
-.cat-tab{font-size:13px;font-weight:500;color:var(--muted);padding:18px 22px;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s;background:none;border-top:none;border-left:none;border-right:none;font-family:'Inter',sans-serif}
+.cat-tab{font-size:13px;font-weight:500;color:var(--muted);padding:18px 22px;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:background .15s,border-color .15s,color .15s;background:none;border-top:none;border-left:none;border-right:none;font-family:'Inter',sans-serif}
 .cat-tab:hover{color:var(--text)}
 .cat-tab.active{color:var(--brand);border-bottom-color:var(--brand)}
 
 /* FAQ LAYOUT */
 .faq-layout{display:grid;grid-template-columns:240px 1fr;gap:0;background:linear-gradient(to right,#F5EFE6 240px,#E0DDD6 240px,#E0DDD6 241px,#FDFAF6 241px);border-bottom-left-radius:16px;border-bottom:.5px solid #EDE5D8;}
 .faq-sidebar{align-self:start;position:sticky;top:80px}.faq-sidebar-inner{padding:20px 32px}.sidebar-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:16px}
-.sidebar-link{display:block;font-size:13px;color:var(--muted);padding:8px 12px;border-radius:6px;cursor:pointer;transition:all .15s;margin-bottom:2px;text-decoration:none}
+.sidebar-link{display:block;font-size:13px;color:var(--muted);padding:8px 12px;border-radius:6px;cursor:pointer;transition:background .15s,color .15s;margin-bottom:2px;text-decoration:none}
 .sidebar-link:hover{background:var(--bg-warm);color:var(--text)}
 .sidebar-link.active{background:var(--brand-light);color:var(--brand)}
 
@@ -111,7 +113,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;background:none;border:none;font-family:'Inter',sans-serif;text-align:left;transition:color .15s;gap:16px}
 .faq-q:hover .fq-text{color:var(--brand)}
 .fq-text{font-size:15px;font-weight:500;color:var(--text);line-height:1.4;transition:color .15s}
-.fq-icon{width:24px;height:24px;border:.5px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;color:var(--muted);transition:all .2s}
+.fq-icon{width:24px;height:24px;border:.5px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;color:var(--muted);transition:background .2s,border-color .2s,color .2s,transform .2s}
 .faq-item.open .fq-icon{background:var(--brand-light);border-color:var(--brand-border);color:var(--brand);transform:rotate(45deg)}
 .faq-a{display:block;overflow:hidden;max-height:0;opacity:0;padding:0;max-width:680px;transition:max-height 400ms cubic-bezier(0.23,1,0.32,1),opacity 280ms ease,padding 320ms ease}
 .faq-item.open .faq-a{max-height:1200px;opacity:1;padding:0 0 20px}
@@ -178,7 +180,7 @@ body{opacity:0.01;transition:opacity .34s cubic-bezier(0.23,1,0.32,1)}
 
 /* Disable image right-click */
 img{-webkit-user-drag:none;user-drag:none}
-.nav-mobile{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(253,250,246,.98);border-bottom:.5px solid #EDE5D8;padding:16px 20px;flex-direction:column;gap:4px;z-index:99}
+.nav-mobile{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(253,250,246,.98);border-bottom:.5px solid #EDE5D8;padding:16px 20px;flex-direction:column;gap:4px;z-index:99;overscroll-behavior:contain}
 .nav-mobile a{font-family:'Inter',sans-serif;font-size:15px;color:#9A8E82;text-decoration:none;padding:12px 0;border-bottom:.5px solid #EDE5D8;display:block}
 .nav-mobile a:last-child{border-bottom:none}
 .nav-mobile.open{display:flex}
@@ -222,6 +224,21 @@ img{-webkit-user-drag:none;user-drag:none}
 .btn-brand:hover{transform:translateY(-1px)}
 .btn-outline-w{transition:border-color 180ms ease,color 180ms ease,transform 160ms ease}
 .btn-outline-w:hover{transform:translateY(-1px)}
+
+/* ── FOCUS VISIBLE ── */
+.skip-link{position:absolute;left:-9999px;top:4px;z-index:9999;background:var(--bg);color:var(--brand);padding:8px 18px;border-radius:0 0 8px 8px;font-size:13px;font-weight:500;border:1px solid var(--brand-border);text-decoration:none}
+.skip-link:focus{left:4px}
+.btn-brand:focus-visible,.nav-cta:focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:100px}
+.btn-outline-w:focus-visible{outline:2px solid #fff;outline-offset:3px;border-radius:100px}
+.cat-tab:focus-visible{outline:2px solid var(--brand);outline-offset:-2px;border-radius:4px}
+.sidebar-link:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:6px}
+.fq-icon:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.faq-q:focus-visible{outline:2px solid var(--brand);outline-offset:-2px;border-radius:4px}
+.nav-links a:focus-visible{outline:2px solid var(--brand);outline-offset:4px;border-radius:2px}
+#btt:focus-visible{outline:2px solid var(--brand);outline-offset:4px}
+
+/* ── TOUCH ── */
+button,a,.cat-tab,.sidebar-link,.fq-icon{touch-action:manipulation}
 </style>
 <script type="application/ld+json">
 {
@@ -282,6 +299,7 @@ img{-webkit-user-drag:none;user-drag:none}
 </head>
 <body>
 <noscript><style>body{opacity:1}</style></noscript>
+<a class="skip-link" href="#main-content">Sari la conținut</a>
 
 <nav>
   <a class="logo" href="/">Rent<span>UP</span></a>
@@ -294,7 +312,7 @@ img{-webkit-user-drag:none;user-drag:none}
     <a href="realitatea-chiriei.html">Probleme & soluții</a>
     <a href="faq.html" class="active">FAQ</a>
   </div>
-  <button id="nav-hamburger" onclick="toggleMenu()" style="flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto">
+  <button id="nav-hamburger" aria-label="Deschide meniul" onclick="toggleMenu()" style="flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto">
   <span style="width:22px;height:2px;background:#C77936;display:block"></span>
   <span style="width:22px;height:2px;background:#C77936;display:block"></span>
   <span style="width:22px;height:2px;background:#C77936;display:block"></span>
@@ -311,7 +329,7 @@ img{-webkit-user-drag:none;user-drag:none}
   <a href="faq.html">FAQ</a>
 </div>
 <!-- HERO -->
-<div class="hero">
+<div class="hero" id="main-content">
   <div class="hero-eyebrow"><div class="hero-dot"></div>Întrebări & Răspunsuri</div>
   <h1 class="hero-h1">Întrebări <em>frecvente.</em></h1>
   <p class="hero-sub">Tot ce vrei să știi înainte să lucrezi cu noi: despre pachete, Rental Kit, selecție chiriași și ce se întâmplă dacă lucrurile merg prost.</p>

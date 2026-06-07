@@ -2,6 +2,7 @@
 <html lang="ro">
 <head>
 <meta charset="UTF-8">
+<link rel="preconnect" href="https://www.googletagmanager.com">
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5WXD9BGS3T"></script>
 <script>
@@ -27,6 +28,7 @@
 <link rel="icon" type="image/webp" href="favicon.webp">
 <meta name="description" content="Calculează costul mobilării apartamentului pentru închiriere. Prefabricat sau la comandă.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FDFAF6">
 <title>Simulator Mobilare Apartament — Estimare Cost și ROI | Rent UP</title>
 <meta name="keywords" content="simulator mobilare apartament, cost mobilare închiriere, estimare mobilier IKEA, buget mobilare apartament București, ROI mobilare">
 <meta name="robots" content="index, follow">
@@ -99,7 +101,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .si-wrap{display:none;padding:0 56px 24px;max-width:720px;margin:0 auto}
 .si{display:flex;align-items:center}
 .si-item{display:flex;align-items:center;gap:8px}
-.si-circle{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;transition:all .3s}
+.si-circle{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;transition:background .3s,border-color .3s,color .3s}
 .si-circle.act{background:var(--brand);color:white}
 .si-circle.done{background:var(--green);color:white}
 .si-circle.idle{background:var(--bg3);color:var(--muted);border:.5px solid var(--border)}
@@ -115,7 +117,7 @@ main{max-width:720px;margin:0 auto;padding:0 56px 120px}
 .cc-title{font-size:16px;font-weight:500;color:var(--dark);margin-bottom:4px}
 .cc-sub{font-size:13px;color:var(--muted);margin-bottom:16px;line-height:1.55}
 .ch2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.chbtn{background:var(--bg2);border:.5px solid var(--border);border-radius:var(--rsm);padding:12px 14px;cursor:pointer;transition:all .18s;text-align:left}
+.chbtn{background:var(--bg2);border:.5px solid var(--border);border-radius:var(--rsm);padding:12px 14px;cursor:pointer;transition:background .18s,border-color .18s;text-align:left}
 .chbtn:hover{border-color:var(--brand);background:var(--brandL)}
 .chbtn.sel{border-color:var(--brand);background:var(--brandL)}
 .chbtn.sel .ct{color:var(--brand)}
@@ -127,7 +129,7 @@ input[type=range]{-webkit-appearance:none;width:100%;height:3px;background:var(-
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;height:17px;border-radius:50%;background:var(--brand);cursor:pointer;box-shadow:0 0 0 3px rgba(199,121,54,.18)}
 .slider-lbl{display:flex;justify-content:space-between;font-size:11px;color:var(--light);margin-top:6px}
 .counter{display:flex;align-items:center;gap:10px}
-.cbtn{width:28px;height:28px;border-radius:50%;background:var(--bg2);border:.5px solid var(--border);color:var(--text);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.cbtn{width:28px;height:28px;border-radius:50%;background:var(--bg2);border:.5px solid var(--border);color:var(--text);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s,border-color .15s,color .15s}
 .cbtn:hover{border-color:var(--brand);color:var(--brand)}
 .cval{font-size:18px;font-weight:500;color:var(--dark);min-width:26px;text-align:center}
 .cnote{font-size:13px;color:var(--muted)}
@@ -142,7 +144,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
 .rtitle{font-size:14px;font-weight:500;color:var(--dark)}
 .rprev{font-size:12px;color:var(--muted);margin-top:1px}
 .rprev.act{color:var(--brand);font-weight:500}
-.tog{width:38px;height:20px;background:var(--bg3);border:.5px solid var(--border);border-radius:100px;cursor:pointer;position:relative;flex-shrink:0;transition:all .2s}
+.tog{width:38px;height:20px;background:var(--bg3);border:.5px solid var(--border);border-radius:100px;cursor:pointer;position:relative;flex-shrink:0;transition:background .2s,border-color .2s}
 .tog.on{background:var(--brand);border-color:var(--brand)}
 .tog::after{content:"";position:absolute;top:2px;left:2px;width:14px;height:14px;background:white;border-radius:50%;transition:transform .2s;box-shadow:0 1px 3px rgba(0,0,0,.15)}
 .tog.on::after{transform:translateX(18px)}
@@ -153,7 +155,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
 .ol{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:7px}
 /* TIER CARDS */
 .tiers{display:flex;flex-direction:column;gap:7px}
-.tier{padding:12px 14px;border:.5px solid var(--border);border-radius:var(--rsm);cursor:pointer;transition:all .18s;background:var(--bg2);display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.tier{padding:12px 14px;border:.5px solid var(--border);border-radius:var(--rsm);cursor:pointer;transition:background .18s,border-color .18s;background:var(--bg2);display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
 .tier:hover{border-color:var(--brand)}
 .tier.sel{border-color:var(--brand);background:var(--brandL)}
 .tier-l{flex:1}
@@ -167,11 +169,11 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
 .dim{background:var(--bg2);border:.5px solid var(--border);border-radius:var(--rsm);padding:9px 13px;display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}
 .dlbl{font-size:12px;color:var(--muted)}
 .dctrls{display:flex;align-items:center;gap:7px}
-.dbtn{width:24px;height:24px;border-radius:50%;background:var(--bg3);border:.5px solid var(--border);color:var(--text);font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.dbtn{width:24px;height:24px;border-radius:50%;background:var(--bg3);border:.5px solid var(--border);color:var(--text);font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s,border-color .15s,color .15s}
 .dbtn:hover{border-color:var(--brand);color:var(--brand)}
 .dval{font-size:14px;font-weight:500;color:var(--dark);min-width:48px;text-align:center}
 .presets{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px}
-.preset-btn{padding:6px 13px;border-radius:100px;border:.5px solid var(--border);background:var(--bg);font-size:12px;color:var(--muted);cursor:pointer;transition:all .15s}
+.preset-btn{padding:6px 13px;border-radius:100px;border:.5px solid var(--border);background:var(--bg);font-size:12px;color:var(--muted);cursor:pointer;transition:background .15s,border-color .15s,color .15s}
 .preset-btn:hover{border-color:var(--brand);color:var(--brand)}
 .preset-btn.sel{border-color:var(--brand);background:var(--brandL);color:var(--brand)}
 .info-note{padding:11px 14px;background:var(--bg3);border:.5px solid var(--border2);border-radius:var(--rsm);font-size:13px;color:var(--mid);display:flex;gap:8px}
@@ -185,7 +187,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
 .navbtns{display:flex;gap:8px}
 .btn-next{background:var(--brand);color:white;font-size:14px;font-weight:500;padding:11px 22px;border-radius:100px;border:none;cursor:pointer;transition:background .2s}
 .btn-next:hover{background:#a8622a}
-.btn-back{background:transparent;color:var(--muted);font-size:14px;padding:11px 16px;border-radius:100px;border:.5px solid var(--border);cursor:pointer;transition:all .2s}
+.btn-back{background:transparent;color:var(--muted);font-size:14px;padding:11px 16px;border-radius:100px;border:.5px solid var(--border);cursor:pointer;transition:background .2s,border-color .2s,color .2s}
 .btn-back:hover{color:var(--text);border-color:var(--text)}
 /* RESULTS */
 .res-block{background:var(--bg);border:.5px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:13px;box-shadow:var(--shadow)}
@@ -288,9 +290,25 @@ img{-webkit-user-drag:none;user-drag:none}
 .btn-next:hover{transform:translateY(-1px)}
 .btn-pay{transition:background 180ms ease,transform 150ms ease}
 .btn-pay:hover{transform:translateY(-1px)}
+
+/* ── FOCUS VISIBLE ── */
+.skip-link{position:absolute;left:-9999px;top:4px;z-index:9999;background:var(--bg);color:var(--brand);padding:8px 18px;border-radius:0 0 8px 8px;font-size:13px;font-weight:500;border:1px solid var(--border);text-decoration:none}
+.skip-link:focus{left:4px}
+.btn-start:focus-visible,.btn-next:focus-visible,.btn-back:focus-visible,.btn-pay:focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:100px}
+.chbtn:focus-visible,.tier:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:var(--rsm)}
+.cbtn:focus-visible,.dbtn:focus-visible,.si-circle:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:50%}
+.tog:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:100px}
+.preset-btn:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:100px}
+.nav-links a:focus-visible{outline:2px solid var(--brand);outline-offset:4px;border-radius:2px}
+.save-input:focus-visible,#pay-name:focus-visible,#pay-email:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+input[type=range]:focus-visible{outline:2px solid var(--brand);outline-offset:4px;border-radius:2px}
+
+/* ── TOUCH ── */
+button,a,.chbtn,.tier,.cbtn,.dbtn,.tog,.preset-btn{touch-action:manipulation}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Sari la conținut</a>
 
 <nav>
   <a class="logo" href="/">Rent<span>UP</span></a>
@@ -338,7 +356,7 @@ img{-webkit-user-drag:none;user-drag:none}
   </div>
 </div>
 
-<main>
+<main id="main-content">
 
 <div class="sec active" id="s1">
   <div class="sec-tag">Pasul 1</div>
@@ -431,7 +449,7 @@ img{-webkit-user-drag:none;user-drag:none}
     <div class="rh" onclick="tRoom('buc')">
       <div class="rhl">
         <div class="tog on" id="tog-buc" onclick="event.stopPropagation();fRoom('buc')"></div>
-        <div class="rico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="9" width="18" height="11" rx="1.5"/><circle cx="8" cy="14" r="2"/><circle cx="16" cy="14" r="2"/><path d="M3 13h18M12 9V7"/></svg></div>
+        <div class="rico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="3" y="9" width="18" height="11" rx="1.5"/><circle cx="8" cy="14" r="2"/><circle cx="16" cy="14" r="2"/><path d="M3 13h18M12 9V7"/></svg></div>
         <div><div class="rtitle">Bucătărie</div><div class="rprev act" id="rp-buc">980 €</div></div>
       </div>
       <div class="rei" id="rei-buc">▾</div>
@@ -473,7 +491,7 @@ img{-webkit-user-drag:none;user-drag:none}
     <div class="rh" onclick="tRoom('ins')">
       <div class="rhl">
         <div class="tog" id="tog-ins" onclick="event.stopPropagation();fRoom('ins')"></div>
-        <div class="rico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="10" width="20" height="8" rx="1.5"/><path d="M7 10V8m5 2V8m5 2V8M5 18v2m14-2v2"/></svg></div>
+        <div class="rico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="2" y="10" width="20" height="8" rx="1.5"/><path d="M7 10V8m5 2V8m5 2V8M5 18v2m14-2v2"/></svg></div>
         <div><div class="rtitle">Insulă bucătărie</div><div class="rprev" id="rp-ins">inactiv</div></div>
       </div>
       <div class="rei" id="rei-ins">▸</div>
@@ -492,7 +510,7 @@ img{-webkit-user-drag:none;user-drag:none}
     <div class="rh" onclick="tRoom('liv')">
       <div class="rhl">
         <div class="tog" id="tog-liv" onclick="event.stopPropagation();fRoom('liv')"></div>
-        <div class="rico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16v-4a2 2 0 012-2h14a2 2 0 012 2v4"/><rect x="1" y="16" width="22" height="4" rx="1.5"/><path d="M5 16v2M19 16v2"/></svg></div>
+        <div class="rico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 16v-4a2 2 0 012-2h14a2 2 0 012 2v4"/><rect x="1" y="16" width="22" height="4" rx="1.5"/><path d="M5 16v2M19 16v2"/></svg></div>
         <div><div class="rtitle">Living / Sufragerie</div><div class="rprev" id="rp-liv">inactiv</div></div>
       </div>
       <div class="rei" id="rei-liv">▸</div>
@@ -524,7 +542,7 @@ img{-webkit-user-drag:none;user-drag:none}
     <div class="rh" onclick="tRoom('dorm')">
       <div class="rhl">
         <div class="tog" id="tog-dorm" onclick="event.stopPropagation();fRoom('dorm')"></div>
-        <div class="rico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="13" width="20" height="8" rx="1.5"/><path d="M4 13V8a1 1 0 011-1h14a1 1 0 011 1v5"/><rect x="6" y="9" width="4" height="4" rx=".5"/><rect x="14" y="9" width="4" height="4" rx=".5"/><path d="M2 18h20"/></svg></div>
+        <div class="rico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="13" width="20" height="8" rx="1.5"/><path d="M4 13V8a1 1 0 011-1h14a1 1 0 011 1v5"/><rect x="6" y="9" width="4" height="4" rx=".5"/><rect x="14" y="9" width="4" height="4" rx=".5"/><path d="M2 18h20"/></svg></div>
         <div><div class="rtitle">Dormitor matrimonial</div><div class="rprev" id="rp-dorm">inactiv</div></div>
       </div>
       <div class="rei" id="rei-dorm">▸</div>
@@ -565,7 +583,7 @@ img{-webkit-user-drag:none;user-drag:none}
     <div class="rh" onclick="tRoom('hol')">
       <div class="rhl">
         <div class="tog" id="tog-hol" onclick="event.stopPropagation();fRoom('hol')"></div>
-        <div class="rico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><circle cx="7" cy="12" r=".8" fill="currentColor"/></svg></div>
+        <div class="rico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><circle cx="7" cy="12" r=".8" fill="currentColor"/></svg></div>
         <div><div class="rtitle">Hol / Intrare</div><div class="rprev" id="rp-hol">inactiv</div></div>
       </div>
       <div class="rei" id="rei-hol">▸</div>
@@ -590,7 +608,7 @@ img{-webkit-user-drag:none;user-drag:none}
     <div class="rh" onclick="tRoom('dres')">
       <div class="rhl">
         <div class="tog" id="tog-dres" onclick="event.stopPropagation();fRoom('dres')"></div>
-        <div class="rico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M8 6a4 4 0 008 0"/><path d="M5 6a7 7 0 0114 0M3 21h18M6 21l2-12M18 21l-2-12"/></svg></div>
+        <div class="rico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M8 6a4 4 0 008 0"/><path d="M5 6a7 7 0 0114 0M3 21h18M6 21l2-12M18 21l-2-12"/></svg></div>
         <div><div class="rtitle">Dressing / Garderobă</div><div class="rprev" id="rp-dres">inactiv</div></div>
       </div>
       <div class="rei" id="rei-dres">▸</div>
@@ -610,7 +628,7 @@ img{-webkit-user-drag:none;user-drag:none}
     <div class="rh" onclick="tRoom('d2')">
       <div class="rhl">
         <div class="tog" id="tog-d2" onclick="event.stopPropagation();fRoom('d2')"></div>
-        <div class="rico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="13" width="16" height="7" rx="1.5"/><path d="M6 13V9a1 1 0 011-1h10a1 1 0 011 1v4"/><rect x="8" y="10" width="8" height="3" rx=".5"/><path d="M4 17h16"/></svg></div>
+        <div class="rico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="13" width="16" height="7" rx="1.5"/><path d="M6 13V9a1 1 0 011-1h10a1 1 0 011 1v4"/><rect x="8" y="10" width="8" height="3" rx=".5"/><path d="M4 17h16"/></svg></div>
         <div><div class="rtitle">Dormitor suplimentar</div><div class="rprev" id="rp-d2">inactiv</div></div>
       </div>
       <div class="rei" id="rei-d2">▸</div>
@@ -637,7 +655,7 @@ img{-webkit-user-drag:none;user-drag:none}
     <div class="rh" onclick="tRoom('baie')">
       <div class="rhl">
         <div class="tog" id="tog-baie" onclick="event.stopPropagation();fRoom('baie')"></div>
-        <div class="rico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16v5a3 3 0 01-3 3H7a3 3 0 01-3-3v-5z"/><path d="M4 12V7a3 3 0 016 0M9 5h6M9 20v2M15 20v2M12 20v2"/></svg></div>
+        <div class="rico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16v5a3 3 0 01-3 3H7a3 3 0 01-3-3v-5z"/><path d="M4 12V7a3 3 0 016 0M9 5h6M9 20v2M15 20v2M12 20v2"/></svg></div>
         <div><div class="rtitle">Baie — Accesorii & oglindă</div><div class="rprev" id="rp-baie">inactiv</div></div>
       </div>
       <div class="rei" id="rei-baie">▸</div>
@@ -894,7 +912,7 @@ function buildRes(){
   document.getElementById("res-html").innerHTML=`
   <div style="font-size:12px;color:var(--muted);margin-bottom:8px;font-style:italic">* Prețurile afișate reprezintă estimarea minimă a intervalului. Costul real poate fi cu 15–30% mai mare în funcție de producător și complexitate.</div>
     <div class="est-banner">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="flex-shrink:0"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="flex-shrink:0" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
       <span><strong>Estimare nivel low-mid.</strong> Prețurile afișate reprezintă o estimare orientativă. Valorile finale depind de complexitatea configurației, producătorul ales și condițiile de piață. Variație tipică ±10-15%.</span>
     </div>
 
@@ -949,19 +967,19 @@ function buildRes(){
     </div>
 
     <div class="pw-block" id="pw">
-      <div class="pw-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M12 15v2M8 11V7a4 4 0 018 0v4"/></svg></div>
+      <div class="pw-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M12 15v2M8 11V7a4 4 0 018 0v4"/></svg></div>
       <div class="pw-title">Raport Estimativ Complet</div>
       <div class="pw-sub">Deblochează prețurile exacte per cameră, comparația celor două pachete Rent UP și un PDF gata de trimis producătorilor.</div>
       <div class="pw-feats">
-        <div class="pw-feat"><svg class="pw-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Prețuri exacte per piesă de mobilier</div>
-        <div class="pw-feat"><svg class="pw-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Comparație Standard vs Premium deblurată</div>
-        <div class="pw-feat"><svg class="pw-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> ROI detaliat cu scenarii de chirie</div>
-        <div class="pw-feat"><svg class="pw-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> PDF descărcabil, gata de trimis producătorilor</div>
+        <div class="pw-feat"><svg class="pw-ico" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Prețuri exacte per piesă de mobilier</div>
+        <div class="pw-feat"><svg class="pw-ico" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Comparație Standard vs Premium deblurată</div>
+        <div class="pw-feat"><svg class="pw-ico" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> ROI detaliat cu scenarii de chirie</div>
+        <div class="pw-feat"><svg class="pw-ico" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> PDF descărcabil, gata de trimis producătorilor</div>
       </div>
-      <input type="text" id="pay-name" placeholder="Numele tău" style="width:100%;max-width:340px;display:block;margin:0 auto 8px;padding:10px 14px;border:.5px solid var(--border);border-radius:var(--rsm);font-size:14px;font-family:Inter,sans-serif;background:var(--bg);color:var(--dark);outline:none">
-      <input type="email" id="pay-email" placeholder="Email-ul tău" style="width:100%;max-width:340px;display:block;margin:0 auto 12px;padding:10px 14px;border:.5px solid var(--border);border-radius:var(--rsm);font-size:14px;font-family:Inter,sans-serif;background:var(--bg);color:var(--dark);outline:none">
+      <input type="text" id="pay-name" placeholder="Numele tău" style="width:100%;max-width:340px;display:block;margin:0 auto 8px;padding:10px 14px;border:.5px solid var(--border);border-radius:var(--rsm);font-size:14px;font-family:Inter,sans-serif;background:var(--bg);color:var(--dark)">
+      <input type="email" id="pay-email" placeholder="Email-ul tău" style="width:100%;max-width:340px;display:block;margin:0 auto 12px;padding:10px 14px;border:.5px solid var(--border);border-radius:var(--rsm);font-size:14px;font-family:Inter,sans-serif;background:var(--bg);color:var(--dark)">
       <button class="btn-pay" onclick="reveal()">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg>
         Plătește 15 € și deblochează raportul
       </button>
       <p class="pw-note">Estimare orientativă ±10-15% · fără TVA · plată procesată securizat prin Stripe</p>
@@ -977,7 +995,7 @@ function buildRes(){
       </div>
     </div>
     <div class="info-note" style="margin-top:11px">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="flex-shrink:0"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8zM1 16l3 5"/></svg>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="flex-shrink:0" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8zM1 16l3 5"/></svg>
       <span>Estimarea acoperă producție și montaj. La distanțe mari față de producător pot apărea costuri suplimentare de transport — negociate direct cu producătorul.</span>
     </div>`;
 }
@@ -1142,7 +1160,7 @@ document.addEventListener('contextmenu', function(e){
 </script>
 
 <!-- Back to Top -->
-<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="display:none;position:fixed;bottom:24px;right:24px;width:44px;height:44px;background:#C77936;border:none;border-radius:50%;cursor:pointer;z-index:998;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(199,121,54,.3);transition:all .2s;font-size:18px;color:#FDFAF6">↑</button>
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Înapoi sus" style="display:none;position:fixed;bottom:24px;right:24px;width:44px;height:44px;background:#C77936;border:none;border-radius:50%;cursor:pointer;z-index:998;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(199,121,54,.3);transition:background .2s,transform .2s,box-shadow .2s;font-size:18px;color:#FDFAF6">↑</button>
 <script>
 window.addEventListener('scroll',function(){
   var btn=document.getElementById('btt');

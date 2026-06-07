@@ -2,6 +2,7 @@
 <html lang="ro">
 <head>
 <meta charset="UTF-8">
+<link rel="preconnect" href="https://www.googletagmanager.com">
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5WXD9BGS3T"></script>
 <script>
@@ -26,6 +27,7 @@
 <link rel="preload" href="fonts/inter-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <meta name="description" content="Proiecte reale de design interior pentru apartamente de închiriat. Before & after cu rezultate concrete: chirii crescute, chiriași stabili, investiții recuperate.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FDFAF6">
 <link rel="icon" type="image/webp" href="favicon.webp">
 <title>Portofoliu Proiecte — Before & After Apartamente Închiriate | Rent UP</title>
 <meta name="keywords" content="portofoliu design interior închiriere, before after apartament, optimizare apartament București, rezultate reale chirie">
@@ -64,13 +66,13 @@ nav{background:rgba(253,250,246,.95);backdrop-filter:blur(10px);border-bottom:.5
 .header{padding:80px 48px 64px;border-bottom:.5px solid var(--border)}
 .sec-tag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--brand);margin-bottom:14px;display:flex;align-items:center;gap:8px}
 .dot{width:5px;height:5px;border-radius:50%;background:var(--brand)}
-.header h1{font-size:48px;font-weight:300;color:var(--text);line-height:1.05;letter-spacing:-.03em;margin-bottom:12px}
+.header h1{font-size:48px;font-weight:300;color:var(--text);line-height:1.05;letter-spacing:-.03em;margin-bottom:12px;text-wrap:balance}
 .header h1 em{font-style:normal;font-weight:500;color:var(--brand)}
 .header-sub{font-size:15px;color:var(--muted);line-height:1.7}
 
 /* FILTER */
 .filters{padding:24px 48px;border-bottom:.5px solid var(--border);background:var(--bg);display:flex;gap:8px;flex-wrap:wrap}
-.filter-btn{font-size:12px;font-weight:500;padding:7px 16px;border:.5px solid var(--border);border-radius:100px;color:var(--muted);cursor:pointer;background:var(--bg);font-family:'Inter',sans-serif;transition:all .15s}
+.filter-btn{font-size:12px;font-weight:500;padding:7px 16px;border:.5px solid var(--border);border-radius:100px;color:var(--muted);cursor:pointer;background:var(--bg);font-family:'Inter',sans-serif;transition:background .15s,border-color .15s,color .15s}
 .filter-btn.on{background:var(--brand-light);color:var(--brand);border-color:var(--brand-border)}
 .filter-btn:hover{border-color:var(--brand);color:var(--brand)}
 
@@ -166,7 +168,7 @@ img{-webkit-user-drag:none;user-drag:none}
 .lb-prev{left:16px}
 .lb-next{right:16px}
 .lb-counter{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.6);font-size:13px;font-family:'Inter',sans-serif}
-.nav-mobile{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(253,250,246,.98);border-bottom:.5px solid #EDE5D8;padding:16px 20px;flex-direction:column;gap:4px;z-index:99}
+.nav-mobile{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(253,250,246,.98);border-bottom:.5px solid #EDE5D8;padding:16px 20px;flex-direction:column;gap:4px;z-index:99;overscroll-behavior:contain}
 .nav-mobile a{font-family:'Inter',sans-serif;font-size:15px;color:#9A8E82;text-decoration:none;padding:12px 0;border-bottom:.5px solid #EDE5D8;display:block}
 .nav-mobile a:last-child{border-bottom:none}
 .nav-mobile.open{display:flex}
@@ -227,6 +229,17 @@ img{-webkit-user-drag:none;user-drag:none}
 .proj{transition:box-shadow 300ms cubic-bezier(0.23,1,0.32,1),transform 300ms cubic-bezier(0.23,1,0.32,1),border-color 200ms ease}
 .proj:hover{box-shadow:0 14px 44px rgba(45,40,32,.1);transform:translateY(-3px);border-color:var(--brand-border)}
 
+/* ── FOCUS VISIBLE ── */
+.skip-link{position:absolute;left:-9999px;top:4px;z-index:9999;background:var(--bg);color:var(--brand);padding:8px 18px;border-radius:0 0 8px 8px;font-size:13px;font-weight:500;border:1px solid var(--brand-border);text-decoration:none}
+.skip-link:focus{left:4px}
+.filter-btn:focus-visible,.nav-cta:focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:100px}
+.nav-links a:focus-visible{outline:2px solid var(--brand);outline-offset:4px;border-radius:2px}
+.proj:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:14px}
+#btt:focus-visible{outline:2px solid var(--brand);outline-offset:4px}
+
+/* ── TOUCH ── */
+button,a,.filter-btn,.proj{touch-action:manipulation}
+
 /* Stats pop */
 @keyframes statPop{0%{transform:translateY(8px) scale(0.84)}62%{transform:scale(1.08)}100%{transform:none}}
 .ps-v.popped{animation:statPop 420ms cubic-bezier(0.23,1,0.32,1) both}
@@ -256,6 +269,7 @@ img{-webkit-user-drag:none;user-drag:none}
 </script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Sari la conținut</a>
 <nav>
   <a class="logo" href="/">Rent<span>UP</span></a>
   <div class="nav-links">
@@ -268,7 +282,7 @@ img{-webkit-user-drag:none;user-drag:none}
     <a href="/blog/">Blog</a>
     <a href="faq.html">FAQ</a>
   </div>
-  <button id="nav-hamburger" onclick="toggleMenu()" style="flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto">
+  <button id="nav-hamburger" aria-label="Deschide meniul" onclick="toggleMenu()" style="flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto">
   <span style="width:22px;height:2px;background:#C77936;display:block"></span>
   <span style="width:22px;height:2px;background:#C77936;display:block"></span>
   <span style="width:22px;height:2px;background:#C77936;display:block"></span>
@@ -285,7 +299,7 @@ img{-webkit-user-drag:none;user-drag:none}
   <a href="/blog/">Blog</a>
   <a href="faq.html">FAQ</a>
 </div>
-<div class="header">
+<div class="header" id="main-content">
   <div class="sec-tag"><div class="dot"></div>Portofoliu</div>
   <h1>Rezultate reale.<br><em>Spații transformate.</em></h1>
   <p class="header-sub">Fiecare proiect a urmărit același obiectiv: un apartament care produce mai mult, cu mai puțin efort pentru proprietar.</p>
@@ -512,7 +526,7 @@ document.querySelectorAll('.gallery').forEach(function(gal){
   });
   var hint = document.createElement('div');
   hint.className = 'gal-hint';
-  hint.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C77936" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>Apasă să mărești';
+  hint.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C77936" stroke-width="2.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>Apasă să mărești';
   gal.appendChild(hint);
 });
 
