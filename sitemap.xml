@@ -72,4 +72,16 @@
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://www.rentup.solutions/termeni.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.3</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.rentup.solutions/confidentialitate.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <priority>0.3</priority>
+    <changefreq>yearly</changefreq>
+  </url>
 </urlset>

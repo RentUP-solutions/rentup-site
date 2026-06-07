@@ -1,0 +1,18 @@
+{
+  "name": "Rent UP — Design Interior și Sistem de Închiriere",
+  "short_name": "Rent UP",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "lang": "ro",
+  "background_color": "#FDFAF6",
+  "theme_color": "#FDFAF6",
+  "icons": [
+    {
+      "src": "/favicon.webp",
+      "sizes": "64x64",
+      "type": "image/webp",
+      "purpose": "any"
+    }
+  ]
+}
