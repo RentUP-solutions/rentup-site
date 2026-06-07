@@ -138,6 +138,7 @@ const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwY47cW1C3OlHIU
 let simData = null;
 
 function fmt(n) { return Math.round(n).toLocaleString('ro-RO') + '€'; }
+function esc(s) { return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 
 function setStatus(id, state, text) {
   const dot = document.getElementById('dot-' + id);
@@ -152,7 +153,7 @@ function buildReportHTML(data) {
   const roiPrem = data.uplift > 0 ? Math.round(totalPrem / data.uplift) : 0;
   const roomRows = data.rooms.map((r,i) =>
     `<tr style="background:${i%2===0?'#fdfaf6':'#fff'}">
-      <td>${r.name}</td>
+      <td>${esc(r.name)}</td>
       <td style="text-align:right;color:#7A6E62">${fmt(r.lo)}</td>
       <td style="text-align:right;color:#7A6E62">${fmt(r.hi)}</td>
       <td style="text-align:right;color:#C77936;font-weight:700">${fmt(r.mid)}</td>
@@ -220,9 +221,9 @@ function buildReportHTML(data) {
   <div class="body">
     <div class="tag">Raport Estimator Mobilare</div>
     <div class="title">Estimare cost mobilare</div>
-    <div class="subtitle">Generat pentru ${data.name} · ${data.date}</div>
+    <div class="subtitle">Generat pentru ${esc(data.name)} · ${esc(data.date)}</div>
     <div class="info-grid">
-      <div class="info-box"><div class="info-label">Tip apartament</div><div class="info-val">${data.type}</div></div>
+      <div class="info-box"><div class="info-label">Tip apartament</div><div class="info-val">${esc(data.type)}</div></div>
       <div class="info-box"><div class="info-label">Suprafata apartament</div><div class="info-val">${data.mp} mp</div></div>
     </div>
     <div class="section-label">Defalcare per camera</div>
