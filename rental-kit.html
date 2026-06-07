@@ -229,7 +229,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 }
 
 /* Page transitions */
-body{opacity:0.01;transition:opacity .34s cubic-bezier(0.23,1,0.32,1)}
+body{opacity:0.01;transition:opacity .46s cubic-bezier(0.23,1,0.32,1)}
 
 /* Disable image right-click */
 img{-webkit-user-drag:none;user-drag:none}
@@ -270,10 +270,10 @@ img{-webkit-user-drag:none;user-drag:none}
 .btn-p:hover,.btn-brand:hover{transform:translateY(-1px)}
 .btn-outline,.btn-g{transition:background 180ms ease,transform 160ms ease}
 .btn-outline:hover,.btn-g:hover{transform:translateY(-1px)}
-.nav-mobile{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(253,250,246,.98);border-bottom:.5px solid #EDE5D8;padding:16px 20px;flex-direction:column;gap:4px;z-index:99;overscroll-behavior:contain}
-.nav-mobile a{font-family:'Inter',sans-serif;font-size:15px;color:#9A8E82;text-decoration:none;padding:12px 0;border-bottom:.5px solid #EDE5D8;display:block}
-.nav-mobile a:last-child{border-bottom:none}
-.nav-mobile.open{display:flex}
+.nav-mobile{display:flex;position:fixed;top:64px;left:0;right:0;background:rgba(253,250,246,.98);border-bottom:.5px solid #EDE5D8;padding:16px 20px;flex-direction:column;gap:4px;z-index:99;overscroll-behavior:contain;opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity 260ms cubic-bezier(0.23,1,0.32,1),transform 260ms cubic-bezier(0.23,1,0.32,1),visibility 0s linear 260ms}
+.nav-mobile a{font-family:'Inter',sans-serif;font-size:15px;color:#9A8E82;text-decoration:none;padding:12px 0;border-bottom:.5px solid #EDE5D8;display:block;transition:color 150ms ease-out}
+.nav-mobile a:last-child{border-bottom:none}.nav-mobile a:active{color:var(--brand)}
+.nav-mobile.open{opacity:1;visibility:visible;transform:none;transition:opacity 260ms cubic-bezier(0.23,1,0.32,1),transform 260ms cubic-bezier(0.23,1,0.32,1),visibility 0s linear 0s}
 .nav-hamburger{display:none}
 @media(max-width:768px){.nav-links{display:none}.nav-hamburger{display:flex}.nav-cta{display:none}}
 
@@ -684,9 +684,9 @@ document.addEventListener('click',function(e){
   if(!href||href.startsWith('#')||href.startsWith('http')||href.startsWith('mailto')||href.startsWith('tel')) return;
   if(a.target==='_blank') return;
   e.preventDefault();
-  document.body.style.transition='opacity .32s cubic-bezier(0.23,1,0.32,1)';
+  document.body.style.transition='opacity .46s cubic-bezier(0.23,1,0.32,1)';
   document.body.style.opacity='0';
-  setTimeout(function(){ window.location.href=href; },340);
+  setTimeout(function(){ window.location.href=href; },470);
 });
 </script>
 <script>

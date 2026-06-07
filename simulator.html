@@ -273,7 +273,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 @media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}}
 
 /* Page transitions */
-body{opacity:0.01;transition:opacity .34s cubic-bezier(0.23,1,0.32,1)}
+body{opacity:0.01;transition:opacity .46s cubic-bezier(0.23,1,0.32,1)}
 
 /* Disable image right-click */
 img{-webkit-user-drag:none;user-drag:none}
@@ -1151,9 +1151,9 @@ document.addEventListener('click',function(e){
   if(!href||href.startsWith('#')||href.startsWith('http')||href.startsWith('mailto')||href.startsWith('tel')) return;
   if(a.target==='_blank') return;
   e.preventDefault();
-  document.body.style.transition='opacity .32s cubic-bezier(0.23,1,0.32,1)';
+  document.body.style.transition='opacity .46s cubic-bezier(0.23,1,0.32,1)';
   document.body.style.opacity='0';
-  setTimeout(function(){ window.location.href=href; },340);
+  setTimeout(function(){ window.location.href=href; },470);
 });
 </script>
 <script>
