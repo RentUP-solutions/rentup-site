@@ -584,15 +584,16 @@ button,a,.tbn,.fi{touch-action:manipulation}
 .fi:active .fq{opacity:.7}
 .stat:active{background:var(--brand-light)}
 
-/* ── IMAGE ZOOM PORTFOLIO ── */
-.ba-photos img{transition:transform 300ms cubic-bezier(0.23,1,0.32,1)}
-.ba:hover .ba-photos img{transform:scale(1.04)}
-
 /* ── ASYMMETRIC HOVER — intru rapid, ies lent ── */
-.pkg{transition:box-shadow 200ms cubic-bezier(0.23,1,0.32,1),transform 200ms cubic-bezier(0.23,1,0.32,1)}
-.pkg:not(:hover){transition:box-shadow 400ms ease,transform 400ms ease}
-.ba{transition:box-shadow 200ms cubic-bezier(0.23,1,0.32,1),transform 200ms cubic-bezier(0.23,1,0.32,1)}
-.ba:not(:hover){transition:box-shadow 400ms ease,transform 400ms ease}
+.pkg{transition:box-shadow 200ms cubic-bezier(0.23,1,0.32,1),transform 200ms cubic-bezier(0.23,1,0.32,1),border-radius 360ms cubic-bezier(0.23,1,0.32,1)}
+.pkg:not(:hover){transition:box-shadow 400ms ease,transform 400ms ease,border-radius 420ms ease}
+.ba{transition:box-shadow 200ms cubic-bezier(0.23,1,0.32,1),transform 200ms cubic-bezier(0.23,1,0.32,1),border-radius 360ms cubic-bezier(0.23,1,0.32,1)}
+.ba:not(:hover){transition:box-shadow 400ms ease,transform 400ms ease,border-radius 420ms ease}
+/* Squircle morph — colțul din dreapta-jos crește lin spre forma semnătură (vezi hero-visual) */
+.pkg:hover{border-radius:16px 16px 46px 16px}
+/* .ba primește transform-ul din proximity-tilt (JS) — transform-ul rămâne instant, shadow-ul păstrează tranziția asimetrică */
+.ba.jstilt{transition:box-shadow 200ms cubic-bezier(0.23,1,0.32,1),border-radius 360ms cubic-bezier(0.23,1,0.32,1),transform 0s}
+.ba.jstilt:not(:hover){transition:box-shadow 400ms ease,border-radius 420ms ease,transform 0s}
 .tc{transition:box-shadow 200ms cubic-bezier(0.23,1,0.32,1)}
 .tc:not(:hover){transition:box-shadow 400ms ease}
 /* ── DIFF SMOOTH (no reflow trick) ── */
@@ -601,7 +602,8 @@ button,a,.tbn,.fi{touch-action:manipulation}
 /* ── SLIDING PILL ── */
 .tbns{position:relative}
 .tbn{position:relative;z-index:1}
-.tbn-pill{position:absolute;background:#FDFAF6;border-radius:7px;pointer-events:none;z-index:0;top:0;left:0;transition:left 240ms cubic-bezier(0.23,1,0.32,1),top 240ms cubic-bezier(0.23,1,0.32,1),width 240ms cubic-bezier(0.23,1,0.32,1),height 240ms cubic-bezier(0.23,1,0.32,1)}
+/* Curbă spring — pill-ul depășește ușor ținta și revine, ca un element fizic cu inerție */
+.tbn-pill{position:absolute;background:#FDFAF6;border-radius:7px;pointer-events:none;z-index:0;top:0;left:0;transition:left 420ms cubic-bezier(0.34,1.56,0.64,1),top 420ms cubic-bezier(0.34,1.56,0.64,1),width 420ms cubic-bezier(0.34,1.56,0.64,1),height 420ms cubic-bezier(0.34,1.56,0.64,1)}
 .tbn:active{transform:scale(0.97);transition:transform 80ms}
 @media not all and (hover:hover){
   .btn-primary:hover,.con-p:hover,.ab-btn:hover{transform:none}
@@ -1548,6 +1550,42 @@ if(idx>0) el.style.transitionDelay=(idx*(isListItem?40:55))+'ms';
   },{passive:true});
 })();
 
+// 3D tilt pe cardurile de portofoliu — pornește din proximitate, nu doar la atingere,
+// ca să nu existe niciun prag unde "sare" brusc din starea plată în înclinare
+(function(){
+  if(!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  var MAX=3, LIFT=4, PROX=90;
+  var cards=document.querySelectorAll('.ba');
+  cards.forEach(function(card){ card.classList.add('jstilt'); });
+  var pending=false;
+  document.addEventListener('mousemove',function(e){
+    if(pending) return;
+    pending=true;
+    requestAnimationFrame(function(){
+      pending=false;
+      cards.forEach(function(card){
+        var r=card.getBoundingClientRect();
+        var nx=Math.max(r.left,Math.min(e.clientX,r.right));
+        var ny=Math.max(r.top,Math.min(e.clientY,r.bottom));
+        var dx=e.clientX-nx, dy=e.clientY-ny;
+        var dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist>=PROX){
+          if(card.style.transform) card.style.transform='';
+          return;
+        }
+        // intensitate continuă 0→1 cu apropierea — nimic nu „sare", totul curge din distanță
+        var k=1-dist/PROX;
+        var px=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));
+        var py=Math.max(0,Math.min(1,(e.clientY-r.top)/r.height));
+        var ry=((px-.5)*2*MAX*k).toFixed(2), rx=((.5-py)*2*MAX*k).toFixed(2);
+        var ty=(-LIFT*k).toFixed(2);
+        card.style.transform='perspective(900px) translateY('+ty+'px) rotateX('+rx+'deg) rotateY('+ry+'deg)';
+      });
+    });
+  },{passive:true});
+})();
+
 // Counter animat pe stats
 (function(){
   var defs=[
@@ -1844,17 +1882,24 @@ window.animateCalcDiff=(function(){
   });
 })();
 
-// Fade-in pe hero visual cu un mic delay de luxe
+// Fade-in pe hero visual cu un mic delay de luxe — colțul semnătură se „formează" odată cu intrarea
 (function(){
   var heroR = document.querySelector('.hero-r');
+  var heroV = document.querySelector('.hero-visual');
   if(!heroR) return;
   heroR.style.opacity = '0';
   heroR.style.transform = 'translateY(12px) scale(0.97)';
   heroR.style.transition = 'opacity 700ms 300ms cubic-bezier(0.23,1,0.32,1), transform 700ms 300ms cubic-bezier(0.23,1,0.32,1)';
+  if(heroV){
+    heroV.style.borderRadius = '14px'; // formă neutră de pornire, comisă fără nicio tranziție activă încă
+    void heroV.offsetHeight; // forțează un reflow — confirmă „14px” ca stare curentă înainte să activăm tranziția
+    heroV.style.transition = 'border-radius 1000ms 380ms cubic-bezier(0.23,1,0.32,1)';
+  }
   requestAnimationFrame(function(){
     requestAnimationFrame(function(){
       heroR.style.opacity = '1';
       heroR.style.transform = '';
+      if(heroV) heroV.style.borderRadius = '2px 2px 80px 2px';
     });
   });
 })();

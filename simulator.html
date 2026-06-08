@@ -144,6 +144,10 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
 .rhl{display:flex;align-items:center;gap:10px}
 .rico{width:32px;height:32px;background:var(--bg3);border-radius:var(--rsm);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--mid)}
 .rico svg{width:16px;height:16px}
+/* ── ICONS — auto-desenare la intrarea în vizor + respirație la hover (vezi rental-kit, .wi-icon/.tc-icon) ── */
+.rico svg,.pw-icon svg{display:block;transition:transform 460ms cubic-bezier(0.34,1.56,0.64,1)}
+.rh:hover .rico svg{transform:scale(1.12) rotate(-6deg)}
+@media(prefers-reduced-motion:reduce){.rico svg,.pw-icon svg{transition:none!important}.rh:hover .rico svg{transform:none!important}}
 .rtitle{font-size:14px;font-weight:500;color:var(--dark)}
 .rprev{font-size:12px;color:var(--muted);margin-top:1px}
 .rprev.act{color:var(--brand);font-weight:500}
@@ -1160,6 +1164,47 @@ document.addEventListener('click',function(e){
 document.addEventListener('contextmenu', function(e){
   if(e.target.tagName === 'IMG') e.preventDefault();
 });
+</script>
+
+<script>
+// Iconițe care se „desenează" singure la intrarea în vizor (stroke-dasharray/dashoffset),
+// completând respirația la hover deja definită în CSS pentru .rico svg / .pw-icon svg.
+// .pw-icon e injectat dinamic de buildRes() în #res-html — îl prindem cu un MutationObserver,
+// nu doar la încărcare, altfel iconul din pasul 3 n-ar fi observat niciodată.
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  var DUR=1000, EASE='cubic-bezier(0.23,1,0.32,1)';
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(!entry.isIntersecting) return;
+      io.unobserve(entry.target);
+      var shapes=entry.target.querySelectorAll('path,circle,rect,line,polyline,polygon');
+      shapes.forEach(function(s,i){
+        var len;
+        try{ len=s.getTotalLength(); }catch(e){ return; }
+        if(!len) return;
+        s.style.strokeDasharray=len;
+        s.style.strokeDashoffset=len;
+        void s.getBoundingClientRect();
+        s.style.transition='stroke-dashoffset '+DUR+'ms '+EASE+' '+(i*90)+'ms';
+        s.style.strokeDashoffset='0';
+      });
+    });
+  }, {threshold:.5});
+  function watch(svg){
+    if(svg.__drawObserved) return;
+    svg.__drawObserved=true;
+    io.observe(svg);
+  }
+  document.querySelectorAll('.rico svg').forEach(watch);
+  var resHtml=document.getElementById('res-html');
+  if(resHtml){
+    new MutationObserver(function(){
+      var pwIcon=resHtml.querySelector('.pw-icon svg');
+      if(pwIcon) watch(pwIcon);
+    }).observe(resHtml,{childList:true,subtree:true});
+  }
+})();
 </script>
 
 <!-- Back to Top -->
