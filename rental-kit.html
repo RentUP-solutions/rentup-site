@@ -783,8 +783,13 @@ window.addEventListener('scroll',function(){
     pending=true;
     requestAnimationFrame(function(){
       pending=false;
-      cards.forEach(function(card){
-        var r=card.getBoundingClientRect();
+      // citim layout-ul TUTUROR cardurilor înainte să scriem vreun transform — altfel,
+      // scrierea pe un card invalidează layout-ul și citirea următorului forțează un reflow
+      // sincron (layout thrashing), sursa sacadărilor pe cardurile procesate mai târziu
+      var rects=[];
+      cards.forEach(function(card){ rects.push(card.getBoundingClientRect()); });
+      cards.forEach(function(card,i){
+        var r=rects[i];
         var nx=Math.max(r.left,Math.min(e.clientX,r.right));
         var ny=Math.max(r.top,Math.min(e.clientY,r.bottom));
         var dx=e.clientX-nx, dy=e.clientY-ny;

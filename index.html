@@ -123,7 +123,7 @@ h2.sh{font-size:38px;font-weight:300;color:var(--text);line-height:1.08;letter-s
 .calc-inner{max-width:680px}
 input[type=range]{width:100%;appearance:none;height:1.5px;background:var(--border);border-radius:2px;outline:none;cursor:pointer;margin:10px 0}
 input[type=range]:focus-visible{outline:2px solid var(--brand);outline-offset:4px;border-radius:2px}
-input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;border-radius:50%;background:var(--brand);cursor:pointer;border:2.5px solid white;box-shadow:0 2px 8px rgba(199,121,54,.25)}
+input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;border-radius:50%;background:var(--brand);cursor:pointer;border:none;box-shadow:0 2px 8px rgba(199,121,54,.25)}
 .fg{margin-bottom:24px}
 .fl{font-size:13px;color:var(--muted);margin-bottom:10px;display:flex;justify-content:space-between}
 .fl strong{color:var(--text);font-weight:500}
@@ -131,7 +131,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .tbns{display:flex;gap:8px}
 .tbn{flex:1;padding:10px 12px;background:#E8DDD0;border:.5px solid #D4C9B8;border-radius:8px;font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;text-align:center;font-family:'Inter',sans-serif;transition:background .15s,border-color .15s,color .15s}
 .tbn.on{background:#FDFAF6;color:var(--brand);border-color:var(--brand)}
-.tbn:hover{border-color:var(--brand);color:var(--brand)}
+.tbn:hover{background:rgba(199,121,54,.06);color:var(--brand)}
 .cr{background:var(--bg);border:.5px solid var(--border);border-radius:16px;padding:28px;margin-top:32px;box-shadow:0 2px 16px rgba(45,40,32,.04)}
 .crh{display:flex;justify-content:space-between;margin-bottom:22px;padding-bottom:16px;border-bottom:.5px solid var(--border)}
 .crh-l{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
@@ -591,9 +591,6 @@ button,a,.tbn,.fi{touch-action:manipulation}
 .ba:not(:hover){transition:box-shadow 400ms ease,transform 400ms ease,border-radius 420ms ease}
 /* Squircle morph — colțul din dreapta-jos crește lin spre forma semnătură (vezi hero-visual) */
 .pkg:hover{border-radius:16px 16px 46px 16px}
-/* .ba primește transform-ul din proximity-tilt (JS) — transform-ul rămâne instant, shadow-ul păstrează tranziția asimetrică */
-.ba.jstilt{transition:box-shadow 200ms cubic-bezier(0.23,1,0.32,1),border-radius 360ms cubic-bezier(0.23,1,0.32,1),transform 0s}
-.ba.jstilt:not(:hover){transition:box-shadow 400ms ease,border-radius 420ms ease,transform 0s}
 .tc{transition:box-shadow 200ms cubic-bezier(0.23,1,0.32,1)}
 .tc:not(:hover){transition:box-shadow 400ms ease}
 /* ── DIFF SMOOTH (no reflow trick) ── */
@@ -1550,37 +1547,37 @@ if(idx>0) el.style.transitionDelay=(idx*(isListItem?40:55))+'ms';
   },{passive:true});
 })();
 
-// 3D tilt pe cardurile de portofoliu — pornește din proximitate, nu doar la atingere,
-// ca să nu existe niciun prag unde "sare" brusc din starea plată în înclinare
+// 3D tilt pe cardurile de portofoliu — tilt-ul se aplică pe <a> wrapper, nu pe .ba,
+// ca să nu interfereze niciodată cu animația de reveal care trăiește pe .ba (transform CSS)
 (function(){
   if(!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
   if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
   var MAX=3, LIFT=4, PROX=90;
-  var cards=document.querySelectorAll('.ba');
-  cards.forEach(function(card){ card.classList.add('jstilt'); });
+  var items=Array.from(document.querySelectorAll('.port-g > a'));
   var pending=false;
   document.addEventListener('mousemove',function(e){
     if(pending) return;
     pending=true;
     requestAnimationFrame(function(){
       pending=false;
-      cards.forEach(function(card){
-        var r=card.getBoundingClientRect();
+      var rects=[];
+      items.forEach(function(item){ rects.push(item.getBoundingClientRect()); });
+      items.forEach(function(item,i){
+        var r=rects[i];
         var nx=Math.max(r.left,Math.min(e.clientX,r.right));
         var ny=Math.max(r.top,Math.min(e.clientY,r.bottom));
         var dx=e.clientX-nx, dy=e.clientY-ny;
         var dist=Math.sqrt(dx*dx+dy*dy);
         if(dist>=PROX){
-          if(card.style.transform) card.style.transform='';
+          if(item.style.transform) item.style.transform='';
           return;
         }
-        // intensitate continuă 0→1 cu apropierea — nimic nu „sare", totul curge din distanță
         var k=1-dist/PROX;
         var px=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));
         var py=Math.max(0,Math.min(1,(e.clientY-r.top)/r.height));
         var ry=((px-.5)*2*MAX*k).toFixed(2), rx=((.5-py)*2*MAX*k).toFixed(2);
         var ty=(-LIFT*k).toFixed(2);
-        card.style.transform='perspective(900px) translateY('+ty+'px) rotateX('+rx+'deg) rotateY('+ry+'deg)';
+        item.style.transform='perspective(900px) translateY('+ty+'px) rotateX('+rx+'deg) rotateY('+ry+'deg)';
       });
     });
   },{passive:true});

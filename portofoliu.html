@@ -161,8 +161,10 @@ img{-webkit-user-drag:none;user-drag:none}
 .gal-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer;transition:background .2s}
 .gal-dot.active{background:white}
 /* LIGHTBOX */
-.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:1000;align-items:center;justify-content:center}
-.lb.open{display:flex}
+/* afișat tot timpul (display:flex), dar invizibil/non-interactiv — ca opacitatea să se poată anima lin în jurul morph-ului FLIP */
+.lb{display:flex;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:1000;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity 460ms cubic-bezier(0.23,1,0.32,1),visibility 0s linear 460ms}
+.lb.open{opacity:1;visibility:visible;transition:opacity 460ms cubic-bezier(0.23,1,0.32,1),visibility 0s linear 0s}
+@media(prefers-reduced-motion:reduce){.lb,.lb.open{transition:none}}
 .lb-inner{position:relative;max-width:90vw;max-height:90vh}
 .lb-inner img{max-width:90vw;max-height:85vh;object-fit:contain;border-radius:4px}
 .lb-close{position:fixed;top:20px;right:24px;background:none;border:none;color:white;font-size:32px;cursor:pointer;z-index:1001;line-height:1}
@@ -550,7 +552,102 @@ function moveGal(gal, dir){
   goGal(gal, next);
 }
 
-// Lightbox
+// Lightbox — expand morph (FLIP): thumbnailul "crește" din grilă spre centrul ecranului,
+// dar ținta finală e chiar cadrul real al imaginii complete (din proporția ei naturală) —
+// pe parcurs, "cover" developează lin exact spre acel cadru, fără niciun salt de formă la
+// capăt (cadrul de start ≡ cadrul de sosire, deci interschimbarea cu <img> e imperceptibilă);
+// la închidere, secvența se developează simetric înapoi — vezi rental-kit .doc-frame
+var lbMorph=(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return null;
+  var EASE='cubic-bezier(0.23,1,0.32,1)', DUR=460, FADE=140;
+  var TR='top '+DUR+'ms '+EASE+',left '+DUR+'ms '+EASE+',width '+DUR+'ms '+EASE+',height '+DUR+'ms '+EASE;
+  var clone=null, gallery=null;
+
+  // cadrul în care va fi developată imaginea completă — fidel proporției ei naturale,
+  // încadrat exact ca în CSS-ul lightboxului (max-width:90vw;max-height:85vh), centrat
+  function naturalRect(img){
+    var ratio=(img.naturalWidth && img.naturalHeight) ? img.naturalWidth/img.naturalHeight
+              : ((img.offsetWidth/img.offsetHeight) || 1);
+    var maxW=window.innerWidth*0.9, maxH=window.innerHeight*0.85;
+    var w=Math.min(maxW, maxH*ratio), h=w/ratio;
+    return { top:(window.innerHeight-h)/2, left:(window.innerWidth-w)/2, width:w, height:h };
+  }
+  function spawn(src, r){
+    var c=document.createElement('img');
+    c.src=src;
+    c.style.cssText='position:fixed;margin:0;z-index:1002;pointer-events:none;border-radius:4px;object-fit:cover;'+
+      'top:'+r.top+'px;left:'+r.left+'px;width:'+r.width+'px;height:'+r.height+'px';
+    document.body.appendChild(c);
+    return c;
+  }
+  function place(el, r){
+    el.style.top=r.top+'px'; el.style.left=r.left+'px';
+    el.style.width=r.width+'px'; el.style.height=r.height+'px';
+  }
+
+  function open(gal){
+    if(clone){ clone.remove(); clone=null; }
+    var img=gal.querySelector('img.active');
+    if(!img) return;
+    gallery=gal;
+    var lb=document.getElementById('lb'), lbImg=document.getElementById('lb-img');
+    var r=img.getBoundingClientRect();
+    var f=naturalRect(img);
+
+    lbImg.style.transition='none';
+    lbImg.style.opacity='0';
+
+    clone=spawn(img.src, r);
+    void clone.offsetHeight; // comite forma/poziția de start, fără nicio tranziție activă încă
+    clone.style.transition=TR;
+    lb.classList.add('open');
+    place(clone, f); // "cover" developează lin chiar forma reală a imaginii pe parcursul creșterii
+
+    setTimeout(function(){
+      if(!clone) return;
+      lbImg.style.transition='opacity '+FADE+'ms ease';
+      clone.style.transition='opacity '+FADE+'ms ease';
+      lbImg.style.opacity='1';
+      clone.style.opacity='0';
+      setTimeout(function(){ if(clone){ clone.remove(); clone=null; } }, FADE);
+    }, DUR);
+  }
+
+  function close(onDone){
+    if(clone){ clone.remove(); clone=null; }
+    var lb=document.getElementById('lb'), lbImg=document.getElementById('lb-img');
+    if(!gallery){ onDone(); return; }
+
+    goGal(gallery, lbIdx); // sincronizează thumbnailul activ cu imaginea curent afișată în lightbox
+    var img=gallery.querySelector('img.active');
+    var r=img.getBoundingClientRect();
+    var f=naturalRect(img);
+
+    // clona pornește exact din cadrul imaginii complete — geometrie identică cu <img>, deci schimbul e imperceptibil
+    clone=spawn(lbImg.src, f);
+    clone.style.opacity='0';
+    lbImg.style.transition='opacity '+FADE+'ms ease';
+    clone.style.transition='opacity '+FADE+'ms ease';
+    void clone.offsetHeight;
+    lbImg.style.opacity='0';
+    clone.style.opacity='1';
+
+    setTimeout(function(){
+      if(!clone){ onDone(); return; }
+      lb.classList.remove('open');
+      clone.style.transition=TR;
+      void clone.offsetHeight;
+      place(clone, r); // strângere simetrică — "cover" se restrânge lin spre decupajul real al thumbnailului
+      setTimeout(function(){
+        if(clone){ clone.remove(); clone=null; }
+        onDone();
+      }, DUR);
+    }, FADE);
+  }
+
+  return { open: open, close: close };
+})();
+
 var lbImgs = [], lbIdx = 0;
 
 function openLb(gal){
@@ -558,8 +655,9 @@ function openLb(gal){
   lbImgs = Array.from(imgs).map(function(i){ return i.src; });
   lbIdx = gal._cur || 0;
   lbShow();
-  document.getElementById('lb').classList.add('open');
   document.body.style.overflow = 'hidden';
+  if(lbMorph) lbMorph.open(gal);
+  else document.getElementById('lb').classList.add('open');
 }
 
 function lbShow(){
@@ -573,8 +671,13 @@ function lbMove(dir){
 }
 
 function closeLb(){
-  document.getElementById('lb').classList.remove('open');
-  document.body.style.overflow = '';
+  var lb=document.getElementById('lb');
+  function finish(){
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  if(lbMorph) lbMorph.close(finish);
+  else finish();
 }
 
 // Swipe lightbox
