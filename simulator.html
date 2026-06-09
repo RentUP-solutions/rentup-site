@@ -76,7 +76,9 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 
 .nav-badge{font-size:11px;font-weight:600;background:var(--brandL);color:var(--brand);border:.5px solid var(--brandBdr);padding:5px 12px;border-radius:100px}
 .hero{padding:72px 56px 56px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-.eyebrow{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--brand);margin-bottom:16px}
+.eyebrow{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--brand);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.hero-dot{width:6px;height:6px;border-radius:50%;background:var(--brand);flex-shrink:0;animation:dotPulse 2.8s ease-in-out infinite}
+@keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.7)}}
 .hero h1{font-family:'Inter',sans-serif;font-size:50px;font-weight:300;line-height:1.05;color:var(--dark);margin-bottom:12px}
 .hero h1 em{font-style:normal;color:var(--brand);font-weight:600}
 .hero-note-box{background:var(--amberBg);border:.5px solid var(--amberBdr);border-radius:var(--rsm);padding:11px 14px;font-size:13px;color:var(--amber);margin-bottom:20px}
@@ -326,14 +328,14 @@ button,a,.chbtn,.tier,.cbtn,.dbtn,.tog,.preset-btn{touch-action:manipulation}
 <div id="hero-section">
 <div class="hero">
   <div>
-    <div class="eyebrow">Calculator mobilare · prețuri 2025 · pentru chirii</div>
+    <div class="eyebrow"><div class="hero-dot"></div>Calculator mobilare · prețuri 2026 · pentru chirii</div>
     <h1>Cât costă să <em>mobilezi</em>?</h1>
     <div class="hero-note-box">Acest calculator este optimizat pentru apartamente de închiriat, nu pentru rezidențe personale. Prețurile reflectă mobilier durabil și eficient pentru uz locativ.</div>
     <p class="hero-sub">Alegi camerele, tipul de mobilier (prefabricat sau la comandă) și primești o estimare cu marjă de risc și recuperarea investiției incluse.</p>
     <div class="stats">
       <div class="stat"><div class="stat-val">±<em>10-15%</em></div><div class="stat-lbl">față de ofertele reale</div></div>
       <div class="stat"><div class="stat-val"><em>15</em> €</div><div class="stat-lbl">raport PDF complet</div></div>
-      <div class="stat"><div class="stat-val">2025</div><div class="stat-lbl">prețuri actualizate</div></div>
+      <div class="stat"><div class="stat-val">2026</div><div class="stat-lbl">prețuri actualizate</div></div>
     </div>
     <button class="btn-start" onclick="startSim()">Începe configurarea ↓</button>
     <p class="fn">Estimare nivel low-mid · fără TVA · fără electrocasnice</p>
