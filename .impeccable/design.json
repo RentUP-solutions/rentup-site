@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-12T00:00:00.000Z",
+  "title": "Design System: Rent UP",
+  "extensions": {
+    "colorMeta": {
+      "roasted-clay": { "role": "primary", "displayName": "Roasted Clay", "canonical": "#C77936", "tonalRamp": ["#2E1A0A", "#4D2C10", "#6E3F16", "#93521E", "#B0682A", "#C77936", "#D99B5E", "#F0D4B5"] },
+      "roasted-clay-hover": { "role": "primary", "displayName": "Roasted Clay (Hover)", "canonical": "#A8622A" },
+      "clay-light": { "role": "primary", "displayName": "Clay Light", "canonical": "#FAF4EB" },
+      "clay-border": { "role": "primary", "displayName": "Clay Border", "canonical": "#E8D5BC" },
+      "warm-linen": { "role": "neutral", "displayName": "Warm Linen", "canonical": "#FDFAF6", "tonalRamp": ["#3D3228", "#5E5246", "#8B7F70", "#B8AFA4", "#D9D0C3", "#EDE5D8", "#F5EFE6", "#FDFAF6"] },
+      "stone": { "role": "neutral", "displayName": "Stone", "canonical": "#F5EFE6" },
+      "warm-sand": { "role": "neutral", "displayName": "Warm Sand", "canonical": "#F0E8DA" },
+      "hairline": { "role": "neutral", "displayName": "Hairline", "canonical": "#EDE5D8" },
+      "espresso": { "role": "neutral", "displayName": "Espresso", "canonical": "#2D2820", "tonalRamp": ["#0F0C08", "#1C1712", "#2D2820", "#3D3228", "#5E5246", "#7A6E62", "#9A8E82", "#B8AFA4"] },
+      "espresso-deep": { "role": "neutral", "displayName": "Espresso Deep", "canonical": "#3D3228" },
+      "mid-brown": { "role": "neutral", "displayName": "Mid Brown", "canonical": "#7A6E62" },
+      "muted-brown": { "role": "neutral", "displayName": "Muted Brown", "canonical": "#9A8E82" },
+      "light-brown": { "role": "neutral", "displayName": "Light Brown", "canonical": "#B8AFA4" },
+      "deep-forest": { "role": "secondary", "displayName": "Deep Forest", "canonical": "#0F6E56", "tonalRamp": ["#06241C", "#0B3D30", "#0F6E56", "#1D9E75", "#3FBE96", "#7FD4B8", "#B3E5D2", "#E1F5EE"] },
+      "forest-bg": { "role": "secondary", "displayName": "Forest Background", "canonical": "#E1F5EE" },
+      "forest-border": { "role": "secondary", "displayName": "Forest Border", "canonical": "#1D9E75" },
+      "amber-premium": { "role": "tertiary", "displayName": "Amber Premium", "canonical": "#C8894E" },
+      "caution-bg": { "role": "tertiary", "displayName": "Caution Background", "canonical": "#FDF0D8" },
+      "caution-text": { "role": "tertiary", "displayName": "Caution Text", "canonical": "#854F0B" },
+      "caution-border": { "role": "tertiary", "displayName": "Caution Border", "canonical": "#E8C49A" },
+      "alert": { "role": "tertiary", "displayName": "Alert Red", "canonical": "#A32D2D" },
+      "alert-bg": { "role": "tertiary", "displayName": "Alert Background", "canonical": "#FCEBEB" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headline only, with an inline weight-500 Roasted Clay <em> for emphasis." },
+      "headline": { "displayName": "Headline", "purpose": "Section headings (h2.sh) and article H1s." },
+      "title": { "displayName": "Title", "purpose": "Card titles, package names, audit block title, team names." },
+      "body": { "displayName": "Body", "purpose": "Paragraphs and list items, color Mid/Muted Brown, ~70ch max in articles." },
+      "label": { "displayName": "Label", "purpose": "Eyebrows, section tags, table headers, pill badges — uppercase, wide tracking." }
+    },
+    "shadows": [
+      { "name": "ambient-badge", "value": "0 4px 16px rgba(45,40,32,.06)", "purpose": "Resting shadow for the hero badge — the only shadow allowed at rest." },
+      { "name": "ambient-card", "value": "0 8px 32px rgba(45,40,32,.08)", "purpose": "Default hover lift for cards, team photos, audit block." },
+      { "name": "deep-card", "value": "0 22px 60px rgba(45,40,32,.13)", "purpose": "Hover lift for highest-emphasis cards (packages, portfolio before/afters)." },
+      { "name": "premium-glow", "value": "0 8px 40px rgba(200,137,78,.25)", "purpose": "Hover shadow for the Premium package, tinted to its amber fill." },
+      { "name": "forest-pulse", "value": "0 0 0 7px rgba(15,110,86,.11), 0 4px 20px rgba(15,110,86,.09)", "purpose": "Pulse on the calculator's gain block when its value updates." }
+    ],
+    "motion": [
+      { "name": "ease-enter", "value": "cubic-bezier(0.23, 1, 0.32, 1)", "purpose": "Entrance / hover-in transitions, 150-220ms — quick response to interaction." },
+      { "name": "ease-exit", "value": "ease", "purpose": "Exit / hover-out transitions, 380-420ms — slower settle, the Lift Reflex asymmetry." }
+    ],
+    "breakpoints": [
+      { "name": "tablet", "value": "900px" },
+      { "name": "mobile", "value": "600px" },
+      { "name": "nav", "value": "768px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Pill-shaped primary CTA — Roasted Clay fill, Warm Linen text, lifts on hover.",
+      "html": "<button class=\"ds-btn-primary\">Programează un audit</button>",
+      "css": ".ds-btn-primary{font-family:'Inter',sans-serif;font-size:14px;font-weight:500;background:#C77936;color:#FDFAF6;padding:14px 28px;border-radius:100px;border:none;cursor:pointer;transition:background 180ms cubic-bezier(0.23,1,0.32,1),transform 150ms cubic-bezier(0.23,1,0.32,1)} .ds-btn-primary:hover{background:#A8622A;transform:translateY(-1px)} .ds-btn-primary:active{transform:scale(0.97);transition-duration:80ms} .ds-btn-primary:focus-visible{outline:2px solid #C77936;outline-offset:3px}"
+    },
+    {
+      "name": "Outlined Nav CTA",
+      "kind": "button",
+      "refersTo": "nav-cta",
+      "description": "Secondary pill CTA — transparent with Roasted Clay border and text, fills with Clay Light on hover.",
+      "html": "<a class=\"ds-nav-cta\" href=\"#contact\">Contact</a>",
+      "css": ".ds-nav-cta{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:#C77936;border:.5px solid #C77936;padding:8px 18px;border-radius:100px;text-decoration:none;display:inline-block;transition:background 150ms ease-out,border-color 150ms ease-out} .ds-nav-cta:hover{background:#FAF4EB} .ds-nav-cta:focus-visible{outline:2px solid #C77936;outline-offset:3px}"
+    },
+    {
+      "name": "Pill Tag",
+      "kind": "chip",
+      "refersTo": "pill-tag",
+      "description": "Filled pill badge — Clay Light background, Roasted Clay text and border, used for result/category tags.",
+      "html": "<span class=\"ds-pill-tag\">Selecție pe 4 piloni</span>",
+      "css": ".ds-pill-tag{display:inline-block;font-family:'Inter',sans-serif;font-size:11px;font-weight:500;background:#FAF4EB;color:#C77936;padding:4px 12px;border-radius:100px;border:.5px solid #E8D5BC}"
+    },
+    {
+      "name": "Fit Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Hairline-bordered card with a title and dash-marker list, lifts gently on hover.",
+      "html": "<div class=\"ds-card\"><div class=\"ds-card-title\">Pentru proprietari care</div><ul class=\"ds-card-list\"><li>vor un chiriaș stabil pe termen lung</li><li>au un apartament gol sau slab mobilat</li><li>vor un sistem, nu doar un sfat</li></ul></div>",
+      "css": ".ds-card{font-family:'Inter',sans-serif;border:.5px solid #EDE5D8;border-radius:14px;padding:28px;background:#FDFAF6;transition:box-shadow 200ms cubic-bezier(0.23,1,0.32,1),transform 200ms cubic-bezier(0.23,1,0.32,1)} .ds-card:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(45,40,32,.07)} .ds-card-title{font-size:15px;font-weight:500;color:#2D2820;margin-bottom:18px} .ds-card-list{list-style:none;display:flex;flex-direction:column;gap:10px;padding:0;margin:0} .ds-card-list li{font-size:14px;color:#7A6E62;line-height:1.55;display:flex;gap:11px} .ds-card-list li::before{content:'\\2013';color:#C77936;font-weight:600;flex-shrink:0}"
+    },
+    {
+      "name": "FAQ Accordion Item",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Expandable question row — hairline divider, brand-colored question on hover, rotating plus icon.",
+      "html": "<div class=\"ds-faq-item\"><div class=\"ds-faq-q\">Cum funcționează auditul de 200€?<span class=\"ds-faq-icon\">+</span></div><div class=\"ds-faq-a\">Vizităm apartamentul, evaluăm potențialul de chirie și livrăm un raport cu recomandări și ROI estimat în 72h.</div></div>",
+      "css": ".ds-faq-item{font-family:'Inter',sans-serif;border-bottom:.5px solid #EDE5D8;padding:22px 0;cursor:pointer} .ds-faq-q{font-size:15px;font-weight:500;color:#2D2820;display:flex;justify-content:space-between;gap:16px;transition:color .15s} .ds-faq-icon{font-size:22px;color:#C77936;font-weight:300;transition:transform 160ms cubic-bezier(0.23,1,0.32,1)} .ds-faq-item:hover .ds-faq-q{color:#C77936} .ds-faq-a{font-size:14px;color:#9A8E82;line-height:1.75;margin-top:14px}"
+    },
+    {
+      "name": "Signature Corner Block",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "The system's signature asymmetric-corner visual block, used for hero imagery and package cards. Morphs to a softer asymmetry on hover.",
+      "html": "<div class=\"ds-signature-block\">Vizual semnătură</div>",
+      "css": ".ds-signature-block{font-family:'Inter',sans-serif;aspect-ratio:3/2;background:linear-gradient(160deg,#F0E8DA 0%,#F5EFE6 100%);border:.5px solid #EDE5D8;border-radius:2px 2px 80px 2px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#B8AFA4;letter-spacing:.04em;overflow:hidden;transition:border-radius 360ms cubic-bezier(0.23,1,0.32,1)} .ds-signature-block:hover{border-radius:16px 16px 46px 16px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Warm Protocol",
+    "overview": "Rent UP reads like a calm operating manual wrapped in domestic warmth. Every page leads with a system — selection criteria, contract clauses, photo protocols, ROI numbers — but presents that system through a cream-and-terracotta editorial palette, light type weights, and generous breathing room. The confidence is procedural, not decorative: trust is built by showing the steps and the numbers, not by adjectives or polish for its own sake.\n\nThe palette stays restrained almost everywhere — warm neutrals (linen, stone, sand) carry the vast majority of every surface, with Roasted Clay reserved for the handful of elements that matter: prices, CTAs, stat highlights, the brand mark. Typography leans deliberately light (weight 300) at display sizes with tight negative tracking, which reads as precise and considered rather than soft. The one geometric flourish — an asymmetric \"signature corner\" on hero visuals and package cards — is the system's single permitted moment of personality, used sparingly enough to stay a signature rather than a habit.\n\nThis system explicitly rejects two things: cold corporate/SaaS dashboard aesthetics (enterprise blue, gradient hero panels, dense data-table chrome, generic tech-startup visual language), and generic real-estate-agency tropes (stock photography, listing-grid layouts, salesy banners). Rent UP is neither a piece of software nor a listings site — it's a service run with procedural rigor, presented warmly.",
+    "keyCharacteristics": [
+      "Warm cream/stone neutrals carry ~90% of every surface; Roasted Clay is the single accent",
+      "Light-weight (300) display and headline type with tight negative letter-spacing (-0.028em to -0.035em)",
+      "Hairline (.5px) borders throughout; flat-by-default surfaces",
+      "Shadows and lift appear only on hover/interaction, never at rest",
+      "Pill shapes (100px radius) for every button, tag, and badge",
+      "One signature asymmetric corner, used only on hero/feature visuals and package cards",
+      "Green (Deep Forest) marks financial upside; amber/red mark loss and risk — both used sparingly and only in calculators/case studies/blog warnings"
+    ],
+    "rules": [
+      { "name": "The One Accent Rule", "body": "Roasted Clay is the only saturated color permitted outside the semantic green/amber/red bands and the Premium package. If a new element needs emphasis, reach for weight, scale, or whitespace before reaching for a new color.", "section": "colors" },
+      { "name": "The Ledger Color Rule", "body": "Deep Forest and Caution Amber only ever attach to a number that represents money gained or lost. They are financial annotations, not theme colors — never used for navigation, buttons, or section backgrounds.", "section": "colors" },
+      { "name": "The Light-Weight Authority Rule", "body": "Headlines and display numbers never exceed weight 400. Confidence comes from negative letter-spacing and scale, not boldness — even prices and stat values (32-44px) are weight 300.", "section": "typography" },
+      { "name": "The Two-Register Rule", "body": "Every block of text is either \"display register\" (light, loose, large, sentence case) or \"label register\" (wide-tracked, small, uppercase). Mixing the two within a single text run only happens via the <em> emphasis pattern in headlines.", "section": "typography" },
+      { "name": "The Lift Reflex Rule", "body": "Interactive cards and buttons lift on hover (translateY between -1px and -6px, shadow appears or deepens) and settle back slower than they rise — entrance transitions run 150-220ms, exit transitions run 380-420ms.", "section": "elevation" },
+      { "name": "The Signature Corner Rule", "body": "The asymmetric border-radius (2px 2px 80px 2px, morphing to 16px 16px 46px 16px on hover) is the system's one permitted geometric flourish. Reuse it for new hero/feature visuals that need to feel like a deliberate showcase, but never apply it to more than 1-2 elements per screen.", "section": "components" }
+    ],
+    "dos": [
+      "Do use weight 300 for all display and headline type, with letter-spacing between -0.028em and -0.035em.",
+      "Do reserve Roasted Clay (#C77936) for CTAs, prices, stat values, and brand marks — the One Accent Rule.",
+      "Do keep surfaces flat with .5px Hairline (#EDE5D8) borders; introduce shadows only on hover (ambient-card / deep-card).",
+      "Do use 100px pill radius for every button, tag, and badge without exception.",
+      "Do attach Deep Forest (#0F6E56) only to numbers representing money gained, and Caution Amber only to numbers representing money lost (the Ledger Color Rule).",
+      "Do apply the Signature Corner (2px 2px 80px 2px) only to hero/feature visuals or package-style cards, and no more than 1-2 per screen.",
+      "Do alternate Warm Linen / Stone backgrounds between sections for rhythm instead of adding borders or dividers."
+    ],
+    "donts": [
+      "Don't introduce cold corporate/SaaS dashboard aesthetics — no enterprise blue, gradient hero panels, or dense data-table chrome.",
+      "Don't use generic real-estate-agency tropes — stock photography, listing-grid layouts, or salesy banners.",
+      "Don't push headline or number weight above 400; authority comes from scale and tracking, not boldness.",
+      "Don't use shadows at rest except for the hero badge's ambient-badge — depth is earned through interaction, not applied by default.",
+      "Don't introduce new saturated colors outside Roasted Clay, Deep Forest, Caution Amber, Alert Red, and Amber Premium — five accents total, each with a fixed job.",
+      "Don't repeat the Signature Corner across many elements on one screen; it stops being a signature the moment it's a pattern."
+    ]
+  }
+}

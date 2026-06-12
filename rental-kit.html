@@ -109,13 +109,26 @@ h2.sh{font-size:36px;font-weight:300;letter-spacing:-.025em;margin-bottom:12px}
 
 /* MODULE LIST */
 .modules{display:flex;flex-direction:column;gap:4px;margin-bottom:40px}
-.mod-row{display:flex;gap:14px;padding:14px 18px;border:1px solid var(--border);border-radius:8px;background:var(--bg);align-items:center;transition:background .15s,border-color .15s}
+.mod-row{display:flex;gap:14px;padding:14px 18px;border:1px solid var(--border);border-radius:8px;background:var(--bg);align-items:center;cursor:pointer;transition:background .15s,border-color .15s}
 .mod-row:hover{background:var(--brand-light);border-color:var(--brand-border)}
 .mod-num{font-size:11px;font-weight:600;color:var(--brand);width:22px;flex-shrink:0}
-.mod-title{font-size:14px;font-weight:500;flex:1}
+.mod-body{flex:1;display:flex;flex-direction:column;min-width:0}
+.mod-title{font-size:14px;font-weight:500}
+.mod-desc{font-size:13px;color:var(--mid);line-height:1.55;max-height:0;opacity:0;overflow:hidden;transition:max-height 320ms cubic-bezier(0.23,1,0.32,1),opacity 200ms ease-out,margin-top 320ms cubic-bezier(0.23,1,0.32,1)}
+.mod-row.open .mod-desc{max-height:70px;opacity:1;margin-top:4px;transition:max-height 320ms cubic-bezier(0.23,1,0.32,1),opacity 260ms ease-out 60ms,margin-top 320ms cubic-bezier(0.23,1,0.32,1)}
 .mod-tags{display:flex;gap:6px}
 .mod-tag{font-size:10px;background:var(--bg-stone);color:var(--muted);padding:3px 9px;border-radius:100px;border:.5px solid var(--border)}
 .mod-tag.new{background:var(--brand-light);color:var(--brand);border-color:var(--brand-border)}
+@keyframes modHint{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:1;transform:scale(1.15)}}
+.mod-chev{font-size:15px;color:var(--brand);flex-shrink:0;line-height:1;transition:transform 320ms cubic-bezier(0.23,1,0.32,1);animation:modHint 2.4s ease-in-out infinite}
+.mod-row.open .mod-chev{transform:rotate(90deg);animation:none}
+.mod-row:nth-child(2) .mod-chev{animation-delay:.2s}
+.mod-row:nth-child(3) .mod-chev{animation-delay:.4s}
+.mod-row:nth-child(4) .mod-chev{animation-delay:.6s}
+.mod-row:nth-child(5) .mod-chev{animation-delay:.8s}
+.mod-row:nth-child(6) .mod-chev{animation-delay:1s}
+.mod-row:nth-child(7) .mod-chev{animation-delay:1.2s}
+@media(prefers-reduced-motion:reduce){.mod-chev{animation:none}}
 
 /* DOCUMENT PREVIEWS */
 .previews{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:48px}
@@ -299,14 +312,8 @@ button,a{touch-action:manipulation}
 .doc-modal-clone.in .doc-modal-close{opacity:1}
 .doc-modal-close:hover{background:rgba(45,40,32,.75)}
 
-/* ── MODULE LIST — expand morph: titlul se desface în sub-puncte la click ── */
-.mod-row{cursor:pointer;flex-wrap:wrap}
-.mod-detail{flex-basis:100%;display:flex;flex-wrap:wrap;gap:6px;max-height:0;opacity:0;overflow:hidden;margin-top:0;transition:max-height 420ms cubic-bezier(0.23,1,0.32,1),opacity 260ms ease,margin-top 420ms cubic-bezier(0.23,1,0.32,1)}
-.mod-row.open .mod-detail{opacity:1;margin-top:10px}
+/* ── MODULE LIST — extindere descriere la click ── */
 .mod-row.open{background:var(--brand-light);border-color:var(--brand-border)}
-.mod-chip{font-size:11px;color:var(--mid);background:var(--bg);padding:4px 11px;border-radius:100px;border:.5px solid var(--border);white-space:nowrap}
-.mod-chevron{flex-shrink:0;color:var(--light);transition:transform 380ms cubic-bezier(0.23,1,0.32,1),color 180ms ease}
-.mod-row.open .mod-chevron{transform:rotate(90deg);color:var(--brand)}
 
 /* ── ICONS — auto-desenare la intrarea în vizor + respirație la hover ── */
 .wi-icon svg,.tc-icon svg{display:block;transition:transform 460ms cubic-bezier(0.34,1.56,0.64,1)}
@@ -420,13 +427,13 @@ button,a{touch-action:manipulation}
   <p class="sec-sub" style="text-align:center;margin:0 auto 44px">Șapte module care acoperă întregul ciclu de viață al chiriei. Nu e un template generic, e un document personalizat pentru proprietatea ta, zona ta și profilul de chiriaș urmărit.</p>
 
   <div class="modules sr">
-    <div class="mod-row"><span class="mod-num">01</span><span class="mod-title">Poziționarea proprietății: public țintă, mesaj, prețul corect</span><div class="mod-tags"><span class="mod-tag">strategie</span></div></div>
-    <div class="mod-row"><span class="mod-num">02</span><span class="mod-title">Listarea: platforme, fotografii, modelul de anunț</span><div class="mod-tags"><span class="mod-tag">marketing</span></div></div>
-    <div class="mod-row"><span class="mod-num">03</span><span class="mod-title">Evaluarea chiriașului: 4 piloni, sistem de decizie, red flags</span><div class="mod-tags"><span class="mod-tag">selecție</span><span class="mod-tag new">sistem</span></div></div>
-    <div class="mod-row"><span class="mod-num">04</span><span class="mod-title">Predarea proprietății: PV foto, inventar, set foto cu timestamp</span><div class="mod-tags"><span class="mod-tag">documente</span></div></div>
-    <div class="mod-row"><span class="mod-num">05</span><span class="mod-title">Administrarea pe durata contractului: comunicare, mentenanță</span><div class="mod-tags"><span class="mod-tag">relație</span></div></div>
-    <div class="mod-row"><span class="mod-num">06</span><span class="mod-title">Reînnoirea și finalul contractului: strategie, garanție</span><div class="mod-tags"><span class="mod-tag new">strategie</span></div></div>
-    <div class="mod-row" style="background:var(--amber-bg);border-color:#E8C87C"><span class="mod-num" style="color:var(--amber)">+</span><span class="mod-title" style="color:var(--amber)">Situații dificile: protocoale pas cu pas</span><div class="mod-tags"><span class="mod-tag new">exclusiv</span></div></div>
+    <div class="mod-row" role="button" tabindex="0" aria-expanded="false" aria-controls="mod-desc-1"><span class="mod-num">01</span><div class="mod-body"><span class="mod-title">Poziționarea proprietății</span><span class="mod-desc" id="mod-desc-1">Public țintă, mesaj, prețul corect</span></div><div class="mod-tags"><span class="mod-tag">strategie</span></div><span class="mod-chev" aria-hidden="true">›</span></div>
+    <div class="mod-row" role="button" tabindex="0" aria-expanded="false" aria-controls="mod-desc-2"><span class="mod-num">02</span><div class="mod-body"><span class="mod-title">Listarea</span><span class="mod-desc" id="mod-desc-2">Platforme, fotografii, modelul de anunț</span></div><div class="mod-tags"><span class="mod-tag">marketing</span></div><span class="mod-chev" aria-hidden="true">›</span></div>
+    <div class="mod-row" role="button" tabindex="0" aria-expanded="false" aria-controls="mod-desc-3"><span class="mod-num">03</span><div class="mod-body"><span class="mod-title">Evaluarea chiriașului</span><span class="mod-desc" id="mod-desc-3">4 piloni, sistem de decizie, red flags</span></div><div class="mod-tags"><span class="mod-tag">selecție</span><span class="mod-tag new">sistem</span></div><span class="mod-chev" aria-hidden="true">›</span></div>
+    <div class="mod-row" role="button" tabindex="0" aria-expanded="false" aria-controls="mod-desc-4"><span class="mod-num">04</span><div class="mod-body"><span class="mod-title">Predarea proprietății</span><span class="mod-desc" id="mod-desc-4">PV foto, inventar, set foto cu timestamp</span></div><div class="mod-tags"><span class="mod-tag">documente</span></div><span class="mod-chev" aria-hidden="true">›</span></div>
+    <div class="mod-row" role="button" tabindex="0" aria-expanded="false" aria-controls="mod-desc-5"><span class="mod-num">05</span><div class="mod-body"><span class="mod-title">Administrarea pe durata contractului</span><span class="mod-desc" id="mod-desc-5">Comunicare, mentenanță</span></div><div class="mod-tags"><span class="mod-tag">relație</span></div><span class="mod-chev" aria-hidden="true">›</span></div>
+    <div class="mod-row" role="button" tabindex="0" aria-expanded="false" aria-controls="mod-desc-6"><span class="mod-num">06</span><div class="mod-body"><span class="mod-title">Reînnoirea și finalul contractului</span><span class="mod-desc" id="mod-desc-6">Strategie, garanție</span></div><div class="mod-tags"><span class="mod-tag new">strategie</span></div><span class="mod-chev" aria-hidden="true">›</span></div>
+    <div class="mod-row" style="background:var(--amber-bg);border-color:#E8C87C" role="button" tabindex="0" aria-expanded="false" aria-controls="mod-desc-7"><span class="mod-num" style="color:var(--amber)">+</span><div class="mod-body"><span class="mod-title" style="color:var(--amber)">Situații dificile</span><span class="mod-desc" id="mod-desc-7">Protocoale pas cu pas</span></div><div class="mod-tags"><span class="mod-tag new">exclusiv</span></div><span class="mod-chev" aria-hidden="true">›</span></div>
   </div>
 
   <!-- DOCUMENT PREVIEW -->
@@ -772,6 +779,23 @@ window.addEventListener('scroll',function(){
 </script>
 
 <script>
+// Module Ghid Proprietar — click sau Enter/Space extinde descrierea
+(function(){
+  document.querySelectorAll('.mod-row').forEach(function(row){
+    row.addEventListener('click', function(){
+      var open = row.classList.toggle('open');
+      row.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    row.addEventListener('keydown', function(e){
+      if(e.key !== 'Enter' && e.key !== ' ') return;
+      e.preventDefault();
+      row.click();
+    });
+  });
+})();
+</script>
+
+<script>
 // 3D tilt pe doc-frame — pornește din proximitate, nu doar la atingere (vezi homepage, .ba)
 (function(){
   if(!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
@@ -887,43 +911,6 @@ window.addEventListener('scroll',function(){
       backdrop.addEventListener('click', close);
       clone.addEventListener('click', function(ev){ if(ev.target===clone) close(); });
       document.addEventListener('keydown', onKey);
-    });
-  });
-})();
-
-// Module list — expand morph: titlul se desface în chip-uri la click, ca un sertar care se deschide lin
-(function(){
-  document.querySelectorAll('.mod-row').forEach(function(row){
-    var titleEl=row.querySelector('.mod-title');
-    if(!titleEl) return;
-    var full=titleEl.textContent;
-    var idx=full.indexOf(':');
-    if(idx<0) return;
-    var parts=full.slice(idx+1).split(',').map(function(s){ return s.trim(); }).filter(Boolean);
-    if(parts.length<2) return;
-
-    var chevron=document.createElement('span');
-    chevron.className='mod-chevron';
-    chevron.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>';
-    row.appendChild(chevron);
-
-    var detail=document.createElement('div');
-    detail.className='mod-detail';
-    detail.innerHTML=parts.map(function(p){ return '<span class="mod-chip">'+p+'</span>'; }).join('');
-    row.appendChild(detail);
-
-    row.setAttribute('tabindex','0');
-    row.setAttribute('role','button');
-    row.setAttribute('aria-expanded','false');
-
-    function setOpen(open){
-      row.classList.toggle('open', open);
-      row.setAttribute('aria-expanded', open?'true':'false');
-      detail.style.maxHeight = open ? detail.scrollHeight+'px' : '0px';
-    }
-    row.addEventListener('click', function(){ setOpen(!row.classList.contains('open')); });
-    row.addEventListener('keydown', function(e){
-      if(e.key==='Enter'||e.key===' '){ e.preventDefault(); setOpen(!row.classList.contains('open')); }
     });
   });
 })();
