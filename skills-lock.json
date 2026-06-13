@@ -1,6 +1,12 @@
 {
   "version": 1,
   "skills": {
+    "color-expert": {
+      "source": "meodai/skill.color-expert",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "ebc84b079ec724e955d7bf8efedb5110ce7e34cf52e64fbcaf517c8f3ef30d13"
+    },
     "huashu-design": {
       "source": "alchaincyf/huashu-design",
       "sourceType": "github",
