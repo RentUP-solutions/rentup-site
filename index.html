@@ -259,6 +259,8 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .cs-rl{font-size:11px;color:var(--green);line-height:1.4}
 .cs-q{background:var(--brand-light);border-left:2px solid var(--brand);border-radius:0 12px 12px 0;padding:18px 22px;font-size:13px;color:var(--dark);font-style:italic;line-height:1.75}
 .cs-qa{font-size:12px;font-weight:500;color:var(--brand);margin-top:8px;font-style:normal}
+.voc-g{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.voc-item{background:var(--bg);border:.5px solid var(--border);border-radius:12px;padding:22px 24px;font-size:14px;color:var(--mid);line-height:1.7;font-style:italic}
 .bud-g{display:flex;flex-direction:column;gap:6px}
 .bud-row{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);padding:7px 0;border-bottom:.5px solid var(--border)}
 .bud-row strong{color:var(--text)}
@@ -366,7 +368,7 @@ footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56p
   .pc{border-right:none;border-bottom:.5px solid var(--border)}
   .pc:nth-child(odd){border-right:.5px solid var(--border)}
   .pc:last-child,.pc:nth-last-child(2):nth-child(odd){border-bottom:none}
-  .pkg-g,.te-g,.pm-g{grid-template-columns:1fr}
+  .pkg-g,.te-g,.pm-g,.voc-g{grid-template-columns:1fr}
   .cs-g{grid-template-columns:1fr}
   .cs-res{grid-template-columns:1fr 1fr}
   .con-cards{grid-template-columns:1fr;max-width:360px}
@@ -449,6 +451,7 @@ footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56p
   .cs-res{grid-template-columns:1fr 1fr;gap:8px}
   .cs-rv{font-size:18px}
   .cs-q{font-size:12px;padding:14px 16px}
+  .voc-item{font-size:13px;padding:18px 20px}
 
   /* Packages */
   .pkg-h{padding:18px 16px 14px}
@@ -1058,11 +1061,26 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 </section>
 
 
+<!-- S6.5 VOCI DIN COMUNITATE -->
+<section id="voci-comunitate" style="background:var(--bg-stone)">
+ <div style="max-width:860px;margin:0 auto">
+  <div class="sec-tag" style="justify-content:center"><div class="dot"></div>Voci din comunitate</div>
+  <h2 class="sh" style="text-align:center;margin-bottom:40px">Ce spun proprietarii înainte să găsească un sistem.</h2>
+  <div class="voc-g">
+    <div class="voc-item">„Prima dată am mers pe primul venit, primul servit. Asta a fost greșeala mare.”</div>
+    <div class="voc-item">„Am investit totul în apartamentul ăla și au plecat lăsând mizerie și pereți găuriți.”</div>
+    <div class="voc-item">„Am stat luni de zile cu un chiriaș rău platnic pentru că nu știam cum să îl dau afară legal.”</div>
+    <div class="voc-item">„Oricum e loterie. Nu ai ce face.”</div>
+  </div>
+ </div>
+</section>
+
+
 <!-- S7 TESTIMONIALS -->
 <section id="testimonials">
  <div style="max-width:860px;margin:0 auto">
   <div class="sec-tag" style="justify-content:center"><div class="dot"></div>Testimoniale</div>
-  <h2 class="sh" style="text-align:center;margin-bottom:40px">Ce spun proprietarii.</h2>
+  <h2 class="sh" style="text-align:center;margin-bottom:40px">Proprietari reali. Rezultate documentate.</h2>
 
   <!-- STUDIU DE CAZ 1: 2 camere Drumul Taberei -->
   <div class="cs" style="margin-bottom:16px">
@@ -1567,7 +1585,7 @@ if(!localStorage.getItem('cookieConsent')){
 </script>
 <script>
 (function(){
-  var sel='h2.sh,.sec-sub,.sec-tag,.stat,.pc,.pkg,.reason,.ba,.cs,.tc,.tec,.fc,.fit-note,.cc,.fc ul li,.rk-item';
+  var sel='h2.sh,.sec-sub,.sec-tag,.stat,.pc,.pkg,.reason,.ba,.cs,.tc,.tec,.fc,.fit-note,.cc,.fc ul li,.rk-item,.voc-item';
   document.querySelectorAll(sel).forEach(function(el){
     el.classList.add('sr');
     var siblings=Array.from(el.parentElement.children).filter(function(c){return c.classList.contains('sr')});
