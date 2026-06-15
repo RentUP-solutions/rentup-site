@@ -323,7 +323,7 @@ button,a,.filter-btn,.proj{touch-action:manipulation}
 
 <div class="projects" id="proj-grid">
 
-  <div class="proj sr" data-type="2camere premium">
+  <div class="proj sr" data-type="2camere premium" id="proiect-drumul-taberei">
     <div class="gallery" onclick="openLb(this)">
       <img src="images/portofoliu_2.webp" class="active" alt="2 camere Drumul Taberei — before design RentUP">
       <img src="images/portofoliu_1.webp" alt="2 camere Drumul Taberei — after design RentUP">
@@ -394,7 +394,7 @@ button,a,.filter-btn,.proj{touch-action:manipulation}
     </div>
   </div>
 
-  <div class="proj sr" data-type="2camere standard">
+  <div class="proj sr" data-type="2camere standard" id="proiect-floreasca">
     <div class="gallery" onclick="openLb(this)">
       <img src="images/portofoliu_7.webp" class="active" alt="2 camere Floreasca — before design RentUP">
       <img src="images/portofoliu_8.webp" alt="2 camere Floreasca — after design RentUP">
@@ -780,6 +780,12 @@ document.addEventListener('click',function(e){
   });
 })();
 </script>
+
+<!-- WhatsApp Floating (mobil) -->
+<style>.wa-float{display:none;position:fixed;bottom:24px;left:24px;width:52px;height:52px;background:#25D366;border-radius:50%;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.35);z-index:998;text-decoration:none;transition:transform .2s,box-shadow .2s}.wa-float:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(37,211,102,.45)}@media(max-width:768px){.wa-float{display:flex}}</style>
+<a href="https://wa.me/40741176865" class="wa-float" aria-label="Scrie-ne pe WhatsApp" onclick="gtag('event','click_whatsapp_floating')" target="_blank" rel="noopener">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="#FDFAF6" aria-hidden="true"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4a8.94 8.94 0 0 0-7.74 13.4L3 21l3.7-1.27A8.93 8.93 0 0 0 12.05 21h.01A8.94 8.94 0 0 0 21 12.06a8.9 8.9 0 0 0-3.4-5.74zm-5.55 13.1h-.01a7.4 7.4 0 0 1-3.78-1.04l-.27-.16-2.81.97.94-2.74-.18-.28a7.45 7.45 0 0 1 11.66-9.13 7.4 7.4 0 0 1 2.18 5.27 7.46 7.46 0 0 1-7.73 7.1zm4.08-5.56c-.22-.11-1.32-.65-1.53-.73-.2-.07-.35-.11-.5.11-.15.22-.57.73-.7.88-.13.15-.26.16-.48.05-.22-.11-.93-.34-1.77-1.1a6.6 6.6 0 0 1-1.22-1.51c-.13-.22-.01-.34.11-.45.11-.11.25-.28.37-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.03-.41-.07-.11-.6-1.45-.82-1.98-.22-.53-.44-.46-.6-.46-.15 0-.33-.01-.5-.01-.18 0-.46.06-.7.32-.24.26-.92.9-.92 2.18 0 1.28.93 2.52 1.06 2.7.13.18 1.78 2.71 4.31 3.69 2.53.98 2.53.65 2.99.61.46-.04 1.32-.54 1.5-1.06.19-.52.19-.97.13-1.06-.06-.1-.22-.16-.44-.27z"/></svg>
+</a>
 
 <!-- Cookie Banner -->
 <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#2D2820;border-top:0.5px solid #4D4238;padding:18px 24px;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;z-index:999;font-family:'Inter',sans-serif">
