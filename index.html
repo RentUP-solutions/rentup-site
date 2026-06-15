@@ -320,6 +320,11 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .con-h{font-size:44px;font-weight:300;color:var(--bg);letter-spacing:-.03em;margin-bottom:14px;line-height:1.1;text-wrap:balance}
 .con-h em{font-style:normal;color:var(--brand)}
 .con-sub{font-size:15px;color:var(--muted);margin-bottom:44px;line-height:1.7}
+.con-scarcity{display:inline-flex;align-items:flex-start;gap:10px;text-align:left;max-width:480px;font-size:13px;color:var(--muted);line-height:1.55;background:rgba(255,255,255,.06);border:.5px solid #4D4238;padding:12px 20px;border-radius:16px;margin-bottom:32px}
+.con-scarcity svg{flex-shrink:0;margin-top:3px}
+.con-scarcity .csi-hand{transform-origin:12px 12px;animation:dotPulse 2.8s ease-in-out infinite}
+.con-scarcity b{color:var(--brand);font-weight:600;animation:livePulse 1.8s ease-in-out infinite}
+@keyframes livePulse{0%,100%{opacity:1}50%{opacity:.45}}
 .con-btns{display:flex;gap:12px;justify-content:center;margin-bottom:56px;flex-wrap:wrap}
 .con-p{background:var(--brand);color:var(--bg);font-size:14px;font-weight:500;padding:14px 30px;border-radius:100px;text-decoration:none;transition:background 180ms cubic-bezier(0.23,1,0.32,1),transform 150ms cubic-bezier(0.23,1,0.32,1)}
 .con-p:hover{background:#a8622a;transform:translateY(-1px)}
@@ -559,7 +564,7 @@ img{-webkit-user-drag:none;user-drag:none}
 /* ── SCROLL REVEAL ── */
 .sr{opacity:0;transform:translateY(24px) scale(0.98);filter:blur(4px);will-change:transform,opacity,filter;transition:opacity 620ms cubic-bezier(0.23,1,0.32,1),transform 620ms cubic-bezier(0.23,1,0.32,1),filter 500ms ease}
 .sr.in{opacity:1;transform:none;filter:none;will-change:auto}
-@media(prefers-reduced-motion:reduce){.hero-l>*,.sr{animation:none!important;opacity:1!important;transform:none!important;filter:none!important}.sr{transition:opacity 200ms ease-out!important}.hero-badge,.sec-tag .dot,.hero-dot{animation:none!important}}
+@media(prefers-reduced-motion:reduce){.hero-l>*,.sr{animation:none!important;opacity:1!important;transform:none!important;filter:none!important}.sr{transition:opacity 200ms ease-out!important}.hero-badge,.sec-tag .dot,.hero-dot,.con-scarcity b,.con-scarcity .csi-hand{animation:none!important}}
 @media(max-width:600px){.sr{filter:none}.sr.in{filter:none}}
 /* ── TEXT SELECTION ── */
 ::selection{background:#C77936;color:#FDFAF6}
@@ -1324,9 +1329,9 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 <section id="contact">
   <h2 class="con-h">Hai să vedem ce poate face<br><em>apartamentul tău.</em></h2>
   <p class="con-sub">Spune-ne pe scurt cu ce te confrunți: chirie mică, chiriași care pleacă, apartament gol.<br>Îți răspundem în cel mai scurt timp cu o ofertă personalizată.</p>
+  <div class="con-scarcity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><line class="csi-hand" x1="12" y1="12" x2="12" y2="7"/></svg><span>Acceptăm 3–4 proiecte pe lună pentru a menține calitatea. Mai sunt <b>2 sloturi</b> libere luna aceasta.</span></div>
   <div class="con-btns">
     <a class="con-p" href="https://wa.me/40741176865" onclick="gtag('event','click_whatsapp')">WhatsApp direct →</a>    <a class="con-g" href="mailto:hello@rentup.solutions" onclick="gtag('event','click_email')">Email</a>
-    <span style="flex-basis:100%;text-align:center;font-size:13px;color:var(--muted)">Discutăm despre apartamentul tău specific.</span>
   </div>
   <div class="con-cards">
   <a class="cc" href="tel:+40741176865" style="text-decoration:none" onclick="gtag('event','click_phone')">
