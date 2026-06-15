@@ -1187,7 +1187,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
   <div style="font-size:36px;font-weight:200;color:var(--border);line-height:1;margin-bottom:16px">"</div>
   <p>Când am decis să dau apartamentul în chirie pentru prima dată, am petrecut două săptămâni citind pe Reddit și în grupuri de Facebook. Am găsit mai multă frică decât informație utilă. Toată lumea povestea dezastre, nimeni nu spunea concret ce să faci.</p>
   <p>Am contactat Rent UP înainte să pun primul anunț. Mi s-a părut ciudat să plătești pentru asta înainte să ai măcar un chiriaș, dar am calculat: dacă nimereai greșit de la primul, costul ar fi fost de 5–6 ori mai mare decât ce am dat pe Rental Kit.</p>
-  <p>Procesul a fost altfel față de ce mă așteptam. Nu m-au lăsat cu un contract generic. Am trecut prin fiecare clauză, am înțeles de ce există, și am plecat cu un sistem clar de verificare. La prima vizionare am refuzat un potențial chiriaș pe criterii concrete, nu pe feeling. Asta singur a schimbat dinamica. Pentru prima dată eu alegeam, nu eram ales.</p>
+  <p>Procesul a fost altfel față de ce mă așteptam. Nu m-au lăsat cu un contract generic. Am trecut prin fiecare clauză, am înțeles de ce există, și am plecat cu un sistem clar de verificare. La prima vizionare am refuzat un potențial chiriaș pe criterii concrete, nu pe feeling. Asta singură a schimbat dinamica. Pentru prima dată eu alegeam, nu eram ales.</p>
   <p style="margin-bottom:24px;color:var(--brand);font-weight:600;font-style:normal;font-size:15px">Chiria e plătită pe 5 ale fiecărei luni. Nicio excepție în 6 luni.</p>
   <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
     <div>
@@ -1360,10 +1360,14 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
     <div class="cc-l">Email</div>
     <div class="cc-v">hello@rentup.solutions</div>
   </a>
-  <a class="cc" href="https://instagram.com/rentup.solutions" target="_blank" style="text-decoration:none" onclick="gtag('event','click_instagram')">
-    <div class="cc-l">Instagram</div>
-    <div class="cc-v">@rentup.solutions</div>
-  </a>
+  <div class="cc">
+    <div class="cc-l">Social</div>
+    <style>@keyframes socialRing{0%,60%,100%{transform:rotate(0deg)}65%{transform:rotate(-14deg)}70%{transform:rotate(12deg)}75%{transform:rotate(-10deg)}80%{transform:rotate(8deg)}85%{transform:rotate(-6deg)}90%{transform:rotate(4deg)}95%{transform:rotate(-2deg)}}.social-icons a{display:inline-flex;animation:socialRing 4.5s ease-in-out infinite;transform-origin:50% 0}.social-icons a:nth-child(2){animation-delay:.15s}.social-icons a:nth-child(3){animation-delay:.3s}@media (prefers-reduced-motion: reduce){.social-icons a{animation:none}}</style><div class="cc-v social-icons" style="display:flex;gap:12px;align-items:center">
+      <a href="https://instagram.com/rentup.solutions" target="_blank" rel="noopener" aria-label="Instagram" onclick="gtag('event','click_instagram')" style="display:inline-flex"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--bg)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="var(--bg)" stroke="none"/></svg></a>
+      <a href="https://www.linkedin.com/company/rentup-solutions" target="_blank" rel="noopener" aria-label="LinkedIn" style="display:inline-flex"><svg width="20" height="20" viewBox="0 0 24 24" fill="var(--bg)"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.27c-.97 0-1.75-.78-1.75-1.75s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.27h-3v-4.5c0-1.07-.02-2.45-1.5-2.45-1.5 0-1.73 1.17-1.73 2.37v4.58h-3v-9h2.88v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg></a>
+      <a href="https://www.facebook.com/rentup.solutions/" target="_blank" rel="noopener" aria-label="Facebook" style="display:inline-flex"><svg width="20" height="20" viewBox="0 32 448 448" fill="var(--bg)"><path d="M400 32H48A48 48 0 0 0 0 80V432a48 48 0 0 0 48 48H192V320H128V256h64V216c0-70.7 43.1-112 110.1-112 27.6 0 53.6 2.1 67.9 5v66H348.9c-34.3 0-41.4 16.3-41.4 40.3V256h66.4l-12 64H307.5V480H400a48 48 0 0 0 48-48V80A48 48 0 0 0 400 32z"/></svg></a>
+    </div>
+  </div>
 </div>
  
 </section>

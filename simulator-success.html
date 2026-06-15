@@ -224,16 +224,16 @@ function buildReportHTML(data) {
     <div class="subtitle">Generat pentru ${esc(data.name)} · ${esc(data.date)}</div>
     <div class="info-grid">
       <div class="info-box"><div class="info-label">Tip apartament</div><div class="info-val">${esc(data.type)}</div></div>
-      <div class="info-box"><div class="info-label">Suprafata apartament</div><div class="info-val">${data.mp} mp</div></div>
+      <div class="info-box"><div class="info-label">Suprafața apartament</div><div class="info-val">${data.mp} mp</div></div>
     </div>
-    <div class="section-label">Defalcare per camera</div>
+    <div class="section-label">Defalcare per cameră</div>
     <table><thead><tr><th>Camera</th><th style="text-align:right">Minim</th><th style="text-align:right">Maxim</th><th style="text-align:right">Medie</th></tr></thead>
     <tbody>${roomRows}<tr class="total-row"><td colspan="3">Total estimat</td><td style="text-align:right">${fmt(data.mid)}</td></tr></tbody></table>
     <div class="interval">Interval: ${fmt(data.totalLo)} – ${fmt(data.totalHi)}</div>
     <div class="roi-box">
-      <div class="roi-tag">Recuperare investitie estimata</div>
+      <div class="roi-tag">Recuperare investiție estimată</div>
       <div class="roi-val">~${data.roiMonths} luni</div>
-      <div class="roi-sub">Bazat pe +${data.uplift}€/luna chirie extra fata de neoptimizat</div>
+      <div class="roi-sub">Bazat pe +${data.uplift}€/lună chirie extra față de neoptimizat</div>
     </div>
     <div class="section-label">Pachete Rent UP</div>
     <div class="pkg-grid">
@@ -262,16 +262,16 @@ function buildReportHTML(data) {
         <div class="pkg-roi">Recuperare: ~${roiPrem} luni</div>
       </div>
     </div>
-    <div class="section-label">Comparatie niveluri de mobilare</div>
-    <div class="lvl-row"><div><div class="lvl-name">Prefabricat buget</div><div class="lvl-desc">IKEA entry-level. Durabilitate medie — posibile inlocuiri dupa 3-5 ani.</div></div><div class="lvl-mult">1x</div></div>
-    <div class="lvl-row"><div><div class="lvl-name">Standard</div><div class="lvl-desc">IKEA premium, Mobexpert. Echilibru bun intre cost si durabilitate.</div></div><div class="lvl-mult">1.6x</div></div>
-    <div class="lvl-row"><div><div class="lvl-name">La comanda PAL+MDF</div><div class="lvl-desc">Producatori locali. Cea mai mare durabilitate — 8-10+ ani.</div></div><div class="lvl-mult">2.5x</div></div>
+    <div class="section-label">Comparație niveluri de mobilare</div>
+    <div class="lvl-row"><div><div class="lvl-name">Prefabricat buget</div><div class="lvl-desc">IKEA entry-level. Durabilitate medie — posibile înlocuiri după 3-5 ani.</div></div><div class="lvl-mult">1x</div></div>
+    <div class="lvl-row"><div><div class="lvl-name">Standard</div><div class="lvl-desc">IKEA premium, Mobexpert. Echilibru bun între cost și durabilitate.</div></div><div class="lvl-mult">1.6x</div></div>
+    <div class="lvl-row"><div><div class="lvl-name">La comandă PAL+MDF</div><div class="lvl-desc">Producători locali. Cea mai mare durabilitate — 8-10+ ani.</div></div><div class="lvl-mult">2.5x</div></div>
     <div style="margin-bottom:12px"></div>
-    <div class="cta"><div class="cta-text">Vrei cifre exacte pentru apartamentul tau?</div><div class="cta-link">rentup.solutions/audit</div></div>
+    <div class="cta"><div class="cta-text">Vrei cifre exacte pentru apartamentul tău?</div><div class="cta-link">rentup.solutions/audit</div></div>
   </div>
   <div class="footer">
     <span>RentUP · rentup.solutions · hello@rentup.solutions</span>
-    <span>Estimare orientativa ±10-15% · fara TVA</span>
+    <span>Estimare orientativă ±10-15% · fără TVA</span>
   </div>
   </body></html>`;
 }
