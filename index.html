@@ -201,7 +201,6 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .pc-time{display:inline-block;font-size:11px;color:var(--brand);font-weight:500;margin-top:14px;background:var(--brand-light);padding:3px 10px;border-radius:100px}
 .pc-get{display:block;font-size:12px;color:var(--dark);line-height:1.55;margin-top:12px;padding-top:12px;border-top:.5px solid var(--border)}
 .pc-get b{color:var(--brand);font-weight:600}
-.proc-note{font-size:13px;color:var(--muted);margin-top:20px;line-height:1.65;font-style:italic}
 
 /* Timeline strip */
 .proc-timeline{display:flex;justify-content:space-between;margin-top:32px;position:relative}
@@ -210,6 +209,9 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .pt-dot{display:block;width:10px;height:10px;border-radius:50%;background:var(--brand);margin:0 auto 10px;border:2px solid var(--bg-stone)}
 .pt-label{font-size:13px;font-weight:500;color:var(--dark);margin-bottom:4px}
 .pt-time{font-size:11px;color:var(--muted)}
+.proc-total{display:flex;justify-content:center;gap:12px;margin-top:28px;flex-wrap:wrap}
+.proc-total-chip{font-size:12px;color:var(--muted);background:var(--bg);border:.5px solid var(--border);padding:6px 14px;border-radius:100px}
+.proc-total-chip b{color:var(--dark);font-weight:600}
 
 /* ── PORTFOLIO ── */
 #portfolio{background:var(--bg)}
@@ -974,7 +976,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 <section id="process">
   <div class="sec-tag"><div class="dot"></div>Cum funcționează</div>
   <h2 class="sh">Un proces clar. Fără surprize.</h2>
-  <p class="sec-sub">De la prima discuție până la apartamentul gata de listare. Știi exact ce se întâmplă la fiecare pas.</p>
+  <p class="sec-sub">După auditul inițial (raport în 72h), pornește acest proces clar în 4 pași — de la prima discuție până la apartamentul gata de listare.</p>
   <div class="proc-g">
     <div class="pc"><div class="pc-n">01</div><div class="pc-t">Discuție inițială</div><div class="pc-d">Înțelegem spațiul, obiectivul de închiriere, bugetul și publicul țintă. Fără brief standard, deoarece fiecare proprietate e diferită.</div><span class="pc-time">2–5 zile</span><div class="pc-get"><b>Primești:</b> plan de etape confirmat</div></div>
     <div class="pc"><div class="pc-n">02</div><div class="pc-t">Concept & direcție</div><div class="pc-d">Propunem direcția estetică și funcțională. Tu confirmi direcția înainte să mergem mai departe. Ce aprobăm azi nu se schimbă mâine.</div><span class="pc-time">1–2 săptămâni</span><div class="pc-get"><b>Primești:</b> 2 direcții de design + moodboard</div></div>
@@ -987,7 +989,10 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
     <div class="pt-item"><span class="pt-dot"></span><div class="pt-label">Randări finale</div><div class="pt-time">3–5 săpt</div></div>
     <div class="pt-item"><span class="pt-dot"></span><div class="pt-label">Apartament listat</div><div class="pt-time">etapa finală</div></div>
   </div>
-  <p class="proc-note">Duratele sunt orientative. Standard: 4–6 săptămâni. Premium cu suport complet în execuție: 8–12 săptămâni.</p>
+  <div class="proc-total">
+    <span class="proc-total-chip"><b>Standard:</b> 4–6 săptămâni total</span>
+    <span class="proc-total-chip"><b>Premium:</b> 8–12 săptămâni total</span>
+  </div>
 </section>
 
 
