@@ -863,6 +863,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
     <div style="background:#F5EFE6;border:.5px solid #E0DDD6;border-radius:14px;padding:24px;display:flex;flex-direction:column">
       <div class="crh"><span class="crh-l">Expunerea ta cumulată, nu doar un incident izolat</span></div>
       <table class="sc-tbl">
+        <colgroup><col><col style="width:78px"></colgroup>
         <tbody id="ct-tbl">
           <tr><td>Chirie pierdută</td><td style="text-align:right;font-weight:500;color:var(--text)">—</td></tr>
           <tr><td>Daune și curățenie</td><td style="text-align:right;font-weight:500;color:var(--text)">—</td></tr>
@@ -1492,7 +1493,7 @@ function ctCalc(){
   const perRent=1.5*rent,perDamages=1500,perTime=800;
   const totalRent=perRent*freq,totalDamages=perDamages*freq,totalTime=perTime*freq;
   const total=totalRent+totalDamages+totalTime;
-  document.getElementById('ct-tbl').innerHTML=`<tr><td>Chirie pierdută <span style="color:var(--light)">(${freqLabel}× ~1,5 luni goale)</span></td><td style="text-align:right;font-weight:500;color:var(--text)">${fmt(totalRent)}</td></tr><tr><td>Daune și curățenie <span style="color:var(--light)">(${freqLabel}× ~1.500€)</span></td><td style="text-align:right;font-weight:500;color:var(--text)">${fmt(totalDamages)}</td></tr><tr><td>Timpul tău <span style="color:var(--light)">(${freqLabel}× ~20 ore)</span></td><td style="text-align:right;font-weight:500;color:var(--text)">${fmt(totalTime)}</td></tr>`;
+  document.getElementById('ct-tbl').innerHTML=`<tr><td style="white-space:nowrap">Chirie pierdută <span style="color:var(--light);font-size:.9em">(${freqLabel}× ~1,5 luni goale)</span></td><td style="text-align:right;font-weight:500;color:var(--text)">${fmt(totalRent)}</td></tr><tr><td style="white-space:nowrap">Daune și curățenie <span style="color:var(--light);font-size:.9em">(${freqLabel}× ~1.500€)</span></td><td style="text-align:right;font-weight:500;color:var(--text)">${fmt(totalDamages)}</td></tr><tr><td style="white-space:nowrap">Timpul tău <span style="color:var(--light);font-size:.9em">(${freqLabel}× ~20 ore)</span></td><td style="text-align:right;font-weight:500;color:var(--text)">${fmt(totalTime)}</td></tr>`;
   document.getElementById('ct-freq-label').textContent='la '+freqLabel+(freq===1?' schimbare':' schimbări')+' de chiriaș în 5 ani';
   document.getElementById('ct-total').textContent=fmt(total);
 }
