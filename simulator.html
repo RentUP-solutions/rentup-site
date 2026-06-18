@@ -349,8 +349,8 @@ button,a,.chbtn,.tier,.cbtn,.dbtn,.tog,.preset-btn{touch-action:manipulation}
     <div class="pv-div"></div>
     <div class="pv-tr"><span class="pv-tl">Total mobilier</span><span class="pv-tv">4.620 €</span></div>
     <div class="pv-tr"><span class="pv-tl">Marjă risc 5%</span><span class="pv-tv">231 €</span></div>
-    <div class="pv-tr"><span class="pv-tl">Rent UP Standard 55mp</span><span class="pv-tv">1.650 €</span></div>
-    <div class="pv-grand"><div class="pv-gl">Investiție totală</div><div class="pv-gv">6.501 €</div></div>
+    <div class="pv-tr"><span class="pv-tl">Rent UP Standard 55mp</span><span class="pv-tv">1.540 €</span></div>
+    <div class="pv-grand"><div class="pv-gl">Investiție totală</div><div class="pv-gv">6.391 €</div></div>
   </div>
 </div>
 </div>
@@ -739,7 +739,7 @@ const P={
   baie:{"pf-low":200,"pf-std":325,"pf-prem":500},
   electro:80,lift:85,
   risc:0.05,
-  des:{std:30,prem:65},
+  des:{std:28,prem:50},
   loc:{buc:1,alt:0.92},
   imob:{nou:1,vechi:1.03}
 };
@@ -902,8 +902,20 @@ function updSI(s){
 
 const rNames={buc:"Bucătărie",ins:"Insulă bucătărie",liv:"Living / Sufragerie",dorm:"Dormitor matrimonial",hol:"Hol / Intrare",dres:"Dressing",d2:"Dormitor suplimentar",baie:"Baie — Accesorii"};
 
+function recPkg(){
+  let cmdCount=0;
+  Object.keys(S.rooms).forEach(id=>{
+    const room=S.rooms[id];
+    if(!room.on)return;
+    Object.values(room.opts).forEach(v=>{if(v==='cmd')cmdCount++;});
+  });
+  if(S.rooms.buc.on&&S.rooms.buc.opts.tier==='cmd')cmdCount++;
+  return cmdCount>=2?'prem':'std';
+}
+
 function buildRes(){
   const{mob,el,lf,risc,desStd,desPrem,totalStd,totalPrem,active}=calcAll();
+  const rec=recPkg();
   let rent=350;if(S.mp>=45)rent=500;if(S.mp>=65)rent=700;if(S.mp>=85)rent=1000;if(S.mp>=110)rent=1350;
   const rentP=Math.round(rent*1.2);
   const roiStd=Math.round(totalStd/(rentP-rent));
@@ -932,10 +944,10 @@ function buildRes(){
 
     <div class="res-block-title" style="padding:0 0 10px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)">Pachet Rent UP — alege varianta</div>
     <div class="pkg-grid">
-      <div class="pkg-card">
-        <div class="pkg-tag std">Pachet</div>
+      <div class="pkg-card${rec==='std'?' recommended':''}">
+        <div class="pkg-tag std">${rec==='std'?'Pachet recomandat':'Pachet'}</div>
         <div class="pkg-name">Standard</div>
-        <div class="pkg-price">30 €/m² · ${S.mp} m²</div>
+        <div class="pkg-price">28 €/m² · ${S.mp} m²</div>
         <div class="pkg-rows">
           <div class="pkg-row"><span class="pkg-row-lbl">Mobilier total</span><span class="pkg-row-val bl">${mob.toLocaleString("ro")} €</span></div>
           <div class="pkg-row"><span class="pkg-row-lbl">Marjă risc</span><span class="pkg-row-val">${risc.toLocaleString("ro")} €</span></div>
@@ -946,10 +958,10 @@ function buildRes(){
         <div class="pkg-total-row"><div class="pkg-total-lbl">Investiție totală</div><div class="pkg-total-val bl">~${Math.round(totalStd*0.85).toLocaleString("ro")} €</div></div>
         <div class="pkg-roi">Recuperare estimată: ~${roiStd} luni</div>
       </div>
-      <div class="pkg-card recommended">
-        <div class="pkg-tag prem">Pachet recomandat</div>
+      <div class="pkg-card${rec==='prem'?' recommended':''}">
+        <div class="pkg-tag prem">${rec==='prem'?'Pachet recomandat':'Pachet'}</div>
         <div class="pkg-name">Premium</div>
-        <div class="pkg-price">65 €/m² · ${S.mp} m²</div>
+        <div class="pkg-price">50 €/m² · ${S.mp} m²</div>
         <div class="pkg-rows">
           <div class="pkg-row"><span class="pkg-row-lbl">Mobilier total</span><span class="pkg-row-val bl">${mob.toLocaleString("ro")} €</span></div>
           <div class="pkg-row"><span class="pkg-row-lbl">Marjă risc</span><span class="pkg-row-val">${risc.toLocaleString("ro")} €</span></div>

@@ -148,8 +148,8 @@ function setStatus(id, state, text) {
 }
 
 function buildReportHTML(data) {
-  const totalStd = data.mid + Math.round(data.mid*0.05) + data.mp*30;
-  const totalPrem = data.mid + Math.round(data.mid*0.05) + data.mp*65;
+  const totalStd = data.mid + Math.round(data.mid*0.05) + data.mp*28;
+  const totalPrem = data.mid + Math.round(data.mid*0.05) + data.mp*50;
   const roiPrem = data.uplift > 0 ? Math.round(totalPrem / data.uplift) : 0;
   const roomRows = data.rooms.map((r,i) =>
     `<tr style="background:${i%2===0?'#fdfaf6':'#fff'}">
@@ -239,10 +239,10 @@ function buildReportHTML(data) {
     <div class="pkg-grid">
       <div class="pkg">
         <div class="pkg-name">Pachet Standard</div>
-        <div class="pkg-price">30€/mp · ${data.mp} mp</div>
+        <div class="pkg-price">28€/mp · ${data.mp} mp</div>
         <div class="pkg-row">– Mobilier: ${fmt(data.mid)}</div>
         <div class="pkg-row">– Marja risc: ${fmt(Math.round(data.mid*0.05))}</div>
-        <div class="pkg-row">– Design + Rental Kit DIY: ${fmt(data.mp*30)}</div>
+        <div class="pkg-row">– Design + Rental Kit Full: ${fmt(data.mp*28)}</div>
         <div class="pkg-row">– Fotografii: —</div>
         <div class="pkg-row">– Staging: —</div>
         <div class="pkg-total-label">Total estimat</div>
@@ -251,10 +251,10 @@ function buildReportHTML(data) {
       </div>
       <div class="pkg prem">
         <div class="pkg-name">Pachet Premium</div>
-        <div class="pkg-price">65€/mp · ${data.mp} mp</div>
+        <div class="pkg-price">50€/mp · ${data.mp} mp</div>
         <div class="pkg-row">– Mobilier: ${fmt(data.mid)}</div>
         <div class="pkg-row">– Marja risc: ${fmt(Math.round(data.mid*0.05))}</div>
-        <div class="pkg-row">– Design + Rental Kit Full Service: ${fmt(data.mp*65)}</div>
+        <div class="pkg-row">– Design + Rental Kit Full Service: ${fmt(data.mp*50)}</div>
         <div class="pkg-row green">– Fotografii profesionale: incluse</div>
         <div class="pkg-row green">– Staging + Listare: incluse</div>
         <div class="pkg-total-label">Total estimat</div>
