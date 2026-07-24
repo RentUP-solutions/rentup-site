@@ -11,6 +11,7 @@
   gtag('js', new Date());
 
   gtag('config', 'G-5WXD9BGS3T');
+  gtag('config', 'AW-18253477545');
 </script>
 
   <!-- Microsoft Clarity -->
@@ -322,7 +323,7 @@ button,a,.chbtn,.tier,.cbtn,.dbtn,.tog,.preset-btn{touch-action:manipulation}
 <nav>
   <a class="logo" href="/">Rent<span>UP</span></a>
   <a href="/" style="font-family:'Inter',sans-serif;font-size:13px;color:#9A8E82;text-decoration:none">← Înapoi la site</a>
-  <a class="nav-cta" href="audit.html">Raport de Rentabilitate 200€ →</a>
+  <a class="nav-cta" href="audit.html">Raport de Rentabilitate →</a>
 </nav>
 
 <div id="hero-section">
@@ -983,8 +984,8 @@ function buildRes(){
         <div class="roi-stat"><div class="rsval">${rentP}<em> €</em></div><div class="rslbl">Estimat cu Rent UP +20%</div></div>
         <div class="roi-stat"><div class="rsval">${rentP-rent}<em> €</em></div><div class="rslbl">Venit extra / lună</div></div>
       </div>
-      <div class="roi-note">Valori orientative ±20% față de piața reală. Raportul de Rentabilitate Rent UP (200€) calculează chiria exactă pentru apartamentul tău specific pe baza zonei și a situației actuale. Cei 200€ se scad din pachetul ales.</div>
-      <div class="roi-cta-row"><div style="font-size:13px;color:var(--dark)">Vrei cifre exacte, nu orientative?</div><a href="audit.html" class="btn-audit">Programează Raport → 200€</a></div>
+      <div class="roi-note">Valori orientative ±20% față de piața reală. Raportul de Rentabilitate Rent UP (gratuit) calculează chiria exactă pentru apartamentul tău specific pe baza zonei și a situației actuale.</div>
+      <div class="roi-cta-row"><div style="font-size:13px;color:var(--dark)">Vrei cifre exacte, nu orientative?</div><a href="audit.html" class="btn-audit" onclick="gtag('event','click_audit_cta');gtag('event','conversion',{'send_to':'AW-18253477545'});">Programează Raport Gratuit →</a></div>
     </div>
 
     <div class="pw-block" id="pw">
@@ -1223,7 +1224,7 @@ document.addEventListener('contextmenu', function(e){
 
 <!-- WhatsApp Floating (mobil) -->
 <style>.wa-float{display:none;position:fixed;bottom:24px;left:24px;width:52px;height:52px;background:#25D366;border-radius:50%;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.35);z-index:998;text-decoration:none;transition:transform .2s,box-shadow .2s}.wa-float:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(37,211,102,.45)}@media(max-width:768px){.wa-float{display:flex}}</style>
-<a href="https://wa.me/40741176865" class="wa-float" aria-label="Scrie-ne pe WhatsApp" onclick="gtag('event','click_whatsapp_floating')" target="_blank" rel="noopener">
+<a href="https://wa.me/40741176865" class="wa-float" aria-label="Scrie-ne pe WhatsApp" onclick="gtag('event','click_whatsapp_floating');gtag('event','conversion',{'send_to':'AW-18253477545'});" target="_blank" rel="noopener">
   <svg width="26" height="26" viewBox="0 0 24 24" fill="#FDFAF6" aria-hidden="true"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4a8.94 8.94 0 0 0-7.74 13.4L3 21l3.7-1.27A8.93 8.93 0 0 0 12.05 21h.01A8.94 8.94 0 0 0 21 12.06a8.9 8.9 0 0 0-3.4-5.74zm-5.55 13.1h-.01a7.4 7.4 0 0 1-3.78-1.04l-.27-.16-2.81.97.94-2.74-.18-.28a7.45 7.45 0 0 1 11.66-9.13 7.4 7.4 0 0 1 2.18 5.27 7.46 7.46 0 0 1-7.73 7.1zm4.08-5.56c-.22-.11-1.32-.65-1.53-.73-.2-.07-.35-.11-.5.11-.15.22-.57.73-.7.88-.13.15-.26.16-.48.05-.22-.11-.93-.34-1.77-1.1a6.6 6.6 0 0 1-1.22-1.51c-.13-.22-.01-.34.11-.45.11-.11.25-.28.37-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.03-.41-.07-.11-.6-1.45-.82-1.98-.22-.53-.44-.46-.6-.46-.15 0-.33-.01-.5-.01-.18 0-.46.06-.7.32-.24.26-.92.9-.92 2.18 0 1.28.93 2.52 1.06 2.7.13.18 1.78 2.71 4.31 3.69 2.53.98 2.53.65 2.99.61.46-.04 1.32-.54 1.5-1.06.19-.52.19-.97.13-1.06-.06-.1-.22-.16-.44-.27z"/></svg>
 </a>
 
