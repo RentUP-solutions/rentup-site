@@ -1996,5 +1996,137 @@ window.animateCalcDiff=(function(){
   });
 })();
 </script>
+
+<!-- POPUP #2 — Exit-intent (homepage, desktop, email + telefon, Enhanced Conversions) -->
+<style>
+#ru-exit-ov{position:fixed;inset:0;background:rgba(45,40,32,.48);z-index:995;opacity:0;pointer-events:none;transition:opacity 300ms ease}
+#ru-exit-ov.ru-vis{opacity:1;pointer-events:auto}
+#ru-exit{position:fixed;top:50%;left:50%;transform:translate(-50%,-54%) scale(0.96);width:440px;max-width:calc(100vw - 32px);background:#FDFAF6;border-radius:16px;padding:36px 32px 28px;z-index:996;opacity:0;pointer-events:none;transition:transform 380ms cubic-bezier(0.23,1,0.32,1),opacity 300ms ease}
+#ru-exit.ru-vis{transform:translate(-50%,-50%) scale(1);opacity:1;pointer-events:auto}
+#ru-exit .rec{position:absolute;top:14px;right:16px;background:none;border:none;cursor:pointer;font-size:22px;color:#9A8E82;line-height:1;padding:6px;font-family:'Inter',sans-serif}
+#ru-exit .ret{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#C77936;margin-bottom:12px}
+#ru-exit .reh{font-size:21px;font-weight:300;color:#2D2820;letter-spacing:-.02em;line-height:1.28;margin-bottom:10px}
+#ru-exit .res{font-size:13px;color:#7A6E62;line-height:1.65;margin-bottom:20px}
+#ru-exit .re-row{display:flex;flex-direction:column;gap:7px;margin-bottom:8px}
+#ru-exit .rei{width:100%;padding:10px 13px;border:.5px solid #D8CFC4;border-radius:8px;font-family:'Inter',sans-serif;font-size:13px;color:#2D2820;background:#fff;outline:none;transition:border-color .2s;box-sizing:border-box}
+#ru-exit .rei:focus{border-color:#C77936}
+#ru-exit .reb{width:100%;padding:12px 0;background:#C77936;color:#FDFAF6;border:none;border-radius:8px;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;cursor:pointer;transition:background .18s,transform .16s;margin-top:2px}
+#ru-exit .reb:hover{background:#B56C2E;transform:translateY(-1px)}
+#ru-exit .red{display:block;text-align:center;margin-top:11px;font-size:12px;color:#9A8E82;cursor:pointer;background:none;border:none;font-family:'Inter',sans-serif;padding:3px}
+#ru-exit .red:hover{color:#2D2820}
+#ru-exit .ren{font-size:11px;color:#B8AFA4;margin-top:14px;line-height:1.5}
+#ru-exit .reok{display:none;text-align:center;padding:20px 0;font-size:15px;color:#0F6E56;font-weight:500}
+</style>
+
+<div id="ru-exit-ov" onclick="RuExit.dismiss(false)"></div>
+<div id="ru-exit" role="dialog" aria-modal="true" aria-label="Raport de Rentabilitate gratuit">
+  <button class="rec" onclick="RuExit.dismiss(true)" aria-label="Închide">×</button>
+  <div class="ret">Raport de Rentabilitate · Gratuit</div>
+  <h3 class="reh">Nu ai nevoie de un chiriaș perfect. Ai nevoie de un sistem care să nu te mai păcălească.</h3>
+  <p class="res">Aflați exact cât profit poate genera apartamentul tău. Raport livrat în 72h: potențial chirie, estimare buget implementare, intervenții prioritizate, ROI estimat.</p>
+  <div id="re-form">
+    <div class="re-row">
+      <input class="rei" type="email" id="re-email" placeholder="Email" autocomplete="email">
+      <input class="rei" type="tel" id="re-phone" placeholder="+40..." autocomplete="tel">
+    </div>
+    <button class="reb" onclick="RuExit.submit()">Vreau raportul gratuit →</button>
+    <button class="red" onclick="RuExit.dismiss(true)">Nu acum, poate altă dată</button>
+    <p class="ren">Emailul și telefonul sunt folosite doar pentru livrarea raportului. Nu transmitem datele terților.</p>
+  </div>
+  <div class="reok" id="re-ok">✓ Raportul e confirmat. Te contactăm în 24h.</div>
+</div>
+
+<script>
+(function(){
+  // Desktop only — excludem mobilul (sub 768px) pentru a evita penalizarea Google interstitials
+  if(window.innerWidth < 768) return;
+
+  var KEY = 'ru_exit_v1';
+  var COOLDOWN_CVT = 14;
+  var shown = false;
+  var startTime = Date.now();
+
+  function canShow(){
+    // Dismissed → apare la orice sesiune nouă
+    if(sessionStorage.getItem(KEY + '_dismissed')) return false;
+    try {
+      var raw = localStorage.getItem(KEY);
+      if(!raw) return true;
+      var d = JSON.parse(raw);
+      // Completat → pauză 14 zile
+      if(d.converted) return (Date.now() - d.ts) / 86400000 >= COOLDOWN_CVT;
+    } catch(e){}
+    return true;
+  }
+
+  function show(){
+    if(shown || !canShow()) return;
+    if(sessionStorage.getItem('ru_cvt')) return;
+    shown = true;
+    document.getElementById('ru-exit-ov').classList.add('ru-vis');
+    document.getElementById('ru-exit').classList.add('ru-vis');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Trigger 1: exit intent
+  document.addEventListener('mouseleave', function(e){ if(e.clientY <= 15) show(); });
+
+  // Trigger 2: scroll ≥ 60% ȘI ≥ 30s pe pagină (verificat și în scroll handler)
+  // Trigger timp: 15s indiferent de scroll
+  setTimeout(function(){ show(); }, 15000);
+
+  // Marchează conversia la click pe WhatsApp/email/social — exclude vizitatorii deja convertiți
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[href]');
+    if(!a) return;
+    var h = a.getAttribute('href') || '';
+    if(h.startsWith('https://wa.me') || h.startsWith('mailto:') || h.includes('instagram') || h.includes('linkedin') || h.includes('facebook')){
+      sessionStorage.setItem('ru_cvt','1');
+    }
+  });
+
+  window.RuExit = {
+    dismiss: function(byUser){
+      document.getElementById('ru-exit-ov').classList.remove('ru-vis');
+      document.getElementById('ru-exit').classList.remove('ru-vis');
+      document.body.style.overflow = '';
+      if(byUser) try { sessionStorage.setItem(KEY + '_dismissed', '1'); } catch(e){}
+    },
+    submit: function(){
+      var emailEl = document.getElementById('re-email');
+      var phoneEl = document.getElementById('re-phone');
+      var email = emailEl.value.trim();
+      var phone = phoneEl.value.trim();
+      var ok = true;
+      if(!email || !email.includes('@')){ emailEl.style.borderColor='#A32D2D'; emailEl.focus(); ok=false; } else { emailEl.style.borderColor=''; }
+      if(!phone){ phoneEl.style.borderColor='#A32D2D'; if(ok) phoneEl.focus(); ok=false; } else { phoneEl.style.borderColor=''; }
+      if(!ok) return;
+
+      // Enhanced Conversions — user_data setat ÎNAINTE de evenimentul de conversie
+      if(typeof gtag === 'function'){
+        var ud = { email: email };
+        if(phone) ud.phone_number = phone;
+        gtag('set', 'user_data', ud);
+        // ⚠️ Înlocuiește FORM_LEAD_LABEL cu label-ul conversiei din Google Ads (creat ca tip Lead)
+        gtag('event', 'conversion', { send_to: 'AW-18253477545/VftDCJuk99ccEKnt9_9D' });
+        gtag('event', 'form_lead_homepage', { has_phone: !!phone });
+      }
+
+      fetch('https://formsubmit.co/ajax/hello@rentup.solutions', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json','Accept':'application/json'},
+        body: JSON.stringify({ _subject:'Lead nou — Raport Rentabilitate (exit-intent homepage)', email:email, telefon:phone||'—', sursa:'popup-exit-homepage' })
+      }).catch(function(){});
+
+      try { localStorage.setItem(KEY, JSON.stringify({converted:true, ts:Date.now()})); sessionStorage.setItem(KEY + '_dismissed','1'); } catch(e){}
+      sessionStorage.setItem('ru_cvt','1');
+
+      document.getElementById('re-form').style.display = 'none';
+      document.getElementById('re-ok').style.display = 'block';
+      setTimeout(function(){ RuExit.dismiss(false); }, 3000);
+    }
+  };
+})();
+</script>
 </body>
 </html>

@@ -549,5 +549,122 @@ if(localStorage.getItem('cookieConsent')){
   banner.style.display='flex';
 }
 </script>
+
+<!-- POPUP #1 — Slide-in micro-formular (email capture + Enhanced Conversions) -->
+<style>
+#ru-slide{position:fixed;bottom:80px;right:24px;width:320px;background:#FDFAF6;border:.5px solid #E8D5BC;border-radius:14px;padding:22px 22px 18px;box-shadow:0 12px 40px rgba(45,40,32,.14);z-index:994;transform:translateY(140%);opacity:0;transition:transform 420ms cubic-bezier(0.23,1,0.32,1),opacity 360ms ease;pointer-events:none}
+#ru-slide.ru-vis{transform:translateY(0);opacity:1;pointer-events:auto}
+#ru-slide .rsc{position:absolute;top:10px;right:12px;background:none;border:none;cursor:pointer;font-size:20px;color:#9A8E82;line-height:1;padding:4px 6px;font-family:'Inter',sans-serif}
+#ru-slide .rsh{font-size:14px;font-weight:500;color:#2D2820;margin-bottom:6px;line-height:1.35;letter-spacing:-.01em;padding-right:20px}
+#ru-slide .rss{font-size:12px;color:#7A6E62;line-height:1.6;margin-bottom:14px}
+#ru-slide .rsi{width:100%;padding:9px 12px;border:.5px solid #D8CFC4;border-radius:8px;font-family:'Inter',sans-serif;font-size:13px;color:#2D2820;background:#fff;outline:none;transition:border-color .2s;box-sizing:border-box}
+#ru-slide .rsi:focus{border-color:#C77936}
+#ru-slide .rsb{width:100%;margin-top:9px;padding:10px 0;background:#C77936;color:#FDFAF6;border:none;border-radius:8px;font-family:'Inter',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:background .18s,transform .16s}
+#ru-slide .rsb:hover{background:#B56C2E;transform:translateY(-1px)}
+#ru-slide .rsd{display:block;text-align:center;margin-top:8px;font-size:11px;color:#9A8E82;cursor:pointer;background:none;border:none;font-family:'Inter',sans-serif;padding:3px}
+#ru-slide .rsd:hover{color:#2D2820}
+#ru-slide .rsok{display:none;text-align:center;padding:12px 0 4px;font-size:13px;color:#0F6E56;font-weight:500}
+@media(max-width:520px){#ru-slide{left:12px;right:12px;width:auto;bottom:16px}}
+</style>
+
+<div id="ru-slide" role="dialog" aria-label="Primești Raportul pe email">
+  <button class="rsc" onclick="RuSlide.dismiss(true)" aria-label="Închide">×</button>
+  <div class="rsh">Raportul e gratuit. Îl primești pe email.</div>
+  <div class="rss">Lasă adresa și îți confirmăm disponibilitatea în 24h. Fără angajament.</div>
+  <div id="rs-form">
+    <input class="rsi" type="email" id="rs-email" placeholder="adresa@ta.ro" autocomplete="email" style="margin-bottom:7px">
+    <input class="rsi" type="tel" id="rs-phone" placeholder="+40..." autocomplete="tel">
+    <button class="rsb" onclick="RuSlide.submit()">Trimite-mi raportul →</button>
+    <button class="rsd" onclick="RuSlide.dismiss(true)">Nu acum</button>
+  </div>
+  <div class="rsok" id="rs-ok">✓ Gata! Te contactăm în 24h.</div>
+</div>
+
+<script>
+(function(){
+  var KEY = 'ru_slide_v1';
+  var COOLDOWN_CVT = 14;
+  var shown = false;
+
+  function canShow(){
+    // Dismissed → apare la orice sesiune nouă (sessionStorage, se resetează la închiderea tab-ului)
+    if(sessionStorage.getItem(KEY + '_dismissed')) return false;
+    try {
+      var raw = localStorage.getItem(KEY);
+      if(!raw) return true;
+      var d = JSON.parse(raw);
+      // Completat → pauză 14 zile
+      if(d.converted) return (Date.now() - d.ts) / 86400000 >= COOLDOWN_CVT;
+    } catch(e){}
+    return true;
+  }
+
+  function show(){
+    if(shown || !canShow()) return;
+    if(sessionStorage.getItem('ru_cvt')) return;
+    shown = true;
+    document.getElementById('ru-slide').classList.add('ru-vis');
+  }
+
+  var scrollOk = false, timeOk = false;
+  function tryShow(){ if(scrollOk && timeOk) show(); }
+
+  window.addEventListener('scroll', function(){
+    if(scrollOk) return;
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    if(h > 0 && window.scrollY / h >= 0.55){ scrollOk = true; tryShow(); }
+  }, {passive:true});
+
+  setTimeout(function(){ timeOk = true; tryShow(); }, 22000);
+  setTimeout(function(){ scrollOk = true; tryShow(); }, 55000);
+
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[href]');
+    if(!a) return;
+    var h = a.getAttribute('href') || '';
+    if(h.startsWith('https://wa.me') || h.startsWith('mailto:')) sessionStorage.setItem('ru_cvt','1');
+  });
+
+  window.RuSlide = {
+    dismiss: function(byUser){
+      document.getElementById('ru-slide').classList.remove('ru-vis');
+      if(byUser) try { sessionStorage.setItem(KEY + '_dismissed', '1'); } catch(e){}
+    },
+    submit: function(){
+      var emailEl = document.getElementById('rs-email');
+      var phoneEl = document.getElementById('rs-phone');
+      var email = emailEl.value.trim();
+      var phone = phoneEl.value.trim();
+      var ok = true;
+      if(!email || !email.includes('@')){ emailEl.style.borderColor='#A32D2D'; emailEl.focus(); ok=false; } else { emailEl.style.borderColor=''; }
+      if(!phone){ phoneEl.style.borderColor='#A32D2D'; if(ok) phoneEl.focus(); ok=false; } else { phoneEl.style.borderColor=''; }
+      if(!ok) return;
+
+      // Enhanced Conversions — user_data setat ÎNAINTE de evenimentul de conversie
+      if(typeof gtag === 'function'){
+        var ud = { email: email };
+        if(phone) ud.phone_number = phone;
+        gtag('set', 'user_data', ud);
+        // ⚠️ Înlocuiește FORM_LEAD_LABEL cu label-ul conversiei din Google Ads (creat ca tip Lead)
+        gtag('event', 'conversion', { send_to: 'AW-18253477545/VftDCJuk99ccEKnt9_9D' });
+        gtag('event', 'form_lead_audit', { has_phone: !!phone });
+      }
+
+      fetch('https://formsubmit.co/ajax/hello@rentup.solutions', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json','Accept':'application/json'},
+        body: JSON.stringify({ _subject:'Lead nou — Raport Rentabilitate (popup audit)', email:email, telefon:phone||'—', sursa:'popup-slide-audit' })
+      }).catch(function(){});
+
+      try { localStorage.setItem(KEY, JSON.stringify({converted:true, ts:Date.now()})); sessionStorage.setItem(KEY + '_dismissed','1'); } catch(e){}
+      sessionStorage.setItem('ru_cvt','1');
+
+      document.getElementById('rs-form').style.display = 'none';
+      document.getElementById('rs-ok').style.display = 'block';
+      setTimeout(function(){ RuSlide.dismiss(false); }, 3000);
+    }
+  };
+})();
+</script>
 </body>
 </html>
