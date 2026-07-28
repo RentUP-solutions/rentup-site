@@ -523,7 +523,9 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .nav-links a:hover,.nav-links a.active{color:#2D2820}
 .nav-cta{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:#C77936;border:.5px solid #C77936;padding:8px 18px;border-radius:100px;text-decoration:none;white-space:nowrap;transition:background 150ms ease-out,border-color 150ms ease-out}
 .nav-cta:hover{background:#FAF4EB}
-@media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}.nav-hamburger{display:flex}.nav-cta{display:none}}
+@media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}.nav-hamburger{display:flex}.nav-cta{display:none}.nav-mob-cta{display:inline-flex!important}}
+.nav-mob-cta{display:none;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;color:#C77936;border:.5px solid #C77936;padding:6px 13px;border-radius:100px;text-decoration:none;white-space:nowrap;margin-left:auto;margin-right:10px;transition:background 150ms ease-out}
+.nav-mob-cta:hover{background:#FAF4EB}
 
 /* Page transitions */
 body{opacity:0.01;transition:opacity .46s cubic-bezier(0.23,1,0.32,1)}
@@ -760,7 +762,8 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
     <a href="faq.html">FAQ</a>
     <a href="/#contact">Contact</a>
   </div>
-  <button id="nav-hamburger" aria-label="Deschide meniul" onclick="toggleMenu()" style="display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto">
+  <a class="nav-mob-cta" href="audit.html">Raport gratuit →</a>
+  <button id="nav-hamburger" aria-label="Deschide meniul" onclick="toggleMenu()" style="display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px">
   <span style="width:22px;height:2px;background:#C77936;display:block"></span>
   <span style="width:22px;height:2px;background:#C77936;display:block"></span>
   <span style="width:22px;height:2px;background:#C77936;display:block"></span>
@@ -2068,11 +2071,12 @@ window.animateCalcDiff=(function(){
     document.body.style.overflow = 'hidden';
   }
 
-  // Trigger 1: exit intent
-  document.addEventListener('mouseleave', function(e){ if(e.clientY <= 15) show(); });
+  // Trigger 1: exit intent — activ doar după 10s pe pagină
+  var exitReady = false;
+  setTimeout(function(){ exitReady = true; }, 10000);
+  document.addEventListener('mouseleave', function(e){ if(exitReady && e.clientY <= 15) show(); });
 
-  // Trigger 2: scroll ≥ 60% ȘI ≥ 30s pe pagină (verificat și în scroll handler)
-  // Trigger timp: 15s indiferent de scroll
+  // Trigger 2: timp — 15s indiferent de scroll
   setTimeout(function(){ show(); }, 15000);
 
   // Marchează conversia la click pe WhatsApp/email/social — exclude vizitatorii deja convertiți
