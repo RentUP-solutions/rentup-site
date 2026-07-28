@@ -688,10 +688,10 @@ button,a,.chbtn,.tier,.cbtn,.dbtn,.tog,.preset-btn{touch-action:manipulation}
 <div class="live-bar" id="lb">
   <div class="lb-info">
     <div class="lb-stat">Camere: <strong id="lb-r">0</strong></div>
-    <div class="lb-stat">Mobilier: <strong id="lb-m">0 €</strong></div>
+    <div class="lb-stat">Mobilier: <strong id="lb-m" style="filter:blur(5px);user-select:none">0 €</strong></div>
   </div>
   <div class="lb-right">
-    <div><div class="lb-total-val" id="lb-t">0 €</div><div class="lb-total-lbl">total estimat (fără TVA)</div></div>
+    <div><div class="lb-total-val" id="lb-t" style="filter:blur(6px);user-select:none">0 €</div><div class="lb-total-lbl">total estimat (fără TVA)</div></div>
     <div class="navbtns">
       <button class="btn-back" id="btn-bk" onclick="goBack()" style="display:none">← Înapoi</button>
       <button class="btn-next" onclick="goNext()"><span id="btn-lbl">Configurează piesele</span> →</button>
@@ -951,8 +951,8 @@ function buildRes(){
         <div class="pkg-price">28 €/m² · ${S.mp} m²</div>
         <div class="pkg-rows">
           <div class="pkg-row"><span class="pkg-row-lbl">Mobilier total</span><span class="pkg-row-val bl">${mob.toLocaleString("ro")} €</span></div>
-          <div class="pkg-row"><span class="pkg-row-lbl">Marjă risc</span><span class="pkg-row-val">${risc.toLocaleString("ro")} €</span></div>
-          <div class="pkg-row"><span class="pkg-row-lbl">Design + Rental Kit</span><span class="pkg-row-val">${desStd.toLocaleString("ro")} €</span></div>
+          <div class="pkg-row"><span class="pkg-row-lbl">Marjă risc</span><span class="pkg-row-val bl">${risc.toLocaleString("ro")} €</span></div>
+          <div class="pkg-row"><span class="pkg-row-lbl">Design + Rental Kit</span><span class="pkg-row-val bl">${desStd.toLocaleString("ro")} €</span></div>
           <div class="pkg-row"><span class="pkg-row-lbl">Fotografii profesionale</span><span class="pkg-row-val">—</span></div>
           <div class="pkg-row"><span class="pkg-row-lbl">Listare + monitorizare</span><span class="pkg-row-val">—</span></div>
         </div>
@@ -965,8 +965,8 @@ function buildRes(){
         <div class="pkg-price">50 €/m² · ${S.mp} m²</div>
         <div class="pkg-rows">
           <div class="pkg-row"><span class="pkg-row-lbl">Mobilier total</span><span class="pkg-row-val bl">${mob.toLocaleString("ro")} €</span></div>
-          <div class="pkg-row"><span class="pkg-row-lbl">Marjă risc</span><span class="pkg-row-val">${risc.toLocaleString("ro")} €</span></div>
-          <div class="pkg-row"><span class="pkg-row-lbl">Design complet + Rental Kit full</span><span class="pkg-row-val">${desPrem.toLocaleString("ro")} €</span></div>
+          <div class="pkg-row"><span class="pkg-row-lbl">Marjă risc</span><span class="pkg-row-val bl">${risc.toLocaleString("ro")} €</span></div>
+          <div class="pkg-row"><span class="pkg-row-lbl">Design complet + Rental Kit full</span><span class="pkg-row-val bl">${desPrem.toLocaleString("ro")} €</span></div>
           <div class="pkg-row"><span class="pkg-row-lbl">Fotografii profesionale</span><span class="pkg-row-val" style="color:var(--green)">incluse</span></div>
           <div class="pkg-row"><span class="pkg-row-lbl">Listare + monitorizare</span><span class="pkg-row-val" style="color:var(--green)">incluse</span></div>
         </div>
