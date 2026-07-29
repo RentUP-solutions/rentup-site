@@ -287,7 +287,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 
 /* ── PACKAGES ── */
 #packages{background:var(--bg-stone)}
-.pkg-g{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+.pkg-g{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:20px}
 .pkg{border-radius:16px;overflow:hidden;border:.5px solid var(--border);background:var(--bg);transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column}
 .pkg:hover{box-shadow:0 8px 32px rgba(45,40,32,.08);transform:translateY(-2px)}
 .pkg-h{padding:26px 22px 20px}
@@ -365,6 +365,10 @@ footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56p
 .f-t{font-size:12px;color:var(--light)}
 
 /* ── RESPONSIVE ── */
+/* ── WIDE TABLET 1200px ── */
+@media(max-width:1200px){
+  .pkg-g{grid-template-columns:repeat(3,1fr)}
+}
 /* ── TABLET 900px ── */
 @media(max-width:900px){
   nav{padding:0 20px;height:56px}
@@ -691,6 +695,7 @@ button,a,.tbn,.fi{touch-action:manipulation}
 .wa-float{display:none;position:fixed;bottom:24px;left:24px;width:52px;height:52px;background:#25D366;border-radius:50%;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.35);z-index:998;text-decoration:none;transition:transform .2s,box-shadow .2s}
 .wa-float:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(37,211,102,.45)}
 @media(max-width:768px){.wa-float{display:flex}}
+#wa-modal{display:none;position:fixed;inset:0;z-index:9999}#wa-modal.open{display:block}#wa-overlay{position:absolute;inset:0;background:rgba(45,40,32,.45)}#wa-box{position:absolute;bottom:88px;left:16px;width:280px;background:#FDFAF6;border:.5px solid #EDE5D8;border-radius:16px;box-shadow:0 12px 40px rgba(45,40,32,.18);overflow:hidden;font-family:'Inter',sans-serif}#wa-head{display:flex;align-items:center;justify-content:space-between;padding:13px 16px 11px;border-bottom:.5px solid #EDE5D8}#wa-title{font-size:12px;font-weight:600;color:#2D2820;letter-spacing:.02em}#wa-close{background:none;border:none;cursor:pointer;color:#8B7D6B;font-size:20px;line-height:1;padding:0;width:24px;height:24px;display:flex;align-items:center;justify-content:center}.wa-opt{display:block;width:100%;text-align:left;padding:11px 16px;background:none;border:none;border-bottom:.5px solid #EDE5D8;cursor:pointer;font-size:13px;color:#2D2820;font-family:'Inter',sans-serif;line-height:1.4;transition:background .15s}.wa-opt:hover{background:#F5EFE6}#wa-custom-wrap{padding:12px 16px 14px;border-top:.5px solid #EDE5D8}#wa-custom-lbl{font-size:11px;color:#8B7D6B;margin:0 0 7px}#wa-custom-ta{width:100%;box-sizing:border-box;border:.5px solid #EDE5D8;border-radius:8px;padding:8px 10px;font-size:12px;font-family:'Inter',sans-serif;color:#2D2820;background:#fff;resize:none;outline:none;line-height:1.5;display:block}#wa-custom-ta:focus{border-color:#C77936}#wa-send-btn{margin-top:8px;width:100%;background:#25D366;color:#FDFAF6;border:none;border-radius:8px;padding:9px 0;font-size:12px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
 /* Hero image parallax hint */
 .hero-visual img{transition:transform 0ms linear}
 /* Testimonial cs box subtle lift */
@@ -808,7 +813,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
     <div class="hero-visual" style="padding:0;overflow:hidden;border-radius:2px 2px 80px 2px">
       <img src="images/hero_index.webp" alt="Before & After RentUP" width="900" height="600" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;display:block"/>
       <div class="hero-badge">
-        <div><div class="hb-val count-anim" data-val="200" data-pre="+" data-suf="€">+200€</div><div class="hb-label">chirie lunară<br>în plus</div></div>
+        <div><div class="hb-val count-anim" data-val="200" data-pre="până la +" data-suf="€">până la +200€</div><div class="hb-label">chirie lunară în plus</div></div>
       </div>
     </div>
   </div>
@@ -818,8 +823,8 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 <!-- STATS -->
 <div id="stats">
   <div class="stats-g">
-    <div class="stat"><div class="stat-v">+200€</div><div class="stat-l">chirie lunară în plus, în medie</div></div>
-    <div class="stat"><div class="stat-v">~8 luni</div><div class="stat-l">recuperare completă a investiției</div></div>
+    <div class="stat"><div class="stat-v">până la +200€</div><div class="stat-l">chirie lunară în plus</div></div>
+    <div class="stat"><div class="stat-v">de la 8 luni</div><div class="stat-l">recuperare a investiției</div></div>
     <div class="stat" style="border-top:.5px solid var(--border);border-right:.5px solid var(--border)"><div class="stat-v">5 zile</div><div class="stat-l">până la primul chiriaș potrivit</div></div>
 <div class="stat" style="border-top:.5px solid var(--border)"><div class="stat-v">Gratuit</div><div class="stat-l">consultația inițială</div></div>
   </div>
@@ -877,7 +882,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
           <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--mid)"><span>Timp pierdut (vizionări, reparații, stres)</span><strong style="color:var(--text)">~20 ore (≈800€)</strong></div>
         </div>
       </div>
-      <a class="btn-primary" href="rental-kit.html" onclick="gtag('event','click_risk_calc_cta')" style="display:block;text-align:center;margin-top:20px;font-size:13px;padding:11px">Vezi cum previi acest scenariu →</a>
+      <a class="btn-primary" href="/#quick-win" onclick="gtag('event','click_risk_calc_cta')" style="display:block;text-align:center;margin-top:20px;font-size:13px;padding:11px">Vezi pachetul Quick Win →</a>
     </div>
 
     <!-- COL 2: results -->
@@ -976,27 +981,26 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
     <div class="fc">
       <div class="fc-t yes">✓ Potrivit pentru tine dacă...</div>
       <ul>
-        <li>Vrei să îți crești chiria și înțelegi că asta necesită o investiție inițială</li>
-        <li>Ai un buget realist pentru implementare</li>
-        <li>Ești dispus să urmezi un proces clar, cu etape definite</li>
-        <li>Vrei chiriași stabili pe termen lung, nu cea mai rapidă ocupare</li>
-        <li>Îți pasă cum arată și funcționează spațiul tău</li>
-        <li>Ești deschis la recomandări profesionale</li>
+        <li>Te muți și vrei să închiriezi: vrei apartamentul pregătit, nu improvizat</li>
+        <li>Ai avut un chiriaș problematic și vrei un sistem care să nu mai repete asta</li>
+        <li>Ai un apartament de investiție și vrei chirie peste media zonei</li>
+        <li>Ai un buget realist și ești dispus să urmezi un proces cu etape clare</li>
+        <li>Vrei mai mult decât un anunț pe OLX: vrei apartamentul pregătit profesional</li>
+        <li>Ești deschis la recomandări bazate pe piață, nu doar pe preferințe estetice</li>
       </ul>
     </div>
     <div class="fc no-c">
       <div class="fc-t no">✗ Nu este pentru tine dacă...</div>
       <ul>
-        <li>Vrei „doar niște randări rapide" fără un proces real</li>
-        <li>Schimbi direcția zilnic sau nu știi ce vrei</li>
-        <li>Cauți cel mai ieftin preț din piață</li>
-        <li>Nu ești dispus să investești în calitate durabilă</li>
-        <li>Vrei rezultate instant, fără etape</li>
-        <li>Ai deja contractori și vrei doar validare estetică</li>
+        <li>Vrei „doar niște randări rapide" fără să implementezi nimic</li>
+        <li>Schimbi direcția săptămânal sau nu ai o decizie clară despre apartament</li>
+        <li>Vrei validare pentru ce ai decis deja, nu o perspectivă profesională nouă</li>
+        <li>Nu ești dispus să urmezi etapele unui proces</li>
+        <li>Ai nevoie de rezultate în câteva zile, nu săptămâni</li>
       </ul>
     </div>
   </div>
-  <div class="fit-note">Nu colaborăm pentru a face un apartament DOAR mai frumos. Colaborăm pentru a-l transforma într-un activ stabil și profitabil. Dacă obiectivele tale se aliniază cu asta, suntem în locul potrivit.</div>
+  <div class="fit-note">Lucrăm cu proprietari cu obiective diferite: de la design simplu pentru o închiriere rapidă, la investiții complete cu ROI pe termen lung. Dacă vrei ca apartamentul tău să lucreze pentru tine, suntem în locul potrivit.</div>
   </div>
 </section>
 
@@ -1020,9 +1024,12 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
     <div class="pt-item"><span class="pt-dot"></span><div class="pt-label">Apartament listat</div><div class="pt-time">etapa finală</div></div>
   </div>
   <div class="proc-total">
-    <span class="proc-total-chip"><b>Standard:</b> 4–6 săptămâni total</span>
-    <span class="proc-total-chip"><b>Premium:</b> 8–12 săptămâni total</span>
+    <span class="proc-total-chip"><b>Design pentru chirie:</b> 2–6 săpt.</span>
+    <span class="proc-total-chip"><b>Quick Win:</b> 1–2 săpt.</span>
+    <span class="proc-total-chip"><b>Invest Standard:</b> 4–6 săpt.</span>
+    <span class="proc-total-chip"><b>Invest Premium:</b> 8–12 săpt.</span>
   </div>
+  <p style="text-align:center;font-size:12px;color:var(--muted);margin-top:12px">Durate medii orientative. Variabila principală e viteza de feedback și disponibilitatea furnizorilor.</p>
 </section>
 
 
@@ -1055,7 +1062,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
           <div class="ba-overlay"><span>Vezi toate proiectele →</span></div>
         </div>
         <div class="ba-info">
-          <div><div class="ba-name">Garsonieră Vatra Luminoasă · 32 mp</div><div class="ba-meta">Pachet Standard · 2 săptămâni</div></div>
+          <div><div class="ba-name">Garsonieră Vatra Luminoasă · 32 mp</div><div class="ba-meta">Pachet Invest Standard · 2 săptămâni</div></div>
           <div class="ba-res">450€</div>
         </div>
       </div>
@@ -1067,7 +1074,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
           <div class="ba-overlay"><span>Vezi toate proiectele →</span></div>
         </div>
         <div class="ba-info">
-          <div><div class="ba-name">2 camere Drumul Taberei · 55 mp</div><div class="ba-meta">Pachet Premium · 12 săptămâni</div></div>
+          <div><div class="ba-name">2 camere Drumul Taberei · 55 mp</div><div class="ba-meta">Pachet Invest Premium · 12 săptămâni</div></div>
           <div class="ba-res">400€ → 550€</div>
         </div>
       </div>
@@ -1111,7 +1118,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
       <div class="cs-tags">
         <span class="cs-tag">București · Sector 6</span>
         <span class="cs-tag">55 mp</span>
-        <span class="cs-tag">Pachet Standard</span>
+        <span class="cs-tag">Pachet Invest Standard</span>
         <span class="cs-tag">6 săptămâni</span>
       </div>
     </div>
@@ -1128,7 +1135,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         <div style="display:flex;flex-direction:column;height:100%">
           <div class="cs-sl">Buget implementare</div>
           <div class="bud-g">
-            <div class="bud-row"><span>Serviciu design (Premium)</span><strong>2.750€</strong></div>
+            <div class="bud-row"><span>Serviciu design (Invest Premium)</span><strong>2.750€</strong></div>
             <div class="bud-row"><span>Renovare + manoperă</span><strong>5.000€</strong></div>
             <div class="bud-row"><span>Mobilier + accesorii</span><strong>4.100€</strong></div>
             <div class="bud-tot"><span>Total investiție</span><span>11.850€</span></div>
@@ -1142,7 +1149,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         <div class="cs-r"><div class="cs-rv count-anim" data-val="12" data-pre="" data-suf=" luni">12 luni</div><div class="cs-rl">durata șederii<br>(contract semnat pe 2 ani de la început)</div></div>
         <div class="cs-r"><div class="cs-rv count-anim" data-val="48" data-pre="" data-suf=" luni">~48 luni</div><div class="cs-rl">recuperare completă a investiției (din chiria extra + rotația de chiriași eliminată)</div></div>
       </div>
-      <div class="cs-q">„Am fost foarte mulțumit de rezultat. Apartamentul a ieșit exact așa cum mi-a fost prezentat, iar găsirea noilor chiriași a fost mult mai ușoară decât mă așteptam.”<div class="cs-qa">Dl. Ciobanu, proprietar apartament 2 camere · Pachet Premium</div></div>
+      <div class="cs-q">„Am fost foarte mulțumit de rezultat. Apartamentul a ieșit exact așa cum mi-a fost prezentat, iar găsirea noilor chiriași a fost mult mai ușoară decât mă așteptam.”<div class="cs-qa">Dl. Ciobanu, proprietar apartament 2 camere · Pachet Invest Premium</div></div>
     </div>
   </div>
 
@@ -1153,7 +1160,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
       <div class="cs-tags">
         <span class="cs-tag">București · Sector 1</span>
         <span class="cs-tag">52 mp</span>
-        <span class="cs-tag">Pachet Standard</span>
+        <span class="cs-tag">Pachet Invest Standard</span>
         <span class="cs-tag">4 săptămâni</span>
       </div>
     </div>
@@ -1170,7 +1177,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         <div style="display:flex;flex-direction:column;height:100%">
           <div class="cs-sl">Buget implementare</div>
           <div class="bud-g">
-            <div class="bud-row"><span>Serviciu design (Standard)</span><strong>1.456€</strong></div>
+            <div class="bud-row"><span>Serviciu design (Invest Standard)</span><strong>1.456€</strong></div>
             <div class="bud-row"><span>Mobilier</span><strong>2.000€</strong></div>
             <div class="bud-row"><span>Accesorii + decor</span><strong>700€</strong></div>
             <div class="bud-tot"><span>Total investiție</span><span>4.156€</span></div>
@@ -1184,7 +1191,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         <div class="cs-r"><div class="cs-rv count-anim" data-val="24" data-pre="" data-suf=" luni">24 luni</div><div class="cs-rl">durata șederii<br>(contract semnat pe 2 ani de la început)</div></div>
         <div class="cs-r"><div class="cs-rv count-anim" data-val="14" data-pre="" data-suf=" luni">~14 luni</div><div class="cs-rl">recuperare completă a investiției (din chiria extra + rotația de chiriași eliminată)</div></div>
       </div>
-      <div class="cs-q">„Sincer, mă așteptam la randări frumoase și atât. Nu mă așteptam să am și un sistem clar pentru ce fac cu apartamentul după. Chiriașul de acum e cel mai bun pe care l-am avut și cred că asta nu e o coincidență."<div class="cs-qa">Costin, proprietar apartament 2 camere · Pachet Standard</div></div>
+      <div class="cs-q">„Sincer, mă așteptam la randări frumoase și atât. Nu mă așteptam să am și un sistem clar pentru ce fac cu apartamentul după. Chiriașul de acum e cel mai bun pe care l-am avut și cred că asta nu e o coincidență."<div class="cs-qa">Costin, proprietar apartament 2 camere · Pachet Invest Standard</div></div>
     </div>
   </div>
   </div>
@@ -1259,8 +1266,33 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 <section id="packages">
   <div class="sec-tag"><div class="dot"></div>Pachete</div>
   <h2 class="sh">Alege pachetul potrivit.</h2>
-  <p class="sec-sub">Fiecare proiect începe cu un pachet de design. Premium include tot: de la concept până la primul chiriaș semnat.</p>
+  <p class="sec-sub">Cinci trepte, un singur sistem. Fiecare pachet vine cu Rental Kit, mai puțin Design pentru chirie.</p>
   <div class="pkg-g">
+
+    <!-- 1. Design pentru chirie -->
+    <div class="pkg">
+      <div class="pkg-h">
+        <div class="pkg-name">Design pentru chirie</div>
+        <div class="pkg-price"><span class="count-anim" data-val="28" data-pre="" data-suf="€">28€</span><span> / mp</span></div>
+        <div style="font-size:12px;color:var(--muted);margin-top:2px">Minim 1.100€</div>
+        <div class="pkg-desc">Doar design. Optimizăm spațiul pentru un public larg de chiriași, fără sistemul complet de selecție și contracte.</div>
+      </div>
+      <div class="pkg-div"></div>
+      <div class="pkg-b">
+        <div class="pkg-sl">Ce primești</div>
+        <div class="pf"><span class="fd">–</span><span>Plan de amenajare + moodboard per cameră</span></div>
+        <div class="pf"><span class="fd">–</span><span>Buget mobilier și decor, cu furnizori</span></div>
+        <div class="pf"><span class="fd">–</span><span>1 vizită pe șantier</span></div>
+        <div class="pf"><span class="fdo">–</span><span class="fo">Fără Rental Kit, fără selecție chiriaș, fără listare</span></div>
+        <div style="margin-top:auto;padding-top:14px"><div style="padding:10px 12px;background:var(--bg-stone);border-radius:8px;font-size:12px;line-height:1.6;color:var(--dark)">Vrei și sistemul de selecție a chiriașului? Adaugi Rental Kit separat, oricând.</div></div>
+      </div>
+      <div style="padding:16px 24px 20px">
+        <a href="#contact" class="btn-primary" style="display:block;text-align:center;padding:11px;font-size:14px">Solicită ofertă →</a>
+        <p style="text-align:center;font-size:11px;color:var(--muted);margin-top:8px;line-height:1.5">Primești un ghid de onboarding în 24h cu pașii următori.</p>
+      </div>
+    </div>
+
+    <!-- 2. Raport de Rentabilitate -->
     <div class="pkg">
       <div class="pkg-h">
         <div class="pkg-name">Raport de Rentabilitate</div>
@@ -1275,14 +1307,47 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         <div class="pf"><span class="fd">–</span><span>Analiza chiriei corecte pentru zona ta</span></div>
         <div class="pf"><span class="fd">–</span><span>Intervenții prioritizate + buget estimat</span></div>
         <div class="pf"><span class="fd">–</span><span>ROI estimat și recomandare pachet</span></div>
-      
       </div>
       <div style="padding:16px 24px 20px">
         <a href="audit.html" onclick="gtag('event','click_audit_cta');gtag('event','conversion',{'send_to':'AW-18253477545'});" class="btn-primary" style="display:block;text-align:center;padding:11px;font-size:14px">Află mai multe →</a>
+        <p style="text-align:center;font-size:11px;color:var(--muted);margin-top:8px;line-height:1.5">Gratuit și fără angajament. Raportul livrat în 72h de la vizită.</p>
       </div>
     </div>
+
+    <!-- 3. Quick Win -->
+    <div class="pkg" id="quick-win">
+      <div class="pkg-h">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px"><div class="pkg-name" style="margin-bottom:0">Quick Win</div><div style="background:#2D6A4F;color:#FDFAF6;font-size:10px;font-weight:600;padding:4px 10px;border-radius:100px;letter-spacing:.1em;text-transform:uppercase">8–12 luni ROI</div></div>
+        <div class="pkg-price"><span class="count-anim" data-val="22" data-pre="" data-suf="€">22€</span><span> / mp</span></div>
+        <div style="font-size:12px;color:var(--muted);margin-top:2px">Minim 750€</div>
+        <div class="pkg-desc">Pentru apartamente aproape gata. Nu schimbăm finisaje, doar completăm ce lipsește.</div>
+      </div>
+      <div class="pkg-div"></div>
+      <div class="pkg-b">
+        <div class="pkg-sl">Design</div>
+        <div class="pf"><span class="fd">–</span><span>Plan de amenajare + moodboard</span></div>
+        <div class="pf"><span class="fd">–</span><span>Buget mobilier, textile și iluminat, cu furnizori</span></div>
+        <div class="pf"><span class="fd">–</span><span>1 vizită pe șantier</span></div>
+        <div class="pkg-sl kit-label"><a href="rental-kit.html" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--brand-border)">Rental Kit</a> <a href="rental-kit.html" style="font-size:11px;color:var(--brand);font-weight:500;text-decoration:none">(detalii →)</a></div>
+        <div class="pf"><span class="fd">–</span><span>Selecție chiriaș + contract personalizat</span></div>
+        <div class="pf"><span class="fd">–</span><span>Documente legale personalizate</span></div>
+        <div class="pf"><span class="fd">–</span><span>Prezentare profesională a apartamentului</span></div>
+        <div style="margin-top:auto;padding-top:14px"><div style="padding:10px 12px;background:var(--bg-stone);border-radius:8px;font-size:12px;line-height:1.6;color:var(--dark)">Se potrivește dacă finisajele (faianță, gresie, pereți, parchet) sunt estetice și în stare bună. Dacă bucătăria sau baia au nevoie de refacere structurală sau intervenții majore, atunci discutăm de Invest Standard sau Invest Premium.</div></div>
+      </div>
+      <div style="padding:16px 24px 20px">
+        <a href="#contact" class="btn-primary" style="display:block;text-align:center;padding:11px;font-size:14px">Solicită ofertă →</a>
+        <p style="text-align:center;font-size:11px;color:var(--muted);margin-top:8px;line-height:1.5">Primești un ghid de onboarding în 24h cu pașii următori.</p>
+      </div>
+    </div>
+
+    <!-- 4. Invest Standard -->
     <div class="pkg pkg-std">
-      <div class="pkg-h"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px"><div class="pkg-name" style="margin-bottom:0">Standard</div><div style="background:var(--brand);color:#FDFAF6;font-size:10px;font-weight:600;padding:4px 10px;border-radius:100px;letter-spacing:.1em;text-transform:uppercase">Recomandat</div></div><div class="pkg-price"><span class="count-anim" data-val="28" data-pre="" data-suf="€">28€</span><span> / mp</span></div><div style="font-size:12px;color:var(--muted);margin-top:2px">Minim 1.100€</div><div class="pkg-desc">Pentru apartamente care nu necesită schimbarea finisajelor sau intervenții majore.</div></div>
+      <div class="pkg-h">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px"><div class="pkg-name" style="margin-bottom:0">Invest Standard</div><div style="background:var(--brand);color:#FDFAF6;font-size:10px;font-weight:600;padding:4px 10px;border-radius:100px;letter-spacing:.1em;text-transform:uppercase">Recomandat</div></div>
+        <div class="pkg-price"><span class="count-anim" data-val="35" data-pre="" data-suf="€">35€</span><span> / mp</span></div>
+        <div style="font-size:12px;color:var(--muted);margin-top:2px">Minim 1.500€</div>
+        <div class="pkg-desc">Pentru apartamentul pe care îl ții ca investiție pe termen lung, nu ca soluție de moment.</div>
+      </div>
       <div class="pkg-div"></div>
       <div class="pkg-b">
         <div class="pkg-sl">Design</div>
@@ -1291,16 +1356,22 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         <div class="pf"><span class="fd">–</span><span>Randări la nevoie sau moodboard detaliat</span></div>
         <div class="pkg-sl">Execuție</div>
         <div class="pf"><span class="fd">–</span><span>3 vizite pe șantier</span></div>
-        <div class="pkg-sl kit-label"><a href="rental-kit.html" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--brand-border)">Rental Kit Full</a> <a href="rental-kit.html" style="font-size:11px;color:var(--brand);font-weight:500;text-decoration:none">(detalii →)</a></div>
-        <div class="pf"><span class="fd">–</span><span>Ghid proprietar</span></div>
-        <div class="pf"><span class="fd">–</span><span>Ghid chiriaș</span></div>
+        <div class="pkg-sl kit-label"><a href="rental-kit.html" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--brand-border)">Rental Kit</a> <a href="rental-kit.html" style="font-size:11px;color:var(--brand);font-weight:500;text-decoration:none">(detalii →)</a></div>
+        <div class="pf"><span class="fd">–</span><span>Selecție chiriaș + contract personalizat</span></div>
         <div class="pf"><span class="fd">–</span><span>Documente legale personalizate</span></div>
         <div class="pf"><span class="fd">–</span><span>Prezentare profesională a apartamentului</span></div>
         <div style="margin-top:auto;padding-top:14px"><div style="padding:10px 12px;background:var(--bg-stone);border-radius:8px;font-size:12px;line-height:1.6;color:var(--dark)">Tu coordonezi execuția. Noi îți dăm planul, furnizorii, documentele și prezentarea.</div></div>
       </div>
     </div>
+
+    <!-- 5. Invest Premium -->
     <div class="pkg pkg-pre">
-      <div class="pkg-h"><div class="pkg-name">Premium</div><div class="pkg-price"><span class="count-anim" data-val="50" data-pre="" data-suf="€">50€</span><span> / mp</span></div><div style="font-size:12px;color:rgba(253,250,246,.65);margin-top:2px">Minim 1.800€</div><div class="pkg-desc">Pentru apartamente cu schimbări de finisaje, bucătărie sau mobilier custom.</div></div>
+      <div class="pkg-h">
+        <div class="pkg-name">Invest Premium</div>
+        <div class="pkg-price"><span class="count-anim" data-val="58" data-pre="" data-suf="€">58€</span><span> / mp</span></div>
+        <div style="font-size:12px;color:rgba(253,250,246,.65);margin-top:2px">Minim 2.200€</div>
+        <div class="pkg-desc">Pentru apartamentul care are nevoie de mai mult decât mobilier ca să ajungă la potențialul lui real.</div>
+      </div>
       <div class="pkg-div"></div>
       <div class="pkg-b">
         <div class="pkg-sl">Design</div>
@@ -1309,18 +1380,18 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         <div class="pf"><span class="fd">–</span><span>Randări complete per cameră</span></div>
         <div class="pf"><span class="fd">–</span><span>Documentație mobilier custom</span></div>
         <div class="pkg-sl">Execuție</div>
-        <div class="pf"><span class="fd">–</span><span>Vizite până la implementare, în funcție de complexitatea proiectului</span></div>
-        <div class="pf"><span class="fd">–</span><span>Recomandări furnizori implementare + agenți imobiliari</span></div>
-        <div class="pkg-sl kit-label"><a href="rental-kit.html" style="color:inherit;text-decoration:none">Rental Kit Full Service</a> <a href="rental-kit.html" style="font-size:11px;font-weight:500;text-decoration:none;color:inherit">(detalii →)</a></div>
-        <div class="pf"><span class="fd">–</span><span>Ghid proprietar</span></div>
-        <div class="pf"><span class="fd">–</span><span>Ghid chiriaș</span></div>
+        <div class="pf"><span class="fd">–</span><span>Vizite pe șantier până la finalizarea proiectului</span></div>
+        <div class="pkg-sl kit-label"><a href="rental-kit.html" style="color:inherit;text-decoration:none">Rental Kit</a> <a href="rental-kit.html" style="font-size:11px;font-weight:500;text-decoration:none;color:inherit">(detalii →)</a></div>
+        <div class="pf"><span class="fd">–</span><span>Selecție chiriaș + contract personalizat</span></div>
         <div class="pf"><span class="fd">–</span><span>Documente legale personalizate</span></div>
         <div class="pf"><span class="fd">–</span><span>Prezentare profesională a apartamentului</span></div>
-        <div style="margin-top:auto;padding-top:14px"><div style="padding:10px 12px;background:rgba(255,255,255,.15);border-radius:8px;font-size:12px;line-height:1.6;color:#FDFAF6">Tu decizi. De execuție, furnizori și prezentare ne ocupăm noi.</div></div>
+        <div style="margin-top:auto;padding-top:14px"><div style="padding:10px 12px;background:rgba(255,255,255,.15);border-radius:8px;font-size:12px;line-height:1.6;color:#FDFAF6">Renovare, finisaje, mobilier custom. Tot procesul, de la concept la primul chiriaș semnat.</div></div>
       </div>
     </div>
+
   </div>
- 
+  <p style="text-align:center;font-size:13px;color:var(--muted);margin-top:20px;line-height:1.65">Nu te angajezi la nimic fără Raportul de Rentabilitate. Îl primești gratuit, cu cifre reale pentru apartamentul tău. Abia după decizi dacă și cât vrei să investești.</p>
+
   </div>
 </section>
 
@@ -1356,7 +1427,6 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
     <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">Ce fac dacă chiriașul nu plătește sau pleacă cu datorii?<span class="fi-icon">+</span></div><div class="fa">Rental Kit-ul include un protocol pas cu pas pentru exact această situație, de la primul reminder la Ziua 1 până la executare silită. Contractul înregistrat la ANAF este titlu executoriu pentru sume. Contractul autentificat notarial permite evacuare prin executor direct, fără instanță separată.</div></div>
     <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">Cât durează să găsesc chiriaș după finalizarea proiectului?<span class="fi-icon">+</span></div><div class="fa">Un apartament fotografiat profesional și listat corect pe 3 platforme găsește chiriaș în 1–3 săptămâni în București. Comparativ, un anunț cu fotografii de telefon și text slab poate sta neînchiriat 1–3 luni la același preț și aceeași zonă.</div></div>
     <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">Merită să investesc în design pentru un apartament de închiriat?<span class="fi-icon">+</span></div><div class="fa">Depinde de cât costă să nu o faci. Un proprietar fără sistem rulează în medie 3–4 chiriași în 5 ani. Fiecare schimbare înseamnă luni goale, reparații și selecție nouă. Raportul de Rentabilitate calculează exact cât costă situația ta actuală față de situația optimizată. Gratuit, fără angajament.</div></div>
-    <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">Cât durează un proiect?<span class="fi-icon">+</span></div><div class="fa">Standard: 4–6 săptămâni. Premium cu suport complet în execuție: 8–12 săptămâni. Cea mai mare variabilă e viteza de feedback din partea ta și disponibilitatea meșterilor dacă sunt lucrări.</div></div>
     <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">Lucrați doar în București?<span class="fi-icon">+</span></div><div class="fa">Vizitele pe teren le facem în București și zona metropolitană. Proiectele de design le realizăm pentru orice locație din România, livrăm digital. Contactează-ne cu detalii.</div></div>
   </div>
   <div style="text-align:center;margin-top:32px">
@@ -1574,9 +1644,46 @@ document.addEventListener('click',function(e){
 </script>
 
 <!-- WhatsApp Floating (mobil) -->
-<a href="https://wa.me/40741176865" class="wa-float" aria-label="Scrie-ne pe WhatsApp" onclick="gtag('event','click_whatsapp_floating'); return gtag_report_conversion_whatsapp(this.href);" target="_blank" rel="noopener">
+<div id="wa-modal">
+  <div id="wa-overlay"></div>
+  <div id="wa-box">
+    <div id="wa-head"><span id="wa-title">Cum te putem ajuta?</span><button id="wa-close" aria-label="Închide">&times;</button></div>
+    <div id="wa-opts">
+      <button class="wa-opt" data-msg="Bună ziua! Vreau să programez un Raport de Rentabilitate gratuit pentru apartamentul meu.">Raport de Rentabilitate gratuit</button>
+      <button class="wa-opt" data-msg="Bună ziua! Mă interesează pachetul Quick Win, apartamentul e aproape gata, fără renovări majore.">Pachet Quick Win</button>
+      <button class="wa-opt" data-msg="Bună ziua! Vreau să discutăm un proiect de optimizare completă (Invest Standard sau Premium).">Proiect Invest (Standard sau Premium)</button>
+    </div>
+    <div id="wa-custom-wrap">
+      <p id="wa-custom-lbl">sau scrie direct:</p>
+      <textarea id="wa-custom-ta" rows="2" placeholder="Mesajul tău..."></textarea>
+      <button id="wa-send-btn">Trimite pe WhatsApp</button>
+    </div>
+  </div>
+</div>
+<a href="https://wa.me/40741176865" class="wa-float" aria-label="Scrie-ne pe WhatsApp" target="_blank" rel="noopener">
   <svg width="26" height="26" viewBox="0 0 24 24" fill="#FDFAF6" aria-hidden="true"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4a8.94 8.94 0 0 0-7.74 13.4L3 21l3.7-1.27A8.93 8.93 0 0 0 12.05 21h.01A8.94 8.94 0 0 0 21 12.06a8.9 8.9 0 0 0-3.4-5.74zm-5.55 13.1h-.01a7.4 7.4 0 0 1-3.78-1.04l-.27-.16-2.81.97.94-2.74-.18-.28a7.45 7.45 0 0 1 11.66-9.13 7.4 7.4 0 0 1 2.18 5.27 7.46 7.46 0 0 1-7.73 7.1zm4.08-5.56c-.22-.11-1.32-.65-1.53-.73-.2-.07-.35-.11-.5.11-.15.22-.57.73-.7.88-.13.15-.26.16-.48.05-.22-.11-.93-.34-1.77-1.1a6.6 6.6 0 0 1-1.22-1.51c-.13-.22-.01-.34.11-.45.11-.11.25-.28.37-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.03-.41-.07-.11-.6-1.45-.82-1.98-.22-.53-.44-.46-.6-.46-.15 0-.33-.01-.5-.01-.18 0-.46.06-.7.32-.24.26-.92.9-.92 2.18 0 1.28.93 2.52 1.06 2.7.13.18 1.78 2.71 4.31 3.69 2.53.98 2.53.65 2.99.61.46-.04 1.32-.54 1.5-1.06.19-.52.19-.97.13-1.06-.06-.1-.22-.16-.44-.27z"/></svg>
 </a>
+<script>
+(function(){
+  var WA='https://wa.me/40741176865';
+  function openModal(){document.getElementById('wa-modal').classList.add('open');}
+  function closeModal(){document.getElementById('wa-modal').classList.remove('open');}
+  function sendWa(msg){
+    gtag('event','click_whatsapp_floating');
+    if(typeof gtag_report_conversion_whatsapp==='function')gtag_report_conversion_whatsapp(WA);
+    else gtag('event','conversion',{'send_to':'AW-18253477545'});
+    window.open(WA+'?text='+encodeURIComponent(msg),'_blank','noopener,noreferrer');
+    closeModal();
+  }
+  document.getElementById('wa-close').addEventListener('click',closeModal);
+  document.getElementById('wa-overlay').addEventListener('click',closeModal);
+  document.querySelectorAll('.wa-opt').forEach(function(b){b.addEventListener('click',function(){sendWa(this.getAttribute('data-msg'));});});
+  document.getElementById('wa-send-btn').addEventListener('click',function(){var msg=document.getElementById('wa-custom-ta').value.trim();if(msg)sendWa(msg);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+  var waBtn=document.querySelector('.wa-float');
+  if(waBtn)waBtn.addEventListener('click',function(e){e.preventDefault();openModal();});
+})();
+</script>
 
 <!-- Back to Top -->
 <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Înapoi sus" style="display:none;position:fixed;bottom:24px;right:24px;width:44px;height:44px;background:#C77936;border:none;border-radius:50%;cursor:pointer;z-index:998;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(199,121,54,.3);transition:background .2s,transform .2s,box-shadow .2s;font-size:18px;color:#FDFAF6">↑</button>
@@ -1675,10 +1782,9 @@ if(idx>0) el.style.transitionDelay=(idx*(isListItem?40:55))+'ms';
 // Counter animat pe stats
 (function(){
   var defs=[
-    {sel:'.stats-g .stat:nth-child(1) .stat-v',from:0,to:200,pre:'+',suf:'€',dur:1200},
-    {sel:'.stats-g .stat:nth-child(2) .stat-v',from:0,to:8,pre:'~',suf:' luni',dur:1000},
-    {sel:'.stats-g .stat:nth-child(3) .stat-v',from:0,to:5,pre:'',suf:' zile',dur:800},
-    {sel:'.stats-g .stat:nth-child(4) .stat-v',from:0,to:200,pre:'',suf:'€',dur:1000}
+    {sel:'.stats-g .stat:nth-child(1) .stat-v',from:0,to:200,pre:'până la +',suf:'€',dur:1200},
+    {sel:'.stats-g .stat:nth-child(2) .stat-v',from:0,to:8,pre:'de la ',suf:' luni',dur:1000},
+    {sel:'.stats-g .stat:nth-child(3) .stat-v',from:0,to:5,pre:'',suf:' zile',dur:800}
   ];
   var done=false;
   function ease(t){return 1-Math.pow(1-t,3)}

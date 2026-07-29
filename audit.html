@@ -224,8 +224,10 @@ button,a{touch-action:manipulation}
   "description": "Evaluare completă a apartamentului: scor per cameră, chirie corectă pentru zona ta, intervenții prioritizate și ROI estimat. Livrat în 72h.",
   "offers": {
     "@type": "Offer",
-    "price": "200",
-    "priceCurrency": "EUR"
+    "price": "0",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "description": "Gratuit"
   },
   "areaServed": "București",
   "url": "https://www.rentup.solutions/audit.html"
@@ -381,7 +383,7 @@ button,a{touch-action:manipulation}
       <div class="fw-c no-c sr">
         <div class="fw-t no">✗ Probabil nu ai nevoie dacă...</div>
         <ul>
-          <li>Apartamentul e gol și neamenajat complet. Poți începe direct cu pachetul Standard sau Premium</li>
+          <li>Apartamentul e gol și neamenajat complet. Poți începe direct cu pachetul Invest Standard sau Invest Premium</li>
           <li>Știi deja exact ce vrei să schimbi și ai bugetul pregătit</li>
           <li>Cauți confirmare emoțională, nu analiză obiectivă</li>
         </ul>
@@ -419,8 +421,8 @@ button,a{touch-action:manipulation}
           <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:#B8AFA4;margin-bottom:14px">Servicii</div>
           <div style="display:flex;flex-direction:column;gap:10px">
             <a href="audit.html" style="font-size:13px;color:#7A6E62;text-decoration:none">Raport de Rentabilitate</a>
-            <a href="/#packages" style="font-size:13px;color:#7A6E62;text-decoration:none">Pachet Standard</a>
-            <a href="/#packages" style="font-size:13px;color:#7A6E62;text-decoration:none">Pachet Premium</a>
+            <a href="/#packages" style="font-size:13px;color:#7A6E62;text-decoration:none">Invest Standard</a>
+            <a href="/#packages" style="font-size:13px;color:#7A6E62;text-decoration:none">Invest Premium</a>
             <a href="rental-kit.html" style="font-size:13px;color:#7A6E62;text-decoration:none">Rental Kit</a>
           </div>
         </div>
@@ -493,10 +495,49 @@ document.addEventListener('click',function(e){
 </script>
 
 <!-- WhatsApp Floating (mobil) -->
-<style>.wa-float{display:none;position:fixed;bottom:24px;left:24px;width:52px;height:52px;background:#25D366;border-radius:50%;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.35);z-index:998;text-decoration:none;transition:transform .2s,box-shadow .2s}.wa-float:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(37,211,102,.45)}@media(max-width:768px){.wa-float{display:flex}}</style>
-<a href="https://wa.me/40741176865" class="wa-float" aria-label="Scrie-ne pe WhatsApp" onclick="gtag('event','click_whatsapp_floating');gtag('event','conversion',{'send_to':'AW-18253477545'});" target="_blank" rel="noopener">
+<style>.wa-float{display:none;position:fixed;bottom:24px;left:24px;width:52px;height:52px;background:#25D366;border-radius:50%;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.35);z-index:998;text-decoration:none;transition:transform .2s,box-shadow .2s}.wa-float:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(37,211,102,.45)}@media(max-width:768px){.wa-float{display:flex}}
+#wa-modal{display:none;position:fixed;inset:0;z-index:9999}#wa-modal.open{display:block}#wa-overlay{position:absolute;inset:0;background:rgba(45,40,32,.45)}#wa-box{position:absolute;bottom:88px;left:16px;width:280px;background:#FDFAF6;border:.5px solid #EDE5D8;border-radius:16px;box-shadow:0 12px 40px rgba(45,40,32,.18);overflow:hidden;font-family:'Inter',sans-serif}#wa-head{display:flex;align-items:center;justify-content:space-between;padding:13px 16px 11px;border-bottom:.5px solid #EDE5D8}#wa-title{font-size:12px;font-weight:600;color:#2D2820;letter-spacing:.02em}#wa-close{background:none;border:none;cursor:pointer;color:#8B7D6B;font-size:20px;line-height:1;padding:0;width:24px;height:24px;display:flex;align-items:center;justify-content:center}.wa-opt{display:block;width:100%;text-align:left;padding:11px 16px;background:none;border:none;border-bottom:.5px solid #EDE5D8;cursor:pointer;font-size:13px;color:#2D2820;font-family:'Inter',sans-serif;line-height:1.4;transition:background .15s}.wa-opt:hover{background:#F5EFE6}#wa-custom-wrap{padding:12px 16px 14px;border-top:.5px solid #EDE5D8}#wa-custom-lbl{font-size:11px;color:#8B7D6B;margin:0 0 7px}#wa-custom-ta{width:100%;box-sizing:border-box;border:.5px solid #EDE5D8;border-radius:8px;padding:8px 10px;font-size:12px;font-family:'Inter',sans-serif;color:#2D2820;background:#fff;resize:none;outline:none;line-height:1.5;display:block}#wa-custom-ta:focus{border-color:#C77936}#wa-send-btn{margin-top:8px;width:100%;background:#25D366;color:#FDFAF6;border:none;border-radius:8px;padding:9px 0;font-size:12px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}</style>
+<!-- WhatsApp Modal -->
+<div id="wa-modal">
+  <div id="wa-overlay"></div>
+  <div id="wa-box">
+    <div id="wa-head"><span id="wa-title">Cum te putem ajuta?</span><button id="wa-close" aria-label="Închide">&times;</button></div>
+    <div id="wa-opts">
+      <button class="wa-opt" data-msg="Bună ziua! Vreau să programez un Raport de Rentabilitate gratuit pentru apartamentul meu.">Raport de Rentabilitate gratuit</button>
+      <button class="wa-opt" data-msg="Bună ziua! Mă interesează pachetul Quick Win, apartamentul e aproape gata, fără renovări majore.">Pachet Quick Win</button>
+      <button class="wa-opt" data-msg="Bună ziua! Vreau să discutăm un proiect de optimizare completă (Invest Standard sau Premium).">Proiect Invest (Standard sau Premium)</button>
+    </div>
+    <div id="wa-custom-wrap">
+      <p id="wa-custom-lbl">sau scrie direct:</p>
+      <textarea id="wa-custom-ta" rows="2" placeholder="Mesajul tău..."></textarea>
+      <button id="wa-send-btn">Trimite pe WhatsApp</button>
+    </div>
+  </div>
+</div>
+<a href="https://wa.me/40741176865" class="wa-float" aria-label="Scrie-ne pe WhatsApp" target="_blank" rel="noopener">
   <svg width="26" height="26" viewBox="0 0 24 24" fill="#FDFAF6" aria-hidden="true"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4a8.94 8.94 0 0 0-7.74 13.4L3 21l3.7-1.27A8.93 8.93 0 0 0 12.05 21h.01A8.94 8.94 0 0 0 21 12.06a8.9 8.9 0 0 0-3.4-5.74zm-5.55 13.1h-.01a7.4 7.4 0 0 1-3.78-1.04l-.27-.16-2.81.97.94-2.74-.18-.28a7.45 7.45 0 0 1 11.66-9.13 7.4 7.4 0 0 1 2.18 5.27 7.46 7.46 0 0 1-7.73 7.1zm4.08-5.56c-.22-.11-1.32-.65-1.53-.73-.2-.07-.35-.11-.5.11-.15.22-.57.73-.7.88-.13.15-.26.16-.48.05-.22-.11-.93-.34-1.77-1.1a6.6 6.6 0 0 1-1.22-1.51c-.13-.22-.01-.34.11-.45.11-.11.25-.28.37-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.03-.41-.07-.11-.6-1.45-.82-1.98-.22-.53-.44-.46-.6-.46-.15 0-.33-.01-.5-.01-.18 0-.46.06-.7.32-.24.26-.92.9-.92 2.18 0 1.28.93 2.52 1.06 2.7.13.18 1.78 2.71 4.31 3.69 2.53.98 2.53.65 2.99.61.46-.04 1.32-.54 1.5-1.06.19-.52.19-.97.13-1.06-.06-.1-.22-.16-.44-.27z"/></svg>
 </a>
+<script>
+(function(){
+  var WA='https://wa.me/40741176865';
+  function openModal(){document.getElementById('wa-modal').classList.add('open');}
+  function closeModal(){document.getElementById('wa-modal').classList.remove('open');}
+  function sendWa(msg){
+    gtag('event','click_whatsapp_floating');
+    if(typeof gtag_report_conversion_whatsapp==='function')gtag_report_conversion_whatsapp(WA);
+    else gtag('event','conversion',{'send_to':'AW-18253477545'});
+    window.open(WA+'?text='+encodeURIComponent(msg),'_blank','noopener,noreferrer');
+    closeModal();
+  }
+  document.getElementById('wa-close').addEventListener('click',closeModal);
+  document.getElementById('wa-overlay').addEventListener('click',closeModal);
+  document.querySelectorAll('.wa-opt').forEach(function(b){b.addEventListener('click',function(){sendWa(this.getAttribute('data-msg'));});});
+  document.getElementById('wa-send-btn').addEventListener('click',function(){var msg=document.getElementById('wa-custom-ta').value.trim();if(msg)sendWa(msg);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+  var waBtn=document.querySelector('.wa-float');
+  if(waBtn)waBtn.addEventListener('click',function(e){e.preventDefault();openModal();});
+})();
+</script>
 
 <!-- Back to Top -->
 <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Înapoi sus" style="display:none;position:fixed;bottom:24px;right:24px;width:44px;height:44px;background:#C77936;border:none;border-radius:50%;cursor:pointer;z-index:998;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(199,121,54,.3);transition:background .2s,transform .2s,box-shadow .2s;font-size:18px;color:#FDFAF6">↑</button>
