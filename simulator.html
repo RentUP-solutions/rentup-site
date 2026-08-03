@@ -472,13 +472,17 @@ button,a,.chbtn,.tier,.cbtn,.dbtn,.tog,.preset-btn{touch-action:manipulation}
             <div class="tier-l"><div class="tier-name">Prefabricat Buget</div><div class="tier-desc">IKEA ENHET / METOD basic. Corpuri PAL simplu, fronturi ieftine, feronerie basic.</div></div>
             <div class="tier-r"><div class="tier-price">~160–240 €/ml</div><div class="tier-dur">Durată: 3-5 ani</div></div>
           </div>
-          <div class="tier sel" onclick="sOpt('buc','tier','pf-std',this)">
+          <div class="tier" onclick="sOpt('buc','tier','pf-std',this)">
             <div class="tier-l"><div class="tier-name">Prefabricat Standard <span class="rec">cel mai frecvent IKEA</span></div><div class="tier-desc">IKEA METOD configurat. Fronturi mat/MDF foil, mai multe sertare, configurări L/U posibile.</div></div>
             <div class="tier-r"><div class="tier-price">~240–400 €/ml</div><div class="tier-dur">Durată: 5-7 ani</div></div>
           </div>
-          <div class="tier" onclick="sOpt('buc','tier','cmd',this)">
-            <div class="tier-l"><div class="tier-name">La comandă PAL+MDF <span class="rec">recomandat chirii</span></div><div class="tier-desc">Mobilier local la comandă. Robustețe superioară, customizare completă, rezistă la uzură repetată.</div></div>
-            <div class="tier-r"><div class="tier-price">~800–1.200 €/ml</div><div class="tier-dur">Durată: 8-12 ani</div></div>
+          <div class="tier sel" onclick="sOpt('buc','tier','cmd-pal',this)">
+            <div class="tier-l"><div class="tier-name">La comandă PAL <span class="rec">recomandat chirii</span></div><div class="tier-desc">Corpuri PAL melaminat la comandă. Durabilitate bună, preț accesibil.</div></div>
+            <div class="tier-r"><div class="tier-price">~500 €/ml</div><div class="tier-dur">Durată: 8-10 ani</div></div>
+          </div>
+          <div class="tier" onclick="sOpt('buc','tier','cmd-mdf',this)">
+            <div class="tier-l"><div class="tier-name">La comandă MDF</div><div class="tier-desc">Fronturi MDF vopsit sau frezat. Aspect premium, rezistă la uzură intensă.</div></div>
+            <div class="tier-r"><div class="tier-price">~800 €/ml</div><div class="tier-dur">Durată: 10-15 ani</div></div>
           </div>
         </div>
       </div>
@@ -492,7 +496,7 @@ button,a,.chbtn,.tier,.cbtn,.dbtn,.tog,.preset-btn{touch-action:manipulation}
         <div class="tier sel" onclick="sOpt('buc','led','std',this)"><div class="tier-l"><div class="tier-name">LED Standard <span class="rec">recomandat</span></div><div class="tier-desc">Profil aplicat, lumină caldă/rece.</div></div><div class="tier-r"><div class="tier-price">+180 €</div></div></div>
         <div class="tier" onclick="sOpt('buc','led','none',this)"><div class="tier-l"><div class="tier-name">Fără LED</div></div><div class="tier-r"><div class="tier-price">—</div></div></div>
       </div></div>
-      <div class="info-note" style="margin-top:4px">Prețul IKEA depinde mult de numărul de sertare, colțuri și înălțime. Estimarea include +20% montaj. Variație reală ±20%.</div>
+      <div class="info-note" style="margin-top:4px">Prețul depinde de numărul de corpuri, sertare și configurație (L/U). Estimarea include +20% montaj. Variație reală ±20%.</div>
     </div>
   </div>
 
@@ -508,8 +512,9 @@ button,a,.chbtn,.tier,.cbtn,.dbtn,.tog,.preset-btn{touch-action:manipulation}
     </div>
     <div class="rb" id="rb-ins">
       <div class="og"><div class="ol">Tip</div><div class="tiers">
-        <div class="tier sel" onclick="sOpt('ins','tier','pf-std',this)"><div class="tier-l"><div class="tier-name">Prefabricat Standard</div></div><div class="tier-r"><div class="tier-price">~350–600 €</div></div></div>
-        <div class="tier" onclick="sOpt('ins','tier','cmd',this)"><div class="tier-l"><div class="tier-name">La comandă PAL+MDF <span class="rec">recomandat</span></div></div><div class="tier-r"><div class="tier-price">~900–1.400 €</div></div></div>
+        <div class="tier" onclick="sOpt('ins','tier','pf-std',this)"><div class="tier-l"><div class="tier-name">Prefabricat Standard</div></div><div class="tier-r"><div class="tier-price">~350–600 €</div></div></div>
+        <div class="tier sel" onclick="sOpt('ins','tier','cmd-pal',this)"><div class="tier-l"><div class="tier-name">La comandă PAL <span class="rec">recomandat</span></div></div><div class="tier-r"><div class="tier-price">~500 €/ml</div></div></div>
+        <div class="tier" onclick="sOpt('ins','tier','cmd-mdf',this)"><div class="tier-l"><div class="tier-name">La comandă MDF</div></div><div class="tier-r"><div class="tier-price">~800 €/ml</div></div></div>
       </div></div>
       <div class="dim"><div class="dlbl">Lungime (ml)</div><div class="dctrls"><div class="dbtn" onclick="chR('ins','ml',-.5)">−</div><div class="dval" id="ins-ml">1.5 ml</div><div class="dbtn" onclick="chR('ins','ml',.5)">+</div></div></div>
     </div>
@@ -530,7 +535,8 @@ button,a,.chbtn,.tier,.cbtn,.dbtn,.tog,.preset-btn{touch-action:manipulation}
         <div class="tier" onclick="sOpt('liv','tv','none',this)"><div class="tier-l"><div class="tier-name">Nu includ</div></div><div class="tier-r"><div class="tier-price">—</div></div></div>
         <div class="tier" onclick="sOpt('liv','tv','pf-low',this)"><div class="tier-l"><div class="tier-name">Prefabricat Buget</div><div class="tier-desc">Mobilier simplu de raft/TV.</div></div><div class="tier-r"><div class="tier-price">~300–500 €</div></div></div>
         <div class="tier sel" onclick="sOpt('liv','tv','pf-std',this)"><div class="tier-l"><div class="tier-name">Prefabricat Standard</div></div><div class="tier-r"><div class="tier-price">~500–900 €</div></div></div>
-        <div class="tier" onclick="sOpt('liv','tv','cmd',this)"><div class="tier-l"><div class="tier-name">La comandă PAL+MDF <span class="rec">recomandat</span></div><div class="tier-desc">Custom per perete, mai rezistent.</div></div><div class="tier-r"><div class="tier-price">380–600 €/ml</div></div></div>
+        <div class="tier" onclick="sOpt('liv','tv','cmd-pal',this)"><div class="tier-l"><div class="tier-name">La comandă PAL <span class="rec">recomandat</span></div><div class="tier-desc">Custom per perete, mai rezistent.</div></div><div class="tier-r"><div class="tier-price">~230–470 €/ml</div></div></div>
+        <div class="tier" onclick="sOpt('liv','tv','cmd-mdf',this)"><div class="tier-l"><div class="tier-name">La comandă MDF</div></div><div class="tier-r"><div class="tier-price">~350–600 €/ml</div></div></div>
       </div></div>
       <div class="dim" id="liv-ml-w"><div class="dlbl">Lungime mobilă TV (ml)</div><div class="dctrls"><div class="dbtn" onclick="chR('liv','ml',-.5)">−</div><div class="dval" id="liv-ml">2.0 ml</div><div class="dbtn" onclick="chR('liv','ml',.5)">+</div></div></div>
       <div class="og"><div class="ol">Canapea</div><div class="tiers">
@@ -562,7 +568,8 @@ button,a,.chbtn,.tier,.cbtn,.dbtn,.tog,.preset-btn{touch-action:manipulation}
         <div class="tier" onclick="sOpt('dorm','dulap','none',this)"><div class="tier-l"><div class="tier-name">Nu includ</div></div><div class="tier-r"><div class="tier-price">—</div></div></div>
         <div class="tier" onclick="sOpt('dorm','dulap','pf-low',this)"><div class="tier-l"><div class="tier-name">Prefabricat Buget (IKEA PAX basic)</div></div><div class="tier-r"><div class="tier-price">~100–150 €/ml</div><div class="tier-dur">Durată: 4-6 ani</div></div></div>
         <div class="tier" onclick="sOpt('dorm','dulap','pf-std',this)"><div class="tier-l"><div class="tier-name">Prefabricat Standard (IKEA PAX complet)</div></div><div class="tier-r"><div class="tier-price">~180–250 €/ml</div><div class="tier-dur">Durată: 6-8 ani</div></div></div>
-        <div class="tier sel" onclick="sOpt('dorm','dulap','cmd',this)"><div class="tier-l"><div class="tier-name">La comandă PAL+MDF <span class="rec">recomandat</span></div><div class="tier-desc">Glisante silențioase, accesorii complete, rezistă la uzură intensă.</div></div><div class="tier-r"><div class="tier-price">~450–600 €/ml</div><div class="tier-dur">Durată: 10-15 ani</div></div></div>
+        <div class="tier sel" onclick="sOpt('dorm','dulap','cmd-pal',this)"><div class="tier-l"><div class="tier-name">La comandă PAL <span class="rec">recomandat</span></div><div class="tier-desc">Glisante silențioase, accesorii complete, rezistă la uzură intensă.</div></div><div class="tier-r"><div class="tier-price">~300–500 €/ml</div><div class="tier-dur">Durată: 10-15 ani</div></div></div>
+        <div class="tier" onclick="sOpt('dorm','dulap','cmd-mdf',this)"><div class="tier-l"><div class="tier-name">La comandă MDF</div></div><div class="tier-r"><div class="tier-price">~520–800 €/ml</div></div></div>
       </div></div>
       <div class="dim" id="dorm-ml-w"><div class="dlbl">Lungime dulap (ml)</div><div class="dctrls"><div class="dbtn" onclick="chR('dorm','ml',-.5)">−</div><div class="dval" id="dorm-ml">2.5 ml</div><div class="dbtn" onclick="chR('dorm','ml',.5)">+</div></div></div>
       <div class="og"><div class="ol">Pat</div><div class="tiers">
@@ -627,7 +634,8 @@ button,a,.chbtn,.tier,.cbtn,.dbtn,.tog,.preset-btn{touch-action:manipulation}
       <div class="og"><div class="ol">Tip</div><div class="tiers">
         <div class="tier" onclick="sOpt('dres','tier','pf-low',this)"><div class="tier-l"><div class="tier-name">Prefabricat Buget (IKEA PAX basic)</div></div><div class="tier-r"><div class="tier-price">~100–150 €/ml</div></div></div>
         <div class="tier" onclick="sOpt('dres','tier','pf-std',this)"><div class="tier-l"><div class="tier-name">Prefabricat Standard</div></div><div class="tier-r"><div class="tier-price">~180–250 €/ml</div></div></div>
-        <div class="tier sel" onclick="sOpt('dres','tier','cmd',this)"><div class="tier-l"><div class="tier-name">La comandă PAL+MDF <span class="rec">recomandat</span></div></div><div class="tier-r"><div class="tier-price">~600–900 €/ml</div></div></div>
+        <div class="tier sel" onclick="sOpt('dres','tier','cmd-pal',this)"><div class="tier-l"><div class="tier-name">La comandă PAL <span class="rec">recomandat</span></div></div><div class="tier-r"><div class="tier-price">~300–500 €/ml</div></div></div>
+        <div class="tier" onclick="sOpt('dres','tier','cmd-mdf',this)"><div class="tier-l"><div class="tier-name">La comandă MDF</div></div><div class="tier-r"><div class="tier-price">~520–800 €/ml</div></div></div>
       </div></div>
       <div class="dim"><div class="dlbl">Total ml</div><div class="dctrls"><div class="dbtn" onclick="chR('dres','ml',-.5)">−</div><div class="dval" id="dres-ml">3.0 ml</div><div class="dbtn" onclick="chR('dres','ml',.5)">+</div></div></div>
     </div>
@@ -704,12 +712,12 @@ button,a,.chbtn,.tier,.cbtn,.dbtn,.tog,.preset-btn{touch-action:manipulation}
 <script>
 const S={step:1,locatie:"buc",imobil:"nou",lift:"nu",etaj:0,electro:0,mp:65,apartmentType:"2 camere",
   rooms:{
-    buc:{on:true,exp:true,opts:{ml:3.5,tier:"pf-std",blat:"hpl",led:"std"}},
-    ins:{on:false,exp:false,opts:{ml:1.5,tier:"pf-std"}},
+    buc:{on:true,exp:true,opts:{ml:3.5,tier:"cmd-pal",blat:"hpl",led:"std"}},
+    ins:{on:false,exp:false,opts:{ml:1.5,tier:"cmd-pal"}},
     liv:{on:false,exp:false,opts:{tv:"pf-std",ml:2.0,sofa:"pf-std",acc:"std"}},
-    dorm:{on:false,exp:false,opts:{dulap:"cmd",ml:2.5,pat:"pf-std",nopt:"pf-std",birou:"none",dep:"none"}},
+    dorm:{on:false,exp:false,opts:{dulap:"cmd-pal",ml:2.5,pat:"pf-std",nopt:"pf-std",birou:"none",dep:"none"}},
     hol:{on:false,exp:false,opts:{dulap:"cmd",ml:1.5,dep:"none"}},
-    dres:{on:false,exp:false,opts:{ml:3.0,tier:"cmd"}},
+    dres:{on:false,exp:false,opts:{ml:3.0,tier:"cmd-pal"}},
     d2:{on:false,exp:false,opts:{dulap:"pf-std",pat:"pf-std",birou:"none"}},
     baie:{on:false,exp:false,opts:{acc:"pf-std"}},
   }
@@ -717,25 +725,25 @@ const S={step:1,locatie:"buc",imobil:"nou",lift:"nu",etaj:0,electro:0,mp:65,apar
 
 const P={
   buc:{
-    "pf-low":{perml:200},"pf-std":{perml:320},"cmd":{perml:1000},
+    "pf-low":{perml:200},"pf-std":{perml:320},"cmd-pal":{perml:500},"cmd-mdf":{perml:800},
     blat:{hpl:200,cuart:480,std:0},led:{std:180,none:0}
   },
-  ins:{"pf-std":475,"cmd":1150},
+  ins:{"pf-std":475,"cmd-pal":500,"cmd-mdf":800},
   liv:{
-    tv:{"none":0,"pf-low":400,"pf-std":700,"cmd":500},
+    tv:{"none":0,"pf-low":400,"pf-std":700},
     sofa:{"none":0,"pf-low":450,"pf-std":1000,"pf-prem":1950},
     acc:{"none":0,"std":600,"prem":1150},
-    cmdmlprice:490
+    tvmlprice:{"cmd-pal":350,"cmd-mdf":500}
   },
   dorm:{
-    dulap:{"none":0,"pf-low":125,"pf-std":215,"cmd":520},
+    dulap:{"none":0,"pf-low":125,"pf-std":215,"cmd-pal":400,"cmd-mdf":660},
     pat:{"none":0,"pf-std":700,"cmd":1600},
     nopt:{"none":0,"pf-std":300,"cmd":680},
     birou:{"none":0,"pf-std":250,"cmd":600},
     dep:{"none":0,"pf-std":275,"cmd":750}
   },
   hol:{dulap:{"pf-low":300,"pf-std":550,"cmd":320},dep:{"none":0,"pf-std":225,"cmd":650}},
-  dres:{"pf-low":125,"pf-std":215,"cmd":750},
+  dres:{"pf-low":125,"pf-std":215,"cmd-pal":400,"cmd-mdf":660},
   d2:{dulap:{"none":0,"pf-std":550,"cmd":640},pat:{"none":0,"pf-std":500},birou:{"none":0,"pf-std":250}},
   baie:{"pf-low":200,"pf-std":325,"pf-prem":500},
   electro:80,lift:85,
@@ -752,18 +760,18 @@ function calcR(id){
   const o=r.opts,lc=P.loc[S.locatie],ic=P.imob[S.imobil];
   let p=0;
   if(id==="buc"){
-    const t=P.buc[o.tier||"pf-std"];
+    const t=P.buc[o.tier||"cmd-pal"];
     p=t.perml*(o.ml||3.5)+(P.buc.blat[o.blat||"hpl"]||0)+(P.buc.led[o.led||"std"]||0);
   } else if(id==="ins"){
-    p=(P.ins[o.tier||"pf-std"]||475)*(o.ml||1.5);
+    p=(P.ins[o.tier||"cmd-pal"]||700)*(o.ml||1.5);
   } else if(id==="liv"){
     const tv=o.tv||"pf-std";
-    if(tv==="cmd")p+=P.liv.cmdmlprice*(o.ml||2);
+    if(tv==="cmd-pal"||tv==="cmd-mdf")p+=P.liv.tvmlprice[tv]*(o.ml||2);
     else p+=P.liv.tv[tv]||700;
     p+=P.liv.sofa[o.sofa||"pf-std"]+P.liv.acc[o.acc||"std"];
   } else if(id==="dorm"){
-    const dul=o.dulap||"cmd";
-    if(dul==="cmd")p+=P.dorm.dulap.cmd*(o.ml||2.5);
+    const dul=o.dulap||"cmd-pal";
+    if(dul==="cmd-pal"||dul==="cmd-mdf")p+=P.dorm.dulap[dul]*(o.ml||2.5);
     else p+=P.dorm.dulap[dul]*(o.ml||2.5);
     p+=P.dorm.pat[o.pat||"pf-std"]+P.dorm.nopt[o.nopt||"pf-std"]+(P.dorm.birou[o.birou||"none"]||0)+(P.dorm.dep[o.dep||"none"]||0);
   } else if(id==="hol"){
@@ -908,9 +916,9 @@ function recPkg(){
   Object.keys(S.rooms).forEach(id=>{
     const room=S.rooms[id];
     if(!room.on)return;
-    Object.values(room.opts).forEach(v=>{if(v==='cmd')cmdCount++;});
+    Object.values(room.opts).forEach(v=>{if(v==='cmd-pal'||v==='cmd-mdf')cmdCount++;});
   });
-  if(S.rooms.buc.on&&S.rooms.buc.opts.tier==='cmd')cmdCount++;
+  if(S.rooms.buc.on&&(S.rooms.buc.opts.tier==='cmd-pal'||S.rooms.buc.opts.tier==='cmd-mdf'))cmdCount++;
   return cmdCount>=2?'prem':'std';
 }
 
@@ -1044,9 +1052,9 @@ function reveal(){
     if(S.rooms[id].on){const p=calcR(id);rooms.push({id,name:rLabels[id],lo:Math.round(p*0.9),hi:Math.round(p*1.15),mid:p});}
   });
   const qualityLabel=()=>{
-    const hasCom=Object.values(S.rooms).some(r=>r.on&&(r.opts.tier==='cmd'||r.opts.dulap==='cmd'));
+    const hasCom=Object.values(S.rooms).some(r=>r.on&&(r.opts.tier==='cmd-pal'||r.opts.tier==='cmd-mdf'||r.opts.dulap==='cmd-pal'||r.opts.dulap==='cmd-mdf'));
     const hasPfStd=Object.values(S.rooms).some(r=>r.on&&(r.opts.tier==='pf-std'||r.opts.dulap==='pf-std'));
-    return hasCom?'La comandă PAL+MDF':hasPfStd?'Standard':'Prefabricat buget';
+    return hasCom?'La comandă':hasPfStd?'Standard':'Prefabricat buget';
   };
   const typeLabel=()=>S.apartmentType||'Nespecificat';
   let rentBase=350;
