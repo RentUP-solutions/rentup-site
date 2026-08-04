@@ -151,8 +151,8 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .fl strong{color:var(--text);font-weight:500}
 .fhint{font-size:11px;color:var(--light);margin-top:4px}
 .tbns{display:flex;gap:8px}
-.tbn{flex:1;padding:10px 12px;background:#E8DDD0;border:.5px solid #D4C9B8;border-radius:8px;font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;text-align:center;font-family:'Inter',sans-serif;transition:background .15s,border-color .15s,color .15s}
-.tbn.on{background:#FDFAF6;color:var(--brand);border-color:var(--brand)}
+.tbn{flex:1;padding:10px 12px;background:#E8DDD0;border:none;border-radius:8px;font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;text-align:center;font-family:'Inter',sans-serif;transition:background .15s,color .15s}
+.tbn.on{background:#FDFAF6;color:var(--brand)}
 .tbn:hover{background:rgba(199,121,54,.06);color:var(--brand)}
 .cr{background:var(--bg);border:.5px solid var(--border);border-radius:16px;padding:28px;margin-top:32px;box-shadow:0 2px 16px rgba(45,40,32,.04)}
 .crh{display:flex;justify-content:space-between;margin-bottom:22px;padding-bottom:16px;border-bottom:.5px solid var(--border)}
@@ -163,26 +163,27 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .cr-sl{font-size:11px;color:var(--light);margin-bottom:5px}
 .cr-sv{font-size:24px;font-weight:300;color:var(--text);transition:opacity 150ms ease}
 .cr-sv.g{color:var(--green)}
-.diff-block{background:var(--green-bg);border:.5px solid var(--green-border);border-radius:12px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center}
+.diff-block{background:var(--green-bg);border:none;border-radius:12px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 16px rgba(45,40,32,.16)}
 .diff-l{font-size:14px;color:var(--green)}
 .diff-roi{font-size:12px;color:var(--green);margin-top:5px}
 .diff-v{font-size:32px;font-weight:300;color:var(--green)}
-.loss-block{background:#FDF0D8;border:.5px solid #E8C49A;border-radius:12px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;margin-top:16px}
+.loss-block{background:#FDF0D8;border:none;border-radius:12px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;margin-top:16px;box-shadow:0 2px 16px rgba(45,40,32,.16)}
 .loss-l{font-size:14px;color:#854F0B;font-weight:500}
 .loss-v{font-size:32px;font-weight:300;color:#854F0B;white-space:nowrap;margin-left:16px}
-.sc-tbl{width:100%;border-collapse:collapse;font-size:13px;margin-top:16px;table-layout:fixed}
-.sc-tbl th{text-align:left;padding:8px 10px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--light);border-bottom:.5px solid var(--border)}
-.sc-tbl td{padding:10px;border-bottom:.5px solid var(--border);color:var(--muted)}
+.sc-tbl{width:100%;border-collapse:collapse;font-size:13px;margin-top:16px;table-layout:auto}
+.sc-tbl th{text-align:left;padding:8px 10px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--light);border-bottom:.5px solid var(--border);white-space:nowrap}
+.sc-tbl td{padding:10px;border-bottom:.5px solid var(--border);color:var(--muted);white-space:nowrap}
 .sc-tbl tr:last-child td{border-bottom:none}
 .sc-tbl .hl td{color:var(--text);font-weight:500}
+.sc-tbl th:nth-child(1),.sc-tbl td:nth-child(1){width:30%}
 .vg{color:var(--green);font-weight:500}
 .disc{font-size:11px;color:var(--light);margin-top:12px;line-height:1.55}
 
 /* ── ABOUT ── */
 #about{background:var(--bg-stone)}
 .team-g{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:56px}
-.tc{border:.5px solid var(--border);border-radius:14px;overflow:hidden;background:var(--bg);transition:box-shadow .2s}
-.tc:hover{box-shadow:0 8px 32px rgba(45,40,32,.07)}
+.tc{border:none;border-radius:14px;overflow:hidden;background:var(--bg);box-shadow:0 2px 16px rgba(45,40,32,.16);transition:box-shadow .2s}
+.tc:hover{box-shadow:0 8px 28px rgba(45,40,32,.22)}
 .tc-photo{background:linear-gradient(140deg,var(--bg-warm) 0%,var(--bg-stone) 100%);height:380px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--light);letter-spacing:.04em}
 .tc-photo img{opacity:0;filter:blur(16px);transition:opacity 800ms cubic-bezier(0.23,1,0.32,1),filter 800ms cubic-bezier(0.23,1,0.32,1)}
 .tc-photo img.ph-in{opacity:1;filter:none}
@@ -190,8 +191,8 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .tc-role{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--brand);margin-bottom:7px}
 .tc-name{font-size:19px;font-weight:500;margin-bottom:12px}
 .tc-bio{font-size:13px;color:var(--muted);line-height:1.7}
-.reasons{display:flex;flex-direction:column;gap:0;border:1px solid var(--border);border-radius:14px;overflow:hidden}
-.reason{display:flex;gap:20px;padding:22px 26px;border-bottom:1px solid var(--border);background:var(--bg);transition:background 150ms ease-out}
+.reasons{display:flex;flex-direction:column;gap:0;border:none;border-radius:14px;overflow:hidden;box-shadow:0 2px 16px rgba(45,40,32,.16)}
+.reason{display:flex;gap:20px;padding:22px 26px;border-bottom:1px solid var(--border);background:#FDFBF8;transition:background 150ms ease-out}
 .reason:last-child{border-bottom:none}
 .reason:hover{background:var(--brand-light)}
 .rn{font-size:18px;font-weight:600;color:var(--brand);flex-shrink:0;width:24px;padding-top:0}
@@ -201,18 +202,18 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 /* ── CLIENT FIT ── */
 #fit{background:var(--bg);padding-top:50px}
 .fit-g{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
-.fc{border:.5px solid var(--border);border-radius:14px;padding:28px;background:var(--bg)}
+.fc{border:none;border-radius:14px;padding:28px;background:#FDFBF8;box-shadow:0 2px 16px rgba(45,40,32,.16)}
 .fc-t{font-size:15px;font-weight:500;margin-bottom:18px;display:flex;align-items:center;gap:10px}
 .fc-t.yes{color:var(--green)}.fc-t.no{color:#A32D2D}
 .fc ul{list-style:none;display:flex;flex-direction:column;gap:10px}
 .fc ul li{font-size:14px;color:var(--mid);line-height:1.55;display:flex;gap:11px}
 .fc ul li::before{content:'–';color:var(--brand);font-weight:600;flex-shrink:0}
 .fc.no-c ul li::before{color:#A32D2D}
-.fit-note{background:var(--brand-light);border:.5px solid var(--brand-border);border-radius:12px;padding:22px 26px;font-size:14px;color:var(--dark);line-height:1.7;font-style:italic}
+.fit-note{background:var(--brand-light);border:none;border-radius:12px;padding:22px 26px;font-size:14px;color:var(--dark);line-height:1.7;font-style:italic;box-shadow:0 2px 16px rgba(45,40,32,.16)}
 
 /* ── PROCESS ── */
 #process{background:var(--bg-stone)}
-.proc-g{display:grid;grid-template-columns:repeat(4,1fr);border:.5px solid var(--border);border-radius:14px;overflow:hidden}
+.proc-g{display:grid;grid-template-columns:repeat(4,1fr);border:none;border-radius:14px;overflow:hidden;box-shadow:0 2px 16px rgba(45,40,32,.16)}
 .pc{padding:30px 26px;border-right:.5px solid var(--border);background:var(--bg);transition:background 200ms cubic-bezier(0.23,1,0.32,1)}
 .pc:last-child{border-right:none}
 .pc:hover{background:var(--brand-light)}
@@ -238,8 +239,8 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 /* ── PORTFOLIO ── */
 #portfolio{background:var(--bg)}
 .port-g{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px}
-.ba{border:.5px solid var(--border);border-radius:14px;overflow:hidden;background:var(--bg);transition:box-shadow .2s,transform .2s}
-.ba:hover{box-shadow:0 8px 32px rgba(45,40,32,.08);transform:translateY(-2px)}
+.ba{border:none;border-radius:14px;overflow:hidden;background:var(--bg);box-shadow:0 2px 16px rgba(45,40,32,.16);transition:box-shadow .2s,transform .2s}
+.ba:hover{box-shadow:0 8px 28px rgba(45,40,32,.22);transform:translateY(-2px)}
 .ba-photos{display:grid;grid-template-columns:1fr 1fr}
 .ba-p{height:200px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;letter-spacing:.08em;flex-direction:column;gap:8px}
 .ba-p.b{background:var(--bg-warm);color:var(--light)}
@@ -248,8 +249,8 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .ba-name{font-size:14px;font-weight:500}
 .ba-meta{font-size:12px;color:var(--muted);margin-top:3px}
 .ba-res{font-size:13px;font-weight:500;color:#8B5E10;background:#FDF0D8;padding:5px 14px;border-radius:100px;border:.5px solid #E8C87C}
-.port-cta{display:flex;align-items:center;justify-content:space-between;padding:22px 28px;border:.5px solid var(--border);border-radius:12px;background:var(--bg-stone);text-decoration:none;transition:background 180ms cubic-bezier(0.23,1,0.32,1),border-color 180ms cubic-bezier(0.23,1,0.32,1),transform 150ms cubic-bezier(0.23,1,0.32,1)}
-.port-cta:hover{background:var(--brand-light);border-color:var(--brand-border)}
+.port-cta{display:flex;align-items:center;justify-content:space-between;padding:22px 28px;border:none;border-radius:12px;background:var(--bg-stone);text-decoration:none;box-shadow:0 2px 16px rgba(45,40,32,.16);transition:background 180ms cubic-bezier(0.23,1,0.32,1),box-shadow 180ms cubic-bezier(0.23,1,0.32,1),transform 150ms cubic-bezier(0.23,1,0.32,1)}
+.port-cta:hover{background:var(--brand-light);box-shadow:0 8px 28px rgba(45,40,32,.22)}
 .port-cta-l{font-size:15px;font-weight:500;color:var(--text)}
 .port-cta-sub{font-size:13px;color:var(--muted);margin-top:3px}
 .port-cta-arrow{font-size:28px;font-weight:300;color:var(--brand);transition:transform 200ms cubic-bezier(0.23,1,0.32,1)}
@@ -258,15 +259,15 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 /* ── TESTIMONIALS ── */
 #testimonials{background:var(--bg-stone)}
 .te-g{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:36px}
-.tec{background:var(--bg);border:.5px solid var(--border);border-radius:14px;padding:24px;transition:box-shadow 200ms ease-out}
-.tec:hover{box-shadow:0 6px 24px rgba(45,40,32,.06)}
+.tec{background:var(--bg);border:none;border-radius:14px;padding:24px;box-shadow:0 2px 16px rgba(45,40,32,.16);transition:box-shadow 200ms ease-out}
+.tec:hover{box-shadow:0 8px 28px rgba(45,40,32,.22)}
 .tec-q{font-size:36px;font-weight:200;color:var(--border);line-height:1;margin-bottom:12px}
 .tec-t{font-size:13px;color:var(--mid);line-height:1.75;font-style:italic;margin-bottom:16px}
 .tec-n{font-size:13px;font-weight:500}
 .tec-m{font-size:11px;color:var(--light);margin-top:3px}
 .tec-tag{display:inline-block;background:var(--brand-light);color:var(--brand);font-size:11px;font-weight:500;padding:4px 12px;border-radius:100px;margin-top:10px;border:.5px solid var(--brand-border)}
 /* case study */
-.cs{border:.5px solid var(--border);border-radius:16px;overflow:hidden}
+.cs{border:none;border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(45,40,32,.16)}
 .cs-h{background:#FAF6EF;padding:28px 32px;border-bottom:none}
 .cs-title{font-size:20px;font-weight:500;margin-bottom:14px}
 .cs-tags{display:flex;gap:8px;flex-wrap:wrap}
@@ -282,7 +283,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .cs-q{background:var(--brand-light);border-left:2px solid var(--brand);border-radius:0 12px 12px 0;padding:18px 22px;font-size:13px;color:var(--dark);font-style:italic;line-height:1.75}
 .cs-qa{font-size:12px;font-weight:500;color:var(--brand);margin-top:8px;font-style:normal}
 .voc-g{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.voc-item{background:var(--bg);border:.5px solid var(--border);border-radius:12px;padding:22px 24px;font-size:14px;color:var(--mid);line-height:1.7;font-style:italic}
+.voc-item{background:var(--bg);border:none;border-radius:12px;padding:22px 24px;font-size:14px;color:var(--mid);line-height:1.7;font-style:italic;box-shadow:0 2px 16px rgba(45,40,32,.16)}
 .bud-g{display:flex;flex-direction:column;gap:6px}
 .bud-row{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);padding:7px 0;border-bottom:.5px solid var(--border)}
 .bud-row strong{color:var(--text)}
@@ -291,7 +292,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 
 /* ── PACKAGES ── */
 #packages{background:var(--bg-stone)}
-.pkg-step0{background:var(--bg);border:.5px solid var(--border);border-radius:16px;padding:32px 36px;margin-bottom:12px}
+.pkg-step0{background:var(--bg);border:none;border-radius:16px;padding:32px 36px;margin-bottom:12px;box-shadow:0 2px 16px rgba(45,40,32,.16)}
 .pkg-step0-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#7A5C00;background:rgba(215,165,0,.07);padding:5px 12px;border-radius:100px;margin-bottom:18px}
 .pkg-step0-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
 .pkg-step0-title{font-size:21px;font-weight:400;color:var(--text);line-height:1.2;margin-bottom:10px;letter-spacing:-.02em}
@@ -299,7 +300,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .pkg-step0-features{display:flex;flex-direction:column;gap:4px;padding-top:4px}
 .pkg-step0-arrow{text-align:center;color:var(--light);font-size:20px;margin:6px 0 10px;line-height:1}
 .pkg-groups{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
-.pkg-group{border-radius:14px;border:.5px solid var(--border)}
+.pkg-group{border-radius:14px;border:none;box-shadow:0 2px 16px rgba(45,40,32,.16)}
 .pkg-group-hdr{padding:12px 20px;display:flex;align-items:center;gap:12px;border-bottom:.5px solid var(--border);border-radius:13px 13px 0 0}
 .pkg-group-entry .pkg-group-hdr{background:rgba(215,165,0,.04);border-bottom-color:rgba(215,165,0,.18)}
 .pkg-group-full .pkg-group-hdr{background:rgba(199,121,54,.05);border-bottom-color:var(--border)}
@@ -309,14 +310,14 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .pkg-subgrid{display:grid;gap:.5px;background:var(--border);border-radius:0 0 14px 14px}
 .pkg-subgrid-2{grid-template-columns:1fr 1fr}
 .pkg-subgrid-3{grid-template-columns:1fr 1fr 1fr}
-.pkg-subgrid .pkg{border-top-left-radius:0!important;border-top-right-radius:0!important;border-bottom-left-radius:0!important;border-bottom-right-radius:0!important;border:none;position:relative;z-index:0}
+.pkg-subgrid .pkg{border-top-left-radius:0!important;border-top-right-radius:0!important;border-bottom-left-radius:0!important;border-bottom-right-radius:0!important;border:none;box-shadow:none;position:relative;z-index:0}
 .pkg-subgrid .pkg:first-child{border-bottom-left-radius:14px!important}
 .pkg-subgrid .pkg:last-child{border-bottom-right-radius:14px!important}
 .pkg-subgrid .pkg:hover,.pkg-subgrid .pkg:active{transform:translateY(-5px) scale(1.04);box-shadow:0 10px 40px rgba(45,40,32,.26),0 0 20px rgba(45,40,32,.1);z-index:2}
 .pkg-subgrid .pkg:first-child:hover,.pkg-subgrid .pkg:first-child:active{border-bottom-left-radius:0!important}
 .pkg-subgrid .pkg:last-child:hover,.pkg-subgrid .pkg:last-child:active{border-bottom-right-radius:0!important}
-.pkg{border-radius:16px;overflow:hidden;border:.5px solid var(--border);background:var(--bg);transition:box-shadow .2s,transform .2s,border-radius .2s;display:flex;flex-direction:column}
-.pkg:hover{box-shadow:0 8px 32px rgba(45,40,32,.08);transform:translateY(-2px)}
+.pkg{border-radius:16px;overflow:hidden;border:none;background:var(--bg);box-shadow:0 2px 16px rgba(45,40,32,.16);transition:box-shadow .2s,transform .2s,border-radius .2s;display:flex;flex-direction:column}
+.pkg:hover{box-shadow:0 8px 28px rgba(45,40,32,.22);transform:translateY(-2px)}
 .pkg-h{padding:26px 22px 20px}
 .pkg-name{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--light);margin-bottom:14px}
 .pkg-price{font-size:42px;font-weight:300;color:var(--text);letter-spacing:-.04em;line-height:1}
@@ -705,10 +706,10 @@ button,a,.tbn,.fi{touch-action:manipulation}
 .pkg:hover{box-shadow:0 22px 60px rgba(45,40,32,.13);transform:translateY(-6px)}
 /* Fit card hover */
 .fc{transition:box-shadow 200ms cubic-bezier(0.23,1,0.32,1),transform 200ms cubic-bezier(0.23,1,0.32,1)}
-.fc:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(45,40,32,.07)}
+.fc:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(45,40,32,.20)}
 /* Testimonial card hover */
 .tec{transition:box-shadow 220ms cubic-bezier(0.23,1,0.32,1),transform 220ms cubic-bezier(0.23,1,0.32,1)}
-.tec:hover{box-shadow:0 12px 40px rgba(45,40,32,.09);transform:translateY(-3px)}
+.tec:hover{box-shadow:0 12px 40px rgba(45,40,32,.28);transform:translateY(-3px)}
 /* Nav link underline slide */
 .nav-links a{position:relative}
 .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--brand);transform:scaleX(0);transform-origin:right;transition:transform 270ms cubic-bezier(0.23,1,0.32,1)}
@@ -735,8 +736,8 @@ button,a,.tbn,.fi{touch-action:manipulation}
 /* Testimonial cs box subtle lift */
 .cs{transition:box-shadow 250ms cubic-bezier(0.23,1,0.32,1)}
 .cs:hover{box-shadow:0 8px 32px rgba(45,40,32,.07)}
-.te-q{background:var(--bg);border:.5px solid var(--border);border-radius:16px;padding:32px;transition:box-shadow 250ms cubic-bezier(0.23,1,0.32,1)}
-.te-q:hover{box-shadow:0 8px 32px rgba(45,40,32,.07)}
+.te-q{background:var(--bg);border:none;border-radius:16px;padding:32px;box-shadow:0 2px 16px rgba(45,40,32,.16);transition:box-shadow 250ms cubic-bezier(0.23,1,0.32,1)}
+.te-q:hover{box-shadow:0 8px 28px rgba(45,40,32,.22)}
 .te-q p{font-size:13px;color:var(--mid);line-height:1.8;font-style:italic;margin-bottom:14px}
 
 /* ── CALCULATOR ANIMATIONS ── */
@@ -750,8 +751,10 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 @keyframes labelPop{0%{color:#C77936}55%{color:#a8622a}100%{color:var(--text)}}
 .label-pop{animation:labelPop 380ms ease}
 /* Diff block ring glow — se activează la schimbări de tip/oraș/ani */
-@keyframes diffPulse{0%{box-shadow:0 2px 8px rgba(15,110,86,.06)}45%{box-shadow:0 0 0 7px rgba(15,110,86,.11),0 4px 20px rgba(15,110,86,.09)}100%{box-shadow:0 2px 8px rgba(15,110,86,.06)}}
+@keyframes diffPulse{0%{box-shadow:0 2px 16px rgba(45,40,32,.16)}45%{box-shadow:0 0 0 7px rgba(15,110,86,.11),0 4px 20px rgba(15,110,86,.09)}100%{box-shadow:0 2px 16px rgba(45,40,32,.16)}}
 .diff-pulse{animation:diffPulse 620ms cubic-bezier(0.23,1,0.32,1)}
+@keyframes lossPulse{0%{box-shadow:0 2px 16px rgba(45,40,32,.16)}45%{box-shadow:0 0 0 7px rgba(133,79,11,.13),0 4px 20px rgba(133,79,11,.10)}100%{box-shadow:0 2px 16px rgba(45,40,32,.16)}}
+.loss-pulse{animation:lossPulse 620ms cubic-bezier(0.23,1,0.32,1)}
 /* Table body transition */
 #r-tb{transition:opacity 200ms ease}
 /* Calc col entrance stagger */
@@ -894,7 +897,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch;max-width:1040px;margin:0 auto">
 
     <!-- COL 1: input -->
-    <div style="background:#F5EFE6;border:.5px solid #E0DDD6;border-radius:14px;padding:28px">
+    <div style="background:#F5EFE6;border:none;border-radius:14px;box-shadow:0 2px 16px rgba(45,40,32,.16);padding:28px">
       <div class="sec-tag" style="margin-bottom:12px"><div class="dot"></div>Calculator risc</div>
       <h2 class="sh" style="font-size:22px;margin-bottom:8px">Cât te costă un chiriaș greșit?</h2>
       <p style="font-size:14px;font-weight:600;color:var(--brand);margin-bottom:10px">Problema nu e chiriașul. E că l-ai ales fără un sistem.</p>
@@ -908,7 +911,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         <span class="fhint">În medie, un proprietar fără sistem de selecție rulează 3–4 chiriași în 5 ani</span>
       </div>
 
-      <div style="background:#FDFAF6;border:.5px solid #E0DDD6;border-radius:10px;padding:16px;margin-top:8px">
+      <div style="background:#FDFAF6;border:none;border-radius:10px;padding:16px;margin-top:8px">
         <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:10px">Estimări medii la o experiență proastă cu un chiriaș</div>
         <div style="display:flex;flex-direction:column;gap:8px">
           <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--mid)"><span>Luni goale după plecare</span><strong style="color:var(--text)">~1,5 luni</strong></div>
@@ -920,7 +923,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
     </div>
 
     <!-- COL 2: results -->
-    <div style="background:#F5EFE6;border:.5px solid #E0DDD6;border-radius:14px;padding:24px;display:flex;flex-direction:column">
+    <div style="background:#F5EFE6;border:none;border-radius:14px;box-shadow:0 2px 16px rgba(45,40,32,.16);padding:24px;display:flex;flex-direction:column">
       <div class="crh"><span class="crh-l">Expunerea ta cumulată, nu doar un incident izolat</span></div>
       <table class="sc-tbl">
         <colgroup><col><col style="width:78px"></colgroup>
@@ -946,15 +949,15 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch;max-width:1040px;margin:0 auto">
 
     <!-- COL 1 -->
-    <div style="background:#F5EFE6;border:.5px solid #E0DDD6;border-radius:14px;padding:28px">
+    <div style="background:#F5EFE6;border:none;border-radius:14px;box-shadow:0 2px 16px rgba(45,40,32,.16);padding:28px">
       <div class="sec-tag" style="margin-bottom:12px"><div class="dot"></div>Calculator ROI</div>
       <h2 class="sh" style="font-size:22px;margin-bottom:8px">Cât poți câștiga în plus <span style="white-space:nowrap">dintr-un</span> apartament optimizat?</h2>
       <p class="sec-sub" style="font-size:13px;margin-bottom:22px">Completează datele, vezi imediat diferența.</p>
    <div class="fg"><span class="fl">Oraș</span>
   <div class="tbns">
     <button class="tbn on" onclick="setCity('buc',this)">București / Cluj</button>
-    <button class="tbn" onclick="setCity('med',this)">TM / BV / IS</button>
-    <button class="tbn" onclick="setCity('alt',this)">Alt oraș</button>
+    <button class="tbn" onclick="setCity('bvct',this)">Brașov / Constanța</button>
+    <button class="tbn" onclick="setCity('istm',this)">Iași / Timișoara</button>
   </div>
 </div>
       <div class="fg"><span class="fl">Tip proprietate</span>
@@ -966,11 +969,11 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
       </div>
       <div class="fg"><label class="fl" for="mp-s">Suprafața<strong id="mp-d"> 40 mp</strong></label>
         <input type="range" id="mp-s" min="20" max="60" value="40" step="1" oninput="calc()" aria-label="Suprafața apartamentului">
-        <span class="fhint" id="mp-h">Interval tipic garsonieră: 25–50 mp</span>
+        <span class="fhint" id="mp-h">Interval tipic garsonieră: 25–40 mp</span>
       </div>
       <div class="fg"><label class="fl" for="re-s">Chiria actuală<strong id="re-d"> 350€/lună</strong></label>
         <input type="range" id="re-s" min="200" max="700" value="350" step="10" oninput="calc()" aria-label="Chiria actuală">
-        <span class="fhint" id="re-h">Interval tipic neoptimizată în București: 300–450€</span>
+        <span class="fhint" id="re-h">Interval tipic neoptimizată în București / Cluj: 300–450€</span>
       </div>
       <div class="fg"><span class="fl">Orizont de timp</span>
         <div class="tbns">
@@ -982,7 +985,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
     </div>
 
     <!-- COL 2 -->
-    <div style="background:#F5EFE6;border:.5px solid #E0DDD6;border-radius:14px;padding:24px">
+    <div style="background:#F5EFE6;border:none;border-radius:14px;box-shadow:0 2px 16px rgba(45,40,32,.16);padding:24px;display:flex;flex-direction:column">
       <div class="crh"><span class="crh-l">Estimare comparativă</span><span class="crh-r" id="yr-l">pe 5 ani</span></div>
       <div class="cr-stats">
         <div class="cr-s"><div class="cr-sl">Chirie actuală / lună</div><div class="cr-sv" id="r-cur">—</div></div>
@@ -994,12 +997,12 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         <div><div class="diff-l">Câștig suplimentar estimat</div><div class="diff-roi" id="r-roi">—</div></div>
         <div class="diff-v" id="r-df">—</div>
       </div>
-      <table class="sc-tbl">
+      <table class="sc-tbl" style="margin-top:auto">
         <thead><tr><th>Scenariu</th><th>Chiriași</th><th>Luni goale</th><th>Venit brut</th><th>Net final</th></tr></thead>
         <tbody id="r-tb"></tbody>
       </table>
       <div id="mkt-note" style="display:none;font-size:12px;color:#854F0B;background:#FDF0D8;border:.5px solid #E8C49A;border-radius:8px;padding:10px 12px;margin-bottom:8px;line-height:1.5"></div>
-<p class="disc">* Estimările sunt orientative pentru orașele  București și Cluj-Napoca. În zonele premium prețurile pot depăși semnificativ aceste valori.</p>
+<p class="disc">* Estimările sunt orientative, bazate pe date medii de piață per categorie de oraș. Valorile individuale variază în funcție de zonă, etaj și starea apartamentului.</p>
     </div>
 
   </div>
@@ -1117,7 +1120,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
   <a class="port-cta" href="portofoliu.html" style="max-width:860px;margin:0 auto">
     <div>
       <div class="port-cta-l">Vezi toate proiectele</div>
-      <div class="port-cta-sub">4 proiecte finalizate · Before & after complet · Statistici detaliate</div>
+      <div class="port-cta-sub">6 proiecte finalizate · Before & after complet · Statistici detaliate</div>
     </div>
     <div class="port-cta-arrow">→</div>
   </a>
@@ -1354,7 +1357,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
             <div style="margin-top:auto;padding-top:14px"><div style="padding:10px 12px;background:rgba(215,165,0,.06);border-radius:8px;font-size:12px;line-height:1.6;color:#7A5C00">Cei 200€ se scad din orice pachet Quick Win sau mai mare, dacă treci la execuție.</div></div>
           </div>
           <div style="padding:16px 24px 20px">
-            <a href="#contact" class="btn-primary" style="display:block;text-align:center;padding:11px;font-size:14px">Solicită ofertă →</a>
+            <a href="staging-virtual.html" class="btn-primary" style="display:block;text-align:center;padding:11px;font-size:14px">Află mai multe →</a>
             <p style="text-align:center;font-size:11px;color:var(--muted);margin-top:8px;line-height:1.5">Livrare în câteva zile de la trimiterea pozelor.</p>
           </div>
         </div>
@@ -1365,7 +1368,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
             <div class="pkg-name">Design pentru chirie</div>
             <div class="pkg-price"><span class="count-anim" data-val="25" data-pre="" data-suf="€">25€</span><span> / mp</span></div>
             <div style="font-size:12px;color:var(--muted);margin-top:2px">Minim 700€</div>
-            <div class="pkg-desc">Plan complet cu vizită și măsurători exacte. Certitudine că mobila încape și prizele sunt unde trebuie.</div>
+            <div class="pkg-desc">Doar proiectul de design. Plan, randări, listă de achiziții: implementezi și gestionezi restul singur (sau ai deja sistemul tău de selecție).</div>
           </div>
           <div class="pkg-div"></div>
           <div class="pkg-b">
@@ -1395,18 +1398,20 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
       <div class="pkg-subgrid pkg-subgrid-3">
 
         <!-- Quick Win -->
-        <div class="pkg" id="quick-win">
+        <div class="pkg" id="quick-win" style="border-right:.5px solid var(--border)">
           <div class="pkg-h">
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px"><div class="pkg-name" style="margin-bottom:0">Quick Win</div><div style="background:#2D6A4F;color:#FDFAF6;font-size:10px;font-weight:600;padding:4px 10px;border-radius:100px;letter-spacing:.1em;text-transform:uppercase">8–12 luni ROI</div></div>
-            <div class="pkg-price"><span class="count-anim" data-val="32" data-pre="" data-suf="€">32€</span><span> / mp</span></div>
-            <div style="font-size:12px;color:var(--muted);margin-top:2px">Minim 850€</div>
-            <div class="pkg-desc">Pentru apartamente aproape gata. Nu schimbăm finisaje, doar completăm ce lipsește.</div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px"><div class="pkg-name" style="margin-bottom:0">Quick Win</div><div style="display:flex;gap:6px"><div style="background:rgba(215,165,0,.07);color:#7A5C00;font-size:10px;font-weight:600;padding:4px 10px;border-radius:100px;letter-spacing:.1em;text-transform:uppercase">8–12 luni ROI</div></div></div>
+            <div class="pkg-price"><span class="count-anim" data-val="33" data-pre="" data-suf="€">33€</span><span> / mp</span></div>
+            <div style="font-size:12px;color:var(--muted);margin-top:2px">Minim 900€</div>
+            <div class="pkg-desc">Apartament gata, chiriaș rapid. Fără șantier, fără schimbări structurale, doar mobilier și sistemul complet de închiriere. Pe piață în 7–14 zile.</div>
           </div>
           <div class="pkg-div"></div>
           <div class="pkg-b">
             <div class="pkg-sl">Design</div>
             <div class="pf"><span class="fd">–</span><span>Plan 2D amenajare + moodboard</span></div>
             <div class="pf"><span class="fd">–</span><span>Listă de achiziții, buget și furnizori</span></div>
+            <div class="pkg-sl">Execuție</div>
+            <div class="pf"><span class="fd">–</span><span>1 vizită pe șantier</span></div>
             <div class="pkg-sl kit-label"><a href="rental-kit.html" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--brand-border)">Rental Kit</a> <a href="rental-kit.html" style="font-size:11px;color:var(--brand);font-weight:500;text-decoration:none">(detalii →)</a></div>
             <div class="pf"><span class="fd">–</span><span>Selecție chiriaș + contract personalizat</span></div>
             <div class="pf"><span class="fd">–</span><span>Documente legale personalizate</span></div>
@@ -1486,7 +1491,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 
 <!-- S9 FURNITURE ESTIMATOR -->
 <section id="furniture-estimator" style="padding:64px 56px;background:var(--bg-stone)">
-  <div style="max-width:1040px;margin:0 auto;background:var(--bg);border:.5px solid #E0DDD6;border-radius:16px;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center">
+  <div style="max-width:1040px;margin:0 auto;background:var(--bg);border:none;border-radius:16px;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;box-shadow:0 2px 16px rgba(45,40,32,.16)">
     <div>
       <div class="sec-tag" style="justify-content:flex-start"><div class="dot"></div>Estimator mobilare</div>
       <h2 class="sh" style="font-size:24px;margin-bottom:10px">Știi cât costă să mobilezi pentru chiria optimă?</h2>
@@ -1513,7 +1518,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
   <div class="faq-inner">
     <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">Garantați că voi găsi un chiriaș bun?<span class="fi-icon">+</span></div><div class="fa">Nu. Niciun sistem nu poate garanta comportamentul unui om. Ce garantăm este că procesul de selecție, documentație și design reduce semnificativ probabilitatea unui chiriaș problematic. Proprietarii care aplică sistematic un proces au cu 80–90% mai puține probleme decât cei care selectează după instinct.</div></div>
     <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">De ce un apartament amenajat bine atrage un chiriaș mai bun?<span class="fi-icon">+</span></div><div class="fa">Un anunț cu fotografii profesionale și un apartament coerent filtrează natural. Chiriașul care vede un apartament îngrijit înțelege că proprietarul e serios. Cei care nu se vor comporta corespunzător preferă spații cu standarde mai relaxate. Designul nu e estetică, ci un filtru de selecție.</div></div>
-    <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">Ce fac dacă chiriașul nu plătește sau pleacă cu datorii?<span class="fi-icon">+</span></div><div class="fa">Rental Kit-ul include un protocol pas cu pas pentru exact această situație, de la primul reminder la Ziua 1 până la executare silită. Contractul înregistrat la ANAF este titlu executoriu pentru sume. Contractul autentificat notarial permite evacuare prin executor direct, fără instanță separată.</div></div>
+    <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">Ce fac dacă chiriașul nu plătește sau pleacă cu datorii?<span class="fi-icon">+</span></div><div class="fa">Rental Kit-ul include un protocol pas cu pas pentru exact această situație, de la primul reminder la Ziua 1 până la executare silită. Contractul înregistrat la ANAF este titlu executoriu pentru chiria neachitată și pentru evacuare la expirarea termenului. Contractul autentificat notarial oferă același lucru; în plus, cererea de evacuare pentru neplată se judecă fără citarea pârâtului — procedura urgentă (art. 1034 NCPC) durează 2–6 luni față de 1–3 ani în dreptul comun.</div></div>
     <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">Cât durează să găsesc chiriaș după finalizarea proiectului?<span class="fi-icon">+</span></div><div class="fa">Un apartament fotografiat profesional și listat corect pe 3 platforme găsește chiriaș în 1–3 săptămâni în București. Comparativ, un anunț cu fotografii de telefon și text slab poate sta neînchiriat 1–3 luni la același preț și aceeași zonă.</div></div>
     <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">Merită să investesc în design pentru un apartament de închiriat?<span class="fi-icon">+</span></div><div class="fa">Depinde de cât costă să nu o faci. Un proprietar fără sistem rulează în medie 3–4 chiriași în 5 ani. Fiecare schimbare înseamnă luni goale, reparații și selecție nouă. Raportul de Rentabilitate calculează exact cât costă situația ta actuală față de situația optimizată. Gratuit, fără angajament.</div></div>
     <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">Lucrați doar în București?<span class="fi-icon">+</span></div><div class="fa">Vizitele pe teren le facem în București și zona metropolitană. Proiectele de design le realizăm pentru orice locație din România, livrăm digital. Contactează-ne cu detalii.</div></div>
@@ -1573,10 +1578,19 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 <script>
 let years=5,propType='garsoniera',city='buc';
 const CFG={
-  garsoniera:{rd:350,rMin:200,rMax:700,md:40,mMin:20,mMax:60,up:150,mh:'Interval tipic garsonieră: 25–50 mp',rh:'Interval tipic neoptimizată: 300–450€',v5:5,v10:10,vo5:1,vo10:2,rep:400,ib:55,iMin:3500,iMax:7000,c5:'4 (rotație mare)',c10:'7–8',co5:'1–2 (stabili)',co10:'2–3'},
-  '2camere':{rd:550,rMin:350,rMax:1000,md:60,mMin:40,mMax:80,up:200,mh:'Interval tipic 2 camere: 45–75 mp',rh:'Interval tipic neoptimizată: 450–700€',v5:4,v10:8,vo5:1,vo10:2,rep:550,ib:72,iMin:5000,iMax:10000,c5:'3 (rotație medie)',c10:'5–6',co5:'2 (stabili)',co10:'3–4'},
-  '3camere':{rd:800,rMin:500,rMax:1500,md:80,mMin:60,mMax:120,up:260,mh:'Interval tipic 3 camere: 65–100 mp',rh:'Interval tipic neoptimizată: 650–1.000€',v5:4,v10:8,vo5:1,vo10:2,rep:700,ib:82,iMin:7000,iMax:14000,c5:'3 (rotație medie)',c10:'5–6',co5:'2 (stabili)',co10:'3–4'}
+  garsoniera:{rd:350,rMin:200,rMax:700,md:40,mMin:20,mMax:60,up:150,mh:'Interval tipic garsonieră: 25–40 mp',v5:5,v10:10,vo5:1,vo10:2,rep:400,ib:55,iMin:3500,iMax:7000,c5:'4 (rotație mare)',c10:'7–8',co5:'1–2 (stabili)',co10:'2–3'},
+  '2camere':{rd:550,rMin:350,rMax:1000,md:60,mMin:40,mMax:80,up:200,mh:'Interval tipic 2 camere: 45–75 mp',v5:4,v10:8,vo5:1,vo10:2,rep:550,ib:72,iMin:5000,iMax:10000,c5:'3 (rotație medie)',c10:'5–6',co5:'2 (stabili)',co10:'3–4'},
+  '3camere':{rd:800,rMin:500,rMax:1500,md:80,mMin:60,mMax:120,up:260,mh:'Interval tipic 3 camere: 65–100 mp',v5:4,v10:8,vo5:1,vo10:2,rep:700,ib:82,iMin:7000,iMax:14000,c5:'3 (rotație medie)',c10:'5–6',co5:'2 (stabili)',co10:'3–4'}
 };
+const CITY_HINTS={
+  garsoniera:{buc:'Interval tipic neoptimizată în București / Cluj: 300–450€',bvct:'Interval tipic neoptimizată în Brașov / Constanța: 260–400€',istm:'Interval tipic neoptimizată în Iași / Timișoara: 220–340€'},
+  '2camere':{buc:'Interval tipic neoptimizată în București / Cluj: 450–700€',bvct:'Interval tipic neoptimizată în Brașov / Constanța: 380–580€',istm:'Interval tipic neoptimizată în Iași / Timișoara: 320–490€'},
+  '3camere':{buc:'Interval tipic neoptimizată în București / Cluj: 650–1.000€',bvct:'Interval tipic neoptimizată în Brașov / Constanța: 540–830€',istm:'Interval tipic neoptimizată în Iași / Timișoara: 460–710€'}
+};
+function updateRentHint(){
+  const h=CITY_HINTS[propType]&&CITY_HINTS[propType][city];
+  if(h)document.getElementById('re-h').textContent=h;
+}
 function setType(t,btn){
   propType=t;
   document.querySelectorAll('.tbn[onclick*="setType"]').forEach(b=>b.classList.remove('on'));
@@ -1586,9 +1600,9 @@ function setType(t,btn){
   ms.min=c.mMin;ms.max=c.mMax;ms.value=c.md;
   rs.min=c.rMin;rs.max=c.rMax;rs.value=c.rd;
   document.getElementById('mp-h').textContent=c.mh;
-  document.getElementById('re-h').textContent=c.rh;
+  updateRentHint();
   calc();
-  const cityMult={buc:1,med:0.78,alt:0.58};
+  const cityMult={buc:1,bvct:0.83,istm:0.71};
 const m=cityMult[city]||1;
 document.getElementById('mp-s').min=c.mMin;
 document.getElementById('re-s').min=Math.round(c.rMin*m);
@@ -1604,10 +1618,18 @@ function setCity(c,btn){
   city=c;
   document.querySelectorAll('.tbn[onclick*="setCity"]').forEach(b=>b.classList.remove('on'));
   btn.classList.add('on');
+  const cf=CFG[propType];
+  const cm={buc:1,bvct:0.83,istm:0.71};
+  const m=cm[c]||1;
+  const rs=document.getElementById('re-s');
+  rs.min=Math.round(cf.rMin*m);
+  rs.max=Math.round(cf.rMax*m);
+  rs.value=Math.round(cf.rd*m);
+  updateRentHint();
   calc();
 }
 function calcOptRent(type, rent){
-  const mult={buc:1, med:0.78, alt:0.58};
+  const mult={buc:1, bvct:0.83, istm:0.71};
   const m=mult[city]||1;
   const caps={garsoniera:Math.round(550*m), '2camere':Math.round(800*m), '3camere':Math.round(1200*m)};
   const cap=caps[type];
@@ -1678,6 +1700,7 @@ function ctCalc(){
   document.getElementById('ct-tbl').innerHTML=`<tr><td style="white-space:nowrap">Chirie pierdută <span style="color:var(--light);font-size:.9em">(${freqLabel}× ~1,5 luni goale)</span></td><td style="text-align:right;font-weight:500;color:var(--text)">${fmt(totalRent)}</td></tr><tr><td style="white-space:nowrap">Daune și curățenie <span style="color:var(--light);font-size:.9em">(${freqLabel}× ~1.500€)</span></td><td style="text-align:right;font-weight:500;color:var(--text)">${fmt(totalDamages)}</td></tr><tr><td style="white-space:nowrap">Timpul tău <span style="color:var(--light);font-size:.9em">(${freqLabel}× ~20 ore)</span></td><td style="text-align:right;font-weight:500;color:var(--text)">${fmt(totalTime)}</td></tr>`;
   document.getElementById('ct-freq-label').textContent='la '+freqLabel+(freq===1?' schimbare':' schimbări')+' de chiriaș în 5 ani';
   document.getElementById('ct-total').textContent=fmt(total);
+  if(window.lossGlow)window.lossGlow();
 }
 ctCalc();
 </script>
@@ -1739,6 +1762,7 @@ document.addEventListener('click',function(e){
     <div id="wa-head"><span id="wa-title">Cum te putem ajuta?</span><button id="wa-close" aria-label="Închide">&times;</button></div>
     <div id="wa-opts">
       <button class="wa-opt" data-msg="Bună ziua! Vreau să programez un Raport de Rentabilitate gratuit pentru apartamentul meu.">Raport de Rentabilitate gratuit</button>
+      <button class="wa-opt" data-msg="Bună ziua! Mă interesează Staging Virtual pentru apartamentul meu. Vreau să aflu mai multe.">Staging Virtual (randări + plan)</button>
       <button class="wa-opt" data-msg="Bună ziua! Mă interesează pachetul Quick Win, apartamentul e aproape gata, fără renovări majore.">Pachet Quick Win</button>
       <button class="wa-opt" data-msg="Bună ziua! Vreau să discutăm un proiect de optimizare completă (Invest Standard sau Premium).">Proiect Invest (Standard sau Premium)</button>
     </div>
@@ -1898,7 +1922,7 @@ if(idx>0) el.style.transitionDelay=(idx*(isListItem?40:55))+'ms';
 // Sliding pill pe toate grupurile de butoane
 (function(){
   var style=document.createElement('style');
-  style.textContent='.tbn.on{background:transparent!important;border-color:transparent!important}.tbn:hover:not(.on){background:rgba(199,121,54,.06)}';
+  style.textContent='.tbn.on{background:transparent!important}.tbn:hover:not(.on){background:rgba(199,121,54,.06)}';
   document.head.appendChild(style);
 
   document.querySelectorAll('.tbns').forEach(function(grp){
@@ -2040,6 +2064,15 @@ window.animateCalcDiff=(function(){
       requestAnimationFrame(function(){ db.classList.add('diff-pulse'); });
     });
   }
+  function lossGlow(){
+    var lb = document.querySelector('.loss-block');
+    if(!lb) return;
+    lb.classList.remove('loss-pulse');
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){ lb.classList.add('loss-pulse'); });
+    });
+  }
+  window.lossGlow = lossGlow;
 
   /* ── Inițializare range inputs ── */
   document.querySelectorAll('input[type=range]').forEach(function(r){

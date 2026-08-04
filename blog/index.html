@@ -63,8 +63,8 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 /* ARTICLES GRID */
 .articles{padding:72px 56px;max-width:1100px;margin:0 auto}
 .articles-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.article-card{background:var(--bg);border:.5px solid var(--border);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column}
-.article-card:hover{box-shadow:0 8px 32px rgba(45,40,32,.08);transform:translateY(-2px)}
+.article-card{background:#FDFBF8;border:none;border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 2px 16px rgba(45,40,32,.16);transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column}
+.article-card:hover{box-shadow:0 8px 28px rgba(45,40,32,.22);transform:translateY(-2px)}
 .ac-body{padding:28px;flex:1}
 .ac-tag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--brand);margin-bottom:12px;display:flex;align-items:center;gap:6px}
 .ac-dot{width:4px;height:4px;border-radius:50%;background:var(--brand)}
@@ -96,8 +96,8 @@ footer{background:var(--bg);border-top:.5px solid var(--border);padding:48px 56p
 .sr{opacity:0;transform:translateY(22px) scale(0.985);filter:blur(3px);will-change:transform,opacity,filter;transition:opacity 580ms cubic-bezier(0.23,1,0.32,1),transform 580ms cubic-bezier(0.23,1,0.32,1),filter 460ms ease}
 .sr.in{opacity:1;transform:none;filter:none;will-change:auto}
 @media(max-width:600px){.sr{filter:none}.sr.in{filter:none}}
-.article-card{transition:box-shadow 300ms cubic-bezier(0.23,1,0.32,1),transform 300ms cubic-bezier(0.23,1,0.32,1),border-color 200ms ease}
-.article-card:hover{box-shadow:0 12px 40px rgba(45,40,32,.1) !important;transform:translateY(-3px) !important;border-color:var(--brand-border)}
+.article-card{transition:box-shadow 300ms cubic-bezier(0.23,1,0.32,1),transform 300ms cubic-bezier(0.23,1,0.32,1)}
+.article-card:hover{box-shadow:0 8px 28px rgba(45,40,32,.22) !important;transform:translateY(-3px) !important}
 
 /* ── FOCUS VISIBLE ── */
 .skip-link{position:absolute;left:-9999px;top:4px;z-index:9999;background:var(--bg);color:var(--brand);padding:8px 18px;border-radius:0 0 8px 8px;font-size:13px;font-weight:500;border:1px solid var(--brand-border);text-decoration:none}
@@ -151,29 +151,77 @@ button,a,.article-card{touch-action:manipulation}
 <div class="articles">
   <div class="articles-grid">
 
-    <a href="/blog/cum-pregatesti-apartamentul-pentru-chirie.html" class="article-card ac-featured sr">
+    <a href="/blog/am-analizat-100-apartamente.html" class="article-card ac-featured sr">
+      <div class="ac-body">
+        <div class="ac-tag"><div class="ac-dot"></div>Cercetare · Date reale</div>
+        <div class="ac-title">Am analizat 100 de apartamente din București. Doar 8 recuperau investiția sub 2 ani.</div>
+        <p class="ac-excerpt">Nu e un număr pesimist, e ce arată datele când calculezi corect: perioade goale, cheltuieli reale, chiriaș potrivit. Ce fac diferit cele 8 față de celelalte 92, și de ce diferența nu vine din zonă sau buget, ci din sistem.</p>
+        <div style="margin-top:20px;font-size:13px;color:var(--brand);font-weight:500">Citește articolul →</div>
+      </div>
+      <div class="ac-featured-side">
+        <div class="afs-stat">8 din 100</div>
+        <div class="afs-label">proprietari recuperau investiția în optimizare în mai puțin de 2 ani</div>
+        <div class="afs-divider"></div>
+        <div style="font-size:12px;color:var(--light)">Timp de citire: ~7 minute</div>
+      </div>
+    </a>
+
+    <a href="/blog/apartamentul-scump-randament-slab.html" class="article-card sr">
+      <div class="ac-body">
+        <div class="ac-tag"><div class="ac-dot"></div>Financiar · Portofoliu</div>
+        <div class="ac-title">De ce apartamentul tău cel mai scump la achiziție poate avea cel mai slab randament din portofoliu</div>
+        <p class="ac-excerpt">Prețul de achiziție și randamentul real merg adesea în direcții opuse. Proprietarii cu mai multe apartamente descoperă asta târziu, după ani în care au tratat proprietatea cea mai scumpă ca pe cea mai valoroasă.</p>
+      </div>
+      <div class="ac-footer">
+        <span class="ac-meta">~6 minute</span>
+        <span class="ac-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="/blog/randamentul-mediu-bucuresti-2026.html" class="article-card sr">
+      <div class="ac-body">
+        <div class="ac-tag"><div class="ac-dot"></div>Financiar · Date piață</div>
+        <div class="ac-title">Randamentul mediu al unui apartament în București în 2026, și de ce media minte</div>
+        <p class="ac-excerpt">„5–6% randament mediu": un număr adevărat și înșelător simultan. Ce ascunde media pieței, cum arată distribuția reală și unde se situează cel mai probabil apartamentul tău.</p>
+      </div>
+      <div class="ac-footer">
+        <span class="ac-meta">~6 minute</span>
+        <span class="ac-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="/blog/cum-stabilesti-pretul-corect-de-chirie.html" class="article-card sr">
+      <div class="ac-body">
+        <div class="ac-tag"><div class="ac-dot"></div>Prețuri chirie</div>
+        <div class="ac-title">Cum stabilești prețul corect de chirie: metoda cu care eviți lunile de apartament gol</div>
+        <p class="ac-excerpt">Metoda cu 4 pași, tabel cu prețuri pe cartiere București 2026 și factorii care chiar schimbă suma. Prețul corect nu e cel mai mare pe care îl ceri, e cel la care apartamentul se închiriază în 1-3 săptămâni.</p>
+      </div>
+      <div class="ac-footer">
+        <span class="ac-meta">~7 minute</span>
+        <span class="ac-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="/blog/chiria-mare-nu-inseamna-randament-mare.html" class="article-card sr">
+      <div class="ac-body">
+        <div class="ac-tag"><div class="ac-dot"></div>Financiar · Randament</div>
+        <div class="ac-title">De ce „chirie mare" nu înseamnă „randament mare", și cum le confundă majoritatea proprietarilor</div>
+        <p class="ac-excerpt">Chiria mare și randamentul bun sunt două lucruri diferite. Proprietarul cu 350€/lună poate câștiga mai bine la capitalul investit decât cel cu 1.200€/lună. Iată de ce și cum calculezi corect.</p>
+      </div>
+      <div class="ac-footer">
+        <span class="ac-meta">~5 minute</span>
+        <span class="ac-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="/blog/cum-pregatesti-apartamentul-pentru-chirie.html" class="article-card sr">
       <div class="ac-body">
         <div class="ac-tag"><div class="ac-dot"></div>Pregătire apartament</div>
         <div class="ac-title">Cum pregătești apartamentul pentru chirie: ghidul complet pas cu pas</div>
         <p class="ac-excerpt">5 pași, în ordinea corectă: reparații și mentenanță, curățenie profundă, decluttering și amenajare minimă, fotografii bune pentru anunț și documentație completă. Cu bugete reale pentru fiecare nivel de investiție.</p>
-        <div style="margin-top:20px;font-size:13px;color:var(--brand);font-weight:500">Citește articolul →</div>
-      </div>
-      <div class="ac-featured-side">
-        <div class="afs-stat">5 pași</div>
-        <div class="afs-label">esențiali, în ordinea corectă, înainte de prima vizionare</div>
-        <div class="afs-divider"></div>
-        <div style="font-size:12px;color:var(--light)">Timp de citire: ~8 minute</div>
-      </div>
-    </a>
-
-    <a href="/blog/cum-selectezi-chiriasii.html" class="article-card sr">
-      <div class="ac-body">
-        <div class="ac-tag"><div class="ac-dot"></div>Selecție chiriaș</div>
-        <div class="ac-title">Cum selectezi chiriașii: metoda concretă cu care eviți 90% din probleme</div>
-        <p class="ac-excerpt">Toți par serioși la prima vizionare. Cum faci diferența? Nu după instinct, nu după profesie, nu după cât de simpatic pare. Există un sistem cu 4 piloni care elimină subiectivitatea și îți dă o decizie bazată pe dovezi.</p>
       </div>
       <div class="ac-footer">
-        <span class="ac-meta">~6 minute</span>
+        <span class="ac-meta">~8 minute</span>
         <span class="ac-arrow">→</span>
       </div>
     </a>
@@ -183,6 +231,30 @@ button,a,.article-card{touch-action:manipulation}
         <div class="ac-tag"><div class="ac-dot"></div>Contracte</div>
         <div class="ac-title">De ce contractul ANAF nu te protejează de un chiriaș problematic</div>
         <p class="ac-excerpt">Mulți proprietari cred că odată înregistrat la ANAF, contractul îi acoperă orice s-ar întâmpla. Realitatea legală e mult mai îngustă, iar diferența costă luni și mii de euro.</p>
+      </div>
+      <div class="ac-footer">
+        <span class="ac-meta">~6 minute</span>
+        <span class="ac-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="/blog/procesul-verbal-foto.html" class="article-card sr">
+      <div class="ac-body">
+        <div class="ac-tag"><div class="ac-dot"></div>Documentație</div>
+        <div class="ac-title">Procesul verbal foto: singura ta protecție legală reală când chiriașul pleacă</div>
+        <p class="ac-excerpt">Garanția nu te protejează dacă nu poți dovedi starea inițială. Fără proces verbal foto corect făcut, ești la mâna chiriașului indiferent ce scrie în contract.</p>
+      </div>
+      <div class="ac-footer">
+        <span class="ac-meta">~5 minute</span>
+        <span class="ac-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="/blog/cum-selectezi-chiriasii.html" class="article-card sr">
+      <div class="ac-body">
+        <div class="ac-tag"><div class="ac-dot"></div>Selecție chiriaș</div>
+        <div class="ac-title">Cum selectezi chiriașii: metoda concretă cu care eviți 90% din probleme</div>
+        <p class="ac-excerpt">Toți par serioși la prima vizionare. Cum faci diferența? Nu după instinct, nu după profesie, nu după cât de simpatic pare. Există un sistem cu 4 piloni care elimină subiectivitatea și îți dă o decizie bazată pe dovezi.</p>
       </div>
       <div class="ac-footer">
         <span class="ac-meta">~6 minute</span>
@@ -202,18 +274,6 @@ button,a,.article-card{touch-action:manipulation}
       </div>
     </a>
 
-    <a href="/blog/cum-stabilesti-pretul-corect-de-chirie.html" class="article-card sr">
-      <div class="ac-body">
-        <div class="ac-tag"><div class="ac-dot"></div>Prețuri chirie</div>
-        <div class="ac-title">Cum stabilești prețul corect de chirie: metoda cu care eviți lunile de apartament gol</div>
-        <p class="ac-excerpt">Metoda cu 4 pași, tabel cu prețuri pe cartiere București 2026 și factorii care chiar schimbă suma. Prețul corect nu e cel mai mare pe care îl ceri, e cel la care apartamentul se închiriază în 1-3 săptămâni.</p>
-      </div>
-      <div class="ac-footer">
-        <span class="ac-meta">~7 minute</span>
-        <span class="ac-arrow">→</span>
-      </div>
-    </a>
-
     <a href="/blog/cat-costa-sa-nu-faci-nimic.html" class="article-card sr">
       <div class="ac-body">
         <div class="ac-tag"><div class="ac-dot"></div>Financiar</div>
@@ -222,18 +282,6 @@ button,a,.article-card{touch-action:manipulation}
       </div>
       <div class="ac-footer">
         <span class="ac-meta">~4 minute</span>
-        <span class="ac-arrow">→</span>
-      </div>
-    </a>
-
-    <a href="/blog/procesul-verbal-foto.html" class="article-card sr">
-      <div class="ac-body">
-        <div class="ac-tag"><div class="ac-dot"></div>Documentație</div>
-        <div class="ac-title">Procesul verbal foto: singura ta protecție legală reală când chiriașul pleacă</div>
-        <p class="ac-excerpt">Garanția nu te protejează dacă nu poți dovedi starea inițială. Fără proces verbal foto corect făcut, ești la mâna chiriașului indiferent ce scrie în contract.</p>
-      </div>
-      <div class="ac-footer">
-        <span class="ac-meta">~5 minute</span>
         <span class="ac-arrow">→</span>
       </div>
     </a>
@@ -291,6 +339,7 @@ function toggleMenu(){document.getElementById('nav-mobile').classList.toggle('op
 function checkHamburger(){var btn=document.getElementById('nav-hamburger');if(window.innerWidth<=768){btn.style.display='flex';}else{btn.style.display='none';document.getElementById('nav-mobile').classList.remove('open');}}
 checkHamburger();window.addEventListener('resize',checkHamburger);
 document.addEventListener('click',function(e){if(!e.target.closest('nav')&&!e.target.closest('.nav-mobile')){document.getElementById('nav-mobile').classList.remove('open');}});
+(function(){var nav=document.querySelector('nav');window.addEventListener('scroll',function(){nav.style.boxShadow=window.scrollY>10?'0 1px 20px rgba(45,40,32,.07)':'none';},{passive:true});})();
 </script>
 
 <!-- Cookie Banner -->

@@ -126,7 +126,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 button,a,.rel-card{touch-action:manipulation}
 .rel-card:hover{transform:translateY(-1px)}
 .kit-btn{transition:background 180ms ease,transform 160ms ease}
-.kit-btn:hover{transform:translateY(-1px)}
+.kit-btn:hover{transform:translateY(-1px)}.art-body .kit-btn{color:white}.art-body .kit-cta-h{color:white}
 </style>
 </head>
 <body>
@@ -365,6 +365,7 @@ function toggleMenu(){document.getElementById('nav-mobile').classList.toggle('op
 function checkHamburger(){var btn=document.getElementById('nav-hamburger');if(window.innerWidth<=768){btn.style.display='flex';}else{btn.style.display='none';document.getElementById('nav-mobile').classList.remove('open');}}
 checkHamburger();window.addEventListener('resize',checkHamburger);
 document.addEventListener('click',function(e){if(!e.target.closest('nav')&&!e.target.closest('.nav-mobile')){document.getElementById('nav-mobile').classList.remove('open');}});
+(function(){var nav=document.querySelector('nav');window.addEventListener('scroll',function(){nav.style.boxShadow=window.scrollY>10?'0 1px 20px rgba(45,40,32,.07)':'none';},{passive:true});})();
 </script>
 
 <!-- Cookie Banner -->

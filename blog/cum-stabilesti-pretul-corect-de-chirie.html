@@ -271,7 +271,7 @@ button,a,.rel-card{touch-action:manipulation}
         <tr>
           <td>Aviației</td>
           <td>~570 €</td>
-          <td>~975 €</td>
+          <td>900–1.000 €</td>
           <td>peste 1.450 €</td>
         </tr>
         <tr>
@@ -296,11 +296,11 @@ button,a,.rel-card{touch-action:manipulation}
   <p>Nu tot ce pare "un avantaj" pentru tine contează și pentru piață. Aceștia sunt factorii care se văd direct în preț:</p>
 
   <ul>
-    <li><strong>Metrou sub 5 minute pe jos:</strong> cel mai puternic factor unic, adaugă 10-15% față de aceeași zonă fără acces rapid</li>
-    <li><strong>Bloc nou cu parcare:</strong> 15-25% peste un bloc vechi din aceeași zonă</li>
-    <li><strong>Mobilat modern, complet:</strong> 10-15% peste "mobilă moștenită de la bunici"</li>
-    <li><strong>Centrală proprie și AC:</strong> în 2026 sunt standard minim, nu bonus; lipsa lor scade prețul, prezența lor nu îl mai crește</li>
-    <li><strong>Pet-friendly:</strong> nu crește prețul, dar dublează practic numărul de chiriași potențiali și scurtează timpul de neocupare</li>
+    <li><span><strong>Metrou sub 5 minute pe jos:</strong> cel mai puternic factor unic, adaugă 10-15% față de aceeași zonă fără acces rapid</span></li>
+    <li><span><strong>Bloc nou cu parcare:</strong> 15-25% peste un bloc vechi din aceeași zonă</span></li>
+    <li><span><strong>Mobilat modern, complet:</strong> 10-15% peste "mobilă moștenită de la bunici"</span></li>
+    <li><span><strong>Centrală proprie și AC:</strong> în 2026 sunt standard minim, nu bonus; lipsa lor scade prețul, prezența lor nu îl mai crește</span></li>
+    <li><span><strong>Pet-friendly:</strong> nu crește prețul, dar dublează practic numărul de chiriași potențiali și scurtează timpul de neocupare</span></li>
   </ul>
 
   <div class="pullquote sr">
@@ -394,6 +394,7 @@ function toggleMenu(){document.getElementById('nav-mobile').classList.toggle('op
 function checkHamburger(){var btn=document.getElementById('nav-hamburger');if(window.innerWidth<=768){btn.style.display='flex';}else{btn.style.display='none';document.getElementById('nav-mobile').classList.remove('open');}}
 checkHamburger();window.addEventListener('resize',checkHamburger);
 document.addEventListener('click',function(e){if(!e.target.closest('nav')&&!e.target.closest('.nav-mobile')){document.getElementById('nav-mobile').classList.remove('open');}});
+(function(){var nav=document.querySelector('nav');window.addEventListener('scroll',function(){nav.style.boxShadow=window.scrollY>10?'0 1px 20px rgba(45,40,32,.07)':'none';},{passive:true});})();
 </script>
 
 <!-- Cookie Banner -->

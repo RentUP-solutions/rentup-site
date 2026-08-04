@@ -84,14 +84,14 @@ nav{background:rgba(253,250,246,.95);backdrop-filter:blur(10px);border-bottom:.5
 
 /* PROJECTS GRID */
 .projects{padding:48px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
-.proj{border:.5px solid var(--border);border-radius:14px;overflow:hidden;background:var(--bg);transition:box-shadow .2s,transform .2s}
-.proj:hover{box-shadow:0 8px 32px rgba(45,40,32,.08);transform:translateY(-2px)}
+.proj{border:none;border-radius:14px;overflow:hidden;background:var(--bg);box-shadow:0 2px 16px rgba(45,40,32,.16);transition:box-shadow .2s,transform .2s}
+.proj:hover{box-shadow:0 8px 28px rgba(45,40,32,.22);transform:translateY(-2px)}
 .proj-photos{display:grid;grid-template-columns:1fr 1fr;gap:0}
 .proj-photo{height:220px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;letter-spacing:.06em;flex-direction:column;gap:6px}
 .proj-photo.b{background:var(--bg-warm);color:var(--light)}
 .proj-photo.a{background:#E8F5ED;color:#4A9E6A}
 .proj-photo svg{opacity:.4}
-.proj-info{padding:20px 22px;border-top:.5px solid var(--border)}
+.proj-info{padding:20px 22px;border-top:.5px solid var(--border);background:#FDFBF8}
 .proj-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
 .proj-name{font-size:16px;font-weight:500;margin-bottom:4px}
 .proj-meta{font-size:12px;color:var(--muted)}
@@ -234,8 +234,8 @@ img{-webkit-user-drag:none;user-drag:none}
 @media(max-width:600px){.sr{filter:none}.sr.in{filter:none}}
 
 /* Project cards hover */
-.proj{transition:box-shadow 300ms cubic-bezier(0.23,1,0.32,1),transform 300ms cubic-bezier(0.23,1,0.32,1),border-color 200ms ease}
-.proj:hover{box-shadow:0 14px 44px rgba(45,40,32,.1);transform:translateY(-3px);border-color:var(--brand-border)}
+.proj{transition:box-shadow 300ms cubic-bezier(0.23,1,0.32,1),transform 300ms cubic-bezier(0.23,1,0.32,1)}
+.proj:hover{box-shadow:0 8px 28px rgba(45,40,32,.22);transform:translateY(-3px)}
 
 /* ── FOCUS VISIBLE ── */
 .skip-link{position:absolute;left:-9999px;top:4px;z-index:9999;background:var(--bg);color:var(--brand);padding:8px 18px;border-radius:0 0 8px 8px;font-size:13px;font-weight:500;border:1px solid var(--brand-border);text-decoration:none}
@@ -269,8 +269,8 @@ button,a,.filter-btn,.proj{touch-action:manipulation}
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "2 camere Drumul Taberei 55mp — 400€ → 620€",
-      "description": "Pachet Invest Premium, 12 săptămâni. Creștere chirie cu 220€/lună."
+      "name": "2 camere Drumul Taberei 55mp — 400€ → 550€",
+      "description": "Pachet Invest Premium, 12 săptămâni. Creștere chirie cu 150€/lună."
     },
     {
       "@type": "ListItem",
@@ -758,6 +758,7 @@ document.addEventListener('click',function(e){
     document.getElementById('nav-mobile').classList.remove('open');
   }
 });
+(function(){var nav=document.querySelector('nav');window.addEventListener('scroll',function(){nav.style.boxShadow=window.scrollY>10?'0 1px 20px rgba(45,40,32,.07)':'none';},{passive:true});})();
 </script>
 <script>
 // Scroll reveal + stats count-up
