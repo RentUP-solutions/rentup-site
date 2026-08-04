@@ -19,6 +19,12 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://www.rentup.solutions/staging-virtual.html</loc>
+    <lastmod>2026-08-04</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://www.rentup.solutions/realitatea-chiriei.html</loc>
     <lastmod>2026-06-07</lastmod>
     <priority>0.8</priority>
@@ -44,7 +50,7 @@
   </url>
   <url>
     <loc>https://www.rentup.solutions/blog/</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-08-04</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -62,7 +68,7 @@
   </url>
   <url>
     <loc>https://www.rentup.solutions/blog/chirias-nu-plateste-chiria.html</loc>
-    <lastmod>2026-06-15</lastmod>
+    <lastmod>2026-08-04</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -85,8 +91,38 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://www.rentup.solutions/blog/chiria-mare-nu-inseamna-randament-mare.html</loc>
+    <lastmod>2026-08-04</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.rentup.solutions/blog/am-analizat-100-apartamente.html</loc>
+    <lastmod>2026-08-04</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.rentup.solutions/blog/randamentul-mediu-bucuresti-2026.html</loc>
+    <lastmod>2026-08-04</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.rentup.solutions/blog/apartamentul-scump-randament-slab.html</loc>
+    <lastmod>2026-08-04</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.rentup.solutions/blog/cum-stabilesti-pretul-corect-de-chirie.html</loc>
+    <lastmod>2026-08-04</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://www.rentup.solutions/termeni.html</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-08-04</lastmod>
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>
   </url>
