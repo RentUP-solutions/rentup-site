@@ -1,0 +1,73 @@
+<h2>Îmbunătățire #4 — Tabel comparativ mai convingător</h2>
+<p class="subtitle">Coloana RentUP câștigă clar dar nu se vede. Propun să o facem vizual dominantă.</p>
+
+<div class="split">
+  <div class="mockup">
+    <div class="mockup-header">❌ Acum — ambele coloane la fel</div>
+    <div class="mockup-body" style="padding:16px;font-family:Inter,sans-serif">
+      <table style="width:100%;border-collapse:collapse;font-size:12px;border:.5px solid #EDE5D8;border-radius:10px;overflow:hidden">
+        <thead>
+          <tr style="background:#F5EFE6">
+            <th style="padding:10px 12px;text-align:left;font-size:10px;color:#9A8E82;border-bottom:.5px solid #EDE5D8"></th>
+            <th style="padding:10px 12px;text-align:center;font-size:10px;color:#9A8E82;border-bottom:.5px solid #EDE5D8">Aplicație AI</th>
+            <th style="padding:10px 12px;text-align:center;font-size:10px;color:#C77936;border-bottom:.5px solid #EDE5D8">RentUP Staging Virtual</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:10px 12px;color:#7A6E62;border-bottom:.5px solid #EDE5D8">Preț</td><td style="text-align:center;color:#9A8E82;border-bottom:.5px solid #EDE5D8">0–30€</td><td style="text-align:center;color:#C77936;border-bottom:.5px solid #EDE5D8">200€ fix</td></tr>
+          <tr><td style="padding:10px 12px;color:#7A6E62;border-bottom:.5px solid #EDE5D8">Poți cumpăra ce vezi?</td><td style="text-align:center;color:#A32D2D;border-bottom:.5px solid #EDE5D8">Rar</td><td style="text-align:center;color:#C77936;border-bottom:.5px solid #EDE5D8">Da</td></tr>
+          <tr><td style="padding:10px 12px;color:#7A6E62;border-bottom:.5px solid #EDE5D8">Ține cont de buget?</td><td style="text-align:center;color:#A32D2D;border-bottom:.5px solid #EDE5D8">Nu</td><td style="text-align:center;color:#C77936;border-bottom:.5px solid #EDE5D8">Da</td></tr>
+          <tr><td style="padding:10px 12px;color:#7A6E62">Gândit pentru chiriaș</td><td style="text-align:center;color:#A32D2D">Nu</td><td style="text-align:center;color:#C77936">Da</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup-header">✅ Propus — coloana RentUP evidențiată</div>
+    <div class="mockup-body" style="padding:16px;font-family:Inter,sans-serif">
+      <table style="width:100%;border-collapse:collapse;font-size:12px;border:.5px solid #EDE5D8;border-radius:10px;overflow:hidden">
+        <thead>
+          <tr style="background:#F5EFE6">
+            <th style="padding:10px 12px;text-align:left;font-size:10px;color:#9A8E82;border-bottom:.5px solid #EDE5D8"></th>
+            <th style="padding:10px 12px;text-align:center;font-size:10px;color:#9A8E82;border-bottom:.5px solid #EDE5D8">Aplicație AI</th>
+            <th style="padding:10px 12px;text-align:center;font-size:10px;font-weight:700;color:#fff;background:#C77936;border-bottom:.5px solid #C77936">RentUP Staging Virtual</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:10px 12px;color:#7A6E62;border-bottom:.5px solid #EDE5D8">Preț</td>
+            <td style="text-align:center;color:#9A8E82;border-bottom:.5px solid #EDE5D8">0–30€ / imagine</td>
+            <td style="text-align:center;font-weight:600;color:#2D2820;background:rgba(199,121,54,.07);border-bottom:.5px solid #EDE5D8;border-left:.5px solid #E8D5BC">200€ fix, tot pachetul</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 12px;color:#7A6E62;border-bottom:.5px solid #EDE5D8">Poți cumpăra ce vezi?</td>
+            <td style="text-align:center;color:#A32D2D;border-bottom:.5px solid #EDE5D8">✗ Rar</td>
+            <td style="text-align:center;color:#0F6E56;font-weight:600;background:rgba(199,121,54,.07);border-bottom:.5px solid #EDE5D8;border-left:.5px solid #E8D5BC">✓ Da</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 12px;color:#7A6E62;border-bottom:.5px solid #EDE5D8">Ține cont de buget?</td>
+            <td style="text-align:center;color:#A32D2D;border-bottom:.5px solid #EDE5D8">✗ Nu</td>
+            <td style="text-align:center;color:#0F6E56;font-weight:600;background:rgba(199,121,54,.07);border-bottom:.5px solid #EDE5D8;border-left:.5px solid #E8D5BC">✓ Da</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 12px;color:#7A6E62">Gândit pentru chiriaș</td>
+            <td style="text-align:center;color:#A32D2D">✗ Nu</td>
+            <td style="text-align:center;color:#0F6E56;font-weight:600;background:rgba(199,121,54,.07);border-left:.5px solid #E8D5BC">✓ Da</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="options" style="margin-top:20px">
+  <div class="option" data-choice="approve" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content"><h3>Aprobat — header portocaliu + ✓ verde pe rândurile câștigate</h3></div>
+  </div>
+  <div class="option" data-choice="keep" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content"><h3>Lasă cum e</h3></div>
+  </div>
+</div>

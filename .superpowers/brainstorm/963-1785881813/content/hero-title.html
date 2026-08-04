@@ -1,0 +1,56 @@
+<h2>Îmbunătățire #1 — Titlu pentru secțiunea hero</h2>
+<p class="subtitle">Acum secțiunea cu imaginea adnotată pornește direct, fără context. Propun să adaug deasupra ei exact structura pe care o au toate celelalte secțiuni.</p>
+
+<div class="split">
+  <div class="mockup">
+    <div class="mockup-header">❌ Acum — nicio introducere</div>
+    <div class="mockup-body" style="padding:20px;font-family:Inter,sans-serif">
+      <div style="background:#FAF4EB;border:.5px solid #EDE5D8;border-radius:10px;overflow:hidden">
+        <div style="background:#e8e0d4;height:180px;display:flex;align-items:center;justify-content:center;color:#9A8E82;font-size:13px">[ imaginea adnotată cu dots ]</div>
+        <div style="padding:12px;display:flex;gap:8px;flex-direction:column">
+          <div style="background:#fff;border:.5px solid #EDE5D8;border-radius:8px;padding:8px 10px;font-size:11px;color:#2D2820">1. Plafonieră LED VIRRMO</div>
+          <div style="background:#fff;border:.5px solid #EDE5D8;border-radius:8px;padding:8px 10px;font-size:11px;color:#2D2820">2. Oglindă HOVET</div>
+        </div>
+      </div>
+      <div style="margin-top:12px;background:#F5EFE6;border-radius:10px;padding:12px;font-size:11px;color:#7A6E62">[ lista de achiziții ]</div>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup-header">✅ Propus — cu sec-tag + titlu + subtitlu</div>
+    <div class="mockup-body" style="padding:20px;font-family:Inter,sans-serif">
+      <div style="margin-bottom:16px">
+        <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#C77936;margin-bottom:8px;display:flex;align-items:center;gap:6px">
+          <span style="width:5px;height:5px;border-radius:50%;background:#C77936;display:inline-block"></span>
+          Exemplu real de proiect
+        </div>
+        <div style="font-size:22px;font-weight:300;letter-spacing:-.02em;color:#2D2820;margin-bottom:6px">Un apartament. O randare. <em style="font-style:normal;font-weight:500;color:#C77936">Un plan gata de executat.</em></div>
+        <div style="font-size:13px;color:#9A8E82;line-height:1.6">Fiecare număr din imagine corespunde unui produs real, cu furnizor și preț. Asta livrăm.</div>
+      </div>
+      <div style="background:#FAF4EB;border:.5px solid #EDE5D8;border-radius:10px;overflow:hidden">
+        <div style="background:#e8e0d4;height:140px;display:flex;align-items:center;justify-content:center;color:#9A8E82;font-size:13px">[ imaginea adnotată cu dots ]</div>
+        <div style="padding:10px;display:flex;gap:6px;flex-direction:column">
+          <div style="background:#fff;border:.5px solid #EDE5D8;border-radius:8px;padding:7px 10px;font-size:11px;color:#2D2820">1. Plafonieră LED VIRRMO</div>
+          <div style="background:#fff;border:.5px solid #EDE5D8;border-radius:8px;padding:7px 10px;font-size:11px;color:#2D2820">2. Oglindă HOVET</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="options" style="margin-top:20px">
+  <div class="option" data-choice="approve" onclick="toggleSelect(this)">
+    <div class="letter">✓</div>
+    <div class="content">
+      <h3>Aprobat — implementează asta</h3>
+      <p>Adaugă sec-tag „Exemplu real de proiect" + titlu + subtitlu deasupra imaginii adnotate</p>
+    </div>
+  </div>
+  <div class="option" data-choice="tweak" onclick="toggleSelect(this)">
+    <div class="letter">~</div>
+    <div class="content">
+      <h3>Aprobat cu modificări</h3>
+      <p>Îmi place direcția dar vreau să schimb textul / structura — spune-mi în terminal</p>
+    </div>
+  </div>
+</div>
