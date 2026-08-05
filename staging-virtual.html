@@ -108,9 +108,8 @@ section{padding:64px 48px}
 .cmp-tbl td.c-ru{text-align:center;color:var(--brand);font-weight:600;background:rgba(199,121,54,.07);border-left:.5px solid var(--brand-border)}
 
 /* ── STEPS ── */
-.steps-stack{display:flex;flex-direction:column;gap:0;border:.5px solid #D8CFC4;border-radius:12px;overflow:hidden}
-.step{padding:28px 32px;border-bottom:.5px solid #D8CFC4;background:#FAF7F3}
-.step:last-child{border-bottom:none}
+.steps-stack{display:flex;flex-direction:column;gap:12px}
+.step{padding:28px 32px;border-radius:12px;background:#FAF7F3;box-shadow:0 2px 16px rgba(45,40,32,.10),0 1px 4px rgba(45,40,32,.06)}
 .step-n{font-size:40px;font-weight:500;color:var(--border);line-height:1;margin-bottom:12px;letter-spacing:-.04em}
 .step-t{font-size:16px;font-weight:500;color:var(--text);margin-bottom:8px}
 .step-d{font-size:14px;color:var(--muted);line-height:1.65}
@@ -171,7 +170,14 @@ img{-webkit-user-drag:none;user-drag:none}
 .cc:hover{background:#453A2E;transform:translateY(-1px)}
 
 /* ── STAGING VIRTUAL: ANNOTATE ── */
-.sv-dot{position:absolute;width:26px;height:26px;border-radius:50%;background:var(--brand);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;transform:translate(-50%,-50%);z-index:4;box-shadow:0 2px 10px rgba(199,121,54,.4);transition:transform 200ms ease,box-shadow 200ms ease;cursor:default}
+.sv-dot{position:absolute;width:26px;height:26px;border-radius:50%;background:var(--brand);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;transform:translate(-50%,-50%);z-index:4;box-shadow:0 2px 10px rgba(199,121,54,.4);transition:transform 200ms ease,box-shadow 200ms ease;cursor:pointer}
+@keyframes sv-card-ping{
+  0%{box-shadow:0 1px 8px rgba(45,40,32,.07);transform:translateY(0) scale(1)}
+  18%{box-shadow:0 0 0 0.5px rgba(199,121,54,.18),0 6px 32px rgba(199,121,54,.20),0 2px 12px rgba(199,121,54,.12);transform:translateY(-3px) scale(1.013)}
+  55%{box-shadow:0 0 0 0.5px rgba(199,121,54,.06),0 4px 22px rgba(199,121,54,.10),0 2px 8px rgba(45,40,32,.08);transform:translateY(-2px) scale(1.007)}
+  100%{box-shadow:0 1px 8px rgba(45,40,32,.07);transform:translateY(0) scale(1)}
+}
+.sv-card-active{animation:sv-card-ping 950ms cubic-bezier(0.23,1,0.32,1) forwards}
 .sv-dot:hover{transform:translate(-50%,-50%) scale(1.18);box-shadow:0 4px 16px rgba(199,121,54,.55)}
 .sv-card{display:flex;align-items:center;gap:9px;background:var(--bg);border:.5px solid var(--border);border-radius:10px;padding:8px 11px;box-shadow:0 1px 8px rgba(45,40,32,.07);transition:box-shadow 200ms ease,transform 200ms ease}
 .sv-card:hover{box-shadow:0 4px 18px rgba(45,40,32,.13);transform:translateY(-1px)}
@@ -181,7 +187,36 @@ img{-webkit-user-drag:none;user-drag:none}
 .sv-card-store{font-size:10px;color:var(--mid);margin-bottom:2px}
 .sv-card-price{font-size:12px;font-weight:700;color:var(--brand)}
 .sv-card-num{width:24px;height:24px;border-radius:50%;background:var(--brand);color:#fff;font-size:11px;font-weight:700;display:none;align-items:center;justify-content:center;flex-shrink:0;margin-left:auto;box-shadow:0 2px 8px rgba(199,121,54,.35)}
-@media(max-width:768px){.sv-card-num{display:flex}}
+@keyframes breathe{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.88)}}
+/* ── SCROLL HINT ── */
+.tbl-gradient-wrap{position:relative}
+.tbl-gradient-wrap::after{content:'';position:absolute;top:0;right:0;width:130px;height:100%;background:linear-gradient(to right,transparent,var(--bg) 75%);pointer-events:none;transition:opacity 400ms ease;z-index:2}
+.tbl-gradient-wrap.scrolled::after{opacity:0}
+@keyframes swipe-nudge{0%,60%,100%{transform:translateX(0)}72%{transform:translateX(-10px)}82%{transform:translateX(-3px)}90%{transform:translateX(-7px)}97%{transform:translateX(-1px)}}
+.tbl-scroll-hint{display:none;position:absolute;bottom:10px;right:10px;font-size:10px;font-weight:500;color:var(--muted);background:var(--bg);border:.5px solid var(--border);border-radius:100px;padding:4px 10px;z-index:3;pointer-events:none;transition:opacity 400ms ease;white-space:nowrap;animation:swipe-nudge 3s ease-in-out infinite}
+.tbl-gradient-wrap.scrolled .tbl-scroll-hint{opacity:0;animation:none}
+#tbl-scroll-inner{scrollbar-width:none;-ms-overflow-style:none}
+#tbl-scroll-inner::-webkit-scrollbar{display:none}
+/* ── CMP TABS ── */
+.cmp-tabs{display:none;gap:8px;margin-bottom:14px}
+.cmp-tab{flex:1;padding:9px 12px;font-size:12px;font-weight:500;border:.5px solid var(--border);border-radius:100px;background:var(--bg);color:var(--muted);cursor:pointer;text-align:center;font-family:'Inter',sans-serif;transition:background 150ms ease,color 150ms ease,border-color 150ms ease}
+.cmp-tab.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+@media(max-width:768px){
+  .sv-card-num{display:flex;animation:breathe 2.4s ease-in-out infinite}
+  .sv-dot{width:18px;height:18px;font-size:11px}
+  .prob-grid{grid-template-columns:1fr!important;gap:12px 0!important}
+  .prob-grid span[style*="white-space:nowrap"]{white-space:normal!important;margin-bottom:2px}
+  .tbl-scroll-hint{display:block;}
+  .cmp-tabs{display:flex}
+  .cmp-tbl-wrap{overflow-x:visible}
+  .cmp-tbl{min-width:0}
+  .cmp-tbl-wrap[data-tab="ai"] .col-ru,.cmp-tbl-wrap[data-tab="ai"] .c-ru{display:none}
+  .cmp-tbl-wrap[data-tab="ru"] .col-ai,.cmp-tbl-wrap[data-tab="ru"] .c-ai{display:none}
+  .cmp-tbl th.col-ru{width:150px!important}
+  .cmp-tbl td.c-ru{font-size:11px;line-height:1.4}
+  .cmp-tbl tbody tr:nth-child(2) td.c-ai,
+  .cmp-tbl tbody tr:nth-child(5) td.c-ai{height:59px}
+}
 .sv-tbl{width:100%;border-collapse:collapse;min-width:560px}
 .sv-tbl th{text-align:left;padding:9px 14px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);border-bottom:.5px solid var(--border);white-space:nowrap}
 .sv-tbl td{padding:12px 14px;font-size:13px;border-bottom:.5px solid var(--border);color:var(--dark);vertical-align:middle}
@@ -196,7 +231,7 @@ img{-webkit-user-drag:none;user-drag:none}
 @media(max-width:768px){
   #sv-annotate{flex-direction:column!important}
   #sv-img-col{flex:none!important;width:100%!important}
-  #sv-cards-col{flex:none!important;width:100%!important;padding-left:0!important;margin-top:16px}
+  #sv-cards-col{flex:none!important;width:100%!important;padding-left:0!important;margin-top:16px;gap:10px!important;justify-content:flex-start!important}
   #sv-lines{display:none!important}
 }
 
@@ -263,9 +298,8 @@ button,a{touch-action:manipulation}
 <div class="hero-img-wrap" style="padding:48px;background:var(--bg);border-bottom:.5px solid var(--border)">
   <div style="max-width:1100px;margin:0 auto">
 
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">
       <span style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--brand);background:var(--brand-light);border:.5px solid var(--brand-border);padding:3px 10px;border-radius:100px;white-space:nowrap">Proiect real livrat</span>
-      <span style="font-size:13px;color:var(--muted)">Fiecare număr din imagine corespunde unui produs real, cu furnizor și preț</span>
     </div>
 
     <div id="sv-annotate" style="display:flex;align-items:flex-start;position:relative">
@@ -273,7 +307,7 @@ button,a{touch-action:manipulation}
 
       <!-- Left: image cu puncte -->
       <div id="sv-img-col" style="flex:1;position:relative">
-        <div style="border-radius:14px;overflow:hidden;border:.5px solid var(--border)">
+        <div style="border-radius:14px;overflow:hidden;border:.5px solid var(--border);box-shadow:0 8px 40px rgba(45,40,32,.18),0 2px 12px rgba(45,40,32,.10)">
           <img id="sv-img" src="images/portofoliu_4.webp" alt="Proiect RentUP — amenajare staging virtual" style="width:100%;height:auto;display:block">
         </div>
         <!-- 6: Corp de iluminat (plafonieră) -->
@@ -297,7 +331,7 @@ button,a{touch-action:manipulation}
         <!-- Corp de iluminat: deasupra tablouri -->
         <div class="sv-card" id="sv-card-iluminat">
           <div class="sv-card-icon photo">
-            <img src="images/prod_plafoniera.png" alt="Plafonieră LED VIRRMO" style="width:100%;height:100%;object-fit:contain;display:block">
+            <img src="images/prod_plafoniera.png" alt="Plafonieră LED VIRRMO" style="width:100%;height:100%;object-fit:cover;object-position:right center;display:block">
           </div>
           <div>
             <div class="sv-card-name">Plafonieră LED VIRRMO 36cm</div>
@@ -309,7 +343,7 @@ button,a{touch-action:manipulation}
         <!-- Oglindă -->
         <div class="sv-card" id="sv-card-oglinda">
           <div class="sv-card-icon photo">
-            <img src="images/prod_oglinda.png" alt="Oglindă HOVET" style="width:100%;height:100%;object-fit:contain;display:block">
+            <img src="images/prod_oglinda.png" alt="Oglindă HOVET" style="width:100%;height:100%;object-fit:cover;display:block">
           </div>
           <div>
             <div class="sv-card-name">Oglindă HOVET 78x196cm</div>
@@ -321,7 +355,7 @@ button,a{touch-action:manipulation}
         <!-- Tablouri -->
         <div class="sv-card" id="sv-card-tablouri">
           <div class="sv-card-icon photo">
-            <img src="images/prod_tablou.png" alt="Tablou RODALM" style="width:100%;height:100%;object-fit:contain;display:block">
+            <img src="images/prod_tablou.png" alt="Tablou RODALM" style="width:100%;height:100%;object-fit:cover;display:block">
           </div>
           <div>
             <div class="sv-card-name">Tablou RODALM 50x70cm</div>
@@ -333,7 +367,7 @@ button,a{touch-action:manipulation}
         <!-- Cărucior -->
         <div class="sv-card" id="sv-card-caruciori">
           <div class="sv-card-icon photo">
-            <img src="images/prod_carucior.png" alt="Cărucior JARLASA" style="width:100%;height:100%;object-fit:contain;display:block">
+            <img src="images/prod_carucior.png" alt="Cărucior JARLASA" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block">
           </div>
           <div>
             <div class="sv-card-name">Cărucior JARLASA 65x45cm</div>
@@ -345,7 +379,7 @@ button,a{touch-action:manipulation}
         <!-- Perne decorative -->
         <div class="sv-card" id="sv-card-perne">
           <div class="sv-card-icon photo">
-            <img src="images/prod_perna.png" alt="Perne decorative" style="width:100%;height:100%;object-fit:contain;display:block">
+            <img src="images/prod_perna.png" alt="Perne decorative" style="width:100%;height:100%;object-fit:cover;display:block">
           </div>
           <div>
             <div class="sv-card-name">Perne decorative</div>
@@ -357,7 +391,7 @@ button,a{touch-action:manipulation}
         <!-- Masă: dot la ~80%, card la ~371px / 90% → linie ușor în sus -->
         <div class="sv-card" id="sv-card-masa">
           <div class="sv-card-icon photo">
-            <img src="images/prod_masa.png" alt="Masă de cafea" style="width:100%;height:100%;object-fit:contain;display:block">
+            <img src="images/prod_masa.png" alt="Masă de cafea" style="width:100%;height:100%;object-fit:cover;display:block">
           </div>
           <div>
             <div class="sv-card-name">Masă de cafea</div>
@@ -369,7 +403,7 @@ button,a{touch-action:manipulation}
         <!-- Covor: dot la ~87%, card la ~451px → linie ușor în sus -->
         <div class="sv-card" id="sv-card-covor">
           <div class="sv-card-icon photo">
-            <img src="images/prod_covor.png" alt="Covor oriental" style="width:100%;height:100%;object-fit:contain;display:block">
+            <img src="images/prod_covor.png" alt="Covor oriental" style="width:100%;height:100%;object-fit:cover;display:block">
           </div>
           <div>
             <div class="sv-card-name">Covor oriental 200x300cm</div>
@@ -390,7 +424,9 @@ button,a{touch-action:manipulation}
         </div>
         <div style="font-size:11px;color:var(--light);font-style:italic">exemplu</div>
       </div>
-      <div style="overflow-x:auto">
+      <div class="tbl-gradient-wrap">
+        <div class="tbl-scroll-hint">swipe →</div>
+        <div id="tbl-scroll-inner" style="overflow-x:auto">
         <table class="sv-tbl">
           <thead>
             <tr>
@@ -468,6 +504,7 @@ button,a{touch-action:manipulation}
           </tfoot>
         </table>
       </div>
+      </div>
     </div>
 
     <div style="margin-top:14px;text-align:center;padding:12px">
@@ -491,7 +528,7 @@ button,a{touch-action:manipulation}
     <div class="card-stack">
       <div class="card sr">
         <div class="card-title">Problemele reale cu AI-ul de staging</div>
-        <div style="display:grid;grid-template-columns:auto 1fr;gap:10px 16px;align-items:baseline">
+        <div class="prob-grid" style="display:grid;grid-template-columns:auto 1fr;gap:10px 16px;align-items:baseline">
           <span style="font-size:14px;font-weight:600;color:var(--dark);white-space:nowrap">– Nu poți cumpăra ce vezi.</span>
           <span style="font-size:14px;color:var(--mid);line-height:1.6">Mobila generată e adesea fictivă sau nepotrivită bugetului tău real.</span>
           <span style="font-size:14px;font-weight:600;color:var(--dark);white-space:nowrap">– Fiecare poză, izolată.</span>
@@ -559,13 +596,17 @@ button,a{touch-action:manipulation}
   <div class="inner">
     <div class="sec-tag"><div class="dot"></div>Comparație directă</div>
     <h2 class="sec-h">AI vs <span style="color:#C77936;font-weight:600">Rent</span><span style="color:#2D2820;font-weight:300">UP</span>.</h2>
-    <div class="cmp-tbl-wrap sr">
+    <div class="cmp-tabs">
+      <button class="cmp-tab on" data-col="ai">Aplicație AI</button>
+      <button class="cmp-tab" data-col="ru">Staging Virtual</button>
+    </div>
+    <div class="cmp-tbl-wrap sr" data-tab="ai">
       <table class="cmp-tbl">
         <thead>
           <tr>
             <th></th>
-            <th class="col-ai" style="text-align:center;width:150px">Aplicație AI</th>
-            <th class="col-ru" style="text-align:center;width:190px">RentUP Staging Virtual</th>
+            <th class="col-ai" style="text-align:center;width:150px;white-space:nowrap">Aplicație AI</th>
+            <th class="col-ru" style="text-align:center;width:190px;white-space:nowrap">Staging Virtual</th>
           </tr>
         </thead>
         <tbody>
@@ -919,6 +960,48 @@ if(localStorage.getItem('cookieConsent')){
   window.addEventListener('resize',drawSVLines);
   var img=document.getElementById('sv-img');
   if(img){img.addEventListener('load',drawSVLines);}
+
+  // Scroll hint fade
+  var scrollInner=document.getElementById('tbl-scroll-inner');
+  var gradientWrap=document.querySelector('.tbl-gradient-wrap');
+  if(scrollInner&&gradientWrap){
+    scrollInner.addEventListener('scroll',function(){
+      if(scrollInner.scrollLeft>0){
+        gradientWrap.classList.add('scrolled');
+      } else {
+        gradientWrap.classList.remove('scrolled');
+      }
+    },{passive:true});
+  }
+
+  // CMP tabs
+  var cmpWrap=document.querySelector('.cmp-tbl-wrap');
+  document.querySelectorAll('.cmp-tab').forEach(function(tab){
+    tab.addEventListener('click',function(){
+      document.querySelectorAll('.cmp-tab').forEach(function(t){t.classList.remove('on');});
+      tab.classList.add('on');
+      if(cmpWrap)cmpWrap.setAttribute('data-tab',tab.getAttribute('data-col'));
+    });
+  });
+
+  function pingCard(card){
+    card.classList.remove('sv-card-active');
+    void card.offsetWidth;
+    card.classList.add('sv-card-active');
+    card.addEventListener('animationend',function(){card.classList.remove('sv-card-active');},{once:true});
+  }
+  document.querySelectorAll('.sv-dot[data-target]').forEach(function(dot){
+    dot.addEventListener('click',function(){
+      var card=document.getElementById(dot.getAttribute('data-target'));
+      if(!card)return;
+      if(window.innerWidth<=768){
+        card.scrollIntoView({behavior:'smooth',block:'center'});
+        setTimeout(function(){pingCard(card);},320);
+      } else {
+        pingCard(card);
+      }
+    });
+  });
 })();
 </script>
 </body>

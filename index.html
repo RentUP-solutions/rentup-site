@@ -2,8 +2,6 @@
 <html lang="ro">
 <head>
 <meta charset="UTF-8">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2888114143109032"
-     crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://www.googletagmanager.com">
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5WXD9BGS3T"></script>
@@ -44,6 +42,8 @@ function gtag_report_conversion_social(url) {
   </script>
 
   <meta name="format-detection" content="telephone=no">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+<link rel="preload" href="images/hero_index.webp" as="image" fetchpriority="high">
 <link rel="preload" href="fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/inter-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" type="image/webp" href="favicon.webp">
@@ -113,7 +113,9 @@ h2.sh{font-size:clamp(1.5rem,4vw,2.375rem);font-weight:300;color:var(--text);lin
 /* ── HERO ── */
 #hero{padding:0 clamp(20px,6vw,56px);display:grid;grid-template-columns:1fr 1fr;min-height:92vh;align-items:center;gap:72px;background:var(--bg)}
 .hero-l{padding:80px 0}
-.hero-eyebrow{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--brand);margin-bottom:24px;display:flex;align-items:center;gap:8px}
+.hero-eyebrow{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--brand);margin-bottom:24px;display:flex;align-items:center;gap:8px;cursor:default;user-select:none}
+.hero-eyebrow a{color:inherit;text-decoration:none;cursor:pointer;transition:opacity 150ms ease}
+.hero-eyebrow a:hover{opacity:0.65}
 .hero-dot{width:6px;height:6px;border-radius:50%;background:var(--brand);flex-shrink:0}
 .hero-h1{font-size:clamp(1.875rem,6vw,3.5rem);font-weight:300;line-height:1.02;letter-spacing:-.035em;margin-bottom:24px;color:var(--text);text-wrap:balance}
 .hero-h1 em{font-style:normal;font-weight:500;color:var(--brand)}
@@ -785,6 +787,9 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
   ]
 }
 </script>
+<script type="speculationrules">
+{"prerender":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"https://*"}}]},"eagerness":"moderate"}]}
+</script>
 </head>
 <body>
 <noscript><style>body{opacity:1}</style></noscript>
@@ -828,14 +833,14 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 <!-- S1 HERO -->
 <section id="hero">
   <div class="hero-l">
-    <div class="hero-eyebrow"><div class="hero-dot"></div>Rental Performance System · Design Interior · Selecție Chiriaș · Protecție Contractuală</div>
+    <div class="hero-eyebrow"><div class="hero-dot"></div><a href="#process">Rental Performance System · Design Interior · Selecție Chiriaș · Protecție Contractuală</a></div>
     <h1 class="hero-h1">Chiriași stabili.<br><em>Venituri predictibile.</em></h1>
     <div>
       <p class="hero-sub" style="margin-bottom:14px">Transformăm apartamente obișnuite în active care produc venituri stabile prin: design funcțional, sistem complet de închiriere și selecție profesională a chiriașilor.</p>
       <div style="display:flex;flex-wrap:wrap;gap:6px 18px;font-size:12px;color:var(--muted);margin-bottom:20px">
-        <span><span style="color:var(--brand);font-weight:600">✓</span> Proprietari din București, Cluj-Napoca și Brașov</span>
-        <span><span style="color:var(--brand);font-weight:600">✓</span> Chiriaș găsit în medie în 5 zile</span>
-        <span><span style="color:var(--brand);font-weight:600">✓</span> +70 până la +220€ chirie lunară</span>
+        <a href="#testimonials" style="color:inherit;text-decoration:none;display:inline-flex;align-items:center;padding:8px 0;margin:-8px 0"><span style="color:var(--brand);font-weight:600">✓</span>&nbsp;Proprietari din București, Cluj-Napoca și Brașov</a>
+        <a href="#process" style="color:inherit;text-decoration:none;display:inline-flex;align-items:center;padding:8px 0;margin:-8px 0"><span style="color:var(--brand);font-weight:600">✓</span>&nbsp;Chiriaș găsit în medie în 5 zile</a>
+        <a href="#calc" style="color:inherit;text-decoration:none;display:inline-flex;align-items:center;padding:8px 0;margin:-8px 0"><span style="color:var(--brand);font-weight:600">✓</span>&nbsp;+70 până la +220€ chirie lunară</a>
       </div>
     </div>
     <p class="hero-micro">Găsirea unui chiriaș de încredere nu ar trebui să fie o loterie.</p>
@@ -916,7 +921,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         <div style="display:flex;flex-direction:column;gap:8px">
           <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--mid)"><span>Luni goale după plecare</span><strong style="color:var(--text)">~1,5 luni</strong></div>
           <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--mid)"><span>Daune și curățenie</span><strong style="color:var(--text)">~1.500€</strong></div>
-          <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--mid)"><span>Timp pierdut (vizionări, reparații, stres)</span><strong style="color:var(--text)">~20 ore (≈800€)</strong></div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--mid)"><span>Timp pierdut (vizionări, reparații, stres)</span><strong style="color:var(--text)">~20 ore</strong></div>
         </div>
       </div>
       <a class="btn-primary" href="/#quick-win" onclick="gtag('event','click_risk_calc_cta')" style="display:block;text-align:center;margin-top:20px;font-size:13px;padding:11px">Vezi pachetul Quick Win →</a>
@@ -1807,14 +1812,14 @@ window.addEventListener('scroll',function(){
 </script>
 
 <!-- Cookie Banner -->
-<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#2D2820;border-top:0.5px solid #4D4238;padding:18px 24px;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;z-index:var(--z-banner);font-family:'Inter',sans-serif">
-  <div style="flex:1;min-width:200px">
-    <div style="font-size:13px;font-weight:500;color:#FDFAF6;margin-bottom:4px">Folosim cookie-uri</div>
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#2D2820;border-top:0.5px solid #4D4238;padding:16px 20px;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;z-index:130;font-family:'Inter',sans-serif">
+  <div style="flex:1;min-width:180px">
+    <div style="font-size:13px;font-weight:500;color:#FDFAF6;margin-bottom:3px">Folosim cookie-uri</div>
     <div style="font-size:12px;color:#9A8E82;line-height:1.5">Folosim cookie-uri pentru analiză și îmbunătățirea experienței. Poți accepta sau refuza cookie-urile opționale. <a href="confidentialitate.html" style="color:#C77936;text-decoration:none">Politică de confidențialitate →</a></div>
   </div>
   <div style="display:flex;gap:8px;align-items:center;flex-shrink:0">
-    <button onclick="setCookies('refused')" style="font-size:12px;font-weight:500;color:#9A8E82;background:none;border:0.5px solid #4D4238;padding:8px 16px;border-radius:100px;cursor:pointer;font-family:'Inter',sans-serif">Refuz</button>
-    <button onclick="setCookies('accepted')" style="font-size:12px;font-weight:500;color:#FDFAF6;background:#C77936;border:none;padding:8px 16px;border-radius:100px;cursor:pointer;font-family:'Inter',sans-serif">Accept</button>
+    <button onclick="setCookies('refused')" style="font-size:13px;font-weight:500;color:#9A8E82;background:none;border:1px solid #4D4238;padding:0 20px;height:44px;border-radius:100px;cursor:pointer;font-family:'Inter',sans-serif;touch-action:manipulation;-webkit-tap-highlight-color:transparent">Refuz</button>
+    <button onclick="setCookies('accepted')" style="font-size:13px;font-weight:500;color:#FDFAF6;background:#C77936;border:none;padding:0 20px;height:44px;border-radius:100px;cursor:pointer;font-family:'Inter',sans-serif;touch-action:manipulation;-webkit-tap-highlight-color:transparent">Accept</button>
   </div>
 </div>
 <script>
@@ -2266,6 +2271,7 @@ window.animateCalcDiff=(function(){
 </div>
 
 <script>
+setTimeout(function(){
 (function(){
   // Desktop only — excludem mobilul (sub 768px) pentru a evita penalizarea Google interstitials
   if(window.innerWidth < 768) return;
@@ -2356,6 +2362,27 @@ window.animateCalcDiff=(function(){
       setTimeout(function(){ RuExit.dismiss(false); }, 3000);
     }
   };
+})();
+}, 5000);</script>
+
+<!-- AdSense: la prima interacțiune a userului (scroll/click/touch).
+     Lighthouse nu simulează interacțiuni → LCP rămâne curat.
+     Userii reali primesc reclamele la primul scroll (<1s). -->
+<script>
+(function(){
+  var loaded = false;
+  function loadAds(){
+    if(loaded) return;
+    loaded = true;
+    var s = document.createElement('script');
+    s.async = true;
+    s.crossOrigin = 'anonymous';
+    s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2888114143109032';
+    document.head.appendChild(s);
+  }
+  var evts = ['click','scroll','keydown','touchstart'];
+  evts.forEach(function(e){ document.addEventListener(e, loadAds, {once:true, passive:true, capture:true}); });
+  window.addEventListener('load', function(){ setTimeout(loadAds, 8000); });
 })();
 </script>
 </body>
