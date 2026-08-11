@@ -13,6 +13,23 @@
   gtag('config', 'G-5WXD9BGS3T');
   gtag('config', 'AW-18253477545');
 </script>
+<script>
+function gtag_report_conversion_whatsapp(url) {
+  var callback = function () { if (typeof(url) != 'undefined') { window.location = url; } };
+  gtag('event', 'conversion', { 'send_to': 'AW-18253477545/vaI4COjKgdYcEKnt9_9D', 'event_callback': callback });
+  return false;
+}
+function gtag_report_conversion_email(url) {
+  var callback = function () { if (typeof(url) != 'undefined') { window.location = url; } };
+  gtag('event', 'conversion', { 'send_to': 'AW-18253477545/kYC-COvKgdYcEKnt9_9D', 'event_callback': callback });
+  return false;
+}
+function gtag_report_conversion_social(url) {
+  var callback = function () { if (typeof(url) != 'undefined') { window.open(url, '_blank', 'noopener'); } };
+  gtag('event', 'conversion', { 'send_to': 'AW-18253477545/-yPSCO7KgdYcEKnt9_9D', 'event_callback': callback });
+  return false;
+}
+</script>
 <script type="text/javascript">
   (function(c,l,a,r,i,t,y){
     c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -510,7 +527,7 @@ button,a{touch-action:manipulation}
 
     <div style="margin-top:14px;text-align:center;padding:12px">
       <span style="font-size:13px;color:var(--muted)">Vrei un plan ca acesta? </span>
-      <a href="https://wa.me/40741176865?text=Bun%C4%83%20ziua!%20M%C4%83%20intereseaz%C4%83%20Staging%20Virtual%20pentru%20apartamentul%20meu." onclick="gtag('event','click_whatsapp_table')" target="_blank" rel="noopener noreferrer" style="font-size:13px;font-weight:500;color:var(--brand);text-decoration:none">Trimite pozele pe WhatsApp →</a>
+      <a href="https://wa.me/40741176865?text=Bun%C4%83%20ziua!%20M%C4%83%20intereseaz%C4%83%20Staging%20Virtual%20pentru%20apartamentul%20meu." onclick="gtag('event','click_whatsapp_table');gtag('event','conversion',{'send_to':'AW-18253477545/vaI4COjKgdYcEKnt9_9D'});" target="_blank" rel="noopener noreferrer" style="font-size:13px;font-weight:500;color:var(--brand);text-decoration:none">Trimite pozele pe WhatsApp →</a>
     </div>
 
   </div>
@@ -714,7 +731,7 @@ button,a{touch-action:manipulation}
   <h2 class="cta-h">Trimite pozele acum,<br><em>primești planul în câteva zile.</em></h2>
   <p class="cta-s">Locuri limitate zilnic.</p>
   <div class="cta-btns">
-    <a class="btn-p" href="https://wa.me/40741176865?text=Bun%C4%83%20ziua!%20M%C4%83%20intereseaz%C4%83%20Staging%20Virtual%20pentru%20apartamentul%20meu." onclick="gtag('event','click_whatsapp');gtag('event','conversion',{'send_to':'AW-18253477545'});" target="_blank" rel="noopener noreferrer">Trimite pe WhatsApp →</a>
+    <a class="btn-p" href="https://wa.me/40741176865?text=Bun%C4%83%20ziua!%20M%C4%83%20intereseaz%C4%83%20Staging%20Virtual%20pentru%20apartamentul%20meu." onclick="gtag('event','click_whatsapp');gtag('event','conversion',{'send_to':'AW-18253477545/vaI4COjKgdYcEKnt9_9D'});" target="_blank" rel="noopener noreferrer">Trimite pe WhatsApp →</a>
     <a class="btn-g" href="mailto:hello@rentup.solutions?subject=Staging%20Virtual%20%E2%80%94%20cerere%20ofert%C4%83" onclick="gtag('event','click_email')">Sau trimite pe email →</a>
   </div>
   <div class="cta-cards sr">
@@ -827,8 +844,8 @@ document.addEventListener('contextmenu',function(e){
   function openModal(){document.getElementById('wa-modal').classList.add('open');}
   function closeModal(){document.getElementById('wa-modal').classList.remove('open');}
   function sendWa(msg){
-    gtag('event','click_whatsapp_floating');
-    gtag('event','conversion',{'send_to':'AW-18253477545'});
+    gtag('event','click_whatsapp_modal');
+    gtag('event','conversion',{'send_to':'AW-18253477545/vaI4COjKgdYcEKnt9_9D'});
     window.open(WA+'?text='+encodeURIComponent(msg),'_blank','noopener,noreferrer');
     closeModal();
   }

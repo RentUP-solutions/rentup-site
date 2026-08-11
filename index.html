@@ -1788,6 +1788,7 @@ document.addEventListener('click',function(e){
   function closeModal(){document.getElementById('wa-modal').classList.remove('open');}
   window.openWaModal=openModal;
   function sendWa(msg){
+    gtag('event', 'conversion', {'send_to': 'AW-18253477545/vaI4COjKgdYcEKnt9_9D'});
     window.open(WA+'?text='+encodeURIComponent(msg),'_blank','noopener,noreferrer');
     closeModal();
   }

@@ -15,6 +15,23 @@
   gtag('config', 'G-5WXD9BGS3T');
   gtag('config', 'AW-18253477545');
 </script>
+<script>
+function gtag_report_conversion_whatsapp(url) {
+  var callback = function () { if (typeof(url) != 'undefined') { window.location = url; } };
+  gtag('event', 'conversion', { 'send_to': 'AW-18253477545/vaI4COjKgdYcEKnt9_9D', 'event_callback': callback });
+  return false;
+}
+function gtag_report_conversion_email(url) {
+  var callback = function () { if (typeof(url) != 'undefined') { window.location = url; } };
+  gtag('event', 'conversion', { 'send_to': 'AW-18253477545/kYC-COvKgdYcEKnt9_9D', 'event_callback': callback });
+  return false;
+}
+function gtag_report_conversion_social(url) {
+  var callback = function () { if (typeof(url) != 'undefined') { window.open(url, '_blank', 'noopener'); } };
+  gtag('event', 'conversion', { 'send_to': 'AW-18253477545/-yPSCO7KgdYcEKnt9_9D', 'event_callback': callback });
+  return false;
+}
+</script>
 
   <!-- Microsoft Clarity -->
   <script type="text/javascript">
@@ -854,9 +871,8 @@ document.addEventListener('click',function(e){
   function openModal(){document.getElementById('wa-modal').classList.add('open');}
   function closeModal(){document.getElementById('wa-modal').classList.remove('open');}
   function sendWa(msg){
-    gtag('event','click_whatsapp_floating');
-    if(typeof gtag_report_conversion_whatsapp==='function')gtag_report_conversion_whatsapp(WA);
-    else gtag('event','conversion',{'send_to':'AW-18253477545'});
+    gtag('event','click_whatsapp_modal');
+    gtag('event','conversion',{'send_to':'AW-18253477545/vaI4COjKgdYcEKnt9_9D'});
     window.open(WA+'?text='+encodeURIComponent(msg),'_blank','noopener,noreferrer');
     closeModal();
   }
