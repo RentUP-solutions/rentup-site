@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investor Page — Layout Options</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: #F0EBE3; color: #2D2820; padding: 32px 24px; }
+
+  .page-title { font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #C77936; margin-bottom: 6px; }
+  .page-sub { font-size: 15px; color: #7A6E62; margin-bottom: 32px; line-height: 1.5; }
+
+  .layouts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+  .layout-card {
+    background: #FDFAF6;
+    border-radius: 14px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    overflow: hidden;
+    transition: border-color .2s, box-shadow .2s;
+    position: relative;
+  }
+  .layout-card:hover { border-color: #C77936; box-shadow: 0 4px 24px rgba(199,121,54,.15); }
+  .layout-card.selected { border-color: #C77936; box-shadow: 0 4px 24px rgba(199,121,54,.25); }
+  .layout-card.selected::after {
+    content: '✓ Selectat';
+    position: absolute;
+    top: 10px; right: 10px;
+    background: #C77936;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 100px;
+  }
+
+  .card-label {
+    padding: 16px 20px 12px;
+    border-bottom: 1px solid #EDE5D8;
+  }
+  .card-label .option-letter {
+    width: 24px; height: 24px;
+    background: #C77936;
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+  .card-label h3 { font-size: 15px; font-weight: 600; color: #2D2820; margin-bottom: 3px; }
+  .card-label .tagline { font-size: 12px; color: #7A6E62; font-style: italic; }
+
+  /* Minipage mockup */
+  .minipage { padding: 12px; background: #F5EFE6; }
+
+  .mini-hero {
+    background: #2D2820;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 8px;
+    color: #FDFAF6;
+  }
+  .mini-hero .eyebrow { font-size: 8px; letter-spacing: .12em; text-transform: uppercase; color: #C77936; margin-bottom: 6px; font-weight: 600; }
+  .mini-hero h4 { font-size: 13px; font-weight: 700; line-height: 1.35; margin-bottom: 6px; }
+  .mini-hero .sub { font-size: 9px; color: rgba(253,250,246,.65); line-height: 1.5; margin-bottom: 10px; }
+  .mini-hero .cta-row { display: flex; gap: 6px; }
+  .mini-btn { background: #C77936; color: white; font-size: 9px; font-weight: 600; padding: 5px 10px; border-radius: 100px; display: inline-block; }
+  .mini-btn-sec { background: rgba(255,255,255,.1); color: rgba(253,250,246,.8); font-size: 9px; padding: 5px 10px; border-radius: 100px; display: inline-block; }
+
+  .mini-section { background: #FDFAF6; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; }
+  .mini-section-dark { background: #3D3228; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; color: #FDFAF6; }
+  .mini-section-brand { background: #C77936; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; color: #FDFAF6; }
+  .mini-tag { font-size: 8px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #C77936; margin-bottom: 4px; }
+  .mini-tag-light { font-size: 8px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(253,250,246,.6); margin-bottom: 4px; }
+  .mini-h { font-size: 11px; font-weight: 600; margin-bottom: 4px; color: #2D2820; }
+  .mini-h-light { font-size: 11px; font-weight: 600; margin-bottom: 4px; color: #FDFAF6; }
+  .mini-p { font-size: 8px; color: #7A6E62; line-height: 1.5; }
+  .mini-p-light { font-size: 8px; color: rgba(253,250,246,.65); line-height: 1.5; }
+
+  .mini-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 8px; }
+  .mini-grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; margin-bottom: 8px; }
+
+  .mini-metric { background: #FDFAF6; border-radius: 6px; padding: 8px 10px; }
+  .mini-metric .val { font-size: 14px; font-weight: 700; color: #C77936; }
+  .mini-metric .lbl { font-size: 7px; color: #9A8E82; line-height: 1.4; margin-top: 2px; }
+
+  .mini-pkg { background: #FDFAF6; border: 1px solid #EDE5D8; border-radius: 6px; padding: 8px 10px; }
+  .mini-pkg.highlight { background: #C77936; color: white; border-color: #C77936; }
+  .mini-pkg .name { font-size: 9px; font-weight: 700; margin-bottom: 2px; }
+  .mini-pkg .price { font-size: 11px; font-weight: 700; color: #C77936; }
+  .mini-pkg.highlight .price { color: white; }
+  .mini-pkg .desc { font-size: 7px; color: #9A8E82; margin-top: 2px; line-height: 1.4; }
+  .mini-pkg.highlight .desc { color: rgba(255,255,255,.75); }
+
+  .mini-calc { background: var(--bg, #FDFAF6); border: 1px solid #EDE5D8; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; }
+  .mini-calc-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 5px; }
+  .mini-calc-row .label { font-size: 8px; color: #7A6E62; }
+  .mini-calc-row .value { font-size: 8px; font-weight: 600; color: #2D2820; background: #F5EFE6; padding: 2px 8px; border-radius: 4px; }
+  .mini-calc-result { background: #E1F5EE; border-radius: 6px; padding: 8px 10px; text-align: center; margin-top: 6px; }
+  .mini-calc-result .r-val { font-size: 14px; font-weight: 700; color: #0F6E56; }
+  .mini-calc-result .r-lbl { font-size: 7px; color: #0F6E56; }
+
+  .mini-row { display: flex; gap: 6px; align-items: stretch; margin-bottom: 8px; }
+  .mini-row > * { flex: 1; margin-bottom: 0; }
+
+  .mini-checklist { font-size: 8px; color: #7A6E62; line-height: 1.8; }
+  .mini-checklist div::before { content: '✓ '; color: #0F6E56; font-weight: 700; }
+
+  .mini-kit-icon { width: 20px; height: 20px; background: #FAF4EB; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; margin-bottom: 4px; }
+
+  .mini-divider { height: 1px; background: #EDE5D8; margin: 6px 0; }
+
+  .mini-footer { background: #FDFAF6; border-top: 1px solid #EDE5D8; padding: 8px 12px; display: flex; justify-content: space-between; align-items: center; }
+  .mini-footer-logo { font-size: 9px; font-weight: 700; color: #2D2820; }
+  .mini-footer-logo span { color: #C77936; }
+  .mini-footer-link { font-size: 7px; color: #9A8E82; }
+
+  .card-desc { padding: 14px 20px 18px; }
+  .card-desc p { font-size: 12px; color: #7A6E62; line-height: 1.6; margin-bottom: 8px; }
+  .card-desc .sections { display: flex; flex-wrap: wrap; gap: 4px; }
+  .section-pill { font-size: 10px; background: #FAF4EB; color: #C77936; padding: 2px 8px; border-radius: 100px; font-weight: 500; }
+</style>
+</head>
+<body>
+
+<div class="page-title">Pagina de investitori — structură</div>
+<div class="page-sub">3 abordări pentru aceeași audiență: investitori, dezvoltatori, agenți.<br>Click pe varianta care rezonează cel mai bine.</div>
+
+<div class="layouts">
+
+  <!-- VARIANTA A -->
+  <div class="layout-card" onclick="this.classList.toggle('selected')">
+    <div class="card-label">
+      <div class="option-letter">A</div>
+      <h3>„ROI-first" — calculatorul conduce</h3>
+      <div class="tagline">Numere imediat, detalii după</div>
+    </div>
+    <div class="minipage">
+
+      <!-- Hero scurt -->
+      <div class="mini-hero">
+        <div class="eyebrow">Rent UP · Investitori & Dezvoltatori</div>
+        <h4>Maximizezi randamentul pe întreg portofoliul.<br>Noi facem asta la scală.</h4>
+        <div class="sub">Design funcțional + sistem de selecție + documente — același standard pentru 1 sau 10 apartamente.</div>
+        <div class="cta-row">
+          <div class="mini-btn">Calculează randamentul →</div>
+          <div class="mini-btn-sec">Solicită ofertă portofoliu</div>
+        </div>
+      </div>
+
+      <!-- Calculator proeminent -->
+      <div class="mini-section-brand">
+        <div class="mini-tag-light">Calculator randament</div>
+        <div class="mini-h-light" style="margin-bottom:8px">Câte apartamente ai și ce randament ai acum?</div>
+        <div class="mini-calc" style="background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.2)">
+          <div class="mini-calc-row"><span class="label" style="color:rgba(255,255,255,.7)">Nr. apartamente</span><span class="value">3</span></div>
+          <div class="mini-calc-row"><span class="label" style="color:rgba(255,255,255,.7)">Chirie medie / lună</span><span class="value">600 €</span></div>
+          <div class="mini-calc-row"><span class="label" style="color:rgba(255,255,255,.7)">Săptămâni goale / an</span><span class="value">8 săpt.</span></div>
+          <div class="mini-calc-result" style="background:rgba(255,255,255,.15)">
+            <div class="r-val" style="color:white">+7.920 €/an</div>
+            <div class="r-lbl" style="color:rgba(255,255,255,.75)">venit extra estimat cu sistem optimizat</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Metrici portofoliu -->
+      <div class="mini-grid3">
+        <div class="mini-metric"><div class="val">5 zile</div><div class="lbl">chiriaș găsit în medie</div></div>
+        <div class="mini-metric"><div class="val">+150€</div><div class="lbl">chirie extra / lună / apt.</div></div>
+        <div class="mini-metric"><div class="val">48 luni</div><div class="lbl">recuperare investiție</div></div>
+      </div>
+
+      <!-- Pachete compact -->
+      <div class="mini-section">
+        <div class="mini-tag">Pachete</div>
+        <div class="mini-grid3" style="margin-top:6px;margin-bottom:0">
+          <div class="mini-pkg"><div class="name">Quick Win</div><div class="price">33€/mp</div><div class="desc">Fără renovare</div></div>
+          <div class="mini-pkg highlight"><div class="name">Invest Standard</div><div class="price">40€/mp</div><div class="desc">Complet + Rental Kit</div></div>
+          <div class="mini-pkg"><div class="name">Invest Premium</div><div class="price">58€/mp</div><div class="desc">Coordonat integral</div></div>
+        </div>
+      </div>
+
+      <!-- Rental Kit scurt -->
+      <div class="mini-section-dark">
+        <div class="mini-tag-light">Rental Kit — inclus</div>
+        <div class="mini-grid2" style="margin-top:6px;margin-bottom:0">
+          <div style="font-size:7px;color:rgba(253,250,246,.7);line-height:1.6">
+            <div>✓ Selecție chiriaș pe 4 piloni</div>
+            <div>✓ Contract personalizat</div>
+          </div>
+          <div style="font-size:7px;color:rgba(253,250,246,.7);line-height:1.6">
+            <div>✓ Proces verbal foto</div>
+            <div>✓ Protocoale situații dificile</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="card-desc">
+      <p>Calculatorul vine primul — investitorul vede imediat potențialul. Mesajul e dat de cifre, nu de text. Potrivit pentru cineva care deja știe că vrea să optimizeze, dar vrea să vadă cât.</p>
+      <div class="sections">
+        <span class="section-pill">Calculator ROI</span>
+        <span class="section-pill">Metrici cheie</span>
+        <span class="section-pill">Pachete</span>
+        <span class="section-pill">Rental Kit</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- VARIANTA B -->
+  <div class="layout-card" onclick="this.classList.toggle('selected')">
+    <div class="card-label">
+      <div class="option-letter">B</div>
+      <h3>„Sistem la scală" — procesul conduce</h3>
+      <div class="tagline">Arată că facem asta la volum, nu one-off</div>
+    </div>
+    <div class="minipage">
+
+      <!-- Hero -->
+      <div class="mini-hero">
+        <div class="eyebrow">Rent UP · Portofoliu & Dezvoltatori</div>
+        <h4>Un sistem. Aplicat pe fiecare apartament<br>din portofoliul tău.</h4>
+        <div class="sub">Nu reproiectăm roata la fiecare apartament. Același proces, același standard, același rezultat — scalat.</div>
+        <div class="cta-row">
+          <div class="mini-btn">Solicită ofertă portofoliu →</div>
+        </div>
+      </div>
+
+      <!-- Cum funcționează la scală -->
+      <div class="mini-section">
+        <div class="mini-tag">Cum funcționează pentru portofoliu</div>
+        <div style="margin-top:8px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px">
+          <div style="text-align:center;padding:8px;background:#FAF4EB;border-radius:6px">
+            <div style="font-size:10px;font-weight:700;color:#C77936;margin-bottom:3px">1</div>
+            <div style="font-size:8px;color:#2D2820;font-weight:600;margin-bottom:2px">Audit portofoliu</div>
+            <div style="font-size:7px;color:#7A6E62">Prioritizăm ce se optimizează primul pentru ROI maxim</div>
+          </div>
+          <div style="text-align:center;padding:8px;background:#FAF4EB;border-radius:6px">
+            <div style="font-size:10px;font-weight:700;color:#C77936;margin-bottom:3px">2</div>
+            <div style="font-size:8px;color:#2D2820;font-weight:600;margin-bottom:2px">Design + execuție</div>
+            <div style="font-size:7px;color:#7A6E62">Fiecare apartament, același standard de calitate</div>
+          </div>
+          <div style="text-align:center;padding:8px;background:#FAF4EB;border-radius:6px">
+            <div style="font-size:10px;font-weight:700;color:#C77936;margin-bottom:3px">3</div>
+            <div style="font-size:8px;color:#2D2820;font-weight:600;margin-bottom:2px">Sistem + chiriaș</div>
+            <div style="font-size:7px;color:#7A6E62">Rental Kit + selecție + contract — odată setat, merge singur</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rental Kit prominent -->
+      <div class="mini-section-dark">
+        <div class="mini-tag-light">Rental Kit — infrastructura portofoliului</div>
+        <div class="mini-p-light" style="margin-top:4px;margin-bottom:8px">Nu selecție chiriaș. Un sistem de selecție care se repetă identic la fiecare apartament.</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+          <div style="background:rgba(255,255,255,.08);border-radius:6px;padding:6px 8px">
+            <div style="font-size:8px;font-weight:600;color:#FDFAF6;margin-bottom:3px">Selecție pe 4 piloni</div>
+            <div style="font-size:7px;color:rgba(253,250,246,.6);line-height:1.5">Venit, stabilitate, referințe, comportament</div>
+          </div>
+          <div style="background:rgba(255,255,255,.08);border-radius:6px;padding:6px 8px">
+            <div style="font-size:8px;font-weight:600;color:#FDFAF6;margin-bottom:3px">Contract personalizat</div>
+            <div style="font-size:7px;color:rgba(253,250,246,.6);line-height:1.5">Clauze pentru situații reale, nu șablon ANAF</div>
+          </div>
+          <div style="background:rgba(255,255,255,.08);border-radius:6px;padding:6px 8px">
+            <div style="font-size:8px;font-weight:600;color:#FDFAF6;margin-bottom:3px">Proces verbal foto</div>
+            <div style="font-size:7px;color:rgba(253,250,246,.6);line-height:1.5">Documentație cu timestamp la predare</div>
+          </div>
+          <div style="background:rgba(255,255,255,.08);border-radius:6px;padding:6px 8px">
+            <div style="font-size:8px;font-weight:600;color:#FDFAF6;margin-bottom:3px">Protocoale dificile</div>
+            <div style="font-size:7px;color:rgba(253,250,246,.6);line-height:1.5">Ce faci când nu plătește. Scris, clar.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Studii de caz compact -->
+      <div class="mini-section">
+        <div class="mini-tag">Rezultate documentate</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px">
+          <div style="background:#F5EFE6;border-radius:6px;padding:8px">
+            <div style="font-size:7px;color:#9A8E82">Drumul Taberei · 55 mp</div>
+            <div style="font-size:9px;font-weight:600;color:#2D2820;margin-top:2px">+150€/lună · chiriaș în 4 zile</div>
+            <div style="font-size:7px;color:#7A6E62;margin-top:2px">ROI la 48 luni</div>
+          </div>
+          <div style="background:#F5EFE6;border-radius:6px;padding:8px">
+            <div style="font-size:7px;color:#9A8E82">Floreasca · 52 mp</div>
+            <div style="font-size:9px;font-weight:600;color:#2D2820;margin-top:2px">+220€/lună · chiriaș în 5 zile</div>
+            <div style="font-size:7px;color:#7A6E62;margin-top:2px">ROI la 14 luni</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Calculator secundar -->
+      <div class="mini-section-brand" style="background:#FAF4EB;border:1px solid #E8D5BC">
+        <div class="mini-tag">Calculator mobilare</div>
+        <div class="mini-p" style="margin-top:4px">Estimare cost mobilare per apartament, cu detalii pe cameră.</div>
+        <div style="margin-top:8px;display:inline-block;background:#C77936;color:white;font-size:8px;font-weight:600;padding:5px 12px;border-radius:100px">Calculează costul →</div>
+      </div>
+
+    </div>
+    <div class="card-desc">
+      <p>Accentul cade pe proces și sistem — ideal dacă vrei să convingi că funcționezi la volum fără pierderi de calitate. Rental Kit e prezentat ca infrastructură, nu add-on.</p>
+      <div class="sections">
+        <span class="section-pill">Proces la scală</span>
+        <span class="section-pill">Rental Kit detaliat</span>
+        <span class="section-pill">Studii de caz</span>
+        <span class="section-pill">Calculator</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- VARIANTA C -->
+  <div class="layout-card" onclick="this.classList.toggle('selected')">
+    <div class="card-label">
+      <div class="option-letter">C</div>
+      <h3>„One-stop shop" — tot într-o pagină</h3>
+      <div class="tagline">Fiecare secțiune a site-ului, repoziționată pentru investitor</div>
+    </div>
+    <div class="minipage">
+
+      <!-- Hero -->
+      <div class="mini-hero">
+        <div class="eyebrow">Rent UP · Investitori · Agenți · Dezvoltatori</div>
+        <h4>De la apartament gol la venit stabil.<br>Fără să trimiți oameni pe 5 pagini diferite.</h4>
+        <div class="sub">Design, selecție chiriaș, documente, calculator — totul aici. Potrivit pentru portofolii de la 2 la 20 de apartamente.</div>
+        <div class="cta-row">
+          <div class="mini-btn">Solicită ofertă →</div>
+          <div class="mini-btn-sec">Calculează randamentul</div>
+        </div>
+      </div>
+
+      <!-- Cifre cheie -->
+      <div class="mini-grid3" style="margin-bottom:8px">
+        <div style="background:#FDFAF6;border-radius:6px;padding:10px;text-align:center">
+          <div style="font-size:16px;font-weight:700;color:#C77936">+150–220€</div>
+          <div style="font-size:7px;color:#9A8E82;margin-top:2px">chirie extra / lună</div>
+        </div>
+        <div style="background:#FDFAF6;border-radius:6px;padding:10px;text-align:center">
+          <div style="font-size:16px;font-weight:700;color:#C77936">5 zile</div>
+          <div style="font-size:7px;color:#9A8E82;margin-top:2px">medie găsire chiriaș</div>
+        </div>
+        <div style="background:#FDFAF6;border-radius:6px;padding:10px;text-align:center">
+          <div style="font-size:16px;font-weight:700;color:#C77936">14–48 luni</div>
+          <div style="font-size:7px;color:#9A8E82;margin-top:2px">recuperare investiție</div>
+        </div>
+      </div>
+
+      <!-- Design + pachete -->
+      <div class="mini-section">
+        <div class="mini-tag">Design de interior</div>
+        <div class="mini-grid3" style="margin-top:6px;margin-bottom:0">
+          <div class="mini-pkg"><div class="name">Quick Win</div><div class="price">33€/mp</div></div>
+          <div class="mini-pkg highlight"><div class="name">Invest Std.</div><div class="price">40€/mp</div></div>
+          <div class="mini-pkg"><div class="name">Invest Pre.</div><div class="price">58€/mp</div></div>
+        </div>
+      </div>
+
+      <!-- Rental Kit box -->
+      <div class="mini-section-dark">
+        <div class="mini-row" style="margin-bottom:0;align-items:center">
+          <div>
+            <div class="mini-tag-light">Rental Kit</div>
+            <div class="mini-h-light">Sistemul de selecție și documente</div>
+            <div class="mini-checklist" style="color:rgba(253,250,246,.7);margin-top:4px">
+              <div>Selecție chiriaș pe 4 piloni</div>
+              <div>Contract personalizat</div>
+              <div>Proces verbal foto cu timestamp</div>
+              <div>Protocoale situații dificile</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Calculator inline -->
+      <div class="mini-section">
+        <div class="mini-tag">Calculator mobilare</div>
+        <div style="margin-top:6px">
+          <div class="mini-calc-row"><span class="label">Tip apartament</span><span class="value">2 camere · 55 mp</span></div>
+          <div class="mini-calc-row"><span class="label">Tip mobilare</span><span class="value">Standard</span></div>
+          <div class="mini-calc-result">
+            <div class="r-val">6.400 €</div>
+            <div class="r-lbl">estimare mobilare completă ± 10%</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Studiu de caz condensat -->
+      <div style="background:#2D2820;border-radius:8px;padding:10px 12px;margin-bottom:8px">
+        <div style="font-size:8px;font-weight:600;color:#C77936;margin-bottom:6px">STUDIU DE CAZ</div>
+        <div style="font-size:10px;font-weight:600;color:#FDFAF6;margin-bottom:4px">2 cam. Floreasca · Invest Standard</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">
+          <div style="font-size:7px;color:rgba(253,250,246,.65)">+220€/lună chirie</div>
+          <div style="font-size:7px;color:rgba(253,250,246,.65)">ROI la 14 luni</div>
+          <div style="font-size:7px;color:rgba(253,250,246,.65)">Chiriaș în 5 zile</div>
+          <div style="font-size:7px;color:rgba(253,250,246,.65)">Contract 2 ani</div>
+        </div>
+      </div>
+
+      <!-- CTA final -->
+      <div style="background:#C77936;border-radius:8px;padding:10px 12px;text-align:center;margin-bottom:8px">
+        <div style="font-size:10px;font-weight:600;color:white;margin-bottom:6px">Pornește cu un Raport de Rentabilitate Gratuit</div>
+        <div style="display:inline-block;background:rgba(255,255,255,.2);color:white;font-size:8px;font-weight:600;padding:5px 14px;border-radius:100px">Raport Gratuit →</div>
+      </div>
+
+    </div>
+    <div class="card-desc">
+      <p>Tot ce e pe site, repoziționat pentru investitor. Nicio redirecționare, nicio pagină separată — omul ajunge și pleacă de pe aceeași pagină. Ideal pentru trafic direct sau recomandat.</p>
+      <div class="sections">
+        <span class="section-pill">Hero + cifre</span>
+        <span class="section-pill">Pachete</span>
+        <span class="section-pill">Rental Kit</span>
+        <span class="section-pill">Calculator</span>
+        <span class="section-pill">Studiu de caz</span>
+        <span class="section-pill">CTA final</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Simple selection tracking
+document.querySelectorAll('.layout-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const choice = card.querySelector('.option-letter').textContent;
+    const title = card.querySelector('h3').textContent;
+    if (window.recordChoice) window.recordChoice(choice.toLowerCase(), title);
+  });
+});
+</script>
+
+</body>
+</html>

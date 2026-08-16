@@ -762,6 +762,8 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 /* Calc col entrance stagger */
 #calc>div>div:nth-child(1){transition-delay:0ms}
 #calc>div>div:nth-child(2){transition-delay:80ms}
+/* Price blur */
+.price-blur{filter:blur(10px);user-select:none;pointer-events:none}
 </style>
 <script type="application/ld+json">
 {
@@ -804,7 +806,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
     <a href="portofoliu.html">Portofoliu</a>
     <a href="rental-kit.html">Rental Kit</a>
     <a href="simulator.html" onclick="gtag('event','click_simulator_nav')">Simulator</a>
-    <a href="realitatea-chiriei.html">Probleme & soluții</a>
+    
     <a href="/blog/">Blog</a>
     <a href="faq.html">FAQ</a>
     <a href="/#contact">Contact</a>
@@ -823,7 +825,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
   <a href="portofoliu.html">Portofoliu</a>
   <a href="rental-kit.html">Rental Kit</a>
   <a href="simulator.html" onclick="gtag('event','click_simulator_nav')">Simulator</a>
-  <a href="realitatea-chiriei.html">Probleme & soluții</a>
+  
   <a href="/blog/">Blog</a>
   <a href="faq.html">FAQ</a>
   <a href="/#contact">Contact</a>
@@ -837,18 +839,11 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
     <h1 class="hero-h1">Chiriași stabili.<br><em>Venituri predictibile.</em></h1>
     <div>
       <p class="hero-sub" style="margin-bottom:14px">Transformăm apartamente obișnuite în active care produc venituri stabile prin: design funcțional, sistem complet de închiriere și selecție profesională a chiriașilor.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:6px 18px;font-size:12px;color:var(--muted);margin-bottom:20px">
-        <a href="#testimonials" style="color:inherit;text-decoration:none;display:inline-flex;align-items:center;padding:8px 0;margin:-8px 0"><span style="color:var(--brand);font-weight:600">✓</span>&nbsp;Proprietari din București, Cluj-Napoca și Brașov</a>
-        <a href="#process" style="color:inherit;text-decoration:none;display:inline-flex;align-items:center;padding:8px 0;margin:-8px 0"><span style="color:var(--brand);font-weight:600">✓</span>&nbsp;Chiriaș găsit în medie în 5 zile</a>
-        <a href="#calc" style="color:inherit;text-decoration:none;display:inline-flex;align-items:center;padding:8px 0;margin:-8px 0"><span style="color:var(--brand);font-weight:600">✓</span>&nbsp;+70 până la +220€ chirie lunară</a>
-      </div>
     </div>
     <p class="hero-micro">Găsirea unui chiriaș de încredere nu ar trebui să fie o loterie.</p>
     <div class="hero-btns">
-      <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
-        <a class="btn-primary" href="#calc" onclick="gtag('event','click_calculator_roi')">Calculează câștigul meu →</a>
-        <span style="font-size:12px;color:var(--light)">Gratuit · Fără cont · Rezultat instant</span>
-      </div>
+      <a class="btn-primary" href="#calc" onclick="gtag('event','click_calculator_roi')">Sunt proprietar →</a>
+      <a class="btn-primary" href="investitori.html" onclick="gtag('event','click_hero_investitori')" style="background:transparent;color:var(--brand);border:.5px solid var(--brand);transition:background 180ms cubic-bezier(0.23,1,0.32,1),transform 150ms cubic-bezier(0.23,1,0.32,1)">Sunt investitor / dezvoltator →</a>
     </div>
   </div>
   <div class="hero-r">
@@ -1371,8 +1366,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         <div class="pkg">
           <div class="pkg-h">
             <div class="pkg-name">Design pentru chirie</div>
-            <div class="pkg-price"><span class="count-anim" data-val="25" data-pre="" data-suf="€">25€</span><span> / mp</span></div>
-            <div style="font-size:12px;color:var(--muted);margin-top:2px">Minim 700€</div>
+            <div class="pkg-price"><span class="count-anim price-blur" data-val="25" data-pre="" data-suf="">25</span><span>€ / mp</span></div>
             <div class="pkg-desc">Doar proiectul de design. Plan, randări, listă de achiziții: implementezi și gestionezi restul singur (sau ai deja sistemul tău de selecție).</div>
           </div>
           <div class="pkg-div"></div>
@@ -1406,8 +1400,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         <div class="pkg" id="quick-win" style="border-right:.5px solid var(--border)">
           <div class="pkg-h">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px"><div class="pkg-name" style="margin-bottom:0">Quick Win</div><div style="display:flex;gap:6px"><div style="background:rgba(215,165,0,.07);color:#7A5C00;font-size:10px;font-weight:600;padding:4px 10px;border-radius:100px;letter-spacing:.1em;text-transform:uppercase">8–12 luni ROI</div></div></div>
-            <div class="pkg-price"><span class="count-anim" data-val="33" data-pre="" data-suf="€">33€</span><span> / mp</span></div>
-            <div style="font-size:12px;color:var(--muted);margin-top:2px">Minim 900€</div>
+            <div class="pkg-price"><span class="count-anim price-blur" data-val="33" data-pre="" data-suf="">33</span><span>€ / mp</span></div>
             <div class="pkg-desc">Apartament gata, chiriaș rapid. Fără șantier, fără schimbări structurale, doar mobilier și sistemul complet de închiriere. Pe piață în 7–14 zile.</div>
           </div>
           <div class="pkg-div"></div>
@@ -1433,8 +1426,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         <div class="pkg pkg-std">
           <div class="pkg-h">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px"><div class="pkg-name" style="margin-bottom:0">Invest Standard</div><div style="background:var(--brand);color:#FDFAF6;font-size:10px;font-weight:600;padding:4px 10px;border-radius:100px;letter-spacing:.1em;text-transform:uppercase">Recomandat</div></div>
-            <div class="pkg-price"><span class="count-anim" data-val="40" data-pre="" data-suf="€">40€</span><span> / mp</span></div>
-            <div style="font-size:12px;color:var(--muted);margin-top:2px">Minim 1.500€</div>
+            <div class="pkg-price"><span class="count-anim price-blur" data-val="40" data-pre="" data-suf="">40</span><span>€ / mp</span></div>
             <div class="pkg-desc">Pentru apartamentul pe care îl ții ca investiție pe termen lung, nu ca soluție de moment.</div>
           </div>
           <div class="pkg-div"></div>
@@ -1461,8 +1453,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         <div class="pkg pkg-pre">
           <div class="pkg-h">
             <div class="pkg-name">Invest Premium</div>
-            <div class="pkg-price"><span class="count-anim" data-val="58" data-pre="" data-suf="€">58€</span><span> / mp</span></div>
-            <div style="font-size:12px;color:rgba(253,250,246,.65);margin-top:2px">Minim 2.200€</div>
+            <div class="pkg-price"><span class="count-anim price-blur" data-val="58" data-pre="" data-suf="">58</span><span>€ / mp</span></div>
             <div class="pkg-desc">Pentru apartamentul care are nevoie de mai mult decât mobilier ca să ajungă la potențialul lui real.</div>
           </div>
           <div class="pkg-div"></div>
@@ -1540,7 +1531,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 <section id="contact">
   <h2 class="con-h">Hai să vedem ce poate face<br><em>apartamentul tău.</em></h2>
   <p class="con-sub">Spune-ne pe scurt cu ce te confrunți: chirie mică, chiriași care pleacă, apartament gol.<br>Îți răspundem în cel mai scurt timp cu o ofertă personalizată.</p>
-  <div class="con-scarcity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><line class="csi-hand" x1="12" y1="12" x2="12" y2="7"/></svg><span>Acceptăm 5 proiecte pe lună pentru a menține calitatea.<br>Mai sunt <b>3 sloturi</b> libere luna aceasta.</span></div>
+  <div class="con-scarcity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><line class="csi-hand" x1="12" y1="12" x2="12" y2="7"/></svg><span>Acceptăm 5 proiecte pe lună pentru a menține calitatea.<br>Mai sunt <b>2 sloturi</b> libere luna aceasta.</span></div>
   <div class="con-btns">
     <a class="con-p" href="https://wa.me/40741176865" onclick="gtag('event','click_whatsapp');openWaModal();return false;">WhatsApp direct →</a>    <a class="con-g" href="mailto:hello@rentup.solutions" onclick="gtag('event','click_email'); return gtag_report_conversion_email(this.href);">Email</a>
   </div>
