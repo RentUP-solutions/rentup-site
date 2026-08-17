@@ -100,6 +100,7 @@ footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56p
 <nav>
   <a class="logo" href="/">Rent<span>UP</span></a>
   <a class="nav-back" href="/">← Înapoi</a>
+  <button class="lang-toggle-btn" onclick="toggleLang()" title="Switch to English">EN</button>
 </nav>
 
 <div class="container" id="main-content">
@@ -254,5 +255,6 @@ if(!localStorage.getItem('cookieConsent')){
   document.getElementById('cookie-banner').style.display='flex';
 }
 </script>
+<script src="lang.js"></script>
 </body>
 </html>

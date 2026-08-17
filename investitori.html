@@ -236,8 +236,9 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
     <a href="/blog/">Blog</a>
     <a href="faq.html">FAQ</a>
     <a href="/#contact">Contact</a>
+    <button class="lang-toggle-btn" onclick="toggleLang()" title="Switch to English">EN</button>
   </div>
-  <a class="nav-mob-cta" href="audit.html">Ofertă →</a>
+  <button class="lang-toggle-btn lang-mob" onclick="toggleLang()" title="Switch to English">EN</button>
   <button id="nav-hamburger" aria-label="Deschide meniul" onclick="toggleMenu()" style="display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px">
     <span style="width:22px;height:2px;background:#C77936;display:block"></span>
     <span style="width:22px;height:2px;background:#C77936;display:block"></span>
@@ -464,7 +465,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
           </div>
         </div>
         <div class="cs-res">
-          <div class="cs-r"><div class="cs-rv count-anim" data-val="150" data-pre="+" data-suf="€">+150€</div><div class="cs-rl">chirie lunară față de înainte</div></div>
+          <div class="cs-r"><div class="cs-rv count-anim" data-val="150" data-pre="+" data-suf="€">+150€</div><div class="cs-rl">chirie lunară</div></div>
           <div class="cs-r"><div class="cs-rv count-anim" data-val="4" data-pre="" data-suf=" zile">4 zile</div><div class="cs-rl">până la chiriaș potrivit</div></div>
           <div class="cs-r"><div class="cs-rv count-anim" data-val="2" data-pre="" data-suf=" ani">2 ani</div><div class="cs-rl">contract semnat de la început</div></div>
           <div class="cs-r"><div class="cs-rv count-anim" data-val="48" data-pre="~" data-suf=" luni">~48 luni</div><div class="cs-rl">recuperare completă a investiției</div></div>
@@ -511,7 +512,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
           </div>
         </div>
         <div class="cs-res">
-          <div class="cs-r"><div class="cs-rv count-anim" data-val="220" data-pre="+" data-suf="€">+220€</div><div class="cs-rl">chirie lunară față de înainte</div></div>
+          <div class="cs-r"><div class="cs-rv count-anim" data-val="220" data-pre="+" data-suf="€">+220€</div><div class="cs-rl">chirie lunară</div></div>
           <div class="cs-r"><div class="cs-rv count-anim" data-val="5" data-pre="" data-suf=" zile">5 zile</div><div class="cs-rl">până la chiriaș potrivit</div></div>
           <div class="cs-r"><div class="cs-rv count-anim" data-val="2" data-pre="" data-suf=" ani">2 ani</div><div class="cs-rl">contract semnat de la început</div></div>
           <div class="cs-r"><div class="cs-rv count-anim" data-val="14" data-pre="~" data-suf=" luni">~14 luni</div><div class="cs-rl">recuperare completă a investiției</div></div>
@@ -792,5 +793,6 @@ syncCalc();
   });
 })();
 </script>
+<script src="lang.js"></script>
 </body>
 </html>
