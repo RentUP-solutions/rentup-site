@@ -1136,7 +1136,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
     <div class="voc-item">„Prima dată am mers pe primul venit, primul servit. Asta a fost greșeala mare.”</div>
     <div class="voc-item">„Am investit totul în apartamentul ăla și au plecat lăsând mizerie și pereți găuriți.”</div>
     <div class="voc-item">„Am stat luni de zile cu un chiriaș rău platnic pentru că nu știam cum să îl dau afară legal.”</div>
-    <div class="voc-item">„Oricum e loterie. Nu ai ce face.”</div>
+    <div class="voc-item">„Stă gol de două luni. Prefer asta decât să îl dau oricui, dar banii tot nu vin.”</div>
   </div>
  </div>
 </section>
@@ -2252,12 +2252,12 @@ window.animateCalcDiff=(function(){
   <p class="res">Aflați exact cât profit poate genera apartamentul tău. Raport livrat în 72h: potențial chirie, estimare buget implementare, intervenții prioritizate, ROI estimat.</p>
   <div id="re-form">
     <div class="re-row">
+      <input class="rei" type="text" id="re-name" placeholder="Numele tău" autocomplete="name">
       <input class="rei" type="email" id="re-email" placeholder="Email" autocomplete="email">
-      <input class="rei" type="tel" id="re-phone" placeholder="+40..." autocomplete="tel">
     </div>
     <button class="reb" onclick="RuExit.submit()">Vreau raportul gratuit →</button>
     <button class="red" onclick="RuExit.dismiss(true)">Nu acum, poate altă dată</button>
-    <p class="ren">Emailul și telefonul sunt folosite doar pentru livrarea raportului. Nu transmitem datele terților.</p>
+    <p class="ren">Emailul este folosit doar pentru livrarea raportului. Nu transmitem datele terților.</p>
   </div>
   <div class="reok" id="re-ok">✓ Raportul e confirmat. Te contactăm în 24h.</div>
 </div>
@@ -2321,29 +2321,25 @@ setTimeout(function(){
       if(byUser) try { sessionStorage.setItem(KEY + '_dismissed', '1'); } catch(e){}
     },
     submit: function(){
+      var nameEl = document.getElementById('re-name');
       var emailEl = document.getElementById('re-email');
-      var phoneEl = document.getElementById('re-phone');
+      var name = nameEl.value.trim();
       var email = emailEl.value.trim();
-      var phone = phoneEl.value.trim();
       var ok = true;
-      if(!email || !email.includes('@')){ emailEl.style.borderColor='#A32D2D'; emailEl.focus(); ok=false; } else { emailEl.style.borderColor=''; }
-      if(!phone){ phoneEl.style.borderColor='#A32D2D'; if(ok) phoneEl.focus(); ok=false; } else { phoneEl.style.borderColor=''; }
+      if(!name){ nameEl.style.borderColor='#A32D2D'; nameEl.focus(); ok=false; } else { nameEl.style.borderColor=''; }
+      if(!email || !email.includes('@')){ emailEl.style.borderColor='#A32D2D'; if(ok) emailEl.focus(); ok=false; } else { emailEl.style.borderColor=''; }
       if(!ok) return;
 
-      // Enhanced Conversions — user_data setat ÎNAINTE de evenimentul de conversie
       if(typeof gtag === 'function'){
-        var ud = { email: email };
-        if(phone) ud.phone_number = phone;
-        gtag('set', 'user_data', ud);
-        // ⚠️ Înlocuiește FORM_LEAD_LABEL cu label-ul conversiei din Google Ads (creat ca tip Lead)
+        gtag('set', 'user_data', { email: email });
         gtag('event', 'conversion', { send_to: 'AW-18253477545/VftDCJuk99ccEKnt9_9D' });
-        gtag('event', 'form_lead_homepage', { has_phone: !!phone });
+        gtag('event', 'form_lead_homepage');
       }
 
       fetch('https://formsubmit.co/ajax/hello@rentup.solutions', {
         method: 'POST',
         headers: {'Content-Type':'application/json','Accept':'application/json'},
-        body: JSON.stringify({ _subject:'Lead nou — Raport Rentabilitate (exit-intent homepage)', email:email, telefon:phone||'—', sursa:'popup-exit-homepage' })
+        body: JSON.stringify({ _subject:'Lead nou — Raport Rentabilitate (exit-intent homepage)', nume:name, email:email, sursa:'popup-exit-homepage' })
       }).catch(function(){});
 
       try { localStorage.setItem(KEY, JSON.stringify({converted:true, ts:Date.now()})); sessionStorage.setItem(KEY + '_dismissed','1'); } catch(e){}

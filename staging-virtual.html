@@ -303,7 +303,7 @@ button,a{touch-action:manipulation}
     <div class="sec-tag"><div class="dot"></div>Staging Virtual · 100% Remote</div>
     <h1>AI-ul îți dă o poză.<br><em>Noi îți dăm apartamentul din poză.</em></h1>
     <p class="audit-hero-sub">Randări + plan real de cumpărat, gândit de arhitecți care știu ce atrage repede  un chiriaș bun, nu un algoritm generic. Preț fix 200€, livrare în câteva zile, fără vizită.</p>
-    <a class="hero-cta" href="#" onclick="event.preventDefault();document.getElementById('wa-modal').classList.add('open')" aria-label="Vreau planul meu">Vreau planul meu →</a>
+    <a class="hero-cta" href="#" onclick="event.preventDefault();document.getElementById('quiz-modal').classList.add('open')" aria-label="Vreau planul meu">Vreau planul meu →</a>
     <div class="audit-hero-meta">
       <span class="meta-tag">✓ Livrare în câteva zile</span>
       <span class="meta-tag">✓ Fără angajament mare</span>
@@ -815,46 +815,140 @@ document.addEventListener('contextmenu',function(e){
 </script>
 
 <!-- WhatsApp Floating (mobil) -->
-<style>.wa-float{display:none;position:fixed;bottom:24px;left:24px;width:52px;height:52px;background:#25D366;border-radius:50%;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.35);z-index:998;text-decoration:none;transition:transform .2s,box-shadow .2s}.wa-float:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(37,211,102,.45)}@media(max-width:768px){.wa-float{display:flex}}
-#wa-modal{display:none;position:fixed;inset:0;z-index:9999}#wa-modal.open{display:block}#wa-overlay{position:absolute;inset:0;background:rgba(45,40,32,.45)}#wa-box{position:absolute;bottom:88px;left:16px;width:280px;background:#FDFAF6;border:.5px solid #EDE5D8;border-radius:16px;box-shadow:0 12px 40px rgba(45,40,32,.18);overflow:hidden;font-family:'Inter',sans-serif}#wa-head{display:flex;align-items:center;justify-content:space-between;padding:13px 16px 11px;border-bottom:.5px solid #EDE5D8}#wa-title{font-size:12px;font-weight:600;color:#2D2820;letter-spacing:.02em}#wa-close{background:none;border:none;cursor:pointer;color:#8B7D6B;font-size:20px;line-height:1;padding:0;width:24px;height:24px;display:flex;align-items:center;justify-content:center}.wa-opt{display:block;width:100%;text-align:left;padding:11px 16px;background:none;border:none;border-bottom:.5px solid #EDE5D8;cursor:pointer;font-size:13px;color:#2D2820;font-family:'Inter',sans-serif;line-height:1.4;transition:background .15s}.wa-opt:hover{background:#F5EFE6}#wa-custom-wrap{padding:12px 16px 14px;border-top:.5px solid #EDE5D8}#wa-custom-lbl{font-size:11px;color:#8B7D6B;margin:0 0 7px}#wa-custom-ta{width:100%;box-sizing:border-box;border:.5px solid #EDE5D8;border-radius:8px;padding:8px 10px;font-size:12px;font-family:'Inter',sans-serif;color:#2D2820;background:#fff;resize:none;outline:none;line-height:1.5;display:block}#wa-custom-ta:focus{border-color:#C77936}#wa-send-btn{margin-top:8px;width:100%;background:#25D366;color:#FDFAF6;border:none;border-radius:8px;padding:9px 0;font-size:12px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}</style>
+<style>
+.wa-float{display:none;position:fixed;bottom:24px;left:24px;width:52px;height:52px;background:#25D366;border-radius:50%;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.35);z-index:998;text-decoration:none;transition:transform .2s,box-shadow .2s}.wa-float:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(37,211,102,.45)}@media(max-width:768px){.wa-float{display:flex}}
+#quiz-modal{display:none;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center;padding:16px}
+#quiz-modal.open{display:flex}
+#quiz-overlay{position:absolute;inset:0;background:rgba(45,40,32,.5)}
+#quiz-box{position:relative;width:100%;max-width:460px;background:#FDFAF6;border:.5px solid #EDE5D8;border-radius:20px;box-shadow:0 20px 60px rgba(45,40,32,.22);overflow:hidden;font-family:'Inter',sans-serif}
+#quiz-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px 14px;border-bottom:.5px solid #EDE5D8}
+.quiz-dots{display:flex;gap:6px;align-items:center}
+.qdot{width:6px;height:6px;border-radius:50%;background:#EDE5D8;transition:background .25s}
+.qdot.on{background:#C77936}
+#quiz-close{background:none;border:none;cursor:pointer;color:#8B7D6B;font-size:22px;line-height:1;padding:0;width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:6px;transition:background .15s}
+#quiz-close:hover{background:#F5EFE6}
+.qstep{padding:28px 24px 24px}
+.qq{font-size:16px;font-weight:600;color:#2D2820;margin:0 0 20px;line-height:1.4}
+.qsub{font-size:13px;color:#8B7D6B;margin:-12px 0 20px;line-height:1.55}
+.qopts{display:flex;flex-direction:column;gap:10px}
+.qopt{display:block;width:100%;text-align:left;padding:13px 16px;background:#fff;border:1px solid #EDE5D8;border-radius:10px;cursor:pointer;font-size:14px;color:#2D2820;font-family:'Inter',sans-serif;line-height:1.4;transition:all .15s;font-weight:500}
+.qopt:hover{border-color:#C77936;background:#FDF8F3;color:#C77936}
+.qfield{margin-bottom:12px}
+.qinput{width:100%;box-sizing:border-box;border:1px solid #EDE5D8;border-radius:10px;padding:12px 14px;font-size:14px;font-family:'Inter',sans-serif;color:#2D2820;background:#fff;outline:none;transition:border-color .15s}
+.qinput:focus{border-color:#C77936}
+.qinput::placeholder{color:#B8A898}
+.qsubmit{width:100%;background:#C77936;color:#FDFAF6;border:none;border-radius:10px;padding:13px 0;font-size:14px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:background .2s;margin-top:4px}
+.qsubmit:hover{background:#B06B2C}
+.qsubmit:disabled{background:#D4A878;cursor:not-allowed}
+.qerr{font-size:12px;color:#C0392B;margin:8px 0 0;display:none}
+.qback{background:none;border:none;cursor:pointer;font-size:12px;color:#8B7D6B;font-family:'Inter',sans-serif;padding:0;margin-bottom:14px;display:inline-block;transition:color .15s}.qback:hover{color:#2D2820}
+#quiz-ok{display:none;text-align:center;padding:40px 24px 36px}
+.qok-icon{width:52px;height:52px;background:#F0FAF4;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;color:#27AE60}
+.qok-h{font-size:17px;font-weight:600;color:#2D2820;margin:0 0 8px}
+.qok-p{font-size:13px;color:#8B7D6B;line-height:1.6;margin:0}
+</style>
 
-<div id="wa-modal">
-  <div id="wa-overlay"></div>
-  <div id="wa-box">
-    <div id="wa-head"><span id="wa-title">Cum te putem ajuta?</span><button id="wa-close" aria-label="Închide">&times;</button></div>
-    <div id="wa-opts">
-      <button class="wa-opt" data-msg="Bună ziua! Mă interesează Staging Virtual pentru apartamentul meu. Vreau să aflu mai multe.">Staging Virtual (randări + plan)</button>
-      <button class="wa-opt" data-msg="Bună ziua! Vreau să programez un Raport de Rentabilitate gratuit pentru apartamentul meu.">Raport de Rentabilitate gratuit</button>
-      <button class="wa-opt" data-msg="Bună ziua! Vreau să discutăm un proiect de optimizare completă (Invest Standard sau Premium).">Proiect Invest (Standard sau Premium)</button>
+<div id="quiz-modal">
+  <div id="quiz-overlay"></div>
+  <div id="quiz-box">
+    <div id="quiz-head">
+      <div class="quiz-dots">
+        <div class="qdot on" id="qd1"></div>
+        <div class="qdot" id="qd2"></div>
+        <div class="qdot" id="qd3"></div>
+      </div>
+      <button id="quiz-close" aria-label="Închide">&times;</button>
     </div>
-    <div id="wa-custom-wrap">
-      <p id="wa-custom-lbl">sau scrie direct:</p>
-      <textarea id="wa-custom-ta" rows="2" placeholder="Mesajul tău..."></textarea>
-      <button id="wa-send-btn">Trimite pe WhatsApp</button>
+    <div class="qstep" id="qs1">
+      <p class="qq">Câte camere are apartamentul?</p>
+      <div class="qopts">
+        <button class="qopt" data-s="1" data-v="1 cameră">1 cameră</button>
+        <button class="qopt" data-s="1" data-v="2 camere">2 camere</button>
+        <button class="qopt" data-s="1" data-v="3+ camere">3+ camere</button>
+      </div>
+    </div>
+    <div class="qstep" id="qs2" style="display:none">
+      <button class="qback" data-go="1">← Înapoi</button>
+      <p class="qq">Care e situația lui acum?</p>
+      <div class="qopts">
+        <button class="qopt" data-s="2" data-v="Gol">Gol, nu e închiriat</button>
+        <button class="qopt" data-s="2" data-v="Ocupat">Ocupat, vreau să schimb ceva</button>
+        <button class="qopt" data-s="2" data-v="Tocmai renovat">Tocmai renovat / cumpărat</button>
+      </div>
+    </div>
+    <div class="qstep" id="qs3" style="display:none">
+      <button class="qback" data-go="2">← Înapoi</button>
+      <p class="qq">Apartamentul tău se califică.</p>
+      <p class="qsub">Lasă-ne un email și te contactăm în 24h cu detalii despre planul tău.</p>
+      <form id="quiz-form" novalidate>
+        <input type="hidden" name="Camere" id="qf-camere">
+        <input type="hidden" name="Situatie" id="qf-situatie">
+        <input type="hidden" name="_subject" value="Staging Virtual — cerere nouă">
+        <div class="qfield"><input class="qinput" type="text" name="Nume" placeholder="Numele tău" required></div>
+        <div class="qfield"><input class="qinput" type="email" name="email" placeholder="Adresa de email" required></div>
+        <p class="qerr" id="qerr">A apărut o eroare. Încearcă din nou.</p>
+        <button class="qsubmit" type="submit">Primesc planul →</button>
+      </form>
+    </div>
+    <div id="quiz-ok">
+      <div class="qok-icon">✓</div>
+      <h3 class="qok-h">Mulțumim!</h3>
+      <p class="qok-p">Te contactăm în 24h cu detalii despre planul tău de staging.<br>Verifică și folderul Spam dacă nu primești nimic.</p>
     </div>
   </div>
 </div>
+
 <a href="https://wa.me/40741176865" class="wa-float" aria-label="Scrie-ne pe WhatsApp" target="_blank" rel="noopener">
   <svg width="26" height="26" viewBox="0 0 24 24" fill="#FDFAF6" aria-hidden="true"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4a8.94 8.94 0 0 0-7.74 13.4L3 21l3.7-1.27A8.93 8.93 0 0 0 12.05 21h.01A8.94 8.94 0 0 0 21 12.06a8.9 8.9 0 0 0-3.4-5.74zm-5.55 13.1h-.01a7.4 7.4 0 0 1-3.78-1.04l-.27-.16-2.81.97.94-2.74-.18-.28a7.45 7.45 0 0 1 11.66-9.13 7.4 7.4 0 0 1 2.18 5.27 7.46 7.46 0 0 1-7.73 7.1zm4.08-5.56c-.22-.11-1.32-.65-1.53-.73-.2-.07-.35-.11-.5.11-.15.22-.57.73-.7.88-.13.15-.26.16-.48.05-.22-.11-.93-.34-1.77-1.1a6.6 6.6 0 0 1-1.22-1.51c-.13-.22-.01-.34.11-.45.11-.11.25-.28.37-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.03-.41-.07-.11-.6-1.45-.82-1.98-.22-.53-.44-.46-.6-.46-.15 0-.33-.01-.5-.01-.18 0-.46.06-.7.32-.24.26-.92.9-.92 2.18 0 1.28.93 2.52 1.06 2.7.13.18 1.78 2.71 4.31 3.69 2.53.98 2.53.65 2.99.61.46-.04 1.32-.54 1.5-1.06.19-.52.19-.97.13-1.06-.06-.1-.22-.16-.44-.27z"/></svg>
 </a>
+
 <script>
 (function(){
-  var WA='https://wa.me/40741176865';
-  function openModal(){document.getElementById('wa-modal').classList.add('open');}
-  function closeModal(){document.getElementById('wa-modal').classList.remove('open');}
-  function sendWa(msg){
-    gtag('event','click_whatsapp_modal');
-    gtag('event','conversion',{'send_to':'AW-18253477545/vaI4COjKgdYcEKnt9_9D'});
-    window.open(WA+'?text='+encodeURIComponent(msg),'_blank','noopener,noreferrer');
-    closeModal();
+  var answers={camere:'',situatie:''};
+  function openQuiz(){document.getElementById('quiz-modal').classList.add('open');}
+  function closeQuiz(){document.getElementById('quiz-modal').classList.remove('open');}
+  function setDots(n){for(var i=1;i<=3;i++)document.getElementById('qd'+i).classList.toggle('on',i<=n);}
+  function showStep(n){
+    ['qs1','qs2','qs3','quiz-ok'].forEach(function(id){document.getElementById(id).style.display='none';});
+    if(n==='ok'){
+      document.getElementById('quiz-ok').style.display='block';
+      document.querySelector('.quiz-dots').style.visibility='hidden';
+    } else {
+      document.getElementById('qs'+n).style.display='block';
+      document.querySelector('.quiz-dots').style.visibility='visible';
+      setDots(n);
+    }
   }
-  document.getElementById('wa-close').addEventListener('click',closeModal);
-  document.getElementById('wa-overlay').addEventListener('click',closeModal);
-  document.querySelectorAll('.wa-opt').forEach(function(b){b.addEventListener('click',function(){sendWa(this.getAttribute('data-msg'));});});
-  document.getElementById('wa-send-btn').addEventListener('click',function(){var msg=document.getElementById('wa-custom-ta').value.trim();if(msg)sendWa(msg);});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
-  var waBtn=document.querySelector('.wa-float');
-  if(waBtn)waBtn.addEventListener('click',function(e){e.preventDefault();openModal();});
+  document.querySelectorAll('.qopt').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var s=this.getAttribute('data-s'),v=this.getAttribute('data-v');
+      if(s==='1'){answers.camere=v;document.getElementById('qf-camere').value=v;showStep(2);}
+      else if(s==='2'){answers.situatie=v;document.getElementById('qf-situatie').value=v;showStep(3);}
+    });
+  });
+  document.getElementById('quiz-form').addEventListener('submit',function(e){
+    e.preventDefault();
+    var btn=this.querySelector('.qsubmit'),errEl=document.getElementById('qerr');
+    errEl.style.display='none';
+    var nume=this.querySelector('[name="Nume"]').value.trim();
+    var email=this.querySelector('[name="email"]').value.trim();
+    if(!nume){errEl.textContent='Introdu numele tău.';errEl.style.display='block';return;}
+    if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){errEl.textContent='Introdu o adresă de email validă.';errEl.style.display='block';return;}
+    btn.disabled=true;btn.textContent='Se trimite...';
+    fetch('https://formspree.io/f/moeaklab',{method:'POST',body:new FormData(this),headers:{'Accept':'application/json'}})
+      .then(function(r){
+        if(r.ok){gtag('event','quiz_lead');gtag('event','conversion',{'send_to':'AW-18253477545/vaI4COjKgdYcEKnt9_9D'});showStep('ok');}
+        else{throw new Error();}
+      })
+      .catch(function(){btn.disabled=false;btn.textContent='Primesc planul →';errEl.style.display='block';});
+  });
+  document.querySelectorAll('.qback').forEach(function(btn){
+    btn.addEventListener('click',function(){showStep(parseInt(this.getAttribute('data-go')));});
+  });
+  document.getElementById('quiz-close').addEventListener('click',closeQuiz);
+  document.getElementById('quiz-overlay').addEventListener('click',closeQuiz);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeQuiz();});
+  document.querySelectorAll('[data-open-quiz]').forEach(function(el){el.addEventListener('click',function(e){e.preventDefault();openQuiz();});});
 })();
 </script>
 

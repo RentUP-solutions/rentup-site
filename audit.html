@@ -632,8 +632,8 @@ if(localStorage.getItem('cookieConsent')){
   <div class="rsh">Raportul e gratuit. Îl primești pe email.</div>
   <div class="rss">Lasă adresa și îți confirmăm disponibilitatea în 24h. Fără angajament.</div>
   <div id="rs-form">
+    <input class="rsi" type="text" id="rs-name" placeholder="Numele tău" autocomplete="name" style="margin-bottom:7px">
     <input class="rsi" type="email" id="rs-email" placeholder="adresa@ta.ro" autocomplete="email" style="margin-bottom:7px">
-    <input class="rsi" type="tel" id="rs-phone" placeholder="+40..." autocomplete="tel">
     <button class="rsb" onclick="RuSlide.submit()">Trimite-mi raportul →</button>
     <button class="rsd" onclick="RuSlide.dismiss(true)">Nu acum</button>
   </div>
@@ -691,29 +691,25 @@ if(localStorage.getItem('cookieConsent')){
       if(byUser) try { sessionStorage.setItem(KEY + '_dismissed', '1'); } catch(e){}
     },
     submit: function(){
+      var nameEl = document.getElementById('rs-name');
       var emailEl = document.getElementById('rs-email');
-      var phoneEl = document.getElementById('rs-phone');
+      var name = nameEl.value.trim();
       var email = emailEl.value.trim();
-      var phone = phoneEl.value.trim();
       var ok = true;
-      if(!email || !email.includes('@')){ emailEl.style.borderColor='#A32D2D'; emailEl.focus(); ok=false; } else { emailEl.style.borderColor=''; }
-      if(!phone){ phoneEl.style.borderColor='#A32D2D'; if(ok) phoneEl.focus(); ok=false; } else { phoneEl.style.borderColor=''; }
+      if(!name){ nameEl.style.borderColor='#A32D2D'; nameEl.focus(); ok=false; } else { nameEl.style.borderColor=''; }
+      if(!email || !email.includes('@')){ emailEl.style.borderColor='#A32D2D'; if(ok) emailEl.focus(); ok=false; } else { emailEl.style.borderColor=''; }
       if(!ok) return;
 
-      // Enhanced Conversions — user_data setat ÎNAINTE de evenimentul de conversie
       if(typeof gtag === 'function'){
-        var ud = { email: email };
-        if(phone) ud.phone_number = phone;
-        gtag('set', 'user_data', ud);
-        // ⚠️ Înlocuiește FORM_LEAD_LABEL cu label-ul conversiei din Google Ads (creat ca tip Lead)
+        gtag('set', 'user_data', { email: email });
         gtag('event', 'conversion', { send_to: 'AW-18253477545/VftDCJuk99ccEKnt9_9D' });
-        gtag('event', 'form_lead_audit', { has_phone: !!phone });
+        gtag('event', 'form_lead_audit');
       }
 
       fetch('https://formsubmit.co/ajax/hello@rentup.solutions', {
         method: 'POST',
         headers: {'Content-Type':'application/json','Accept':'application/json'},
-        body: JSON.stringify({ _subject:'Lead nou — Raport Rentabilitate (popup audit)', email:email, telefon:phone||'—', sursa:'popup-slide-audit' })
+        body: JSON.stringify({ _subject:'Lead nou — Raport Rentabilitate (popup audit)', nume:name, email:email, sursa:'popup-slide-audit' })
       }).catch(function(){});
 
       try { localStorage.setItem(KEY, JSON.stringify({converted:true, ts:Date.now()})); sessionStorage.setItem(KEY + '_dismissed','1'); } catch(e){}
