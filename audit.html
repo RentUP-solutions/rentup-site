@@ -634,9 +634,11 @@ if(localStorage.getItem('cookieConsent')){
   <div class="rss">Lasă adresa și îți confirmăm disponibilitatea în 24h. Fără angajament.</div>
   <div id="rs-form">
     <input class="rsi" type="text" id="rs-name" placeholder="Numele tău" autocomplete="name" style="margin-bottom:7px">
-    <input class="rsi" type="email" id="rs-email" placeholder="adresa@ta.ro" autocomplete="email" style="margin-bottom:7px">
+    <input class="rsi" type="email" id="rs-email" placeholder="Emailul tău" autocomplete="email" style="margin-bottom:7px">
+    <input class="rsi" type="tel" id="rs-phone" placeholder="Număr de telefon (opțional)" autocomplete="tel" style="margin-bottom:7px">
     <button class="rsb" onclick="RuSlide.submit()">Trimite-mi raportul →</button>
     <button class="rsd" onclick="RuSlide.dismiss(true)">Nu acum</button>
+    <p style="font-size:12px;color:#9A8E82;margin:8px 0 0;text-align:center">Sugerăm un număr de telefon pentru o comunicare mai rapidă.</p>
   </div>
   <div class="rsok" id="rs-ok">✓ Gata! Te contactăm în 24h.</div>
 </div>
@@ -694,8 +696,10 @@ if(localStorage.getItem('cookieConsent')){
     submit: function(){
       var nameEl = document.getElementById('rs-name');
       var emailEl = document.getElementById('rs-email');
+      var phoneEl = document.getElementById('rs-phone');
       var name = nameEl.value.trim();
       var email = emailEl.value.trim();
+      var tel = phoneEl ? phoneEl.value.trim() : '';
       var ok = true;
       if(!name){ nameEl.style.borderColor='#A32D2D'; nameEl.focus(); ok=false; } else { nameEl.style.borderColor=''; }
       if(!email || !email.includes('@')){ emailEl.style.borderColor='#A32D2D'; if(ok) emailEl.focus(); ok=false; } else { emailEl.style.borderColor=''; }
@@ -707,10 +711,13 @@ if(localStorage.getItem('cookieConsent')){
         gtag('event', 'form_lead_audit');
       }
 
+      var payload = { _subject:'Lead nou — Raport Rentabilitate (popup audit)', nume:name, email:email, sursa:'popup-slide-audit' };
+      if(tel) payload.telefon = tel;
+
       fetch('https://formsubmit.co/ajax/hello@rentup.solutions', {
         method: 'POST',
         headers: {'Content-Type':'application/json','Accept':'application/json'},
-        body: JSON.stringify({ _subject:'Lead nou — Raport Rentabilitate (popup audit)', nume:name, email:email, sursa:'popup-slide-audit' })
+        body: JSON.stringify(payload)
       }).catch(function(){});
 
       try { localStorage.setItem(KEY, JSON.stringify({converted:true, ts:Date.now()})); sessionStorage.setItem(KEY + '_dismissed','1'); } catch(e){}

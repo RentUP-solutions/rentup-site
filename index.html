@@ -763,7 +763,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 #calc>div>div:nth-child(1){transition-delay:0ms}
 #calc>div>div:nth-child(2){transition-delay:80ms}
 /* Price blur */
-.price-blur{filter:blur(10px);user-select:none;pointer-events:none}
+.price-blur{filter:blur(8px);background:rgba(45,40,32,.12);border-radius:6px;padding:2px 10px;display:inline-block;user-select:none;pointer-events:none}
 </style>
 <script type="application/ld+json">
 {
@@ -1367,7 +1367,6 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         <div class="pkg">
           <div class="pkg-h">
             <div class="pkg-name">Design pentru chirie</div>
-            <div class="pkg-price"><span class="count-anim price-blur" data-val="25" data-pre="" data-suf="">25</span><span>€ / mp</span></div>
             <div class="pkg-desc">Doar proiectul de design. Plan, randări, listă de achiziții: implementezi și gestionezi restul singur (sau ai deja sistemul tău de selecție).</div>
           </div>
           <div class="pkg-div"></div>
@@ -1401,7 +1400,6 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         <div class="pkg" id="quick-win" style="border-right:.5px solid var(--border)">
           <div class="pkg-h">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px"><div class="pkg-name" style="margin-bottom:0">Quick Win</div><div style="display:flex;gap:6px"><div style="background:rgba(215,165,0,.07);color:#7A5C00;font-size:10px;font-weight:600;padding:4px 10px;border-radius:100px;letter-spacing:.1em;text-transform:uppercase">8–12 luni ROI</div></div></div>
-            <div class="pkg-price"><span class="count-anim price-blur" data-val="33" data-pre="" data-suf="">33</span><span>€ / mp</span></div>
             <div class="pkg-desc">Apartament gata, chiriaș rapid. Fără șantier, fără schimbări structurale, doar mobilier și sistemul complet de închiriere. Pe piață în 7–14 zile.</div>
           </div>
           <div class="pkg-div"></div>
@@ -1427,7 +1425,6 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         <div class="pkg pkg-std">
           <div class="pkg-h">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px"><div class="pkg-name" style="margin-bottom:0">Invest Standard</div><div style="background:var(--brand);color:#FDFAF6;font-size:10px;font-weight:600;padding:4px 10px;border-radius:100px;letter-spacing:.1em;text-transform:uppercase">Recomandat</div></div>
-            <div class="pkg-price"><span class="count-anim price-blur" data-val="40" data-pre="" data-suf="">40</span><span>€ / mp</span></div>
             <div class="pkg-desc">Pentru apartamentul pe care îl ții ca investiție pe termen lung, nu ca soluție de moment.</div>
           </div>
           <div class="pkg-div"></div>
@@ -1454,7 +1451,6 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         <div class="pkg pkg-pre">
           <div class="pkg-h">
             <div class="pkg-name">Invest Premium</div>
-            <div class="pkg-price"><span class="count-anim price-blur" data-val="58" data-pre="" data-suf="">58</span><span>€ / mp</span></div>
             <div class="pkg-desc">Pentru apartamentul care are nevoie de mai mult decât mobilier ca să ajungă la potențialul lui real.</div>
           </div>
           <div class="pkg-div"></div>
@@ -1996,7 +1992,7 @@ window.animateCalcDiff=(function(){
   function ease(t){ return 1 - Math.pow(1 - t, 3); }
 
   function runCount(el, delay){
-    var val  = parseInt(el.dataset.val);
+    var val  = el.dataset.enc ? parseInt(atob(el.dataset.enc)) : parseInt(el.dataset.val);
     var pre  = el.dataset.pre || '';
     var suf  = el.dataset.suf || '';
     var dur  = val >= 100 ? 1000 : val >= 30 ? 700 : 500;
@@ -2254,11 +2250,12 @@ window.animateCalcDiff=(function(){
   <div id="re-form">
     <div class="re-row">
       <input class="rei" type="text" id="re-name" placeholder="Numele tău" autocomplete="name">
-      <input class="rei" type="email" id="re-email" placeholder="Email" autocomplete="email">
+      <input class="rei" type="email" id="re-email" placeholder="Emailul tău" autocomplete="email">
     </div>
+    <input class="rei" type="tel" id="re-phone" placeholder="Număr de telefon (opțional)" autocomplete="tel" style="width:100%;margin-top:8px;box-sizing:border-box">
     <button class="reb" onclick="RuExit.submit()">Vreau raportul gratuit →</button>
     <button class="red" onclick="RuExit.dismiss(true)">Nu acum, poate altă dată</button>
-    <p class="ren">Emailul este folosit doar pentru livrarea raportului. Nu transmitem datele terților.</p>
+    <p class="ren">Emailul este folosit doar pentru livrarea raportului. Nu transmitem datele terților.<br>Sugerăm un număr de telefon pentru o comunicare mai rapidă.</p>
   </div>
   <div class="reok" id="re-ok">✓ Raportul e confirmat. Te contactăm în 24h.</div>
 </div>
@@ -2324,8 +2321,10 @@ setTimeout(function(){
     submit: function(){
       var nameEl = document.getElementById('re-name');
       var emailEl = document.getElementById('re-email');
+      var phoneEl = document.getElementById('re-phone');
       var name = nameEl.value.trim();
       var email = emailEl.value.trim();
+      var tel = phoneEl ? phoneEl.value.trim() : '';
       var ok = true;
       if(!name){ nameEl.style.borderColor='#A32D2D'; nameEl.focus(); ok=false; } else { nameEl.style.borderColor=''; }
       if(!email || !email.includes('@')){ emailEl.style.borderColor='#A32D2D'; if(ok) emailEl.focus(); ok=false; } else { emailEl.style.borderColor=''; }
@@ -2337,10 +2336,13 @@ setTimeout(function(){
         gtag('event', 'form_lead_homepage');
       }
 
+      var payload = { _subject:'Lead nou — Raport Rentabilitate (exit-intent homepage)', nume:name, email:email, sursa:'popup-exit-homepage' };
+      if(tel) payload.telefon = tel;
+
       fetch('https://formsubmit.co/ajax/hello@rentup.solutions', {
         method: 'POST',
         headers: {'Content-Type':'application/json','Accept':'application/json'},
-        body: JSON.stringify({ _subject:'Lead nou — Raport Rentabilitate (exit-intent homepage)', nume:name, email:email, sursa:'popup-exit-homepage' })
+        body: JSON.stringify(payload)
       }).catch(function(){});
 
       try { localStorage.setItem(KEY, JSON.stringify({converted:true, ts:Date.now()})); sessionStorage.setItem(KEY + '_dismissed','1'); } catch(e){}
