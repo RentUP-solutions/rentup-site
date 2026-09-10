@@ -39,7 +39,7 @@
     /* ── Exit popup ── */
     'Raport de Rentabilitate · Gratuit': 'Profitability Report · Free',
     'Nu ai nevoie de un chiriaș perfect. Ai nevoie de un sistem care să nu te mai păcălească.': "You don't need a perfect tenant. You need a system that won't let you down.",
-    'Aflați exact cât profit poate genera apartamentul tău. Raport livrat în 72h: potențial chirie, estimare buget implementare, intervenții prioritizate, ROI estimat.': 'Find out exactly how much profit your apartment can generate. Report delivered in 72h: rent potential, implementation budget estimate, prioritised interventions, estimated ROI.',
+    'Află cât profit poate genera apartamentul tău. Raport livrat în 72h: potențial chirie, estimare buget implementare, intervenții prioritizate, ROI estimat.': 'Find out how much profit your apartment can generate. Report delivered in 72h: rent potential, implementation budget estimate, prioritised interventions, estimated ROI.',
     'Vreau raportul gratuit →': 'I want the free report →',
     'Nu acum, poate altă dată': 'Not now, maybe later',
     'Emailul este folosit doar pentru livrarea raportului. Nu transmitem datele terților.': 'Your email is used only for report delivery. We do not share data with third parties.',

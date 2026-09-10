@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/webp" href="favicon.webp">
+<link rel="preload" href="images/portofoliu_18.webp" as="image">
 <link rel="preload" href="fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/inter-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <title>Rent UP · Investitori & Portofolii</title>
@@ -64,15 +65,17 @@ h2.sh em{font-style:normal;color:var(--brand)}
 .hero-dot{width:6px;height:6px;border-radius:50%;background:var(--brand);flex-shrink:0}
 
 /* HERO DARK */
-#hero-inv{background:var(--dark);padding:clamp(56px,10vw,96px) clamp(20px,6vw,56px);position:relative;overflow:hidden}
-#hero-inv::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(199,121,54,.08) 0%,transparent 70%);pointer-events:none}
-.inv-hero-inner{max-width:680px;position:relative}
+#hero-inv{background:var(--dark);padding:0;position:relative;overflow:hidden;display:flex;align-items:center;min-height:clamp(520px,72vh,700px)}
+#hero-inv::before{content:'';position:absolute;inset:0;background:rgba(45,40,32,.60);z-index:1;pointer-events:none}
+.inv-hero-bg{position:absolute;inset:0}
+.inv-hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.inv-hero-inner{max-width:680px;position:relative;z-index:2;padding:clamp(56px,10vw,96px) clamp(20px,6vw,56px)}
 .inv-h1{font-size:clamp(1.875rem,5.5vw,3.25rem);font-weight:300;line-height:1.05;letter-spacing:-.035em;color:var(--bg);margin-bottom:22px;text-wrap:balance}
 .inv-h1 em{font-style:normal;color:var(--brand)}
-.inv-sub{font-size:16px;color:var(--muted);line-height:1.75;margin-bottom:36px;max-width:480px}
+.inv-sub{font-size:16px;color:rgba(255,255,255,.82);line-height:1.75;margin-bottom:36px;max-width:480px}
 .inv-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px}
-.inv-tag{font-size:12px;color:var(--muted);background:#3D3228;padding:5px 14px;border-radius:100px;border:.5px solid #4D4238}
-.inv-tag strong{color:var(--brand);font-weight:600}
+.inv-tag{font-size:12px;color:rgba(255,255,255,.75);background:rgba(255,255,255,.10);padding:5px 14px;border-radius:100px;border:.5px solid rgba(255,255,255,.22);backdrop-filter:blur(6px)}
+.inv-tag strong{color:#fff;font-weight:600}
 .inv-btns{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 .con-p{background:var(--brand);color:var(--bg);font-size:14px;font-weight:500;padding:14px 30px;border-radius:100px;text-decoration:none;transition:background 180ms cubic-bezier(0.23,1,0.32,1),transform 150ms cubic-bezier(0.23,1,0.32,1);display:inline-block}
 .con-p:hover{background:#a8622a;transform:translateY(-1px)}
@@ -156,6 +159,15 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .cs-rl{font-size:11px;color:var(--green);line-height:1.4}
 .cs-q{background:var(--brand-light);border-left:2px solid var(--brand);border-radius:0 12px 12px 0;padding:18px 22px;font-size:13px;color:var(--dark);font-style:italic;line-height:1.75}
 .cs-qa{font-size:12px;font-weight:500;color:var(--brand);margin-top:8px;font-style:normal}
+.cs-gain{flex-shrink:0;text-align:right}
+.cs-gain-l{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:4px;white-space:nowrap}
+.cs-gain-v{font-size:28px;font-weight:300;color:var(--green);letter-spacing:-.03em;white-space:nowrap}
+@media(max-width:900px){
+  .cs-h{flex-direction:column!important}
+  .cs-gain{display:flex;justify-content:space-between;align-items:baseline;width:100%;border-top:.5px solid var(--border);margin-top:14px;padding-top:12px;text-align:left}
+  .cs-gain-l{font-size:11px;color:var(--muted)}
+  .cs-gain-v{font-size:16px;font-weight:500;white-space:nowrap}
+}
 .bud-g{display:flex;flex-direction:column;gap:6px}
 .bud-row{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);padding:7px 0;border-bottom:.5px solid var(--border)}
 .bud-row strong{color:var(--text)}
@@ -182,7 +194,8 @@ footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56p
 /* RESPONSIVE */
 @media(max-width:900px){
   section{padding:56px 22px}
-  #hero-inv,#kit-inv,#contact-inv{padding:56px 22px}
+  #kit-inv,#contact-inv{padding:56px 22px}
+  .inv-hero-inner{padding:56px 22px}
   .calc-inputs-grid{grid-template-columns:1fr}
   .calc-2col{grid-template-columns:1fr}
   .proc-g-3{grid-template-columns:1fr}
@@ -197,7 +210,8 @@ footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56p
 @media(max-width:600px){
   nav{padding:0 16px}
   section{padding:44px 16px}
-  #hero-inv,#kit-inv,#contact-inv{padding:44px 16px}
+  #kit-inv,#contact-inv{padding:44px 16px}
+  .inv-hero-inner{padding:44px 16px}
   h2.sh{font-size:24px}
   .inv-h1{font-size:28px}
   .inv-sub{font-size:14px}
@@ -209,6 +223,10 @@ footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56p
   .cs-rv{font-size:18px}
   footer{padding:16px;flex-direction:column;align-items:center;text-align:center;gap:6px}
 }
+/* DOT PULSE */
+@keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.7)}}
+.sec-tag .dot,.hero-dot{animation:dotPulse 2.8s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){.sec-tag .dot,.hero-dot{animation:none!important}}
 /* SCROLL REVEAL */
 .sr{opacity:0;transform:translateY(24px) scale(0.98);filter:blur(4px);will-change:transform,opacity,filter;transition:opacity 620ms cubic-bezier(0.23,1,0.32,1),transform 620ms cubic-bezier(0.23,1,0.32,1),filter 500ms ease}
 .sr.in{opacity:1;transform:none;filter:none;will-change:auto}
@@ -258,6 +276,9 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 
 <!-- 1. HERO -->
 <section id="hero-inv">
+  <div class="inv-hero-bg">
+    <img src="images/portofoliu_18.webp" alt="Apartament premium RentUP" loading="eager" fetchpriority="high">
+  </div>
   <div class="inv-hero-inner">
     <div class="hero-eyebrow"><div class="hero-dot"></div>Investitori · Agenți · Dezvoltatori</div>
     <h1 class="inv-h1">Un sistem aplicat<br>pe fiecare apartament<br><em>din portofoliul tău.</em></h1>
@@ -269,7 +290,6 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
     </div>
     <div class="inv-btns">
       <a href="#calc-inv" class="con-p">Calculează randamentul portofoliului →</a>
-      <a href="audit.html" class="con-g">Raport de Rentabilitate portofoliu</a>
     </div>
   </div>
 </section>
@@ -439,9 +459,9 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
             <span class="cs-tag">12 săptămâni</span>
           </div>
         </div>
-        <div style="flex-shrink:0;text-align:right">
-          <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:4px;white-space:nowrap">Câștig estimat / 10 ani</div>
-          <div style="font-size:28px;font-weight:300;color:var(--green);letter-spacing:-.03em;white-space:nowrap">+18.000€</div>
+        <div class="cs-gain">
+          <div class="cs-gain-l">Câștig estimat / 10 ani</div>
+          <div class="cs-gain-v">+18.000€</div>
         </div>
       </div>
       <div class="cs-body">
@@ -486,9 +506,9 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
             <span class="cs-tag">4 săptămâni</span>
           </div>
         </div>
-        <div style="flex-shrink:0;text-align:right">
-          <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:4px;white-space:nowrap">Câștig estimat / 10 ani</div>
-          <div style="font-size:28px;font-weight:300;color:var(--green);letter-spacing:-.03em;white-space:nowrap">+26.400€</div>
+        <div class="cs-gain">
+          <div class="cs-gain-l">Câștig estimat / 10 ani</div>
+          <div class="cs-gain-v">+26.400€</div>
         </div>
       </div>
       <div class="cs-body">

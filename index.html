@@ -404,8 +404,8 @@ footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56p
   nav{padding:0 20px;height:56px}
   
   section{padding:56px 22px}
-  #hero{padding:48px 22px;grid-template-columns:1fr;gap:0;min-height:auto}
-  .hero-r{display:none}
+  #hero{padding:48px 22px 0;grid-template-columns:1fr;gap:0;min-height:auto}
+  .hero-r{display:flex}
   .hero-h1{font-size:38px}
   .hero-sub{font-size:14px}
   h2.sh{font-size:28px}
@@ -440,7 +440,10 @@ footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56p
   
 
   section{padding:44px 16px}
-  #hero{padding:40px 16px 44px}
+  #hero{padding:40px 16px 0}
+  .hero-r{margin:0 -16px}
+  .hero-visual{border-radius:0!important}
+  .hero-badge{display:none}
   .hero-eyebrow{font-size:9px}
   .hero-h1{font-size:30px;letter-spacing:-.02em}
   .hero-sub{font-size:13px;margin-bottom:28px}
