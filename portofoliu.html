@@ -348,6 +348,7 @@ button,a,.filter-btn,.proj{touch-action:manipulation}
   <button class="filter-btn" onclick="filter('quick-win',this)">Quick Win</button>
   <button class="filter-btn" onclick="filter('invest-standard',this)">Invest Standard</button>
   <button class="filter-btn" onclick="filter('invest-premium',this)">Invest Premium</button>
+  <button class="filter-btn" onclick="filter('design-interior',this)">Design Interior</button>
 </div>
 
 <div class="projects" id="proj-grid">
@@ -419,6 +420,27 @@ button,a,.filter-btn,.proj{touch-action:manipulation}
         <div class="ps"><div class="ps-v">+200€</div><div class="ps-l">chirie lunară</div></div>
         <div class="ps"><div class="ps-v">7 zile</div><div class="ps-l">până la chiriaș</div></div>
         <div class="ps"><div class="ps-v">~30 luni</div><div class="ps-l">recuperare inv.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="proj sr" data-type="3camere design-interior">
+    <div class="gallery" onclick="openLb(this)">
+      <img src="images/portofoliu_18.webp" class="active" alt="Apartament Aviației — design interior rezidențial RentUP">
+      <button class="gal-btn gal-prev" onclick="event.stopPropagation();moveGal(this.parentElement,-1)">‹</button>
+      <button class="gal-btn gal-next" onclick="event.stopPropagation();moveGal(this.parentElement,1)">›</button>
+      <div class="gal-dots"></div>
+    </div>
+    <div class="proj-info">
+      <div class="proj-header">
+        <div><div class="proj-name">Apartament Aviației</div><div class="proj-meta">București · Sector 1 · 116 mp</div></div>
+        <div class="proj-result">Design Interior</div>
+      </div>
+      <div class="proj-tags"><span class="proj-tag">Design Interior</span><span class="proj-tag">3+ camere</span><span class="proj-tag">Rezidențial</span></div>
+      <div class="proj-stats">
+        <div class="ps"><div class="ps-v">116</div><div class="ps-l">mp suprafață</div></div>
+        <div class="ps"><div class="ps-v">3+</div><div class="ps-l">camere amenajate</div></div>
+        <div class="ps"><div class="ps-v">Premium</div><div class="ps-l">segment</div></div>
       </div>
     </div>
   </div>
