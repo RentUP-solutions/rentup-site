@@ -171,7 +171,7 @@ body{opacity:0.01;transition:opacity .46s cubic-bezier(0.23,1,0.32,1)}
 img{-webkit-user-drag:none;user-drag:none}
 /* GALERIE + LIGHTBOX */
 .gallery{position:relative;overflow:hidden;height:350px;cursor:pointer}
-.gallery img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s}
+.gallery img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.1s cubic-bezier(0.4,0,0.2,1)}
 .gallery img.active{opacity:1}
 .gal-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.85);border:none;border-radius:50%;width:32px;height:32px;font-size:16px;cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center;color:#2D2820;transition:background .15s}
 .gal-btn:hover{background:white}
@@ -244,6 +244,8 @@ img{-webkit-user-drag:none;user-drag:none}
 /* Filter buttons */
 .filter-btn{transition:background 180ms cubic-bezier(0.23,1,0.32,1),border-color 180ms ease,color 150ms ease,transform 150ms ease}
 .filter-btn:not(.on):hover{transform:translateY(-1px)}
+.filter-sep{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);align-self:center;padding:0 4px;white-space:nowrap}
+.filter-divider{width:.5px;height:20px;background:var(--border);align-self:center;flex-shrink:0}
 
 /* Scroll reveal */
 .sr{opacity:0;transform:translateY(24px) scale(0.98);filter:blur(4px);will-change:transform,opacity,filter;transition:opacity 600ms cubic-bezier(0.23,1,0.32,1),transform 600ms cubic-bezier(0.23,1,0.32,1),filter 480ms ease}
@@ -342,22 +344,17 @@ button,a,.filter-btn,.proj{touch-action:manipulation}
 
 <div class="filters">
   <button class="filter-btn on" onclick="filter('all',this)">Toate</button>
-  <button class="filter-btn" onclick="filter('garsoniera',this)">Garsoniere</button>
-  <button class="filter-btn" onclick="filter('2camere',this)">2 camere</button>
-  <button class="filter-btn" onclick="filter('3camere',this)">3 camere</button>
-  <button class="filter-btn" onclick="filter('quick-win',this)">Quick Win</button>
-  <button class="filter-btn" onclick="filter('invest-standard',this)">Invest Standard</button>
-  <button class="filter-btn" onclick="filter('invest-premium',this)">Invest Premium</button>
-  <button class="filter-btn" onclick="filter('design-interior',this)">Design Interior</button>
+  <button class="filter-btn" onclick="filter('chirii',this)">Chirii</button>
+  <button class="filter-btn" onclick="filter('design-interior',this)">Design de interior</button>
 </div>
 
 <div class="projects" id="proj-grid">
 
   <div class="proj sr" data-type="2camere invest-premium" id="proiect-drumul-taberei">
     <div class="gallery" onclick="openLb(this)">
-      <img src="images/portofoliu_2.webp" class="active" alt="2 camere Drumul Taberei — before design RentUP">
+      <img src="images/portofoliu_3.webp" class="active" alt="2 camere Drumul Taberei — detaliu living after RentUP">
+      <img src="images/portofoliu_2.webp" alt="2 camere Drumul Taberei — before design RentUP">
       <img src="images/portofoliu_1.webp" alt="2 camere Drumul Taberei — after design RentUP">
-      <img src="images/portofoliu_3.webp" alt="2 camere Drumul Taberei — detaliu living after RentUP">
       <img src="images/portofoliu_9.webp" alt="2 camere Drumul Taberei — dormitor after RentUP">
       <button class="gal-btn gal-prev" onclick="event.stopPropagation();moveGal(this.parentElement,-1)">‹</button>
       <button class="gal-btn gal-next" onclick="event.stopPropagation();moveGal(this.parentElement,1)">›</button>
@@ -377,35 +374,11 @@ button,a,.filter-btn,.proj{touch-action:manipulation}
     </div>
   </div>
 
-  <div class="proj sr" data-type="garsoniera quick-win">
-    <div class="gallery" onclick="openLb(this)">
-      <img src="images/portofoliu_4.webp" class="active" alt="Garsonieră Vatra Luminoasă — before design RentUP">
-      <img src="images/portofoliu_5.webp" alt="Garsonieră Vatra Luminoasă — after design RentUP">
-      <img src="images/portofoliu_6.webp" alt="Garsonieră Vatra Luminoasă — detaliu after RentUP">
-      <button class="gal-btn gal-prev" onclick="event.stopPropagation();moveGal(this.parentElement,-1)">‹</button>
-      <button class="gal-btn gal-next" onclick="event.stopPropagation();moveGal(this.parentElement,1)">›</button>
-      <div class="gal-dots"></div>
-    </div>
-    <div class="proj-info">
-      <div class="proj-header">
-        <div><div class="proj-name">Garsonieră Vatra Luminoasă</div><div class="proj-meta">București · Sector 2 · 32 mp</div></div>
-        <div class="proj-result">450€</div>
-      </div>
-      <div class="proj-tags"><span class="proj-tag">Quick Win</span><span class="proj-tag">2 săptămâni</span><span class="proj-tag">Garsonieră</span></div>
-      <div class="proj-stats">
-        <div class="ps"><div class="ps-v">0€</div><div class="ps-l">reparații după plecare</div></div>
-        <div class="ps"><div class="ps-v">2 ani</div><div class="ps-l">contract chiriaș</div></div>
-        <div class="ps"><div class="ps-v">~8 luni</div><div class="ps-l">recuperare inv.</div></div>
-      </div>
-    </div>
-  </div>
-
-  
 
   <div class="proj sr" data-type="garsoniera invest-premium">
     <div class="gallery" onclick="openLb(this)">
-      <img src="images/hero_index.webp" class="active" alt="Garsonieră Tineretului — after design RentUP">
-      <img src="images/portofoliu_10.webp" alt="Garsonieră Tineretului — detaliu dormitor after RentUP">
+      <img src="images/portofoliu_10.webp" class="active" alt="Garsonieră Tineretului — detaliu dormitor after RentUP">
+      <img src="images/hero_index.webp" alt="Garsonieră Tineretului — after design RentUP">
       <button class="gal-btn gal-prev" onclick="event.stopPropagation();moveGal(this.parentElement,-1)">‹</button>
       <button class="gal-btn gal-next" onclick="event.stopPropagation();moveGal(this.parentElement,1)">›</button>
       <div class="gal-dots"></div>
@@ -424,6 +397,29 @@ button,a,.filter-btn,.proj{touch-action:manipulation}
     </div>
   </div>
 
+  <div class="proj sr" data-type="2camere invest-standard" id="proiect-floreasca">
+    <div class="gallery" onclick="openLb(this)">
+      <img src="images/portofoliu_8.webp" class="active" alt="2 camere Floreasca — after design RentUP">
+      <img src="images/portofoliu_7.webp" alt="2 camere Floreasca — before design RentUP">
+      <img src="images/portofoliu_11.webp" alt="2 camere Floreasca — detaliu living after RentUP">
+      <button class="gal-btn gal-prev" onclick="event.stopPropagation();moveGal(this.parentElement,-1)">‹</button>
+      <button class="gal-btn gal-next" onclick="event.stopPropagation();moveGal(this.parentElement,1)">›</button>
+      <div class="gal-dots"></div>
+    </div>
+    <div class="proj-info">
+      <div class="proj-header">
+        <div><div class="proj-name">2 camere Floreasca</div><div class="proj-meta">București · Sector 6 · 52 mp</div></div>
+        <div class="proj-result">400€ → 620€</div>
+      </div>
+      <div class="proj-tags"><span class="proj-tag">Invest Standard</span><span class="proj-tag">4 săptămâni</span><span class="proj-tag">2 camere</span></div>
+      <div class="proj-stats">
+        <div class="ps"><div class="ps-v">+220€</div><div class="ps-l">chirie lunară</div></div>
+        <div class="ps"><div class="ps-v">5 zile</div><div class="ps-l">până la chiriaș</div></div>
+        <div class="ps"><div class="ps-v">~14 luni</div><div class="ps-l">recuperare inv.</div></div>
+      </div>
+    </div>
+  </div>
+
   <div class="proj sr" data-type="3camere design-interior">
     <div class="gallery" onclick="openLb(this)">
       <img src="images/portofoliu_18.webp" class="active" alt="Apartament Aviației — design interior rezidențial RentUP">
@@ -433,7 +429,7 @@ button,a,.filter-btn,.proj{touch-action:manipulation}
     </div>
     <div class="proj-info">
       <div class="proj-header">
-        <div><div class="proj-name">Apartament Aviației</div><div class="proj-meta">București · Sector 1 · 116 mp</div></div>
+        <div><div class="proj-name">Apartament Aviației</div><div class="proj-meta">București · Sector 1</div></div>
         <div class="proj-result">Design Interior</div>
       </div>
       <div class="proj-tags"><span class="proj-tag">Design Interior</span><span class="proj-tag">3+ camere</span><span class="proj-tag">Rezidențial</span></div>
@@ -445,10 +441,32 @@ button,a,.filter-btn,.proj{touch-action:manipulation}
     </div>
   </div>
 
+  <div class="proj sr" data-type="design-interior">
+    <div class="gallery" onclick="openLb(this)">
+      <img src="images/portofoliu_19.webp" class="active" alt="Proiect design interior rezidențial — RentUP">
+      <img src="images/portofoliu_20.webp" alt="Proiect design interior rezidențial — detaliu RentUP">
+      <button class="gal-btn gal-prev" onclick="event.stopPropagation();moveGal(this.parentElement,-1)">‹</button>
+      <button class="gal-btn gal-next" onclick="event.stopPropagation();moveGal(this.parentElement,1)">›</button>
+      <div class="gal-dots"></div>
+    </div>
+    <div class="proj-info">
+      <div class="proj-header">
+        <div><div class="proj-name">Dormitor Matrimonial</div><div class="proj-meta">București · Sector 1</div></div>
+        <div class="proj-result">Design Interior</div>
+      </div>
+      <div class="proj-tags"><span class="proj-tag">Design Interior</span><span class="proj-tag">Rezidențial</span></div>
+      <div class="proj-stats">
+        <div class="ps"><div class="ps-v">40</div><div class="ps-l">mp suprafață</div></div>
+        <div class="ps"><div class="ps-v">3</div><div class="ps-l">camere amenajate</div></div>
+        <div class="ps"><div class="ps-v">Premium</div><div class="ps-l">segment</div></div>
+      </div>
+    </div>
+  </div>
+
   <div class="proj sr" data-type="garsoniera invest-premium">
     <div class="gallery" onclick="openLb(this)">
-      <img src="images/portofoliu_14.webp" class="active" alt="Garsonieră Drumul Taberei — after design RentUP">
-      <img src="images/portofoliu_12.webp" alt="Garsonieră Drumul Taberei — living after RentUP">
+      <img src="images/portofoliu_12.webp" class="active" alt="Garsonieră Drumul Taberei — living after RentUP">
+      <img src="images/portofoliu_14.webp" alt="Garsonieră Drumul Taberei — after design RentUP">
       <img src="images/portofoliu_13.webp" alt="Garsonieră Drumul Taberei — detaliu after RentUP">
       <img src="images/portofoliu_15.webp" alt="Garsonieră Drumul Taberei — bucătărie after RentUP">
       <img src="images/portofoliu_17.webp" alt="Garsonieră Drumul Taberei — after RentUP">
@@ -471,28 +489,29 @@ button,a,.filter-btn,.proj{touch-action:manipulation}
     </div>
   </div>
 
-  <div class="proj sr" data-type="2camere invest-standard" id="proiect-floreasca">
+  <div class="proj sr" data-type="garsoniera quick-win">
     <div class="gallery" onclick="openLb(this)">
-      <img src="images/portofoliu_7.webp" class="active" alt="2 camere Floreasca — before design RentUP">
-      <img src="images/portofoliu_8.webp" alt="2 camere Floreasca — after design RentUP">
-       <img src="images/portofoliu_11.webp" alt="2 camere Floreasca — detaliu living after RentUP">
+      <img src="images/portofoliu_5.webp" class="active" alt="Garsonieră Vatra Luminoasă — after design RentUP">
+      <img src="images/portofoliu_4.webp" alt="Garsonieră Vatra Luminoasă — before design RentUP">
+      <img src="images/portofoliu_6.webp" alt="Garsonieră Vatra Luminoasă — detaliu after RentUP">
       <button class="gal-btn gal-prev" onclick="event.stopPropagation();moveGal(this.parentElement,-1)">‹</button>
       <button class="gal-btn gal-next" onclick="event.stopPropagation();moveGal(this.parentElement,1)">›</button>
       <div class="gal-dots"></div>
     </div>
     <div class="proj-info">
       <div class="proj-header">
-        <div><div class="proj-name">2 camere Floreasca</div><div class="proj-meta">București · Sector 6 · 52 mp</div></div>
-        <div class="proj-result">400€ → 620€</div>
+        <div><div class="proj-name">Garsonieră Vatra Luminoasă</div><div class="proj-meta">București · Sector 2 · 32 mp</div></div>
+        <div class="proj-result">450€</div>
       </div>
-      <div class="proj-tags"><span class="proj-tag">Invest Standard</span><span class="proj-tag">4 săptămâni</span><span class="proj-tag">2 camere</span></div>
+      <div class="proj-tags"><span class="proj-tag">Quick Win</span><span class="proj-tag">2 săptămâni</span><span class="proj-tag">Garsonieră</span></div>
       <div class="proj-stats">
-        <div class="ps"><div class="ps-v">+220€</div><div class="ps-l">chirie lunară</div></div>
-        <div class="ps"><div class="ps-v">5 zile</div><div class="ps-l">până la chiriaș</div></div>
-        <div class="ps"><div class="ps-v">~14 luni</div><div class="ps-l">recuperare inv.</div></div>
+        <div class="ps"><div class="ps-v">0€</div><div class="ps-l">reparații după plecare</div></div>
+        <div class="ps"><div class="ps-v">2 ani</div><div class="ps-l">contract chiriaș</div></div>
+        <div class="ps"><div class="ps-v">~8 luni</div><div class="ps-l">recuperare inv.</div></div>
       </div>
     </div>
   </div>
+
 
 </div>
 
@@ -557,7 +576,9 @@ function filter(type, btn){
   document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('on'));
   btn.classList.add('on');
   document.querySelectorAll('.proj').forEach(function(p){
-    var match = type==='all' || p.dataset.type.includes(type);
+    var match = type==='all'
+      || (type==='chirii' && !p.dataset.type.includes('design-interior'))
+      || (type!=='chirii' && p.dataset.type.includes(type));
     if(match){
       p.style.display='';
       if(!p.classList.contains('in')){
@@ -925,6 +946,51 @@ function setCookies(choice){
 if(!localStorage.getItem('cookieConsent')){
   document.getElementById('cookie-banner').style.display='flex';
 }
+</script>
+<script>
+(function(){
+  if(!window.matchMedia('(pointer:fine)').matches) return; // doar desktop cu mouse
+
+  var DELAY    = 10000; // 10s înainte să pornească
+  var INTERVAL = 5000; // 5s între slide-uri
+
+  var stopped = new WeakSet();
+  var lbOpen  = false;
+  var timers  = new Map();
+
+  function startGal(gal){
+    var imgs = gal.querySelectorAll('img');
+    if(imgs.length <= 1 || stopped.has(gal)) return;
+    timers.set(gal, setInterval(function(){
+      if(!stopped.has(gal) && !lbOpen) moveGal(gal, 1);
+    }, INTERVAL));
+  }
+
+  function stopGal(gal){
+    stopped.add(gal);
+    if(timers.has(gal)){ clearInterval(timers.get(gal)); timers.delete(gal); }
+  }
+
+  // Oprire la click pe săgeți sau dots
+  document.addEventListener('click', function(e){
+    var el = e.target.closest('.gal-btn, .gal-dot');
+    if(!el) return;
+    var gal = el.closest('.gallery');
+    if(gal) stopGal(gal);
+  }, true);
+
+  // Pauză când lightbox-ul e deschis
+  window.addEventListener('load', function(){
+    var _open  = window.openLb;
+    var _close = window.closeLb;
+    if(_open)  window.openLb  = function(){ lbOpen = true;  _open.apply(this, arguments); };
+    if(_close) window.closeLb = function(){ _close.apply(this, arguments); setTimeout(function(){ lbOpen = false; }, 500); };
+
+    setTimeout(function(){
+      document.querySelectorAll('.gallery').forEach(startGal);
+    }, DELAY);
+  });
+})();
 </script>
 <script src="lang.js"></script>
 </body>
