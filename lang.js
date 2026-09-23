@@ -725,6 +725,7 @@
 
     /* ── PORTOFOLIU: Filters & stats ── */
     'Toate': 'All',
+    'Chirii': 'Rent',
     'Garsoniere': 'Studios',
     'chirie lunară': 'monthly rent',
     'până la chiriaș': 'to tenant',
