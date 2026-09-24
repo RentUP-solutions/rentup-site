@@ -169,7 +169,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .diff-l{font-size:14px;color:var(--green)}
 .diff-roi{font-size:12px;color:var(--green);margin-top:5px}
 .diff-v{font-size:32px;font-weight:300;color:var(--green)}
-.loss-block{background:#FDF0D8;border:none;border-radius:12px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;margin-top:16px;box-shadow:0 2px 16px rgba(45,40,32,.16)}
+.loss-block{background:#FDF0D8;border:none;border-radius:12px;padding:18px 22px;display:flex;justify-content:space-between;align-items:flex-end;margin-top:16px;box-shadow:0 2px 16px rgba(45,40,32,.16)}
 .loss-l{font-size:14px;color:#854F0B;font-weight:500}
 .loss-v{font-size:32px;font-weight:300;color:#854F0B;white-space:nowrap;margin-left:16px}
 .sc-tbl{width:100%;border-collapse:collapse;font-size:13px;margin-top:16px;table-layout:auto}
@@ -471,6 +471,7 @@ footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56p
   .cr-sv{font-size:18px}
   .diff-block{flex-direction:column;gap:8px;text-align:center}
   .diff-v{font-size:24px}
+  .loss-v{font-size:22px}
   .sc-tbl{font-size:11px}
   .sc-tbl th,.sc-tbl td{padding:7px 6px}
   .disc{font-size:10px}
@@ -867,7 +868,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
     <div class="stat"><div class="stat-v">până la +200€</div><div class="stat-l">chirie lunară în plus</div></div>
     <div class="stat"><div class="stat-v">de la 8 luni</div><div class="stat-l">recuperare a investiției</div></div>
     <div class="stat" style="border-top:.5px solid var(--border);border-right:.5px solid var(--border)"><div class="stat-v">5 zile</div><div class="stat-l">până la primul chiriaș potrivit</div></div>
-<div class="stat" style="border-top:.5px solid var(--border)"><div class="stat-v">Gratuit</div><div class="stat-l">consultația inițială</div></div>
+<div class="stat" style="border-top:.5px solid var(--border)"><div class="stat-v">Gratuită</div><div class="stat-l">consultația inițială</div></div>
   </div>
 </div>
 
@@ -881,12 +882,12 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
       <p style="font-size:16px;color:var(--muted);line-height:1.75;margin-bottom:20px">Designul aduce chiriașul potrivit.<br><strong style="color:var(--text)">Rental Kit-ul îl ține.</strong></p>
       <p style="font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:32px">Cum listezi. Pe cine primești. Cum predai cheile fără să-ți pară rău după. Rental Kit-ul<br> este sistemul complet de documente, protocoale și contracte, personalizat pentru proprietatea ta.</p>
       <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:36px">
-        <div class="rk-item" style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5" aria-hidden="true"><polyline points="20,6 9,17 4,12"/></svg>Sistem de selecție chiriaș pe 4 piloni</div>
-<div class="rk-item" style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5" aria-hidden="true"><polyline points="20,6 9,17 4,12"/></svg>Contract de închiriere și încetare personalizat pentru proprietatea ta</div>
-<div class="rk-item" style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5" aria-hidden="true"><polyline points="20,6 9,17 4,12"/></svg>Protocol pas cu pas pentru când lucrurile merg prost</div>
+        <div class="rk-item" style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5" aria-hidden="true"><polyline points="20,6 9,17 4,12"/></svg>Sistem de selecție chiriaș.</div>
+<div class="rk-item" style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5" aria-hidden="true"><polyline points="20,6 9,17 4,12"/></svg>Contract de închiriere și încetare personalizat.</div>
+<div class="rk-item" style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5" aria-hidden="true"><polyline points="20,6 9,17 4,12"/></svg>Protocol pas cu pas pentru când lucrurile merg prost.</div>
 <div class="rk-item" style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5" aria-hidden="true"><polyline points="20,6 9,17 4,12"/></svg>Ghid de utilizare pentru chiriaș. Relația începe fără nicio surpriză.</div>
-<div class="rk-item" style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5" aria-hidden="true"><polyline points="20,6 9,17 4,12"/></svg>Comunicare structurată și mentenanță pe toată durata contractului</div>
-<div class="rk-item" style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5" aria-hidden="true"><polyline points="20,6 9,17 4,12"/></svg>La predare, totul e documentat prin proces verbal foto și inventar detaliat</div>
+<div class="rk-item" style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5" aria-hidden="true"><polyline points="20,6 9,17 4,12"/></svg>Comunicare structurată și mentenanță pe toată durata contractului.</div>
+<div class="rk-item" style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5" aria-hidden="true"><polyline points="20,6 9,17 4,12"/></svg>La predare, totul e documentat prin proces verbal foto și inventar detaliat.</div>
       </div>
       <a href="rental-kit.html" class="btn-primary">Descoperă Rental Kit →</a>
     </div>
@@ -905,7 +906,6 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
       <div class="sec-tag" style="margin-bottom:12px"><div class="dot"></div>Calculator risc</div>
       <h2 class="sh" style="font-size:22px;margin-bottom:8px">Cât te costă un chiriaș greșit?</h2>
       <p style="font-size:14px;font-weight:600;color:var(--brand);margin-bottom:10px">Problema nu e chiriașul. E că l-ai ales fără un sistem.</p>
-      <p class="sec-sub" style="font-size:13px;margin-bottom:22px">Varianta zero nu costă zero. Fiecare schimbare de chiriaș are un cost real. Calculează cât te costă, cumulat, pe termen lung.</p>
 
       <div class="fg"><label class="fl" for="ct-rent">Chiria ta lunară<strong id="ct-rent-d"> 500€</strong></label>
         <input type="range" id="ct-rent" min="200" max="1500" value="500" step="10" oninput="ctCalc()" aria-label="Chiria lunară">
@@ -939,7 +939,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
       </table>
       <div style="flex:1"></div>
       <div class="loss-block">
-        <div><div class="loss-l">Total pierdut estimat</div><div style="font-size:11px;color:#854F0B;margin-top:5px" id="ct-freq-label">la 3 schimbări de chiriaș în 5 ani</div></div>
+        <div style="padding-bottom:4px"><div class="loss-l">Total pierdut estimat</div><div style="font-size:11px;color:#854F0B;margin-top:5px" id="ct-freq-label">la 3 schimbări de chiriaș în 5 ani</div></div>
         <div class="loss-v" id="ct-total">—</div>
       </div>
       <p class="disc">* Estimări orientative pentru proprietăți neoptimizate din București, calculate pe baza costurilor medii per schimbare de chiriaș.</p>
@@ -2229,7 +2229,7 @@ window.animateCalcDiff=(function(){
 <style>
 #ru-exit-ov{position:fixed;inset:0;background:rgba(45,40,32,.48);z-index:var(--z-exit-bg);opacity:0;pointer-events:none;transition:opacity 300ms ease}
 #ru-exit-ov.ru-vis{opacity:1;pointer-events:auto}
-#ru-exit{position:fixed;top:50%;left:50%;transform:translate(-50%,-54%) scale(0.96);width:440px;max-width:calc(100vw - 32px);background:#FDFAF6;border-radius:16px;padding:36px 32px 28px;z-index:var(--z-exit);opacity:0;pointer-events:none;transition:transform 380ms cubic-bezier(0.23,1,0.32,1),opacity 300ms ease}
+#ru-exit{position:fixed;top:50%;left:50%;transform:translate(-50%,-54%) scale(0.96);width:520px;max-width:calc(100vw - 32px);background:#FDFAF6;border-radius:16px;padding:36px 32px 28px;z-index:var(--z-exit);opacity:0;pointer-events:none;transition:transform 380ms cubic-bezier(0.23,1,0.32,1),opacity 300ms ease}
 #ru-exit.ru-vis{transform:translate(-50%,-50%) scale(1);opacity:1;pointer-events:auto}
 #ru-exit .rec{position:absolute;top:14px;right:16px;background:none;border:none;cursor:pointer;font-size:22px;color:#9A8E82;line-height:1;padding:6px;font-family:'Inter',sans-serif}
 #ru-exit .ret{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#C77936;margin-bottom:12px}
@@ -2256,8 +2256,8 @@ window.animateCalcDiff=(function(){
     <div class="re-row">
       <input class="rei" type="text" id="re-name" placeholder="Numele tău" autocomplete="name">
       <input class="rei" type="email" id="re-email" placeholder="Emailul tău" autocomplete="email">
+      <input class="rei" type="tel" id="re-phone" placeholder="Număr de telefon (opțional)" autocomplete="tel">
     </div>
-    <input class="rei" type="tel" id="re-phone" placeholder="Număr de telefon (opțional)" autocomplete="tel" style="width:100%;margin-top:8px;box-sizing:border-box">
     <button class="reb" onclick="RuExit.submit()">Vreau raportul gratuit →</button>
     <button class="red" onclick="RuExit.dismiss(true)">Nu acum, poate altă dată</button>
     <p class="ren">Emailul este folosit doar pentru livrarea raportului. Nu transmitem datele terților.<br>Sugerăm un număr de telefon pentru o comunicare mai rapidă.</p>

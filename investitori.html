@@ -98,14 +98,14 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .crh-l{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
 .crh-r{font-size:12px;color:var(--light)}
 .cr-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
-.cr-s{background:var(--bg-stone);border-radius:10px;padding:16px}
-.cr-sl{font-size:11px;color:var(--light);margin-bottom:5px}
+.cr-s{background:var(--bg-stone);border-radius:10px;padding:16px;display:flex;flex-direction:column}
+.cr-sl{font-size:11px;color:var(--light);margin-bottom:auto;padding-bottom:5px}
 .cr-sv{font-size:24px;font-weight:300;color:var(--text);transition:opacity 150ms ease}
 .cr-sv.g{color:var(--green)}
-.diff-block{background:var(--green-bg);border-radius:12px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 16px rgba(45,40,32,.16)}
-.diff-l{font-size:14px;color:var(--green)}
+.diff-block{background:var(--green-bg);border-radius:12px;padding:18px 22px;display:flex;justify-content:space-between;align-items:flex-end;box-shadow:0 2px 16px rgba(45,40,32,.16)}
+.diff-l{font-size:14px;color:var(--green);white-space:nowrap}
 .diff-roi{font-size:12px;color:var(--green);margin-top:5px}
-.diff-v{font-size:32px;font-weight:300;color:var(--green)}
+.diff-v{font-size:24px;font-weight:300;color:var(--green);white-space:nowrap}
 .disc{font-size:11px;color:var(--light);margin-top:12px;line-height:1.55}
 .calc-2col{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
 .calc-2col .calc-card{display:flex;flex-direction:column;gap:24px}
@@ -353,7 +353,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
           </div>
         </div>
         <div class="diff-block">
-          <div>
+          <div style="padding-bottom:4px">
             <div class="diff-l">Total cumulat / an</div>
             <div class="diff-roi" id="res-per-apt">per apartament</div>
           </div>
@@ -536,9 +536,9 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         </div>
         <div class="cs-res">
           <div class="cs-r"><div class="cs-rv count-anim" data-val="150" data-pre="+" data-suf="€">+150€</div><div class="cs-rl">chirie lunară</div></div>
-          <div class="cs-r"><div class="cs-rv count-anim" data-val="4" data-pre="" data-suf=" zile">4 zile</div><div class="cs-rl">până la chiriaș potrivit</div></div>
+          <div class="cs-r"><div class="cs-rv count-anim" data-val="4" data-pre="" data-suf=" days">4 days</div><div class="cs-rl">până la chiriaș potrivit</div></div>
           <div class="cs-r"><div class="cs-rv count-anim" data-val="2" data-pre="" data-suf=" ani">2 ani</div><div class="cs-rl">contract semnat de la început</div></div>
-          <div class="cs-r"><div class="cs-rv count-anim" data-val="48" data-pre="~" data-suf=" luni">~48 luni</div><div class="cs-rl">recuperare completă a investiției</div></div>
+          <div class="cs-r"><div class="cs-rv count-anim" data-val="48" data-pre="~" data-suf=" months">~48 months</div><div class="cs-rl">recuperare completă a investiției</div></div>
         </div>
         <div class="cs-q">„Am fost foarte mulțumit de rezultat. Apartamentul a ieșit exact așa cum mi-a fost prezentat, iar găsirea noilor chiriași a fost mult mai ușoară decât mă așteptam."<div class="cs-qa">Dl. Ciobanu, proprietar · Pachet Invest Premium</div></div>
       </div>
@@ -583,9 +583,9 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         </div>
         <div class="cs-res">
           <div class="cs-r"><div class="cs-rv count-anim" data-val="220" data-pre="+" data-suf="€">+220€</div><div class="cs-rl">chirie lunară</div></div>
-          <div class="cs-r"><div class="cs-rv count-anim" data-val="5" data-pre="" data-suf=" zile">5 zile</div><div class="cs-rl">până la chiriaș potrivit</div></div>
+          <div class="cs-r"><div class="cs-rv count-anim" data-val="5" data-pre="" data-suf=" days">5 days</div><div class="cs-rl">până la chiriaș potrivit</div></div>
           <div class="cs-r"><div class="cs-rv count-anim" data-val="2" data-pre="" data-suf=" ani">2 ani</div><div class="cs-rl">contract semnat de la început</div></div>
-          <div class="cs-r"><div class="cs-rv count-anim" data-val="14" data-pre="~" data-suf=" luni">~14 luni</div><div class="cs-rl">recuperare completă a investiției</div></div>
+          <div class="cs-r"><div class="cs-rv count-anim" data-val="14" data-pre="~" data-suf=" months">~14 months</div><div class="cs-rl">recuperare completă a investiției</div></div>
         </div>
         <div class="cs-q">„Nu mă așteptam să am și un sistem clar pentru ce fac cu apartamentul după. Chiriașul de acum e cel mai bun pe care l-am avut și cred că asta nu e o coincidență."<div class="cs-qa">Costin, proprietar · Pachet Invest Standard</div></div>
       </div>

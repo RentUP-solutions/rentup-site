@@ -951,44 +951,27 @@ if(!localStorage.getItem('cookieConsent')){
 (function(){
   if(!window.matchMedia('(pointer:fine)').matches) return; // doar desktop cu mouse
 
-  var DELAY    = 10000; // 10s înainte să pornească
-  var INTERVAL = 5000; // 5s între slide-uri
-
-  var stopped = new WeakSet();
-  var lbOpen  = false;
-  var timers  = new Map();
+  var INTERVAL = 1500; // 1.5s între slide-uri la hover
+  var timers   = new Map();
 
   function startGal(gal){
+    if(timers.has(gal)) return;
     var imgs = gal.querySelectorAll('img');
-    if(imgs.length <= 1 || stopped.has(gal)) return;
-    timers.set(gal, setInterval(function(){
-      if(!stopped.has(gal) && !lbOpen) moveGal(gal, 1);
-    }, INTERVAL));
+    if(imgs.length <= 1) return;
+    timers.set(gal, setInterval(function(){ moveGal(gal, 1); }, INTERVAL));
   }
 
   function stopGal(gal){
-    stopped.add(gal);
     if(timers.has(gal)){ clearInterval(timers.get(gal)); timers.delete(gal); }
   }
 
-  // Oprire la click pe săgeți sau dots
-  document.addEventListener('click', function(e){
-    var el = e.target.closest('.gal-btn, .gal-dot');
-    if(!el) return;
-    var gal = el.closest('.gallery');
-    if(gal) stopGal(gal);
-  }, true);
-
-  // Pauză când lightbox-ul e deschis
   window.addEventListener('load', function(){
-    var _open  = window.openLb;
-    var _close = window.closeLb;
-    if(_open)  window.openLb  = function(){ lbOpen = true;  _open.apply(this, arguments); };
-    if(_close) window.closeLb = function(){ _close.apply(this, arguments); setTimeout(function(){ lbOpen = false; }, 500); };
-
-    setTimeout(function(){
-      document.querySelectorAll('.gallery').forEach(startGal);
-    }, DELAY);
+    document.querySelectorAll('.proj').forEach(function(card){
+      var gal = card.querySelector('.gallery');
+      if(!gal) return;
+      card.addEventListener('mouseenter', function(){ startGal(gal); });
+      card.addEventListener('mouseleave', function(){ stopGal(gal); });
+    });
   });
 })();
 </script>
