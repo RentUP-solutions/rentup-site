@@ -568,6 +568,8 @@ nav{position:sticky;top:0;z-index:var(--z-nav);background:rgba(253,250,246,.96);
 .nav-links a:hover,.nav-links a.active{color:#2D2820}
 .nav-cta{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:#C77936;border:.5px solid #C77936;padding:8px 18px;border-radius:100px;text-decoration:none;white-space:nowrap;transition:background 150ms ease-out,border-color 150ms ease-out}
 .nav-cta:hover{background:#FAF4EB}
+.br-mob{display:none}
+@media(max-width:768px){.br-mob{display:block}}
 @media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}.nav-hamburger{display:flex}.nav-cta{display:none}.nav-mob-cta{display:inline-flex!important}}
 .nav-mob-cta{display:none;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;color:#C77936;border:.5px solid #C77936;padding:6px 13px;border-radius:100px;text-decoration:none;white-space:nowrap;margin-left:auto;margin-right:10px;transition:background 150ms ease-out}
 .nav-mob-cta:hover{background:#FAF4EB}
@@ -809,9 +811,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
     <a href="/#packages">Pachete</a>
     <a href="portofoliu.html">Portofoliu</a>
     <a href="rental-kit.html">Rental Kit</a>
-    <a href="simulator.html" onclick="gtag('event','click_simulator_nav')">Simulator</a>
-    
-    <a href="/blog/">Blog</a>
+    <a href="simulator.html">Simulator</a>
     <a href="faq.html">FAQ</a>
     <a href="/#contact">Contact</a>
     <button class="lang-toggle-btn" onclick="toggleLang()" title="Switch to English">EN</button>
@@ -829,9 +829,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
   <a href="/#packages">Pachete</a>
   <a href="portofoliu.html">Portofoliu</a>
   <a href="rental-kit.html">Rental Kit</a>
-  <a href="simulator.html" onclick="gtag('event','click_simulator_nav')">Simulator</a>
-  
-  <a href="/blog/">Blog</a>
+  <a href="simulator.html">Simulator</a>
   <a href="faq.html">FAQ</a>
   <a href="/#contact">Contact</a>
 </div>
@@ -840,12 +838,11 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 <!-- S1 HERO -->
 <section id="hero">
   <div class="hero-l">
-    <div class="hero-eyebrow"><div class="hero-dot"></div><a href="#process">Rental Performance System · Design Interior · Selecție Chiriaș · Protecție Contractuală</a></div>
-    <h1 class="hero-h1">Chiriași stabili.<br><em>Venituri predictibile.</em></h1>
+    <div class="hero-eyebrow"><div class="hero-dot"></div><a href="#process">Rental Performance System</a></div>
+    <h1 class="hero-h1">Îți amenajăm chiria.<br><em>Câștigi mai mult<br>și fără bătăi de cap.</em></h1>
     <div>
       <p class="hero-sub" style="margin-bottom:14px">Transformăm apartamente obișnuite în active care produc venituri stabile prin: design funcțional, sistem complet de închiriere și selecție profesională a chiriașilor.</p>
     </div>
-    <p class="hero-micro">Găsirea unui chiriaș de încredere nu ar trebui să fie o loterie.</p>
     <div class="hero-btns">
       <a class="btn-primary" href="#calc" onclick="gtag('event','click_calculator_roi')">Sunt proprietar →</a>
       <a class="btn-primary" href="investitori.html" onclick="gtag('event','click_hero_investitori')" style="background:transparent;color:var(--brand);border:.5px solid var(--brand);transition:background 180ms cubic-bezier(0.23,1,0.32,1),transform 150ms cubic-bezier(0.23,1,0.32,1)">Sunt investitor/ dezvoltator →</a>
@@ -873,80 +870,39 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 </div>
 
 
-<!-- RENTAL KIT TEASER -->
-<section id="rental-kit-teaser" style="padding:80px 56px;background:var(--bg-stone);overflow:hidden">
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center">
-    <div>
-      <div class="sec-tag"><div class="dot"></div>Rental Kit</div>
-      <h2 class="sh">Liniștea proprietarului are o rețetă.</h2>
-      <p style="font-size:16px;color:var(--muted);line-height:1.75;margin-bottom:20px">Designul aduce chiriașul potrivit.<br><strong style="color:var(--text)">Rental Kit-ul îl ține.</strong></p>
-      <p style="font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:32px">Cum listezi. Pe cine primești. Cum predai cheile fără să-ți pară rău după. Rental Kit-ul<br> este sistemul complet de documente, protocoale și contracte, personalizat pentru proprietatea ta.</p>
-      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:36px">
-        <div class="rk-item" style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5" aria-hidden="true"><polyline points="20,6 9,17 4,12"/></svg>Sistem de selecție chiriaș.</div>
-<div class="rk-item" style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5" aria-hidden="true"><polyline points="20,6 9,17 4,12"/></svg>Contract de închiriere și încetare personalizat.</div>
-<div class="rk-item" style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5" aria-hidden="true"><polyline points="20,6 9,17 4,12"/></svg>Protocol pas cu pas pentru când lucrurile merg prost.</div>
-<div class="rk-item" style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5" aria-hidden="true"><polyline points="20,6 9,17 4,12"/></svg>Ghid de utilizare pentru chiriaș. Relația începe fără nicio surpriză.</div>
-<div class="rk-item" style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5" aria-hidden="true"><polyline points="20,6 9,17 4,12"/></svg>Comunicare structurată și mentenanță pe toată durata contractului.</div>
-<div class="rk-item" style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5" aria-hidden="true"><polyline points="20,6 9,17 4,12"/></svg>La predare, totul e documentat prin proces verbal foto și inventar detaliat.</div>
+<!-- S3 ABOUT -->
+<section id="about">
+  <div style="max-width:960px;margin:0 auto;text-align:center">
+  <div class="sec-tag" style="justify-content:center"><div class="dot"></div>Despre noi</div>
+  <h2 class="sh">Nu facem doar design.<br>Optimizăm active imobiliare.</h2>
+  <p class="sec-sub" style="margin:0 auto 44px">Misiunea noastră este să transformăm apartamentele obișnuite în active stabile și profitabile. Nu ne concentrăm doar pe estetică, ci pe performanța reală a spațiului în timp.</p>
+  <div class="team-g" style="text-align:left;max-width:860px;margin:0 auto">
+    <div class="tc">
+      <div class="tc-photo" style="padding:0;overflow:hidden"><img src="images/about us_cristiana.webp" alt="Czerwinski Cristiana, Co-fondator Rent UP" width="600" height="380" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></div>
+      <div class="tc-body">
+        <div class="tc-role">Co-fondator</div>
+        <div class="tc-name">Czerwinski Cristiana</div>
+        <p class="tc-bio">Absolventă a Facultății de Arhitectură "Ion Mincu" din București, cu studii extinse la Facultatea Tehnică din Viena. Din 2019 colaborez cu studiouri internaționale de top din arhitectură și vizualizare.</p>
+        <p class="tc-bio" style="margin-top:10px">Mă concentrez pe estetică și impact vizual: cum arată un spațiu, cum se simte și cum este perceput din prima clipă. Lucrez intuitiv și experimental, explorând direcții vizuale îndrăznețe și memorabile.</p>
+        <p class="tc-bio" style="margin-top:10px;font-style:italic;color:var(--brand)">Am văzut destule apartamente închiriate prost ca să știu exact ce face diferența dintre un chiriaș care rămâne 3 ani și unul care pleacă în 6 luni.</p>
       </div>
-      <a href="rental-kit.html" class="btn-primary">Descoperă Rental Kit →</a>
     </div>
-   <div style="display:flex;align-items:flex-end;justify-content:flex-end;overflow:hidden;margin-right:-56px;margin-bottom:-80px;align-self:stretch">
-<img src="RENTALKIT_MOCKUP_2.webp" alt="" style="width:100%;max-width:1300px">
-</div>
-</div>
-</section>
-
-<!-- COST CHIRIAS GRESIT -->
-<section style="padding:72px 56px 32px;background:var(--bg)" id="cost-inactiune">
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch;max-width:1040px;margin:0 auto">
-
-    <!-- COL 1: input -->
-    <div style="background:#F5EFE6;border:none;border-radius:14px;box-shadow:0 2px 16px rgba(45,40,32,.16);padding:28px">
-      <div class="sec-tag" style="margin-bottom:12px"><div class="dot"></div>Calculator risc</div>
-      <h2 class="sh" style="font-size:22px;margin-bottom:8px">Cât te costă un chiriaș greșit?</h2>
-      <p style="font-size:14px;font-weight:600;color:var(--brand);margin-bottom:10px">Problema nu e chiriașul. E că l-ai ales fără un sistem.</p>
-
-      <div class="fg"><label class="fl" for="ct-rent">Chiria ta lunară<strong id="ct-rent-d"> 500€</strong></label>
-        <input type="range" id="ct-rent" min="200" max="1500" value="500" step="10" oninput="ctCalc()" aria-label="Chiria lunară">
+    <div class="tc">
+      <div class="tc-photo" style="padding:0;overflow:hidden"><img src="images/about us_catalina.webp" alt="Avram Cătălina, Co-fondator Rent UP" width="600" height="380" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;transform:scale(1.16);transform-origin:center 5%"></div>
+      <div class="tc-body">
+        <div class="tc-role">Co-fondator</div>
+        <div class="tc-name">Avram Cătălina</div>
+        <p class="tc-bio">Absolventă a Facultății de Arhitectură "Ion Mincu" din București, cu experiență construită lucrând cu numeroși proprietari care au ales să investească în apartamentele lor pentru a le crește valoarea și funcționalitatea.</p>
+        <p class="tc-bio" style="margin-top:10px">Abordarea mea este serioasă și orientată spre rezultate reale. Pun accent pe organizare, logică și soluții durabile, pe spații care nu doar arată bine, ci funcționează corect în timp.</p>
+        <p class="tc-bio" style="margin-top:10px;font-style:italic;color:var(--brand)">Cunosc proprietari care au cheltuit 10.000€ pe renovare și după 2 ani totul arăta uzat. Nu materialele erau problema, erau alegerile.</p>
       </div>
-      <div class="fg"><label class="fl" for="ct-freq">De câte ori ai schimbat chiriașul în ultimii 5 ani<strong id="ct-freq-d"> 3</strong></label>
-        <input type="range" id="ct-freq" min="1" max="6" value="3" step="1" oninput="ctCalc()" aria-label="Numărul de schimbări de chiriaș în ultimii 5 ani">
-        <span class="fhint">În medie, un proprietar fără sistem de selecție rulează 3–4 chiriași în 5 ani</span>
-      </div>
-
-      <div style="background:#FDFAF6;border:none;border-radius:10px;padding:16px;margin-top:8px">
-        <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:10px">Estimări medii la o experiență proastă cu un chiriaș</div>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--mid)"><span>Luni goale după plecare</span><strong style="color:var(--text)">~1,5 luni</strong></div>
-          <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--mid)"><span>Daune și curățenie</span><strong style="color:var(--text)">~1.500€</strong></div>
-          <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--mid)"><span>Timp pierdut</span><strong style="color:var(--text)">~20 ore</strong></div>
-        </div>
-      </div>
-      <a class="btn-primary" href="/#quick-win" onclick="gtag('event','click_risk_calc_cta')" style="display:block;text-align:center;margin-top:20px;font-size:13px;padding:11px">Vezi pachetul Quick Win →</a>
     </div>
+  </div>
 
-    <!-- COL 2: results -->
-    <div style="background:#F5EFE6;border:none;border-radius:14px;box-shadow:0 2px 16px rgba(45,40,32,.16);padding:24px;display:flex;flex-direction:column">
-      <div class="crh"><span class="crh-l">Expunerea ta cumulată, nu doar un incident izolat</span></div>
-      <table class="sc-tbl">
-        <colgroup><col><col style="width:78px"></colgroup>
-        <tbody id="ct-tbl">
-          <tr><td>Chirie pierdută</td><td style="text-align:right;font-weight:500;color:var(--text)">—</td></tr>
-          <tr><td>Daune și curățenie</td><td style="text-align:right;font-weight:500;color:var(--text)">—</td></tr>
-          <tr><td>Timpul tău</td><td style="text-align:right;font-weight:500;color:var(--text)">—</td></tr>
-        </tbody>
-      </table>
-      <div style="flex:1"></div>
-      <div class="loss-block">
-        <div style="padding-bottom:4px"><div class="loss-l">Total pierdut estimat</div><div style="font-size:11px;color:#854F0B;margin-top:5px" id="ct-freq-label">la 3 schimbări de chiriaș în 5 ani</div></div>
-        <div class="loss-v" id="ct-total">—</div>
-      </div>
-      <p class="disc">* Estimări orientative pentru proprietăți neoptimizate din București, calculate pe baza costurilor medii per schimbare de chiriaș.</p>
-    </div>
-
+  <!-- CE OFERIM -->
   </div>
 </section>
+
 
 <!-- S2 CALCULATOR -->
 <section id="calc" style="padding:32px 56px 72px;background:var(--bg)">
@@ -1013,39 +969,6 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 </section>
 
 
-<!-- S4 CLIENT FIT -->
-<section id="fit">
-  <div style="max-width:960px;margin:0 auto">
-  <div class="sec-tag" style="justify-content:center"><div class="dot"></div>Este pentru tine?</div>
-  <h2 class="sh" style="text-align:center;margin-bottom:40px">Lucrăm cu proprietarii care vor rezultate reale.</h2>
-  <div class="fit-g">
-    <div class="fc">
-      <div class="fc-t yes">✓ Potrivit pentru tine dacă...</div>
-      <ul>
-        <li>Te muți și vrei să închiriezi: vrei apartamentul pregătit, nu improvizat</li>
-        <li>Ai avut un chiriaș problematic și vrei un sistem care să nu mai repete asta</li>
-        <li>Ai un apartament de investiție și vrei chirie peste media zonei</li>
-        <li>Ai un buget realist și ești dispus să urmezi un proces cu etape clare</li>
-        <li>Vrei mai mult decât un anunț pe OLX: vrei apartamentul pregătit profesional</li>
-        <li>Ești deschis la recomandări bazate pe piață, nu doar pe preferințe estetice</li>
-      </ul>
-    </div>
-    <div class="fc no-c">
-      <div class="fc-t no">✗ Nu este pentru tine dacă...</div>
-      <ul>
-        <li>Vrei „doar niște randări rapide" fără să implementezi nimic</li>
-        <li>Schimbi direcția săptămânal sau nu ai o decizie clară despre apartament</li>
-        <li>Vrei validare pentru ce ai decis deja, nu o perspectivă profesională nouă</li>
-        <li>Nu ești dispus să urmezi etapele unui proces</li>
-        <li>Ai nevoie de rezultate în câteva zile, nu săptămâni</li>
-      </ul>
-    </div>
-  </div>
-  <div class="fit-note">Lucrăm cu proprietari cu obiective diferite: de la design simplu pentru o închiriere rapidă, la investiții complete cu ROI pe termen lung. Dacă vrei ca apartamentul tău să lucreze pentru tine, suntem în locul potrivit.</div>
-  </div>
-</section>
-
-
 
 <!-- S5 PROCESS -->
 <section id="process">
@@ -1074,22 +997,6 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 </section>
 
 
-<!-- DE CE FUNCTIONEAZA -->
-<section style="background:var(--bg)">
-  <div style="max-width:860px;margin:0 auto">
-  <div class="sec-tag" style="justify-content:center"><div class="dot"></div>De ce funcționează</div>
-<div class="reasons">
-    <div class="reason"><span class="rn">–</span><div class="rt"><strong>Creștem venitul, nu doar aspectul.</strong> Nu vindem randări. Vindem rezultate: chirie mai mare, chiriași mai stabili, mai puține perioade goale. Diferența poate ajunge la mii de euro în câțiva ani.</div></div>
-    <div class="reason"><span class="rn">–</span><div class="rt"><strong>Un sistem complet, nu un proiect izolat.</strong> Design + strategie de piață + listare + selecție chiriaș + protecție contractuală. Primești un proces clar, nu doar un concept.</div></div>
-    <div class="reason"><span class="rn">–</span><div class="rt"><strong>Spații pentru viața reală, nu pentru poze.</strong> Optimizăm pentru depozitare eficientă, flux natural și materiale durabile. Spațiul arată bine și rezistă în timp.</div></div>
-    <div class="reason"><span class="rn">–</span><div class="rt"><strong>Atragem tipul corect de chiriaș.</strong> Definim cui i se adresează apartamentul, cum îl prezentăm și cum îl selectăm. Chiriași mai stabili, contracte mai lungi.</div></div>
-    <div class="reason"><span class="rn">–</span><div class="rt"><strong>Claritate și control în tot procesul.</strong> Fără improvizații. Pași definiți, termene clare, suport în implementare. Știi exact ce se întâmplă, când și de ce.</div></div>
-  </div>
-  </div>
-</section>
-
-
-</section>
 <!-- S6 PORTFOLIO -->
 <section id="portfolio">
   <div class="sec-tag" style="justify-content:center"><div class="dot"></div>Portofoliu</div>
@@ -1131,19 +1038,6 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 </section>
 
 
-<!-- S6.5 VOCI DIN COMUNITATE -->
-<section id="voci-comunitate" style="background:var(--bg-stone)">
- <div style="max-width:860px;margin:0 auto">
-  <div class="sec-tag" style="justify-content:center"><div class="dot"></div>Voci din comunitate</div>
-  <h2 class="sh" style="text-align:center;margin-bottom:40px">Ce spun proprietarii înainte să găsească un sistem.</h2>
-  <div class="voc-g">
-    <div class="voc-item">„Prima dată am mers pe primul venit, primul servit. Asta a fost greșeala mare.”</div>
-    <div class="voc-item">„Am investit totul în apartamentul ăla și au plecat lăsând mizerie și pereți găuriți.”</div>
-    <div class="voc-item">„Am stat luni de zile cu un chiriaș rău platnic pentru că nu știam cum să îl dau afară legal.”</div>
-    <div class="voc-item">„Stă gol de două luni. Prefer asta decât să îl dau oricui, dar banii tot nu vin.”</div>
-  </div>
- </div>
-</section>
 
 
 <!-- S7 TESTIMONIALS -->
@@ -1270,39 +1164,6 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 </section>
 
 
-<!-- S3 ABOUT -->
-<section id="about">
-  <div style="max-width:960px;margin:0 auto;text-align:center">
-  <div class="sec-tag" style="justify-content:center"><div class="dot"></div>Despre noi</div>
-  <h2 class="sh">Nu facem design.<br>Optimizăm active imobiliare.</h2>
-  <p class="sec-sub" style="margin:0 auto 44px">Misiunea noastră este să transformăm apartamentele obișnuite în active stabile și profitabile. Nu ne concentrăm doar pe estetică, ci pe performanța reală a spațiului în timp.</p>
-  <div class="team-g" style="text-align:left;max-width:860px;margin:0 auto">
-    <div class="tc">
-      <div class="tc-photo" style="padding:0;overflow:hidden"><img src="images/about us_cristiana.webp" alt="Czerwinski Cristiana, Co-fondator Rent UP" width="600" height="380" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></div>
-      <div class="tc-body">
-        <div class="tc-role">Co-fondator</div>
-        <div class="tc-name">Czerwinski Cristiana</div>
-        <p class="tc-bio">Absolventă a Facultății de Arhitectură "Ion Mincu" din București, cu studii extinse la Facultatea Tehnică din Viena. Din 2019 colaborez cu studiouri internaționale de top din arhitectură și vizualizare.</p>
-        <p class="tc-bio" style="margin-top:10px">Mă concentrez pe estetică și impact vizual: cum arată un spațiu, cum se simte și cum este perceput din prima clipă. Lucrez intuitiv și experimental, explorând direcții vizuale îndrăznețe și memorabile.</p>
-        <p class="tc-bio" style="margin-top:10px;font-style:italic;color:var(--brand)">Am văzut destule apartamente închiriate prost ca să știu exact ce face diferența dintre un chiriaș care rămâne 3 ani și unul care pleacă în 6 luni.</p>
-      </div>
-    </div>
-    <div class="tc">
-      <div class="tc-photo" style="padding:0;overflow:hidden"><img src="images/about us_catalina.webp" alt="Avram Cătălina, Co-fondator Rent UP" width="600" height="380" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;transform:scale(1.16);transform-origin:center 5%"></div>
-      <div class="tc-body">
-        <div class="tc-role">Co-fondator</div>
-        <div class="tc-name">Avram Cătălina</div>
-        <p class="tc-bio">Absolventă a Facultății de Arhitectură "Ion Mincu" din București, cu experiență construită lucrând cu numeroși proprietari care au ales să investească în apartamentele lor pentru a le crește valoarea și funcționalitatea.</p>
-        <p class="tc-bio" style="margin-top:10px">Abordarea mea este serioasă și orientată spre rezultate reale. Pun accent pe organizare, logică și soluții durabile, pe spații care nu doar arată bine, ci funcționează corect în timp.</p>
-        <p class="tc-bio" style="margin-top:10px;font-style:italic;color:var(--brand)">Cunosc proprietari care au cheltuit 10.000€ pe renovare și după 2 ani totul arăta uzat. Nu materialele erau problema, erau alegerile.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- CE OFERIM -->
-  </div>
-</section>
-
 <!-- S8 PACKAGES -->
 <section id="packages">
   <div style="max-width:1080px;margin:0 auto">
@@ -1320,7 +1181,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         <a href="audit.html" onclick="gtag('event','click_audit_cta');gtag('event','conversion',{'send_to':'AW-18253477545'});" class="btn-primary" style="display:inline-block;padding:11px 24px;font-size:14px">Începe cu raportul gratuit →</a>
       </div>
       <div class="pkg-step0-features">
-        <div class="pf"><span class="fd">–</span><span>Vizită pe teren + fotografii</span></div>
+        <div class="pf"><span class="fd">–</span><span>Vizită pe teren + fotografii <span style="font-size:11px;color:var(--light)">(doar București și zone limitrofe)</span></span></div>
         <div class="pf"><span class="fd">–</span><span>Scor per cameră + evaluare totală</span></div>
         <div class="pf"><span class="fd">–</span><span>Analiza chiriei corecte pentru zona ta</span></div>
         <div class="pf"><span class="fd">–</span><span>Intervenții prioritizate + buget estimat</span></div>
@@ -1384,7 +1245,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
             <div style="margin-top:auto;padding-top:14px"><div style="padding:10px 12px;background:var(--bg-stone);border-radius:8px;font-size:12px;line-height:1.6;color:var(--dark)">Vrei și sistemul de selecție a chiriașului? Adaugi Rental Kit separat, oricând.</div></div>
           </div>
           <div style="padding:16px 24px 20px">
-            <a href="#contact" class="btn-primary" style="display:block;text-align:center;padding:11px;font-size:14px">Solicită ofertă →</a>
+            <a href="https://wa.me/40741176865" class="btn-primary" onclick="gtag('event','click_whatsapp')" style="display:block;text-align:center;padding:11px;font-size:14px">Scrie-ne pe WhatsApp →</a>
             <p style="text-align:center;font-size:11px;color:var(--muted);margin-top:8px;line-height:1.5">Primești un ghid de onboarding în 24h cu pașii următori.</p>
           </div>
         </div>
@@ -1421,7 +1282,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
             <div style="margin-top:auto;padding-top:14px"><div style="padding:10px 12px;background:var(--bg-stone);border-radius:8px;font-size:12px;line-height:1.6;color:var(--dark)">Se potrivește dacă finisajele (faianță, gresie, pereți, parchet) sunt estetice și în stare bună. Dacă bucătăria sau baia au nevoie de refacere structurală sau intervenții majore, atunci discutăm de Invest Standard sau Invest Premium.</div></div>
           </div>
           <div style="padding:16px 24px 20px">
-            <a href="#contact" class="btn-primary" style="display:block;text-align:center;padding:11px;font-size:14px">Solicită ofertă →</a>
+            <a href="https://wa.me/40741176865" class="btn-primary" onclick="gtag('event','click_whatsapp')" style="display:block;text-align:center;padding:11px;font-size:14px">Scrie-ne pe WhatsApp →</a>
             <p style="text-align:center;font-size:11px;color:var(--muted);margin-top:8px;line-height:1.5">Primești un ghid de onboarding în 24h cu pașii următori.</p>
           </div>
         </div>
@@ -1447,7 +1308,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
             <div style="margin-top:auto;padding-top:14px"><div style="padding:10px 12px;background:var(--bg-stone);border-radius:8px;font-size:12px;line-height:1.6;color:var(--dark)">Tu coordonezi execuția. Noi îți dăm planul, furnizorii, documentele și prezentarea.</div></div>
           </div>
           <div style="padding:16px 24px 20px">
-            <a href="#contact" class="btn-primary" style="display:block;text-align:center;padding:11px;font-size:14px">Solicită ofertă →</a>
+            <a href="https://wa.me/40741176865" class="btn-primary" onclick="gtag('event','click_whatsapp')" style="display:block;text-align:center;padding:11px;font-size:14px">Scrie-ne pe WhatsApp →</a>
             <p style="text-align:center;font-size:11px;color:var(--muted);margin-top:8px;line-height:1.5">Primești un ghid de onboarding în 24h cu pașii următori.</p>
           </div>
         </div>
@@ -1487,25 +1348,6 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
   </div>
 </section>
 
-<!-- S9 FURNITURE ESTIMATOR -->
-<section id="furniture-estimator" style="padding:64px 56px;background:var(--bg-stone)">
-  <div style="max-width:1040px;margin:0 auto;background:var(--bg);border:none;border-radius:16px;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;box-shadow:0 2px 16px rgba(45,40,32,.16)">
-    <div>
-      <div class="sec-tag" style="justify-content:flex-start"><div class="dot"></div>Estimator mobilare</div>
-      <h2 class="sh" style="font-size:24px;margin-bottom:10px">Știi cât costă să mobilezi pentru chiria optimă?</h2>
-      <p style="font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:20px">Ai ales pachetul de design. Următoarea întrebare e cât costă să mobilezi apartamentul cu piesele potrivite. IKEA sau la comandă, prefabricat sau mix: calculatorul îți arată investiția reală.</p>
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mid)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5" aria-hidden="true"><polyline points="20,6 9,17 4,12"/></svg>Prefabricat buget / standard sau la comandă PAL+MDF</div>
-        <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mid)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5" aria-hidden="true"><polyline points="20,6 9,17 4,12"/></svg>Estimare ±10-15% față de ofertele reale · prețuri 2025</div>
-        <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mid)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5" aria-hidden="true"><polyline points="20,6 9,17 4,12"/></svg>Raport PDF complet cu detalii per cameră</div>
-      </div>
-    </div>
-    <div style="text-align:center">
-      <a href="simulator.html" onclick="gtag('event','click_simulator_cta')" class="btn-primary" style="display:block;text-align:center">Calculează costul mobilării →</a>
-      <p style="font-size:11px;color:#B8AFA4;margin-top:10px">Estimare nivel low-mid · fără TVA</p>
-    </div>
-  </div>
-</section>
 
 
 <!-- S10 FAQ -->
@@ -1515,11 +1357,9 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
   <p class="sec-sub" style="text-align:center;margin:0 auto 44px">Răspunsuri la ce ne întreabă proprietarii cel mai des.</p>
   <div class="faq-inner">
     <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">Garantați că voi găsi un chiriaș bun?<span class="fi-icon">+</span></div><div class="fa">Nu. Niciun sistem nu poate garanta comportamentul unui om. Ce garantăm este că procesul de selecție, documentație și design reduce semnificativ probabilitatea unui chiriaș problematic. Proprietarii care aplică sistematic un proces au cu 80–90% mai puține probleme decât cei care selectează după instinct.</div></div>
-    <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">De ce un apartament amenajat bine atrage un chiriaș mai bun?<span class="fi-icon">+</span></div><div class="fa">Un anunț cu fotografii profesionale și un apartament coerent filtrează natural. Chiriașul care vede un apartament îngrijit înțelege că proprietarul e serios. Cei care nu se vor comporta corespunzător preferă spații cu standarde mai relaxate. Designul nu e estetică, ci un filtru de selecție.</div></div>
-    <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">Ce fac dacă chiriașul nu plătește sau pleacă cu datorii?<span class="fi-icon">+</span></div><div class="fa">Rental Kit-ul include un protocol pas cu pas pentru exact această situație, de la primul reminder la Ziua 1 până la executare silită. Contractul înregistrat la ANAF este titlu executoriu pentru chiria neachitată și pentru evacuare la expirarea termenului. Contractul autentificat notarial oferă același lucru; în plus, cererea de evacuare pentru neplată se judecă fără citarea pârâtului — procedura urgentă (art. 1034 NCPC) durează 2–6 luni față de 1–3 ani în dreptul comun.</div></div>
-    <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">Cât durează să găsesc chiriaș după finalizarea proiectului?<span class="fi-icon">+</span></div><div class="fa">Un apartament fotografiat profesional și listat corect pe 3 platforme găsește chiriaș în 1–3 săptămâni în București. Comparativ, un anunț cu fotografii de telefon și text slab poate sta neînchiriat 1–3 luni la același preț și aceeași zonă.</div></div>
+    <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">De ce un apartament amenajat bine atrage un chiriaș mai bun?<span class="fi-icon">+</span></div><div class="fa">Un anunț cu fotografii profesionale și un apartament coerent filtrează natural. Chiriașul care vede un apartament îngrijit înțelege că proprietarul e serios. Cei care nu se vor comporta corespunzător preferă spații cu standarde mai relaxate. Designul nu e estetică, ci un filtru de selecție.</div></div>    <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">Cât durează să găsesc chiriaș după finalizarea proiectului?<span class="fi-icon">+</span></div><div class="fa">Un apartament fotografiat profesional și listat corect pe 3 platforme găsește chiriaș în 1–3 săptămâni în București. Comparativ, un anunț cu fotografii de telefon și text slab poate sta neînchiriat 1–3 luni la același preț și aceeași zonă.</div></div>
     <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">Merită să investesc în design pentru un apartament de închiriat?<span class="fi-icon">+</span></div><div class="fa">Depinde de cât costă să nu o faci. Un proprietar fără sistem rulează în medie 3–4 chiriași în 5 ani. Fiecare schimbare înseamnă luni goale, reparații și selecție nouă. Raportul de Rentabilitate calculează exact cât costă situația ta actuală față de situația optimizată. Gratuit, fără angajament.</div></div>
-    <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">Lucrați doar în București?<span class="fi-icon">+</span></div><div class="fa">Vizitele pe teren le facem în București și zona metropolitană. Proiectele de design le realizăm pentru orice locație din România, livrăm digital. Contactează-ne cu detalii.</div></div>
+    <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">Lucrați doar în București?<span class="fi-icon">+</span></div><div class="fa">Vizitele pe teren le facem în București și zona metropolitană. Pentru alte orașe, deplasarea se face contra cost — contactează-ne pentru detalii. Proiectele de design le realizăm pentru orice locație din România și le livrăm digital, fără vizită.</div></div>
   </div>
   <div style="text-align:center;margin-top:32px">
     <a href="faq.html" class="btn-ghost" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:14px;color:var(--brand);border:.5px solid var(--brand);padding:11px 22px;border-radius:100px;transition:background .2s">
@@ -1533,7 +1373,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 <section id="contact">
   <h2 class="con-h">Hai să vedem ce poate face<br><em>apartamentul tău.</em></h2>
   <p class="con-sub">Spune-ne pe scurt cu ce te confrunți: chirie mică, chiriași care pleacă, apartament gol.<br>Îți răspundem în cel mai scurt timp cu o ofertă personalizată.</p>
-  <div class="con-scarcity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><line class="csi-hand" x1="12" y1="12" x2="12" y2="7"/></svg><span>Acceptăm 5 proiecte pe lună pentru a menține calitatea.<br>Mai sunt <b>4 sloturi</b> libere luna aceasta.</span></div>
+  <div class="con-scarcity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><line class="csi-hand" x1="12" y1="12" x2="12" y2="7"/></svg><span>Acceptăm 5 proiecte pe lună pentru a menține calitatea.<br>Mai sunt <b id="slots-count">4 sloturi</b> libere luna aceasta.</span></div>
   <div class="con-btns">
     <a class="con-p" href="https://wa.me/40741176865" onclick="gtag('event','click_whatsapp');openWaModal();return false;">WhatsApp direct →</a>    <a class="con-g" href="mailto:hello@rentup.solutions" onclick="gtag('event','click_email'); return gtag_report_conversion_email(this.href);">Email</a>
   </div>
@@ -2380,6 +2220,14 @@ setTimeout(function(){
   var evts = ['click','scroll','keydown','touchstart'];
   evts.forEach(function(e){ document.addEventListener(e, loadAds, {once:true, passive:true, capture:true}); });
   window.addEventListener('load', function(){ setTimeout(loadAds, 8000); });
+})();
+</script>
+<script>
+(function(){
+  var day = new Date().getDate();
+  var slots = Math.max(1, 5 - Math.floor((day - 1) / 7));
+  var el = document.getElementById('slots-count');
+  if(el) el.textContent = slots + (slots === 1 ? ' slot' : ' sloturi');
 })();
 </script>
 </body>
