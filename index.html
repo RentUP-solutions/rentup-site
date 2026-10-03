@@ -602,8 +602,9 @@ img{-webkit-user-drag:none;user-drag:none}
 }
 .nav-hamburger{display:none}
 @media(max-width:900px){#rental-kit-teaser [style*="grid-template-columns:1fr 1fr"]{display:flex!important;flex-direction:column!important;gap:40px!important}}
-@media(max-width:900px){#rental-kit-teaser{padding:40px 16px!important}}
-@media(max-width:900px){#rental-kit-teaser img{max-width:140%!important;margin-top:0!important;margin-left:-10%;margin-right:0;display:block}}
+@media(max-width:900px){#rental-kit-teaser{padding:0!important}}
+@media(max-width:900px){#rental-kit-teaser>div>div:first-child{padding:40px 16px 32px!important}}
+@media(max-width:900px){#rental-kit-teaser img{width:100%!important;max-width:100%!important;margin:0!important;display:block}}
 @media(max-width:600px){#rental-kit-teaser svg{width:14px!important;height:14px!important;flex-shrink:0}}
 
 .ba-photos { position: relative; overflow: hidden; }
@@ -1006,12 +1007,12 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
     <a href="portofoliu.html" style="text-decoration:none;display:block;color:inherit" onclick="gtag('event','click_portfolio_preview')">
       <div class="ba">
         <div class="ba-photos" style="display:block">
-          <img src="images/portofoliu_4.webp" alt="Garsonieră Vatra Luminoasă, after design RentUP" width="800" height="400" loading="lazy" style="width:100%;height:400px;max-height:60vw;object-fit:cover;object-position:center bottom;display:block">
+          <img src="images/portofoliu_8.webp" alt="2 camere Floreasca, after design RentUP" width="800" height="400" loading="lazy" style="width:100%;height:400px;max-height:60vw;object-fit:cover;object-position:center bottom;display:block">
           <div class="ba-overlay"><span>Vezi toate proiectele →</span></div>
         </div>
         <div class="ba-info">
-          <div><div class="ba-name">Garsonieră Vatra Luminoasă · 32 mp</div><div class="ba-meta">Pachet Invest Standard · 2 săptămâni</div></div>
-          <div class="ba-res">450€</div>
+          <div><div class="ba-name">2 camere Floreasca · 52 mp</div><div class="ba-meta">Pachet Invest Standard · 4 săptămâni</div></div>
+          <div class="ba-res">400€ → 620€</div>
         </div>
       </div>
     </a>
@@ -1037,8 +1038,29 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
   </a>
 </section>
 
-
-
+<!-- RENTAL KIT TEASER -->
+<section id="rental-kit-teaser" style="padding:80px 0 0 56px;background:var(--bg-warm);overflow:hidden">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:stretch">
+    <div style="padding-bottom:80px">
+      <div class="sec-tag"><div class="dot"></div>Rental Kit</div>
+      <h2 class="sh">Liniștea proprietarului are o rețetă.</h2>
+      <p style="font-size:16px;color:var(--muted);line-height:1.75;margin-bottom:20px">Designul aduce chiriașul potrivit. <strong style="color:var(--text)">Rental Kit-ul îl ține.</strong></p>
+      <p style="font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:32px">Cum listezi. Pe cine primești. Cum predai cheile fără să-ți pară rău după. Rental Kit-ul este sistemul complet de documente, protocoale și contracte, personalizat pentru proprietatea ta.</p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:36px">
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Sistem de selecție chiriaș pe 4 piloni</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Contract de închiriere și încetare personalizat pentru proprietatea ta</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Protocol pas cu pas pentru când lucrurile merg prost</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Ghid de utilizare pentru chiriaș, îl primești educat, nu improvizat</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Comunicare structurată și mentenanță pe toată durata contractului</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>La predare, totul e documentat prin proces verbal foto și inventar detaliat</div>
+      </div>
+      <a href="rental-kit.html" class="btn-primary">Descoperă Rental Kit →</a>
+    </div>
+    <div style="display:flex;align-items:flex-end;justify-content:flex-end">
+      <img src="RENTALKIT_MOCKUP_2.webp" alt="Rental Kit, sistem complet pentru proprietari" style="width:100%;height:auto;display:block;vertical-align:bottom">
+    </div>
+  </div>
+</section>
 
 <!-- S7 TESTIMONIALS -->
 <section id="testimonials">
@@ -2095,7 +2117,7 @@ window.animateCalcDiff=(function(){
   <button class="rec" onclick="RuExit.dismiss(true)" aria-label="Închide">×</button>
   <div class="ret">Raport de Rentabilitate · Gratuit</div>
   <h3 class="reh">Nu ai nevoie de un chiriaș perfect. Ai nevoie de un sistem care să nu te mai păcălească.</h3>
-  <p class="res">Aflați exact cât profit poate genera apartamentul tău. Raport livrat în 72h: potențial chirie, estimare buget implementare, intervenții prioritizate, ROI estimat.</p>
+  <p class="res">Află exact cât profit poate genera apartamentul tău. Raport livrat în 72h: potențial chirie, estimare buget implementare, intervenții prioritizate, ROI estimat.</p>
   <div id="re-form">
     <div class="re-row">
       <input class="rei" type="text" id="re-name" placeholder="Numele tău" autocomplete="name">
