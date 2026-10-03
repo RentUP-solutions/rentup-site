@@ -8,7 +8,7 @@
 <link rel="preload" href="images/portofoliu_18.webp" as="image">
 <link rel="preload" href="fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/inter-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<title>Rent UP · Investitori & Portofolii</title>
+<title>Rent UP · Rental Optimization · Dezvoltatori & Investitori</title>
 <style>
 @font-face{font-family:'Inter';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/inter-latin-ext-300-normal.woff2') format('woff2');unicode-range:U+0100-02AF,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;}
 @font-face{font-family:'Inter';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/inter-latin-300-normal.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
@@ -73,9 +73,10 @@ h2.sh em{font-style:normal;color:var(--brand)}
 .inv-h1{font-size:clamp(1.875rem,5.5vw,3.25rem);font-weight:300;line-height:1.05;letter-spacing:-.035em;color:var(--bg);margin-bottom:22px;text-wrap:balance}
 .inv-h1 em{font-style:normal;color:var(--brand)}
 .inv-sub{font-size:16px;color:rgba(255,255,255,.82);line-height:1.75;margin-bottom:36px;max-width:480px}
-.inv-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px}
+.inv-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
 .inv-tag{font-size:12px;color:rgba(255,255,255,.75);background:rgba(255,255,255,.10);padding:5px 14px;border-radius:100px;border:.5px solid rgba(255,255,255,.22);backdrop-filter:blur(6px)}
 .inv-tag strong{color:#fff;font-weight:600}
+.inv-disc{font-size:11px;color:rgba(255,255,255,.35);margin-bottom:28px;line-height:1.5}
 .inv-btns{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 .con-p{background:var(--brand);color:var(--bg);font-size:14px;font-weight:500;padding:14px 30px;border-radius:100px;text-decoration:none;transition:background 180ms cubic-bezier(0.23,1,0.32,1),transform 150ms cubic-bezier(0.23,1,0.32,1);display:inline-block}
 .con-p:hover{background:#a8622a;transform:translateY(-1px)}
@@ -109,21 +110,9 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .disc{font-size:11px;color:var(--light);margin-top:12px;line-height:1.55}
 .calc-2col{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
 .calc-2col .calc-card{display:flex;flex-direction:column;gap:24px}
-
-/* PROCESS / SCALE */
-#process-inv{background:var(--bg)}
-.proc-g-3{display:grid;grid-template-columns:repeat(3,1fr);border:none;border-radius:14px;overflow:hidden;box-shadow:0 2px 16px rgba(45,40,32,.16)}
-.pc{padding:30px 26px;border-right:.5px solid var(--border);background:var(--bg);transition:background 200ms cubic-bezier(0.23,1,0.32,1)}
-.pc:last-child{border-right:none}
-.pc:hover{background:var(--brand-light)}
-.pc-n{font-size:52px;font-weight:200;color:var(--border);line-height:1;margin-bottom:16px;letter-spacing:-.04em;transition:color 200ms ease-out}
-.pc:hover .pc-n{color:var(--brand-border)}
-.pc-t{font-size:15px;font-weight:500;margin-bottom:10px}
-.pc-d{font-size:13px;color:var(--muted);line-height:1.62}
-.pc-get{display:block;font-size:12px;color:var(--dark);line-height:1.55;margin-top:12px;padding-top:12px;border-top:.5px solid var(--border)}
-.pc-get b{color:var(--brand);font-weight:600}
-.scale-note{background:var(--bg-stone);border-radius:12px;padding:20px 28px;margin-top:24px;font-size:13px;color:var(--mid);line-height:1.7}
-.scale-note strong{color:var(--dark)}
+.calc-portfolio-note{background:var(--bg);border:.5px solid var(--brand-border);border-radius:12px;padding:16px 22px;margin-top:16px;font-size:13px;color:var(--mid);line-height:1.65}
+.calc-portfolio-note strong{color:var(--text)}
+.calc-portfolio-note em{font-style:normal;color:var(--green);font-weight:500}
 
 /* PORTFOLIO PREVIEW */
 #port-prev{background:var(--bg-stone)}
@@ -207,16 +196,99 @@ footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56p
 .f-logo{font-size:15px;font-weight:500;color:var(--brand)}
 .f-t{font-size:12px;color:var(--light)}
 
+/* PENTRU CINE */
+#pentru-cine{background:var(--bg-stone)}
+.cine-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cine-card{background:var(--bg);border:.5px solid var(--border);border-radius:16px;padding:26px 24px;display:flex;flex-direction:column}
+.cine-card--primary{border-color:var(--brand-border);background:#FFFAF4}
+.cine-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--brand);margin-bottom:10px}
+.cine-h{font-size:14px;font-weight:500;color:var(--text);line-height:1.45;margin-bottom:10px}
+.cine-body{font-size:13px;color:var(--mid);line-height:1.65;margin-bottom:14px}
+.cine-list{list-style:none;display:flex;flex-direction:column;gap:5px;margin-bottom:16px}
+.cine-list li{font-size:12px;color:var(--muted);padding-left:16px;position:relative;line-height:1.5}
+.cine-list li::before{content:'·';position:absolute;left:0;color:var(--brand);font-weight:600;font-size:14px;top:-1px}
+.cine-result{font-size:12px;color:var(--dark);background:var(--brand-light);border-left:2px solid var(--brand);border-radius:0 8px 8px 0;padding:10px 14px;line-height:1.55;margin-top:auto}
+@media(max-width:900px){.cine-grid{grid-template-columns:1fr}}
+
+/* REVENUE PER UNIT */
+#rev-unit{background:var(--dark);position:relative;overflow:hidden}
+#rev-unit::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 60%,rgba(199,121,54,.06) 0%,transparent 65%);pointer-events:none}
+#rev-unit .sec-tag{color:var(--brand)}
+#rev-unit h2.sh{color:var(--bg)}
+#rev-unit .sec-sub{color:rgba(255,255,255,.5);margin-bottom:36px}
+.rev-flow{display:flex;align-items:center;gap:12px;margin-bottom:28px;flex-wrap:wrap}
+.rev-box{background:rgba(255,255,255,.06);border:.5px solid rgba(255,255,255,.12);border-radius:14px;padding:20px 24px;flex:1;min-width:150px}
+.rev-box--interv{background:rgba(199,121,54,.10);border-color:rgba(199,121,54,.2);text-align:center}
+.rev-box--after{background:rgba(15,110,86,.12);border-color:rgba(15,110,86,.25)}
+.rev-box-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);margin-bottom:8px}
+.rev-box-val{font-size:30px;font-weight:200;color:var(--bg);letter-spacing:-.04em;line-height:1.1}
+.rev-box-val em{font-size:13px;font-style:normal;color:rgba(255,255,255,.38);font-weight:400}
+.rev-box--interv .rev-box-label{color:rgba(199,121,54,.7)}
+.rev-box--interv .rev-box-val{font-size:22px;color:var(--brand)}
+.rev-box--after .rev-box-val{color:#4DD4A5}
+.rev-arrow{color:rgba(255,255,255,.2);font-size:22px;flex-shrink:0}
+.rev-results{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
+.rev-r{background:rgba(255,255,255,.05);border:.5px solid rgba(255,255,255,.08);border-radius:12px;padding:18px 20px}
+.rev-rl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);margin-bottom:6px}
+.rev-rv{font-size:26px;font-weight:300;color:var(--brand);letter-spacing:-.03em}
+.rev-disc{font-size:11px;color:rgba(255,255,255,.28);line-height:1.6}
+@media(max-width:768px){.rev-flow{flex-direction:column;align-items:stretch}.rev-arrow{text-align:center;transform:rotate(90deg)}.rev-results{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.rev-results{grid-template-columns:1fr}}
+
+/* OPERATING SYSTEM */
+#operating-system{background:var(--bg)}
+.os-grid{display:grid;grid-template-columns:repeat(3,1fr);border:.5px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 2px 16px rgba(45,40,32,.08)}
+.os-card{padding:28px 24px;background:var(--bg);border-right:.5px solid var(--border);border-bottom:.5px solid var(--border);transition:background 180ms cubic-bezier(0.23,1,0.32,1)}
+.os-card:nth-child(3n){border-right:none}
+.os-card:nth-child(4),.os-card:nth-child(5),.os-card:nth-child(6){border-bottom:none}
+.os-card:hover{background:var(--brand-light)}
+.os-num{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--brand);margin-bottom:12px}
+.os-title{font-size:15px;font-weight:500;color:var(--text);margin-bottom:8px}
+.os-body{font-size:13px;color:var(--muted);line-height:1.62}
+@media(max-width:768px){.os-grid{grid-template-columns:1fr}.os-card{border-right:none}.os-card:nth-child(n){border-bottom:.5px solid var(--border)}.os-card:last-child{border-bottom:none}}
+
+/* DEVELOPERS SECTION */
+#dev-section{background:var(--bg-stone)}
+.dev-flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:24px 0 28px}
+.dev-step{font-size:13px;font-weight:500;color:var(--text);background:var(--bg);border:.5px solid var(--border);border-radius:100px;padding:8px 16px;white-space:nowrap}
+.dev-arr{color:var(--brand);font-size:14px;font-weight:600;flex-shrink:0}
+.dev-benefits{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.dev-b{background:var(--bg);border:.5px solid var(--border);border-radius:10px;padding:14px 16px;font-size:13px;color:var(--mid);line-height:1.5;display:flex;gap:10px;align-items:flex-start}
+.dev-b-icon{color:var(--green);font-weight:700;flex-shrink:0;font-size:12px;margin-top:1px}
+@media(max-width:640px){.dev-benefits{grid-template-columns:1fr}.dev-flow{gap:6px}}
+
+/* CE NU FACEM */
+#ce-nu-facem{background:var(--bg)}
+.nu-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.nu-wrap{max-width:720px}
+@media(max-width:768px){.nu-inner{grid-template-columns:1fr;gap:40px}}
+.nu-list{display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
+.nu-item{font-size:14px;color:var(--mid);line-height:1.65;padding-left:24px;position:relative}
+.nu-item::before{content:'×';position:absolute;left:0;color:var(--brand);font-weight:700;font-size:15px;line-height:1.5}
+.nu-conclusion{background:var(--brand-light);border:.5px solid var(--brand-border);border-radius:12px;padding:20px 24px;font-size:14px;color:var(--dark);line-height:1.75}
+.nu-conclusion strong{color:var(--brand)}
+
+/* PILOT */
+#pilot{background:var(--bg-stone)}
+.pilot-flow{display:flex;align-items:center;gap:0;margin:32px 0 16px;overflow-x:auto}
+.pilot-step{flex:1;min-width:120px;text-align:center;padding:18px 12px;background:var(--bg);border:.5px solid var(--border);border-right:none;position:relative}
+.pilot-step:first-child{border-radius:12px 0 0 12px}
+.pilot-step:last-child{border-right:.5px solid var(--border);border-radius:0 12px 12px 0}
+.pilot-step-n{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--brand);margin-bottom:6px}
+.pilot-step-t{font-size:12px;color:var(--text);font-weight:500;line-height:1.4}
+.pilot-note{font-size:12px;color:var(--muted);line-height:1.6;margin-top:4px}
+.pilot-result{background:var(--bg);border:.5px solid var(--brand-border);border-radius:12px;padding:16px 22px;margin-top:20px;font-size:13px;color:var(--mid);line-height:1.65}
+.pilot-result strong{color:var(--text)}
+@media(max-width:768px){.pilot-flow{flex-direction:column;gap:8px}.pilot-step{border-right:.5px solid var(--border);border-radius:10px!important;min-width:auto;text-align:left;padding:14px 16px}}
+
 /* RESPONSIVE */
 @media(max-width:900px){
   section{padding:56px 22px}
   #kit-inv,#contact-inv{padding:56px 22px}
+  #rev-unit{padding:56px 22px}
   .inv-hero-inner{padding:56px 22px}
   .calc-inputs-grid{grid-template-columns:1fr}
   .calc-2col{grid-template-columns:1fr}
-  .proc-g-3{grid-template-columns:1fr}
-  .pc{border-right:none;border-bottom:.5px solid var(--border)}
-  .pc:last-child{border-bottom:none}
   .cc-grid{grid-template-columns:1fr}
   .cs-g{grid-template-columns:1fr}
   .cs-res{grid-template-columns:1fr 1fr}
@@ -226,7 +298,7 @@ footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56p
 @media(max-width:600px){
   nav{padding:0 16px}
   section{padding:44px 16px}
-  #kit-inv,#contact-inv{padding:44px 16px}
+  #kit-inv,#contact-inv,#rev-unit{padding:44px 16px}
   .inv-hero-inner{padding:44px 16px}
   h2.sh{font-size:24px}
   .inv-h1{font-size:28px}
@@ -278,7 +350,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
     <span style="width:22px;height:2px;background:#C77936;display:block"></span>
     <span style="width:22px;height:2px;background:#C77936;display:block"></span>
   </button>
-  <a class="nav-cta" href="audit.html">Raport de Rentabilitate →</a>
+  <a class="nav-cta" href="/#contact">Contactează-ne →</a>
 </nav>
 <div class="nav-mobile" id="nav-mobile">
   <a href="/#process">Cum funcționează</a>
@@ -296,21 +368,77 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
     <img src="images/portofoliu_18.webp" alt="Apartament premium RentUP" loading="eager" fetchpriority="high">
   </div>
   <div class="inv-hero-inner">
-    <div class="hero-eyebrow"><div class="hero-dot"></div>Investitori · Agenți · Dezvoltatori</div>
-    <h1 class="inv-h1">Un sistem aplicat<br>pe fiecare apartament<br><em>din portofoliul tău.</em></h1>
-    <p class="inv-sub">Design funcțional, selecție chiriaș și documente personalizate. Același standard, la fiecare unitate, indiferent de volum.</p>
+    <div class="hero-eyebrow"><div class="hero-dot"></div>Dezvoltatori · Investitori · Portofolii Rezidențiale</div>
+    <h1 class="inv-h1">Creșteți venitul produs<br>de fiecare <em>apartament.</em></h1>
+    <p class="inv-sub">Rental optimization pentru dezvoltatori și investitori cu portofolii rezidențiale. De la auditul proiectului până la amenajare, lansare și optimizarea chiriei.</p>
     <div class="inv-tags">
-      <span class="inv-tag"><strong>+150–220€</strong> chirie extra/ lună</span>
-      <span class="inv-tag"><strong>5 zile</strong> medie găsire chiriaș</span>
-      <span class="inv-tag">Sistem replicabil la orice scară</span>
+      <span class="inv-tag"><strong>+150–220€</strong> potențial rent uplift / lună</span>
+      <span class="inv-tag"><strong>14–48 luni</strong> recuperarea investiției</span>
+      <span class="inv-tag"><strong>1 → 100+</strong> unități, proces standardizat</span>
     </div>
+
     <div class="inv-btns">
-      <a href="#calc-inv" class="con-p">Calculează randamentul portofoliului →</a>
+      <a href="/#contact" class="con-p">Solicită Raport de Rentabilitate →</a>
+      <a href="#operating-system" class="con-g">Cum funcționează ↓</a>
     </div>
   </div>
 </section>
 
-<!-- 2. CALCULATOR PORTOFOLIU -->
+<!-- 2. PENTRU CINE -->
+<section id="pentru-cine">
+  <div style="max-width:1040px;margin:0 auto">
+    <div class="sec-tag"><div class="dot"></div>Pentru cine</div>
+    <h2 class="sh">Două tipuri de client.<br><em>Același rezultat.</em></h2>
+    <p class="sec-sub" style="margin-bottom:32px">RentUp vorbește două limbi diferite: cu investitorul individual și cu cel care gestionează zeci sau sute de unități.</p>
+
+    <div class="cine-grid">
+
+      <div class="cine-card cine-card--primary sr">
+        <div class="cine-label">Dezvoltatori</div>
+        <div class="cine-h">Aveți apartamente care vor ajunge pe piața de rental?</div>
+        <p class="cine-body">RentUp vă ajută să transformați serviciul de rental într-un avantaj pentru cumpărătorii-investitori. Oferiți mai mult decât produsul imobiliar.</p>
+        <ul class="cine-list">
+          <li>pachet de amenajare post-vânzare</li>
+          <li>pregătire pentru închiriere</li>
+          <li>optimizare chirie și poziționare</li>
+          <li>lansare pe piață + selecție chiriaș</li>
+          <li>proces standardizat pentru zeci sau sute de unități</li>
+        </ul>
+        <div class="cine-result">Cumpărătorul primește un apartament pregătit să producă venit din prima lună. Dezvoltatorul oferă mai mult decât produsul imobiliar.</div>
+      </div>
+
+      <div class="cine-card sr">
+        <div class="cine-label">Investitori &amp; Asset Managers</div>
+        <div class="cine-h">Aveți deja apartamente în portofoliu?</div>
+        <p class="cine-body">Identificăm unitățile cu cel mai mare potențial de creștere și intervenim acolo unde ROI-ul este cel mai bun.</p>
+        <ul class="cine-list">
+          <li>audit de portofoliu și rent benchmark</li>
+          <li>prioritizare pe baza ROI estimat</li>
+          <li>amenajare și optimizare chirie</li>
+          <li>reducerea vacancy</li>
+          <li>sistem de selecție și predare</li>
+        </ul>
+        <div class="cine-result">Nu toate unitățile merită aceeași investiție. Mergem pe date înainte de orice decizie.</div>
+      </div>
+
+      <div class="cine-card sr">
+        <div class="cine-label">Built-to-Rent / Residential for Rent</div>
+        <div class="cine-h">Construiți sau operați exclusiv pentru venit recurent?</div>
+        <p class="cine-body">RentUp poate deveni componenta de rental optimization a întregului portofoliu, de la prima unitate până la scară.</p>
+        <ul class="cine-list">
+          <li>design orientat spre rental performance</li>
+          <li>sistem replicabil pe întreg proiectul</li>
+          <li>pricing strategy și benchmark de piață</li>
+          <li>lansare coordonată pe mai multe unități simultan</li>
+        </ul>
+        <div class="cine-result">Design → Mobilare → Stabilire chirie → Lansare → Operare rental. Un singur partener pentru tot lanțul.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 3. CALCULATOR PORTOFOLIU -->
 <section id="calc-inv">
   <div class="calc-wrap-inv">
     <div class="sec-tag"><div class="dot"></div>Calculator portofoliu</div>
@@ -321,9 +449,9 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 
       <div class="calc-card">
         <div class="fg">
-          <div class="fl"><span>Număr de apartamente</span><strong id="lbl-apts">3</strong></div>
-          <input type="range" id="sl-apts" min="1" max="15" value="3" oninput="syncCalc()">
-          <div class="fhint">Toate unitățile pe care vrei să le optimizezi</div>
+          <div class="fl"><span>Număr de apartamente</span><strong id="lbl-apts">25</strong></div>
+          <input type="range" id="sl-apts" min="5" max="200" step="5" value="25" oninput="syncCalc()">
+          <div class="fhint">Unitățile din portofoliu sau proiect (până la 200)</div>
         </div>
         <div class="fg">
           <div class="fl"><span>Chirie medie actuală / lună</span><strong id="lbl-rent">550 €</strong></div>
@@ -363,55 +491,143 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
       </div>
 
     </div>
+
+    <div class="calc-portfolio-note sr">
+      <strong>Exemplu portofoliu mare:</strong> 100 apartamente · chirie medie 650 € · uplift mediu +150 € = <em>+15.000 €/lună</em> = <em>+180.000 €/an</em>. Portofoliu de 100+ unități? <a href="audit.html" style="color:var(--brand);text-decoration:none;font-weight:500">Contactați-ne direct →</a>
+    </div>
   </div>
 </section>
 
-<!-- 3. CUM FUNCȚIONĂM LA SCARĂ -->
-<section id="process-inv" style="background:var(--bg)">
+<!-- 4. REVENUE PER UNIT -->
+<section id="rev-unit">
+  <div style="max-width:1040px;margin:0 auto;position:relative">
+    <div class="sec-tag"><div class="dot"></div>Randament per unitate</div>
+    <h2 class="sh">Nu optimizăm apartamentul.<br><em>Optimizăm venitul pe unitate.</em></h2>
+    <p class="sec-sub">Un caz documentat de rent uplift, cu buget și payback real.</p>
+
+    <div class="rev-flow sr">
+      <div class="rev-box">
+        <div class="rev-box-label">Chirie actuală</div>
+        <div class="rev-box-val">550 <em>€/lună</em></div>
+      </div>
+      <div class="rev-arrow">→</div>
+      <div class="rev-box rev-box--interv">
+        <div class="rev-box-label">Intervenție RentUP</div>
+        <div class="rev-box-val">4.156 <em>€ total</em></div>
+      </div>
+      <div class="rev-arrow">→</div>
+      <div class="rev-box rev-box--after">
+        <div class="rev-box-label">Chirie optimizată</div>
+        <div class="rev-box-val">770 <em>€/lună</em></div>
+      </div>
+    </div>
+
+    <div class="rev-results sr">
+      <div class="rev-r">
+        <div class="rev-rl">Uplift lunar</div>
+        <div class="rev-rv">+220 €</div>
+      </div>
+      <div class="rev-r">
+        <div class="rev-rl">Uplift anual</div>
+        <div class="rev-rv">+2.640 €</div>
+      </div>
+      <div class="rev-r">
+        <div class="rev-rl">Recuperare investiție</div>
+        <div class="rev-rv">~18 luni</div>
+      </div>
+    </div>
+
+    <div class="rev-disc">Caz documentat: Floreasca, București Sector 1, 52 mp, pachet Invest Standard (4.156€ investiție totală inclusiv mobilier și serviciu design). Rezultatele variază în funcție de apartament, zonă și condiție inițială.</div>
+  </div>
+</section>
+
+<!-- 5. RENTUP OPERATING SYSTEM -->
+<section id="operating-system">
   <div style="max-width:1040px;margin:0 auto">
-    <div class="sec-tag"><div class="dot"></div>Proces la scară</div>
-    <h2 class="sh">Cum funcționează<br>pentru un portofoliu</h2>
-    <p class="sec-sub">Nu lucrăm altfel la apartamentul 5 față de primul. Același proces, documentat și replicabil. Asta e diferența față de un designer freelancer.</p>
+    <div class="sec-tag"><div class="dot"></div>Proces</div>
+    <h2 class="sh">Rental Performance System</h2>
+    <p class="sec-sub">Șase etape, aceleași de la prima unitate până la a 15-a. Fiecare pas produce date care informează decizia pentru următoarea.</p>
 
-    <div class="proc-g-3">
-      <div class="pc">
-        <div class="pc-n">1</div>
-        <div class="pc-t">Audit de portofoliu</div>
-        <div class="pc-d">Nu toate apartamentele au același potențial de îmbunătățire. Stabilim care unități au cel mai mare ROI posibil și în ce ordine are sens să mergi.</div>
-        <span class="pc-get"><b>Rezultat:</b> plan de prioritizare cu date, nu cu instinct.</span>
+    <div class="os-grid">
+      <div class="os-card sr">
+        <div class="os-num">01. Raport de Rentabilitate</div>
+        <div class="os-title">Identificăm potențialul</div>
+        <div class="os-body">Nu toate unitățile au același potențial de creștere. Stabilim care apartamente au cel mai mare ROI posibil și în ce ordine are sens să intervenim.</div>
       </div>
-      <div class="pc">
-        <div class="pc-n">2</div>
-        <div class="pc-t">Design și execuție</div>
-        <div class="pc-d">Fiecare apartament primește același nivel de atenție: plan 2D, moodboard, listă furnizori, vizite pe șantier. Nu există proiect mai mic sau mai important.</div>
-        <span class="pc-get"><b>Rezultat:</b> aceeași calitate la apartamentul 1 și la apartamentul 8.</span>
+      <div class="os-card sr">
+        <div class="os-num">02. Rental Benchmark</div>
+        <div class="os-title">Date înainte de investiție</div>
+        <div class="os-body">Comparăm chiria actuală cu piața și cu unități comparabile din aceeași zonă. Estimăm uplift-ul realist înainte să cheltuim un euro.</div>
       </div>
-      <div class="pc">
-        <div class="pc-n">3</div>
-        <div class="pc-t">Sistem de închiriere</div>
-        <div class="pc-d">Design-ul atrage chiriașul. Sistemul îl filtrează și îl ține. Rental Kit-ul se aplică identic la fiecare unitate, fără să improvizezi la fiecare nou chiriaș.</div>
-        <span class="pc-get"><b>Rezultat:</b> portofoliu care funcționează fără să supervizezi fiecare pas.</span>
+      <div class="os-card sr">
+        <div class="os-num">03. ROI Design</div>
+        <div class="os-title">Buget justificat, nu estimat</div>
+        <div class="os-body">Stabilim exact cât merită investit în fiecare apartament. Nu vă recomandăm să investiți mai mult. Vă recomandăm să investiți mai bine.</div>
+      </div>
+      <div class="os-card sr">
+        <div class="os-num">04. Implementation</div>
+        <div class="os-title">Design + execuție + control</div>
+        <div class="os-body">Plan 2D, moodboard, listă furnizori, mobilier, renovare și control execuție. Aceeași calitate la apartamentul 1 și la apartamentul 50.</div>
+      </div>
+      <div class="os-card sr">
+        <div class="os-num">05. Rental Launch</div>
+        <div class="os-title">Poziționare și chiriaș potrivit</div>
+        <div class="os-body">Fotografie profesională, poziționare pe piață, listare și selecție chiriaș pe 4 piloni. Sistemul se aplică identic la fiecare unitate.</div>
+      </div>
+      <div class="os-card sr">
+        <div class="os-num">06. Performance</div>
+        <div class="os-title">Măsurăm rezultatul</div>
+        <div class="os-body">Monitorizăm chiria obținută, vacancy și recuperarea investiției. Datele de la o unitate informează decizia pentru următoarea.</div>
       </div>
     </div>
 
-    <div class="scale-note">
-      <strong>De ce contează asta la portofoliu:</strong> Un designer freelancer livrează diferit la fiecare proiect. Noi avem un proces scris și repetat. Asta înseamnă că poți scala fără să reinventezi roata la fiecare apartament și că știi la ce rezultat să te aștepți înainte să începi.
+  </div>
+</section>
+
+<!-- 6. PENTRU DEZVOLTATORI — PARTENERIAT -->
+<section id="dev-section">
+  <div style="max-width:1040px;margin:0 auto">
+    <div class="sec-tag"><div class="dot"></div>Pentru dezvoltatori</div>
+    <h2 class="sh">Cumpărătorii-investitori ai proiectului vostru<br><em>au nevoie de un partener de rental.</em></h2>
+    <p class="sec-sub" style="max-width:600px">O parte dintre cumpărătorii oricărui proiect rezidențial vor închiria. Oferiți-le un parcurs complet, de la predare la primul chiriaș, ca parte din experiența post-vânzare.</p>
+
+    <div class="dev-flow sr">
+      <div class="dev-step">Apartament la predare</div>
+      <div class="dev-arr">→</div>
+      <div class="dev-step">RentUP</div>
+      <div class="dev-arr">→</div>
+      <div class="dev-step">Amenajare</div>
+      <div class="dev-arr">→</div>
+      <div class="dev-step">Rental launch</div>
+      <div class="dev-arr">→</div>
+      <div class="dev-step">Chiriaș potrivit</div>
+    </div>
+
+    <p style="font-size:14px;color:var(--mid);margin-bottom:20px;line-height:1.7">RentUP poate deveni partenerul vostru de rental pentru cumpărătorii-investitori. Scalabil pe întreg proiectul, cu același standard aplicat fiecărei unități.</p>
+
+    <div class="dev-benefits sr">
+      <div class="dev-b"><div class="dev-b-icon">✓</div>Mai multă valoare post-vânzare pentru cumpărător</div>
+      <div class="dev-b"><div class="dev-b-icon">✓</div>Experiență mai bună pentru investitorul care cumpără</div>
+      <div class="dev-b"><div class="dev-b-icon">✓</div>Un nou serviciu diferențiator față de competiție</div>
+      <div class="dev-b"><div class="dev-b-icon">✓</div>Parteneriat B2B2C scalabil pe întreg proiectul</div>
+      <div class="dev-b"><div class="dev-b-icon">✓</div>Cumpărătorul primește apartament pregătit să producă venit</div>
+      <div class="dev-b"><div class="dev-b-icon">✓</div>Proces standardizat, replicabil fără supervizare la fiecare unitate</div>
     </div>
   </div>
 </section>
 
-<!-- 4. PORTFOLIO PREVIEW — DESIGN INTERIOR -->
+<!-- 7. PORTFOLIO PREVIEW — DESIGN INTERIOR -->
 <section id="port-prev">
   <div style="max-width:1040px;margin:0 auto">
-    <div class="sec-tag"><div class="dot"></div>Portofoliu · Design de interior</div>
-    <h2 class="sh">Proiecte de design interior<br>livrate recent</h2>
-    <p class="sec-sub">Exemple din portofoliul nostru de design rezidențial. Aceeași atenție la detalii aplicată indiferent de tip de proiect.</p>
+    <div class="sec-tag"><div class="dot"></div>Execuție</div>
+    <h2 class="sh">Apartamente pregătite<br><em>pentru rental</em></h2>
+    <p class="sec-sub">Unități finalizate. Design orientat spre randament și chiriaș de calitate, nu spre estetică de showroom.</p>
 
     <div class="pp-grid">
       <a class="pp-card sr" href="portofoliu.html#proiect-aviatie">
         <div class="pp-img">
-          <img src="images/portofoliu_18.webp" alt="Apartament Aviației — design interior RentUP" loading="lazy">
-          <span class="pp-badge">Design Interior</span>
+          <img src="images/portofoliu_18.webp" alt="Apartament Aviației, design interior RentUP" loading="lazy">
+          <span class="pp-badge">Rental-Ready</span>
         </div>
         <div class="pp-info">
           <div class="pp-name">Apartament Aviației</div>
@@ -420,8 +636,8 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
       </a>
       <a class="pp-card sr" href="portofoliu.html">
         <div class="pp-img">
-          <img src="images/portofoliu_19.webp" alt="Dormitor Matrimonial — design interior RentUP" loading="lazy">
-          <span class="pp-badge">Design Interior</span>
+          <img src="images/portofoliu_19.webp" alt="Dormitor Matrimonial, design interior RentUP" loading="lazy">
+          <span class="pp-badge">Rental-Ready</span>
         </div>
         <div class="pp-info">
           <div class="pp-name">Dormitor Matrimonial</div>
@@ -430,11 +646,11 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
       </a>
     </div>
 
-    <a href="portofoliu.html" class="pp-link">Vezi toate proiectele de design interior →</a>
+    <a href="portofoliu.html" class="pp-link">Vezi portofoliul complet →</a>
   </div>
 </section>
 
-<!-- 5. RENTAL KIT CA INFRASTRUCTURĂ -->
+<!-- 8. RENTAL KIT CA INFRASTRUCTURĂ -->
 <section id="kit-inv">
   <div style="max-width:1040px;margin:0 auto;position:relative">
     <div class="sec-tag"><div class="dot"></div>Rental Kit</div>
@@ -490,12 +706,12 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
   </div>
 </section>
 
-<!-- 5. STUDII DE CAZ -->
+<!-- 9. STUDII DE CAZ -->
 <section id="cs-inv" style="background:var(--bg-stone)">
   <div style="max-width:1040px;margin:0 auto">
     <div class="sec-tag"><div class="dot"></div>Rezultate documentate</div>
-    <h2 class="sh">Proprietari care au testat sistemul<br><em>înainte să îl scaleze</em></h2>
-    <p class="sec-sub" style="margin-bottom:36px">Ambele studii de caz de mai jos pornesc de la un singur apartament. Sistemul e același indiferent de numărul de unități.</p>
+    <h2 class="sh">Rezultate măsurate,<br><em>nu estimate.</em></h2>
+    <p class="sec-sub" style="margin-bottom:36px">Două unități, buget real, payback calculat. Același proces se aplică identic la 5, 50 sau 200 de unități.</p>
 
     <!-- CS 1 -->
     <div class="cs" style="margin-bottom:16px">
@@ -536,9 +752,9 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         </div>
         <div class="cs-res">
           <div class="cs-r"><div class="cs-rv count-anim" data-val="150" data-pre="+" data-suf="€">+150€</div><div class="cs-rl">chirie lunară</div></div>
-          <div class="cs-r"><div class="cs-rv count-anim" data-val="4" data-pre="" data-suf=" days">4 days</div><div class="cs-rl">până la chiriaș potrivit</div></div>
+          <div class="cs-r"><div class="cs-rv count-anim" data-val="4" data-pre="" data-suf=" zile">4 zile</div><div class="cs-rl">până la chiriaș potrivit</div></div>
           <div class="cs-r"><div class="cs-rv count-anim" data-val="2" data-pre="" data-suf=" ani">2 ani</div><div class="cs-rl">contract semnat de la început</div></div>
-          <div class="cs-r"><div class="cs-rv count-anim" data-val="48" data-pre="~" data-suf=" months">~48 months</div><div class="cs-rl">recuperare completă a investiției</div></div>
+          <div class="cs-r"><div class="cs-rv count-anim" data-val="48" data-pre="~" data-suf=" luni">~48 luni</div><div class="cs-rl">recuperare completă a investiției</div></div>
         </div>
         <div class="cs-q">„Am fost foarte mulțumit de rezultat. Apartamentul a ieșit exact așa cum mi-a fost prezentat, iar găsirea noilor chiriași a fost mult mai ușoară decât mă așteptam."<div class="cs-qa">Dl. Ciobanu, proprietar · Pachet Invest Premium</div></div>
       </div>
@@ -583,9 +799,9 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         </div>
         <div class="cs-res">
           <div class="cs-r"><div class="cs-rv count-anim" data-val="220" data-pre="+" data-suf="€">+220€</div><div class="cs-rl">chirie lunară</div></div>
-          <div class="cs-r"><div class="cs-rv count-anim" data-val="5" data-pre="" data-suf=" days">5 days</div><div class="cs-rl">până la chiriaș potrivit</div></div>
+          <div class="cs-r"><div class="cs-rv count-anim" data-val="5" data-pre="" data-suf=" zile">5 zile</div><div class="cs-rl">până la chiriaș potrivit</div></div>
           <div class="cs-r"><div class="cs-rv count-anim" data-val="2" data-pre="" data-suf=" ani">2 ani</div><div class="cs-rl">contract semnat de la început</div></div>
-          <div class="cs-r"><div class="cs-rv count-anim" data-val="14" data-pre="~" data-suf=" months">~14 months</div><div class="cs-rl">recuperare completă a investiției</div></div>
+          <div class="cs-r"><div class="cs-rv count-anim" data-val="14" data-pre="~" data-suf=" luni">~14 luni</div><div class="cs-rl">recuperare completă a investiției</div></div>
         </div>
         <div class="cs-q">„Nu mă așteptam să am și un sistem clar pentru ce fac cu apartamentul după. Chiriașul de acum e cel mai bun pe care l-am avut și cred că asta nu e o coincidență."<div class="cs-qa">Costin, proprietar · Pachet Invest Standard</div></div>
       </div>
@@ -593,35 +809,35 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
   </div>
 </section>
 
-<!-- 6. CTA RISK-REVERSAL -->
+
+
+<!-- 12. CTA -->
 <section id="contact-inv">
-  <div class="sec-tag" style="justify-content:center"><div class="dot"></div>Ofertă pentru portofoliu</div>
-  <h2 class="con-h">Prima unitate la preț de probă.<br><em>Vezi consistența înainte să te angajezi.</em></h2>
-  <p class="con-sub">Nu îți cerem să ne dai întreg portofoliul de la prima discuție. Începem cu un apartament, tu vezi procesul, calitatea și rezultatul. Abia apoi decidem dacă și cum scalăm.</p>
+  <div class="sec-tag" style="justify-content:center"><div class="dot"></div>Raport de Rentabilitate</div>
+  <h2 class="con-h">Hai să vedem cât venit suplimentar<br>poate produce <em>portofoliul vostru.</em></h2>
+  <p class="con-sub">Trimiteți-ne numărul de unități, tipul proiectului și chiria medie estimată. Vă arătăm unde există cel mai mare potențial de creștere.</p>
 
   <div class="con-risk">
     <div class="cc" style="text-align:left">
+      <div class="cc-l">Durată</div>
+      <div class="cc-v">15 minute</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5">Prima discuție despre portofoliu și potențial de creștere.</div>
+    </div>
+    <div class="cc" style="text-align:left">
       <div class="cc-l">Angajament</div>
-      <div class="cc-v">1 apartament</div>
-      <div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5">Test real, același proces ca la scară. Nu un demo.</div>
+      <div class="cc-v">Zero obligații</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5">Primele estimări pe baza datelor proiectului, fără presiune.</div>
     </div>
     <div class="cc" style="text-align:left">
-      <div class="cc-l">Preț</div>
-      <div class="cc-v">Tarif standard</div>
-      <div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5">Nicio reducere de marketing. Calitatea reală, transparent.</div>
-    </div>
-    <div class="cc" style="text-align:left">
-      <div class="cc-l">Continuare</div>
-      <div class="cc-v">0 obligații după</div>
-      <div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5">Tu decizi dacă și când extinzi la restul portofoliului</div>
+      <div class="cc-l">Start</div>
+      <div class="cc-v">3–5 unități pilot</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5">Nu întreg portofoliul. Testăm, măsurăm, scalăm dacă funcționează.</div>
     </div>
   </div>
 
   <div class="con-btns">
-    <a href="audit.html" class="con-p">Solicită ofertă pentru prima unitate →</a>
-    <a href="#calc-inv" class="con-g">Recalculează randamentul</a>
+    <a href="/#contact" class="con-p">Solicită Raport de Rentabilitate →</a>
   </div>
-  <div class="con-micro">Evaluare completă livrată în 72h · fără întâlnire obligatorie</div>
 </section>
 
 <footer style="background:#FDFAF6;border-top:.5px solid #EDE5D8;padding:48px 56px 32px">
@@ -717,12 +933,12 @@ syncCalc();
 <script>
 // Scroll reveal
 (function(){
-  var sel='h2.sh,.sec-sub,.sec-tag,.pc,.cc,.cs,.cr,.scale-note,.kit-note-dark';
+  var sel='h2.sh,.sec-sub,.sec-tag,.os-card,.cc,.cs,.cr,.nu-conclusion,.nu-list,.pilot-result,.calc-portfolio-note,.cine-card,.rev-flow,.rev-results,.dev-flow,.dev-benefits,.pilot-flow,.sr';
   document.querySelectorAll(sel).forEach(function(el){
-    el.classList.add('sr');
+    if(!el.classList.contains('sr'))el.classList.add('sr');
     var siblings=Array.from(el.parentElement.children).filter(function(c){return c.classList.contains('sr');});
     var idx=siblings.indexOf(el);
-    var isListItem=el.matches('.cc,.pc');
+    var isListItem=el.matches('.cc,.os-card,.cine-card,.dev-b');
     if(idx>0) el.style.transitionDelay=(idx*(isListItem?40:55))+'ms';
   });
   var io=new IntersectionObserver(function(entries){
@@ -855,7 +1071,7 @@ syncCalc();
 <script>
 // Stagger pe grupuri de carduri
 (function(){
-  ['.proc-g-3','.cc-grid','.con-risk'].forEach(function(sel){
+  ['.cine-grid','.os-grid','.cc-grid','.con-risk','.dev-benefits'].forEach(function(sel){
     var parent=document.querySelector(sel);
     if(!parent)return;
     Array.from(parent.querySelectorAll('.sr')).forEach(function(el,i){
