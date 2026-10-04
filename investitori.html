@@ -198,7 +198,7 @@ footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56p
 
 /* PENTRU CINE */
 #pentru-cine{background:var(--bg-stone)}
-.cine-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cine-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:700px;margin:0 auto}
 .cine-card{background:var(--bg);border:.5px solid var(--border);border-radius:16px;padding:26px 24px;display:flex;flex-direction:column}
 .cine-card--primary{border-color:var(--brand-border);background:#FFFAF4}
 .cine-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--brand);margin-bottom:10px}
@@ -293,7 +293,8 @@ footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56p
   .cs-g{grid-template-columns:1fr}
   .cs-res{grid-template-columns:1fr 1fr}
   .con-risk{grid-template-columns:1fr}
-  footer{padding:18px 22px}
+  footer{padding:18px 22px!important}
+  footer > div > div:first-child{flex-direction:column!important;gap:32px!important}
 }
 @media(max-width:600px){
   nav{padding:0 16px}
@@ -309,7 +310,9 @@ footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56p
   .cs-body{padding:20px}
   .cs-res{grid-template-columns:1fr 1fr;gap:8px}
   .cs-rv{font-size:18px}
-  footer{padding:16px;flex-direction:column;align-items:center;text-align:center;gap:6px}
+  footer{padding:32px 16px 24px!important}
+  footer > div > div:first-child{flex-direction:column!important;gap:24px!important}
+  footer > div > div:first-child > div:first-child{flex:unset!important;max-width:unset!important}
 }
 /* DOT PULSE */
 @keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.7)}}
@@ -388,7 +391,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
   <div style="max-width:1040px;margin:0 auto">
     <div class="sec-tag" style="justify-content:center"><div class="dot"></div>Pentru cine</div>
     <h2 class="sh" style="text-align:center">Două tipuri de client.<br><em>Același rezultat.</em></h2>
-    <div class="cine-grid" style="grid-template-columns:repeat(2,1fr);max-width:700px;margin:0 auto">
+    <div class="cine-grid">
 
       <div class="cine-card cine-card--primary sr">
         <div class="cine-label">Dezvoltatori</div>
@@ -530,7 +533,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 <section id="port-prev">
   <div style="max-width:1040px;margin:0 auto">
     <div class="sec-tag"><div class="dot"></div>Execuție</div>
-    <h2 class="sh">Apartamente pregătite<br><em>pentru rental</em></h2>
+    <h2 class="sh">Apartamente pregătite<br><em>pentru închiriere</em></h2>
     <p class="sec-sub">Unități finalizate. Design orientat spre randament și chiriaș de calitate, nu spre estetică de showroom.</p>
 
     <div class="pp-grid">
