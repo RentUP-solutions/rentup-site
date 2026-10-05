@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RentUP — Comparație Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased}
+
+/* ── STICKY LABELS ── */
+.sticky-label{
+  position:sticky;top:0;z-index:999;
+  padding:14px 40px;
+  display:flex;align-items:center;gap:16px;
+}
+.v2-label{background:#2D2820;color:#FDFAF6;font-family:'Outfit',sans-serif;}
+.v3-label{background:#141414;color:#FFFFFF;font-family:'DM Sans',sans-serif;}
+.label-badge{
+  font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;
+  background:#C77936;color:#fff;padding:4px 12px;border-radius:100px;
+}
+.label-desc{font-size:13px;opacity:.7;font-weight:400;}
+.divider-strip{
+  height:4px;
+  background:linear-gradient(90deg,#C77936 0%,#E8A052 50%,#C77936 100%);
+}
+
+/* ════════════════════════════════════════════
+   OPȚIUNEA 2  — Font + Layout Variety
+   Aceeași paletă caldă, font Outfit, secțiuni
+   mai variate, mai puține eyebrow-uri
+   ════════════════════════════════════════════ */
+.v2{
+  --font:'Outfit',sans-serif;
+  --bg:#FDFAF6;--bg2:#F5EFE6;--bg3:#F0E8DA;
+  --brand:#C77936;--brand-light:#FAF4EB;--brand-border:#E8D5BC;
+  --text:#2D2820;--mid:#5C4E42;--muted:#9A8E82;
+  --border:#EDE5D8;--green:#0F6E56;--green-bg:#E1F5EE;
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* NAV v2 */
+.v2 nav{
+  height:64px;padding:0 56px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:.5px solid var(--border);background:var(--bg);
+}
+.v2 .logo{font-size:18px;font-weight:600;color:var(--text);text-decoration:none;letter-spacing:-.02em;}
+.v2 .logo span{color:var(--brand);}
+.v2 .nav-links{display:flex;gap:28px;align-items:center;}
+.v2 .nav-links a{font-size:13.5px;color:var(--muted);text-decoration:none;}
+.v2 .nav-cta{font-size:13px;font-weight:500;background:var(--brand);color:var(--bg);padding:9px 20px;border-radius:100px;text-decoration:none;}
+
+/* HERO v2 */
+.v2 .hero{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:88vh;align-items:center;
+  gap:64px;padding:0 56px;background:var(--bg);
+}
+.v2 .hero-h1{
+  font-size:clamp(2.4rem,5.2vw,3.75rem);
+  font-weight:500;line-height:1.04;
+  letter-spacing:-.034em;margin-bottom:22px;
+}
+.v2 .hero-h1 em{font-style:normal;color:var(--brand);font-weight:400;}
+.v2 .hero-sub{font-size:16px;color:var(--muted);line-height:1.7;margin-bottom:36px;max-width:400px;font-weight:300;}
+.v2 .hero-btns{display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
+.v2 .btn-p{
+  display:inline-block;background:var(--brand);color:var(--bg);
+  font-size:14px;font-weight:500;padding:13px 26px;border-radius:100px;text-decoration:none;
+}
+.v2 .btn-g{
+  display:inline-block;border:1px solid var(--brand-border);color:var(--brand);
+  font-size:14px;font-weight:400;padding:13px 26px;border-radius:100px;text-decoration:none;
+}
+.v2 .hero-visual{
+  aspect-ratio:4/3;border-radius:4px 4px 72px 4px;overflow:hidden;
+  position:relative;
+}
+.v2 .hero-visual img{width:100%;height:100%;object-fit:cover;display:block;}
+.v2 .hero-badge{
+  position:absolute;bottom:24px;left:24px;
+  background:var(--bg);border:.5px solid var(--border);border-radius:10px;
+  padding:12px 16px;display:flex;align-items:center;gap:10px;
+  box-shadow:0 4px 20px rgba(45,40,32,.10);
+}
+.v2 .hb-val{font-size:20px;font-weight:500;color:var(--green);}
+.v2 .hb-l{font-size:11px;color:var(--muted);line-height:1.3;}
+
+/* STATS v2 — aceleași, dar cu Outfit */
+.v2 .stats{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:.5px solid var(--border);border-bottom:.5px solid var(--border);
+  background:var(--bg2);
+}
+.v2 .stat{padding:32px 28px;border-right:.5px solid var(--border);text-align:center;}
+.v2 .stat:last-child{border-right:none;}
+.v2 .stat-v{font-size:30px;font-weight:500;color:var(--brand);letter-spacing:-.02em;margin-bottom:6px;}
+.v2 .stat-l{font-size:12px;color:var(--muted);line-height:1.4;}
+
+/* ABOUT v2 — fără eyebrow dot, layout asimetric */
+.v2 .sec-about{
+  padding:80px 56px;background:var(--bg2);
+}
+.v2 .about-inner{
+  display:grid;grid-template-columns:1fr 2fr;gap:72px;align-items:start;
+}
+.v2 .about-intro{}
+.v2 .sh{
+  font-size:clamp(1.7rem,3.8vw,2.5rem);font-weight:500;
+  line-height:1.1;letter-spacing:-.025em;margin-bottom:18px;
+}
+.v2 .sec-sub{font-size:15px;color:var(--muted);line-height:1.72;margin-bottom:32px;font-weight:300;}
+.v2 .about-note{
+  font-size:13px;color:var(--mid);line-height:1.7;
+  padding:16px 20px;background:var(--brand-light);
+  border-left:2px solid var(--brand);border-radius:0 8px 8px 0;
+}
+.v2 .team-cards{display:flex;flex-direction:column;gap:14px;}
+.v2 .tc{
+  background:var(--bg);border-radius:12px;overflow:hidden;
+  display:grid;grid-template-columns:140px 1fr;
+  box-shadow:0 1px 12px rgba(45,40,32,.08);
+}
+.v2 .tc-photo{
+  height:160px;overflow:hidden;
+  background:linear-gradient(160deg,var(--bg3),var(--bg2));
+}
+.v2 .tc-photo img{width:100%;height:100%;object-fit:cover;object-position:top;}
+.v2 .tc-body{padding:20px 22px;}
+.v2 .tc-role{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--brand);margin-bottom:4px;}
+.v2 .tc-name{font-size:16px;font-weight:500;margin-bottom:8px;}
+.v2 .tc-bio{font-size:12.5px;color:var(--muted);line-height:1.7;}
+.v2 .tc-bio em{font-style:italic;color:var(--brand);font-size:12px;}
+
+/* PROCESS v2 — 4-col dar cu mai mult caracter */
+.v2 .sec-process{padding:80px 56px;background:var(--bg);}
+.v2 .proc-header{margin-bottom:48px;}
+.v2 .proc-g{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-radius:14px;overflow:hidden;
+  box-shadow:0 2px 16px rgba(45,40,32,.08);
+}
+.v2 .pc{padding:30px 26px;border-right:.5px solid var(--border);background:var(--bg);}
+.v2 .pc:last-child{border-right:none;}
+.v2 .pc-n{font-size:52px;font-weight:200;color:var(--border);line-height:1;margin-bottom:14px;letter-spacing:-.04em;}
+.v2 .pc-t{font-size:15px;font-weight:500;margin-bottom:8px;}
+.v2 .pc-d{font-size:13px;color:var(--muted);line-height:1.62;font-weight:300;}
+.v2 .pc-time{display:inline-block;font-size:11px;color:var(--brand);font-weight:500;margin-top:12px;background:var(--brand-light);padding:3px 10px;border-radius:100px;}
+
+/* CTA v2 */
+.v2 .sec-cta{
+  padding:72px 56px;background:var(--bg3);
+  text-align:center;
+}
+.v2 .cta-h{font-size:clamp(1.5rem,3vw,2rem);font-weight:500;letter-spacing:-.025em;margin-bottom:16px;}
+.v2 .cta-sub{font-size:15px;color:var(--muted);line-height:1.7;max-width:460px;margin:0 auto 32px;font-weight:300;}
+
+
+/* ════════════════════════════════════════════
+   OPȚIUNEA 3  — Palette Shift
+   Background alb-neutru, DM Sans, secțiune
+   dark stats, portocaliu ca accent pur
+   ════════════════════════════════════════════ */
+.v3{
+  --font:'DM Sans',sans-serif;
+  --bg:#FFFFFF;--bg2:#F3F3EF;--bg3:#EBEBEA;
+  --brand:#C77936;--brand-light:#FEF3E8;--brand-border:#F0D4B0;
+  --text:#141414;--mid:#3D3D3A;--muted:#6B7280;
+  --border:#E2E2DE;--green:#166534;--green-bg:#DCFCE7;
+  --dark:#141414;--dark2:#1E1E1C;
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* NAV v3 */
+.v3 nav{
+  height:64px;padding:0 56px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid var(--border);background:var(--bg);
+}
+.v3 .logo{font-size:17px;font-weight:600;color:var(--text);text-decoration:none;letter-spacing:-.01em;}
+.v3 .logo span{color:var(--brand);}
+.v3 .nav-links{display:flex;gap:28px;align-items:center;}
+.v3 .nav-links a{font-size:13px;color:var(--muted);text-decoration:none;font-weight:400;}
+.v3 .nav-cta{
+  font-size:13px;font-weight:500;background:var(--brand);color:#FFFFFF;
+  padding:9px 20px;border-radius:6px;text-decoration:none;
+}
+
+/* HERO v3 — alb, mult mai curat */
+.v3 .hero{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:88vh;align-items:center;
+  gap:80px;padding:0 56px;background:var(--bg);
+}
+.v3 .hero-kicker{
+  display:inline-block;
+  font-size:12px;font-weight:500;color:var(--brand);
+  border:1px solid var(--brand-border);
+  padding:5px 14px;border-radius:4px;margin-bottom:28px;
+  letter-spacing:.04em;
+}
+.v3 .hero-h1{
+  font-size:clamp(2.4rem,5.2vw,3.8rem);
+  font-weight:500;line-height:1.03;
+  letter-spacing:-.04em;margin-bottom:24px;
+  color:var(--text);
+}
+.v3 .hero-h1 em{font-style:normal;color:var(--brand);}
+.v3 .hero-sub{
+  font-size:15.5px;color:var(--muted);line-height:1.65;
+  margin-bottom:36px;max-width:400px;font-weight:400;
+}
+.v3 .hero-btns{display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
+.v3 .btn-p{
+  display:inline-block;background:var(--brand);color:#FFFFFF;
+  font-size:14px;font-weight:500;padding:12px 24px;border-radius:6px;text-decoration:none;
+}
+.v3 .btn-g{
+  display:inline-block;border:1.5px solid var(--border);color:var(--mid);
+  font-size:14px;font-weight:400;padding:11px 24px;border-radius:6px;text-decoration:none;
+}
+.v3 .hero-visual{
+  aspect-ratio:4/3;border-radius:8px;overflow:hidden;
+  position:relative;
+}
+.v3 .hero-visual img{width:100%;height:100%;object-fit:cover;display:block;}
+.v3 .hero-badge{
+  position:absolute;bottom:20px;left:20px;
+  background:rgba(255,255,255,.96);border:1px solid rgba(255,255,255,.6);
+  border-radius:8px;padding:12px 16px;
+  display:flex;align-items:center;gap:10px;
+  backdrop-filter:blur(8px);
+}
+.v3 .hb-val{font-size:20px;font-weight:500;color:var(--green);}
+.v3 .hb-l{font-size:11px;color:var(--muted);line-height:1.3;}
+
+/* STATS v3 — dark strip */
+.v3 .stats{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  background:var(--dark);
+}
+.v3 .stat{
+  padding:36px 32px;
+  border-right:.5px solid rgba(255,255,255,.1);
+  text-align:left;
+}
+.v3 .stat:last-child{border-right:none;}
+.v3 .stat-v{
+  font-size:28px;font-weight:300;color:#FFFFFF;
+  letter-spacing:-.025em;margin-bottom:8px;
+}
+.v3 .stat-v strong{color:var(--brand);font-weight:500;}
+.v3 .stat-l{font-size:12px;color:rgba(255,255,255,.45);line-height:1.4;font-weight:400;}
+
+/* ABOUT v3 — layout diferit: text stânga, cards dreapta */
+.v3 .sec-about{
+  padding:88px 56px;background:var(--bg);
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;
+}
+.v3 .about-meta{
+  font-size:11px;font-weight:500;color:var(--brand);
+  text-transform:uppercase;letter-spacing:.1em;
+  margin-bottom:24px;
+}
+.v3 .sh{
+  font-size:clamp(1.8rem,4vw,2.8rem);font-weight:500;
+  line-height:1.08;letter-spacing:-.04em;margin-bottom:20px;color:var(--text);
+}
+.v3 .sec-sub{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:32px;font-weight:400;}
+.v3 .about-btn{
+  display:inline-block;
+  font-size:14px;font-weight:500;color:var(--brand);
+  border-bottom:1px solid var(--brand-border);padding-bottom:2px;
+  text-decoration:none;
+}
+.v3 .team-cards{display:flex;flex-direction:column;gap:2px;}
+.v3 .tc{
+  background:var(--bg2);overflow:hidden;
+  display:grid;grid-template-columns:120px 1fr;
+  border-radius:0;
+}
+.v3 .tc:first-child{border-radius:8px 8px 0 0;}
+.v3 .tc:last-child{border-radius:0 0 8px 8px;}
+.v3 .tc-photo{height:140px;overflow:hidden;background:linear-gradient(160deg,#E8E8E4,#D4D4CE);}
+.v3 .tc-photo img{width:100%;height:100%;object-fit:cover;object-position:top;}
+.v3 .tc-body{padding:20px 22px;}
+.v3 .tc-role{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--brand);margin-bottom:4px;}
+.v3 .tc-name{font-size:15px;font-weight:500;margin-bottom:8px;color:var(--text);}
+.v3 .tc-bio{font-size:12.5px;color:var(--muted);line-height:1.65;font-weight:400;}
+
+/* PROCESS v3 — numbered list + sidebar headline */
+.v3 .sec-process{
+  padding:88px 56px;background:var(--bg2);
+}
+.v3 .proc-inner{
+  display:grid;grid-template-columns:1fr 2fr;gap:72px;align-items:start;
+}
+.v3 .proc-sidebar{}
+.v3 .proc-list{display:flex;flex-direction:column;gap:0;}
+.v3 .proc-item{
+  display:grid;grid-template-columns:44px 1fr;gap:16px;
+  padding:24px 0;border-bottom:1px solid var(--border);
+  align-items:start;
+}
+.v3 .proc-item:last-child{border-bottom:none;}
+.v3 .proc-n{font-size:13px;font-weight:500;color:var(--brand);margin-top:2px;font-variant-numeric:tabular-nums;}
+.v3 .proc-t{font-size:15px;font-weight:500;margin-bottom:6px;color:var(--text);}
+.v3 .proc-d{font-size:13px;color:var(--muted);line-height:1.6;font-weight:400;}
+.v3 .proc-time{font-size:11px;color:var(--muted);margin-top:8px;display:inline-block;}
+
+/* CTA v3 — dark section */
+.v3 .sec-cta{
+  padding:88px 56px;background:var(--dark);
+  text-align:center;
+}
+.v3 .cta-h{
+  font-size:clamp(1.6rem,3.2vw,2.2rem);font-weight:500;
+  letter-spacing:-.04em;margin-bottom:16px;
+  color:#FFFFFF;
+}
+.v3 .cta-h em{font-style:normal;color:var(--brand);}
+.v3 .cta-sub{font-size:15px;color:rgba(255,255,255,.55);line-height:1.7;max-width:460px;margin:0 auto 36px;font-weight:400;}
+.v3 .btn-cta-p{
+  display:inline-block;background:var(--brand);color:#FFFFFF;
+  font-size:14px;font-weight:500;padding:14px 32px;border-radius:6px;text-decoration:none;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════
+     OPȚIUNEA 2 — Font + Layout Variety
+     ══════════════════════════════════ -->
+<div class="sticky-label v2-label">
+  <span class="label-badge">Opțiunea 2</span>
+  <span class="label-desc">Font nou (Outfit) + secțiuni mai variate + mai puține eyebrow-uri. Paleta caldă rămâne.</span>
+</div>
+
+<div class="v2">
+  <nav>
+    <a class="logo" href="#">Rent<span>UP</span></a>
+    <div class="nav-links">
+      <a href="#">Cum funcționează</a>
+      <a href="#">Pachete</a>
+      <a href="#">Portofoliu</a>
+      <a href="#">Rental Kit</a>
+      <a href="#">FAQ</a>
+    </div>
+    <a class="nav-cta" href="#">Raport de Rentabilitate →</a>
+  </nav>
+
+  <section class="hero">
+    <div>
+      <h1 class="hero-h1">Îți amenajăm chiria.<br><em>Câștigă mai mult<br>și fără bătăi de cap.</em></h1>
+      <p class="hero-sub">Transformăm apartamente obișnuite în active care produc venituri stabile prin design funcțional, sistem complet de închiriere și selecție profesională.</p>
+      <div class="hero-btns">
+        <a class="btn-p" href="#">Sunt proprietar →</a>
+        <a class="btn-g" href="#">Sunt investitor →</a>
+      </div>
+    </div>
+    <div>
+      <div class="hero-visual">
+        <img src="images/hero_index.webp" alt="Before & After RentUP">
+        <div class="hero-badge">
+          <div>
+            <div class="hb-val">+200€</div>
+            <div class="hb-l">chirie lunară în plus</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-v">până la +200€</div><div class="stat-l">chirie lunară în plus</div></div>
+    <div class="stat"><div class="stat-v">de la 8 luni</div><div class="stat-l">recuperare a investiției</div></div>
+    <div class="stat"><div class="stat-v">5 zile</div><div class="stat-l">până la primul chiriaș potrivit</div></div>
+    <div class="stat"><div class="stat-v">Gratuită</div><div class="stat-l">consultația inițială</div></div>
+  </div>
+
+  <!-- ABOUT — layout asimetric, fără eyebrow dot -->
+  <section class="sec-about">
+    <div class="about-inner">
+      <div class="about-intro">
+        <h2 class="sh">Nu facem doar design.<br>Optimizăm active imobiliare.</h2>
+        <p class="sec-sub">Misiunea noastră este să transformăm apartamentele obișnuite în active stabile și profitabile. Nu ne concentrăm pe estetică, ci pe performanța reală a spațiului.</p>
+        <div class="about-note">„Am văzut destule apartamente închiriate prost ca să știu exact ce face diferența dintre un chiriaș care rămâne 3 ani și unul care pleacă în 6 luni."</div>
+      </div>
+      <div class="team-cards">
+        <div class="tc">
+          <div class="tc-photo"><img src="images/about us_cristiana.webp" alt="Cristiana"></div>
+          <div class="tc-body">
+            <div class="tc-role">Co-fondator</div>
+            <div class="tc-name">Czerwinski Cristiana</div>
+            <p class="tc-bio">Absolventă a Facultății de Arhitectură „Ion Mincu", cu studii la Viena. Din 2019 colaborez cu studiouri internaționale de arhitectură și vizualizare.</p>
+          </div>
+        </div>
+        <div class="tc">
+          <div class="tc-photo"><img src="images/about us_catalina.webp" alt="Cătălina"></div>
+          <div class="tc-body">
+            <div class="tc-role">Co-fondator</div>
+            <div class="tc-name">Avram Cătălina</div>
+            <p class="tc-bio">Absolventă a Facultății de Arhitectură „Ion Mincu". Experiență construită lucrând cu proprietari care au ales să investească în apartamentele lor.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS — 4 pași, fără eyebrow -->
+  <section class="sec-process">
+    <div class="proc-header">
+      <h2 class="sh">Cum funcționează</h2>
+      <p class="sec-sub">De la prima discuție până la chiriașul potrivit, în 4 pași.</p>
+    </div>
+    <div class="proc-g">
+      <div class="pc">
+        <div class="pc-n">01</div>
+        <div class="pc-t">Consultație gratuită</div>
+        <p class="pc-d">Analizăm apartamentul, piața locală și potențialul real de creștere a chiriei.</p>
+        <span class="pc-time">1-2 zile</span>
+      </div>
+      <div class="pc">
+        <div class="pc-n">02</div>
+        <div class="pc-t">Design funcțional</div>
+        <p class="pc-d">Amenajăm spațiul pentru a maximiza chiria și a atrage chiriași pe termen lung.</p>
+        <span class="pc-time">2-4 săptămâni</span>
+      </div>
+      <div class="pc">
+        <div class="pc-n">03</div>
+        <div class="pc-t">Selecție chiriaș</div>
+        <p class="pc-d">Sistem complet: anunț optimizat, filtrare, verificare, contract și protocol.</p>
+        <span class="pc-time">5-14 zile</span>
+      </div>
+      <div class="pc">
+        <div class="pc-n">04</div>
+        <div class="pc-t">Monitorizare</div>
+        <p class="pc-d">Rămânem alături pentru orice situație: renegocieri, reînnoire contract, urgențe.</p>
+        <span class="pc-time">ongoing</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA v2 -->
+  <section class="sec-cta">
+    <h2 class="cta-h">Începe cu un raport gratuit</h2>
+    <p class="cta-sub">Îți spunem exact cât poți câștiga în plus și ce investiție implică, fără niciun angajament.</p>
+    <a class="btn-p" href="#">Programează Raportul de Rentabilitate →</a>
+  </section>
+</div>
+
+
+<!-- DIVIDER -->
+<div class="divider-strip"></div>
+
+
+<!-- ══════════════════════════════════
+     OPȚIUNEA 3 — Palette Shift
+     ══════════════════════════════════ -->
+<div class="sticky-label v3-label">
+  <span class="label-badge">Opțiunea 3</span>
+  <span class="label-desc">Background alb-neutru, DM Sans, stats pe dark strip, portocaliu ca accent pur. Altă familie de culori.</span>
+</div>
+
+<div class="v3">
+  <nav>
+    <a class="logo" href="#">Rent<span>UP</span></a>
+    <div class="nav-links">
+      <a href="#">Cum funcționează</a>
+      <a href="#">Pachete</a>
+      <a href="#">Portofoliu</a>
+      <a href="#">Rental Kit</a>
+      <a href="#">FAQ</a>
+    </div>
+    <a class="nav-cta" href="#">Raport de Rentabilitate →</a>
+  </nav>
+
+  <section class="hero">
+    <div>
+      <div class="hero-kicker">Rental Performance System</div>
+      <h1 class="hero-h1">Îți amenajăm chiria.<br><em>Câștigă mai mult</em><br>și fără bătăi de cap.</h1>
+      <p class="hero-sub">Transformăm apartamente obișnuite în active care produc venituri stabile prin design funcțional, sistem complet de închiriere și selecție profesională.</p>
+      <div class="hero-btns">
+        <a class="btn-p" href="#">Sunt proprietar →</a>
+        <a class="btn-g" href="#">Sunt investitor →</a>
+      </div>
+    </div>
+    <div>
+      <div class="hero-visual">
+        <img src="images/hero_index.webp" alt="Before & After RentUP">
+        <div class="hero-badge">
+          <div>
+            <div class="hb-val">+200€</div>
+            <div class="hb-l">chirie lunară în plus</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS v3 — dark strip -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-v">până la <strong>+200€</strong></div>
+      <div class="stat-l">chirie lunară în plus</div>
+    </div>
+    <div class="stat">
+      <div class="stat-v">de la <strong>8 luni</strong></div>
+      <div class="stat-l">recuperare a investiției</div>
+    </div>
+    <div class="stat">
+      <div class="stat-v"><strong>5 zile</strong></div>
+      <div class="stat-l">până la primul chiriaș potrivit</div>
+    </div>
+    <div class="stat">
+      <div class="stat-v"><strong>Gratuită</strong></div>
+      <div class="stat-l">consultația inițială</div>
+    </div>
+  </div>
+
+  <!-- ABOUT v3 — grilă 1:1, fără eyebrow, layout orizontal -->
+  <section class="sec-about">
+    <div>
+      <div class="about-meta">Despre noi</div>
+      <h2 class="sh">Nu facem doar design.<br>Optimizăm active imobiliare.</h2>
+      <p class="sec-sub">Misiunea noastră este să transformăm apartamentele obișnuite în active stabile și profitabile. Nu ne concentrăm pe estetică, ci pe performanța reală a spațiului.</p>
+      <a class="about-btn" href="#">Citește mai mult despre abordarea noastră →</a>
+    </div>
+    <div class="team-cards">
+      <div class="tc">
+        <div class="tc-photo"><img src="images/about us_cristiana.webp" alt="Cristiana"></div>
+        <div class="tc-body">
+          <div class="tc-role">Co-fondator</div>
+          <div class="tc-name">Czerwinski Cristiana</div>
+          <p class="tc-bio">Absolventă a Facultății de Arhitectură „Ion Mincu", cu studii la Viena. Din 2019 colaborez cu studiouri internaționale de arhitectură și vizualizare.</p>
+        </div>
+      </div>
+      <div class="tc">
+        <div class="tc-photo"><img src="images/about us_catalina.webp" alt="Cătălina"></div>
+        <div class="tc-body">
+          <div class="tc-role">Co-fondator</div>
+          <div class="tc-name">Avram Cătălina</div>
+          <p class="tc-bio">Absolventă a Facultății de Arhitectură „Ion Mincu". Experiență construită lucrând cu proprietari care au ales să investească în apartamentele lor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS v3 — sidebar + numbered list -->
+  <section class="sec-process">
+    <div class="proc-inner">
+      <div class="proc-sidebar">
+        <h2 class="sh">Cum funcționează</h2>
+        <p class="sec-sub">De la prima discuție până la chiriașul potrivit, în 4 pași clari.</p>
+        <a class="about-btn" href="#">Raport de Rentabilitate gratuit →</a>
+      </div>
+      <div class="proc-list">
+        <div class="proc-item">
+          <span class="proc-n">01</span>
+          <div>
+            <div class="proc-t">Consultație gratuită</div>
+            <p class="proc-d">Analizăm apartamentul, piața locală și potențialul real de creștere a chiriei.</p>
+            <span class="proc-time">1-2 zile</span>
+          </div>
+        </div>
+        <div class="proc-item">
+          <span class="proc-n">02</span>
+          <div>
+            <div class="proc-t">Design funcțional</div>
+            <p class="proc-d">Amenajăm spațiul pentru a maximiza chiria și a atrage chiriași pe termen lung.</p>
+            <span class="proc-time">2-4 săptămâni</span>
+          </div>
+        </div>
+        <div class="proc-item">
+          <span class="proc-n">03</span>
+          <div>
+            <div class="proc-t">Selecție chiriaș</div>
+            <p class="proc-d">Sistem complet: anunț optimizat, filtrare, verificare, contract și protocol.</p>
+            <span class="proc-time">5-14 zile</span>
+          </div>
+        </div>
+        <div class="proc-item">
+          <span class="proc-n">04</span>
+          <div>
+            <div class="proc-t">Monitorizare</div>
+            <p class="proc-d">Rămânem alături pentru orice situație: renegocieri, reînnoire contract, urgențe.</p>
+            <span class="proc-time">ongoing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA v3 — dark section -->
+  <section class="sec-cta">
+    <h2 class="cta-h">Începe cu un raport <em>gratuit</em></h2>
+    <p class="cta-sub">Îți spunem exact cât poți câștiga în plus și ce investiție implică, fără niciun angajament.</p>
+    <a class="btn-cta-p" href="#">Programează Raportul de Rentabilitate →</a>
+  </section>
+</div>
+
+</body>
+</html>
