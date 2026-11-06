@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<!-- Consimțământ cookies (Legea 506/2004 + GDPR): Google Analytics, Google Ads,
+     Clarity și AdSense se încarcă DOAR după „Accept” în banner. Consent Mode v2
+     pornește cu totul pe „denied”. Fără alegere / „Refuz” = nimic nu se încarcă.
+     După „Accept”: la prima interacțiune sau la 2,5s după load (AdSense la 8s). -->
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'});
+(function(){
+  var KEY='cookieConsent', done=false, adsDone=false, started=false;
+  function get(){ try{ return localStorage.getItem(KEY); }catch(e){ return null; } }
+  function loadTags(){
+    if(done) return; done=true;
+    var g=document.createElement('script');g.async=true;
+    g.src='https://www.googletagmanager.com/gtag/js?id=G-5WXD9BGS3T';
+    document.head.appendChild(g);
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x0n2w9bm9r");
+    window.clarity('consentv2',{ad_Storage:'granted',analytics_Storage:'granted'});
+  }
+  function loadAds(){
+    if(adsDone) return; adsDone=true;
+    var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';
+    s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2888114143109032';
+    document.head.appendChild(s);
+  }
+  function both(){ loadTags(); loadAds(); }
+  function start(now){
+    if(started) return; started=true;
+    gtag('consent','update',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted'});
+    if(now){ both(); return; }
+    ['click','scroll','keydown','touchstart','mousemove'].forEach(function(e){
+      document.addEventListener(e, both, {once:true, passive:true, capture:true});
+    });
+    window.addEventListener('load', function(){ setTimeout(loadTags, 2500); setTimeout(loadAds, 8000); });
+  }
+  function clearCookies(){
+    var host=location.hostname.replace(/^www\./,'');
+    document.cookie.split(';').forEach(function(c){
+      var n=c.split('=')[0].trim();
+      if(/^(_ga|_gid|_gat|_gcl|_clck|_clsk|__gads|__gpi|__eoi|CLID|MUID)/.test(n)){
+        ['', '; domain='+host, '; domain=.'+host].forEach(function(d){
+          document.cookie=n+'=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/'+d;
+        });
+      }
+    });
+  }
+  window.setCookies=function(choice){
+    var prev=get();
+    try{ localStorage.setItem(KEY, choice); }catch(e){}
+    var b=document.getElementById('cookie-banner'); if(b) b.style.display='none';
+    if(choice==='accepted'){ start(true); }
+    else if(prev==='accepted'){ clearCookies(); location.reload(); }
+  };
+  window.ruCookieSettings=function(){
+    var b=document.getElementById('cookie-banner'); if(b) b.style.display='flex';
+  };
+  if(get()==='accepted') start(false);
+})();
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5WXD9BGS3T');
+  gtag('config', 'AW-18253477545');
+</script>
+
+
+<link rel="preload" href="fonts/general-sans-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/general-sans-300-normal.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FDFAF6">
+<title>Politică de Confidențialitate — RentUP</title>
+<meta name="description" content="Politica de confidențialitate RentUP — cum colectăm, folosim și protejăm datele tale personale, în conformitate cu legislația GDPR.">
+<meta name="author" content="RentUP">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Politică de Confidențialitate — RentUP">
+<meta property="og:description" content="Cum colectăm, folosim și protejăm datele tale personale, în conformitate cu legislația GDPR.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.rentup.solutions/confidentialitate.html">
+<meta property="og:image" content="https://www.rentup.solutions/images/opengraph_logo.webp">
+<meta property="og:locale" content="ro_RO">
+<link rel="canonical" href="https://www.rentup.solutions/confidentialitate.html">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Politică de Confidențialitate — RentUP">
+<meta name="twitter:description" content="Cum colectăm, folosim și protejăm datele tale personale, în conformitate cu legislația GDPR.">
+<meta name="twitter:image" content="https://www.rentup.solutions/images/opengraph_logo.webp">
+
+<link rel="icon" type="image/webp" href="favicon.webp">
+<link rel="apple-touch-icon" href="favicon.webp">
+<link rel="manifest" href="manifest.json">
+
+<style>
+  
+@font-face{font-family:'General Sans';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/general-sans-300-normal.woff2') format('woff2');}
+@font-face{font-family:'General Sans';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/general-sans-400-normal.woff2') format('woff2');}
+@font-face{font-family:'General Sans';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/general-sans-500-normal.woff2') format('woff2');}
+@font-face{font-family:'General Sans';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/general-sans-600-normal.woff2') format('woff2');}
+:root{--brand:#C77936;--bg:#FDFAF6;--bg-stone:#F5EFE6;--border:#EDE5D8;--dark:#2D2820;--mid:#7A6E62;--muted:#776B60;--muted-ui:#9A8E82;--light:#776B60;--light-ui:#B8AFA4}
+*{box-sizing:border-box;margin:0;padding:0}::selection{background:#C77936;color:#FDFAF6}
+body{font-family:'General Sans',sans-serif;background:var(--bg);color:var(--dark);-webkit-font-smoothing:antialiased}
+nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-filter:blur(12px);padding:0 56px;height:64px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 6px rgba(45,40,32,.07),0 8px 24px rgba(45,40,32,.10)}
+.logo{font-size:17px;font-weight:600;color:var(--brand);text-decoration:none;letter-spacing:-.01em}
+.logo span{color:var(--dark);font-weight:300}
+.nav-back{font-size:13px;color:var(--muted);text-decoration:none;transition:color .15s}
+.nav-back:hover{color:var(--dark)}
+.skip-link{position:absolute;left:-9999px;top:4px;z-index:9999;background:var(--bg);color:var(--brand);padding:8px 18px;border-radius:0 0 8px 8px;font-size:13px;font-weight:500;border:1px solid var(--border);text-decoration:none}
+.skip-link:focus{left:4px}
+.nav-back:focus-visible,a:focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:2px}
+button,a{touch-action:manipulation}
+.container{max-width:720px;margin:0 auto;padding:72px 24px 96px}
+.page-tag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--brand);margin-bottom:16px}
+h1{font-size:36px;font-weight:300;line-height:1.08;letter-spacing:-.028em;margin-bottom:10px;text-wrap:balance}
+.update{font-size:13px;color:var(--muted);margin-bottom:48px}
+h2{font-size:16px;font-weight:600;color:var(--dark);margin:36px 0 10px;text-transform:uppercase;letter-spacing:.06em}
+p{font-size:14px;color:var(--mid);line-height:1.78;margin-bottom:12px}
+ul{margin:8px 0 12px 0;padding-left:0;list-style:none}
+ul li{font-size:14px;color:var(--mid);line-height:1.78;padding-left:20px;position:relative;margin-bottom:4px}
+ul li::before{content:"–";position:absolute;left:0;color:var(--brand);font-weight:600}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.divider{height:.5px;background:var(--border);margin:36px 0}
+.scope-table{width:100%;border-collapse:collapse;margin:12px 0 20px}
+.scope-table th{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--dark);padding:8px 12px;background:var(--bg-stone);border:.5px solid var(--border);text-align:left}
+.scope-table td{font-size:13px;color:var(--mid);line-height:1.65;padding:8px 12px;border:.5px solid var(--border);vertical-align:top}
+footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+@media(max-width:600px){nav{padding:0 16px}.container{padding:48px 16px 72px}h1{font-size:26px}footer{padding:18px 16px;flex-direction:column;align-items:flex-start;gap:6px}.scope-table{font-size:12px}}
+</style>
+<style>
+/* Butonul de limbă + meniul hamburger (aceleași reguli pe care le injectează lang.js;
+   sunt aici ca nav-ul să arate corect înainte să se încarce lang.js) */
+.lang-toggle-btn{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:#C77936;border:.5px solid #E8D5BC;background:transparent;padding:5px 11px;border-radius:100px;cursor:pointer;letter-spacing:.04em;transition:background 150ms ease,border-color 150ms ease;flex-shrink:0}
+.lang-toggle-btn:hover{background:#FAF4EB;border-color:#C77936}
+.lang-toggle-btn:focus-visible{outline:2px solid #C77936;outline-offset:3px;border-radius:100px}
+.lang-mob{display:none!important}
+@media(max-width:768px){.lang-mob{display:inline-flex!important;margin-left:auto;margin-right:2px}.lang-mob+#nav-hamburger{margin-left:0!important}}
+#nav-hamburger span{border-radius:2px;transition:translate 180ms cubic-bezier(0.23,1,0.32,1) 160ms,rotate 220ms cubic-bezier(0.23,1,0.32,1) 0ms,opacity 120ms ease 140ms}
+#nav-hamburger[aria-expanded="true"] span{transition:translate 180ms cubic-bezier(0.23,1,0.32,1) 0ms,rotate 260ms cubic-bezier(0.34,1.4,0.64,1) 170ms,opacity 120ms ease 60ms}
+#nav-hamburger[aria-expanded="true"] span:nth-child(1){translate:0 7px;rotate:45deg}
+#nav-hamburger[aria-expanded="true"] span:nth-child(2){opacity:0}
+#nav-hamburger[aria-expanded="true"] span:nth-child(3){translate:0 -7px;rotate:-45deg}
+@media(prefers-reduced-motion:reduce){#nav-hamburger span{transition:none!important}}
+</style>
+<style>
+/* Text secundar: pe fundal deschis griurile sunt mai închise (contrast 4,5:1);
+   pe secțiunile închise rămân deschise, ca să se citească. */
+#cookie-banner{--muted:#A89C90;--light:#B8AFA4}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Sari la conținut</a>
+
+<nav>
+  <a class="logo" href="/">Rent<span>UP</span></a>
+  <a class="nav-back" href="/">← Înapoi</a>
+  <button class="lang-toggle-btn" onclick="toggleLang()" title="Switch to English">EN</button>
+</nav>
+
+<div class="container" id="main-content">
+  <div class="page-tag">Legal</div>
+  <h1>Politică de Confidențialitate</h1>
+  <p class="update">Ultima actualizare: noiembrie 2026</p>
+
+  <p>Wirtual Design &amp; Architecture SRL, cu sediul în Clinceni, Ilfov, CUI 44170236, J23/2626/2021 („noi", „RentUP"), operează website-ul <a href="https://www.rentup.solutions">www.rentup.solutions</a>. Această politică descrie ce date personale colectăm, de ce le colectăm, cum le protejăm și care sunt drepturile tale, în conformitate cu Regulamentul (UE) 2016/679 (GDPR) și legislația română în vigoare.</p>
+  <p>Nu avem obligația legală de a desemna un responsabil cu protecția datelor (DPO). Pentru orice întrebare privind prelucrarea datelor tale, ne poți contacta direct la adresa de mai jos.</p>
+  <p>În cazul clienților RentUP, prelucrarea datelor cu caracter personal în cadrul unei relații contractuale este detaliată, suplimentar, în Nota de informare privind prelucrarea datelor cu caracter personal anexată Contractului de prestare servicii.</p>
+
+  <div class="divider"></div>
+
+  <h2>1. Ce date colectăm</h2>
+  <p>Colectăm date personale pe care ni le furnizezi direct, prin:</p>
+  <ul>
+    <li>Formularele de pe site — cererea pentru Raportul de Rentabilitate, cererea pentru Staging Virtual (nume, email, telefon opțional, detalii despre apartament)</li>
+    <li>Contactul direct prin WhatsApp (+40 741 176 865)</li>
+    <li>Contactul prin email (hello@rentup.solutions)</li>
+    <li>Semnarea și executarea unui Contract (date de identificare, date despre proprietate, date de facturare)</li>
+  </ul>
+  <p>Doar dacă accepți cookie-urile opționale din bannerul de cookies, site-ul colectează automat și date despre vizită: paginile vizitate, durata, tipul de dispozitiv și browser, orașul aproximativ, sursa vizitei, precum și modul în care folosești paginile (click-uri, derulare). Aceste date sunt asociate unor identificatori online (cookie-uri) și pot constitui date cu caracter personal. Detalii în secțiunea 7.</p>
+  <p>Nu colectăm categorii speciale de date cu caracter personal (date de sănătate, date genetice, date biometrice, convingeri religioase sau politice, orientare sexuală).</p>
+
+  <h2>2. De ce colectăm datele — scopuri și temeiuri legale</h2>
+  <p>Utilizăm datele tale personale exclusiv pentru scopurile de mai jos. Lângă fiecare scop am indicat temeiul legal conform GDPR:</p>
+  <table class="scope-table">
+    <tr>
+      <th>Scop</th>
+      <th>Temei legal (GDPR)</th>
+    </tr>
+    <tr>
+      <td>Răspunderea la solicitările de informații sau ofertă</td>
+      <td>Interes legitim (art. 6 alin. 1 lit. f)</td>
+    </tr>
+    <tr>
+      <td>Executarea Contractului de servicii (Raport de Rentabilitate, design, Rental Kit)</td>
+      <td>Executarea unui contract (art. 6 alin. 1 lit. b)</td>
+    </tr>
+    <tr>
+      <td>Emiterea facturilor și îndeplinirea obligațiilor fiscale</td>
+      <td>Obligație legală (art. 6 alin. 1 lit. c)</td>
+    </tr>
+    <tr>
+      <td>Transmiterea de informații relevante despre proiectul tău</td>
+      <td>Executarea unui contract (art. 6 alin. 1 lit. b)</td>
+    </tr>
+    <tr>
+      <td>Trimiterea de comunicări de marketing (newsletter, oferte)</td>
+      <td>Consimțământ explicit (art. 6 alin. 1 lit. a)</td>
+    </tr>
+    <tr>
+      <td>Analiza traficului pe site, măsurarea campaniilor de publicitate și înțelegerea modului în care sunt folosite paginile (Google Analytics, Google Ads, Microsoft Clarity)</td>
+      <td>Consimțământ (art. 6 alin. 1 lit. a GDPR și art. 4 alin. 5 din Legea nr. 506/2004), exprimat prin bannerul de cookies</td>
+    </tr>
+  </table>
+  <p>Nu luăm decizii exclusiv automatizate cu privire la tine, inclusiv profilare automată cu efecte juridice sau efecte semnificative similare.</p>
+
+  <h2>3. Cât timp păstrăm datele</h2>
+  <p>Datele cu caracter personal sunt păstrate numai atât timp cât este necesar pentru îndeplinirea scopurilor pentru care au fost colectate, pentru executarea contractului, pentru îndeplinirea obligațiilor legale aplicabile sau pentru constatarea, exercitarea ori apărarea unor drepturi.</p>
+  <p>Datele aferente documentelor financiar-contabile și altor documente pentru care există obligații legale de arhivare sunt păstrate pe perioada prevăzută de legislația aplicabilă.</p>
+  <p>Datele aferente solicitărilor și comunicărilor comerciale (inclusiv datele din formularul de contact) sunt păstrate atât timp cât este necesar pentru gestionarea solicitării și, după caz, pentru o perioadă rezonabilă ulterior, în scopul soluționării eventualelor reclamații sau exercitării drepturilor legale.</p>
+  <p>Materialele proiectelor și informațiile aferente acestora pot fi păstrate după finalizarea proiectului în măsura în care acest lucru este necesar pentru obligații legale, apărarea drepturilor RentUP sau în condițiile prevăzute pentru utilizarea materialelor în portofoliu.</p>
+  <p>Datele colectate prin cookie-uri de analiză sunt păstrate conform setărilor furnizorilor (de regulă cel mult 14 luni în Google Analytics; înregistrările de sesiune din Microsoft Clarity sunt păstrate pe o perioadă limitată, conform politicii Microsoft). Datele de marketing sunt păstrate până la retragerea consimțământului.</p>
+
+  <h2>4. Cu cine împărtășim datele</h2>
+  <p>Nu vindem și nu transmitem datele tale către terți în scopuri comerciale proprii ale terților. Datele pot fi accesate de:</p>
+  <ul>
+    <li>Colaboratorii noștri implicați în executarea serviciului (arhitecți, fotografi, furnizori) — strict în măsura necesară și în baza unor clauze de confidențialitate</li>
+    <li>Furnizori de servicii tehnice, care prelucrează datele în numele nostru, în baza condițiilor contractuale de prelucrare a datelor (art. 28 GDPR) — lista de mai jos</li>
+    <li>Autorități publice, dacă suntem obligați prin lege (autorități fiscale, judecătorești etc.)</li>
+  </ul>
+  <p>Furnizorii de servicii tehnice pe care îi folosim:</p>
+  <table class="scope-table">
+    <tr>
+      <th>Furnizor</th>
+      <th>Pentru ce îl folosim</th>
+    </tr>
+    <tr>
+      <td>GitHub Inc. și Cloudflare Inc.</td>
+      <td>Găzduirea site-ului, livrarea paginilor și protecția împotriva atacurilor (adresa IP este prelucrată tehnic la fiecare vizită)</td>
+    </tr>
+    <tr>
+      <td>FormSubmit (formsubmit.co)</td>
+      <td>Transmiterea către emailul nostru a datelor din formularul pentru Raportul de Rentabilitate</td>
+    </tr>
+    <tr>
+      <td>Formspree Inc.</td>
+      <td>Transmiterea către noi a datelor din formularul pentru Staging Virtual</td>
+    </tr>
+    <tr>
+      <td>Google LLC / Google Ireland Ltd.</td>
+      <td>Google Analytics și Google Ads (doar cu consimțământ), Google AdSense (doar cu consimțământ), Google Workspace / Google Sheets pentru stocarea unor cereri</td>
+    </tr>
+    <tr>
+      <td>Microsoft Corporation</td>
+      <td>Microsoft Clarity — analiza modului de utilizare a paginilor, inclusiv înregistrări anonimizate ale sesiunii (doar cu consimțământ)</td>
+    </tr>
+    <tr>
+      <td>Stripe Payments Europe Ltd.</td>
+      <td>Procesarea plăților online, atunci când acestea sunt disponibile. Datele cardului sunt introduse direct la Stripe; noi nu le vedem și nu le stocăm</td>
+    </tr>
+    <tr>
+      <td>Meta Platforms (WhatsApp)</td>
+      <td>Comunicarea cu tine, dacă ne scrii pe WhatsApp</td>
+    </tr>
+  </table>
+
+  <h2>5. Transferuri internaționale de date</h2>
+  <p>O parte dintre furnizorii de mai sus (Google, Microsoft, GitHub, Cloudflare, Meta, Formspree, FormSubmit) sunt companii din Statele Unite sau prelucrează date și în afara Spațiului Economic European (SEE). În aceste cazuri, transferul se realizează prin unul dintre mecanismele de protecție prevăzute de GDPR:</p>
+  <ul>
+    <li>Transfer către țări sau companii cu nivel adecvat de protecție recunoscut de Comisia Europeană (inclusiv companiile din SUA certificate în cadrul EU-U.S. Data Privacy Framework)</li>
+    <li>Clauze contractuale standard aprobate de Comisia Europeană</li>
+    <li>Alte garanții adecvate conform art. 46 GDPR</li>
+  </ul>
+  <p>Poți solicita detalii despre furnizorii specifici și mecanismele de transfer utilizate la <a href="mailto:hello@rentup.solutions">hello@rentup.solutions</a>.</p>
+
+  <h2>6. Drepturile tale</h2>
+  <p>În conformitate cu GDPR, ai dreptul de a:</p>
+  <ul>
+    <li><strong>Accesa</strong> datele pe care le deținem despre tine</li>
+    <li><strong>Rectifica</strong> datele incorecte sau incomplete</li>
+    <li><strong>Șterge</strong> datele („dreptul de a fi uitat"), în condițiile prevăzute de lege</li>
+    <li><strong>Restricționa</strong> prelucrarea datelor tale</li>
+    <li><strong>Te opune</strong> prelucrării bazate pe interes legitim</li>
+    <li><strong>Solicita portabilitatea</strong> datelor furnizate în baza unui contract sau consimțământ</li>
+    <li><strong>Retrage consimțământul</strong> în orice moment, fără a afecta legalitatea prelucrării anterioare</li>
+    <li><strong>Nu face obiectul</strong> unei decizii bazate exclusiv pe prelucrare automată cu efecte semnificative</li>
+  </ul>
+  <p>Pentru exercitarea acestor drepturi, ne poți contacta la <a href="mailto:hello@rentup.solutions">hello@rentup.solutions</a>. Vei primi răspuns în maxim <strong>30 de zile</strong>. Termenul poate fi prelungit cu încă 60 de zile în cazuri complexe, cu notificarea ta prealabilă.</p>
+  <p>Ai, de asemenea, dreptul de a depune o plângere la <strong>Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal (ANSPDCP)</strong> — <a href="https://www.dataprotection.ro" target="_blank" rel="noopener">www.dataprotection.ro</a>, B-dul G-ral Gheorghe Magheru nr. 28–30, Sector 1, București.</p>
+
+  <h2>7. Cookie-uri</h2>
+  <p>La prima vizită îți afișăm un banner prin care poți accepta sau refuza cookie-urile opționale. <strong>Până nu apeși „Accept”, nu încărcăm niciun instrument de analiză sau publicitate</strong> și nu plasăm cookie-urile lor.</p>
+  <p><strong>Strict necesare (fără consimțământ).</strong> Site-ul salvează în browserul tău (localStorage) doar alegerea făcută în banner, limba aleasă (RO/EN) și dacă ai închis deja anumite ferestre. Acestea nu sunt trimise nimănui.</p>
+  <p><strong>Opționale (doar după „Accept”):</strong></p>
+  <table class="scope-table">
+    <tr>
+      <th>Instrument</th>
+      <th>Scop</th>
+      <th>Cookie-uri principale</th>
+    </tr>
+    <tr>
+      <td>Google Analytics 4</td>
+      <td>Statistici de trafic: câți vizitatori avem, ce pagini citesc, de unde vin</td>
+      <td>_ga, _ga_*</td>
+    </tr>
+    <tr>
+      <td>Google Ads</td>
+      <td>Măsurarea conversiilor din reclamele noastre (de ex. dacă cineva a ajuns pe site dintr-o reclamă și ne-a contactat)</td>
+      <td>_gcl_au</td>
+    </tr>
+    <tr>
+      <td>Google AdSense</td>
+      <td>Servicii de publicitate Google</td>
+      <td>__gads, __gpi</td>
+    </tr>
+    <tr>
+      <td>Microsoft Clarity</td>
+      <td>Hărți de click și înregistrări ale sesiunii (mișcări, click-uri, derulare), ca să vedem ce nu funcționează pe pagină. Clarity este configurat să mascheze conținutul sensibil, cum ar fi datele introduse în câmpurile formularelor</td>
+      <td>_clck, _clsk</td>
+    </tr>
+  </table>
+  <p>Îți poți schimba oricând alegerea din linkul <strong>„Setări cookie”</strong> din subsolul fiecărei pagini. Dacă retragi consimțământul, instrumentele opționale nu se mai încarcă și ștergem cookie-urile lor de pe domeniul nostru. Poți șterge cookie-urile și din setările browserului.</p>
+
+  <h2>8. Securitatea datelor</h2>
+  <p>Luăm măsuri tehnice și organizatorice adecvate pentru a proteja datele tale împotriva accesului neautorizat, pierderii sau divulgării, inclusiv:</p>
+  <ul>
+    <li>Transmisia datelor pe site este protejată prin protocol HTTPS</li>
+    <li>Accesul la datele personale este restricționat la persoanele care au nevoie de ele pentru executarea Serviciilor</li>
+    <li>Colaboratorii și furnizorii sunt supuși unor obligații contractuale de confidențialitate</li>
+  </ul>
+  <p>În eventualitatea unui incident de securitate care îți afectează datele, te vom notifica în termenele prevăzute de GDPR (72 de ore față de autoritatea de supraveghere, respectiv fără întârzieri nejustificate față de tine, dacă riscul este ridicat).</p>
+
+  <h2>9. Marketing</h2>
+  <p>Îți vom trimite comunicări de marketing (newsletter, oferte, noutăți) doar dacă ți-ai exprimat consimțământul explicit în acest sens. Te poți dezabona oricând, gratuit, prin link-ul de dezabonare din orice e-mail sau prin solicitare directă la <a href="mailto:hello@rentup.solutions">hello@rentup.solutions</a>.</p>
+  <p>Dezabonarea de la marketing nu afectează prelucrarea datelor necesare pentru executarea unui Contract existent.</p>
+
+  <h2>10. Utilizarea proiectelor în portofoliu</h2>
+  <p>Materialele originale create de RentUP în cadrul serviciilor de design, inclusiv randări, planuri, moodboard-uri și imagini ale proiectului, pot fi utilizate în scopuri de portofoliu, prezentare profesională, marketing și promovare, în condițiile prevăzute în Contractul de prestare servicii.</p>
+  <p>În cazul în care materialele utilizate conțin date cu caracter personal sau persoane identificabile, prelucrarea acestor date se realizează în baza unui temei juridic corespunzător și cu respectarea drepturilor persoanelor vizate.</p>
+
+  <h2>11. Fotografii și imagini</h2>
+  <p>În cadrul proiectelor pot fi realizate fotografii ale spațiilor amenajate în scopul documentării proiectului și al prezentării serviciilor RentUP.</p>
+  <p>În cazul în care fotografiile conțin persoane identificabile, imaginile acestora vor fi prelucrate numai în baza unui temei juridic corespunzător, în conformitate cu legislația aplicabilă.</p>
+
+  <h2>12. Modificări ale acestei politici</h2>
+  <p>Putem actualiza această politică periodic. Versiunea actualizată va fi publicată pe această pagină, cu data revizuirii. Îți recomandăm să o consulți periodic. Dacă modificările sunt semnificative, te vom notifica prin e-mail sau printr-un mesaj vizibil pe site.</p>
+
+  <h2>13. Contact</h2>
+  <p>Pentru orice întrebări legate de prelucrarea datelor tale personale:</p>
+  <ul>
+    <li>Email: <a href="mailto:hello@rentup.solutions">hello@rentup.solutions</a></li>
+    <li>WhatsApp / Telefon: +40 741 176 865</li>
+    <li>Adresă: Wirtual Design &amp; Architecture SRL, Clinceni, Ilfov</li>
+  </ul>
+</div>
+
+<footer style="background:#FDFAF6;border-top:.5px solid #EDE5D8;padding:24px 56px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center">
+  <a href="/" style="font-size:17px;font-weight:600;color:#C77936;font-family:'General Sans',sans-serif;text-decoration:none;letter-spacing:-.01em">Rent<span style="color:#2D2820;font-weight:300">UP</span></a>
+  <div style="font-size:12px;color:var(--light)">Wirtual Design &amp; Architecture SRL · CUI 44170236 · J23/2626/2021 · Clinceni, Ilfov</div>
+  <div style="font-size:12px;color:var(--light)">© 2025–2026 RentUP · Toate drepturile rezervate · <a href="termeni.html" style="color:var(--light);text-decoration:none">Termeni și condiții</a> · <a href="confidentialitate.html" style="color:var(--light);text-decoration:none">Politică de confidențialitate</a> · <a href="#" onclick="ruCookieSettings();return false" style="color:var(--light);text-decoration:none">Setări cookie</a></div>
+<div class="ru-legal" style="flex-basis:100%;width:100%;display:flex;justify-content:center;margin-top:16px"><a href="https://reclamatiisal.anpc.ro/" target="_blank" rel="noopener" style="display:inline-flex"><img src="/images/anpc-sal.png" width="250" height="50" alt="ANPC — Soluționarea alternativă a litigiilor" loading="lazy" style="display:block;width:250px;height:50px"></a></div>
+</footer>
+
+<!-- Cookie Banner -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#2D2820;border-top:0.5px solid #4D4238;padding:18px 24px;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;z-index:999;font-family:'General Sans',sans-serif">
+  <div style="flex:1;min-width:200px">
+    <div style="font-size:13px;font-weight:500;color:#FDFAF6;margin-bottom:4px">Folosim cookie-uri</div>
+    <div style="font-size:12px;color:var(--muted);line-height:1.5">Folosim cookie-uri pentru analiză și îmbunătățirea experienței. Poți accepta sau refuza cookie-urile opționale. <a href="confidentialitate.html" style="color:#C77936;text-decoration:none">Politică de confidențialitate →</a></div>
+  </div>
+  <div style="display:flex;gap:8px;align-items:center;flex-shrink:0">
+    <button onclick="setCookies('refused')" style="font-size:12px;font-weight:500;color:var(--muted);background:none;border:0.5px solid #4D4238;padding:8px 16px;border-radius:100px;cursor:pointer;font-family:'General Sans',sans-serif">Refuz</button>
+    <button onclick="setCookies('accepted')" style="font-size:12px;font-weight:500;color:#FDFAF6;background:#C77936;border:none;padding:8px 16px;border-radius:100px;cursor:pointer;font-family:'General Sans',sans-serif">Accept</button>
+  </div>
+</div>
+<script>
+if(!localStorage.getItem('cookieConsent')){
+  document.getElementById('cookie-banner').style.display='flex';
+}
+</script>
+<!-- Ce nu e necesar la prima afișare pornește la prima interacțiune (scroll/atingere/click)
+     sau la 2s după load: lang.js (traducerea EN, ~60 KB). Cine a ales engleza primește
+     lang.js imediat; click pe EN îl încarcă și traduce. -->
+<script>
+(function(){
+  var q=[], fired=false;
+  function fire(){
+    if(fired) return; fired=true;
+    q.forEach(function(f){ try{ f(); }catch(e){} }); q=[];
+  }
+  window.ruLater=function(f){ if(fired) f(); else q.push(f); };
+  ['scroll','touchstart','click','keydown','mousemove'].forEach(function(e){
+    window.addEventListener(e, fire, {once:true, passive:true, capture:true});
+  });
+  function onLoad(){ setTimeout(fire,2000); }
+  if(document.readyState==='complete') onLoad(); else window.addEventListener('load',onLoad);
+
+  var state=0, pending=false;
+  function load(){
+    if(state) return; state=1;
+    var s=document.createElement('script'); s.src='lang.js';
+    s.onload=function(){ state=2; if(pending){ pending=false; window.toggleLang(); } };
+    document.body.appendChild(s);
+  }
+  window.toggleLang=function(){ pending=true; load(); };
+  var en=false; try{ en=localStorage.getItem('ru-lang')==='en'; }catch(e){}
+  if(en) load(); else window.ruLater(load);
+})();
+</script>
+</body>
+</html>

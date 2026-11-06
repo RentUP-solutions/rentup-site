@@ -1,0 +1,1836 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Consimțământ cookies (Legea 506/2004 + GDPR): Google Analytics, Google Ads,
+     Clarity și AdSense se încarcă DOAR după „Accept” în banner. Consent Mode v2
+     pornește cu totul pe „denied”. Fără alegere / „Refuz” = nimic nu se încarcă.
+     După „Accept”: la prima interacțiune sau la 2,5s după load (AdSense la 8s). -->
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'});
+(function(){
+  var KEY='cookieConsent', done=false, adsDone=false, started=false;
+  function get(){ try{ return localStorage.getItem(KEY); }catch(e){ return null; } }
+  function loadTags(){
+    if(done) return; done=true;
+    var g=document.createElement('script');g.async=true;
+    g.src='https://www.googletagmanager.com/gtag/js?id=G-5WXD9BGS3T';
+    document.head.appendChild(g);
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x0n2w9bm9r");
+    window.clarity('consentv2',{ad_Storage:'granted',analytics_Storage:'granted'});
+  }
+  function loadAds(){
+    if(adsDone) return; adsDone=true;
+    var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';
+    s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2888114143109032';
+    document.head.appendChild(s);
+  }
+  function both(){ loadTags(); loadAds(); }
+  function start(now){
+    if(started) return; started=true;
+    gtag('consent','update',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted'});
+    if(now){ both(); return; }
+    ['click','scroll','keydown','touchstart','mousemove'].forEach(function(e){
+      document.addEventListener(e, both, {once:true, passive:true, capture:true});
+    });
+    window.addEventListener('load', function(){ setTimeout(loadTags, 2500); setTimeout(loadAds, 8000); });
+  }
+  function clearCookies(){
+    var host=location.hostname.replace(/^www\./,'');
+    document.cookie.split(';').forEach(function(c){
+      var n=c.split('=')[0].trim();
+      if(/^(_ga|_gid|_gat|_gcl|_clck|_clsk|__gads|__gpi|__eoi|CLID|MUID)/.test(n)){
+        ['', '; domain='+host, '; domain=.'+host].forEach(function(d){
+          document.cookie=n+'=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/'+d;
+        });
+      }
+    });
+  }
+  window.setCookies=function(choice){
+    var prev=get();
+    try{ localStorage.setItem(KEY, choice); }catch(e){}
+    var b=document.getElementById('cookie-banner'); if(b) b.style.display='none';
+    if(choice==='accepted'){ start(true); }
+    else if(prev==='accepted'){ clearCookies(); location.reload(); }
+  };
+  window.ruCookieSettings=function(){
+    var b=document.getElementById('cookie-banner'); if(b) b.style.display='flex';
+  };
+  if(get()==='accepted') start(false);
+})();
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5WXD9BGS3T');
+  gtag('config', 'AW-18253477545');
+</script>
+<script>
+function gtag_report_conversion_whatsapp(url) {
+  var callback = function () { if (typeof(url) != 'undefined') { window.location = url; } };
+  gtag('event', 'conversion', { 'send_to': 'AW-18253477545/vaI4COjKgdYcEKnt9_9D', 'event_callback': callback });
+  return false;
+}
+function gtag_report_conversion_email(url) {
+  try { gtag('event', 'conversion', { 'send_to': 'AW-18253477545/kYC-COvKgdYcEKnt9_9D' }); } catch(e) {}
+}
+function gtag_report_conversion_social(url) {
+  try { gtag('event', 'conversion', { 'send_to': 'AW-18253477545/-yPSCO7KgdYcEKnt9_9D' }); } catch(e) {}
+}
+</script>
+
+  <meta name="format-detection" content="telephone=no">
+<link rel="preload" href="images/hero_index.webp" as="image" imagesrcset="images/hero_index-800.webp 800w, images/hero_index-1200.webp 1200w, images/hero_index.webp 2200w" imagesizes="(max-width:900px) 100vw, 50vw" fetchpriority="high">
+<link rel="preload" href="fonts/general-sans-300-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/general-sans-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/general-sans-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/general-sans-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/webp" href="favicon.webp">
+<link rel="apple-touch-icon" href="favicon.webp">
+<link rel="manifest" href="manifest.json">
+<meta name="description" content="Amenajăm apartamentul și pregătim tot ce urmează: contract personalizat, selecția chiriașului, predarea cu poze și pași clari pentru situații dificile.">
+<meta name="theme-color" content="#FDFAF6">
+<title>RentUP: Pregătim apartamente de închiriat, de la amenajare la chei</title>
+<meta name="author" content="RentUP">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph -->
+<meta property="og:title" content="RentUP: Pregătim apartamente de închiriat, de la amenajare la chei">
+<meta property="og:description" content="Amenajăm apartamentul și pregătim tot ce urmează: contract personalizat, selecția chiriașului, predarea cu poze și pași clari pentru situații dificile.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.rentup.solutions/">
+<meta property="og:image" content="https://www.rentup.solutions/images/opengraph_logo.webp">
+<meta property="og:locale" content="ro_RO">
+<link rel="canonical" href="https://www.rentup.solutions/">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RentUP: Pregătim apartamente de închiriat, de la amenajare la chei">
+<meta name="twitter:description" content="Amenajăm apartamentul și pregătim tot ce urmează: contract personalizat, selecția chiriașului, predarea cu poze și pași clari pentru situații dificile.">
+<meta name="twitter:image" content="https://www.rentup.solutions/images/opengraph_logo.webp">
+
+<style>
+@font-face{font-family:'General Sans';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/general-sans-300-normal.woff2') format('woff2');}
+@font-face{font-family:'General Sans';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/general-sans-400-normal.woff2') format('woff2');}
+@font-face{font-family:'General Sans';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/general-sans-500-normal.woff2') format('woff2');}
+@font-face{font-family:'General Sans';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/general-sans-600-normal.woff2') format('woff2');}
+
+:root{
+  --brand:#C77936;--brand-light:#FAF4EB;--brand-border:#E8D5BC;
+  --bg:#FDFAF6;--bg-stone:#F5EFE6;--bg-warm:#F0E8DA;
+  --border:#EDE5D8;--dark:#2D2820;--dark2:#3D3228;
+  --text:#2D2820;--mid:#7A6E62;--muted:#776B60;--muted-ui:#9A8E82;--light:#776B60;--light-ui:#B8AFA4;
+  --green:#0F6E56;--green-bg:#E1F5EE;--green-border:#1D9E75;
+  --z-nav:100;--z-mobile-menu:99;--z-float:120;--z-banner:130;--z-exit-bg:200;--z-exit:210;--z-modal:300;--z-skip:400;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'General Sans',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+
+
+nav{position:sticky;top:0;z-index:var(--z-nav);background:rgba(253,250,246,.96);backdrop-filter:blur(12px);padding:0 56px;height:64px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 6px rgba(45,40,32,.07),0 8px 24px rgba(45,40,32,.10)}
+@supports not (backdrop-filter:blur(1px)){nav{background:rgba(253,250,246,.99)}}
+
+
+
+
+
+
+
+
+/* ── BASE ── */
+section{padding:clamp(48px,8vw,88px) clamp(20px,6vw,56px)}
+.sec-tag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--brand);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--brand)}
+h2.sh{font-size:clamp(1.5rem,4vw,2.375rem);font-weight:300;color:var(--text);line-height:1.08;letter-spacing:-.028em;margin-bottom:14px;text-wrap:balance}
+.sec-sub{font-size:15px;color:var(--muted);line-height:1.72;max-width:520px;margin-bottom:44px}
+
+/* ── HERO ── */
+#hero{padding:0 clamp(20px,6vw,56px);display:grid;grid-template-columns:1fr 1fr;min-height:92vh;align-items:center;gap:72px;background:var(--bg)}
+.hero-l{padding:80px 0}
+.hero-eyebrow{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--brand);margin-bottom:24px;display:flex;align-items:center;gap:8px;cursor:default;user-select:none}
+.hero-eyebrow a{color:inherit;text-decoration:none;cursor:pointer;transition:opacity 150ms ease}
+.hero-eyebrow a:hover{opacity:0.65}
+.hero-dot{width:6px;height:6px;border-radius:50%;background:var(--brand);flex-shrink:0}
+.hero-h1{font-size:clamp(1.875rem,6vw,3.5rem);font-weight:300;line-height:1.02;letter-spacing:-.035em;margin-bottom:24px;color:var(--text);text-wrap:balance}
+.hero-h1 em{font-style:normal;font-weight:500;color:var(--brand)}
+.hero-sub{font-size:16px;color:var(--muted);line-height:1.75;margin-bottom:40px;max-width:420px}
+.hero-btns{display:flex;gap:16px;align-items:center;margin-bottom:24px;flex-wrap:wrap}
+.btn-primary{font-size:14px;font-weight:500;background:var(--brand);color:var(--bg);padding:14px 28px;border-radius:100px;text-decoration:none;border:none;cursor:pointer;transition:background 180ms cubic-bezier(0.23,1,0.32,1),transform 150ms cubic-bezier(0.23,1,0.32,1)}
+.btn-primary:hover{background:#a8622a;transform:translateY(-1px)}
+.btn-ghost{font-size:14px;color:var(--muted);text-decoration:none;cursor:pointer;background:none;border:none;transition:color 150ms ease-out}
+.btn-ghost:hover{color:var(--text)}
+.hero-micro{font-size:12px;color:var(--light);margin-bottom:20px}
+.hero-note{margin:-8px 0 0;font-size:13px;color:var(--muted)}
+.hero-note b{font-weight:500;color:var(--text)}
+.hero-facts{display:flex;gap:44px;margin-top:40px}
+.hero-facts b{display:block;font-size:22px;font-weight:400;letter-spacing:-.02em;color:var(--text);margin-bottom:4px}
+.hero-facts span{display:block;font-size:12px;line-height:1.45;color:var(--muted)}
+@media(max-width:600px){.hero-facts{gap:28px;margin-top:28px}.hero-facts b{font-size:19px}}
+.hero-r{height:100%;display:flex;align-items:center}
+.hero-visual{width:100%;aspect-ratio:3/2;background:linear-gradient(160deg,var(--bg-warm) 0%,var(--bg-stone) 100%);border-radius:2px 2px 80px 2px;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--light);text-align:center;line-height:2.2;letter-spacing:.04em;border:.5px solid var(--border);position:relative;overflow:hidden}
+.hero-visual::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(45,40,32,.04) 100%)}
+.hero-badge{position:absolute;bottom:28px;left:28px;background:var(--bg);border:.5px solid var(--border);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 4px 16px rgba(45,40,32,.06)}
+.hb-val{font-size:20px;font-weight:500;color:var(--green)}
+.hb-label{font-size:11px;color:var(--muted);line-height:1.3}
+
+/* ── STATS ── */
+#stats{padding:0;border-top:.5px solid var(--border);border-bottom:.5px solid var(--border);background:var(--bg-stone)}
+.stats-g{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:32px 28px;border-right:.5px solid var(--border);text-align:center;transition:background 150ms ease-out}
+.stat:last-child{border-right:none}
+.stat:hover{background:var(--brand-light)}
+.stat-v{font-size:32px;font-weight:300;color:var(--brand);letter-spacing:-.025em;margin-bottom:7px}
+.stat-l{font-size:12px;color:var(--light);line-height:1.4}
+
+/* ── CALCULATOR ── */
+#calc{background:var(--bg)}
+/* Fundal cu puncte foarte fine pe secțiunile crem (hero, calculator, Rental Kit, Instagram), care se pierd spre margini */
+#hero,#calc,#rental-kit-teaser,#instagram{position:relative;isolation:isolate}
+#hero::before,#calc::before,#rental-kit-teaser::before,#instagram::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:radial-gradient(rgba(45,40,32,.16) 1.1px,transparent 1.4px);background-size:22px 22px;opacity:.7;
+  -webkit-mask-image:radial-gradient(ellipse 85% 75% at 35% 45%,#000 15%,transparent 78%);
+          mask-image:radial-gradient(ellipse 85% 75% at 35% 45%,#000 15%,transparent 78%)}
+/* Calculator ROI — taburi, cifră mare animată, bare comparative */
+.cx-wrap{max-width:1080px;margin:0 auto}
+.cx-h{max-width:560px}
+.cx-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(32px,5vw,64px);margin-top:40px;align-items:start}
+.cx-fg{margin-bottom:30px}
+.cx-fl{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px;font-size:14px;color:var(--mid)}
+.cx-fl b{font-size:20px;font-weight:400;letter-spacing:-.015em;color:var(--text)}
+.cx-hint{display:block;margin-top:10px;font-size:12px;color:var(--light)}
+.cx-seg{position:relative;display:flex;padding:4px;border-radius:100px;background:var(--bg-stone)}
+.cx-seg button{position:relative;z-index:1;flex:1;font:500 13px 'General Sans',sans-serif;color:var(--muted);background:none;border:none;padding:10px 8px;border-radius:100px;cursor:pointer;white-space:nowrap;transition:color 260ms cubic-bezier(0.23,1,0.32,1);-webkit-tap-highlight-color:transparent}
+.cx-seg button[aria-pressed="true"]{color:var(--text)}
+.cx-seg button:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.cx-ind{position:absolute;top:4px;bottom:4px;left:0;border-radius:100px;background:#FDFAF6;box-shadow:0 1px 8px rgba(45,40,32,.1);transition:transform 460ms cubic-bezier(0.23,1,0.32,1),width 460ms cubic-bezier(0.23,1,0.32,1)}
+#calc input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:24px;background:transparent!important;cursor:pointer;--p:50%}
+#calc input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:4px;background:linear-gradient(90deg,var(--brand) var(--p),var(--border) var(--p))}
+#calc input[type=range]::-moz-range-track{height:4px;border-radius:4px;background:var(--border)}
+#calc input[type=range]::-moz-range-progress{height:4px;border-radius:4px;background:var(--brand)}
+#calc input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;margin-top:-9px;border-radius:50%;background:#FDFAF6;border:.5px solid var(--brand-border);box-shadow:0 2px 10px rgba(45,40,32,.18);transition:transform 160ms cubic-bezier(0.23,1,0.32,1)}
+#calc input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#FDFAF6;border:.5px solid var(--brand-border);box-shadow:0 2px 10px rgba(45,40,32,.18)}
+#calc input[type=range]:active::-webkit-slider-thumb{transform:scale(1.12)}
+#calc input[type=range]:focus-visible{outline:2px solid var(--brand);outline-offset:4px;border-radius:4px}
+.cx-res{background:#FDFAF6;border-radius:20px;box-shadow:0 2px 24px rgba(45,40,32,.08);padding:clamp(24px,4vw,40px)}
+.cx-res-l{font-size:14px;color:var(--muted)}
+.cx-big{margin-top:6px;font-size:clamp(52px,8vw,84px);font-weight:300;letter-spacing:-.05em;line-height:1;font-variant-numeric:tabular-nums;color:var(--text)}
+.cx-src-l{margin-top:28px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--light)}
+.cx-src{margin:12px 0 0;display:grid;gap:10px;font-size:14px;color:var(--mid);font-variant-numeric:tabular-nums}
+.cx-src div{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-bottom:10px;border-bottom:.5px solid var(--border)}
+.cx-src dt span{color:var(--light)}
+.cx-src dd{margin:0;color:var(--text);white-space:nowrap}
+.cx-opt{font-size:12px;color:var(--light)}
+.cx-tabs{margin-bottom:30px}
+.cx-tabs button{padding:12px 10px;font-size:14px}
+/* coloanele au aceeași înălțime: cardul se întinde, nota din stânga coboară la bază */
+.cx-grid-t{align-items:stretch}
+.cx-grid-t>#cx-inputs{display:flex;flex-direction:column}
+.cx-grid-t .cx-disc{margin-top:auto;padding-top:16px}
+/* panourile ambelor taburi stau în aceeași celulă, ca înălțimea să nu sară la schimbarea tabului */
+.cx-panes{display:grid}
+.cx-panes>[data-pane]{grid-area:1/1;transition:opacity 260ms cubic-bezier(0.23,1,0.32,1)}
+.cx-panes>[data-pane].off{visibility:hidden;opacity:0}
+.cx-grid-t>div:last-child{display:flex;flex-direction:column}
+.cx-grid-t .cx-res{flex:1;display:flex;flex-direction:column}
+.cx-grid-t .cx-res>.cx-panes{flex:1}
+.cx-big.cx-gain{color:var(--brand)}
+.cx-how{margin-top:12px}
+.cx-cap2{margin:0;font-size:12px;line-height:1.6;color:var(--light)}
+#cx-inputs [data-pane]>.cx-cap2{margin-bottom:30px}
+.cx-num{display:flex;align-items:center;gap:8px;padding:0 16px;border-radius:100px;background:var(--bg-stone)}
+.cx-num input{flex:1;min-width:0;padding:12px 0;border:none;background:none;font:400 18px 'General Sans',sans-serif;color:var(--text);font-variant-numeric:tabular-nums;-moz-appearance:textfield}
+.cx-num input::-webkit-outer-spin-button,.cx-num input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.cx-num input::placeholder{color:var(--light)}
+.cx-num input:focus{outline:none}
+.cx-num:focus-within{outline:2px solid var(--brand);outline-offset:2px}
+.cx-num span{color:var(--muted)}
+.cx-rent{margin-top:18px;display:flex;align-items:baseline;flex-wrap:wrap;gap:0 .3em;font-size:22px;font-weight:300;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--text)}
+.cx-from{color:var(--light)}
+.cx-arr{color:var(--brand);font-size:.8em}
+.cx-unit{font-size:14px;color:var(--muted);letter-spacing:0}
+.cx-bars{margin-top:32px;display:grid;gap:18px}
+.cx-bar-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px;font-size:14px;color:var(--mid)}
+.cx-bar-h b{font-size:16px;font-weight:400;color:var(--text);font-variant-numeric:tabular-nums}
+.cx-track{height:10px;border-radius:10px;background:var(--bg-stone);overflow:hidden}
+.cx-fill{height:100%;width:0;border-radius:10px;background:#D8CFC4;transition:width 700ms cubic-bezier(0.23,1,0.32,1)}
+.cx-fill.cx-good{background:var(--brand)}
+.cx-pay{margin-top:24px;font-size:14px;color:var(--mid)}
+.cx-cap{display:none;margin-top:14px;font-size:13px;line-height:1.6;color:#8B5E10}
+.cx-more-btn{display:inline-flex;align-items:center;gap:10px;margin-top:24px;padding:0;background:none;border:none;cursor:pointer;font:500 13px 'General Sans',sans-serif;color:var(--brand)}
+.cx-more-btn:focus-visible{outline:2px solid var(--brand);outline-offset:4px;border-radius:4px}
+.cx-plus{position:relative;width:18px;height:18px;border-radius:50%;border:.5px solid var(--brand-border)}
+.cx-plus::before,.cx-plus::after{content:"";position:absolute;left:50%;top:50%;width:8px;height:1px;background:currentColor;transform:translate(-50%,-50%);transition:transform 360ms cubic-bezier(0.23,1,0.32,1)}
+.cx-plus::after{transform:translate(-50%,-50%) rotate(90deg)}
+.cx-more-btn[aria-expanded="true"] .cx-plus::after{transform:translate(-50%,-50%) rotate(0)}
+.cx-more{display:grid;grid-template-rows:0fr;transition:grid-template-rows 520ms cubic-bezier(0.23,1,0.32,1)}
+.cx-more.open{grid-template-rows:1fr}
+.cx-more-in{overflow:hidden;min-height:0}
+.cx-det{width:100%;margin-top:16px;border-collapse:collapse;font-size:13px}
+.cx-det th{text-align:left;font-weight:400;color:var(--muted);padding:0 8px 8px 0}
+.cx-det td{padding:10px 8px 10px 0;border-top:.5px solid var(--border);color:var(--mid);font-variant-numeric:tabular-nums;transition:opacity 200ms}
+.cx-det tr.g td{color:var(--text)}
+.cx-det td:first-child{white-space:nowrap}
+.cx-btn{display:block;margin-top:28px;text-align:center}
+.cx-disc{margin-top:16px}
+.cx-peek{position:fixed;left:84px;right:16px;bottom:24px;z-index:110;display:none;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px;border-radius:100px;background:var(--text);color:#FDFAF6;box-shadow:0 10px 30px rgba(45,40,32,.25);font-size:13px;transform:translateY(160%);transition:transform 420ms cubic-bezier(0.23,1,0.32,1);pointer-events:none}
+.cx-peek b{font-size:18px;font-weight:400;font-variant-numeric:tabular-nums}
+.cx-peek.show{transform:none}
+@media(max-width:860px){.cx-grid{grid-template-columns:minmax(0,1fr)}.cx-peek{display:flex}}
+/* pe telefoane înguste, „Brașov / Constanța” nu încape pe un rând: îl lăsăm să treacă pe două, în loc să lățească tot calculatorul */
+@media(max-width:480px){.cx-seg button{white-space:normal;line-height:1.25;padding:9px 4px;font-size:12.5px}}
+/* cât e vizibilă bula cu câștigul, butoanele plutitoare ies din ecran (WhatsApp spre stânga, „sus” spre dreapta) */
+@media(max-width:860px){
+  .cx-peek{left:16px}
+  body.cx-peek-on .wa-float{transform:translateX(calc(-100% - 32px))}
+  body.cx-peek-on #btt{transform:translateX(calc(100% + 32px))!important}
+}
+@media(max-width:600px){
+  .cx-det thead{display:none}
+  .cx-det tr{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;padding:12px 0;border-top:.5px solid var(--border)}
+  .cx-det td{border:none;padding:0}
+  .cx-det td:first-child{grid-column:1/-1;font-weight:500;color:var(--text)}
+  .cx-det td[data-l]::before{content:attr(data-l)": ";color:var(--light)}
+}
+@media(prefers-reduced-motion:reduce){.cx-ind,.cx-fill,.cx-more,.cx-peek,.cx-seg button{transition:none!important}}
+.calc-inner{max-width:680px}
+input[type=range]{width:100%;appearance:none;height:1.5px;background:var(--border);border-radius:2px;outline:none;cursor:pointer;margin:10px 0}
+input[type=range]:focus-visible{outline:2px solid var(--brand);outline-offset:4px;border-radius:2px}
+input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;border-radius:50%;background:var(--brand);cursor:pointer;border:none;box-shadow:0 2px 8px rgba(199,121,54,.25)}
+.fg{margin-bottom:24px}
+.fl{font-size:13px;color:var(--muted);margin-bottom:10px;display:flex;justify-content:space-between}
+.fl strong{color:var(--text);font-weight:500}
+.fhint{font-size:11px;color:var(--light);margin-top:4px}
+.tbns{display:flex;gap:8px}
+.tbn{flex:1;padding:10px 12px;background:#E8DDD0;border:none;border-radius:8px;font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;text-align:center;font-family:'General Sans',sans-serif;transition:background .15s,color .15s}
+.tbn.on{background:#FDFAF6;color:var(--brand)}
+.tbn:hover{background:rgba(199,121,54,.06);color:var(--brand)}
+.cr{background:var(--bg);border:.5px solid var(--border);border-radius:16px;padding:28px;margin-top:32px;box-shadow:0 2px 16px rgba(45,40,32,.04)}
+.crh{display:flex;justify-content:space-between;margin-bottom:22px;padding-bottom:16px;border-bottom:.5px solid var(--border)}
+.crh-l{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.crh-r{font-size:12px;color:var(--light)}
+.cr-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.cr-s{background:#FDFAF6;border-radius:10px;padding:16px}
+.cr-sl{font-size:11px;color:var(--light);margin-bottom:5px}
+.cr-sv{font-size:24px;font-weight:300;color:var(--text);transition:opacity 150ms ease}
+.cr-sv.g{color:var(--green)}
+.diff-block{background:var(--green-bg);border:none;border-radius:12px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 16px rgba(45,40,32,.16)}
+.diff-l{font-size:14px;color:var(--green)}
+.diff-roi{font-size:12px;color:var(--green);margin-top:5px}
+.diff-v{font-size:32px;font-weight:300;color:var(--green)}
+.loss-block{background:#FDF0D8;border:none;border-radius:12px;padding:18px 22px;display:flex;justify-content:space-between;align-items:flex-end;margin-top:16px;box-shadow:0 2px 16px rgba(45,40,32,.16)}
+.loss-l{font-size:14px;color:#854F0B;font-weight:500}
+.loss-v{font-size:32px;font-weight:300;color:#854F0B;white-space:nowrap;margin-left:16px}
+.sc-tbl{width:100%;border-collapse:collapse;font-size:13px;margin-top:16px;table-layout:auto}
+.sc-tbl th{text-align:left;padding:8px 10px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--light);border-bottom:.5px solid var(--border);white-space:nowrap}
+.sc-tbl td{padding:10px;border-bottom:.5px solid var(--border);color:var(--muted);white-space:nowrap}
+.sc-tbl tr:last-child td{border-bottom:none}
+.sc-tbl .hl td{color:var(--text);font-weight:500}
+.sc-tbl th:nth-child(1),.sc-tbl td:nth-child(1){width:30%}
+.vg{color:var(--green);font-weight:500}
+.disc{font-size:11px;color:var(--light);margin-top:12px;line-height:1.55}
+
+/* ── ABOUT ── */
+#about{background:var(--bg-stone)}
+.team-g{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:56px}
+.tc{border:none;border-radius:14px;overflow:hidden;background:var(--bg);box-shadow:0 2px 16px rgba(45,40,32,.16);transition:box-shadow .2s}
+.tc:hover{box-shadow:0 8px 28px rgba(45,40,32,.22)}
+.tc-photo{background:linear-gradient(140deg,var(--bg-warm) 0%,var(--bg-stone) 100%);height:380px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--light);letter-spacing:.04em}
+.tc-photo img{opacity:0;filter:blur(16px);transition:opacity 800ms cubic-bezier(0.23,1,0.32,1),filter 800ms cubic-bezier(0.23,1,0.32,1)}
+.tc-photo img.ph-in{opacity:1;filter:none}
+.tc-body{padding:24px 26px}
+.tc-role{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--brand);margin-bottom:7px}
+.tc-name{font-size:19px;font-weight:500;margin-bottom:12px}
+.tc-bio{font-size:13px;color:var(--muted);line-height:1.7}
+.reasons{display:flex;flex-direction:column;gap:0;border:none;border-radius:14px;overflow:hidden;box-shadow:0 2px 16px rgba(45,40,32,.16)}
+.reason{display:flex;gap:20px;padding:22px 26px;border-bottom:1px solid var(--border);background:#FDFBF8;transition:background 150ms ease-out}
+.reason:last-child{border-bottom:none}
+.reason:hover{background:var(--brand-light)}
+.rn{font-size:18px;font-weight:600;color:var(--brand);flex-shrink:0;width:24px;padding-top:0}
+.rt{font-size:14px;color:var(--mid);line-height:1.65}
+.rt strong{color:var(--text);font-weight:500}
+
+/* ── CLIENT FIT ── */
+#fit{background:var(--bg);padding-top:50px}
+.fit-g{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+.fc{border:none;border-radius:14px;padding:28px;background:#FDFBF8;box-shadow:0 2px 16px rgba(45,40,32,.16)}
+.fc-t{font-size:15px;font-weight:500;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.fc-t.yes{color:var(--green)}.fc-t.no{color:#A32D2D}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.fc ul li{font-size:14px;color:var(--mid);line-height:1.55;display:flex;gap:11px}
+.fc ul li::before{content:'–';color:var(--brand);font-weight:600;flex-shrink:0}
+.fc.no-c ul li::before{color:#A32D2D}
+.fit-note{background:var(--brand-light);border:none;border-radius:12px;padding:22px 26px;font-size:14px;color:var(--dark);line-height:1.7;font-style:italic;box-shadow:0 2px 16px rgba(45,40,32,.16)}
+
+/* ── PROCESS ── */
+#process{background:var(--bg-stone)}
+.proc-g{display:grid;grid-template-columns:repeat(4,1fr);border:none;border-radius:14px;overflow:hidden;box-shadow:0 2px 16px rgba(45,40,32,.16)}
+.pc{padding:30px 26px;border-right:.5px solid var(--border);background:var(--bg);transition:background 200ms cubic-bezier(0.23,1,0.32,1)}
+.pc:last-child{border-right:none}
+.pc:hover{background:var(--brand-light)}
+.pc-n{font-size:52px;font-weight:200;color:var(--border);line-height:1;margin-bottom:16px;letter-spacing:-.04em;transition:color 200ms ease-out}
+.pc:hover .pc-n{color:var(--brand-border)}
+.pc-t{font-size:15px;font-weight:500;margin-bottom:10px}
+.pc-d{font-size:13px;color:var(--muted);line-height:1.62}
+.pc-time{display:inline-block;font-size:11px;color:var(--brand);font-weight:500;margin-top:14px;background:var(--brand-light);padding:3px 10px;border-radius:100px}
+.pc-get{display:block;font-size:12px;color:var(--dark);line-height:1.55;margin-top:12px;padding-top:12px;border-top:.5px solid var(--border)}
+.pc-get b{color:var(--brand);font-weight:600}
+
+/* Timeline strip */
+.proc-timeline{display:flex;justify-content:space-between;margin-top:32px;position:relative}
+.proc-timeline::before{content:'';position:absolute;top:5px;left:5%;right:5%;height:1px;background:var(--border);z-index:0}
+.pt-item{flex:1;text-align:center;position:relative;z-index:1}
+.pt-dot{display:block;width:10px;height:10px;border-radius:50%;background:var(--brand);margin:0 auto 10px;border:2px solid var(--bg-stone)}
+.pt-label{font-size:13px;font-weight:500;color:var(--dark);margin-bottom:4px}
+.pt-time{font-size:11px;color:var(--muted)}
+.proc-total{display:flex;justify-content:center;gap:12px;margin-top:28px;flex-wrap:wrap}
+.proc-total-chip{font-size:12px;color:var(--muted);background:var(--bg);border:.5px solid var(--border);padding:6px 14px;border-radius:100px}
+.proc-total-chip b{color:var(--dark);font-weight:600}
+
+/* ── PORTFOLIO ── */
+#portfolio{background:var(--bg-stone)}
+/* Portofoliu — bandă continuă înainte/după */
+#portfolio{overflow:clip}
+.pstrip{position:relative;width:100vw;margin:0 0 36px calc(50% - 50vw);overflow:hidden;padding:4px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.ps-track{display:flex;width:max-content;will-change:transform}
+.ps-group{display:flex;gap:8px;margin-right:22px}
+.ps-card{position:relative;display:block;flex:none;height:clamp(280px,30vw,400px);aspect-ratio:3/4;border-radius:16px;overflow:hidden;background:var(--bg-stone);color:#FDFAF6;text-decoration:none;-webkit-tap-highlight-color:transparent}
+.ps-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 700ms cubic-bezier(0.23,1,0.32,1)}
+.ps-tag{position:absolute;top:12px;left:12px;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:100px;background:rgba(253,250,246,.9);color:var(--text)}
+.ps-tag.b{background:rgba(253,250,246,.6);color:var(--mid)}
+.ps-tag.a{background:#FDFAF6;color:var(--brand)}
+.ps-info{position:absolute;left:0;right:0;bottom:0;padding:56px 16px 16px;display:flex;flex-direction:column;gap:4px;background:linear-gradient(to top,rgba(30,24,18,.74),rgba(30,24,18,0));opacity:0;transform:translateY(8px);transition:opacity 320ms cubic-bezier(0.23,1,0.32,1),transform 320ms cubic-bezier(0.23,1,0.32,1)}
+.ps-name{font-size:15px;font-weight:500;letter-spacing:-.01em;line-height:1.25}
+.ps-cta{font-size:12px;color:rgba(253,250,246,.82)}
+@media(hover:hover) and (pointer:fine){.ps-card:hover img{transform:scale(1.04)}.ps-card:hover .ps-info{opacity:1;transform:none}}
+.ps-card:focus-visible .ps-info{opacity:1;transform:none}
+.ps-card:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+/* Instagram: banda de carusele (stilul cardurilor vine din igstrip.js) */
+.ig-sec{background:var(--bg)}
+.ig-h{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;max-width:1080px;margin:0 auto 12px}
+.ig-h h2.sh em{font-style:normal;font-weight:500;color:var(--brand)}
+.ig-h .sec-sub{margin-bottom:0}
+.ig-follow{background:transparent!important;color:var(--brand)!important;border:.5px solid var(--brand)}
+@media(hover:hover) and (pointer:fine){.ig-follow:hover{background:var(--brand)!important;color:#FDFAF6!important}}
+.pstrip.ps-static{overflow-x:auto;scrollbar-width:none;-webkit-mask-image:none;mask-image:none;padding:4px 16px}
+.pstrip.ps-static::-webkit-scrollbar{display:none}
+@media(max-width:600px){.ps-card{height:300px;border-radius:14px}.ps-group{margin-right:16px}.pstrip{margin-bottom:28px}}
+.port-g{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px}
+.ba{border:none;border-radius:14px;overflow:hidden;background:var(--bg);box-shadow:0 2px 16px rgba(45,40,32,.16);transition:box-shadow .2s,transform .2s}
+.ba:hover{box-shadow:0 8px 28px rgba(45,40,32,.22);transform:translateY(-2px)}
+.ba-photos{display:grid;grid-template-columns:1fr 1fr}
+.ba-p{height:200px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;letter-spacing:.08em;flex-direction:column;gap:8px}
+.ba-p.b{background:var(--bg-warm);color:var(--light)}
+.ba-p.a{background:#E4F5EC;color:#3A9060}
+.ba-info{padding:16px 20px;border-top:.5px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.ba-name{font-size:14px;font-weight:500}
+.ba-meta{font-size:12px;color:var(--muted);margin-top:3px}
+.ba-res{font-size:13px;font-weight:500;color:#8B5E10;background:#FDF0D8;padding:5px 14px;border-radius:100px;border:.5px solid #E8C87C}
+.port-cta{display:flex;align-items:center;justify-content:space-between;padding:22px 28px;border:none;border-radius:12px;background:var(--bg-stone);text-decoration:none;box-shadow:0 2px 16px rgba(45,40,32,.16);transition:background 180ms cubic-bezier(0.23,1,0.32,1),box-shadow 180ms cubic-bezier(0.23,1,0.32,1),transform 150ms cubic-bezier(0.23,1,0.32,1)}
+.port-cta:hover{background:var(--brand-light);box-shadow:0 8px 28px rgba(45,40,32,.22)}
+.port-cta-l{font-size:15px;font-weight:500;color:var(--text)}
+.port-cta-sub{font-size:13px;color:var(--muted);margin-top:3px}
+.port-cta-arrow{font-size:28px;font-weight:300;color:var(--brand);transition:transform 200ms cubic-bezier(0.23,1,0.32,1)}
+.port-cta:hover .port-cta-arrow{transform:translateX(6px)}
+
+/* ── TESTIMONIALS ── */
+#testimonials{background:var(--bg-stone)}
+/* Testimoniale — taburi, cifră mare, citat cu blur pe cuvinte */
+.tt-wrap{max-width:920px;margin:0 auto}
+.tt-note{text-align:center;font-size:12px;color:var(--light);margin:0 auto 32px}
+.tt-tabs{position:relative;display:flex;gap:2px;width:fit-content;max-width:100%;margin:0 auto 20px;padding:4px;border-radius:100px;background:rgba(253,250,246,.6);border:.5px solid var(--border);overflow-x:auto;scrollbar-width:none}
+.tt-tabs::-webkit-scrollbar{display:none}
+.tt-tab{position:relative;z-index:1;flex:none;font:500 14px 'General Sans',sans-serif;color:var(--muted);background:none;border:none;padding:10px 20px;border-radius:100px;cursor:pointer;white-space:nowrap;transition:color 260ms cubic-bezier(0.23,1,0.32,1);-webkit-tap-highlight-color:transparent}
+.tt-tab[aria-selected="true"]{color:var(--text)}
+.tt-tab:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.tt-ind{position:absolute;top:4px;bottom:4px;left:0;width:0;border-radius:100px;background:#FDFAF6;box-shadow:0 1px 8px rgba(45,40,32,.1);transition:transform 460ms cubic-bezier(0.23,1,0.32,1),width 460ms cubic-bezier(0.23,1,0.32,1)}
+.tt-stage{position:relative;background:#FDFAF6;border-radius:20px;box-shadow:0 2px 24px rgba(45,40,32,.08);padding:clamp(24px,4.5vw,52px);overflow:hidden;transition:height 480ms cubic-bezier(0.23,1,0.32,1)}
+.tt-panel{display:none;transition:opacity 260ms cubic-bezier(0.23,1,0.32,1),transform 260ms cubic-bezier(0.23,1,0.32,1),filter 260ms cubic-bezier(0.23,1,0.32,1)}
+.tt-panel.on{display:block}
+.tt-panel.fade{opacity:0;transform:translateY(10px);filter:blur(4px)}
+.tt-title{font-size:clamp(18px,2vw,21px);font-weight:500;letter-spacing:-.01em;line-height:1.3;color:var(--text);text-wrap:balance}
+.tt-meta{margin-top:8px;font-size:13px;color:var(--muted)}
+.tt-meta span+span::before{content:"·";margin:0 8px;color:var(--light)}
+.tt-big{margin:36px 0 28px}
+.tt-rent{display:flex;align-items:baseline;flex-wrap:wrap;gap:0 .18em;font-size:clamp(44px,7.4vw,80px);font-weight:300;letter-spacing:-.045em;line-height:1;font-variant-numeric:tabular-nums}
+.tt-from{color:var(--light)}
+.tt-arrow{color:var(--brand);font-size:.6em;margin:0 .1em}
+.tt-to{color:var(--text)}
+.tt-unit{font-size:18px;color:var(--muted);letter-spacing:0;margin-left:.2em}
+.tt-rent-l{margin-top:10px;font-size:13px;color:var(--muted)}
+.tt-res{display:grid;grid-template-columns:repeat(4,1fr);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)}
+.tt-r{padding:18px 18px 18px 0}
+.tt-r+.tt-r{padding-left:18px;border-left:.5px solid var(--border)}
+.tt-r b{display:block;font-size:24px;font-weight:400;letter-spacing:-.02em;color:var(--text);margin-bottom:6px}
+.tt-r span{display:block;font-size:12px;line-height:1.5;color:var(--muted)}
+.tt-q{margin:40px 0 12px;font-size:clamp(21px,2.6vw,30px);font-weight:300;line-height:1.32;letter-spacing:-.02em;color:var(--text);text-wrap:pretty}
+.tt-q-first{margin-top:32px}
+.tt-q .w{display:inline-block;transition:opacity 620ms cubic-bezier(0.23,1,0.32,1),filter 620ms cubic-bezier(0.23,1,0.32,1),transform 620ms cubic-bezier(0.23,1,0.32,1)}
+.tt-q .w.off{opacity:0;filter:blur(.22em);transform:translateY(.18em)}
+.tt-q.has-anim .tt-src{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.tt-qa{font-size:13px;color:var(--muted)}
+.tt-story{margin-top:24px;max-width:700px}
+.tt-story p{font-size:15px;line-height:1.75;color:var(--mid);margin-bottom:14px}
+.tt-result{margin-top:12px;font-size:18px;font-weight:500;color:var(--brand);letter-spacing:-.01em}
+.tt-more-btn{display:inline-flex;align-items:center;gap:10px;margin-top:32px;padding:0;background:none;border:none;cursor:pointer;font:500 13px 'General Sans',sans-serif;color:var(--brand)}
+.tt-more-btn:focus-visible{outline:2px solid var(--brand);outline-offset:4px;border-radius:4px}
+.tt-plus{position:relative;width:18px;height:18px;border-radius:50%;border:.5px solid var(--brand-border)}
+.tt-plus::before,.tt-plus::after{content:"";position:absolute;left:50%;top:50%;width:8px;height:1px;background:currentColor;transform:translate(-50%,-50%);transition:transform 360ms cubic-bezier(0.23,1,0.32,1)}
+.tt-plus::after{transform:translate(-50%,-50%) rotate(90deg)}
+.tt-more-btn[aria-expanded="true"] .tt-plus::after{transform:translate(-50%,-50%) rotate(0deg)}
+.tt-more{display:grid;grid-template-rows:0fr;transition:grid-template-rows 520ms cubic-bezier(0.23,1,0.32,1)}
+.tt-more.open{grid-template-rows:1fr}
+.tt-more-in{overflow:hidden;min-height:0}
+.tt-more-g{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;padding-top:24px}
+@media(max-width:700px){.tt-res{grid-template-columns:1fr 1fr}.tt-r:nth-child(3){padding-left:0;border-left:none}.tt-r:nth-child(n+3){border-top:.5px solid var(--border)}.tt-more-g{grid-template-columns:1fr;gap:24px}.tt-tabs{width:100%;justify-content:space-between}.tt-tab{padding:10px 11px;font-size:13px}}
+@media(prefers-reduced-motion:reduce){.tt-panel,.tt-stage,.tt-ind,.tt-more{transition:none!important}}
+.te-g{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:36px}
+.tec{background:var(--bg);border:none;border-radius:14px;padding:24px;box-shadow:0 2px 16px rgba(45,40,32,.16);transition:box-shadow 200ms ease-out}
+.tec:hover{box-shadow:0 8px 28px rgba(45,40,32,.22)}
+.tec-q{font-size:36px;font-weight:200;color:var(--border);line-height:1;margin-bottom:12px}
+.tec-t{font-size:13px;color:var(--mid);line-height:1.75;font-style:italic;margin-bottom:16px}
+.tec-n{font-size:13px;font-weight:500}
+.tec-m{font-size:11px;color:var(--light);margin-top:3px}
+.tec-tag{display:inline-block;background:var(--brand-light);color:var(--brand);font-size:11px;font-weight:500;padding:4px 12px;border-radius:100px;margin-top:10px;border:.5px solid var(--brand-border)}
+/* case study */
+.cs{border:none;border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(45,40,32,.16)}
+.cs-h{background:#FAF6EF;padding:28px 32px;border-bottom:none}
+.cs-title{font-size:20px;font-weight:500;margin-bottom:14px}
+.cs-tags{display:flex;gap:8px;flex-wrap:wrap}
+.cs-tag{font-size:11px;background:var(--bg);border:.5px solid var(--brand-border);color:var(--brand);padding:4px 12px;border-radius:100px;font-weight:500}
+.cs-body{padding:32px;background:var(--bg)}
+.cs-g{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:28px}
+.cs-sl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--brand);margin-bottom:10px}
+.cs-p{font-size:13px;color:var(--mid);line-height:1.72}
+.cs-res{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px}
+.cs-r{background:var(--green-bg);border-radius:12px;padding:16px;text-align:center;border:.5px solid #9FD8C4}
+.cs-rv{font-size:24px;font-weight:300;color:var(--green);margin-bottom:4px}
+.cs-rl{font-size:11px;color:var(--green);line-height:1.4}
+.cs-q{background:var(--brand-light);border-left:2px solid var(--brand);border-radius:0 12px 12px 0;padding:18px 22px;font-size:13px;color:var(--dark);font-style:italic;line-height:1.75}
+.cs-qa{font-size:12px;font-weight:500;color:var(--brand);margin-top:8px;font-style:normal}
+.voc-g{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.voc-item{background:var(--bg);border:none;border-radius:12px;padding:22px 24px;font-size:14px;color:var(--mid);line-height:1.7;font-style:italic;box-shadow:0 2px 16px rgba(45,40,32,.16)}
+.bud-g{display:flex;flex-direction:column;gap:6px}
+.bud-row{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);padding:7px 0;border-bottom:.5px solid var(--border)}
+.bud-row strong{color:var(--text)}
+.bud-tot{display:flex;justify-content:space-between;font-size:14px;font-weight:600;padding:8px 0}
+.bud-tot span:last-child{color:var(--brand)}
+
+/* ── PACKAGES ── */
+#packages{background:var(--bg-stone)}
+/* Pachete — selector de situație + carduri fără contur */
+.pk-wrap{max-width:1080px;margin:0 auto}
+.pk-free{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:28px;padding:22px 26px;border-radius:16px;background:#FDFAF6;box-shadow:0 2px 24px rgba(45,40,32,.08)}
+.pk-free p{font-size:15px;line-height:1.6;color:var(--mid);max-width:620px}
+.pk-free p b{font-weight:500;color:var(--text)}
+.pk-link{font-size:14px;font-weight:500;color:var(--brand);text-decoration:none;border-bottom:1px solid var(--brand-border);padding-bottom:2px;white-space:nowrap}
+.pk-grp{margin-top:48px}
+.pk-main{margin-top:20px}
+.pk-extra{margin-top:14px;font-size:14px;line-height:1.6;color:var(--muted)}
+.pk-extra a{color:var(--brand);text-decoration:none;border-bottom:1px solid var(--brand-border)}
+.pk-grp-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.pk-grp-h h3{font-size:18px;font-weight:500;letter-spacing:-.01em;color:var(--text)}
+.pk-grp-h span{font-size:13px;color:var(--muted)}
+.pk-cards{display:grid;gap:12px}
+.pk-cards-2{grid-template-columns:repeat(2,1fr)}
+.pk-cards-3{grid-template-columns:repeat(3,1fr)}
+.pk-card{position:relative;display:flex;flex-direction:column;background:#FDFAF6;border-radius:18px;box-shadow:0 2px 24px rgba(45,40,32,.08);padding:28px 26px 24px}
+.pk-card,.pk-free{transition:opacity 420ms cubic-bezier(0.23,1,0.32,1),transform 420ms cubic-bezier(0.23,1,0.32,1),box-shadow 420ms cubic-bezier(0.23,1,0.32,1),filter 420ms cubic-bezier(0.23,1,0.32,1)}
+.pk-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.pk-name{font-size:17px;font-weight:500;letter-spacing:-.01em;color:var(--text)}
+.pk-flag{font-size:12px;font-weight:500;color:var(--brand);white-space:nowrap}
+.pk-flag-g{color:#2D6A2D}
+.pk-price{margin-top:18px;display:flex;align-items:baseline;gap:6px;color:var(--text)}
+.pk-price small{font-size:13px;color:var(--muted)}
+.pk-price b{font-size:20px;font-weight:400;letter-spacing:-.015em;line-height:1}
+.pk-price.pk-big b{font-size:40px;font-weight:300;letter-spacing:-.04em}
+.pk-desc{margin-top:14px;font-size:14px;line-height:1.65;color:var(--mid)}
+.pk-fit{margin-top:10px;font-size:13px;line-height:1.6;color:var(--muted)}
+.pk-calc{margin-top:12px;font-size:13px;line-height:1.45;color:var(--muted)}
+.pk-calc summary{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:10px 0;color:var(--text);cursor:pointer;list-style:none}
+.pk-calc summary::-webkit-details-marker{display:none}
+.pk-calc summary::after{content:"+";font-size:20px;line-height:1;color:var(--brand);transition:transform 180ms cubic-bezier(0.23,1,0.32,1)}
+.pk-calc[open] summary::after{transform:rotate(45deg)}
+.pk-calc summary:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:4px}
+.pk-calc-r{display:flex;justify-content:space-between;gap:14px;padding:5px 0}
+.pk-calc-r b{font-weight:400;color:var(--text);text-align:right}
+.pk-calc-r span{white-space:nowrap}
+.pk-list{margin-top:22px;padding-top:20px;border-top:.5px solid var(--border);display:grid;gap:9px}
+.pk-list h4{font-size:13px;font-weight:500;color:var(--text);margin-top:8px}
+.pk-list h4:first-child{margin-top:0}
+.pk-list h4 a{color:inherit;text-decoration:none;border-bottom:1px solid var(--brand-border)}
+.pk-li{display:flex;gap:10px;font-size:14px;line-height:1.5;color:var(--mid)}
+.pk-li::before{content:"";flex:none;width:5px;height:5px;margin-top:8px;border-radius:50%;background:var(--brand-border)}
+.pk-li.pk-no{color:var(--light)}
+.pk-li.pk-no::before{background:none;border:.5px solid var(--light-ui)}
+.pk-cta{margin-top:auto;padding-top:24px}
+.pk-btn{display:block;text-align:center;font-size:14px;font-weight:500;padding:12px;border-radius:100px;text-decoration:none;color:var(--brand);border:.5px solid var(--brand);transition:background 200ms cubic-bezier(0.23,1,0.32,1),color 200ms cubic-bezier(0.23,1,0.32,1),transform 160ms cubic-bezier(0.23,1,0.32,1)}
+@media(hover:hover) and (pointer:fine){.pk-btn:hover{background:var(--brand);color:#FDFAF6}}
+.pk-btn:active{transform:scale(.98);background:var(--brand);color:#FDFAF6;transition-duration:0ms}
+.pk-btn:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+.pk-cta p{margin-top:8px;text-align:center;font-size:12px;line-height:1.5;color:var(--muted)}
+@media(max-width:860px){.pk-cards-3,.pk-cards-2{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.pk-card,.pk-free,.pk-btn{transition:none!important}}
+.pkg-step0{background:var(--bg);border:none;border-radius:16px;padding:32px 36px;margin-bottom:12px;box-shadow:0 2px 16px rgba(45,40,32,.16)}
+.pkg-step0-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#7A5C00;background:rgba(215,165,0,.07);padding:5px 12px;border-radius:100px;margin-bottom:18px}
+.pkg-step0-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.pkg-step0-title{font-size:21px;font-weight:400;color:var(--text);line-height:1.2;margin-bottom:10px;letter-spacing:-.02em}
+.pkg-step0-desc{font-size:13px;color:var(--muted);line-height:1.72;margin-bottom:20px}
+.pkg-step0-features{display:flex;flex-direction:column;gap:4px;padding-top:4px}
+.pkg-step0-arrow{text-align:center;color:var(--light);font-size:20px;margin:6px 0 10px;line-height:1}
+.pkg-groups{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
+.pkg-group{border-radius:14px;border:none;box-shadow:0 2px 16px rgba(45,40,32,.16)}
+.pkg-group-hdr{padding:12px 20px;display:flex;align-items:center;gap:12px;border-bottom:.5px solid var(--border);border-radius:13px 13px 0 0}
+.pkg-group-entry .pkg-group-hdr{background:rgba(215,165,0,.04);border-bottom-color:rgba(215,165,0,.18)}
+.pkg-group-full .pkg-group-hdr{background:rgba(199,121,54,.05);border-bottom-color:var(--border)}
+.pkg-group-hdr-name{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#7A5C00}
+.pkg-group-full .pkg-group-hdr-name{color:var(--brand)}
+.pkg-group-hdr-sub{font-size:11px;color:var(--muted)}
+.pkg-subgrid{display:grid;gap:.5px;background:var(--border);border-radius:0 0 14px 14px}
+.pkg-subgrid-2{grid-template-columns:1fr 1fr}
+.pkg-subgrid-3{grid-template-columns:1fr 1fr 1fr}
+.pkg-subgrid .pkg{border-top-left-radius:0!important;border-top-right-radius:0!important;border-bottom-left-radius:0!important;border-bottom-right-radius:0!important;border:none;box-shadow:none;position:relative;z-index:0}
+.pkg-subgrid .pkg:first-child{border-bottom-left-radius:14px!important}
+.pkg-subgrid .pkg:last-child{border-bottom-right-radius:14px!important}
+.pkg-subgrid .pkg:hover,.pkg-subgrid .pkg:active{transform:translateY(-5px) scale(1.04);box-shadow:0 10px 40px rgba(45,40,32,.26),0 0 20px rgba(45,40,32,.1);z-index:2}
+.pkg-subgrid .pkg:first-child:hover,.pkg-subgrid .pkg:first-child:active{border-bottom-left-radius:0!important}
+.pkg-subgrid .pkg:last-child:hover,.pkg-subgrid .pkg:last-child:active{border-bottom-right-radius:0!important}
+.pkg{border-radius:16px;overflow:hidden;border:none;background:var(--bg);box-shadow:0 2px 16px rgba(45,40,32,.16);transition:box-shadow .2s,transform .2s,border-radius .2s;display:flex;flex-direction:column}
+.pkg:hover{box-shadow:0 8px 28px rgba(45,40,32,.22);transform:translateY(-2px)}
+.pkg-h{padding:26px 22px 20px}
+.pkg-name{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--light);margin-bottom:14px}
+.pkg-price{font-size:42px;font-weight:300;color:var(--text);letter-spacing:-.04em;line-height:1}
+.pkg-price span{font-size:14px;font-weight:400;color:var(--light)}
+.pkg-desc{font-size:12px;color:var(--muted);margin-top:9px;line-height:1.55}
+.pkg-div{height:.5px;background:var(--border);margin:0 22px}
+.pkg-b{padding:20px 22px;display:flex;flex-direction:column;flex:1}
+.pkg-sl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:8px;margin-top:14px}
+.pkg-sl:first-child{margin-top:0}
+.pf{font-size:12px;color:var(--mid);line-height:1.9;display:flex;gap:8px}
+.fd{color:var(--brand);font-weight:600;flex-shrink:0}
+.fdo{color:var(--border);flex-shrink:0}.fo{color:var(--light)}
+/* STANDARD */
+.pkg-std .pkg-name{color:var(--brand)}
+.pkg-std .pkg-div{background:var(--brand-border)}
+/* PREMIUM FULL ORANGE */
+.pkg-pre{border-color:#C8894E;background:#C8894E}
+.pkg-pre:hover{box-shadow:0 8px 40px rgba(200,137,78,.25)}
+.pkg-pre .btn-primary:hover,.pkg-pre .btn-primary:active{background:rgba(255,255,255,.24)!important;border-color:rgba(255,255,255,.3)!important}
+.pkg-pre .pkg-h{background:#C8894E;padding-bottom:10px}
+.pkg-pre .pkg-name{color:rgba(253,250,246,.7)}
+.pkg-pre .pkg-price{color:#FDFAF6}
+.pkg-pre .pkg-price span{color:rgba(253,250,246,.6)}
+.pkg-pre .pkg-desc{color:rgba(253,250,246,.72)}
+.pkg-pre .pkg-div{background:rgba(253,250,246,.2)}
+.pkg-pre .pkg-b{background:#C8894E}
+.pkg-pre .pkg-sl{color:rgba(253,250,246,.6)}
+.pkg-pre .pf{color:rgba(253,250,246,.88)}
+.pkg-pre .fd{color:#FDFAF6}
+.pkg-pre .pkg-sl.kit-label{color:#FDFAF6;font-size:11px;font-weight:600}
+
+/* ── FAQ ── */
+#faq{background:var(--bg-stone)}
+.faq-inner{max-width:720px;margin:0 auto}
+.fi{border-bottom:.5px solid var(--border);padding:22px 0;cursor:pointer}
+.fi:last-child{border-bottom:.5px solid #EDE0CE}
+.fq{font-size:15px;font-weight:500;display:flex;justify-content:space-between;gap:16px;user-select:none;transition:color .15s}
+.fi-icon{font-size:22px;color:var(--brand);flex-shrink:0;transition:transform 160ms cubic-bezier(0.23,1,0.32,1);font-weight:300}
+.fa{font-size:14px;color:var(--muted);line-height:1.75;overflow:hidden;max-height:0;opacity:0;margin-top:0;transition:max-height 380ms cubic-bezier(0.23,1,0.32,1),opacity 280ms ease,margin-top 280ms ease}
+.fi.open .fa{max-height:600px;opacity:1;margin-top:14px}
+.fi.open .fq{color:var(--brand)}
+.fi.open .fi-icon{transform:rotate(45deg)}
+
+/* ── CONTACT ── */
+#contact{background:var(--dark);padding:96px 56px;text-align:center;position:relative;overflow:hidden}
+#contact::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(199,121,54,.08) 0%,transparent 70%);pointer-events:none}
+.con-h{font-size:44px;font-weight:300;color:var(--bg);letter-spacing:-.03em;margin-bottom:14px;line-height:1.1;text-wrap:balance}
+.con-h em{font-style:normal;color:var(--brand)}
+.con-sub{font-size:15px;color:var(--muted);margin-bottom:44px;line-height:1.7}
+.con-scarcity{display:inline-flex;align-items:flex-start;gap:10px;text-align:left;max-width:480px;font-size:13px;color:var(--muted);line-height:1.55;background:rgba(255,255,255,.06);border:.5px solid #4D4238;padding:12px 20px;border-radius:16px;margin-bottom:32px}
+.con-scarcity svg{flex-shrink:0;margin-top:3px}
+.con-scarcity .csi-hand{transform-origin:12px 12px;animation:dotPulse 2.8s ease-in-out infinite}
+.con-scarcity b{color:var(--brand);font-weight:600;animation:livePulse 1.8s ease-in-out infinite}
+@keyframes livePulse{0%,100%{opacity:1}50%{opacity:.45}}
+.con-btns{display:flex;gap:12px;justify-content:center;margin-bottom:56px;flex-wrap:wrap}
+.con-p{background:var(--brand);color:var(--bg);font-size:14px;font-weight:500;padding:14px 30px;border-radius:100px;text-decoration:none;transition:background 180ms cubic-bezier(0.23,1,0.32,1),transform 150ms cubic-bezier(0.23,1,0.32,1)}
+.con-p:hover{background:#a8622a;transform:translateY(-1px)}
+.con-g{color:var(--muted);font-size:14px;padding:14px 26px;border:.5px solid #4D4238;border-radius:100px;text-decoration:none;transition:border-color 150ms ease-out,color 150ms ease-out}
+.con-g:hover{border-color:var(--muted-ui);color:var(--light)}
+.con-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:580px;margin:0 auto}
+.cc{background:#3D3228;border-radius:12px;padding:20px;text-align:left;transition:background .15s}
+.cc:hover{background:#4D4238}
+.cc-l{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px;font-weight:600}
+.cc-v{font-size:14px;font-weight:500;color:var(--bg)}
+.con-micro{font-size:12px;color:#5A5248;margin-top:32px}
+/* Contact — titlu mare animat, un singur buton, restul ca linkuri */
+.ct-wrap{position:relative;max-width:920px;margin:0 auto}
+.ct-h{font-size:clamp(2.2rem,6vw,4.4rem);font-weight:300;line-height:1.04;letter-spacing:-.04em;color:var(--bg);text-wrap:balance}
+.ct-h em{font-style:normal;font-weight:500;color:var(--brand)}
+.ct-sub{margin:22px auto 0;max-width:680px;text-wrap:balance;font-size:16px;line-height:1.7;color:rgba(253,250,246,.6)}
+.ct-wa{display:inline-flex;align-items:center;gap:12px;margin-top:34px;padding:20px 40px;border-radius:100px;background:var(--brand);color:#FDFAF6;font-size:17px;font-weight:500;text-decoration:none;box-shadow:0 10px 30px rgba(199,121,54,.25);transition:background 200ms cubic-bezier(0.23,1,0.32,1),transform 200ms cubic-bezier(0.23,1,0.32,1),box-shadow 200ms cubic-bezier(0.23,1,0.32,1)}
+@media(hover:hover) and (pointer:fine){.ct-wa:hover{background:#a8622a;transform:translateY(-2px);box-shadow:0 14px 36px rgba(199,121,54,.3)}}
+.ct-wa:active{transform:scale(.98)}
+.ct-wa:focus-visible{outline:2px solid var(--brand);outline-offset:4px}
+.ct-slots{display:flex;justify-content:center;align-items:flex-start;gap:12px;margin-top:26px;font-size:13px;line-height:1.6;color:rgba(253,250,246,.6);text-align:left}
+.ct-slots b{color:#FDFAF6;font-weight:500}
+.ct-pulse{position:relative;flex:none;width:8px;height:8px;margin-top:6px;border-radius:50%;background:var(--brand)}
+.ct-pulse::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:1px solid var(--brand);animation:ctPulse 2.2s ease-out infinite}
+@keyframes ctPulse{0%{transform:scale(.4);opacity:.9}100%{transform:scale(1.6);opacity:0}}
+.ct-alt{display:flex;justify-content:center;flex-wrap:wrap;gap:12px 28px;margin-top:40px;font-size:14px}
+.ct-l{color:rgba(253,250,246,.75);text-decoration:none;border-bottom:1px solid rgba(253,250,246,.2);padding-bottom:2px;transition:color 200ms,border-color 200ms}
+.ct-l:hover{color:#FDFAF6;border-color:var(--brand)}
+@media(max-width:600px){.ct-wa{padding:18px 28px;font-size:16px}.ct-slots{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.ct-pulse::after{animation:none}}
+
+footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.footer-bottom{display:flex;gap:0;align-items:center}
+.footer-bottom .f-t+.f-t::before{content:" · ";color:var(--light);margin-left:4px}
+@media(max-width:600px){.footer-bottom{flex-direction:column;gap:4px}.footer-bottom .f-t+.f-t::before{display:none}}
+.f-logo{font-size:15px;font-weight:500;color:var(--brand)}
+.f-t{font-size:12px;color:var(--light)}
+
+/* ── RESPONSIVE ── */
+/* ── WIDE TABLET 1200px ── */
+@media(max-width:1200px){
+  .pkg-subgrid-2{grid-template-columns:1fr 1fr}
+  .pkg-subgrid-3{grid-template-columns:1fr 1fr 1fr}
+}
+/* ── TABLET 900px ── */
+@media(max-width:900px){
+  nav{padding:0 20px;height:56px}
+  nav+.nav-mobile{padding-top:72px}
+  
+  section{padding:56px 22px}
+  #hero{padding:48px 22px 0;grid-template-columns:1fr;gap:0;min-height:auto}
+  .hero-l{padding:0 0 40px}
+  .hero-r{display:flex}
+  .hero-h1{font-size:38px}
+  .hero-sub{font-size:14px}
+  h2.sh{font-size:28px}
+  .sec-sub{font-size:14px}
+  .stats-g{grid-template-columns:1fr 1fr}
+  .stat{padding:20px 16px}
+  .stat:nth-child(2){border-right:.5px solid var(--border)}
+  .stat:nth-child(3){border-right:none}
+  .two-f{grid-template-columns:1fr}
+  .team-g,.fit-g,.cs-g,.port-g{grid-template-columns:1fr}
+  .proc-g{grid-template-columns:1fr 1fr}
+  .pc{border-right:none;border-bottom:.5px solid var(--border)}
+  .pc:nth-child(odd){border-right:.5px solid var(--border)}
+  .pc:last-child,.pc:nth-last-child(2):nth-child(odd){border-bottom:none}
+  .te-g,.pm-g,.voc-g{grid-template-columns:1fr}
+  .pkg-step0-inner{grid-template-columns:1fr}
+  .pkg-subgrid-2,.pkg-subgrid-3{grid-template-columns:1fr}
+  .pkg-subgrid .pkg:first-child{border-bottom-left-radius:0!important}
+  .pkg-subgrid .pkg:last-child{border-bottom-left-radius:14px!important}
+  .pkg-subgrid .pkg:last-child:active{border-bottom-left-radius:0!important}
+  .cs-g{grid-template-columns:1fr}
+  .cs-res{grid-template-columns:1fr 1fr}
+  .con-cards{grid-template-columns:1fr;max-width:360px}
+  #contact{padding:64px 22px}
+  footer{padding:18px 22px}
+}
+
+/* ── MOBILE 600px ── */
+@media(max-width:600px){
+  nav{padding:0 16px;height:52px}
+  nav+.nav-mobile{padding-top:68px}
+  
+  
+
+  section{padding:44px 16px}
+  #hero{padding:28px 16px 0}
+  .hero-l{padding:0 0 32px}
+  .hero-r{margin:0 -16px}
+  .hero-visual{border-radius:0!important}
+  .hero-badge{display:none}
+  .hero-eyebrow{font-size:9px}
+  .hero-h1{font-size:30px;letter-spacing:-.02em}
+  .hero-sub{font-size:13px;margin-bottom:28px}
+  .btn-primary{font-size:13px;padding:12px 20px}
+  .hero-micro{font-size:11px}
+
+  h2.sh{font-size:24px;letter-spacing:-.015em}
+  .sec-tag{font-size:9px}
+  .sec-sub{font-size:13px;margin-bottom:28px}
+
+  /* Stats — 2x2 */
+  .stats-g{grid-template-columns:1fr 1fr}
+  .stat{padding:16px 12px}
+  .stat-v{font-size:22px}
+  .stat-l{font-size:11px}
+  .stat:nth-child(2){border-right:.5px solid var(--border)}
+.stat:nth-child(3){border-right:none!important;border-top:.5px solid var(--border)!important}
+.stat:nth-child(4){border-top:.5px solid var(--border)!important;border-right:none!important}
+
+  /* Calculator */
+  .tbn{padding:8px 8px;font-size:12px}
+  .cr{padding:18px 14px}
+  .cr-stats{grid-template-columns:1fr 1fr;gap:8px}
+  .cr-s{padding:12px}
+  .cr-sv{font-size:18px}
+  .diff-block{flex-direction:column;gap:8px;text-align:center}
+  .diff-v{font-size:24px}
+  .loss-v{font-size:22px}
+  .sc-tbl{font-size:11px}
+  .sc-tbl th,.sc-tbl td{padding:7px 6px}
+  .disc{font-size:10px}
+
+  /* Team */
+  .tc-photo{height:420px}
+  .tc-body{padding:16px 18px}
+  .tc-name{font-size:16px}
+  .tc-bio{font-size:12px}
+
+  /* grid single col on mobile */
+  [style*="grid-template-columns:1fr 1fr"]{display:flex !important;flex-direction:column !important}
+
+  /* Process — single col */
+ .proc-g{grid-template-columns:1fr}
+.pc{border-right:none!important;border-bottom:.5px solid var(--border)!important}
+.pc:last-child{border-bottom:none!important}
+  .pc-n{font-size:36px}
+
+  /* Process timeline — vertical on mobile */
+  .proc-timeline{flex-direction:column;gap:14px}
+  .proc-timeline::before{display:none}
+  .pt-item{display:flex;align-items:center;gap:10px;text-align:left}
+  .pt-dot{margin:0;flex-shrink:0}
+  .pt-label{margin-bottom:0;flex:1}
+
+  /* Portfolio */
+  .ba-photos{grid-template-columns:1fr}
+  .ba-p{height:140px}
+  .ba-info{flex-direction:column;gap:8px;align-items:flex-start}
+
+  /* Testimonials */
+  .tec-q{font-size:28px}
+  .tec-t{font-size:12px}
+  .cs-h{padding:18px 20px}
+  .cs-title{font-size:16px}
+  .cs-body{padding:20px}
+  .cs-res{grid-template-columns:1fr 1fr;gap:8px}
+  .cs-rv{font-size:18px}
+  .cs-q{font-size:12px;padding:14px 16px}
+  .voc-item{font-size:13px;padding:18px 20px}
+
+  /* Packages */
+  .pkg-step0{padding:24px 20px}
+  .pkg-step0-title{font-size:18px}
+  .pkg-h{padding:18px 16px 14px}
+  .pkg-price{font-size:32px}
+  .pkg-b{padding:14px 16px}
+
+  /* PM */
+  .pm-h{padding:18px 14px 14px}
+  .pm-price{font-size:28px}
+  .pm-b{padding:14px 14px}
+
+  /* FAQ */
+  .faq-inner{margin:0}
+  .fq{font-size:13px}
+  .fa{font-size:13px}
+
+  /* Contact */
+  #contact{padding:52px 16px}
+  .con-h{font-size:28px}
+  .con-sub{font-size:13px}
+  .con-p,.con-g{font-size:13px;padding:12px 20px}
+  .con-cards{grid-template-columns:1fr}
+  .cc{padding:14px 16px}
+
+  /* Reasons */
+  .reason{padding:16px 18px}
+  .rt{font-size:13px}
+
+  /* Fit */
+  .fc{padding:20px 18px}
+  .fc ul li{font-size:12px}
+  .fit-note{font-size:12px;padding:16px 18px}
+
+  footer{padding:16px}
+  .f-t{font-size:11px}
+}
+
+.calc-3col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;align-items:start;width:100%;padding:0 24px;box-sizing:border-box}
+.calc-col-inputs{min-width:0}
+.calc-col-results{min-width:0}
+.calc-col-results .cr{border:.5px solid var(--border);border-radius:12px;padding:20px;background:var(--bg)}
+
+
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:var(--z-nav);background:rgba(253,250,246,.96);backdrop-filter:blur(12px);padding:0 56px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'General Sans',sans-serif;font-size:17px;font-weight:600;color:#C77936;text-decoration:none;letter-spacing:-.01em}
+.logo span{color:#2D2820;font-weight:300}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-family:'General Sans',sans-serif;font-size:13px;color:var(--muted);text-decoration:none;transition:color .15s}
+.nav-links a:hover,.nav-links a.active{color:#2D2820}
+.nav-cta{font-family:'General Sans',sans-serif;font-size:13px;font-weight:500;color:#C77936;border:.5px solid #C77936;padding:8px 18px;border-radius:100px;text-decoration:none;white-space:nowrap;transition:background 150ms ease-out,border-color 150ms ease-out}
+.nav-cta:hover{background:#FAF4EB}
+.br-mob{display:none}
+@media(max-width:768px){.br-mob{display:block}}
+@media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}.nav-hamburger{display:flex}.nav-cta{display:none}.nav-mob-cta{display:inline-flex!important}}
+.nav-mob-cta{display:none;font-family:'General Sans',sans-serif;font-size:12px;font-weight:500;color:#C77936;border:.5px solid #C77936;padding:6px 13px;border-radius:100px;text-decoration:none;white-space:nowrap;margin-left:auto;margin-right:10px;transition:background 150ms ease-out}
+.nav-mob-cta:hover{background:#FAF4EB}
+
+/* Page transitions */
+body{opacity:0.01;transition:opacity .46s cubic-bezier(0.23,1,0.32,1)}
+body.loaded{opacity:1}
+@media(max-width:900px){#calc [style*="grid-template-columns"]{grid-template-columns:1fr!important;padding:0!important}}
+@media(max-width:900px){#calc{padding:16px!important}}
+@media(max-width:900px){#cost-inactiune{padding:40px 16px!important}}
+@media(max-width:900px){#cost-inactiune [style*="grid-template-columns"]{grid-template-columns:1fr!important}}
+@media(max-width:900px){#furniture-estimator{padding:40px 16px!important}}
+@media(max-width:900px){#furniture-estimator>div{padding:24px!important}}
+.nav-mobile{display:flex;position:fixed;top:0;left:0;right:0;background:#FDFAF6;border-bottom:.5px solid #EDE5D8;padding:16px 20px;flex-direction:column;gap:4px;z-index:var(--z-mobile-menu);overscroll-behavior:contain;opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity 260ms cubic-bezier(0.23,1,0.32,1),transform 260ms cubic-bezier(0.23,1,0.32,1),visibility 0s linear 260ms}
+.nav-mobile a{font-family:'General Sans',sans-serif;font-size:15px;color:var(--muted);text-decoration:none;padding:12px 0;border-bottom:.5px solid #EDE5D8;display:block;transition:color 150ms ease-out}
+.nav-mobile a:last-child{border-bottom:none}.nav-mobile a:active{color:var(--brand)}
+.nav-mobile.open{opacity:1;visibility:visible;transform:none;transition:opacity 260ms cubic-bezier(0.23,1,0.32,1),transform 260ms cubic-bezier(0.23,1,0.32,1),visibility 0s linear 0s}
+/* Disable image right-click */
+img{-webkit-user-drag:none;user-drag:none}
+@media(max-width:500px){
+  .tbns{flex-wrap:wrap}
+  .tbn{flex:none;width:calc(50% - 4px)}
+}
+@media(max-width:768px){
+  .sc-tbl th:nth-child(3),.sc-tbl td:nth-child(3),
+  .sc-tbl th:nth-child(4),.sc-tbl td:nth-child(4){display:none}
+  .crh{flex-direction:column;gap:4px}
+  .diff-block{flex-direction:column;gap:8px;text-align:center}
+  .diff-v{font-size:24px}
+}
+.nav-hamburger{display:none}
+@media(max-width:900px){#rental-kit-teaser [style*="grid-template-columns:1fr 1fr"]{display:flex!important;flex-direction:column!important;gap:40px!important}}
+@media(max-width:900px){#rental-kit-teaser{padding:0!important}}
+@media(max-width:900px){#rental-kit-teaser>div>div:first-child{padding:40px 16px 32px!important}}
+@media(max-width:900px){#rental-kit-teaser img{width:100%!important;max-width:100%!important;margin:0!important;display:block}}
+@media(max-width:600px){#rental-kit-teaser svg{width:14px!important;height:14px!important;flex-shrink:0}}
+
+.ba-photos { position: relative; overflow: hidden; }
+.ba-overlay {
+  position: absolute; inset: 0;
+  background: rgba(45,40,32,0);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.25s;
+}
+.ba-overlay span {
+  color: #FDFAF6; font-size: 14px; font-weight: 500;
+  background: rgba(199,121,54,0.92);
+  padding: 10px 22px; border-radius: 100px;
+  opacity: 0; transform: translateY(6px);
+  transition: opacity 200ms ease-out, transform 200ms cubic-bezier(0.23,1,0.32,1);
+}
+.ba:hover .ba-overlay { background: rgba(45,40,32,0.38); }
+.ba:hover .ba-overlay span { opacity: 1; transform: translateY(0); }
+.ba { cursor: pointer; }
+/* Butonul de limbă + meniul hamburger (aceleași reguli pe care le injectează lang.js;
+   sunt aici ca nav-ul să arate corect înainte să se încarce lang.js) */
+.lang-toggle-btn{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:#C77936;border:.5px solid #E8D5BC;background:transparent;padding:5px 11px;border-radius:100px;cursor:pointer;letter-spacing:.04em;transition:background 150ms ease,border-color 150ms ease;flex-shrink:0}
+.lang-toggle-btn:hover{background:#FAF4EB;border-color:#C77936}
+.lang-toggle-btn:focus-visible{outline:2px solid #C77936;outline-offset:3px;border-radius:100px}
+.lang-mob{display:none!important}
+@media(max-width:768px){.lang-mob{display:inline-flex!important;margin-left:auto;margin-right:2px}.lang-mob+#nav-hamburger{margin-left:0!important}}
+#nav-hamburger span{border-radius:2px;transition:translate 180ms cubic-bezier(0.23,1,0.32,1) 160ms,rotate 220ms cubic-bezier(0.23,1,0.32,1) 0ms,opacity 120ms ease 140ms}
+#nav-hamburger[aria-expanded="true"] span{transition:translate 180ms cubic-bezier(0.23,1,0.32,1) 0ms,rotate 260ms cubic-bezier(0.34,1.4,0.64,1) 170ms,opacity 120ms ease 60ms}
+#nav-hamburger[aria-expanded="true"] span:nth-child(1){translate:0 7px;rotate:45deg}
+#nav-hamburger[aria-expanded="true"] span:nth-child(2){opacity:0}
+#nav-hamburger[aria-expanded="true"] span:nth-child(3){translate:0 -7px;rotate:-45deg}
+@media(prefers-reduced-motion:reduce){#nav-hamburger span{transition:none!important}}
+/* ── HERO STAGGER ── */
+@keyframes heroIn{from{opacity:0;transform:translateY(18px) scale(0.975);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+.hero-l>*{animation:heroIn 560ms cubic-bezier(0.23,1,0.32,1) both}
+.hero-l>*:nth-child(1){animation-delay:.06s}
+.hero-l>*:nth-child(2){animation-delay:.14s}
+.hero-l>*:nth-child(3){animation-delay:.22s}
+.hero-l>*:nth-child(4){animation-delay:.30s}
+.hero-l>*:nth-child(5){animation-delay:.38s}
+/* ── SCROLL REVEAL ── */
+.sr{opacity:0;transform:translateY(24px) scale(0.98);filter:blur(4px);will-change:transform,opacity,filter;transition:opacity 620ms cubic-bezier(0.23,1,0.32,1),transform 620ms cubic-bezier(0.23,1,0.32,1),filter 500ms ease}
+.sr.in{opacity:1;transform:none;filter:none;will-change:auto}
+@media(prefers-reduced-motion:reduce){.hero-l>*,.sr{animation:none!important;opacity:1!important;transform:none!important;filter:none!important}.sr{transition:opacity 200ms ease-out!important}.hero-badge,.sec-tag .dot,.hero-dot,.con-scarcity b,.con-scarcity .csi-hand{animation:none!important}}
+@media(max-width:600px){.sr{filter:none}.sr.in{filter:none}}
+/* ── TEXT SELECTION ── */
+::selection{background:#C77936;color:#FDFAF6}
+
+/* ── FOCUS VISIBLE ── */
+.skip-link{position:absolute;left:-9999px;top:4px;z-index:var(--z-skip);background:var(--bg);color:var(--brand);padding:8px 18px;border-radius:0 0 8px 8px;font-size:13px;font-weight:500;border:1px solid var(--brand-border);text-decoration:none}
+.skip-link:focus{left:4px}
+.btn-primary:focus-visible,.con-p:focus-visible,.nav-cta:focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:100px}
+.btn-ghost:focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:4px}
+.tbn:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:8px}
+.fi:focus-visible{outline:2px solid var(--brand);outline-offset:4px;border-radius:4px}
+.nav-links a:focus-visible{outline:2px solid var(--brand);outline-offset:4px;border-radius:2px}
+.port-cta:focus-visible{outline:2px solid var(--brand);outline-offset:4px;border-radius:12px}
+a.cc:focus-visible{outline:2px solid var(--brand);outline-offset:4px;border-radius:12px}
+#btt:focus-visible{outline:2px solid var(--brand);outline-offset:4px}
+
+/* ── TOUCH ── */
+button,a,.tbn,.fi{touch-action:manipulation}
+
+/* ── ACTIVE STATES ── */
+.btn-primary:active,.con-p:active{transform:scale(0.97);transition-duration:80ms}
+.pkg:active{transform:scale(0.99);transition-duration:60ms}
+.ba:active{transform:scale(0.99);transition-duration:60ms}
+.reason:active{background:var(--brand-light)}
+.fi:active .fq{opacity:.7}
+.stat:active{background:var(--brand-light)}
+
+/* ── ASYMMETRIC HOVER — intru rapid, ies lent ── */
+.pkg{transition:box-shadow 200ms cubic-bezier(0.23,1,0.32,1),transform 200ms cubic-bezier(0.23,1,0.32,1),border-radius 360ms cubic-bezier(0.23,1,0.32,1)}
+.pkg:not(:hover){transition:box-shadow 400ms ease,transform 400ms ease,border-radius 420ms ease}
+.ba{transition:box-shadow 200ms cubic-bezier(0.23,1,0.32,1),transform 200ms cubic-bezier(0.23,1,0.32,1),border-radius 360ms cubic-bezier(0.23,1,0.32,1)}
+.ba:not(:hover){transition:box-shadow 400ms ease,transform 400ms ease,border-radius 420ms ease}
+/* Squircle morph — colțul din dreapta-jos crește lin spre forma semnătură (vezi hero-visual) */
+.pkg:hover{border-radius:16px 16px 46px 16px}
+.tc{transition:box-shadow 200ms cubic-bezier(0.23,1,0.32,1)}
+.tc:not(:hover){transition:box-shadow 400ms ease}
+/* ── DIFF SMOOTH (no reflow trick) ── */
+
+
+/* ── SLIDING PILL ── */
+.tbns{position:relative}
+.tbn{position:relative;z-index:1}
+/* Curbă spring — pill-ul depășește ușor ținta și revine, ca un element fizic cu inerție */
+.tbn-pill{position:absolute;background:#FDFAF6;border-radius:7px;pointer-events:none;z-index:0;top:0;left:0;transition:left 420ms cubic-bezier(0.34,1.56,0.64,1),top 420ms cubic-bezier(0.34,1.56,0.64,1),width 420ms cubic-bezier(0.34,1.56,0.64,1),height 420ms cubic-bezier(0.34,1.56,0.64,1)}
+.tbn:active{transform:scale(0.97);transition:transform 80ms}
+@media not all and (hover:hover){
+  .btn-primary:hover,.con-p:hover{transform:none}
+  .pkg:hover,.ba:hover{transform:none;box-shadow:none}
+  .port-cta:hover{transform:none}
+}
+.pkg-price .count-anim{font-size:inherit;font-weight:inherit;color:inherit;letter-spacing:inherit}
+.rk-item{align-items:flex-start!important}
+.rk-item svg{margin-top:2px;flex-shrink:0}
+
+/* ── ENHANCED MOTION v2 ── */
+/* Stat hover lift */
+.stat{transition:background 180ms ease,transform 220ms cubic-bezier(0.23,1,0.32,1)}
+.stat:hover{transform:translateY(-2px)}
+/* Reason slide on hover */
+.reason{transition:background 150ms ease-out,transform 240ms cubic-bezier(0.23,1,0.32,1)}
+.reason:hover{transform:translateX(5px)}
+/* Contact card lift */
+.cc{transition:background .15s,transform 220ms cubic-bezier(0.23,1,0.32,1),box-shadow 220ms ease}
+.cc:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.15)}
+/* Team card lift */
+.tc{transition:box-shadow 260ms cubic-bezier(0.23,1,0.32,1),transform 260ms cubic-bezier(0.23,1,0.32,1)}
+.tc:hover{box-shadow:0 18px 52px rgba(45,40,32,.1);transform:translateY(-4px)}
+/* Process card lift */
+.pc{transition:background 200ms cubic-bezier(0.23,1,0.32,1),transform 200ms cubic-bezier(0.23,1,0.32,1)}
+.pc:hover{transform:translateY(-3px)}
+/* Portfolio CTA slide */
+.port-cta{transition:background 200ms cubic-bezier(0.23,1,0.32,1),border-color 200ms cubic-bezier(0.23,1,0.32,1),transform 220ms cubic-bezier(0.23,1,0.32,1)}
+.port-cta:hover{transform:translateX(5px)}
+/* Portfolio card deeper shadow */
+.ba:hover{box-shadow:0 14px 44px rgba(45,40,32,.11);transform:translateY(-4px)}
+/* Package deeper hover */
+.pkg:hover{box-shadow:0 22px 60px rgba(45,40,32,.13);transform:translateY(-6px)}
+/* Fit card hover */
+.fc{transition:box-shadow 200ms cubic-bezier(0.23,1,0.32,1),transform 200ms cubic-bezier(0.23,1,0.32,1)}
+.fc:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(45,40,32,.20)}
+/* Testimonial card hover */
+.tec{transition:box-shadow 220ms cubic-bezier(0.23,1,0.32,1),transform 220ms cubic-bezier(0.23,1,0.32,1)}
+.tec:hover{box-shadow:0 12px 40px rgba(45,40,32,.28);transform:translateY(-3px)}
+/* Nav link underline slide */
+.nav-links a{position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--brand);transform:scaleX(0);transform-origin:right;transition:transform 270ms cubic-bezier(0.23,1,0.32,1)}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+/* Hero badge glow pulse */
+@keyframes badgePulse{0%,100%{box-shadow:0 4px 16px rgba(45,40,32,.06)}55%{box-shadow:0 8px 40px rgba(15,110,86,.22)}}
+.hero-badge{animation:badgePulse 4.2s ease-in-out infinite}
+/* Section dot pulse */
+@keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.7)}}
+.sec-tag .dot,.hero-dot{animation:dotPulse 2.8s ease-in-out infinite}
+/* Premium shimmer on hover */
+.pkg-pre{position:relative}
+.pkg-pre::after{content:'';position:absolute;top:0;left:-90%;width:55%;height:100%;background:linear-gradient(105deg,transparent 0%,rgba(255,255,255,.1) 50%,transparent 100%);transform:skewX(-18deg);transition:left 750ms cubic-bezier(0.23,1,0.32,1);pointer-events:none;z-index:1}
+.pkg-pre:hover::after{left:190%}
+/* Back-to-top hover */
+#btt:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(199,121,54,.42)!important}
+/* WhatsApp floating (mobil) */
+.wa-float{display:none;position:fixed;bottom:24px;left:24px;width:52px;height:52px;background:#25D366;border-radius:50%;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.35);z-index:var(--z-float);text-decoration:none;transition:transform .2s,box-shadow .2s}
+.wa-float:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(37,211,102,.45)}
+@media(max-width:768px){.wa-float{display:flex}}
+#wa-modal{display:none;position:fixed;inset:0;z-index:var(--z-modal)}#wa-modal.open{display:block}#wa-overlay{position:absolute;inset:0;background:rgba(45,40,32,.45)}#wa-box{position:absolute;bottom:88px;left:16px;width:280px;background:#FDFAF6;border:.5px solid #EDE5D8;border-radius:16px;box-shadow:0 12px 40px rgba(45,40,32,.18);overflow:hidden;font-family:'General Sans',sans-serif}#wa-head{display:flex;align-items:center;justify-content:space-between;padding:13px 16px 11px;border-bottom:.5px solid #EDE5D8}#wa-title{font-size:12px;font-weight:600;color:#2D2820;letter-spacing:.02em}#wa-close{background:none;border:none;cursor:pointer;color:#8B7D6B;font-size:20px;line-height:1;padding:0;width:24px;height:24px;display:flex;align-items:center;justify-content:center}.wa-opt{display:block;width:100%;text-align:left;padding:11px 16px;background:none;border:none;border-bottom:.5px solid #EDE5D8;cursor:pointer;font-size:13px;color:#2D2820;font-family:'General Sans',sans-serif;line-height:1.4;transition:background .15s}.wa-opt:hover{background:#F5EFE6}#wa-custom-wrap{padding:12px 16px 14px;border-top:.5px solid #EDE5D8}#wa-custom-lbl{font-size:11px;color:#8B7D6B;margin:0 0 7px}#wa-custom-ta{width:100%;box-sizing:border-box;border:.5px solid #EDE5D8;border-radius:8px;padding:8px 10px;font-size:12px;font-family:'General Sans',sans-serif;color:#2D2820;background:#fff;resize:none;outline:none;line-height:1.5;display:block}#wa-custom-ta:focus{border-color:#C77936}#wa-send-btn{margin-top:8px;width:100%;background:#25D366;color:#FDFAF6;border:none;border-radius:8px;padding:9px 0;font-size:12px;font-weight:600;cursor:pointer;font-family:'General Sans',sans-serif}
+/* WA modal — design nou (stil calculator) */
+#wa-overlay{background:rgba(45,40,32,.32);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+#wa-box{width:300px;border:none;border-radius:20px;box-shadow:0 16px 48px rgba(45,40,32,.18);padding:8px}
+#wa-head{border-bottom:none;padding:14px 12px 10px 14px}
+#wa-title{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--light)}
+#wa-close{width:30px;height:30px;border-radius:50%;background:#F5EFE6;color:#7A6E62;font-size:18px;transition:background 180ms cubic-bezier(0.23,1,0.32,1)}
+#wa-close:hover{background:#EDE5D8;color:#2D2820}
+#wa-opts{display:grid;gap:2px}
+.wa-opt{border-bottom:none;border-radius:12px;padding:12px 14px;font-size:14px;transition:background 180ms cubic-bezier(0.23,1,0.32,1)}
+.wa-opt:hover{background:#F5EFE6}
+#wa-custom-wrap{border-top:none;margin-top:6px;padding:12px 6px 6px;background:none}
+#wa-custom-lbl{font-size:12px;color:var(--light);margin:0 8px 8px}
+#wa-custom-ta{border:none;border-radius:14px;background:#F5EFE6;padding:11px 14px;font-size:13px;transition:background 180ms,box-shadow 180ms}
+#wa-custom-ta:focus{background:#fff;box-shadow:0 0 0 1.5px #C77936}
+#wa-send-btn{border-radius:100px;padding:12px 0;font-size:13px;font-weight:500;transition:transform 150ms cubic-bezier(0.23,1,0.32,1),filter 180ms}
+#wa-send-btn:hover{filter:brightness(.94);transform:translateY(-1px)}
+#wa-send-btn:active{transform:scale(.97)}
+/* Hero image parallax hint */
+.hero-visual img{transition:transform 0ms linear}
+/* Testimonial cs box subtle lift */
+.cs{transition:box-shadow 250ms cubic-bezier(0.23,1,0.32,1)}
+.cs:hover{box-shadow:0 8px 32px rgba(45,40,32,.07)}
+.te-q{background:var(--bg);border:none;border-radius:16px;padding:32px;box-shadow:0 2px 16px rgba(45,40,32,.16);transition:box-shadow 250ms cubic-bezier(0.23,1,0.32,1)}
+.te-q:hover{box-shadow:0 8px 28px rgba(45,40,32,.22)}
+.te-q p{font-size:13px;color:var(--mid);line-height:1.8;font-style:italic;margin-bottom:14px}
+
+/* ── CALCULATOR ANIMATIONS ── */
+/* Range thumb feel */
+input[type=range]::-webkit-slider-thumb{transition:transform 120ms cubic-bezier(0.23,1,0.32,1),box-shadow 150ms ease}
+input[type=range]:hover::-webkit-slider-thumb{box-shadow:0 3px 14px rgba(199,121,54,.38)}
+input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shadow:0 4px 18px rgba(199,121,54,.45)}
+/* Starea "live" — valorile se estompează în timp ce user-ul ține apăsat pe slider */
+.cr-sv.calc-live{opacity:0.42;transition:opacity 100ms ease}
+/* Label strong flash (color only — pentru afișarea valorii curente la drag) */
+@keyframes labelPop{0%{color:#C77936}55%{color:#a8622a}100%{color:var(--text)}}
+.label-pop{animation:labelPop 380ms ease}
+/* Diff block ring glow — se activează la schimbări de tip/oraș/ani */
+@keyframes diffPulse{0%{box-shadow:0 2px 16px rgba(45,40,32,.16)}45%{box-shadow:0 0 0 7px rgba(15,110,86,.11),0 4px 20px rgba(15,110,86,.09)}100%{box-shadow:0 2px 16px rgba(45,40,32,.16)}}
+.diff-pulse{animation:diffPulse 620ms cubic-bezier(0.23,1,0.32,1)}
+@keyframes lossPulse{0%{box-shadow:0 2px 16px rgba(45,40,32,.16)}45%{box-shadow:0 0 0 7px rgba(133,79,11,.13),0 4px 20px rgba(133,79,11,.10)}100%{box-shadow:0 2px 16px rgba(45,40,32,.16)}}
+.loss-pulse{animation:lossPulse 620ms cubic-bezier(0.23,1,0.32,1)}
+/* Table body transition */
+#r-tb{transition:opacity 200ms ease}
+/* Calc col entrance stagger */
+#calc>div>div:nth-child(1){transition-delay:0ms}
+#calc>div>div:nth-child(2){transition-delay:80ms}
+/* Price blur */
+.price-blur{filter:blur(8px);background:rgba(45,40,32,.12);border-radius:6px;padding:2px 10px;display:inline-block;user-select:none;pointer-events:none}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://www.rentup.solutions/#business",
+  "name": "RentUP",
+  "founder": { "@id": "https://www.rentup.solutions/#cristiana-czerwinski" },
+  "description": "Pentru proprietari care vor un chiriaș bun, pe termen lung: design interior optimizat pentru închiriere și sistem complet de selecție, contract și protocoale.",
+  "url": "https://www.rentup.solutions",
+  "logo": "https://www.rentup.solutions/favicon.webp",
+  "image": "https://www.rentup.solutions/images/opengraph_logo.webp",
+  "telephone": "+40741176865",
+  "email": "hello@rentup.solutions",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "București",
+    "addressCountry": "RO"
+  },
+  "areaServed": "București",
+  "priceRange": "€€",
+  "serviceType": "Design interior pentru închiriere",
+  "sameAs": [
+    "https://instagram.com/rentup.solutions"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://www.rentup.solutions/#cristiana-czerwinski",
+  "name": "Cristiana Czerwinski",
+  "alternateName": "Czerwinski Cristiana",
+  "givenName": "Cristiana",
+  "familyName": "Czerwinski",
+  "jobTitle": "Fondatoare",
+  "worksFor": { "@id": "https://www.rentup.solutions/#business" },
+  "url": "https://www.rentup.solutions/#about",
+  "image": "https://www.rentup.solutions/images/about%20us_cristiana.webp",
+  "description": "Fondatoarea RentUP. Absolventă a Facultății de Arhitectură „Ion Mincu” din București, cu studii extinse la Facultatea Tehnică din Viena. Din 2019 colaborează cu studiouri internaționale de top din arhitectură și vizualizare. Se concentrează pe estetică și impact vizual: cum arată un spațiu, cum se simte și cum este perceput din prima clipă.",
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Facultatea de Arhitectură „Ion Mincu” din București" },
+  "knowsAbout": ["Design interior", "Arhitectură", "Vizualizare arhitecturală", "Design pentru închiriere"],
+  "sameAs": ["https://www.linkedin.com/in/cristiana-czerwinski/"]
+}
+</script>
+<script type="speculationrules">
+{"prerender":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"https://*"}}]},"eagerness":"moderate"}]}
+</script>
+<style>
+/* Text secundar: pe fundal deschis griurile sunt mai închise (contrast 4,5:1);
+   pe secțiunile închise rămân deschise, ca să se citească. */
+#cookie-banner{--muted:#A89C90;--light:#B8AFA4}
+</style>
+</head>
+<body>
+<noscript><style>body{opacity:1}</style></noscript>
+<a class="skip-link" href="#main-content">Sari la conținut</a>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="/">Rent<span>UP</span></a>
+  <div class="nav-links">
+    <a href="/#process">Cum funcționează</a>
+    <a href="/#packages">Pachete</a>
+    <a href="portofoliu.html">Portofoliu</a>
+    <a href="rental-kit.html">Rental Kit</a>
+    
+    <a href="faq.html">FAQ</a>
+    <a href="/#contact">Contact</a>
+    <button class="lang-toggle-btn" onclick="toggleLang()" title="Switch to English">EN</button>
+  </div>
+  <button class="lang-toggle-btn lang-mob" onclick="toggleLang()" title="Switch to English">EN</button>
+  <button id="nav-hamburger" aria-label="Deschide meniul" onclick="toggleMenu()" style="display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px">
+  <span style="width:22px;height:2px;background:#C77936;display:block"></span>
+  <span style="width:22px;height:2px;background:#C77936;display:block"></span>
+  <span style="width:22px;height:2px;background:#C77936;display:block"></span>
+</button>
+<a class="nav-cta" href="audit.html">Raport de Rentabilitate →</a>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="/#process">Cum funcționează</a>
+  <a href="/#packages">Pachete</a>
+  <a href="portofoliu.html">Portofoliu</a>
+  <a href="rental-kit.html">Rental Kit</a>
+  
+  <a href="faq.html">FAQ</a>
+  <a href="/#contact">Contact</a>
+</div>
+
+<main id="main-content">
+<!-- S1 HERO -->
+<section id="hero">
+  <div class="hero-l">
+    <div class="hero-eyebrow"><div class="hero-dot"></div><a href="#process">Design interior la cheie</a></div>
+    <h1 class="hero-h1" data-en="We furnish your rental.<br><em>Your tenant stays.<br>No <span class='rot' data-words='empty months.|stress.|worries.|hassle.'>empty months.</span></em>">Îți amenajăm chiria.<br><em>Chiriașul rămâne.<br>Fără <span class="rot" data-words="luni goale.|stres.|griji.|bătăi de cap.">luni goale.</span></em></h1>
+    <div>
+      <p class="hero-sub" style="margin-bottom:14px">Pregătim apartamentul, te ajutăm să alegi chiriașul și primești toate documentele de care ai nevoie după: contract personalizat, ghiduri pentru tine și pentru chiriaș, pași clari pentru situațiile dificile.</p>
+    </div>
+    <div class="hero-btns">
+      <a class="btn-primary" href="#calc" onclick="gtag('event','click_calculator_roi')">Sunt proprietar →</a>
+      <a class="btn-primary" href="investitori.html" onclick="gtag('event','click_hero_investitori')" style="background:transparent;color:var(--brand);border:.5px solid var(--brand);transition:background 180ms cubic-bezier(0.23,1,0.32,1),transform 150ms cubic-bezier(0.23,1,0.32,1)">Sunt investitor →</a>
+    </div>
+    <p class="hero-note"><b>Consultația inițială e gratuită</b> · fără angajament</p>
+    <div class="hero-facts"><div><b>8–48 luni</b><span>recuperarea investiției, de la reamenajare la renovare completă</span></div><div><b>5 zile</b><span>până la primul chiriaș potrivit</span></div></div>
+  </div>
+  <div class="hero-r">
+    <div class="hero-visual" style="padding:0;overflow:hidden;border-radius:2px 2px 80px 2px">
+      <img src="images/hero_index.webp" srcset="images/hero_index-800.webp 800w, images/hero_index-1200.webp 1200w, images/hero_index.webp 2200w" sizes="(max-width:900px) 100vw, 50vw" alt="Before & After RentUP" width="900" height="600" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;display:block"/>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- S6 PORTFOLIO -->
+<section id="portfolio">
+  <div class="sec-tag" style="justify-content:center"><div class="dot"></div>Portofoliu</div>
+  <h2 class="sh" style="text-align:center" data-en="Real results.<br>Spaces <span class='rot' data-words='transformed.|designed for tenants.|that get rented.'>transformed.</span>">Rezultate reale.<br>Spații <span class="rot" data-words="transformate.|gândite pentru chiriaș.|care se închiriază.">transformate.</span></h2>
+  <p class="sec-sub" style="text-align:center;margin:0 auto 44px">Fiecare proiect a urmărit același obiectiv: un apartament care produce mai mult, cu mai puțin efort pentru proprietar.</p>
+  <div class="pstrip" role="region" aria-label="Proiecte din portofoliu, înainte și după">
+    <div class="ps-track">
+    <div class="ps-group">
+      <a class="ps-card" href="portofoliu.html#proiect-drumul-taberei" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/drumul-taberei-inainte.webp" data-srcset="images/strip/drumul-taberei-inainte-300.webp 300w, images/strip/drumul-taberei-inainte-450.webp 450w, images/strip/drumul-taberei-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="2 camere Drumul Taberei — înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">2 camere Drumul Taberei</span><span class="ps-cta">Vezi proiectul →</span></span></a>
+      <a class="ps-card" href="portofoliu.html#proiect-drumul-taberei" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/drumul-taberei-dupa.webp" data-srcset="images/strip/drumul-taberei-dupa-300.webp 300w, images/strip/drumul-taberei-dupa-450.webp 450w, images/strip/drumul-taberei-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="2 camere Drumul Taberei — după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">2 camere Drumul Taberei</span><span class="ps-cta">Vezi proiectul →</span></span></a>
+    </div>
+    <div class="ps-group">
+      <a class="ps-card" href="portofoliu.html#proiect-tineretului" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/tineretului-inainte.webp" data-srcset="images/strip/tineretului-inainte-300.webp 300w, images/strip/tineretului-inainte-450.webp 450w, images/strip/tineretului-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Tineretului — înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">Garsonieră Tineretului</span><span class="ps-cta">Vezi proiectul →</span></span></a>
+      <a class="ps-card" href="portofoliu.html#proiect-tineretului" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/tineretului-dupa.webp" data-srcset="images/strip/tineretului-dupa-300.webp 300w, images/strip/tineretului-dupa-450.webp 450w, images/strip/tineretului-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Tineretului — după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">Garsonieră Tineretului</span><span class="ps-cta">Vezi proiectul →</span></span></a>
+    </div>
+    <div class="ps-group">
+      <a class="ps-card" href="portofoliu.html#proiect-floreasca" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/floreasca-inainte.webp" data-srcset="images/strip/floreasca-inainte-300.webp 300w, images/strip/floreasca-inainte-450.webp 450w, images/strip/floreasca-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="2 camere Floreasca — înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">2 camere Floreasca</span><span class="ps-cta">Vezi proiectul →</span></span></a>
+      <a class="ps-card" href="portofoliu.html#proiect-floreasca" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/floreasca-dupa.webp" data-srcset="images/strip/floreasca-dupa-300.webp 300w, images/strip/floreasca-dupa-450.webp 450w, images/strip/floreasca-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="2 camere Floreasca — după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">2 camere Floreasca</span><span class="ps-cta">Vezi proiectul →</span></span></a>
+    </div>
+    <div class="ps-group">
+      <a class="ps-card" href="portofoliu.html#proiect-aviatiei" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/aviatiei-dupa.webp" data-srcset="images/strip/aviatiei-dupa-300.webp 300w, images/strip/aviatiei-dupa-450.webp 450w, images/strip/aviatiei-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Apartament Aviației — după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">Apartament Aviației</span><span class="ps-cta">Vezi proiectul →</span></span></a>
+    </div>
+    <div class="ps-group">
+      <a class="ps-card" href="portofoliu.html#proiect-dormitor-matrimonial" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/dormitor-matrimonial-inainte.webp" data-srcset="images/strip/dormitor-matrimonial-inainte-300.webp 300w, images/strip/dormitor-matrimonial-inainte-450.webp 450w, images/strip/dormitor-matrimonial-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Dormitor Matrimonial — înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">Dormitor Matrimonial</span><span class="ps-cta">Vezi proiectul →</span></span></a>
+      <a class="ps-card" href="portofoliu.html#proiect-dormitor-matrimonial" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/dormitor-matrimonial-dupa.webp" data-srcset="images/strip/dormitor-matrimonial-dupa-300.webp 300w, images/strip/dormitor-matrimonial-dupa-450.webp 450w, images/strip/dormitor-matrimonial-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Dormitor Matrimonial — după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">Dormitor Matrimonial</span><span class="ps-cta">Vezi proiectul →</span></span></a>
+    </div>
+    <div class="ps-group">
+      <a class="ps-card" href="portofoliu.html#proiect-garsoniera-drumul-taberei" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/garsoniera-drumul-taberei-inainte.webp" data-srcset="images/strip/garsoniera-drumul-taberei-inainte-300.webp 300w, images/strip/garsoniera-drumul-taberei-inainte-450.webp 450w, images/strip/garsoniera-drumul-taberei-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Drumul Taberei — înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">Garsonieră Drumul Taberei</span><span class="ps-cta">Vezi proiectul →</span></span></a>
+      <a class="ps-card" href="portofoliu.html#proiect-garsoniera-drumul-taberei" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/garsoniera-drumul-taberei-dupa.webp" data-srcset="images/strip/garsoniera-drumul-taberei-dupa-300.webp 300w, images/strip/garsoniera-drumul-taberei-dupa-450.webp 450w, images/strip/garsoniera-drumul-taberei-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Drumul Taberei — după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">Garsonieră Drumul Taberei</span><span class="ps-cta">Vezi proiectul →</span></span></a>
+    </div>
+    <div class="ps-group">
+      <a class="ps-card" href="portofoliu.html#proiect-vatra-luminoasa" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/vatra-luminoasa-inainte.webp" data-srcset="images/strip/vatra-luminoasa-inainte-300.webp 300w, images/strip/vatra-luminoasa-inainte-450.webp 450w, images/strip/vatra-luminoasa-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Vatra Luminoasă — înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">Garsonieră Vatra Luminoasă</span><span class="ps-cta">Vezi proiectul →</span></span></a>
+      <a class="ps-card" href="portofoliu.html#proiect-vatra-luminoasa" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/vatra-luminoasa-dupa.webp" data-srcset="images/strip/vatra-luminoasa-dupa-300.webp 300w, images/strip/vatra-luminoasa-dupa-450.webp 450w, images/strip/vatra-luminoasa-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Vatra Luminoasă — după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">Garsonieră Vatra Luminoasă</span><span class="ps-cta">Vezi proiectul →</span></span></a>
+    </div>
+    </div>
+  </div>
+  <a class="port-cta" href="portofoliu.html" style="max-width:860px;margin:0 auto">
+    <div>
+      <div class="port-cta-l">Vezi toate proiectele</div>
+      <div class="port-cta-sub"><span id="port-count">7</span> proiecte finalizate · Before & after complet · Statistici detaliate</div>
+    </div>
+    <div class="port-cta-arrow">→</div>
+  </a>
+</section>
+
+
+<!-- S2 CALCULATOR -->
+<section id="calc">
+  <div class="cx-wrap">
+    <div class="sec-tag"><div class="dot"></div>Calculator</div>
+    <h2 class="sh cx-h">Cât pierzi când apartamentul stă gol <span style="white-space:nowrap">între chiriași?</span></h2>
+
+    <div class="cx-grid cx-grid-t">
+      <div id="cx-inputs">
+        <div class="cx-seg cx-tabs" data-tabs><span class="cx-ind" aria-hidden="true"></span>
+          <button type="button" aria-pressed="true" data-tab="loss">Cât te-a costat</button>
+          <button type="button" aria-pressed="false" data-tab="gain">Cât ai câștiga</button>
+        </div>
+        <div class="cx-panes">
+        <div data-pane="loss">
+          <div class="cx-fg"><div class="cx-fl">De câte ori ai schimbat chiriașul în ultimii 5 ani</div>
+            <div class="cx-seg" data-seg="ch"><span class="cx-ind" aria-hidden="true"></span>
+              <button type="button" aria-pressed="false" data-v="0">0</button>
+              <button type="button" aria-pressed="false" data-v="1">1</button>
+              <button type="button" aria-pressed="true" data-v="2">2</button>
+              <button type="button" aria-pressed="false" data-v="3">3</button>
+              <button type="button" aria-pressed="false" data-v="4">4+</button>
+            </div>
+          </div>
+          <div class="cx-fg"><label class="cx-fl" for="vac-s">Câte luni a stat gol, în total<b id="vac-d">3 luni</b></label>
+            <input type="range" id="vac-s" min="0" max="24" value="3" step="1" aria-label="Câte luni a stat gol apartamentul, în total">
+          </div>
+          <div data-slot="rent">
+            <div class="cx-fg" id="cx-rentf"><label class="cx-fl" for="re-s">Chiria actuală<b id="re-d">450€/lună</b></label>
+              <input type="range" id="re-s" min="150" max="1500" value="450" step="10" aria-label="Chiria actuală">
+            </div>
+          </div>
+          <div class="cx-fg"><label class="cx-fl" for="rep-i">Cât ai dat pe reparații și curățenie după un chiriaș<span class="cx-opt">opțional</span></label>
+            <div class="cx-num"><input type="number" id="rep-i" min="0" step="50" inputmode="numeric" placeholder="nu știu"><span>€</span></div>
+          </div>
+        </div>
+        <div data-pane="gain" class="off">
+          <div class="cx-fg"><div class="cx-fl">Oraș</div>
+            <div class="cx-seg" data-seg="city"><span class="cx-ind" aria-hidden="true"></span>
+              <button type="button" aria-pressed="true" data-v="buc">București</button>
+              <button type="button" aria-pressed="false" data-v="cj">Cluj</button>
+              <button type="button" aria-pressed="false" data-v="bv">Brașov</button>
+            </div>
+          </div>
+          <div class="cx-fg"><div class="cx-fl">Tip proprietate</div>
+            <div class="cx-seg" data-seg="type"><span class="cx-ind" aria-hidden="true"></span>
+              <button type="button" aria-pressed="true" data-v="g">Garsonieră</button>
+              <button type="button" aria-pressed="false" data-v="c2">2 camere</button>
+              <button type="button" aria-pressed="false" data-v="c3">3 camere</button>
+            </div>
+          </div>
+          <div class="cx-fg"><div class="cx-fl">Orizont de timp</div>
+            <div class="cx-seg" data-seg="years"><span class="cx-ind" aria-hidden="true"></span>
+              <button type="button" aria-pressed="true" data-v="5">5 ani</button>
+              <button type="button" aria-pressed="false" data-v="10">10 ani</button>
+            </div>
+          </div>
+          <div data-slot="rent"></div>
+          <p class="cx-cap2">Lunile goale și reparațiile vin din ce ai completat la „Cât te-a costat”.</p>
+        </div>
+        </div>
+        <p class="disc cx-disc" id="cx-disc">* Calculul folosește doar cifrele introduse de tine. Nu include timpul tău, anunțurile sau comisioanele.</p>
+      </div>
+
+      <div>
+        <div class="cx-res" id="cx-res" aria-live="polite">
+          <div class="cx-panes">
+          <div data-pane="loss">
+            <div class="cx-res-l">Te-a costat în ultimii 5 ani</div>
+            <div class="cx-big" id="cx-big">0€</div>
+            <div class="cx-src-l">Unde s-au dus banii</div>
+            <dl class="cx-src" id="cx-src"></dl>
+            <p class="cx-pay" id="cx-note"></p>
+          </div>
+          <div data-pane="gain" class="off">
+            <div class="cx-res-l" id="cx-gain-l">Câștig în plus în 5 ani</div>
+            <div class="cx-big cx-gain" id="cx-gain">+0€</div>
+            <div class="cx-rent"><span class="cx-from" id="g-cur">450€</span><span class="cx-arr">→</span><span id="g-opt">450€</span><span class="cx-unit" id="g-unit">/lună</span></div>
+            <div class="cx-bars">
+              <div><div class="cx-bar-h"><span>Ca până acum</span><b id="g-nb">—</b></div><div class="cx-track"><div class="cx-fill" id="g-fb"></div></div></div>
+              <div><div class="cx-bar-h"><span>Cu chiriaș care rămâne</span><b id="g-ng">—</b></div><div class="cx-track"><div class="cx-fill cx-good" id="g-fg"></div></div></div>
+            </div>
+            <div class="cx-src-l">De unde vine câștigul</div>
+            <dl class="cx-src" id="g-src"></dl>
+            <button class="cx-more-btn" type="button" aria-expanded="false">Vezi cum am calculat<span class="cx-plus" aria-hidden="true"></span></button>
+            <div class="cx-more"><div class="cx-more-in">
+              <table class="cx-det">
+                <thead><tr><th>Scenariu</th><th>Luni goale</th><th>Reparații</th><th>Chirie</th><th>Venit net</th></tr></thead>
+                <tbody id="g-tb"></tbody>
+              </table>
+              <p class="cx-cap2 cx-how" id="g-how"></p>
+            </div></div>
+          </div>
+          </div>
+          <a class="btn-primary cx-btn" href="#contact">Vorbim despre apartamentul tău →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cx-peek" id="cx-peek" aria-hidden="true"><span id="cx-peek-l">Te-a costat în 5 ani</span><b id="cx-peek-v">0€</b></div>
+</section>
+
+
+<!-- S3 ABOUT -->
+<section id="about">
+  <div style="max-width:960px;margin:0 auto;text-align:center">
+  <div class="sec-tag" style="justify-content:center"><div class="dot"></div>Despre noi</div>
+  <h2 class="sh">Nu facem doar design.<br>Optimizăm active imobiliare.</h2>
+  <p class="sec-sub" style="margin:0 auto 44px">Misiunea noastră este să transformăm apartamentele obișnuite în active stabile și profitabile. Nu ne concentrăm doar pe estetică, ci pe performanța reală a spațiului în timp.</p>
+  <div class="team-g" style="text-align:left;max-width:860px;margin:0 auto">
+    <div class="tc">
+      <div class="tc-photo" style="padding:0;overflow:hidden"><img src="images/about us_cristiana.webp" srcset="images/about-us_cristiana-800.webp 800w, images/about-us_cristiana-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="Czerwinski Cristiana, Co-fondator RentUP" width="600" height="380" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></div>
+      <div class="tc-body">
+        <div class="tc-role">Co-fondator</div>
+        <div class="tc-name">Czerwinski Cristiana</div>
+        <p class="tc-bio">Absolventă a Facultății de Arhitectură "Ion Mincu" din București, cu studii extinse la Facultatea Tehnică din Viena. Din 2019 colaborez cu studiouri internaționale de top din arhitectură și vizualizare.</p>
+        <p class="tc-bio" style="margin-top:10px">Mă concentrez pe estetică și impact vizual: cum arată un spațiu, cum se simte și cum este perceput din prima clipă. Lucrez intuitiv și experimental, explorând direcții vizuale îndrăznețe și memorabile.</p>
+        <p class="tc-bio" style="margin-top:10px;font-style:italic;color:var(--brand)">Am văzut destule apartamente închiriate prost ca să știu exact ce face diferența dintre un chiriaș care rămâne 3 ani și unul care pleacă în 6 luni.</p>
+      </div>
+    </div>
+    <div class="tc">
+      <div class="tc-photo" style="padding:0;overflow:hidden"><img src="images/about us_catalina.webp" srcset="images/about-us_catalina-800.webp 800w, images/about-us_catalina-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="Avram Cătălina, Co-fondator RentUP" width="600" height="380" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;transform:scale(1.16);transform-origin:center 5%"></div>
+      <div class="tc-body">
+        <div class="tc-role">Co-fondator</div>
+        <div class="tc-name">Avram Cătălina</div>
+        <p class="tc-bio">Absolventă a Facultății de Arhitectură "Ion Mincu" din București, cu experiență construită lucrând cu numeroși proprietari care au ales să investească în apartamentele lor pentru a le crește valoarea și funcționalitatea.</p>
+        <p class="tc-bio" style="margin-top:10px">Abordarea mea este serioasă și orientată spre rezultate reale. Pun accent pe organizare, logică și soluții durabile, pe spații care nu doar arată bine, ci funcționează corect în timp.</p>
+        <p class="tc-bio" style="margin-top:10px;font-style:italic;color:var(--brand)">Cunosc proprietari care au cheltuit 10.000€ pe renovare și după 2 ani totul arăta uzat. Nu materialele erau problema, erau alegerile.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CE OFERIM -->
+  </div>
+</section>
+
+
+
+
+
+<!-- S5 PROCESS -->
+<section id="process">
+  <div class="sec-tag"><div class="dot"></div>Cum funcționează</div>
+  <h2 class="sh">Un proces clar. Fără surprize.</h2>
+  <p class="sec-sub">După Raportul de Rentabilitate inițial (livrat în 72h), pornește acest proces clar în 4 pași: de la prima discuție până la apartamentul gata de listare.</p>
+  <div class="proc-g">
+    <div class="pc"><div class="pc-n">01</div><div class="pc-t">Discuție inițială & vizionarea imobilului</div><div class="pc-d">Vizionăm imobilul, înțelegem spațiul, obiectivul de închiriere, bugetul și publicul țintă. Fără brief standard, deoarece fiecare proprietate e diferită.</div><span class="pc-time">2–5 zile</span><div class="pc-get"><b>Primești:</b> plan de etape confirmat și măsurători ale spațiului</div></div>
+    <div class="pc"><div class="pc-n">02</div><div class="pc-t">Concept & direcție</div><div class="pc-d">Propunem direcția estetică și funcțională. Tu confirmi direcția înainte să mergem mai departe. Ce aprobăm azi nu se schimbă mâine.</div><span class="pc-time">1–2 săptămâni</span><div class="pc-get"><b>Primești:</b> 2 direcții de design + moodboard</div></div>
+    <div class="pc"><div class="pc-n">03</div><div class="pc-t">Design & vizualizare</div><div class="pc-d">Planuri detaliate, Listă de achiziții și documentație tehnică, randări fotorealiste. Vezi exact cum va arăta spațiul înainte să cumperi ceva.</div><span class="pc-time">3–5 săptămâni</span><div class="pc-get"><b>Primești:</b> planuri 2D, randări fotorealiste, listă de achiziții și documentație tehnică</div></div>
+    <div class="pc"><div class="pc-n">04</div><div class="pc-t">Livrare & piață</div><div class="pc-d">Rental Kit complet, staging și fotografii profesionale, listare pe platforme. Apartamentul intră pe piață pregătit.</div><span class="pc-time">etapa finală</span><div class="pc-get"><b>Primești:</b> Rental Kit, fotografii profesionale și anunț live</div></div>
+  </div>
+  <div class="proc-timeline">
+    <div class="pt-item"><span class="pt-dot"></span><div class="pt-label">Brief confirmat</div><div class="pt-time">2–5 zile</div></div>
+    <div class="pt-item"><span class="pt-dot"></span><div class="pt-label">Direcție aprobată</div><div class="pt-time">1–2 săpt</div></div>
+    <div class="pt-item"><span class="pt-dot"></span><div class="pt-label">Randări finale</div><div class="pt-time">3–5 săpt</div></div>
+    <div class="pt-item"><span class="pt-dot"></span><div class="pt-label">Apartament listat</div><div class="pt-time">etapa finală</div></div>
+  </div>
+  <div class="proc-total">
+    <span class="proc-total-chip"><b>Design de Interior:</b> 2–6 săpt.</span>
+    <span class="proc-total-chip"><b>Quick Win:</b> 1–2 săpt.</span>
+    <span class="proc-total-chip"><b>Invest Premium:</b> 8–12 săpt.</span>
+  </div>
+  <p style="text-align:center;font-size:12px;color:var(--muted);margin-top:12px">Durate medii orientative. Variabila principală e viteza de feedback și disponibilitatea furnizorilor.</p>
+</section>
+
+
+
+<!-- RENTAL KIT TEASER -->
+<section id="rental-kit-teaser" style="padding:80px 0 0 56px;background:var(--bg);overflow:hidden">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:stretch">
+    <div style="padding-bottom:80px">
+      <div class="sec-tag"><div class="dot"></div>Rental Kit</div>
+      <h2 class="sh" data-en="The landlord's peace of mind has <span class='rot' data-words='a recipe.|a system.|a plan.'>a recipe.</span>">Liniștea proprietarului are <span class="rot" data-words="o rețetă.|un sistem.|un plan.">o rețetă.</span></h2>
+      <p style="font-size:16px;color:var(--muted);line-height:1.75;margin-bottom:20px">Designul aduce chiriașul potrivit. <strong style="color:var(--text)">Rental Kit-ul îl ține.</strong></p>
+      <p style="font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:32px">Cum listezi. Pe cine primești. Cum predai cheile fără să-ți pară rău după. Rental Kit-ul este sistemul complet de documente, protocoale și contracte, personalizat pentru proprietatea ta.</p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:36px">
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Sistem de selecție chiriaș pe 4 piloni</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Contract de închiriere și încetare personalizat pentru proprietatea ta</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Protocol pas cu pas pentru când lucrurile merg prost</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Ghid de utilizare pentru chiriaș, îl primești educat, nu improvizat</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Comunicare structurată și mentenanță pe toată durata contractului</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>La predare, totul e documentat prin proces verbal foto și inventar detaliat</div>
+      </div>
+      <a href="rental-kit.html" class="btn-primary">Descoperă Rental Kit →</a>
+    </div>
+    <div style="display:flex;align-items:flex-end;justify-content:flex-end">
+      <img src="RENTALKIT_MOCKUP_2.webp" srcset="images/rentalkit-mockup-800.webp 800w, images/rentalkit-mockup-1200.webp 1200w, RENTALKIT_MOCKUP_2.webp 2000w" sizes="(max-width:900px) 100vw, 50vw" width="2000" height="1252" loading="lazy" decoding="async" alt="Rental Kit, sistem complet pentru proprietari" style="width:100%;height:auto;display:block;vertical-align:bottom">
+    </div>
+  </div>
+</section>
+
+<!-- S7 TESTIMONIALS -->
+<section id="testimonials">
+ <div class="tt-wrap">
+  <div class="sec-tag" style="justify-content:center"><div class="dot"></div>Testimoniale</div>
+  <h2 class="sh" style="text-align:center;margin-bottom:16px">Proprietari reali. Rezultate documentate.</h2>
+  <p style="text-align:center;max-width:620px;margin:0 auto 10px;font-size:14px;color:var(--muted)">Înainte să lansăm RentUP, am aplicat aceeași metodă pe apartamentele prietenilor, ale familiei și ale clienților cu care am lucrat de-a lungul anilor.</p>
+  <p class="tt-note">Proiecte realizate înainte de lansarea RentUP · metodă testată în teren</p>
+
+  <div class="tt-tabs" role="tablist" aria-label="Studii de caz și testimoniale">
+    <span class="tt-ind" aria-hidden="true"></span>
+    <button class="tt-tab" id="tt-t1" type="button" role="tab" aria-selected="true" aria-controls="tt-p1">Drumul Taberei</button>
+    <button class="tt-tab" id="tt-t2" type="button" role="tab" aria-selected="false" aria-controls="tt-p2" tabindex="-1">Floreasca</button>
+    <button class="tt-tab" id="tt-t3" type="button" role="tab" aria-selected="false" aria-controls="tt-p3" tabindex="-1">Raluca M.</button>
+    <button class="tt-tab" id="tt-t4" type="button" role="tab" aria-selected="false" aria-controls="tt-p4" tabindex="-1">Andrei T.</button>
+  </div>
+
+  <div class="tt-stage">
+    <div class="tt-panel on" id="tt-p1" role="tabpanel" aria-labelledby="tt-t1">
+      <div class="tt-head"><h3 class="tt-title">2 camere Drumul Taberei: de la apartament distrus la chiriaș în 4 zile</h3><div class="tt-meta"><span>București · Sector 6</span><span>55 mp</span><span>12 săptămâni</span></div></div>
+      <div class="tt-big">
+        <div class="tt-rent"><span class="tt-from">400€</span><span class="tt-arrow">→</span><span class="tt-to" data-from="400" data-to="550">550€</span><span class="tt-unit">/lună</span></div>
+        <div class="tt-rent-l">chiria lunară, înainte și după</div>
+      </div>
+      <div class="tt-res"><div class="tt-r"><b>+150€</b><span>chirie lunară</span></div><div class="tt-r"><b>4 zile</b><span>până la primul chiriaș potrivit</span></div><div class="tt-r"><b>12 luni</b><span>durata șederii<br>(contract semnat pe 2 ani de la început)</span></div><div class="tt-r"><b>~48 luni</b><span>recuperare completă a investiției (din chiria extra + rotația de chiriași eliminată)</span></div></div>
+      <blockquote class="tt-q"><span class="tt-src">„Am fost foarte mulțumit de rezultat. Apartamentul a ieșit exact așa cum mi-a fost prezentat, iar găsirea noilor chiriași a fost mult mai ușoară decât mă așteptam.”</span></blockquote>
+      <div class="tt-qa">Dl. Ciobanu, proprietar apartament 2 camere</div>
+      <button class="tt-more-btn" type="button" aria-expanded="false">Povestea completă și bugetul<span class="tt-plus" aria-hidden="true"></span></button>
+      <div class="tt-more"><div class="tt-more-in"><div class="tt-more-g">
+        <div><div class="cs-sl">Situația inițială</div><p class="cs-p">Domnul Ciobanu a preluat un apartament aflat într-o stare precară: baie cu mucegai și faianță desprinsă, tavane parțial degradate, coridoare cu pereți scorojiți și instalații vechi. Știa că totul trebuie luat de la zero, însă, nefiind în țară, se temea că procesul va fi foarte lung și anevoios. În plus, era nesigur pe rezultate și nu știa dacă apartamentul va putea ajunge să arate așa cum își dorea. Dl. Ciobanu știa că trebuie să facă totul de la zero și se temea că nu va vedea niciodată banii înapoi. Credea că un apartament atât de uzat nu mai poate arăta frumos.</p><div class="cs-sl" style="margin-top:18px">Ce am schimbat</div><p class="cs-p">Am prioritizat intervențiile cu cel mai mare impact vizual și de durabilitate: baie renovată complet cu materiale moderne, tavane refăcute și finisate uniform, coridoarele reproiectate pentru un flux logic. Dormitorul a primit un decor structural discret și iluminat indirect pentru o senzație de confort imediat. Livingul a fost mobilat funcțional, cu depozitare integrată și materiale care rezistă la uzură intensă. Rezultatul a depășit așteptările proprietarului.</p></div>
+        <div><div class="cs-sl">Buget implementare</div><div class="bud-g"><div class="bud-row"><span>Serviciul RentUP</span><strong>2.750€</strong></div><div class="bud-row"><span>Renovare + manoperă</span><strong>5.000€</strong></div><div class="bud-row"><span>Mobilier + accesorii</span><strong>4.100€</strong></div><div class="bud-tot"><span>Total investiție</span><span>11.850€</span></div></div>
+          <div style="padding-top:18px"><a href="portofoliu.html#proiect-drumul-taberei" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--brand);text-decoration:none;border-bottom:1px solid var(--brand-border);padding-bottom:2px" onclick="gtag('event','click_case_study_portfolio_link')">Vezi pozele complete ale proiectului →</a></div></div>
+      </div></div></div>
+    </div>
+    <div class="tt-panel" id="tt-p2" role="tabpanel" aria-labelledby="tt-t2">
+      <div class="tt-head"><h3 class="tt-title">2 camere Floreasca: de la rotație constantă la chiriaș pe 2 ani</h3><div class="tt-meta"><span>București · Sector 1</span><span>52 mp</span><span>4 săptămâni</span></div></div>
+      <div class="tt-big">
+        <div class="tt-rent"><span class="tt-from">400€</span><span class="tt-arrow">→</span><span class="tt-to" data-from="400" data-to="620">620€</span><span class="tt-unit">/lună</span></div>
+        <div class="tt-rent-l">chiria lunară, înainte și după</div>
+      </div>
+      <div class="tt-res"><div class="tt-r"><b>+220€</b><span>chirie lunară</span></div><div class="tt-r"><b>5 zile</b><span>până la primul chiriaș potrivit</span></div><div class="tt-r"><b>24 luni</b><span>durata șederii<br>(contract semnat pe 2 ani de la început)</span></div><div class="tt-r"><b>~14 luni</b><span>recuperare completă a investiției (din chiria extra + rotația de chiriași eliminată)</span></div></div>
+      <blockquote class="tt-q"><span class="tt-src">„Sincer, mă așteptam la randări frumoase și atât. Nu mă așteptam să am și un sistem clar pentru ce fac cu apartamentul după. Chiriașul de acum e cel mai bun pe care l-am avut și cred că asta nu e o coincidență."</span></blockquote>
+      <div class="tt-qa">Costi Barbu, proprietar apartament 2 camere</div>
+      <button class="tt-more-btn" type="button" aria-expanded="false">Povestea completă și bugetul<span class="tt-plus" aria-hidden="true"></span></button>
+      <div class="tt-more"><div class="tt-more-in"><div class="tt-more-g">
+        <div><div class="cs-sl">Situația inițială</div><p class="cs-p">Costi Barbu, 37 de ani, moștenise apartamentul de la părinți. Îl închiria cu 400€/lună, dar nu reușea să păstreze chiriașii mai mult de 6–8 luni. Perioade de ~2 luni goale între fiecare chiriaș. Reparații după fiecare plecare. Credea că problema sunt chiriașii. Nu era.</p><div class="cs-sl" style="margin-top:18px">Ce am schimbat</div><p class="cs-p">Living reorganizat într-un spațiu mai coerent, pentru un flux mai eficient. Canapeaua existentă a fost repoziționată pentru a elibera vizual și funcțional camera. Perdele albe semitransparente și jaluzele discrete pe balcon pentru mai multă lumină, intimitate și o senzație amplificată de spațiu. Spații de depozitare maximizate în dormitor prin dulapuri integrate. Covoarele repoziționate corect pentru a ancora zonele și a aduce mai mult echilibru vizual.</p></div>
+        <div><div class="cs-sl">Buget implementare</div><div class="bud-g"><div class="bud-row"><span>Serviciul RentUP</span><strong>1.456€</strong></div><div class="bud-row"><span>Mobilier</span><strong>2.000€</strong></div><div class="bud-row"><span>Accesorii + decor</span><strong>700€</strong></div><div class="bud-tot"><span>Total investiție</span><span>4.156€</span></div></div>
+          <div style="padding-top:18px"><a href="portofoliu.html#proiect-floreasca" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--brand);text-decoration:none;border-bottom:1px solid var(--brand-border);padding-bottom:2px" onclick="gtag('event','click_case_study_portfolio_link')">Vezi pozele complete ale proiectului →</a></div></div>
+      </div></div></div>
+    </div>
+    <div class="tt-panel" id="tt-p3" role="tabpanel" aria-labelledby="tt-t3">
+      <div class="tt-head"><h3 class="tt-title">Raluca M.</h3><div class="tt-meta"><span>Proprietar apartament 2 camere · București</span><span>Rental Kit</span></div></div>
+      <blockquote class="tt-q tt-q-first"><span class="tt-src">„Rental Kit-ul a schimbat complet cum pun întrebările, ce cer înainte să semnez, și ce clauze am în contract.”</span></blockquote>
+      <div class="tt-story"><p>Primul chiriaș pe care l-am ales singură părea de treabă. După opt luni am găsit mobila arsă de țigări și parchetul umflat. Doar curățenia a costat 2.200 de lei și garanția nu i-a acoperit. Nu mai voiam să aud de chirii.</p><p>Eram sceptică. Credeam că e noroc. Ele s-au uitat la ce s-a întâmplat cu chiriașul ăla și mi-au arătat unde am greșit. Acum întreb altfel, cer acte înainte să semnez și am alt contract.</p></div>
+      
+    </div>
+    <div class="tt-panel" id="tt-p4" role="tabpanel" aria-labelledby="tt-t4">
+      <div class="tt-head"><h3 class="tt-title">Andrei T.</h3><div class="tt-meta"><span>Primul apartament dat în chirie · Cluj-Napoca</span><span>Rental Kit</span></div></div>
+      <blockquote class="tt-q tt-q-first"><span class="tt-src">„Pentru prima dată eu alegeam, nu eram ales.”</span></blockquote>
+      <div class="tt-story"><p>Era primul apartament pe care îl dădeam în chirie. Am stat vreo două săptămâni pe Reddit și prin grupuri de Facebook și am ieșit mai speriat decât intrasem.</p><p>Cu Cristiana am trecut prin contract bucată cu bucată, până am înțeles la ce e bună fiecare clauză. La prima vizionare am refuzat pe cineva și știam de ce, nu doar că nu-mi plăcea de el.</p></div>
+    </div>
+  </div>
+ </div>
+</section>
+
+
+<!-- S8 PACKAGES -->
+<section id="packages">
+  <div class="pk-wrap" id="pk">
+  <div class="sec-tag"><div class="dot"></div>Pachete</div>
+  <h2 class="sh">Alege pachetul potrivit.</h2>
+  <p class="sec-sub">Primul pas e gratuit. Raportul clarifică exact ce are nevoie apartamentul tău, abia după alegi pachetul. Plătești o singură dată, nimic din chirie.</p>
+
+  <div class="pk-free" data-k="free">
+    <p><b>Pasul 1: Raportul de Rentabilitate.</b> Ne trimiți poze cu apartamentul și în 72h primești ce merită schimbat, bugetul estimat și pachetul potrivit. Fără vizită, fără angajament.</p>
+    <a class="pk-link" href="audit.html" onclick="gtag('event','click_audit_cta');gtag('event','conversion',{'send_to':'AW-18253477545'});">Începe cu raportul gratuit →</a>
+  </div>
+  <p class="pk-extra">Vrei să-l vezi și mobilat înainte să decizi? <a href="staging-virtual.html">Staging Virtual</a>: randări pe baza pozelor, 200€, care se scad din Quick Win sau Invest Premium.</p>
+
+  <div class="pk-cards pk-cards-3 pk-main">
+      <div class="pk-card" data-k="simplu">
+        <div class="pk-top"><div class="pk-name">Design de Interior</div></div>
+        <div class="pk-price"><b>25€/m²</b><small>minim 800€</small></div>
+        <p class="pk-desc">Doar proiectul de design. Plan, randări, planșe tehnice, listă de achiziții: implementezi și gestionezi restul singur (sau ai deja sistemul tău de selecție).</p>
+        <p class="pk-fit">Vrei și sistemul de selecție a chiriașului? Adaugi Rental Kit separat, oricând.</p>
+        <div class="pk-list">
+          <div class="pk-li">Plan 2D amenajare + moodboard</div>
+          <div class="pk-li">1–2 randări per cameră</div>
+          <div class="pk-li">Planșe tehnice pentru mobilier la comandă</div>
+          <div class="pk-li">Listă de achiziții, buget și furnizori</div>
+          <div class="pk-li">Vizite pe șantier</div>
+          <div class="pk-li pk-no">Fără Rental Kit, fără selecție chiriaș, fără listare</div>
+        </div>
+        <div class="pk-cta"><a class="pk-btn" href="https://wa.me/40741176865" onclick="gtag('event','click_whatsapp')">Scrie-ne pe WhatsApp →</a><p>Primești un ghid în 24h cu pașii următori.</p></div>
+      </div>
+
+      <div class="pk-card" data-k="quick" id="quick-win">
+        <div class="pk-top"><div class="pk-name">Quick Win</div><div class="pk-flag pk-flag-g">Mobilare accesibilă</div></div>
+        <div class="pk-price"><b>30€/m²</b><small>minim 1.000€</small></div>
+        <p class="pk-desc">Apartament gata, chiriaș rapid. Fără renovare, fără cheltuieli mari. Mobilier ales pe raport calitate-preț și sistemul complet de închiriere. Pe piață în 7–14 zile.</p>
+        <p class="pk-fit">Se potrivește dacă finisajele (faianță, gresie, pereți, parchet) sunt estetice și în stare bună. Mobilarea e selectată pe raport calitate-preț: funcțională, estetică și fără supracheltuieli.</p>
+        <div class="pk-list">
+          <h4>Design</h4>
+          <div class="pk-li">Plan 2D amenajare + moodboard</div>
+          <div class="pk-li">Schițe 3D</div>
+          <div class="pk-li">Listă de achiziții, buget și furnizori</div>
+          <h4>Execuție</h4>
+          <div class="pk-li">1 vizită pe șantier</div>
+          <h4><a href="rental-kit.html">Rental Kit</a></h4>
+          <div class="pk-li">Selecție chiriaș + contract personalizat</div>
+          <div class="pk-li">Documente legale personalizate</div>
+          <div class="pk-li">Prezentare profesională a apartamentului</div>
+        </div>
+        <div class="pk-cta"><a class="pk-btn" href="https://wa.me/40741176865" onclick="gtag('event','click_whatsapp')">Scrie-ne pe WhatsApp →</a><p>Primești un ghid în 24h cu pașii următori.</p></div>
+      </div>
+
+      <div class="pk-card" data-k="premium">
+        <div class="pk-top"><div class="pk-name">Invest Premium</div><div class="pk-flag">Cu implementare</div></div>
+        <div class="pk-price"><b>50€/m²</b><small>minim 2.000€</small></div>
+        <details class="pk-calc"><summary>Ce se adaugă la onorariu</summary><div class="pk-calc-r"><span>Coordonare execuție</span><b>10% din lucrări</b></div><div class="pk-calc-r"><span>Mobilier și materiale</span><b>preț de magazin, fără adaos</b></div><div class="pk-calc-r"><span>Lucrări de construcții</span><b>deviz de la echipă</b></div></details>
+        <p class="pk-desc">Pentru apartamentul care are nevoie de mai mult decât mobilier ca să ajungă la potențialul lui real.</p>
+        <p class="pk-fit">Renovare, finisaje, mobilier custom. Tot procesul, de la concept la primul chiriaș semnat.</p>
+        <div class="pk-list">
+          <h4>Design</h4>
+          <div class="pk-li">Plan 2D amenajare + moodboard</div>
+          <div class="pk-li">Listă de achiziții, buget și furnizori</div>
+          <div class="pk-li">Randări complete per cameră</div>
+          <div class="pk-li">Documentație mobilier custom</div>
+          <h4>Execuție</h4>
+          <div class="pk-li">Vizite pe șantier până la finalizarea proiectului</div>
+          <div class="pk-li">Asistență permanentă pe toată durata implementării</div>
+          <div class="pk-li">Contractare, coordonare echipe și logistică achiziții</div>
+          <div class="pk-li">Planificare șantier și calendar de execuție</div>
+          <h4><a href="rental-kit.html">Rental Kit</a></h4>
+          <div class="pk-li">Selecție chiriaș + contract personalizat</div>
+          <div class="pk-li">Documente legale personalizate</div>
+          <div class="pk-li">Prezentare profesională a apartamentului</div>
+        </div>
+        <div class="pk-cta"><a class="pk-btn" href="#contact">Solicită ofertă →</a><p>Primești un ghid în 24h cu pașii următori.</p></div>
+      </div>
+  </div>
+</div>
+</section>
+
+
+<!-- S10 FAQ -->
+<section id="faq">
+  <div class="sec-tag" style="justify-content:center"><div class="dot"></div>FAQ</div>
+  <h2 class="sh" style="text-align:center">Întrebări frecvente.</h2>
+  <p class="sec-sub" style="text-align:center;margin:0 auto 44px">Răspunsuri la ce ne întreabă proprietarii cel mai des.</p>
+  <div class="faq-inner">
+    <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">Garantați că voi găsi un chiriaș bun?<span class="fi-icon">+</span></div><div class="fa">Nu. Niciun sistem nu poate garanta comportamentul unui om. Ce garantăm este că procesul de selecție, documentație și design reduce semnificativ probabilitatea unui chiriaș problematic. Cele mai multe probleme serioase pot fi filtrate înainte de semnare, printr-o selecție făcută după un proces, nu după instinct.</div></div>
+    <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">De ce un apartament amenajat bine atrage un chiriaș mai bun?<span class="fi-icon">+</span></div><div class="fa">Un anunț cu fotografii profesionale și un apartament coerent filtrează natural. Chiriașul care vede un apartament îngrijit înțelege că proprietarul e serios. Cei care nu se vor comporta corespunzător preferă spații cu standarde mai relaxate. Designul nu e estetică, ci un filtru de selecție.</div></div>    <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">Cât durează să găsesc chiriaș după finalizarea proiectului?<span class="fi-icon">+</span></div><div class="fa">Un apartament fotografiat profesional și listat corect pe 3 platforme găsește chiriaș în 5 zile, în medie, în București. Comparativ, un anunț cu fotografii de telefon și text slab poate sta neînchiriat 1–3 luni la același preț și aceeași zonă.</div></div>
+    <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">Merită să investesc în design pentru un apartament de închiriat?<span class="fi-icon">+</span></div><div class="fa">Depinde de cât costă să nu o faci. Un proprietar fără sistem rulează în medie 3–4 chiriași în 5 ani. Fiecare schimbare înseamnă luni goale, reparații și selecție nouă. Raportul de Rentabilitate calculează exact cât costă situația ta actuală față de situația optimizată. Gratuit, fără angajament.</div></div>
+    <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">Lucrați doar în București?<span class="fi-icon">+</span></div><div class="fa">Vizitele pe teren le facem în București și zona metropolitană. Pentru alte orașe, deplasarea se face contra cost — contactează-ne pentru detalii. Proiectele de design le realizăm pentru orice locație din România și le livrăm digital, fără vizită.</div></div>
+  </div>
+  <div style="text-align:center;margin-top:32px">
+    <a href="faq.html" class="btn-ghost" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:14px;color:var(--brand);border:.5px solid var(--brand);padding:11px 22px;border-radius:100px;transition:background .2s">
+      Toate întrebările frecvente →
+    </a>
+  </div>
+</section>
+
+
+<!-- S11 CONTACT -->
+<section id="contact">
+  <div class="ct-wrap">
+    <h2 class="ct-h" data-en="Let's see what can be done with <em><span class='rot' data-words='your apartment.|your studio.|your investment.'>your apartment.</span></em>">Hai să vedem ce poate face <em><span class="rot" data-words="apartamentul tău.|garsoniera ta.|investiția ta.">apartamentul tău.</span></em></h2>
+    <p class="ct-sub">Spune-ne pe scurt cu ce te confrunți: chirie mică, chiriași care pleacă, apartament gol.<br>Îți răspundem în cel mai scurt timp cu o ofertă personalizată.</p>
+    <a class="ct-wa" href="https://wa.me/40741176865" onclick="try{gtag('event','click_whatsapp');}catch(e){} openWaModal();return false;">Scrie-ne pe WhatsApp →</a>
+    <div class="ct-slots"><span class="ct-pulse" aria-hidden="true"></span><span>Acceptăm 5 proiecte pe lună pentru a menține calitatea.<br><span id="slots-pre">Mai sunt</span> <b id="slots-count">4 sloturi</b> <span id="slots-post">libere luna aceasta.</span></span></div>
+    <div class="ct-alt">
+      <a class="ct-l" href="tel:+40741176865" onclick="try{gtag('event','click_phone');gtag('event','conversion',{'send_to':'AW-18253477545'});}catch(e){}">+40 741 176 865</a>
+      <a class="ct-l" href="mailto:hello@rentup.solutions" onclick="try{gtag('event','click_email');}catch(e){} gtag_report_conversion_email(this.href);">hello@rentup.solutions</a>
+      <a class="ct-l" href="https://instagram.com/rentup.solutions" target="_blank" rel="noopener" onclick="try{gtag('event','click_instagram');}catch(e){} gtag_report_conversion_social(this.href);">Instagram</a>
+      <a class="ct-l" href="https://www.linkedin.com/company/rentup-solutions" target="_blank" rel="noopener" onclick="try{gtag('event','click_linkedin');}catch(e){} gtag_report_conversion_social(this.href);">LinkedIn</a>
+      <a class="ct-l" href="https://www.facebook.com/rentup.solutions/" target="_blank" rel="noopener" onclick="try{gtag('event','click_facebook');}catch(e){} gtag_report_conversion_social(this.href);">Facebook</a>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM: ultimele carusele educative (lista e în igstrip.js) -->
+<section id="instagram" class="ig-sec">
+  <div class="ig-h">
+    <div><div class="sec-tag"><div class="dot"></div>Pe Instagram</div>
+      <h2 class="sh">Sfaturi pentru proprietari,<br><em>pe scurt.</em></h2>
+      <p class="sec-sub">Postăm des carusele cu lucruri învățate din teren: contracte, selecție, garanții. Le găsești pe toate pe Instagram.</p></div>
+    <a class="btn-primary ig-follow" href="https://instagram.com/rentup.solutions" target="_blank" rel="noopener" onclick="gtag('event','click_instagram_follow')">Urmărește @rentup.solutions →</a>
+  </div>
+  <div class="igs" data-igs></div>
+</section>
+
+</main>
+<footer style="background:#FDFAF6;border-top:.5px solid #EDE5D8;padding:48px 56px 32px">
+<style>@media(max-width:600px){footer{padding-left:20px!important;padding-right:20px!important}.ft-brand{flex-basis:100%!important}}</style>
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="display:flex;flex-wrap:wrap;gap:48px;justify-content:space-between;margin-bottom:40px">
+      <div class="ft-brand" style="flex:0 0 auto">
+        <a href="/" style="font-size:17px;font-weight:600;color:#C77936;font-family:'General Sans',sans-serif;margin-bottom:8px;text-decoration:none;letter-spacing:-.01em;display:inline-block">Rent<span style="color:#2D2820;font-weight:300">UP</span></a>
+        <div style="font-size:13px;color:var(--muted);line-height:1.6">Prima firmă de<br>rental optimization<br>din România.<br>București · 2025</div>
+      </div>
+      <div style="display:contents">
+        <div>
+          <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:14px">Servicii</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <a href="audit.html" style="font-size:13px;color:#7A6E62;text-decoration:none">Raport de Rentabilitate</a>
+            <a href="staging-virtual.html" style="font-size:13px;color:#C77936;text-decoration:none;font-weight:500">Staging Virtual</a>
+            <a href="/#packages" style="font-size:13px;color:#7A6E62;text-decoration:none">Design de interior</a>
+            <a href="rental-kit.html" style="font-size:13px;color:#7A6E62;text-decoration:none">Rental Kit</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:14px">Resurse</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <a href="realitatea-chiriei.html" style="font-size:13px;color:#7A6E62;text-decoration:none">Probleme & Soluții</a>
+            <a href="simulator.html" style="font-size:13px;color:#7A6E62;text-decoration:none">Simulator mobilare</a>
+            <a href="/blog/" style="font-size:13px;color:#7A6E62;text-decoration:none">Blog</a>
+            <a href="faq.html" style="font-size:13px;color:#7A6E62;text-decoration:none">Întrebări frecvente</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:14px">Contact</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <span style="font-size:13px;color:#7A6E62">hello@rentup.solutions</span>
+            <span style="font-size:13px;color:#7A6E62">+40 741 176 865</span>
+            <style>@keyframes socialRing{0%,60%,100%{transform:rotate(0deg)}65%{transform:rotate(-14deg)}70%{transform:rotate(12deg)}75%{transform:rotate(-10deg)}80%{transform:rotate(8deg)}85%{transform:rotate(-6deg)}90%{transform:rotate(4deg)}95%{transform:rotate(-2deg)}}.social-icons a{display:inline-flex;animation:socialRing 4.5s ease-in-out infinite;transform-origin:50% 0}.social-icons a:nth-child(2){animation-delay:.15s}.social-icons a:nth-child(3){animation-delay:.3s}@media (prefers-reduced-motion: reduce){.social-icons a{animation:none}}</style><div class="social-icons" style="display:flex;gap:10px"><a href="https://instagram.com/rentup.solutions" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7A6E62" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#7A6E62" stroke="none"/></svg></a><a href="https://www.linkedin.com/company/rentup-solutions" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#7A6E62"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.27c-.97 0-1.75-.78-1.75-1.75s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.27h-3v-4.5c0-1.07-.02-2.45-1.5-2.45-1.5 0-1.73 1.17-1.73 2.37v4.58h-3v-9h2.88v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg></a><a href="https://www.facebook.com/rentup.solutions/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 32 448 448" fill="#7A6E62"><path d="M400 32H48A48 48 0 0 0 0 80V432a48 48 0 0 0 48 48H192V320H128V256h64V216c0-70.7 43.1-112 110.1-112 27.6 0 53.6 2.1 67.9 5v66H348.9c-34.3 0-41.4 16.3-41.4 40.3V256h66.4l-12 64H307.5V480H400a48 48 0 0 0 48-48V80A48 48 0 0 0 400 32z"/></svg></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="padding-top:20px;border-top:.5px solid #EDE5D8;display:flex;justify-content:center;flex-wrap:wrap;gap:6px 24px;text-align:center;width:100%">
+    <div style="font-size:12px;color:var(--light);white-space:normal">Wirtual Design &amp; Architecture SRL · CUI 44170236 · J23/2626/2021 · Clinceni, Ilfov</div>
+<div style="font-size:12px;color:var(--light);white-space:nowrap">© 2025–2026 RentUP · Toate drepturile rezervate</div>
+<a href="termeni.html" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Termeni și condiții</a>
+<a href="confidentialitate.html" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Politică de confidențialitate</a>
+      <a href="#" onclick="ruCookieSettings();return false" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Setări cookie</a>
+    </div>
+  </div>
+<div class="ru-legal" style="flex-basis:100%;width:100%;display:flex;justify-content:center;margin-top:16px"><a href="https://reclamatiisal.anpc.ro/" target="_blank" rel="noopener" style="display:inline-flex"><img src="/images/anpc-sal.png" width="250" height="50" alt="ANPC — Soluționarea alternativă a litigiilor" loading="lazy" style="display:block;width:250px;height:50px"></a></div>
+</footer>
+
+
+
+<!-- WhatsApp Floating (mobil) -->
+<div id="wa-modal">
+  <div id="wa-overlay"></div>
+  <div id="wa-box">
+    <div id="wa-head"><span id="wa-title">Cum te putem ajuta?</span><button id="wa-close" aria-label="Închide">&times;</button></div>
+    <div id="wa-opts">
+      <button class="wa-opt" data-msg="Bună ziua! Vreau un Raport de Rentabilitate gratuit pentru apartamentul meu. Vă pot trimite poze.">Raport de Rentabilitate gratuit</button>
+      <button class="wa-opt" data-msg="Bună ziua! Mă interesează Staging Virtual pentru apartamentul meu. Vreau să aflu mai multe.">Staging Virtual (randări + plan)</button>
+      <button class="wa-opt" data-msg="Bună ziua! Mă interesează pachetul Quick Win, apartamentul e aproape gata, fără renovări majore.">Pachet Quick Win</button>
+      <button class="wa-opt" data-msg="Bună ziua! Vreau să discutăm un proiect Invest Premium (renovare și implementare completă).">Proiect Invest Premium</button>
+    </div>
+    <div id="wa-custom-wrap">
+      <p id="wa-custom-lbl">sau scrie direct:</p>
+      <textarea id="wa-custom-ta" rows="2" placeholder="Mesajul tău..."></textarea>
+      <button id="wa-send-btn">Trimite pe WhatsApp</button>
+    </div>
+  </div>
+</div>
+<a href="https://wa.me/40741176865" class="wa-float" aria-label="Scrie-ne pe WhatsApp" target="_blank" rel="noopener">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="#FDFAF6" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<!-- Back to Top -->
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Înapoi sus" style="display:none;position:fixed;bottom:24px;right:24px;width:44px;height:44px;background:#C77936;border:none;border-radius:50%;cursor:pointer;z-index:var(--z-float);align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(199,121,54,.3);transition:background .2s,transform .2s,box-shadow .2s;font-size:18px;color:#FDFAF6">↑</button>
+
+<!-- Cookie Banner -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#2D2820;border-top:0.5px solid #4D4238;padding:16px 20px;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;z-index:130;font-family:'General Sans',sans-serif">
+  <div style="flex:1;min-width:180px">
+    <div style="font-size:13px;font-weight:500;color:#FDFAF6;margin-bottom:3px">Folosim cookie-uri</div>
+    <div style="font-size:12px;color:var(--muted);line-height:1.5">Folosim cookie-uri pentru analiză și îmbunătățirea experienței. Poți accepta sau refuza cookie-urile opționale. <a href="confidentialitate.html" style="color:#C77936;text-decoration:none">Politică de confidențialitate →</a></div>
+  </div>
+  <div style="display:flex;gap:8px;align-items:center;flex-shrink:0">
+    <button onclick="setCookies('refused')" style="font-size:13px;font-weight:500;color:var(--muted);background:none;border:1px solid #4D4238;padding:0 20px;height:44px;border-radius:100px;cursor:pointer;font-family:'General Sans',sans-serif;touch-action:manipulation;-webkit-tap-highlight-color:transparent">Refuz</button>
+    <button onclick="setCookies('accepted')" style="font-size:13px;font-weight:500;color:#FDFAF6;background:#C77936;border:none;padding:0 20px;height:44px;border-radius:100px;cursor:pointer;font-family:'General Sans',sans-serif;touch-action:manipulation;-webkit-tap-highlight-color:transparent">Accept</button>
+  </div>
+</div>
+
+<!-- POPUP #2 — Exit-intent (homepage, desktop, email + telefon, Enhanced Conversions) -->
+<style>
+#ru-exit-ov{position:fixed;inset:0;background:rgba(45,40,32,.48);z-index:var(--z-exit-bg);opacity:0;pointer-events:none;transition:opacity 300ms ease}
+#ru-exit-ov.ru-vis{opacity:1;pointer-events:auto}
+#ru-exit{position:fixed;top:50%;left:50%;transform:translate(-50%,-54%) scale(0.96);width:520px;max-width:calc(100vw - 32px);background:#FDFAF6;border-radius:16px;padding:36px 32px 28px;z-index:var(--z-exit);opacity:0;pointer-events:none;transition:transform 380ms cubic-bezier(0.23,1,0.32,1),opacity 300ms ease}
+#ru-exit.ru-vis{transform:translate(-50%,-50%) scale(1);opacity:1;pointer-events:auto}
+#ru-exit .rec{position:absolute;top:14px;right:16px;background:none;border:none;cursor:pointer;font-size:22px;color:var(--muted);line-height:1;padding:6px;font-family:'General Sans',sans-serif}
+#ru-exit .ret{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#C77936;margin-bottom:12px}
+#ru-exit .reh{font-size:21px;font-weight:300;color:#2D2820;letter-spacing:-.02em;line-height:1.28;margin-bottom:10px}
+#ru-exit .res{font-size:13px;color:#7A6E62;line-height:1.65;margin-bottom:20px}
+#ru-exit .re-row{display:flex;flex-direction:column;gap:7px;margin-bottom:8px}
+#ru-exit .rei{width:100%;padding:10px 13px;border:.5px solid #D8CFC4;border-radius:8px;font-family:'General Sans',sans-serif;font-size:13px;color:#2D2820;background:#fff;outline:none;transition:border-color .2s;box-sizing:border-box}
+#ru-exit .rei:focus{border-color:#C77936}
+#ru-exit .red{display:block;text-align:center;margin-top:11px;font-size:12px;color:var(--muted);cursor:pointer;background:none;border:none;font-family:'General Sans',sans-serif;padding:3px}
+#ru-exit .red:hover{color:#2D2820}
+#ru-exit .ren{font-size:11px;color:var(--light);margin-top:14px;line-height:1.5}
+#ru-exit .reok{display:none;text-align:center;padding:20px 0;font-size:15px;color:#0F6E56;font-weight:500}
+/* Exit-intent — design nou (stil calculator) */
+#ru-exit-ov{background:rgba(45,40,32,.32);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+#ru-exit{border-radius:20px;box-shadow:0 24px 64px rgba(45,40,32,.2);padding:clamp(28px,4vw,40px)}
+#ru-exit .rec{top:16px;right:16px;width:32px;height:32px;padding:0;border-radius:50%;background:#F5EFE6;color:#7A6E62;font-size:18px;display:flex;align-items:center;justify-content:center;transition:background 180ms cubic-bezier(0.23,1,0.32,1)}
+#ru-exit .rec:hover{background:#EDE5D8;color:#2D2820}
+#ru-exit .ret{font-size:12px;letter-spacing:.06em;color:var(--light);margin-bottom:14px}
+#ru-exit .reh{font-size:clamp(22px,2.6vw,26px);font-weight:300;letter-spacing:-.025em;line-height:1.22;margin-bottom:12px;padding-right:28px}
+#ru-exit .res{font-size:14px;margin-bottom:24px}
+#ru-exit .re-row{gap:8px;margin-bottom:10px}
+#ru-exit .rei{border:none;border-radius:100px;background:#F5EFE6;padding:13px 18px;font-size:14px;transition:background 180ms,box-shadow 180ms}
+#ru-exit .rei:focus{background:#fff;box-shadow:0 0 0 1.5px #C77936}
+#ru-exit .reb{display:block;width:100%;margin-top:6px;font-family:'General Sans',sans-serif;font-size:14px;font-weight:500;background:var(--brand);color:var(--bg);border:none;border-radius:100px;padding:14px 28px;cursor:pointer;-webkit-appearance:none;appearance:none;transition:background 180ms cubic-bezier(0.23,1,0.32,1),transform 150ms cubic-bezier(0.23,1,0.32,1)}
+#ru-exit .reb:hover{background:#a8622a;transform:translateY(-1px)}
+#ru-exit .reb:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+#ru-exit .reb:active{transform:scale(.97);transition-duration:80ms}
+#ru-exit .ren{font-size:12px;text-align:center;margin-top:16px}
+</style>
+
+<div id="ru-exit-ov" onclick="RuExit.dismiss(false)"></div>
+<div id="ru-exit" role="dialog" aria-modal="true" aria-label="Raport de Rentabilitate gratuit">
+  <button class="rec" onclick="RuExit.dismiss(true)" aria-label="Închide">×</button>
+  <div class="ret">Raport de Rentabilitate · Gratuit</div>
+  <h3 class="reh">Nu ai nevoie de un chiriaș perfect. Ai nevoie de un sistem care să nu te mai păcălească.</h3>
+  <p class="res">Află exact cât profit poate genera apartamentul tău. Raport livrat în 72h: potențial chirie, estimare buget implementare, intervenții prioritizate, ROI estimat.</p>
+  <div id="re-form">
+    <div class="re-row">
+      <input class="rei" type="text" id="re-name" placeholder="Numele tău" autocomplete="name">
+      <input class="rei" type="email" id="re-email" placeholder="Emailul tău" autocomplete="email">
+      <input class="rei" type="tel" id="re-phone" placeholder="Număr de telefon (opțional)" autocomplete="tel">
+    </div>
+    <button class="reb" onclick="RuExit.submit()">Vreau raportul gratuit →</button>
+    <button class="red" onclick="RuExit.dismiss(true)">Nu acum, poate altă dată</button>
+    <p class="ren">Folosim datele doar pentru raport și discuția despre el. Detalii în <a href="confidentialitate.html" style="color:inherit;text-decoration:underline">Politica de confidențialitate</a>.<br>Sugerăm un număr de telefon pentru o comunicare mai rapidă.</p>
+  </div>
+  <div class="reok" id="re-ok">✓ Raportul e confirmat. Te contactăm în 24h.</div>
+</div>
+
+
+<script src="home.js" defer></script>
+<script src="rot.js" defer></script>
+<!-- Ce nu e necesar la prima afișare pornește la prima interacțiune (scroll/atingere/click)
+     sau la 2s după load: lang.js (traducerea EN, ~60 KB), pozele din banda de portofoliu,
+     numărul de proiecte. Cine a ales engleza primește lang.js imediat; click pe EN îl încarcă și traduce. -->
+<script>
+(function(){
+  var q=[], fired=false;
+  function fire(){
+    if(fired) return; fired=true;
+    q.forEach(function(f){ try{ f(); }catch(e){} }); q=[];
+  }
+  window.ruLater=function(f){ if(fired) f(); else q.push(f); };
+  ['scroll','touchstart','click','keydown','mousemove'].forEach(function(e){
+    window.addEventListener(e, fire, {once:true, passive:true, capture:true});
+  });
+  function onLoad(){ setTimeout(fire,2000); }
+  if(document.readyState==='complete') onLoad(); else window.addEventListener('load',onLoad);
+
+  var state=0, pending=false;
+  function load(){
+    if(state) return; state=1;
+    var s=document.createElement('script'); s.src='lang.js';
+    s.onload=function(){ state=2; if(pending){ pending=false; window.toggleLang(); } };
+    document.body.appendChild(s);
+  }
+  window.toggleLang=function(){ pending=true; load(); };
+  var en=false; try{ en=localStorage.getItem('ru-lang')==='en'; }catch(e){}
+  if(en) load(); else window.ruLater(load);
+})();
+</script>
+<script src="float.js" defer></script>
+<script src="igstrip.js" defer></script>
+<!-- AdSense: la prima interacțiune a userului (scroll/click/touch).
+     Lighthouse nu simulează interacțiuni → LCP rămâne curat.
+     Userii reali primesc reclamele la primul scroll (<1s). -->
+</body>
+</html>
