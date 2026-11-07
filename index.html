@@ -435,12 +435,14 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .ba-name{font-size:14px;font-weight:500}
 .ba-meta{font-size:12px;color:var(--muted);margin-top:3px}
 .ba-res{font-size:13px;font-weight:500;color:#8B5E10;background:#FDF0D8;padding:5px 14px;border-radius:100px;border:.5px solid #E8C87C}
-.port-cta{display:flex;align-items:center;justify-content:space-between;padding:22px 28px;border:none;border-radius:12px;background:var(--bg-stone);text-decoration:none;box-shadow:0 2px 16px rgba(45,40,32,.16);transition:background 180ms cubic-bezier(0.23,1,0.32,1),box-shadow 180ms cubic-bezier(0.23,1,0.32,1),transform 150ms cubic-bezier(0.23,1,0.32,1)}
+.port-cta{display:flex;align-items:center;justify-content:space-between;padding:22px 28px;border:none;border-radius:12px;background:var(--bg);text-decoration:none;box-shadow:0 2px 16px rgba(45,40,32,.16);transition:background 180ms cubic-bezier(0.23,1,0.32,1),box-shadow 180ms cubic-bezier(0.23,1,0.32,1),transform 150ms cubic-bezier(0.23,1,0.32,1)}
 .port-cta:hover{background:var(--brand-light);box-shadow:0 8px 28px rgba(45,40,32,.22)}
 .port-cta-l{font-size:15px;font-weight:500;color:var(--text)}
 .port-cta-sub{font-size:13px;color:var(--muted);margin-top:3px}
-.port-cta-arrow{font-size:28px;font-weight:300;color:var(--brand);transition:transform 200ms cubic-bezier(0.23,1,0.32,1)}
-.port-cta:hover .port-cta-arrow{transform:translateX(6px)}
+.port-cta-arrow{flex-shrink:0;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--brand-light);color:var(--brand);transition:background 200ms cubic-bezier(0.23,1,0.32,1),color 200ms cubic-bezier(0.23,1,0.32,1)}
+.port-cta-arrow svg{transition:transform 220ms cubic-bezier(0.23,1,0.32,1)}
+.port-cta:hover .port-cta-arrow{background:var(--brand);color:#FDFAF6}
+.port-cta:hover .port-cta-arrow svg{transform:translateX(3px)}
 
 /* ── TESTIMONIALS ── */
 #testimonials{background:var(--bg-stone)}
@@ -1267,7 +1269,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
       <div class="port-cta-l">Vezi toate proiectele</div>
       <div class="port-cta-sub"><span id="port-count">7</span> proiecte finalizate · Before & after complet · Statistici detaliate</div>
     </div>
-    <div class="port-cta-arrow">→</div>
+    <div class="port-cta-arrow" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></div>
   </a>
 </section>
 
