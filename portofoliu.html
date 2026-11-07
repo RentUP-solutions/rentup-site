@@ -1009,17 +1009,40 @@ if(!localStorage.getItem('cookieConsent')){
     tr.addEventListener('scroll',function(){cancelAnimationFrame(raf);raf=requestAnimationFrame(sync)},{passive:true});
     function go(d){tr.scrollTo({left:(cur+d)*tr.clientWidth,behavior:reduce?'auto':'smooth'})}
     if(gp){gp.addEventListener('click',function(){go(-1)});gn.addEventListener('click',function(){go(1)})}
-    sw.addEventListener('click',function(e){var b=e.target.closest('button');if(b) setSide(b.dataset.s)});
+    /* touched = vizitatorul a interacționat cu galeria → indiciul automat se oprește definitiv */
+    var touched=false;
+    sw.addEventListener('click',function(e){var b=e.target.closest('button');if(b){touched=true;setSide(b.dataset.s)}});
     /* o atingere pe poză comută înainte/după */
-    tr.addEventListener('click',function(){if(sls[cur].dataset.b==='1') setSide(sls[cur].classList.contains('show-bef')?'a':'b')});
+    tr.addEventListener('click',function(){touched=true;if(sls[cur].dataset.b==='1') setSide(sls[cur].classList.contains('show-bef')?'a':'b')});
+    if(gp){gp.addEventListener('click',function(){touched=true})}
     sw.classList.toggle('off',sls[0].dataset.b!=='1');
-    /* doar la primul proiect: arată scurt „înainte”, apoi revine pe „după”, ca să se vadă că se poate compara */
-    if(gi===0&&sls[0].dataset.b==='1'&&!reduce){
+
+    /* Indiciul înainte/după: arată scurt „înainte”, apoi revine pe „după”, ca să se vadă că se poate compara.
+       Telefon (o coloană, ≤600px): fiecare proiect, o dată, când ajungi la el cu scroll.
+       Calculator: doar primul proiect, repetat cât timp e pe ecran, până la primul click pe poză. */
+    if(sls[0].dataset.b==='1'&&!reduce){
+      var oneCol=window.matchMedia('(max-width:600px)');
+      var visible=false,timer=0,played=false;
+      function hint(){
+        if(touched||cur!==0) return;
+        setTimeout(function(){if(!touched&&cur===0) setSide('b')},700);
+        setTimeout(function(){if(!touched&&cur===0) setSide('a')},2100);
+      }
+      function loop(){
+        clearTimeout(timer);
+        if(touched||!visible) return;
+        hint();
+        timer=setTimeout(loop,5600);
+      }
       var io=new IntersectionObserver(function(es){
-        if(!es[0].isIntersecting) return;
-        io.disconnect();
-        setTimeout(function(){if(cur===0) setSide('b')},700);
-        setTimeout(function(){if(cur===0) setSide('a')},2100);
+        visible=es[0].isIntersecting;
+        if(oneCol.matches){
+          /* telefon: o singură dată per proiect */
+          if(visible&&!played){played=true;hint()}
+        } else if(gi===0){
+          /* calculator: doar primul, în buclă cât e vizibil */
+          if(visible) loop(); else clearTimeout(timer);
+        }
       },{threshold:.5});
       io.observe(gal);
     }
