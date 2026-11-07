@@ -48,6 +48,8 @@
     'Folosim emailul doar ca să-ți trimitem linkul. Detalii în': 'We use your email only to send you the link. Details in our',
     'Politica de confidențialitate': 'Privacy Policy',
     'Setări cookie': 'Cookie settings',
+    'Nu am putut trimite cererea. Încearcă din nou sau scrie-ne pe': 'We could not send your request. Please try again or message us on',
+    'Se trimite...': 'Sending...',
     'Simulatorul de mobilare e în lucru': 'The furniture simulator is under construction',
     'În lucru': 'Under construction',
     'Actualizăm prețurile și calculul. Până revine, îți putem spune noi cât costă mobilarea apartamentului tău, pornind de la câteva poze.': 'We are updating the prices and the calculation. Until it is back, we can tell you what furnishing your apartment costs, starting from a few photos.',

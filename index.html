@@ -1788,7 +1788,10 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
       <input class="rei" type="email" id="re-email" placeholder="Emailul tău" autocomplete="email">
       <input class="rei" type="tel" id="re-phone" placeholder="Număr de telefon (opțional)" autocomplete="tel">
     </div>
-    <button class="reb" onclick="RuExit.submit()">Vreau raportul gratuit →</button>
+    <!-- capcană anti-spam: invizibilă pentru oameni, roboții o completează -->
+    <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><input type="text" id="re-hp" name="_honey" tabindex="-1" autocomplete="off"></div>
+    <button class="reb" id="re-btn" onclick="RuExit.submit()">Vreau raportul gratuit →</button>
+    <p id="re-err" role="alert" style="display:none;font-size:13px;color:#A32D2D;margin:8px 0 0;text-align:center">Nu am putut trimite cererea. Încearcă din nou sau scrie-ne pe <a href="https://wa.me/40741176865" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">WhatsApp</a>.</p>
     <button class="red" onclick="RuExit.dismiss(true)">Nu acum, poate altă dată</button>
     <p class="ren">Folosim datele doar pentru raport și discuția despre el. Detalii în <a href="confidentialitate.html" style="color:inherit;text-decoration:underline">Politica de confidențialitate</a>.<br>Sugerăm un număr de telefon pentru o comunicare mai rapidă.</p>
   </div>

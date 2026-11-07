@@ -694,27 +694,45 @@ setTimeout(function(){
       if(!email || !email.includes('@')){ emailEl.style.borderColor='#A32D2D'; if(ok) emailEl.focus(); ok=false; } else { emailEl.style.borderColor=''; }
       if(!ok) return;
 
-      if(typeof gtag === 'function'){
-        gtag('set', 'user_data', { email: email });
-        gtag('event', 'conversion', { send_to: 'AW-18253477545/VftDCJuk99ccEKnt9_9D' });
-        gtag('event', 'form_lead_homepage');
+      var errEl = document.getElementById('re-err');
+      var btn = document.getElementById('re-btn');
+      var hp = document.getElementById('re-hp');
+      function done(){
+        try { localStorage.setItem(KEY, JSON.stringify({converted:true, ts:Date.now()})); sessionStorage.setItem(KEY + '_dismissed','1'); sessionStorage.setItem('ru_cvt','1'); } catch(e){}
+        document.getElementById('re-form').style.display = 'none';
+        document.getElementById('re-ok').style.display = 'block';
+        setTimeout(function(){ RuExit.dismiss(false); }, 3000);
       }
+      /* capcana anti-spam completată = robot: arătăm „succes”, dar nu trimitem nimic */
+      if(hp && hp.value){ done(); return; }
 
-      var payload = { _subject:'Lead nou — Raport Rentabilitate (exit-intent homepage)', nume:name, email:email, sursa:'popup-exit-homepage' };
+      var payload = { _subject:'Lead nou — Raport Rentabilitate (exit-intent homepage)', _honey:'', nume:name, email:email, sursa:'popup-exit-homepage' };
       if(tel) payload.telefon = tel;
 
+      if(errEl) errEl.style.display = 'none';
+      var label = btn ? btn.textContent : '';
+      if(btn){ btn.disabled = true; btn.textContent = 'Se trimite...'; }
+
+      /* succesul se arată DOAR dacă FormSubmit confirmă primirea; altfel mesaj de eroare + WhatsApp */
       fetch('https://formsubmit.co/ajax/hello@rentup.solutions', {
         method: 'POST',
         headers: {'Content-Type':'application/json','Accept':'application/json'},
         body: JSON.stringify(payload)
-      }).catch(function(){});
-
-      try { localStorage.setItem(KEY, JSON.stringify({converted:true, ts:Date.now()})); sessionStorage.setItem(KEY + '_dismissed','1'); } catch(e){}
-      sessionStorage.setItem('ru_cvt','1');
-
-      document.getElementById('re-form').style.display = 'none';
-      document.getElementById('re-ok').style.display = 'block';
-      setTimeout(function(){ RuExit.dismiss(false); }, 3000);
+      }).then(function(r){
+        return r.json().catch(function(){ return {}; }).then(function(j){
+          if(!r.ok || String(j.success) === 'false') throw new Error('formsubmit');
+        });
+      }).then(function(){
+        if(typeof gtag === 'function'){
+          gtag('set', 'user_data', { email: email });
+          gtag('event', 'conversion', { send_to: 'AW-18253477545/VftDCJuk99ccEKnt9_9D' });
+          gtag('event', 'form_lead_homepage');
+        }
+        done();
+      }).catch(function(){
+        if(btn){ btn.disabled = false; btn.textContent = label; }
+        if(errEl) errEl.style.display = 'block';
+      });
     }
   };
 })();

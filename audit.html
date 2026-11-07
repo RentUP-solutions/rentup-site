@@ -718,14 +718,16 @@ if(localStorage.getItem('cookieConsent')){
 
 <!-- POPUP #1 — Slide-in micro-formular (email capture + Enhanced Conversions) -->
 <style>
-#ru-slide{position:fixed;bottom:80px;right:24px;width:320px;background:#FDFAF6;border:.5px solid #E8D5BC;border-radius:14px;padding:22px 22px 18px;box-shadow:0 12px 40px rgba(45,40,32,.14);z-index:994;transform:translateY(140%);opacity:0;transition:transform 420ms cubic-bezier(0.23,1,0.32,1),opacity 360ms ease;pointer-events:none}
+body:has(#ru-slide.ru-vis) .wa-float,body:has(#ru-slide.ru-vis) #btt{opacity:0;pointer-events:none}
+#ru-slide{position:fixed;bottom:80px;right:24px;width:360px;background:#FDFAF6;border:.5px solid #E8D5BC;border-radius:14px;padding:22px 22px 18px;box-shadow:0 12px 40px rgba(45,40,32,.14);z-index:994;transform:translateY(140%);opacity:0;transition:transform 420ms cubic-bezier(0.23,1,0.32,1),opacity 360ms ease;pointer-events:none}
 #ru-slide.ru-vis{transform:translateY(0);opacity:1;pointer-events:auto}
 #ru-slide .rsc{position:absolute;top:10px;right:12px;background:none;border:none;cursor:pointer;font-size:20px;color:var(--muted);line-height:1;padding:4px 6px;font-family:'General Sans',sans-serif}
 #ru-slide .rsh{font-size:14px;font-weight:500;color:#2D2820;margin-bottom:6px;line-height:1.35;letter-spacing:-.01em;padding-right:20px}
 #ru-slide .rss{font-size:12px;color:#7A6E62;line-height:1.6;margin-bottom:14px}
 #ru-slide .rsi{width:100%;padding:9px 12px;border:.5px solid #D8CFC4;border-radius:8px;font-family:'General Sans',sans-serif;font-size:13px;color:#2D2820;background:#fff;outline:none;transition:border-color .2s;box-sizing:border-box}
 #ru-slide .rsi:focus{border-color:#C77936}
-#ru-slide .rsd{display:block;text-align:center;margin-top:8px;font-size:11px;color:var(--muted);cursor:pointer;background:none;border:none;font-family:'General Sans',sans-serif;padding:3px}
+#ru-slide .rsd{display:block;width:100%;text-align:center;margin:8px 0 0;font-size:13px;font-weight:500;color:#7A6E62;cursor:pointer;background:none;border:.5px solid #D8CFC4;border-radius:100px;font-family:'General Sans',sans-serif;padding:11px 24px;transition:background 180ms,color 180ms,border-color 180ms}
+#ru-slide .rsd:hover{background:#F5EFE6;border-color:#C9BBA9;color:#2D2820}
 #ru-slide .rsd:hover{color:#2D2820}
 #ru-slide .rsok{display:none;text-align:center;padding:12px 0 4px;font-size:13px;color:#0F6E56;font-weight:500}
 /* Slide-in — design nou (stil calculator) */
@@ -751,7 +753,10 @@ if(localStorage.getItem('cookieConsent')){
     <input class="rsi" type="text" id="rs-name" placeholder="Numele tău" autocomplete="name" style="margin-bottom:7px">
     <input class="rsi" type="email" id="rs-email" placeholder="Emailul tău" autocomplete="email" style="margin-bottom:7px">
     <input class="rsi" type="tel" id="rs-phone" placeholder="Număr de telefon (opțional)" autocomplete="tel" style="margin-bottom:7px">
-    <button class="rsb" onclick="RuSlide.submit()">Trimite-mi raportul →</button>
+    <!-- capcană anti-spam: invizibilă pentru oameni, roboții o completează -->
+    <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><input type="text" id="rs-hp" name="_honey" tabindex="-1" autocomplete="off"></div>
+    <button class="rsb" id="rs-btn" onclick="RuSlide.submit()">Trimite-mi raportul →</button>
+    <p id="rs-err" role="alert" style="display:none;font-size:12px;color:#A32D2D;margin:8px 0 0;text-align:center">Nu am putut trimite cererea. Încearcă din nou sau scrie-ne pe <a href="https://wa.me/40741176865" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">WhatsApp</a>.</p>
     <button class="rsd" onclick="RuSlide.dismiss(true)">Nu acum</button>
     <p style="font-size:12px;color:var(--muted);margin:8px 0 0;text-align:center">Folosim datele doar pentru raport și discuția despre el. Detalii în <a href="confidentialitate.html" style="color:inherit;text-decoration:underline">Politica de confidențialitate</a>.<br>Sugerăm un număr de telefon pentru o comunicare mai rapidă.</p>
   </div>
@@ -820,27 +825,45 @@ if(localStorage.getItem('cookieConsent')){
       if(!email || !email.includes('@')){ emailEl.style.borderColor='#A32D2D'; if(ok) emailEl.focus(); ok=false; } else { emailEl.style.borderColor=''; }
       if(!ok) return;
 
-      if(typeof gtag === 'function'){
-        gtag('set', 'user_data', { email: email });
-        gtag('event', 'conversion', { send_to: 'AW-18253477545/VftDCJuk99ccEKnt9_9D' });
-        gtag('event', 'form_lead_audit');
+      var errEl = document.getElementById('rs-err');
+      var btn = document.getElementById('rs-btn');
+      var hp = document.getElementById('rs-hp');
+      function done(){
+        try { localStorage.setItem(KEY, JSON.stringify({converted:true, ts:Date.now()})); sessionStorage.setItem(KEY + '_dismissed','1'); sessionStorage.setItem('ru_cvt','1'); } catch(e){}
+        document.getElementById('rs-form').style.display = 'none';
+        document.getElementById('rs-ok').style.display = 'block';
+        setTimeout(function(){ RuSlide.dismiss(false); }, 3000);
       }
+      /* capcana anti-spam completată = robot: arătăm „succes”, dar nu trimitem nimic */
+      if(hp && hp.value){ done(); return; }
 
-      var payload = { _subject:'Lead nou — Raport Rentabilitate (popup audit)', nume:name, email:email, sursa:'popup-slide-audit' };
+      var payload = { _subject:'Lead nou — Raport Rentabilitate (popup audit)', _honey:'', nume:name, email:email, sursa:'popup-slide-audit' };
       if(tel) payload.telefon = tel;
 
+      if(errEl) errEl.style.display = 'none';
+      var label = btn ? btn.textContent : '';
+      if(btn){ btn.disabled = true; btn.textContent = 'Se trimite...'; }
+
+      /* succesul se arată DOAR dacă FormSubmit confirmă primirea; altfel mesaj de eroare + WhatsApp */
       fetch('https://formsubmit.co/ajax/hello@rentup.solutions', {
         method: 'POST',
         headers: {'Content-Type':'application/json','Accept':'application/json'},
         body: JSON.stringify(payload)
-      }).catch(function(){});
-
-      try { localStorage.setItem(KEY, JSON.stringify({converted:true, ts:Date.now()})); sessionStorage.setItem(KEY + '_dismissed','1'); } catch(e){}
-      sessionStorage.setItem('ru_cvt','1');
-
-      document.getElementById('rs-form').style.display = 'none';
-      document.getElementById('rs-ok').style.display = 'block';
-      setTimeout(function(){ RuSlide.dismiss(false); }, 3000);
+      }).then(function(r){
+        return r.json().catch(function(){ return {}; }).then(function(j){
+          if(!r.ok || String(j.success) === 'false') throw new Error('formsubmit');
+        });
+      }).then(function(){
+        if(typeof gtag === 'function'){
+          gtag('set', 'user_data', { email: email });
+          gtag('event', 'conversion', { send_to: 'AW-18253477545/VftDCJuk99ccEKnt9_9D' });
+          gtag('event', 'form_lead_audit');
+        }
+        done();
+      }).catch(function(){
+        if(btn){ btn.disabled = false; btn.textContent = label; }
+        if(errEl) errEl.style.display = 'block';
+      });
     }
   };
 })();

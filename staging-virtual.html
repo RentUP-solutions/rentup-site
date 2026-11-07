@@ -952,6 +952,8 @@ document.addEventListener('contextmenu',function(e){
         <input type="hidden" name="_subject" value="Staging Virtual — cerere nouă">
         <div class="qfield"><input class="qinput" type="text" name="Nume" placeholder="Numele tău" required></div>
         <div class="qfield"><input class="qinput" type="email" name="email" placeholder="Adresa de email" required></div>
+        <!-- capcană anti-spam (Formspree respinge automat trimiterile care completează _gotcha) -->
+        <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
         <p class="qerr" id="qerr">A apărut o eroare. Încearcă din nou.</p>
         <button class="qsubmit" type="submit">Primesc planul →</button>
         <p style="font-size:12px;color:var(--muted);margin:10px 0 0;line-height:1.5">Folosim datele doar ca să-ți trimitem planul și să discutăm despre el. Detalii în <a href="confidentialitate.html" style="color:inherit;text-decoration:underline">Politica de confidențialitate</a>.</p>
