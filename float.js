@@ -4,7 +4,7 @@
   var mq=window.matchMedia('(max-width:860px)');
   var st=document.createElement('style');
   st.textContent='@media(max-width:860px){'+
-    '.wa-float,#btt{transition:transform 420ms cubic-bezier(0.23,1,0.32,1),box-shadow .2s,background .2s!important}'+
+    '.wa-float,#btt{transition:transform 420ms cubic-bezier(0.23,1,0.32,1),box-shadow 400ms ease,background 400ms ease!important}'+
     'body.fl-hide .wa-float,body.fl-hide #btt{transform:translateY(calc(100% + 40px))!important}'+
     /* pe homepage, bula din calculator le împinge lateral. Dacă sunt deja ascunse în jos, le ținem și jos, și lateral:
        așa orice trecere între cele două stări ascunse se face în afara ecranului și nu se vede */
@@ -14,7 +14,7 @@
     '@media(prefers-reduced-motion:reduce){.wa-float,#btt{transition:none!important}}'+
     /* la capătul paginii (rândul legal din footer: Setări cookie, ANPC) butoanele ies din ecran,
        ca să nu acopere linkurile. Pe toate lățimile. */
-    '.wa-float,#btt{transition:transform 420ms cubic-bezier(0.23,1,0.32,1),box-shadow .2s,background .2s}'+
+    '.wa-float,#btt{transition:transform 420ms cubic-bezier(0.23,1,0.32,1),box-shadow 400ms ease,background 400ms ease}'+
     'body.fl-foot .wa-float,body.fl-foot #btt{transform:translateY(calc(100% + 40px))!important;pointer-events:none}';
   document.head.appendChild(st);
   function watchFoot(){
