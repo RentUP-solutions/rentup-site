@@ -942,14 +942,15 @@ document.addEventListener('click',function(e){
 
 <!-- Cookie Banner -->
 <style id="ru-cb-m">@media(max-width:600px){#cookie-banner{padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px))!important;gap:10px!important}#cookie-banner>div:first-child{flex:1 1 100%!important;min-width:0!important}#cookie-banner>div:first-child>div:first-child{display:none!important}#cookie-banner .cb-opt{display:none}#cookie-banner>div:last-child{flex:1 1 100%!important}#cookie-banner>div:last-child>button{flex:1 1 0!important;height:40px!important;padding:0 16px!important;font-size:13px!important}}</style>
-<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#2D2820;border-top:0.5px solid #4D4238;padding:18px 24px;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;z-index:999;font-family:'General Sans',sans-serif">
-  <div style="flex:1;min-width:200px">
-    <div style="font-size:13px;font-weight:500;color:#FDFAF6;margin-bottom:4px">Folosim cookie-uri</div>
-    <div style="font-size:12px;color:var(--muted);line-height:1.5">Folosim cookie-uri pentru analiză și îmbunătățirea experienței. <span class="cb-opt">Poți accepta sau refuza cookie-urile opționale. </span><a href="confidentialitate.html" style="color:#C77936;text-decoration:none">Politică de confidențialitate →</a></div>
+<style id="ru-cb-x">#cookie-banner{--muted:#A89C90;--light:#B8AFA4}#cookie-banner .ar{display:inline-block;width:1em;height:1em;margin-left:.35em;vertical-align:-.14em}</style>
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#2D2820;border-top:0.5px solid #4D4238;padding:16px 20px;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;z-index:130;font-family:'General Sans',sans-serif">
+  <div style="flex:1;min-width:180px">
+    <div style="font-size:13px;font-weight:500;color:#FDFAF6;margin-bottom:3px">Folosim cookie-uri</div>
+    <div style="font-size:12px;color:var(--muted);line-height:1.5">Folosim cookie-uri pentru analiză și îmbunătățirea experienței. <span class="cb-opt">Poți accepta sau refuza cookie-urile opționale. </span><a href="confidentialitate.html" style="color:#C77936;text-decoration:none">Politică de confidențialitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
   </div>
   <div style="display:flex;gap:8px;align-items:center;flex-shrink:0">
-    <button onclick="setCookies('refused')" style="font-size:12px;font-weight:500;color:var(--muted);background:none;border:0.5px solid #4D4238;padding:8px 16px;border-radius:100px;cursor:pointer;font-family:'General Sans',sans-serif">Refuz</button>
-    <button onclick="setCookies('accepted')" style="font-size:12px;font-weight:500;color:#FDFAF6;background:#C77936;border:none;padding:8px 16px;border-radius:100px;cursor:pointer;font-family:'General Sans',sans-serif">Accept</button>
+    <button onclick="setCookies('refused')" style="font-size:13px;font-weight:500;color:var(--muted);background:none;border:1px solid #4D4238;padding:0 20px;height:44px;border-radius:100px;cursor:pointer;font-family:'General Sans',sans-serif;touch-action:manipulation;-webkit-tap-highlight-color:transparent">Refuz</button>
+    <button onclick="setCookies('accepted')" style="font-size:13px;font-weight:500;color:#FDFAF6;background:#C77936;border:none;padding:0 20px;height:44px;border-radius:100px;cursor:pointer;font-family:'General Sans',sans-serif;touch-action:manipulation;-webkit-tap-highlight-color:transparent">Accept</button>
   </div>
 </div>
 <script>

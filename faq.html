@@ -124,15 +124,15 @@ body::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none
 nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-filter:blur(12px);padding:0 56px;height:64px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 6px rgba(45,40,32,.07),0 8px 24px rgba(45,40,32,.10)}
 footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
 .f-logo{font-size:15px;font-weight:500;color:var(--brand)}
-.f-t{font-size:12px;color:var(--light)}
+.f-t{font-size:14px;color:var(--light)}
 @media(max-width:860px){nav,footer{padding-left:20px;padding-right:20px}}
 nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-filter:blur(12px);padding:0 56px;height:64px;display:flex;align-items:center;justify-content:space-between}
 .logo{font-family:'General Sans',sans-serif;font-size:17px;font-weight:600;color:#C77936;text-decoration:none;letter-spacing:-.01em}
 .logo span{color:#2D2820;font-weight:300}
 .nav-links{display:flex;align-items:center;gap:28px}
-.nav-links a{font-family:'General Sans',sans-serif;font-size:13px;color:var(--muted);text-decoration:none;transition:color .15s}
+.nav-links a{font-family:'General Sans',sans-serif;font-size:14px;color:var(--muted);text-decoration:none;transition:color .15s}
 .nav-links a:hover,.nav-links a.active{color:#2D2820}
-.nav-cta{font-family:'General Sans',sans-serif;font-size:13px;font-weight:500;color:#C77936;border:.5px solid #C77936;padding:8px 18px;border-radius:100px;text-decoration:none;white-space:nowrap;transition:background .2s}
+.nav-cta{font-family:'General Sans',sans-serif;font-size:14px;font-weight:500;color:#C77936;border:.5px solid #C77936;padding:8px 18px;border-radius:100px;text-decoration:none;white-space:nowrap;transition:background .2s}
 .nav-cta:hover{background:#FAF4EB}
 @media(max-width:768px){nav{padding:0 20px}
 .nav-links{display:none}}
@@ -157,7 +157,7 @@ img{-webkit-user-drag:none;user-drag:none}
 .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);transform-origin:left}
 .sr{opacity:0;transform:translateY(20px) scale(0.987);will-change:transform,opacity;transition:opacity 560ms cubic-bezier(0.23,1,0.32,1),transform 560ms cubic-bezier(0.23,1,0.32,1)}
 .sr.in{opacity:1;transform:none;will-change:auto}
-.skip-link{position:absolute;left:-9999px;top:4px;z-index:9999;background:var(--bg);color:var(--brand);padding:8px 18px;border-radius:0 0 8px 8px;font-size:13px;font-weight:500;border:1px solid var(--brand-border);text-decoration:none}
+.skip-link{position:absolute;left:-9999px;top:4px;z-index:9999;background:var(--bg);color:var(--brand);padding:8px 18px;border-radius:0 0 8px 8px;font-size:14px;font-weight:500;border:1px solid var(--brand-border);text-decoration:none}
 .skip-link:focus{left:4px}
 .nav-cta:focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:100px}
 .nav-links a:focus-visible{outline:2px solid var(--brand);outline-offset:4px;border-radius:2px}
@@ -190,7 +190,7 @@ body{overflow-x:clip}
 .fq-search input{width:100%;font:400 16px 'General Sans',sans-serif;color:var(--text);padding:17px 22px 17px 50px;border-radius:100px;border:.5px solid var(--border);background:#fff;box-shadow:0 2px 24px rgba(45,40,32,.06);outline:none;-webkit-appearance:none;appearance:none;transition:box-shadow 220ms var(--ease),border-color 220ms}
 .fq-search input:focus{border-color:var(--brand-border);box-shadow:0 0 0 4px var(--brand-light),0 2px 24px rgba(45,40,32,.06)}
 .fq-search svg{position:absolute;left:20px;top:50%;transform:translateY(-50%)}
-.fq-pop{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px;font-size:13px;color:var(--muted)}
+.fq-pop{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px;font-size:14px;color:var(--muted)}
 .fq-pop button{font:inherit;color:var(--mid);background:none;border:none;border-bottom:.5px solid var(--brand-border);cursor:pointer;padding:0 0 1px}
 @media(hover:hover){.fq-pop button:hover{color:var(--brand)}}
 
@@ -214,7 +214,7 @@ body{overflow-x:clip}
 .fq-cat+.fq-cat{margin-top:40px}
 @media(max-width:860px){.fq-cat{scroll-margin-top:130px}}
 .fq-cat-h{display:flex;align-items:baseline;gap:14px;margin-bottom:16px}
-.fq-cat-h span{font-size:12px;font-weight:600;color:var(--brand);letter-spacing:.06em}
+.fq-cat-h span{font-size:14px;font-weight:600;color:var(--brand);letter-spacing:.06em}
 .fq-cat-h h2{font-size:clamp(22px,2.6vw,28px);letter-spacing:-.025em}
 .qa{background:#fff;border-radius:16px;box-shadow:0 2px 20px rgba(45,40,32,.05);margin-bottom:8px;transition:box-shadow 260ms var(--ease)}
 .qa.open{box-shadow:0 10px 36px rgba(45,40,32,.09)}
@@ -503,7 +503,7 @@ body{overflow-x:clip}
 <style>
 /* Butonul de limbă + meniul hamburger (aceleași reguli pe care le injectează lang.js;
    sunt aici ca nav-ul să arate corect înainte să se încarce lang.js) */
-.lang-toggle-btn{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:#C77936;border:.5px solid #E8D5BC;background:transparent;padding:5px 11px;border-radius:100px;cursor:pointer;letter-spacing:.04em;transition:background 150ms ease,border-color 150ms ease;flex-shrink:0}
+.lang-toggle-btn{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:#C77936;border:.5px solid #E8D5BC;background:transparent;padding:5px 11px;border-radius:100px;cursor:pointer;letter-spacing:.04em;transition:background 150ms ease,border-color 150ms ease;flex-shrink:0}
 .lang-toggle-btn:hover{background:#FAF4EB;border-color:#C77936}
 .lang-toggle-btn:focus-visible{outline:2px solid #C77936;outline-offset:3px;border-radius:100px}
 .lang-mob{display:none!important}
@@ -520,6 +520,7 @@ body{overflow-x:clip}
    pe secțiunile închise rămân deschise, ca să se citească. */
 .fq-reels,#cookie-banner{--muted:#A89C90;--light:#B8AFA4}
 </style>
+<style id="ru-nav-t">@media(min-width:769px) and (max-width:1100px){nav{padding:0 24px}.nav-links{gap:18px}.nav-cta{padding:8px 14px}}</style>
 </head>
 <body>
 <noscript><style>body{opacity:1}</style></noscript>
@@ -675,9 +676,9 @@ body{overflow-x:clip}
           </ul>
           <p>Rental Kit-ul vine inclus în Quick Win și Invest Premium. Poate fi achiziționat și separat dacă apartamentul tău e deja amenajat.</p>
           <div style="margin-top:14px;padding:14px 16px;background:#FAF4EB;border:.5px solid #E8D5BC;border-radius:8px">
-            <div style="font-size:13px;font-weight:500;color:#C77936;margin-bottom:6px">Vrei să vezi exact ce conține?</div>
-            <div style="font-size:13px;color:var(--muted);margin-bottom:10px">Toate modulele, documentele și protocoalele sunt detaliate pe pagina dedicată.</div>
-            <a href="rental-kit.html" style="font-size:13px;font-weight:500;color:white;background:#C77936;padding:8px 18px;border-radius:100px;text-decoration:none;display:inline-block;margin-top:8px">Descoperă Rental Kit →</a>
+            <div style="font-size:14px;font-weight:500;color:#C77936;margin-bottom:6px">Vrei să vezi exact ce conține?</div>
+            <div style="font-size:14px;color:var(--muted);margin-bottom:10px">Toate modulele, documentele și protocoalele sunt detaliate pe pagina dedicată.</div>
+            <a href="rental-kit.html" style="font-size:14px;font-weight:500;color:white;background:#C77936;padding:8px 18px;border-radius:100px;text-decoration:none;display:inline-block;margin-top:8px">Descoperă Rental Kit →</a>
           </div></div></div></div></div>
 <div class="qa"><button type="button" class="qa-q" aria-expanded="false"><span>Ar trebui să accept chiriași cu animale de companie?</span><span class="pl" aria-hidden="true"></span></button><div class="qa-a"><div><div class="qa-in"><span class="qa-short"><b>Pe scurt</b>Da, cu protecție adecvată.</span><p>Nu recomandăm refuzul automat, recomandăm protecție adecvată. Proprietarii care refuză sistematic pierd adesea chiriași serioși și stabili, doar pentru că au animale.</p>
           <p>Cu instrumentele corecte, poți accepta animale în siguranță:</p>
@@ -689,13 +690,13 @@ body{overflow-x:clip}
           </ul></div></div></div></div></section>
 <section class="fq-cat" id="probleme"><div class="fq-cat-h"><span>05</span><h2>Situații dificile</h2></div>
 <div class="qa"><button type="button" class="qa-q" aria-expanded="false"><span>Chiriașul nu plătește, cum procedez?</span><span class="pl" aria-hidden="true"></span></button><div class="qa-a"><div><div class="qa-in"><span class="qa-short"><b>Pe scurt</b>Urmezi un protocol pe zile, fără să improvizezi.</span><p>Există un protocol clar pe zile, de la primul reminder la executare silită. Fără să improvizezi.</p><p style="filter:blur(4px);user-select:none;pointer-events:none">Ziua 1-5 reminder WhatsApp, Ziua 5-15 notificare formală, Ziua 30 titlu executoriu. Modelele complete sunt în Rental Kit.</p><div style="margin-top:12px;padding:14px 16px;background:#FAF4EB;border:.5px solid #E8D5BC;border-radius:8px">
-      <div style="font-size:13px;font-weight:500;color:#C77936;margin-bottom:6px">Protocolul complet este în Rental Kit.</div>
-<a href="rental-kit.html" style="font-size:13px;font-weight:500;color:white;background:#C77936;padding:8px 18px;border-radius:100px;text-decoration:none;display:inline-block;margin-top:8px">Descoperă Rental Kit →</a>    </div></div></div></div></div>
+      <div style="font-size:14px;font-weight:500;color:#C77936;margin-bottom:6px">Protocolul complet este în Rental Kit.</div>
+<a href="rental-kit.html" style="font-size:14px;font-weight:500;color:white;background:#C77936;padding:8px 18px;border-radius:100px;text-decoration:none;display:inline-block;margin-top:8px">Descoperă Rental Kit →</a>    </div></div></div></div></div>
 <div class="qa"><button type="button" class="qa-q" aria-expanded="false"><span>Chiriașul refuză să plece la expirarea contractului, ce fac?</span><span class="pl" aria-hidden="true"></span></button><div class="qa-a"><div><div class="qa-in"><span class="qa-short"><b>Pe scurt</b>Există un protocol clar, de la mediere la executor.</span><p>Există un protocol clar pentru această situație. De la mediere amiabilă până la evacuare prin executor, fără luni de instanță judecătorească. Depinde de tipul contractului pe care îl ai.</p>
           <div style="margin-top:12px;padding:14px 16px;background:#FAF4EB;border:.5px solid #E8D5BC;border-radius:8px">
-            <div style="font-size:13px;font-weight:500;color:#C77936;margin-bottom:6px">Protocolul complet este în Rental Kit.</div>
-            <div style="font-size:13px;color:var(--muted);margin-bottom:10px">Pași exacți, termene, modele de notificări și clauze contractuale care fac diferența.</div>
-            <a href="rental-kit.html" style="font-size:13px;font-weight:500;color:white;background:#C77936;padding:8px 18px;border-radius:100px;text-decoration:none;display:inline-block;margin-top:8px" onclick="gtag('event','click_rental_kit_faq')">Descoperă Rental Kit →</a>
+            <div style="font-size:14px;font-weight:500;color:#C77936;margin-bottom:6px">Protocolul complet este în Rental Kit.</div>
+            <div style="font-size:14px;color:var(--muted);margin-bottom:10px">Pași exacți, termene, modele de notificări și clauze contractuale care fac diferența.</div>
+            <a href="rental-kit.html" style="font-size:14px;font-weight:500;color:white;background:#C77936;padding:8px 18px;border-radius:100px;text-decoration:none;display:inline-block;margin-top:8px" onclick="gtag('event','click_rental_kit_faq')">Descoperă Rental Kit →</a>
           </div></div></div></div></div>
 <div class="qa"><button type="button" class="qa-q" aria-expanded="false"><span>Chiriașul a lăsat daune la plecare, cum recuperez?</span><span class="pl" aria-hidden="true"></span></button><div class="qa-a"><div><div class="qa-in"><span class="qa-short"><b>Pe scurt</b>Reții din garanție daunele documentate.</span><p>Ai dreptul să reții din garanție contravaloarea daunelor documentate. Procedura recomandată în contractul standard RentUP (termene contractuale, nu termene legale):</p>
           <ul class="fa-list">
@@ -944,14 +945,15 @@ document.addEventListener('click',function(e){
 </script>
 <!-- Cookie Banner -->
 <style id="ru-cb-m">@media(max-width:600px){#cookie-banner{padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px))!important;gap:10px!important}#cookie-banner>div:first-child{flex:1 1 100%!important;min-width:0!important}#cookie-banner>div:first-child>div:first-child{display:none!important}#cookie-banner .cb-opt{display:none}#cookie-banner>div:last-child{flex:1 1 100%!important}#cookie-banner>div:last-child>button{flex:1 1 0!important;height:40px!important;padding:0 16px!important;font-size:13px!important}}</style>
-<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#2D2820;border-top:0.5px solid #4D4238;padding:18px 24px;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;z-index:999;font-family:'General Sans',sans-serif">
-  <div style="flex:1;min-width:200px">
-    <div style="font-size:13px;font-weight:500;color:#FDFAF6;margin-bottom:4px">Folosim cookie-uri</div>
-    <div style="font-size:12px;color:var(--muted);line-height:1.5">Folosim cookie-uri pentru analiză și îmbunătățirea experienței. <span class="cb-opt">Poți accepta sau refuza cookie-urile opționale. </span><a href="confidentialitate.html" style="color:#C77936;text-decoration:none">Politică de confidențialitate →</a></div>
+<style id="ru-cb-x">#cookie-banner{--muted:#A89C90;--light:#B8AFA4}#cookie-banner .ar{display:inline-block;width:1em;height:1em;margin-left:.35em;vertical-align:-.14em}</style>
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#2D2820;border-top:0.5px solid #4D4238;padding:16px 20px;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;z-index:130;font-family:'General Sans',sans-serif">
+  <div style="flex:1;min-width:180px">
+    <div style="font-size:13px;font-weight:500;color:#FDFAF6;margin-bottom:3px">Folosim cookie-uri</div>
+    <div style="font-size:12px;color:var(--muted);line-height:1.5">Folosim cookie-uri pentru analiză și îmbunătățirea experienței. <span class="cb-opt">Poți accepta sau refuza cookie-urile opționale. </span><a href="confidentialitate.html" style="color:#C77936;text-decoration:none">Politică de confidențialitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
   </div>
   <div style="display:flex;gap:8px;align-items:center;flex-shrink:0">
-    <button onclick="setCookies('refused')" style="font-size:12px;font-weight:500;color:var(--muted);background:none;border:0.5px solid #4D4238;padding:8px 16px;border-radius:100px;cursor:pointer;font-family:'General Sans',sans-serif">Refuz</button>
-    <button onclick="setCookies('accepted')" style="font-size:12px;font-weight:500;color:#FDFAF6;background:#C77936;border:none;padding:8px 16px;border-radius:100px;cursor:pointer;font-family:'General Sans',sans-serif">Accept</button>
+    <button onclick="setCookies('refused')" style="font-size:13px;font-weight:500;color:var(--muted);background:none;border:1px solid #4D4238;padding:0 20px;height:44px;border-radius:100px;cursor:pointer;font-family:'General Sans',sans-serif;touch-action:manipulation;-webkit-tap-highlight-color:transparent">Refuz</button>
+    <button onclick="setCookies('accepted')" style="font-size:13px;font-weight:500;color:#FDFAF6;background:#C77936;border:none;padding:0 20px;height:44px;border-radius:100px;cursor:pointer;font-family:'General Sans',sans-serif;touch-action:manipulation;-webkit-tap-highlight-color:transparent">Accept</button>
   </div>
 </div>
 <script>

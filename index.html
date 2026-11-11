@@ -203,6 +203,9 @@ h2.sh{font-size:clamp(1.5rem,4vw,2.375rem);font-weight:300;color:var(--text);lin
 /* Calculator ROI — taburi, cifră mare animată, bare comparative */
 .cx-wrap{max-width:1080px;margin:0 auto}
 .cx-h{max-width:560px}
+/* Calculator: eticheta și titlul centrate */
+#calc .cx-wrap>.sec-tag{justify-content:center}
+#calc .cx-h{text-align:center;margin-left:auto;margin-right:auto}
 .cx-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(32px,5vw,64px);margin-top:40px;align-items:start}
 .cx-fg{margin-bottom:30px}
 .cx-fl{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px;font-size:14px;color:var(--mid)}
@@ -348,6 +351,10 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .tc-photo img{opacity:0;filter:blur(16px);transition:opacity 800ms cubic-bezier(0.23,1,0.32,1),filter 800ms cubic-bezier(0.23,1,0.32,1)}
 .tc-photo img.ph-in{opacity:1;filter:none}
 .tc-body{padding:24px 26px}
+/* Despre noi: citatul portocaliu stă jos în card, la aceeași înălțime pe ambele carduri */
+.team-g .tc{display:flex;flex-direction:column}
+.team-g .tc-body{flex:1;display:flex;flex-direction:column}
+.team-g .tc-body>p:last-child{margin-top:auto!important;padding-top:10px}
 .tc-role{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--brand);margin-bottom:7px}
 .tc-name{font-size:19px;font-weight:500;margin-bottom:12px}
 .tc-bio{font-size:14px;color:var(--muted);line-height:1.7}
@@ -371,9 +378,15 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .fc.no-c ul li::before{color:#A32D2D}
 .fit-note{background:var(--brand-light);border:none;border-radius:12px;padding:22px 26px;font-size:14px;color:var(--dark);line-height:1.7;font-style:italic;box-shadow:0 2px 16px rgba(45,40,32,.16)}
 
+.ar{display:inline-block;width:1em;height:1em;margin-left:.35em;vertical-align:-.14em;flex-shrink:0}
+.cx-arr .ar,.tt-arrow .ar{margin:0 .05em;vertical-align:-.08em}
 /* ── PROCESS ── */
 #process{background:var(--bg-stone)}
 .sec-sub-proc{max-width:720px}
+/* Cum funcționează: eticheta, titlul și subtitlul centrate, ca blocul de etape */
+#process>.sec-tag{justify-content:center}
+#process>.sh{text-align:center}
+#process>.sec-sub-proc{text-align:center;margin-left:auto;margin-right:auto}
 .proc-g{display:grid;grid-template-columns:repeat(6,1fr);border:none;border-radius:14px;overflow:hidden;box-shadow:0 2px 16px rgba(45,40,32,.16)}
 .pc{padding:30px 26px;border-right:.5px solid var(--border);background:var(--bg);transition:background 200ms cubic-bezier(0.23,1,0.32,1)}
 .pc:last-child{border-right:none}
@@ -425,6 +438,10 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .ig-h{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;max-width:1080px;margin:0 auto 12px}
 .ig-h h2.sh em{font-style:normal;font-weight:500;color:var(--brand)}
 .ig-h .sec-sub{margin-bottom:0}
+/* Instagram: antet centrat, butonul dedesubt */
+.ig-h{flex-direction:column;align-items:center;text-align:center}
+.ig-h .sec-tag{justify-content:center}
+.ig-h .sec-sub{margin-left:auto;margin-right:auto}
 .ig-follow{background:transparent!important;color:var(--brand)!important;border:.5px solid var(--brand)}
 @media(hover:hover) and (pointer:fine){.ig-follow:hover{background:var(--brand)!important;color:#FDFAF6!important}}
 .pstrip.ps-static{overflow-x:auto;scrollbar-width:none;-webkit-mask-image:none;mask-image:none;padding:4px 16px}
@@ -453,7 +470,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 /* ── TESTIMONIALS ── */
 #testimonials{background:var(--bg-stone)}
 /* Testimoniale — taburi, cifră mare, citat cu blur pe cuvinte */
-.tt-wrap{max-width:920px;margin:0 auto}
+.tt-wrap{max-width:1080px;margin:0 auto}
 .tt-note{text-align:center;font-size:14px;color:var(--light);margin:0 auto 32px}
 .tt-tabs{position:relative;display:flex;gap:2px;width:fit-content;max-width:100%;margin:0 auto 20px;padding:4px;border-radius:100px;background:rgba(253,250,246,.6);border:.5px solid var(--border);overflow-x:auto;scrollbar-width:none}
 .tt-tabs::-webkit-scrollbar{display:none}
@@ -538,6 +555,10 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 #packages{background:var(--bg-stone)}
 /* Pachete — selector de situație + carduri fără contur */
 .pk-wrap{max-width:1080px;margin:0 auto}
+/* Pachete: eticheta, titlul și subtitlul centrate, ca restul secțiunilor */
+.pk-wrap>.sec-tag{justify-content:center}
+.pk-wrap>.sh{text-align:center}
+.pk-wrap>.sec-sub{text-align:center;margin-left:auto;margin-right:auto}
 .pk-free{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:28px;padding:clamp(28px,4vw,44px) clamp(24px,4vw,44px);border-radius:16px;background:#FDFAF6;box-shadow:0 2px 24px rgba(45,40,32,.08)}
 .pk-free p{font-size:15px;line-height:1.6;color:var(--mid);max-width:620px}
 .pk-free p b{font-weight:500;color:var(--text)}
@@ -1055,9 +1076,9 @@ button,a,.tbn,.fi{touch-action:manipulation}
 /* Process card lift */
 /* Etapele procesului: la hover (doar cu mouse) etapa rămâne albă și pe loc, doar cifra devine portocalie */
 @media(hover:hover) and (pointer:fine){.pc:hover .pc-n{color:var(--brand)}}
-/* Tabletă / desktop îngust: 3 etape pe rând, fiecare rând cu bucata lui de linie de timp dedesubt */
-@media(min-width:601px) and (max-width:1200px){
-  .proc-wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+/* Peste 600px: 3 etape pe rând (2 rânduri), fiecare rând cu bucata lui de linie de timp dedesubt */
+@media(min-width:601px){
+  .proc-wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));max-width:1080px;margin:0 auto}
   .proc-wrap .proc-g,.proc-wrap .proc-timeline{display:contents}
   .proc-wrap .proc-timeline::before{display:none}
   .proc-wrap::before,.proc-wrap::after{content:"";grid-column:1/-1;background:var(--bg);border-radius:14px;box-shadow:0 2px 16px rgba(45,40,32,.16);z-index:0}
@@ -1246,7 +1267,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
   <span style="width:22px;height:2px;background:#C77936;display:block"></span>
   <span style="width:22px;height:2px;background:#C77936;display:block"></span>
 </button>
-<a class="nav-cta" href="audit.html">Raport de Rentabilitate →</a>
+<a class="nav-cta" href="audit.html">Raport de Rentabilitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
 </nav>
 <div class="nav-mobile" id="nav-mobile">
   <a href="/#process">Cum funcționează</a>
@@ -1268,8 +1289,8 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
       <p class="hero-sub" style="margin-bottom:14px">Pregătim apartamentul, te ajutăm să alegi chiriașul și primești toate documentele de care ai nevoie după: contract personalizat, ghiduri pentru tine și pentru chiriaș, pași clari pentru situațiile dificile.</p>
     </div>
     <div class="hero-btns">
-      <a class="btn-primary" href="#calc" onclick="gtag('event','click_calculator_roi')">Sunt proprietar →</a>
-      <a class="btn-primary" href="investitori.html" onclick="gtag('event','click_hero_investitori')" style="background:transparent;color:var(--brand);border:.5px solid var(--brand);transition:background 400ms ease,color 400ms ease,transform 150ms cubic-bezier(0.23,1,0.32,1)">Sunt investitor →</a>
+      <a class="btn-primary" href="#calc" onclick="gtag('event','click_calculator_roi')">Sunt proprietar<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+      <a class="btn-primary" href="investitori.html" onclick="gtag('event','click_hero_investitori')" style="background:transparent;color:var(--brand);border:.5px solid var(--brand);transition:background 400ms ease,color 400ms ease,transform 150ms cubic-bezier(0.23,1,0.32,1)">Sunt investitor<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
     </div>
     <p class="hero-note"><b>Consultația inițială e gratuită</b> · fără angajament</p>
     <div class="hero-facts"><div><b>8–48 luni</b><span>recuperarea investiției</span></div><div><b>5 zile</b><span>până la primul chiriaș potrivit</span></div></div>
@@ -1292,31 +1313,31 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
   <div class="pstrip" role="region" aria-label="Proiecte din portofoliu, înainte și după">
     <div class="ps-track">
     <div class="ps-group">
-      <a class="ps-card" href="portofoliu.html#proiect-drumul-taberei" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/drumul-taberei-inainte.webp" data-srcset="images/strip/drumul-taberei-inainte-300.webp 300w, images/strip/drumul-taberei-inainte-450.webp 450w, images/strip/drumul-taberei-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="2 camere Drumul Taberei — înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">2 camere Drumul Taberei</span><span class="ps-cta">Vezi proiectul →</span></span></a>
-      <a class="ps-card" href="portofoliu.html#proiect-drumul-taberei" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/drumul-taberei-dupa.webp" data-srcset="images/strip/drumul-taberei-dupa-300.webp 300w, images/strip/drumul-taberei-dupa-450.webp 450w, images/strip/drumul-taberei-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="2 camere Drumul Taberei — după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">2 camere Drumul Taberei</span><span class="ps-cta">Vezi proiectul →</span></span></a>
+      <a class="ps-card" href="portofoliu.html#proiect-drumul-taberei" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/drumul-taberei-inainte.webp" data-srcset="images/strip/drumul-taberei-inainte-300.webp 300w, images/strip/drumul-taberei-inainte-450.webp 450w, images/strip/drumul-taberei-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="2 camere Drumul Taberei — înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">2 camere Drumul Taberei</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
+      <a class="ps-card" href="portofoliu.html#proiect-drumul-taberei" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/drumul-taberei-dupa.webp" data-srcset="images/strip/drumul-taberei-dupa-300.webp 300w, images/strip/drumul-taberei-dupa-450.webp 450w, images/strip/drumul-taberei-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="2 camere Drumul Taberei — după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">2 camere Drumul Taberei</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
     </div>
     <div class="ps-group">
-      <a class="ps-card" href="portofoliu.html#proiect-tineretului" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/tineretului-inainte.webp" data-srcset="images/strip/tineretului-inainte-300.webp 300w, images/strip/tineretului-inainte-450.webp 450w, images/strip/tineretului-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Tineretului — înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">Garsonieră Tineretului</span><span class="ps-cta">Vezi proiectul →</span></span></a>
-      <a class="ps-card" href="portofoliu.html#proiect-tineretului" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/tineretului-dupa.webp" data-srcset="images/strip/tineretului-dupa-300.webp 300w, images/strip/tineretului-dupa-450.webp 450w, images/strip/tineretului-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Tineretului — după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">Garsonieră Tineretului</span><span class="ps-cta">Vezi proiectul →</span></span></a>
+      <a class="ps-card" href="portofoliu.html#proiect-tineretului" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/tineretului-inainte.webp" data-srcset="images/strip/tineretului-inainte-300.webp 300w, images/strip/tineretului-inainte-450.webp 450w, images/strip/tineretului-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Tineretului — înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">Garsonieră Tineretului</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
+      <a class="ps-card" href="portofoliu.html#proiect-tineretului" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/tineretului-dupa.webp" data-srcset="images/strip/tineretului-dupa-300.webp 300w, images/strip/tineretului-dupa-450.webp 450w, images/strip/tineretului-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Tineretului — după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">Garsonieră Tineretului</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
     </div>
     <div class="ps-group">
-      <a class="ps-card" href="portofoliu.html#proiect-floreasca" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/floreasca-inainte.webp" data-srcset="images/strip/floreasca-inainte-300.webp 300w, images/strip/floreasca-inainte-450.webp 450w, images/strip/floreasca-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="2 camere Floreasca — înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">2 camere Floreasca</span><span class="ps-cta">Vezi proiectul →</span></span></a>
-      <a class="ps-card" href="portofoliu.html#proiect-floreasca" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/floreasca-dupa.webp" data-srcset="images/strip/floreasca-dupa-300.webp 300w, images/strip/floreasca-dupa-450.webp 450w, images/strip/floreasca-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="2 camere Floreasca — după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">2 camere Floreasca</span><span class="ps-cta">Vezi proiectul →</span></span></a>
+      <a class="ps-card" href="portofoliu.html#proiect-floreasca" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/floreasca-inainte.webp" data-srcset="images/strip/floreasca-inainte-300.webp 300w, images/strip/floreasca-inainte-450.webp 450w, images/strip/floreasca-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="2 camere Floreasca — înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">2 camere Floreasca</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
+      <a class="ps-card" href="portofoliu.html#proiect-floreasca" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/floreasca-dupa.webp" data-srcset="images/strip/floreasca-dupa-300.webp 300w, images/strip/floreasca-dupa-450.webp 450w, images/strip/floreasca-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="2 camere Floreasca — după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">2 camere Floreasca</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
     </div>
     <div class="ps-group">
-      <a class="ps-card" href="portofoliu.html#proiect-aviatiei" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/aviatiei-dupa.webp" data-srcset="images/strip/aviatiei-dupa-300.webp 300w, images/strip/aviatiei-dupa-450.webp 450w, images/strip/aviatiei-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Apartament Aviației — după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">Apartament Aviației</span><span class="ps-cta">Vezi proiectul →</span></span></a>
+      <a class="ps-card" href="portofoliu.html#proiect-aviatiei" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/aviatiei-dupa.webp" data-srcset="images/strip/aviatiei-dupa-300.webp 300w, images/strip/aviatiei-dupa-450.webp 450w, images/strip/aviatiei-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Apartament Aviației — după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">Apartament Aviației</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
     </div>
     <div class="ps-group">
-      <a class="ps-card" href="portofoliu.html#proiect-dormitor-matrimonial" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/dormitor-matrimonial-inainte.webp" data-srcset="images/strip/dormitor-matrimonial-inainte-300.webp 300w, images/strip/dormitor-matrimonial-inainte-450.webp 450w, images/strip/dormitor-matrimonial-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Dormitor Matrimonial — înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">Dormitor Matrimonial</span><span class="ps-cta">Vezi proiectul →</span></span></a>
-      <a class="ps-card" href="portofoliu.html#proiect-dormitor-matrimonial" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/dormitor-matrimonial-dupa.webp" data-srcset="images/strip/dormitor-matrimonial-dupa-300.webp 300w, images/strip/dormitor-matrimonial-dupa-450.webp 450w, images/strip/dormitor-matrimonial-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Dormitor Matrimonial — după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">Dormitor Matrimonial</span><span class="ps-cta">Vezi proiectul →</span></span></a>
+      <a class="ps-card" href="portofoliu.html#proiect-dormitor-matrimonial" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/dormitor-matrimonial-inainte.webp" data-srcset="images/strip/dormitor-matrimonial-inainte-300.webp 300w, images/strip/dormitor-matrimonial-inainte-450.webp 450w, images/strip/dormitor-matrimonial-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Dormitor Matrimonial — înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">Dormitor Matrimonial</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
+      <a class="ps-card" href="portofoliu.html#proiect-dormitor-matrimonial" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/dormitor-matrimonial-dupa.webp" data-srcset="images/strip/dormitor-matrimonial-dupa-300.webp 300w, images/strip/dormitor-matrimonial-dupa-450.webp 450w, images/strip/dormitor-matrimonial-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Dormitor Matrimonial — după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">Dormitor Matrimonial</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
     </div>
     <div class="ps-group">
-      <a class="ps-card" href="portofoliu.html#proiect-garsoniera-drumul-taberei" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/garsoniera-drumul-taberei-inainte.webp" data-srcset="images/strip/garsoniera-drumul-taberei-inainte-300.webp 300w, images/strip/garsoniera-drumul-taberei-inainte-450.webp 450w, images/strip/garsoniera-drumul-taberei-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Drumul Taberei — înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">Garsonieră Drumul Taberei</span><span class="ps-cta">Vezi proiectul →</span></span></a>
-      <a class="ps-card" href="portofoliu.html#proiect-garsoniera-drumul-taberei" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/garsoniera-drumul-taberei-dupa.webp" data-srcset="images/strip/garsoniera-drumul-taberei-dupa-300.webp 300w, images/strip/garsoniera-drumul-taberei-dupa-450.webp 450w, images/strip/garsoniera-drumul-taberei-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Drumul Taberei — după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">Garsonieră Drumul Taberei</span><span class="ps-cta">Vezi proiectul →</span></span></a>
+      <a class="ps-card" href="portofoliu.html#proiect-garsoniera-drumul-taberei" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/garsoniera-drumul-taberei-inainte.webp" data-srcset="images/strip/garsoniera-drumul-taberei-inainte-300.webp 300w, images/strip/garsoniera-drumul-taberei-inainte-450.webp 450w, images/strip/garsoniera-drumul-taberei-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Drumul Taberei — înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">Garsonieră Drumul Taberei</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
+      <a class="ps-card" href="portofoliu.html#proiect-garsoniera-drumul-taberei" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/garsoniera-drumul-taberei-dupa.webp" data-srcset="images/strip/garsoniera-drumul-taberei-dupa-300.webp 300w, images/strip/garsoniera-drumul-taberei-dupa-450.webp 450w, images/strip/garsoniera-drumul-taberei-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Drumul Taberei — după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">Garsonieră Drumul Taberei</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
     </div>
     <div class="ps-group">
-      <a class="ps-card" href="portofoliu.html#proiect-vatra-luminoasa" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/vatra-luminoasa-inainte.webp" data-srcset="images/strip/vatra-luminoasa-inainte-300.webp 300w, images/strip/vatra-luminoasa-inainte-450.webp 450w, images/strip/vatra-luminoasa-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Vatra Luminoasă — înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">Garsonieră Vatra Luminoasă</span><span class="ps-cta">Vezi proiectul →</span></span></a>
-      <a class="ps-card" href="portofoliu.html#proiect-vatra-luminoasa" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/vatra-luminoasa-dupa.webp" data-srcset="images/strip/vatra-luminoasa-dupa-300.webp 300w, images/strip/vatra-luminoasa-dupa-450.webp 450w, images/strip/vatra-luminoasa-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Vatra Luminoasă — după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">Garsonieră Vatra Luminoasă</span><span class="ps-cta">Vezi proiectul →</span></span></a>
+      <a class="ps-card" href="portofoliu.html#proiect-vatra-luminoasa" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/vatra-luminoasa-inainte.webp" data-srcset="images/strip/vatra-luminoasa-inainte-300.webp 300w, images/strip/vatra-luminoasa-inainte-450.webp 450w, images/strip/vatra-luminoasa-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Vatra Luminoasă — înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">Garsonieră Vatra Luminoasă</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
+      <a class="ps-card" href="portofoliu.html#proiect-vatra-luminoasa" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/vatra-luminoasa-dupa.webp" data-srcset="images/strip/vatra-luminoasa-dupa-300.webp 300w, images/strip/vatra-luminoasa-dupa-450.webp 450w, images/strip/vatra-luminoasa-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Vatra Luminoasă — după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">Garsonieră Vatra Luminoasă</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
     </div>
     </div>
   </div>
@@ -1406,7 +1427,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
           <div data-pane="gain" class="off">
             <div class="cx-res-l" id="cx-gain-l">Câștig în plus în 5 ani</div>
             <div class="cx-big cx-gain" id="cx-gain">+0€</div>
-            <div class="cx-rent"><span class="cx-from" id="g-cur">450€</span><span class="cx-arr">→</span><span id="g-opt">450€</span><span class="cx-unit" id="g-unit">/lună</span></div>
+            <div class="cx-rent"><span class="cx-from" id="g-cur">450€</span><span class="cx-arr"><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span><span id="g-opt">450€</span><span class="cx-unit" id="g-unit">/lună</span></div>
             <div class="cx-bars">
               <div><div class="cx-bar-h"><span>Ca până acum</span><b id="g-nb">—</b></div><div class="cx-track"><div class="cx-fill" id="g-fb"></div></div></div>
               <div><div class="cx-bar-h"><span>Cu chiriaș care rămâne</span><b id="g-ng">—</b></div><div class="cx-track"><div class="cx-fill cx-good" id="g-fg"></div></div></div>
@@ -1423,7 +1444,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
             </div></div>
           </div>
           </div>
-          <a class="btn-primary cx-btn" href="#contact">Vorbim despre apartamentul tău →</a>
+          <a class="btn-primary cx-btn" href="#contact">Vorbim despre apartamentul tău<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
         </div>
       </div>
     </div>
@@ -1434,11 +1455,11 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 
 <!-- S3 ABOUT -->
 <section id="about">
-  <div style="max-width:960px;margin:0 auto;text-align:center">
+  <div style="max-width:1080px;margin:0 auto;text-align:center">
   <div class="sec-tag" style="justify-content:center"><div class="dot"></div>Despre noi</div>
   <h2 class="sh">Nu facem doar design.<br>Optimizăm active imobiliare.</h2>
   <p class="sec-sub" style="margin:0 auto 44px">Misiunea noastră este să transformăm apartamentele obișnuite în active stabile și profitabile. Nu ne concentrăm doar pe estetică, ci pe performanța reală a spațiului în timp.</p>
-  <div class="team-g" style="text-align:left;max-width:860px;margin:0 auto">
+  <div class="team-g" style="text-align:left;max-width:1080px;margin:0 auto">
     <div class="tc">
       <div class="tc-photo" style="padding:0;overflow:hidden"><img src="images/about us_cristiana.webp" srcset="images/about-us_cristiana-800.webp 800w, images/about-us_cristiana-1200.webp 1200w" sizes="(max-width:900px) 100vw, 50vw" alt="Czerwinski Cristiana, Co-fondator RentUP" width="600" height="380" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></div>
       <div class="tc-body">
@@ -1513,7 +1534,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
       <div class="sec-tag"><div class="dot"></div>Rental Kit</div>
       <h2 class="sh" data-en="The landlord's peace of mind has <span class='rot' data-words='a recipe.|a system.|a plan.'>a recipe.</span>">Liniștea proprietarului are <span class="rot" data-words="o rețetă.|un sistem.|un plan.">o rețetă.</span></h2>
       <p style="font-size:16px;color:var(--muted);line-height:1.75;margin-bottom:20px">Designul aduce chiriașul potrivit. <strong style="color:var(--text)">Rental Kit-ul îl ține.</strong></p>
-      <p style="font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:32px">Cum listezi. Pe cine primești. Cum predai cheile fără să-ți pară rău după. Rental Kit-ul este sistemul complet de documente, protocoale și contracte, personalizat pentru proprietatea ta.</p>
+      <p style="font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:32px">Cum listezi. Pe cine primești. Cum predai cheile fără să-ți pară rău după.<br>Rental Kit-ul este sistemul complet de documente, protocoale și contracte, personalizat pentru proprietatea ta.</p>
       <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:36px">
         <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Sistem de selecție chiriaș pe 4 piloni</div>
         <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Contract de închiriere și încetare personalizat pentru proprietatea ta</div>
@@ -1522,7 +1543,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Comunicare structurată și mentenanță pe toată durata contractului</div>
         <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>La predare, totul e documentat prin proces verbal foto și inventar detaliat</div>
       </div>
-      <a href="rental-kit.html" class="btn-primary">Descoperă Rental Kit →</a>
+      <a href="rental-kit.html" class="btn-primary">Descoperă Rental Kit<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
     </div>
     <div style="display:flex;align-items:flex-end;justify-content:flex-end">
       <img src="RENTALKIT_MOCKUP_2.webp" srcset="images/rentalkit-mockup-800.webp 800w, images/rentalkit-mockup-1200.webp 1200w, RENTALKIT_MOCKUP_2.webp 2000w" sizes="(max-width:900px) 100vw, 50vw" width="2000" height="1252" loading="lazy" decoding="async" alt="Rental Kit, sistem complet pentru proprietari" style="width:100%;height:auto;display:block;vertical-align:bottom">
@@ -1535,8 +1556,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
  <div class="tt-wrap">
   <div class="sec-tag" style="justify-content:center"><div class="dot"></div>Testimoniale</div>
   <h2 class="sh" style="text-align:center;margin-bottom:16px">Proprietari reali. Rezultate documentate.</h2>
-  <p style="text-align:center;max-width:620px;margin:0 auto 10px;font-size:14px;color:var(--muted)">Înainte să lansăm RentUP, am aplicat aceeași metodă pe apartamentele prietenilor, ale familiei și ale clienților cu care am lucrat de-a lungul anilor.</p>
-  <p class="tt-note">Proiecte realizate înainte de lansarea RentUP · metodă testată în teren</p>
+  <p style="text-align:center;max-width:620px;margin:0 auto 32px;font-size:14px;color:var(--muted)">Înainte să lansăm RentUP, am aplicat aceeași metodă pe apartamentele prietenilor, ale familiei și ale clienților cu care am lucrat de-a lungul anilor, testată în teren.</p>
 
   <div class="tt-tabs" role="tablist" aria-label="Studii de caz și testimoniale">
     <span class="tt-ind" aria-hidden="true"></span>
@@ -1550,7 +1570,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
     <div class="tt-panel on" id="tt-p1" role="tabpanel" aria-labelledby="tt-t1">
       <div class="tt-head"><h3 class="tt-title">2 camere Drumul Taberei: de la apartament distrus la chiriaș în 4 zile</h3><div class="tt-meta"><span>București · Sector 6</span><span>55 mp</span><span>12 săptămâni</span></div></div>
       <div class="tt-big">
-        <div class="tt-rent"><span class="tt-from">400€</span><span class="tt-arrow">→</span><span class="tt-to" data-from="400" data-to="550">550€</span><span class="tt-unit">/lună</span></div>
+        <div class="tt-rent"><span class="tt-from">400€</span><span class="tt-arrow"><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span><span class="tt-to" data-from="400" data-to="550">550€</span><span class="tt-unit">/lună</span></div>
         <div class="tt-rent-l">chiria lunară, înainte și după</div>
       </div>
       <div class="tt-res"><div class="tt-r"><b>+150€</b><span>chirie lunară</span></div><div class="tt-r"><b>4 zile</b><span>până la primul chiriaș potrivit</span></div><div class="tt-r"><b>12 luni</b><span>durata șederii<br>(contract semnat pe 2 ani de la început)</span></div><div class="tt-r"><b>~48 luni</b><span>recuperare completă a investiției (din chiria extra + rotația de chiriași eliminată)</span></div></div>
@@ -1560,13 +1580,13 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
       <div class="tt-more"><div class="tt-more-in"><div class="tt-more-g">
         <div><div class="cs-sl">Situația inițială</div><p class="cs-p">Domnul Ciobanu a preluat un apartament aflat într-o stare precară: baie cu mucegai și faianță desprinsă, tavane parțial degradate, coridoare cu pereți scorojiți și instalații vechi. Știa că totul trebuie luat de la zero, însă, nefiind în țară, se temea că procesul va fi foarte lung și anevoios. În plus, era nesigur pe rezultate și nu știa dacă apartamentul va putea ajunge să arate așa cum își dorea. Dl. Ciobanu știa că trebuie să facă totul de la zero și se temea că nu va vedea niciodată banii înapoi. Credea că un apartament atât de uzat nu mai poate arăta frumos.</p><div class="cs-sl" style="margin-top:18px">Ce am schimbat</div><p class="cs-p">Am prioritizat intervențiile cu cel mai mare impact vizual și de durabilitate: baie renovată complet cu materiale moderne, tavane refăcute și finisate uniform, coridoarele reproiectate pentru un flux logic. Dormitorul a primit un decor structural discret și iluminat indirect pentru o senzație de confort imediat. Livingul a fost mobilat funcțional, cu depozitare integrată și materiale care rezistă la uzură intensă. Rezultatul a depășit așteptările proprietarului.</p></div>
         <div><div class="cs-sl">Buget implementare</div><div class="bud-g"><div class="bud-row"><span>Serviciul RentUP</span><strong>2.750€</strong></div><div class="bud-row"><span>Renovare + manoperă</span><strong>5.000€</strong></div><div class="bud-row"><span>Mobilier + accesorii</span><strong>4.100€</strong></div><div class="bud-tot"><span>Total investiție</span><span>11.850€</span></div></div>
-          <div style="padding-top:18px"><a href="portofoliu.html#proiect-drumul-taberei" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:var(--brand);text-decoration:none;border-bottom:1px solid var(--brand-border);padding-bottom:2px" onclick="gtag('event','click_case_study_portfolio_link')">Vezi pozele complete ale proiectului →</a></div></div>
+          <div style="padding-top:18px"><a href="portofoliu.html#proiect-drumul-taberei" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:var(--brand);text-decoration:none;border-bottom:1px solid var(--brand-border);padding-bottom:2px" onclick="gtag('event','click_case_study_portfolio_link')">Vezi pozele complete ale proiectului<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div></div>
       </div></div></div>
     </div>
     <div class="tt-panel" id="tt-p2" role="tabpanel" aria-labelledby="tt-t2">
       <div class="tt-head"><h3 class="tt-title">2 camere Floreasca: de la rotație constantă la chiriaș pe 2 ani</h3><div class="tt-meta"><span>București · Sector 1</span><span>52 mp</span><span>4 săptămâni</span></div></div>
       <div class="tt-big">
-        <div class="tt-rent"><span class="tt-from">400€</span><span class="tt-arrow">→</span><span class="tt-to" data-from="400" data-to="620">620€</span><span class="tt-unit">/lună</span></div>
+        <div class="tt-rent"><span class="tt-from">400€</span><span class="tt-arrow"><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span><span class="tt-to" data-from="400" data-to="620">620€</span><span class="tt-unit">/lună</span></div>
         <div class="tt-rent-l">chiria lunară, înainte și după</div>
       </div>
       <div class="tt-res"><div class="tt-r"><b>+220€</b><span>chirie lunară</span></div><div class="tt-r"><b>5 zile</b><span>până la primul chiriaș potrivit</span></div><div class="tt-r"><b>24 luni</b><span>durata șederii<br>(contract semnat pe 2 ani de la început)</span></div><div class="tt-r"><b>~14 luni</b><span>recuperare completă a investiției (din chiria extra + rotația de chiriași eliminată)</span></div></div>
@@ -1576,7 +1596,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
       <div class="tt-more"><div class="tt-more-in"><div class="tt-more-g">
         <div><div class="cs-sl">Situația inițială</div><p class="cs-p">Costi Barbu, 37 de ani, moștenise apartamentul de la părinți. Îl închiria cu 400€/lună, dar nu reușea să păstreze chiriașii mai mult de 6–8 luni. Perioade de ~2 luni goale între fiecare chiriaș. Reparații după fiecare plecare. Credea că problema sunt chiriașii. Nu era.</p><div class="cs-sl" style="margin-top:18px">Ce am schimbat</div><p class="cs-p">Living reorganizat într-un spațiu mai coerent, pentru un flux mai eficient. Canapeaua existentă a fost repoziționată pentru a elibera vizual și funcțional camera. Perdele albe semitransparente și jaluzele discrete pe balcon pentru mai multă lumină, intimitate și o senzație amplificată de spațiu. Spații de depozitare maximizate în dormitor prin dulapuri integrate. Covoarele repoziționate corect pentru a ancora zonele și a aduce mai mult echilibru vizual.</p></div>
         <div><div class="cs-sl">Buget implementare</div><div class="bud-g"><div class="bud-row"><span>Serviciul RentUP</span><strong>1.456€</strong></div><div class="bud-row"><span>Mobilier</span><strong>2.000€</strong></div><div class="bud-row"><span>Accesorii + decor</span><strong>700€</strong></div><div class="bud-tot"><span>Total investiție</span><span>4.156€</span></div></div>
-          <div style="padding-top:18px"><a href="portofoliu.html#proiect-floreasca" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:var(--brand);text-decoration:none;border-bottom:1px solid var(--brand-border);padding-bottom:2px" onclick="gtag('event','click_case_study_portfolio_link')">Vezi pozele complete ale proiectului →</a></div></div>
+          <div style="padding-top:18px"><a href="portofoliu.html#proiect-floreasca" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:var(--brand);text-decoration:none;border-bottom:1px solid var(--brand-border);padding-bottom:2px" onclick="gtag('event','click_case_study_portfolio_link')">Vezi pozele complete ale proiectului<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div></div>
       </div></div></div>
     </div>
     <div class="tt-panel" id="tt-p3" role="tabpanel" aria-labelledby="tt-t3">
@@ -1603,8 +1623,8 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
   <p class="sec-sub">Primul pas e gratuit. Raportul clarifică exact ce are nevoie apartamentul tău, abia după alegi pachetul. Plătești o singură dată, nimic din chirie.</p>
 
   <div class="pk-free" data-k="free">
-    <p><b>Pasul 1: Raportul de Rentabilitate.</b> Ne trimiți poze cu apartamentul și în 72h primești ce merită schimbat, bugetul estimat și pachetul potrivit. Fără vizită, fără angajament.</p>
-    <a class="pk-link" href="audit.html" onclick="gtag('event','click_audit_cta');gtag('event','conversion',{'send_to':'AW-18253477545'});">Începe cu raportul gratuit →</a>
+    <p><b>Pasul 0: Raportul de Rentabilitate.</b> Ne trimiți poze cu apartamentul și în 72h primești ce merită schimbat, bugetul estimat și pachetul potrivit. Fără vizită, fără angajament.</p>
+    <a class="pk-link" href="audit.html" onclick="gtag('event','click_audit_cta');gtag('event','conversion',{'send_to':'AW-18253477545'});">Începe cu raportul gratuit<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
   </div>
   <p class="pk-extra">Vrei să-l vezi și mobilat înainte să decizi? <a href="staging-virtual.html">Staging Virtual</a>: randări pe baza pozelor, 200€, care se scad din Quick Win sau Invest Premium.</p>
 
@@ -1619,7 +1639,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
           <div class="pk-li">Planșe tehnice pentru mobilier la comandă</div>
           <div class="pk-li">Listă de achiziții, buget și furnizori</div>
         </div>
-        <div class="pk-cta"><a class="pk-btn" href="https://wa.me/40741176865" onclick="gtag('event','click_whatsapp')">Scrie-ne pe WhatsApp →</a><p>Primești un ghid în 24h cu pașii următori.</p></div>
+        <div class="pk-cta"><a class="pk-btn" href="https://wa.me/40741176865" onclick="gtag('event','click_whatsapp')">Scrie-ne pe WhatsApp<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a><p>Primești un ghid în 24h cu pașii următori.</p></div>
       </div>
 
       <div class="pk-card" data-k="quick" id="quick-win">
@@ -1646,7 +1666,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
           <div class="pk-li">Prezentare profesională a apartamentului</div>
         </div>
         </details>
-        <div class="pk-cta"><a class="pk-btn" href="https://wa.me/40741176865" onclick="gtag('event','click_whatsapp')">Scrie-ne pe WhatsApp →</a><p>Primești un ghid în 24h cu pașii următori.</p></div>
+        <div class="pk-cta"><a class="pk-btn" href="https://wa.me/40741176865" onclick="gtag('event','click_whatsapp')">Scrie-ne pe WhatsApp<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a><p>Primești un ghid în 24h cu pașii următori.</p></div>
       </div>
 
       <div class="pk-card" data-k="premium">
@@ -1678,7 +1698,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         </div>
         </details>
         <details class="pk-calc"><summary>Ce se adaugă la onorariu</summary><div class="pk-calc-r"><span>Coordonare execuție</span><b>10% din lucrări</b></div><div class="pk-calc-r"><span>Mobilier și materiale</span><b>preț de magazin, fără adaos</b></div><div class="pk-calc-r"><span>Lucrări de construcții</span><b>deviz de la echipă</b></div></details>
-        <div class="pk-cta"><a class="pk-btn" href="https://wa.me/40741176865" onclick="gtag('event','click_whatsapp')">Scrie-ne pe WhatsApp →</a><p>Primești un ghid în 24h cu pașii următori.</p></div>
+        <div class="pk-cta"><a class="pk-btn" href="https://wa.me/40741176865" onclick="gtag('event','click_whatsapp')">Scrie-ne pe WhatsApp<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a><p>Primești un ghid în 24h cu pașii următori.</p></div>
       </div>
   </div>
 </div>
@@ -1732,7 +1752,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
   </div>
   <div style="text-align:center;margin-top:32px">
     <a href="faq.html" class="btn-ghost" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:14px;color:var(--brand);border:.5px solid var(--brand);padding:11px 22px;border-radius:100px;transition:background 400ms ease,color 400ms ease">
-      Toate întrebările frecvente →
+      Toate întrebările frecvente<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
     </a>
   </div>
 </section>
@@ -1743,7 +1763,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
   <div class="ct-wrap">
     <h2 class="ct-h" data-en="Let's see what can be done with <em><span class='rot' data-words='your apartment.|your studio.|your investment.'>your apartment.</span></em>">Hai să vedem ce poate face <em><span class="rot" data-words="apartamentul tău.|garsoniera ta.|investiția ta.">apartamentul tău.</span></em></h2>
     <p class="ct-sub">Spune-ne pe scurt cu ce te confrunți: chirie mică, chiriași care pleacă, apartament gol.<br>Îți răspundem în cel mai scurt timp cu o ofertă personalizată.</p>
-    <a class="ct-wa" href="https://wa.me/40741176865" onclick="try{gtag('event','click_whatsapp');}catch(e){} openWaModal();return false;">Scrie-ne pe WhatsApp →</a>
+    <a class="ct-wa" href="https://wa.me/40741176865" onclick="try{gtag('event','click_whatsapp');}catch(e){} openWaModal();return false;">Scrie-ne pe WhatsApp<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
     <div class="ct-slots"><span class="ct-pulse" aria-hidden="true"></span><span>Acceptăm 5 proiecte pe lună pentru a menține calitatea.<br><span id="slots-pre">Mai sunt</span> <b id="slots-count">4 sloturi</b> <span id="slots-post">libere luna aceasta.</span></span></div>
     <div class="ct-alt">
       <a class="ct-l" href="tel:+40741176865" onclick="try{gtag('event','click_phone');gtag('event','conversion',{'send_to':'AW-18253477545'});}catch(e){}">+40 741 176 865</a>
@@ -1761,7 +1781,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
     <div><div class="sec-tag"><div class="dot"></div>Pe Instagram</div>
       <h2 class="sh">Sfaturi pentru proprietari,<br><em>pe scurt.</em></h2>
       <p class="sec-sub">Postăm des carusele cu lucruri învățate din teren: contracte, selecție, garanții. Le găsești pe toate pe Instagram.</p></div>
-    <a class="btn-primary ig-follow" href="https://instagram.com/rentup.solutions" target="_blank" rel="noopener" onclick="gtag('event','click_instagram_follow')">Urmărește @rentup.solutions →</a>
+    <a class="btn-primary ig-follow" href="https://instagram.com/rentup.solutions" target="_blank" rel="noopener" onclick="gtag('event','click_instagram_follow')">Urmărește @rentup.solutions<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
   </div>
   <div class="igs" data-igs></div>
 </section>
@@ -1850,7 +1870,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#2D2820;border-top:0.5px solid #4D4238;padding:16px 20px;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;z-index:130;font-family:'General Sans',sans-serif">
   <div style="flex:1;min-width:180px">
     <div style="font-size:13px;font-weight:500;color:#FDFAF6;margin-bottom:3px">Folosim cookie-uri</div>
-    <div style="font-size:12px;color:var(--muted);line-height:1.5">Folosim cookie-uri pentru analiză și îmbunătățirea experienței. <span class="cb-opt">Poți accepta sau refuza cookie-urile opționale. </span><a href="confidentialitate.html" style="color:#C77936;text-decoration:none">Politică de confidențialitate →</a></div>
+    <div style="font-size:12px;color:var(--muted);line-height:1.5">Folosim cookie-uri pentru analiză și îmbunătățirea experienței. <span class="cb-opt">Poți accepta sau refuza cookie-urile opționale. </span><a href="confidentialitate.html" style="color:#C77936;text-decoration:none">Politică de confidențialitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
   </div>
   <div style="display:flex;gap:8px;align-items:center;flex-shrink:0">
     <button onclick="setCookies('refused')" style="font-size:13px;font-weight:500;color:var(--muted);background:none;border:1px solid #4D4238;padding:0 20px;height:44px;border-radius:100px;cursor:pointer;font-family:'General Sans',sans-serif;touch-action:manipulation;-webkit-tap-highlight-color:transparent">Refuz</button>
@@ -1907,7 +1927,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
     </div>
     <!-- capcană anti-spam: invizibilă pentru oameni, roboții o completează -->
     <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><input type="text" id="re-hp" name="_honey" tabindex="-1" autocomplete="off"></div>
-    <button class="reb" id="re-btn" onclick="RuExit.submit()">Vreau raportul gratuit →</button>
+    <button class="reb" id="re-btn" onclick="RuExit.submit()">Vreau raportul gratuit<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
     <p id="re-err" role="alert" style="display:none;font-size:14px;color:#A32D2D;margin:8px 0 0;text-align:center">Nu am putut trimite cererea. Încearcă din nou sau scrie-ne pe <a href="https://wa.me/40741176865" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">WhatsApp</a>.</p>
     <button class="red" onclick="RuExit.dismiss(true)">Nu acum, poate altă dată</button>
     <p class="ren">Folosim datele doar pentru raport și discuția despre el. Detalii în <a href="confidentialitate.html" style="color:inherit;text-decoration:underline">Politica de confidențialitate</a>.<br>Sugerăm un număr de telefon pentru o comunicare mai rapidă.</p>

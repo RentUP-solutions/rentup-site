@@ -88,6 +88,9 @@
     'Liniștea proprietarului are o rețetă.': "The landlord's peace of mind has a recipe.",
     'Designul aduce chiriașul potrivit.': 'The design brings the right tenant.',
     'Rental Kit-ul îl ține.': 'The Rental Kit keeps them.',
+    'Cum listezi. Pe cine primești. Cum predai cheile fără să-ți pară rău după.': 'How to list it. Who to accept. How to hand over the keys without regret.',
+    'Rental Kit-ul este sistemul complet de documente, protocoale și contracte, personalizat pentru proprietatea ta.': 'The Rental Kit is the complete system of documents, protocols and contracts, customised for your property.',
+    'Înainte să lansăm RentUP, am aplicat aceeași metodă pe apartamentele prietenilor, ale familiei și ale clienților cu care am lucrat de-a lungul anilor, testată în teren.': 'Before launching RentUP, we applied the same method to the apartments of friends, family and the clients we have worked with over the years, field-tested.',
     'Cum listezi. Pe cine primești. Cum predai cheile fără să-ți pară rău după. Rental Kit-ul': 'How to list it. Who to accept. How to hand over the keys without regret. The Rental Kit',
     'este sistemul complet de documente, protocoale și contracte, personalizat pentru proprietatea ta.': 'is the complete system of documents, protocols and contracts, customised for your property.',
     'Sistem de selecție chiriaș pe 4 piloni': '4-pillar tenant selection system',
@@ -397,7 +400,7 @@
     '+ 10% coordonare din lucrări': '+ 10% coordination of the works',
     'Tarife: Design de Interior 25€/m² (minim 800€), Quick Win 30€/m² (minim 1.000€), Invest Premium 50€/m² plus 10% coordonare din valoarea lucrărilor.': 'Rates: Interior Design 25€/m² (minimum 800€), Quick Win 30€/m² (minimum 1,000€), Invest Premium 50€/m² plus 10% coordination of the value of the works.',
     'Scrie-ne pe WhatsApp →': 'Message us on WhatsApp →',
-    'Pasul 1: Raportul de Rentabilitate.': 'Step 1: the Profitability Report.',
+    'Pasul 0: Raportul de Rentabilitate.': 'Step 0: the Profitability Report.',
     'Ne trimiți poze cu apartamentul și în 72h primești ce merită schimbat, bugetul estimat și pachetul potrivit. Fără vizită, fără angajament.': 'Send us photos of the apartment and within 72h you get what is worth changing, the estimated budget and the right package. No visit, no commitment.',
     'Vrei să-l vezi și mobilat înainte să decizi?': 'Want to see it furnished before you decide?',
     ': randări pe baza pozelor, 200€, care se scad din Quick Win sau Invest Premium.': ': renders based on your photos, 200€, deducted from Quick Win or Invest Premium.',
@@ -579,7 +582,7 @@
     "Notificare recomandată": "Registered notice",
     "Documentul care deschide pașii legali.": "The document that opens the legal steps.",
     "Refuz la evacuare": "Refusal to vacate",
-    "Sezonul rece (1 dec – 1 mart)": "The cold season (1 Dec – 1 Mar)",
+    "Sezonul rece (1 dec – 1 mar)": "The cold season (1 Dec – 1 Mar)",
     "Ce poți face legal în perioada de protecție și cum documentezi rea-credința.": "What you can legally do during the protection period and how you document bad faith.",
     "Clauză completă de inserat în contract, cu garanție extinsă 1+2 și procedură pentru daune.": "A complete clause to add to the contract, with an extended 1+2 deposit and a damage procedure.",
     "Documentele,": "The documents,",
@@ -1637,6 +1640,14 @@
     '© 2025–2026 RentUP. Toate drepturile rezervate.': '© 2025–2026 RentUP. All rights reserved.',
   };
 
+  /* Butoanele au săgeata ca SVG, nu ca text: aceeași traducere și pentru varianta fără „ →” */
+  Object.keys(T).forEach(function (k) {
+    if (/\s→$/.test(k)) {
+      var nk = k.replace(/\s*→$/, '');
+      if (!(nk in T)) T[nk] = String(T[k]).replace(/\s*→$/, '');
+    }
+  });
+
   /* ─── Engine ─────────────────────────────────────────────────────────── */
   var LANG_KEY = 'ru-lang';
   var lang = localStorage.getItem(LANG_KEY) || 'ro';
@@ -1820,7 +1831,7 @@
   (function injectCSS() {
     var s = document.createElement('style');
     s.textContent = [
-      '.lang-toggle-btn{font-family:\'Inter\',sans-serif;font-size:12px;font-weight:600;',
+      '.lang-toggle-btn{font-family:\'Inter\',sans-serif;font-size:14px;font-weight:600;',
       'color:#C77936;border:.5px solid #E8D5BC;background:transparent;padding:5px 11px;',
       'border-radius:100px;cursor:pointer;letter-spacing:.04em;',
       'transition:background 400ms ease,border-color 400ms ease;flex-shrink:0}',
