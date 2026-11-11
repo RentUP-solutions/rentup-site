@@ -16,7 +16,7 @@
 
     /* ── Footer (shared) ── */
     'București · Rental Performance System': 'Bucharest · Rental Performance System',
-    '© 2025–2026 RentUP. Toate drepturile rezervate  ': '© 2025–2026 RentUP. All rights reserved  ',
+    '© 2026 RentUP. Toate drepturile rezervate  ': '© 2026 RentUP. All rights reserved  ',
     'Termeni și condiții': 'Terms & Conditions',
     'Politică de confidențialitate': 'Privacy Policy',
 
@@ -895,6 +895,7 @@
     'Prima firmă de': 'The first',
     'din România.': 'company in Romania.',
     'București · 2025': 'Bucharest · 2025',
+    'Urmărește-ne': 'Follow us',
 
     /* ── INVESTITORI: Hero ── */
     'Investitori · Agenți · Dezvoltatori': 'Investors · Agents · Developers',
@@ -1636,8 +1637,8 @@
     'Design de interior': 'Interior design',
     'Simulator mobilare': 'Furniture simulator',
     'Raport de Rentabilitate': 'Profitability Report',
-    '© 2025–2026 RentUP · Toate drepturile rezervate': '© 2025–2026 RentUP · All rights reserved',
-    '© 2025–2026 RentUP. Toate drepturile rezervate.': '© 2025–2026 RentUP. All rights reserved.',
+    '© 2026 RentUP · Toate drepturile rezervate': '© 2026 RentUP · All rights reserved',
+    '© 2026 RentUP. Toate drepturile rezervate.': '© 2026 RentUP. All rights reserved.',
   };
 
   /* Butoanele au săgeata ca SVG, nu ca text: aceeași traducere și pentru varianta fără „ →” */
