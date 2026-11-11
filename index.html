@@ -373,15 +373,23 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 
 /* ── PROCESS ── */
 #process{background:var(--bg-stone)}
-.proc-g{display:grid;grid-template-columns:repeat(4,1fr);border:none;border-radius:14px;overflow:hidden;box-shadow:0 2px 16px rgba(45,40,32,.16)}
+.sec-sub-proc{max-width:720px}
+.proc-g{display:grid;grid-template-columns:repeat(6,1fr);border:none;border-radius:14px;overflow:hidden;box-shadow:0 2px 16px rgba(45,40,32,.16)}
 .pc{padding:30px 26px;border-right:.5px solid var(--border);background:var(--bg);transition:background 200ms cubic-bezier(0.23,1,0.32,1)}
 .pc:last-child{border-right:none}
 .pc-n{font-size:52px;font-weight:200;color:var(--border);line-height:1;margin-bottom:16px;letter-spacing:-.04em;transition:color 200ms ease-out}
 .pc-t{font-size:15px;font-weight:500;margin-bottom:10px}
 .pc-d{font-size:14px;color:var(--muted);line-height:1.62}
-.pc-time{display:inline-block;font-size:11px;color:var(--brand);font-weight:500;margin-top:14px;background:var(--brand-light);padding:3px 10px;border-radius:100px}
 .pc-get{display:block;font-size:14px;color:var(--dark);line-height:1.55;margin-top:12px;padding-top:12px;border-top:.5px solid var(--border)}
 .pc-get b{color:var(--brand);font-weight:600}
+.pc-link{color:var(--dark);text-decoration:underline;text-decoration-color:var(--brand);text-decoration-thickness:1px;text-underline-offset:3px;transition:color 200ms ease-out}
+@media(hover:hover) and (pointer:fine){.pc-link:hover{color:var(--brand)}}
+.pc-free{color:var(--brand)}
+/* „Primești” + linia de deasupra la aceeași înălțime pe toate etapele */
+.pc{display:flex;flex-direction:column}
+.pc-get{margin-top:auto}
+.pc-d{margin-bottom:12px}
+@supports (grid-template-rows:subgrid){.pc{display:grid;grid-row:span 4;grid-template-rows:subgrid;row-gap:0}.pc-get{margin-top:12px}.pc-d{margin-bottom:0}}
 
 /* Timeline strip */
 .proc-timeline{display:flex;justify-content:space-between;margin-top:32px;position:relative}
@@ -744,10 +752,6 @@ footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56p
   .stat:nth-child(3){border-right:none}
   .two-f{grid-template-columns:1fr}
   .team-g,.fit-g,.cs-g,.port-g{grid-template-columns:1fr}
-  .proc-g{grid-template-columns:1fr 1fr}
-  .pc{border-right:none;border-bottom:.5px solid var(--border)}
-  .pc:nth-child(odd){border-right:.5px solid var(--border)}
-  .pc:last-child,.pc:nth-last-child(2):nth-child(odd){border-bottom:none}
   .te-g,.pm-g,.voc-g{grid-template-columns:1fr}
   .pkg-step0-inner{grid-template-columns:1fr}
   .pkg-subgrid-2,.pkg-subgrid-3{grid-template-columns:1fr}
@@ -1051,6 +1055,28 @@ button,a,.tbn,.fi{touch-action:manipulation}
 /* Process card lift */
 /* Etapele procesului: la hover (doar cu mouse) etapa rămâne albă și pe loc, doar cifra devine portocalie */
 @media(hover:hover) and (pointer:fine){.pc:hover .pc-n{color:var(--brand)}}
+/* Tabletă / desktop îngust: 3 etape pe rând, fiecare rând cu bucata lui de linie de timp dedesubt */
+@media(min-width:601px) and (max-width:1200px){
+  .proc-wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+  .proc-wrap .proc-g,.proc-wrap .proc-timeline{display:contents}
+  .proc-wrap .proc-timeline::before{display:none}
+  .proc-wrap::before,.proc-wrap::after{content:"";grid-column:1/-1;background:var(--bg);border-radius:14px;box-shadow:0 2px 16px rgba(45,40,32,.16);z-index:0}
+  .proc-wrap::before{grid-row:1/5}
+  .proc-wrap::after{grid-row:7/11}
+  .proc-wrap .proc-g .pc{background:transparent;z-index:1;border-bottom:none;border-right:.5px solid var(--border)}
+  .proc-wrap .proc-g .pc:nth-child(3n){border-right:none}
+  .proc-wrap .proc-g .pc:nth-child(-n+3){grid-row:1/span 4}
+  .proc-wrap .proc-g .pc:nth-child(n+4){grid-row:7/span 4}
+  .proc-wrap .pc:nth-child(3n+1),.proc-wrap .pt-item:nth-child(3n+1){grid-column:1}
+  .proc-wrap .pc:nth-child(3n+2),.proc-wrap .pt-item:nth-child(3n+2){grid-column:2}
+  .proc-wrap .pc:nth-child(3n),.proc-wrap .pt-item:nth-child(3n){grid-column:3}
+  .proc-wrap .pt-item{padding-top:24px}
+  .proc-wrap .pt-item:nth-child(-n+3){grid-row:5;margin-bottom:40px}
+  .proc-wrap .pt-item:nth-child(n+4){grid-row:11}
+  .proc-wrap .pt-item::before{content:"";position:absolute;top:29px;left:0;right:0;height:1px;background:var(--border)}
+  .proc-wrap .pt-item:nth-child(3n+1)::before{left:50%}
+  .proc-wrap .pt-item:nth-child(3n)::before{right:50%}
+}
 /* Bulina de pe linia de timp a etapei cu mouse-ul pe ea „respiră” (clasa .is-live o pune scriptul de sub secțiune) */
 .pt-dot{position:relative}
 .pt-item.is-live .pt-dot::after{content:"";position:absolute;inset:-2px;border-radius:50%;background:var(--brand);animation:ptBreathe 1800ms cubic-bezier(0.23,1,0.32,1) infinite;pointer-events:none}
@@ -1447,21 +1473,27 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 <section id="process">
   <div class="sec-tag"><div class="dot"></div>Cum funcționează</div>
   <h2 class="sh">Un proces clar. Fără surprize.</h2>
-  <p class="sec-sub">După Raportul de Rentabilitate inițial (livrat în 72h), pornește acest proces clar în 4 pași: de la prima discuție până la apartamentul gata de listare.</p>
+  <p class="sec-sub sec-sub-proc">Nu începem cu designul. Întâi calculăm ce merită schimbat și cât costă, în Raportul de Rentabilitate gratuit.<br>Abia apoi urmează designul și livrarea pe piață.</p>
+  <div class="proc-wrap">
   <div class="proc-g">
-    <div class="pc"><div class="pc-n">01</div><div class="pc-t">Discuție inițială & vizionarea imobilului</div><div class="pc-d">Vizionăm imobilul, înțelegem spațiul, obiectivul de închiriere, bugetul și publicul țintă. Fără brief standard, deoarece fiecare proprietate e diferită.</div><span class="pc-time">2–5 zile</span><div class="pc-get"><b>Primești:</b> plan de etape confirmat și măsurători ale spațiului</div></div>
-    <div class="pc"><div class="pc-n">02</div><div class="pc-t">Concept & direcție</div><div class="pc-d">Propunem direcția estetică și funcțională. Tu confirmi direcția înainte să mergem mai departe. Ce aprobăm azi nu se schimbă mâine.</div><span class="pc-time">1 săptămână</span><div class="pc-get"><b>Primești:</b> 2 direcții de design + moodboard</div></div>
-    <div class="pc"><div class="pc-n">03</div><div class="pc-t">Design & vizualizare</div><div class="pc-d">Planuri detaliate, Listă de achiziții și documentație tehnică, randări fotorealiste. Vezi exact cum va arăta spațiul înainte să cumperi ceva.</div><span class="pc-time">3–5 săptămâni</span><div class="pc-get"><b>Primești:</b> planuri 2D, randări fotorealiste, listă de achiziții și documentație tehnică</div></div>
-    <div class="pc"><div class="pc-n">04</div><div class="pc-t">Livrare & piață</div><div class="pc-d">Rental Kit complet, staging și fotografii profesionale, listare pe platforme. Apartamentul intră pe piață pregătit.</div><span class="pc-time">etapa finală</span><div class="pc-get"><b>Primești:</b> Rental Kit, fotografii profesionale și anunț live</div></div>
+    <div class="pc"><div class="pc-n">00</div><div class="pc-t">Raport de Rentabilitate <span class="pc-free">Gratuit</span></div><div class="pc-d">Înainte de orice design, ne uităm la cifre. Din poze vedem ce merită schimbat la proprietatea ta și la ce raport calitate–preț, ca să nu dai bani pe mobilier care nu te avantajează. Designul costă doar cât e nevoie.</div><div class="pc-get"><b>Primești:</b> ce merită schimbat, bugetul estimat și pachetul potrivit</div></div>
+    <div class="pc"><div class="pc-n">01</div><div class="pc-t">Discuție inițială & vizionarea imobilului</div><div class="pc-d">Vizionăm imobilul, înțelegem spațiul, obiectivul de închiriere, bugetul și publicul țintă. Fără brief standard, deoarece fiecare proprietate e diferită.</div><div class="pc-get"><b>Primești:</b> plan de etape confirmat și măsurători ale spațiului</div></div>
+    <div class="pc"><div class="pc-n">02</div><div class="pc-t">Concept & direcție</div><div class="pc-d">Propunem direcția estetică și funcțională. Tu confirmi direcția înainte să mergem mai departe. Ce aprobăm azi nu se schimbă mâine.</div><div class="pc-get"><b>Primești:</b> 2 direcții de design + moodboard</div></div>
+    <div class="pc"><div class="pc-n">03</div><div class="pc-t">Design & vizualizare</div><div class="pc-d">Planuri detaliate, Listă de achiziții și documentație tehnică, randări fotorealiste. Vezi exact cum va arăta spațiul înainte să cumperi ceva.</div><div class="pc-get"><b>Primești:</b> planuri 2D, randări fotorealiste, listă de achiziții și documentație tehnică</div></div>
+    <div class="pc"><div class="pc-n">04</div><div class="pc-t">Implementare</div><div class="pc-d">Mobilier, montaj și, unde e nevoie, lucrări. În Invest Premium coordonăm noi echipele și achizițiile până la final. În Quick Win implementezi tu, după lista noastră, iar noi venim o dată pe șantier.</div><div class="pc-get"><b>Primești:</b> apartamentul amenajat conform proiectului</div></div>
+    <div class="pc"><div class="pc-n">05</div><div class="pc-t">Livrare pe piață cu Rental Kit</div><div class="pc-d">Staging, fotografii profesionale și anunț pe platforme. Primești și <a class="pc-link" href="rental-kit.html">Rental Kit-ul</a>: tot ce-ți trebuie ca să alegi chiriașul potrivit și să te protejezi, de la contract la procesul verbal foto.</div><div class="pc-get"><b>Primești:</b> Rental Kit, fotografii profesionale și anunț live</div></div>
   </div>
   <div class="proc-timeline">
-    <div class="pt-item"><span class="pt-dot"></span><div class="pt-label">Brief confirmat</div><div class="pt-time">2–5 zile</div></div>
-    <div class="pt-item"><span class="pt-dot"></span><div class="pt-label">Direcție aprobată</div><div class="pt-time">1 săptămână</div></div>
-    <div class="pt-item"><span class="pt-dot"></span><div class="pt-label">Randări finale</div><div class="pt-time">3–5 săptămâni</div></div>
+    <div class="pt-item"><span class="pt-dot"></span><div class="pt-label">Raport livrat</div><div class="pt-time">3 zile</div></div>
+    <div class="pt-item"><span class="pt-dot"></span><div class="pt-label">Brief confirmat</div><div class="pt-time">1–2 zile</div></div>
+    <div class="pt-item"><span class="pt-dot"></span><div class="pt-label">Direcție aprobată</div><div class="pt-time">1–2 zile</div></div>
+    <div class="pt-item"><span class="pt-dot"></span><div class="pt-label">Livrabile finale</div><div class="pt-time">1–2 săptămâni</div></div>
+    <div class="pt-item"><span class="pt-dot"></span><div class="pt-label">Apartament amenajat</div><div class="pt-time">depinde de furnizori</div></div>
     <div class="pt-item"><span class="pt-dot"></span><div class="pt-label">Apartament listat</div><div class="pt-time">etapa finală</div></div>
   </div>
+  </div>
 <script>
-/* Hover pe o etapă (01–04): bulina ei de pe linia de timp începe să respire și rămâne așa până treci pe altă etapă. Doar cu mouse. */
+/* Hover pe o etapă (00–05): bulina ei de pe linia de timp începe să respire și rămâne așa până treci pe altă etapă. Doar cu mouse. */
 (function(){
   if(!matchMedia('(hover:hover) and (pointer:fine)').matches) return;
   var steps=document.querySelectorAll('.proc-g .pc'),dots=document.querySelectorAll('.proc-timeline .pt-item');
