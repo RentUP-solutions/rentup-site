@@ -1646,7 +1646,24 @@
       var nk = k.replace(/\s*→$/, '');
       if (!(nk in T)) T[nk] = String(T[k]).replace(/\s*→$/, '');
     }
+    /* liniuța lungă de după un titlu în bold a devenit „: ” */
+    if (/^—\s/.test(k)) {
+      var dk = k.replace(/^—\s*/, ': ');
+      if (!(dk in T)) T[dk] = String(T[k]).replace(/^—\s*/, ': ');
+    }
+    /* la fel pentru „← Înapoi” (săgeata din stânga e tot SVG) */
+    if (/^←\s/.test(k)) {
+      var lk = k.replace(/^←\s*/, '');
+      if (!(lk in T)) T[lk] = String(T[k]).replace(/^←\s*/, '');
+    }
   });
+  /* Săgeată SVG în mijlocul textului: fiecare bucată se traduce separat */
+  if (!('Primește tot kitul' in T)) T['Primește tot kitul'] = 'Get the full kit';
+  if (!('contactează-ne' in T)) T['contactează-ne'] = 'contact us';
+  if (!('Chirie curentă: 500€/lună' in T)) T['Chirie curentă: 500€/lună'] = 'Current rent: €500/month';
+  if (!('după optimizare: 700€/lună' in T)) T['după optimizare: 700€/lună'] = 'after optimisation: €700/month';
+  if (!('Înapoi acasă' in T)) T['Înapoi acasă'] = 'Back home';
+  if (!('Nu facem doar design.' in T)) T['Nu facem doar design.'] = 'Not just design.';
 
   /* ─── Engine ─────────────────────────────────────────────────────────── */
   var LANG_KEY = 'ru-lang';

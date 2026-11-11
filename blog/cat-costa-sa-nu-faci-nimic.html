@@ -96,7 +96,7 @@ gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personali
       "name": "Cât costă, în medie, să nu faci nimic la apartamentul de închiriat?",
       "acceptedAnswer": {
         "@type": "Answer",
-        “text”: “Pentru un apartament obișnuit, costul invizibil al lui „nu fac nimic” este de 8.000-15.000€ în 5 ani, din chirie sub piață, luni goale între chiriași și reparații recurente. Un Raport de Rentabilitate Gratuit RentUP îți arată exact cât pierzi acum și cât ai putea recupera.”
+        "text": "Pentru un apartament obișnuit, costul invizibil al lui „nu fac nimic” este de 8.000-15.000€ în 5 ani, din chirie sub piață, luni goale între chiriași și reparații recurente. Un Raport de Rentabilitate Gratuit RentUP îți arată exact cât pierzi acum și cât ai putea recupera."
       }
     },
     {
@@ -147,7 +147,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .art-body h2{font-size:26px;font-weight:500;color:var(--dark);letter-spacing:-.015em;margin:44px 0 16px;line-height:1.2}
 .art-body ul{padding-left:0;margin-bottom:22px;display:flex;flex-direction:column;gap:10px}
 .art-body li{font-size:15px;color:var(--mid);line-height:1.7;display:flex;gap:12px;list-style:none}
-.art-body li::before{content:"→";color:var(--brand);font-size:14px;flex-shrink:0;margin-top:3px}
+.art-body li::before{content:"";width:14px;height:14px;background:var(--brand);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27black%27 stroke-width=%271.75%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M5 12h14%27/%3E%3Cpath d=%27m13 6 6 6-6 6%27/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27black%27 stroke-width=%271.75%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M5 12h14%27/%3E%3Cpath d=%27m13 6 6 6-6 6%27/%3E%3C/svg%3E") center/contain no-repeat;flex-shrink:0;margin-top:5px}
 .pullquote{background:var(--brand-light);border-left:3px solid var(--brand);border-radius:0 12px 12px 0;padding:22px 26px;margin:32px 0;font-size:15px;color:var(--dark);font-style:italic;line-height:1.75}
 .pullquote-source{font-size:14px;color:var(--muted);margin-top:8px;font-style:normal}
 .info-box{background:var(--green-bg);border:.5px solid #9FD8C4;border-radius:10px;padding:18px 22px;margin:24px 0;font-size:14px;color:#2D6B57;line-height:1.7}
@@ -242,6 +242,7 @@ button,a,.rel-card{touch-action:manipulation}
 #cookie-banner{--muted:#A89C90;--light:#B8AFA4}
 </style>
 <style id="ru-nav-t">@media(min-width:769px) and (max-width:1100px){nav{padding:0 24px}.nav-links{gap:18px}.nav-cta{padding:8px 14px}}</style>
+<style id="ru-ar">.ar{display:inline-block;width:1em;height:1em;margin-left:.35em;vertical-align:-.14em;flex-shrink:0}.ar-l{margin-left:0;margin-right:.35em}.ar-m{margin:0 .3em}</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Sari la conținut</a>
@@ -258,7 +259,7 @@ button,a,.rel-card{touch-action:manipulation}
     <span style="width:22px;height:2px;background:#C77936;display:block"></span>
     <span style="width:22px;height:2px;background:#C77936;display:block"></span>
   </button>
-    <a class="nav-cta" href="/audit.html">Raport de Rentabilitate →</a>
+    <a class="nav-cta" href="/audit.html">Raport de Rentabilitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
 </nav>
 <div class="nav-mobile" id="nav-mobile">
   <a href="/#process">Cum funcționează</a><a href="/#packages">Pachete</a><a href="/portofoliu.html">Portofoliu</a>
@@ -390,7 +391,7 @@ button,a,.rel-card{touch-action:manipulation}
     <div class="kit-cta-tag">Calculator ROI · RentUP</div>
     <h3 class="kit-cta-h">Calculează exact cât costă<br><em>situația ta actuală.</em></h3>
     <p class="kit-cta-sub">Calculatorul de pe homepage îți arată diferența dintre scenariul actual și cel optimizat, cu numerele tale reale. Raportul de Rentabilitate Gratuit merge mai adânc: evaluare pe baza pozelor tale, intervenții prioritizate, ROI estimat pentru proprietatea ta specifică.</p>
-    <a class="kit-btn" href="/#calc">Calculatorul gratuit →</a>
+    <a class="kit-btn" href="/#calc">Calculatorul gratuit<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
     <a class="kit-btn-ghost" href="/audit.html" onclick="gtag('event','click_audit_cta');gtag('event','conversion',{'send_to':'AW-18253477545'});">Raport Gratuit</a>
   </div>
 

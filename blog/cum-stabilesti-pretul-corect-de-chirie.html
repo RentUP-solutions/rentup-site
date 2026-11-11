@@ -156,7 +156,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .art-body h3{font-size:18px;font-weight:500;color:var(--dark);margin:28px 0 10px}
 .art-body ul{padding-left:0;margin-bottom:22px;display:flex;flex-direction:column;gap:12px}
 .art-body li{font-size:15px;color:var(--mid);line-height:1.75;list-style:none;padding-left:22px;position:relative}
-.art-body li::before{content:"→";color:var(--brand);font-size:14px;position:absolute;left:0;top:2px}
+.art-body li::before{content:"";width:14px;height:14px;background:var(--brand);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27black%27 stroke-width=%271.75%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M5 12h14%27/%3E%3Cpath d=%27m13 6 6 6-6 6%27/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27black%27 stroke-width=%271.75%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M5 12h14%27/%3E%3Cpath d=%27m13 6 6 6-6 6%27/%3E%3C/svg%3E") center/contain no-repeat;position:absolute;left:0;top:5px}
 .pullquote{background:var(--brand-light);border-left:3px solid var(--brand);border-radius:0 12px 12px 0;padding:22px 26px;margin:32px 0;font-size:15px;color:var(--dark);font-style:italic;line-height:1.75}
 .warn-box{background:var(--red-bg);border:.5px solid #E8C0C0;border-radius:10px;padding:18px 22px;margin:24px 0;font-size:14px;color:#7A3535;line-height:1.7}
 .info-box{background:var(--green-bg);border:.5px solid #9FD8C4;border-radius:10px;padding:18px 22px;margin:24px 0;font-size:14px;color:#2D6B57;line-height:1.7}
@@ -235,6 +235,7 @@ button,a,.rel-card{touch-action:manipulation}
 #cookie-banner{--muted:#A89C90;--light:#B8AFA4}
 </style>
 <style id="ru-nav-t">@media(min-width:769px) and (max-width:1100px){nav{padding:0 24px}.nav-links{gap:18px}.nav-cta{padding:8px 14px}}</style>
+<style id="ru-ar">.ar{display:inline-block;width:1em;height:1em;margin-left:.35em;vertical-align:-.14em;flex-shrink:0}.ar-l{margin-left:0;margin-right:.35em}.ar-m{margin:0 .3em}</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Sari la conținut</a>
@@ -256,7 +257,7 @@ button,a,.rel-card{touch-action:manipulation}
     <span style="width:22px;height:2px;background:#C77936;display:block"></span>
     <span style="width:22px;height:2px;background:#C77936;display:block"></span>
   </button>
-    <a class="nav-cta" href="/audit.html">Raport de Rentabilitate →</a>
+    <a class="nav-cta" href="/audit.html">Raport de Rentabilitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
 </nav>
 <div class="nav-mobile" id="nav-mobile">
   <a href="/#process">Cum funcționează</a><a href="/#packages">Pachete</a><a href="/portofoliu.html">Portofoliu</a>
@@ -417,7 +418,7 @@ button,a,.rel-card{touch-action:manipulation}
     <div class="audit-cta-tag">Raport de Rentabilitate · RentUP</div>
     <h3 class="audit-cta-h">Nu ești sigur unde se încadrează<br>exact <em>apartamentul tău?</em></h3>
     <p class="audit-cta-sub">Raportul de Rentabilitate RentUP analizează apartamentul tău pe comparabile reale și îți spune exact la ce preț îl închiriezi rapid, nu la ce preț stă gol.</p>
-    <a class="audit-btn" href="/audit.html" onclick="gtag('event','click_audit_cta');gtag('event','conversion',{'send_to':'AW-18253477545'});">Descoperă Raportul de Rentabilitate →</a>
+    <a class="audit-btn" href="/audit.html" onclick="gtag('event','click_audit_cta');gtag('event','conversion',{'send_to':'AW-18253477545'});">Descoperă Raportul de Rentabilitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
     <a class="audit-btn-ghost" href="/#contact">Sau vorbim direct</a>
   </div>
 

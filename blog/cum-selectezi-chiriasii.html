@@ -148,7 +148,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .art-body h3{font-size:18px;font-weight:500;color:var(--dark);margin:28px 0 10px}
 .art-body ul{padding-left:0;margin-bottom:22px;display:flex;flex-direction:column;gap:10px}
 .art-body li{font-size:15px;color:var(--mid);line-height:1.7;display:flex;gap:12px;list-style:none}
-.art-body li::before{content:"→";color:var(--brand);font-size:14px;flex-shrink:0;margin-top:3px}
+.art-body li::before{content:"";width:14px;height:14px;background:var(--brand);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27black%27 stroke-width=%271.75%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M5 12h14%27/%3E%3Cpath d=%27m13 6 6 6-6 6%27/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27black%27 stroke-width=%271.75%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M5 12h14%27/%3E%3Cpath d=%27m13 6 6 6-6 6%27/%3E%3C/svg%3E") center/contain no-repeat;flex-shrink:0;margin-top:5px}
 .pullquote{background:var(--brand-light);border-left:3px solid var(--brand);border-radius:0 12px 12px 0;padding:22px 26px;margin:32px 0;font-size:15px;color:var(--dark);font-style:italic;line-height:1.75}
 .pullquote-source{font-size:14px;color:var(--muted);margin-top:8px;font-style:normal}
 .warn-box{background:var(--red-bg);border:.5px solid #E8C0C0;border-radius:10px;padding:18px 22px;margin:24px 0;font-size:14px;color:#7A3535;line-height:1.7}
@@ -229,6 +229,7 @@ button,a,.rel-card{touch-action:manipulation}
 .kit-cta,#cookie-banner{--muted:#A89C90;--light:#B8AFA4}
 </style>
 <style id="ru-nav-t">@media(min-width:769px) and (max-width:1100px){nav{padding:0 24px}.nav-links{gap:18px}.nav-cta{padding:8px 14px}}</style>
+<style id="ru-ar">.ar{display:inline-block;width:1em;height:1em;margin-left:.35em;vertical-align:-.14em;flex-shrink:0}.ar-l{margin-left:0;margin-right:.35em}.ar-m{margin:0 .3em}</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Sari la conținut</a>
@@ -250,7 +251,7 @@ button,a,.rel-card{touch-action:manipulation}
     <span style="width:22px;height:2px;background:#C77936;display:block"></span>
     <span style="width:22px;height:2px;background:#C77936;display:block"></span>
   </button>
-    <a class="nav-cta" href="/audit.html">Raport de Rentabilitate →</a>
+    <a class="nav-cta" href="/audit.html">Raport de Rentabilitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
 </nav>
 <div class="nav-mobile" id="nav-mobile">
   <a href="/#process">Cum funcționează</a><a href="/#packages">Pachete</a><a href="/portofoliu.html">Portofoliu</a>
@@ -308,7 +309,7 @@ button,a,.rel-card{touch-action:manipulation}
       <span style="font-size:14px;font-weight:500;background:var(--bg);border:.5px solid var(--border);padding:8px 16px;border-radius:100px;color:var(--dark)">04 · Compatibilitate cu proprietatea</span>
     </div>
     <p style="font-size:14px;color:var(--muted);margin-top:14px;line-height:1.65">Ce înseamnă fiecare pilon, ce documente ceri, cum evaluezi și cum iei decizia finală; toate acestea se află în Rental Kit.</p>
-    <a href="/rental-kit.html" style="display:inline-block;margin-top:12px;font-size:14px;font-weight:500;color:var(--brand);text-decoration:none">Vezi Rental Kit →</a>
+    <a href="/rental-kit.html" style="display:inline-block;margin-top:12px;font-size:14px;font-weight:500;color:var(--brand);text-decoration:none">Vezi Rental Kit<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
   </div>
 
   <p>Decizia finală se ia pe totalul celor 4 piloni, nu pe baza celui mai bun sau mai slab. Un candidat cu 4 din 4 piloni în regulă e acceptat. Un candidat cu 2 sau mai puțin e refuzat indiferent cât de bine pare la prima vedere.</p>
@@ -326,7 +327,7 @@ button,a,.rel-card{touch-action:manipulation}
   <p>Cel mai important moment în care poți identifica un chiriaș problematic nu e după ce s-a mutat, ci în procesul de negociere și vizionare. Semnalele sunt acolo, dar trebuie să știi ce cauți.</p>
 
   <p style="font-size:15px;color:var(--mid);line-height:1.75">Există semnale clare care apar înainte de semnare: în limbaj, în comportamentul la negociere, în istoricul declarat. Rental Kit-ul le listează complet cu explicații pentru fiecare, astfel că decizia nu mai depinde de instinctul tău din ziua respectivă.</p>
-  <a href="/rental-kit.html" style="display:inline-block;margin-top:4px;margin-bottom:22px;font-size:14px;font-weight:500;color:var(--brand);text-decoration:none">Lista completă de red flags în Rental Kit →</a>
+  <a href="/rental-kit.html" style="display:inline-block;margin-top:4px;margin-bottom:22px;font-size:14px;font-weight:500;color:var(--brand);text-decoration:none">Lista completă de red flags în Rental Kit<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
 
   <h2>Rolul designului în filtrarea candidaților</h2>
 
@@ -335,7 +336,7 @@ button,a,.rel-card{touch-action:manipulation}
   <p>Un anunț cu fotografii profesionale și un apartament îngrijit, coerent, poziționat corect ca preț, atrage un tip specific de candidat. Cineva care caută cel mai ieftin apartament disponibil nu va aplica la un apartament cu 50€ mai scump decât media zonei, oricât ar arăta acesta. Filtrarea se face înainte de prima vizionare.</p>
 
   <div class="pullquote sr">
-    "Profilul și prețul filtrează cam 80–90% din chiriașii problematici. Un apartament renovat și poziționat corect nu a stat gol nicio zi în 14 ani."
+    "Profilul și prețul filtrează cei mai mulți chiriași problematici. Un apartament renovat și poziționat corect nu a stat gol nicio zi în 14 ani."
     <div class="pullquote-source">Proprietar cu 7 apartamente închiriate · Reddit</div>
   </div>
 
@@ -373,7 +374,7 @@ button,a,.rel-card{touch-action:manipulation}
       <span class="kit-item">Șabloane de comunicare</span>
       <span class="kit-item">Sistem de decizie clar</span>
     </div>
-    <a class="kit-btn" href="/rental-kit.html">Descoperă Rental Kit →</a>
+    <a class="kit-btn" href="/rental-kit.html">Descoperă Rental Kit<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
     <a class="kit-btn-ghost" href="/#contact">Sau vorbim direct</a>
   </div>
 

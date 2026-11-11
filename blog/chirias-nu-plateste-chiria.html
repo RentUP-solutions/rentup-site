@@ -148,7 +148,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .art-body h3{font-size:18px;font-weight:500;color:var(--dark);margin:28px 0 10px}
 .art-body ul{padding-left:0;margin-bottom:22px;display:flex;flex-direction:column;gap:10px}
 .art-body li{font-size:15px;color:var(--mid);line-height:1.7;display:flex;gap:12px;list-style:none}
-.art-body li::before{content:"→";color:var(--brand);font-size:14px;flex-shrink:0;margin-top:3px}
+.art-body li::before{content:"";width:14px;height:14px;background:var(--brand);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27black%27 stroke-width=%271.75%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M5 12h14%27/%3E%3Cpath d=%27m13 6 6 6-6 6%27/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27black%27 stroke-width=%271.75%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M5 12h14%27/%3E%3Cpath d=%27m13 6 6 6-6 6%27/%3E%3C/svg%3E") center/contain no-repeat;flex-shrink:0;margin-top:5px}
 .pullquote{background:var(--brand-light);border-left:3px solid var(--brand);border-radius:0 12px 12px 0;padding:22px 26px;margin:32px 0;font-size:15px;color:var(--dark);font-style:italic;line-height:1.75}
 .pullquote-source{font-size:14px;color:var(--muted);margin-top:8px;font-style:normal}
 .warn-box{background:var(--red-bg);border:.5px solid #E8C0C0;border-radius:10px;padding:18px 22px;margin:24px 0;font-size:14px;color:#7A3535;line-height:1.7}
@@ -239,6 +239,7 @@ button,a,.rel-card{touch-action:manipulation}
 .kit-cta,#cookie-banner{--muted:#A89C90;--light:#B8AFA4}
 </style>
 <style id="ru-nav-t">@media(min-width:769px) and (max-width:1100px){nav{padding:0 24px}.nav-links{gap:18px}.nav-cta{padding:8px 14px}}</style>
+<style id="ru-ar">.ar{display:inline-block;width:1em;height:1em;margin-left:.35em;vertical-align:-.14em;flex-shrink:0}.ar-l{margin-left:0;margin-right:.35em}.ar-m{margin:0 .3em}</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Sari la conținut</a>
@@ -255,7 +256,7 @@ button,a,.rel-card{touch-action:manipulation}
     <span style="width:22px;height:2px;background:#C77936;display:block"></span>
     <span style="width:22px;height:2px;background:#C77936;display:block"></span>
   </button>
-    <a class="nav-cta" href="/audit.html">Raport de Rentabilitate →</a>
+    <a class="nav-cta" href="/audit.html">Raport de Rentabilitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
 </nav>
 <div class="nav-mobile" id="nav-mobile">
   <a href="/#process">Cum funcționează</a><a href="/#packages">Pachete</a><a href="/portofoliu.html">Portofoliu</a>
@@ -304,7 +305,7 @@ button,a,.rel-card{touch-action:manipulation}
   <p style="font-size:15px;color:var(--mid);line-height:1.75">Diferența dintre un proprietar care recuperează banii și unul care nu recuperează nimic nu e contractul. E dacă a știut ce să facă în ziua 5, nu în ziua 45.</p>
   <div class="sr" style="background:var(--brand-light);border:.5px solid var(--brand-border);border-radius:12px;padding:24px;margin:24px 0">
     <p style="font-size:14px;color:var(--mid);line-height:1.65;margin-bottom:12px">Rental Kit-ul include protocolul complet: ce faci exact în fiecare etapă, ce ton folosești și textele gata de trimis pentru WhatsApp, email, notificare formală sau scrisoare recomandată.</p>
-    <a href="/rental-kit.html" style="font-size:14px;font-weight:500;color:var(--brand);text-decoration:none">Vezi protocolul complet în Rental Kit →</a>
+    <a href="/rental-kit.html" style="font-size:14px;font-weight:500;color:var(--brand);text-decoration:none">Vezi protocolul complet în Rental Kit<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
   </div>
 
   <h2>Ce instrument legal ai și cum îl folosești</h2>
@@ -319,7 +320,7 @@ button,a,.rel-card{touch-action:manipulation}
     </div>
     <div class="lb-item">
       <div class="lb-label">Contract notarial</div>
-      <div class="lb-val">Titlu executoriu pentru <strong>bani</strong> și pentru <strong>evacuare la expirarea termenului</strong> (art. 1809 Cod Civil) — mergi direct la executor. Pentru evacuare mid-contract (neplată): cererea se judecă fără citarea pârâtului, procedură urgentă 2–6 luni (art. 1034 NCPC). Cost autentificare: 500–1.500 RON (orientativ).</div>
+      <div class="lb-val">Titlu executoriu pentru <strong>bani</strong> și pentru <strong>evacuare la expirarea termenului</strong> (art. 1809 Cod Civil): mergi direct la executor. Pentru evacuare mid-contract (neplată): cererea se judecă fără citarea pârâtului, procedură urgentă 2–6 luni (art. 1034 NCPC). Cost autentificare: 500–1.500 RON (orientativ).</div>
     </div>
     <div class="lb-item">
       <div class="lb-label">Fără niciun instrument</div>
@@ -379,10 +380,10 @@ button,a,.rel-card{touch-action:manipulation}
   <div style="border-top:1px solid var(--border);margin:40px 0 8px;padding-top:20px">
     <p style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--mid);margin-bottom:10px">Surse</p>
     <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:5px">
-      <li style="font-size:14px;color:var(--mid);line-height:1.5"><a href="https://lege5.ro/gratuit/gezdmnrzge/art-1798-caracterul-executoriu-codul-civil" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">Art. 1798 Cod Civil — Caracterul executoriu al contractului de locațiune (lege5.ro)</a></li>
-      <li style="font-size:14px;color:var(--mid);line-height:1.5"><a href="https://lege5.ro/gratuit/gezdmnrzge/art-1809-expirarea-termenului-codul-civil" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">Art. 1809 Cod Civil — Expirarea termenului; titlu executoriu pentru evacuare (lege5.ro)</a></li>
-      <li style="font-size:14px;color:var(--mid);line-height:1.5"><a href="https://lege5.ro/gratuit/gyztaojtgy/art-896-termen-de-executare-codul-de-procedura-civila" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">Art. 896 Cod de procedură civilă — Interdicția evacuării în perioada 1 decembrie – 1 martie (lege5.ro)</a></li>
-      <li style="font-size:14px;color:var(--mid);line-height:1.5"><a href="https://static.anaf.ro/static/10/Anaf/Declaratii_R/168.html" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">Formular C168 ANAF — Cerere de înregistrare a contractelor de locațiune (anaf.ro)</a></li>
+      <li style="font-size:14px;color:var(--mid);line-height:1.5"><a href="https://lege5.ro/gratuit/gezdmnrzge/art-1798-caracterul-executoriu-codul-civil" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">Art. 1798 Cod Civil: Caracterul executoriu al contractului de locațiune (lege5.ro)</a></li>
+      <li style="font-size:14px;color:var(--mid);line-height:1.5"><a href="https://lege5.ro/gratuit/gezdmnrzge/art-1809-expirarea-termenului-codul-civil" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">Art. 1809 Cod Civil: Expirarea termenului; titlu executoriu pentru evacuare (lege5.ro)</a></li>
+      <li style="font-size:14px;color:var(--mid);line-height:1.5"><a href="https://lege5.ro/gratuit/gyztaojtgy/art-896-termen-de-executare-codul-de-procedura-civila" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">Art. 896 Cod de procedură civilă: Interdicția evacuării în perioada 1 decembrie – 1 martie (lege5.ro)</a></li>
+      <li style="font-size:14px;color:var(--mid);line-height:1.5"><a href="https://static.anaf.ro/static/10/Anaf/Declaratii_R/168.html" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">Formular C168 ANAF: Cerere de înregistrare a contractelor de locațiune (anaf.ro)</a></li>
     </ul>
   </div>
 
@@ -397,7 +398,7 @@ button,a,.rel-card{touch-action:manipulation}
       <span class="kit-item">Scrisoare recomandată</span>
       <span class="kit-item">Protocol complet zilnic</span>
     </div>
-    <a class="kit-btn" href="/rental-kit.html">Descoperă Rental Kit →</a>
+    <a class="kit-btn" href="/rental-kit.html">Descoperă Rental Kit<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
     <a class="kit-btn-ghost" href="/#contact">Sau vorbim direct</a>
   </div>
 

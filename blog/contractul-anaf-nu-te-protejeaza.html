@@ -172,7 +172,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .art-body h3{font-size:18px;font-weight:500;color:var(--dark);margin:28px 0 10px}
 .art-body ul{padding-left:0;margin-bottom:22px;display:flex;flex-direction:column;gap:10px}
 .art-body li{font-size:15px;color:var(--mid);line-height:1.7;display:flex;gap:12px;list-style:none}
-.art-body li::before{content:"→";color:var(--brand);font-size:14px;flex-shrink:0;margin-top:3px}
+.art-body li::before{content:"";width:14px;height:14px;background:var(--brand);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27black%27 stroke-width=%271.75%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M5 12h14%27/%3E%3Cpath d=%27m13 6 6 6-6 6%27/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27black%27 stroke-width=%271.75%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M5 12h14%27/%3E%3Cpath d=%27m13 6 6 6-6 6%27/%3E%3C/svg%3E") center/contain no-repeat;flex-shrink:0;margin-top:5px}
 .pullquote{background:var(--brand-light);border-left:3px solid var(--brand);border-radius:0 12px 12px 0;padding:22px 26px;margin:32px 0;font-size:15px;color:var(--dark);font-style:italic;line-height:1.75}
 .pullquote-source{font-size:14px;color:var(--muted);margin-top:8px;font-style:normal}
 .warn-box{background:var(--red-bg);border:.5px solid #E8C0C0;border-radius:10px;padding:18px 22px;margin:24px 0;font-size:14px;color:#7A3535;line-height:1.7}
@@ -263,6 +263,7 @@ button,a,.rel-card{touch-action:manipulation}
 .kit-cta,#cookie-banner{--muted:#A89C90;--light:#B8AFA4}
 </style>
 <style id="ru-nav-t">@media(min-width:769px) and (max-width:1100px){nav{padding:0 24px}.nav-links{gap:18px}.nav-cta{padding:8px 14px}}</style>
+<style id="ru-ar">.ar{display:inline-block;width:1em;height:1em;margin-left:.35em;vertical-align:-.14em;flex-shrink:0}.ar-l{margin-left:0;margin-right:.35em}.ar-m{margin:0 .3em}</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Sari la conținut</a>
@@ -279,7 +280,7 @@ button,a,.rel-card{touch-action:manipulation}
     <span style="width:22px;height:2px;background:#C77936;display:block"></span>
     <span style="width:22px;height:2px;background:#C77936;display:block"></span>
   </button>
-    <a class="nav-cta" href="/audit.html">Raport de Rentabilitate →</a>
+    <a class="nav-cta" href="/audit.html">Raport de Rentabilitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
 </nav>
 <div class="nav-mobile" id="nav-mobile">
   <a href="/#process">Cum funcționează</a><a href="/#packages">Pachete</a><a href="/portofoliu.html">Portofoliu</a>
@@ -311,7 +312,7 @@ button,a,.rel-card{touch-action:manipulation}
   <p>Înregistrarea contractului la ANAF are două efecte juridice concrete: transformă contractul într-un <strong style="color:var(--dark)">titlu executoriu pentru suma chiriei restante</strong> și, la expirarea termenului contractual, și pentru evacuarea chiriașului (art. 1798 și 1809 alin. 3 Cod Civil). Practic, pentru aceste două situații, nu ești nevoit să dai în judecată. Poți merge direct la un executor judecătoresc.</p>
 
   <div class="info-box sr">
-    <strong>Ce înseamnă „titlu executoriu":</strong> un document care, prin el însuși, permite executarea silită; fără să mai treci printr-un proces în instanță. Înregistrarea la ANAF îți dă acest statut pentru chiria neplătită și pentru evacuarea la expirarea termenului. Pentru rezilierea anticipată (ex. neplată mid-contract), e nevoie de hotărâre judecătorească — chiar dacă există o procedură urgentă.
+    <strong>Ce înseamnă „titlu executoriu":</strong> un document care, prin el însuși, permite executarea silită; fără să mai treci printr-un proces în instanță. Înregistrarea la ANAF îți dă acest statut pentru chiria neplătită și pentru evacuarea la expirarea termenului. Pentru rezilierea anticipată (ex. neplată mid-contract), e nevoie de hotărâre judecătorească, chiar dacă există o procedură urgentă.
   </div>
 
   <p>E o protecție reală, dar limitată strict la recuperarea sumelor de bani datorate cu titlu de chirie. Nu e un scut general împotriva oricărei probleme pe care o poate aduce un chiriaș. Și aici începe neînțelegerea care costă cel mai mult.</p>
@@ -321,7 +322,7 @@ button,a,.rel-card{touch-action:manipulation}
   <p>Patru situații în care actul înregistrat la ANAF nu te ajută cu nimic, și în care proprietarii află asta exact când au cea mai mare nevoie de protecție:</p>
 
   <ul>
-    <li>Dacă chiriașul refuză să plece după rezilierea anticipată a contractului (de exemplu, pentru neplată), contractul ANAF nu îți dă dreptul să-l evacuezi direct prin executor — ai nevoie de o hotărâre judecătorească. Cu un contract autentificat notarial, cererea de evacuare se judecă fără citarea pârâtului (art. 1042 NCPC) — procedura e urgentă și durează 2–6 luni, dar tot trece prin instanță. La expirarea naturală a termenului, ambele tipuri de contract (ANAF și notarial) permit evacuarea directă prin executor, fără instanță (art. 1809 Cod Civil).</li>
+    <li>Dacă chiriașul refuză să plece după rezilierea anticipată a contractului (de exemplu, pentru neplată), contractul ANAF nu îți dă dreptul să-l evacuezi direct prin executor: ai nevoie de o hotărâre judecătorească. Cu un contract autentificat notarial, cererea de evacuare se judecă fără citarea pârâtului (art. 1042 NCPC). Procedura e urgentă și durează 2–6 luni, dar tot trece prin instanță. La expirarea naturală a termenului, ambele tipuri de contract (ANAF și notarial) permit evacuarea directă prin executor, fără instanță (art. 1809 Cod Civil).</li>
     <li>Contractul, indiferent unde e înregistrat, nu dovedește în ce stare era apartamentul când a intrat chiriașul. Fără un document separat, precum procesul verbal foto la predare-primire, orice discuție despre garanție și daune devine „cuvântul tău contra cuvântul lui".</li>
     <li>Zgomotul, subînchirierea neautorizată, animalele nedeclarate sau oaspeții permanenți nu sunt prevenite de niciun act pe care îl poți semna. Ele se previn înainte de semnare, prin verificare, nu după ce chiriașul s-a mutat deja în apartamentul tău.</li>
     <li>Niciun document nu repară o decizie luată în grabă, pe baza primei impresii de la vizionare. Contractul reglementează ce se întâmplă după ce ai ales, însă nu te ajută să alegi bine de la început.</li>
@@ -341,14 +342,14 @@ button,a,.rel-card{touch-action:manipulation}
   <p>Proprietarii cu adevărat expuși nu sunt cei „fără acte". Sunt cei care au un singur tip de protecție și cred că acoperă tot. În realitate, fiecare risc are nevoie de instrumentul lui:</p>
 
   <div class="legal-box sr">
-    <div class="lb-title">Risc → instrumentul care te protejează de fapt</div>
+    <div class="lb-title">Risc<svg class="ar ar-m" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>instrumentul care te protejează de fapt</div>
     <div class="lb-item">
       <div class="lb-label">Neplata chiriei</div>
       <div class="lb-val">Contract înregistrat la ANAF (titlu executoriu pentru bani) sau contract notarial (titlu executoriu pentru bani <strong>și</strong> evacuare).</div>
     </div>
     <div class="lb-item">
       <div class="lb-label">Refuzul de a pleca</div>
-      <div class="lb-val">La expirarea termenului: ambele tipuri de contract (ANAF și notarial) permit evacuarea directă prin executor, fără instanță (art. 1809 Cod Civil). Dacă refuză să plece mid-contract (neplată/reziliere): ai nevoie de hotărâre judecătorească — dar cu contract notarial, cererea se judecă fără citarea pârâtului, procedură urgentă 2–6 luni (art. 1034 NCPC).</div>
+      <div class="lb-val">La expirarea termenului: ambele tipuri de contract (ANAF și notarial) permit evacuarea directă prin executor, fără instanță (art. 1809 Cod Civil). Dacă refuză să plece mid-contract (neplată/reziliere): ai nevoie de hotărâre judecătorească, dar cu contract notarial, cererea se judecă fără citarea pârâtului, procedură urgentă 2–6 luni (art. 1034 NCPC).</div>
     </div>
     <div class="lb-item">
       <div class="lb-label">Degradarea apartamentului</div>
@@ -405,7 +406,7 @@ button,a,.rel-card{touch-action:manipulation}
   <p>Parțial. Contractul înregistrat la ANAF este titlu executoriu pentru plata chiriei și, la expirarea termenului contractual, și pentru evacuarea chiriașului (art. 1798 și 1809 alin. 3 Cod Civil). Contractul autentificat notarial oferă același lucru; în plus, cererea de evacuare pentru neplată se judecă fără citarea pârâtului, printr-o procedură urgentă (art. 1034 NCPC) care durează 2–6 luni față de 1–3 ani în dreptul comun. Evacuarea directă prin executor fără instanță se aplică doar la expirarea naturală a termenului (art. 1809 Cod Civil).</p>
 
   <h3>Care e diferența reală dintre contractul ANAF și cel notarial?</h3>
-  <p>Contractul ANAF îți recuperează banii prin executor, fără proces separat, și permite evacuarea directă la expirarea termenului. Contractul notarial face același lucru, iar în plus cererea de evacuare pentru neplată se judecă fără citarea pârâtului — procedura urgentă (art. 1034 NCPC) durează 2–6 luni față de 1–3 ani în dreptul comun. Costă între 500 și 1.500 RON (orientativ) și durează 1–3 luni să fie autentificat, dar diferența se simte exact în momentul în care chiar ai nevoie de el.</p>
+  <p>Contractul ANAF îți recuperează banii prin executor, fără proces separat, și permite evacuarea directă la expirarea termenului. Contractul notarial face același lucru, iar în plus cererea de evacuare pentru neplată se judecă fără citarea pârâtului, iar procedura urgentă (art. 1034 NCPC) durează 2–6 luni față de 1–3 ani în dreptul comun. Costă între 500 și 1.500 RON (orientativ) și durează 1–3 luni să fie autentificat, dar diferența se simte exact în momentul în care chiar ai nevoie de el.</p>
 
   <h3>Ce se întâmplă dacă nu am niciun contract înregistrat sau autentificat?</h3>
   <p>Trebuie să obții întâi o hotărâre judecătorească înainte de orice executare, fie pentru recuperarea banilor, fie pentru evacuare. Vorbim de luni sau ani de procedură și costuri semnificativ mai mari decât în celelalte variante.</p>
@@ -428,10 +429,10 @@ button,a,.rel-card{touch-action:manipulation}
   <div style="border-top:1px solid var(--border);margin:40px 0 8px;padding-top:20px">
     <p style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--mid);margin-bottom:10px">Surse</p>
     <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:5px">
-      <li style="font-size:14px;color:var(--mid);line-height:1.5"><a href="https://lege5.ro/gratuit/gezdmnrzge/art-1798-caracterul-executoriu-codul-civil" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">Art. 1798 Cod Civil — Caracterul executoriu al contractului de locațiune (lege5.ro)</a></li>
-      <li style="font-size:14px;color:var(--mid);line-height:1.5"><a href="https://lege5.ro/gratuit/gezdmnrzge/art-1809-expirarea-termenului-codul-civil" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">Art. 1809 Cod Civil — Expirarea termenului; titlu executoriu pentru evacuare (lege5.ro)</a></li>
-      <li style="font-size:14px;color:var(--mid);line-height:1.5"><a href="https://lege5.ro/gratuit/gezdmnrzge/art-1816-denuntarea-contractului-codul-civil" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">Art. 1816 Cod Civil — Denunțarea contractului de locațiune (lege5.ro)</a></li>
-      <li style="font-size:14px;color:var(--mid);line-height:1.5"><a href="https://static.anaf.ro/static/10/Anaf/Declaratii_R/168.html" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">Formular C168 ANAF — Cerere de înregistrare a contractelor de locațiune (anaf.ro)</a></li>
+      <li style="font-size:14px;color:var(--mid);line-height:1.5"><a href="https://lege5.ro/gratuit/gezdmnrzge/art-1798-caracterul-executoriu-codul-civil" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">Art. 1798 Cod Civil: Caracterul executoriu al contractului de locațiune (lege5.ro)</a></li>
+      <li style="font-size:14px;color:var(--mid);line-height:1.5"><a href="https://lege5.ro/gratuit/gezdmnrzge/art-1809-expirarea-termenului-codul-civil" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">Art. 1809 Cod Civil: Expirarea termenului; titlu executoriu pentru evacuare (lege5.ro)</a></li>
+      <li style="font-size:14px;color:var(--mid);line-height:1.5"><a href="https://lege5.ro/gratuit/gezdmnrzge/art-1816-denuntarea-contractului-codul-civil" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">Art. 1816 Cod Civil: Denunțarea contractului de locațiune (lege5.ro)</a></li>
+      <li style="font-size:14px;color:var(--mid);line-height:1.5"><a href="https://static.anaf.ro/static/10/Anaf/Declaratii_R/168.html" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">Formular C168 ANAF: Cerere de înregistrare a contractelor de locațiune (anaf.ro)</a></li>
     </ul>
   </div>
 
@@ -445,7 +446,7 @@ button,a,.rel-card{touch-action:manipulation}
       <span class="kit-item">Protocol neplată & conflicte</span>
       <span class="kit-item">Texte gata de trimis</span>
     </div>
-    <a class="kit-btn" href="/rental-kit.html">Descoperă Rental Kit →</a>
+    <a class="kit-btn" href="/rental-kit.html">Descoperă Rental Kit<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
     <a class="kit-btn-ghost" href="/#contact">Sau vorbim direct</a>
   </div>
 
