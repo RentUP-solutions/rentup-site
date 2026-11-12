@@ -83,7 +83,7 @@ gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personali
 <link rel="manifest" href="manifest.json">
 <meta name="description" content="Calculează costul mobilării apartamentului pentru închiriere. Prefabricat sau la comandă.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#FDFAF6">
+<meta name="theme-color" content="#C77936">
 <title>Simulator Mobilare Apartament: Estimare Cost și ROI | RentUP</title>
 <meta name="keywords" content="simulator mobilare apartament, cost mobilare închiriere, estimare mobilier IKEA, buget mobilare apartament București, ROI mobilare">
 <meta name="robots" content="index, follow">
@@ -103,123 +103,86 @@ gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personali
 @font-face{font-family:'General Sans';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/general-sans-600-normal.woff2') format('woff2');}
 :root{--bg:#FDFAF6;--brand:#C77936;--dark:#2D2820;--muted:#776B60;--light:#776B60;--border:#E0DDD6}
 *{box-sizing:border-box;margin:0;padding:0}::selection{background:#C77936;color:#FDFAF6}
-body{font-family:'General Sans',sans-serif;background:var(--bg);color:var(--dark);-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
-nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-filter:blur(12px);padding:0 56px;height:64px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 6px rgba(45,40,32,.07),0 8px 24px rgba(45,40,32,.10)}
-.logo{font-size:17px;font-weight:600;color:#C77936;text-decoration:none;letter-spacing:-.01em}
-.logo span{color:#2D2820;font-weight:300}
-.nav-back{font-size:14px;color:var(--muted);text-decoration:none}
-.skip-link{position:absolute;left:-9999px;top:4px;z-index:9999;background:var(--bg);color:var(--brand);padding:8px 18px;border-radius:0 0 8px 8px;font-size:14px;font-weight:500;border:1px solid var(--border);text-decoration:none}
+:root{--o:#C77936;--o2:#B3672B}
+html,body{height:100%}
+body{font-family:'General Sans',sans-serif;background:var(--o);color:var(--dark);-webkit-font-smoothing:antialiased;overflow:hidden}
+.skip-link{position:absolute;left:-9999px;top:4px;z-index:9999;background:var(--bg);color:var(--brand);padding:8px 18px;border-radius:0 0 8px 8px;font-size:14px;font-weight:500;text-decoration:none}
 .skip-link:focus{left:4px}
-a:focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:2px}
-#wip{flex:1;display:flex;align-items:center;justify-content:center;padding:72px 24px;text-align:center}
-#wip .wip-in{max-width:520px}
-#wip .wip-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--brand);margin-bottom:18px}
-#wip .wip-dot{width:7px;height:7px;border-radius:50%;background:var(--brand)}
-#wip h1{font-size:36px;font-weight:300;line-height:1.1;letter-spacing:-.025em;margin:0 0 14px;text-wrap:balance}
-#wip p{font-size:15px;color:var(--muted);line-height:1.7;margin:0 0 26px}
-#wip .wip-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-#wip .wip-b1{display:inline-flex;align-items:center;height:46px;padding:0 22px;border-radius:100px;background:var(--brand);color:#FDFAF6;font-size:14px;font-weight:500;text-decoration:none}
-#wip .wip-b2{display:inline-flex;align-items:center;height:46px;padding:0 22px;border-radius:100px;border:.5px solid var(--border);color:var(--dark);font-size:14px;font-weight:500;text-decoration:none}
-#cookie-banner{--muted:#A89C90;--light:#B8AFA4}
-@media(max-width:600px){nav{padding:0 16px}#wip h1{font-size:28px}}
+a{touch-action:manipulation}
+a:focus-visible{outline:2px solid var(--bg);outline-offset:4px;border-radius:4px}
+.e-logo{position:fixed;top:28px;left:36px;z-index:3;font-size:19px;font-weight:600;color:#A0581F;text-decoration:none;letter-spacing:-.01em}
+.e-logo span{font-weight:300;color:var(--dark)}
+.e-wrap{position:relative;height:100vh;height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.e-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:min(46vw,118svh);line-height:1;letter-spacing:-.06em;color:var(--o2);white-space:nowrap;user-select:none;pointer-events:none;animation:e-dr 16s ease-in-out infinite alternate;font-variant-numeric:tabular-nums}
+.e-num{--h:1.2em}
+.od{display:inline-block;height:var(--h);overflow:hidden;letter-spacing:0;margin-right:-.04em;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 9%,#000 91%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 9%,#000 91%,transparent 100%)}
+.od .st{display:flex;flex-direction:column;will-change:transform}
+.od .st span{display:block;height:var(--h);line-height:var(--h);text-align:center}
+.e-num>span:last-child{line-height:var(--h)}
+@keyframes e-dr{from{transform:translate(0,0) rotate(0)}to{transform:translate(-1.6vw,1vh) rotate(-1.2deg)}}
+.e-c{position:relative;z-index:2;text-align:center;padding:0 24px}
+.e-c h1{font-size:clamp(18px,1.75vw,26px);font-weight:400;line-height:1.38;letter-spacing:-.01em;max-width:16em;margin:0 auto 1.1em;text-wrap:balance}
+.e-w{display:inline-block;opacity:0;transform:translateY(.45em);filter:blur(6px);animation:e-in 1.1s cubic-bezier(.22,1,.36,1) forwards;animation-delay:calc(.25s + var(--i) * 75ms)}
+@keyframes e-in{to{opacity:1;transform:none;filter:blur(0)}}
+.e-act{display:flex;flex-direction:column;align-items:center;gap:14px;opacity:0;transform:translateY(.5em);animation:e-in 1.1s cubic-bezier(.22,1,.36,1) forwards;animation-delay:calc(.4s + var(--i) * 75ms)}
+.e-btn{display:inline-flex;align-items:center;gap:.5em;background:var(--dark);color:var(--bg);font-size:clamp(14px,1.15vw,17px);font-weight:500;padding:.95em 1.7em;border-radius:99px;text-decoration:none;transition:background-color .4s ease,box-shadow .4s ease}
+.e-btn:hover{background:#1f1b16;box-shadow:0 10px 28px -10px rgba(45,40,32,.55)}
+.e-btn svg{width:1.05em;height:1.05em;flex-shrink:0;transition:transform .4s cubic-bezier(.23,1,.32,1)}
+.e-btn:hover svg{transform:translateX(.18em)}
+.e-home{font-size:clamp(14px,1.05vw,16px);color:var(--bg);text-decoration:none;transition:color .4s ease}
+.e-home:hover{color:var(--dark)}
+@media(max-width:600px){.e-logo{top:20px;left:20px}.e-num{--h:1em;flex-direction:column;font-size:min(60vw,29svh);line-height:.8;letter-spacing:0}.od{margin-right:0}.e-c h1{font-size:19px;max-width:14em}.e-num>span:last-child{font-size:.66em;line-height:1.3em}}
+@media(prefers-reduced-motion:reduce){.e-num{animation:none}.e-w,.e-act{animation:none;opacity:1;transform:none;filter:none}}
 </style>
 <style id="ru-ar">.ar{display:inline-block;width:1em;height:1em;margin-left:.35em;vertical-align:-.14em;flex-shrink:0}.ar-l{margin-left:0;margin-right:.35em}.ar-m{margin:0 .3em}</style>
 </head>
 <body>
 <a class="skip-link" href="#wip">Sari la conținut</a>
-
-<nav>
-  <a class="logo" href="/">Rent<span>UP</span></a>
-  <a class="nav-back" href="/"><svg class="ar ar-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg>Înapoi la site</a>
-</nav>
+<a class="e-logo" href="/">Rent<span>UP</span></a>
 
 <!-- Simulatorul de mobilare e oprit temporar. Codul complet NU mai e pe site;
      e păstrat local, în afara repo-ului (backup RentUP, 7 nov 2026). -->
-<main id="wip" aria-labelledby="wip-h">
-  <div class="wip-in">
-    <div class="wip-tag"><span class="wip-dot"></span>În lucru</div>
-    <h1 id="wip-h">Simulatorul de mobilare e în lucru</h1>
-    <p>Actualizăm prețurile și calculul. Până revine, îți putem spune noi cât costă mobilarea apartamentului tău, pornind de la câteva poze.</p>
-    <div class="wip-btns">
-      <a class="wip-b1" href="/audit.html">Raportul de Rentabilitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-      <a class="wip-b2" href="/">Înapoi la site</a>
+<main id="wip" class="e-wrap">
+  <div class="e-num" aria-hidden="true"><span class="od" id="e-d1"><span class="st" ><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="od" id="e-d2"><span class="st" ><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span></span></span><span>%</span></div>
+  <div class="e-c">
+    <h1 id="e-h">Ups, se pare că Cristiana n-a apucat să termine designul simulatorului. Până îl termină, îți spunem noi cât costă mobilarea apartamentului tău.</h1>
+    <script>(function(){var h=document.getElementById('e-h'),t=h.textContent;try{if(localStorage.getItem('ru-lang')==='en')t="Oops, looks like Cristiana hasn't finished designing the simulator yet. Until it's ready, we'll tell you what furnishing your apartment costs."}catch(e){}h.innerHTML=t.split(' ').map(function(w,i){return '<span class="e-w" style="--i:'+i+'">'+w+'</span>'}).join(' ');h.setAttribute('aria-label',t)})();</script>
+    <div class="e-act" style="--i:22">
+      <a class="e-btn" href="/audit.html">Raportul de Rentabilitate<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+      <a class="e-home" href="/">sau înapoi acasă</a>
     </div>
   </div>
 </main>
-
-<footer class="ru-ft">
-<style id="ru-ft-card">.ru-ft .ft-s{display:none}@media(max-width:600px){.ru-ft .ft-f{display:none}.ru-ft .ft-s{display:inline}}.ru-ft{isolation:isolate}.ru-ft::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(rgba(45,40,32,.16) 1.1px,transparent 1.4px);background-size:22px 22px;opacity:.7;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 12%,transparent 50%);mask-image:linear-gradient(180deg,transparent 0%,#000 12%,transparent 50%)}
-@media(max-width:768px){.ru-ft::before{background-image:radial-gradient(rgba(45,40,32,.16) .6px,transparent .8px);background-size:9px 9px}}
-.ru-ft{display:block!important;position:relative;overflow:hidden;background:#FDFAF6!important;border-top:0!important;padding:64px 32px 0!important}
-.ru-ft-card{position:relative;z-index:1;max-width:1200px;margin:0 auto;background:#fff;border:1px solid rgba(45,40,32,.06);border-radius:28px;padding:52px 56px 32px;box-shadow:0 1px 2px rgba(45,40,32,.04),0 12px 32px rgba(45,40,32,.07),0 40px 80px -24px rgba(45,40,32,.12)}
-.ru-ft-top{display:grid!important;grid-template-columns:minmax(0,1fr) auto;gap:48px;align-items:start;margin-bottom:40px}
-.ru-ft-cols{display:grid;grid-template-columns:repeat(4,auto);gap:48px}
-.ru-ft .ft-brand>a{font-size:22px!important;margin-bottom:0!important}
-.ru-ft-tag{font-family:'General Sans',sans-serif;font-size:24px;font-weight:600;line-height:1.25;letter-spacing:-.015em;color:#2D2820;margin:18px 0 6px;max-width:15ch}
-.ru-ft-tag em{font-style:normal;color:#C77936}
-.ru-ft-city{font-size:14px;color:#776B60;margin:0}
-.ru-ft-giant{position:relative;z-index:0;margin-top:.12em;text-align:center;font-family:'General Sans',sans-serif;font-weight:600;font-size:clamp(60px,21vw,300px);line-height:.78;letter-spacing:-.05em;height:.66em;overflow:hidden;white-space:nowrap;color:rgba(199,121,54,.24);-webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.14) 100%);mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.14) 100%);-webkit-user-select:none;user-select:none;pointer-events:none}
-.ru-ft-giant span{font-weight:300;color:rgba(45,40,32,.14)}
-@media(max-width:720px){.ru-ft{padding:32px 12px 0!important}.ru-ft-card{padding:32px 22px 26px;border-radius:22px}.ru-ft-top{grid-template-columns:1fr;gap:36px}.ru-ft-cols{grid-template-columns:1fr 1fr;gap:28px 24px}.ru-ft-tag{font-size:21px}}@media(max-width:600px){.ru-ft-card{padding:30px 22px 26px}.ru-ft-tag{font-size:22px;max-width:none;margin-top:16px}.ru-ft-top{gap:32px;margin-bottom:28px}.ru-ft-cols{gap:28px 16px}.ru-ft .ft-bot{gap:20px!important;padding-top:22px!important}.ru-ft .ft-legal{gap:10px 20px}.ru-ft .ft-legal>a{order:1;font-size:13px!important;color:#776B60!important;padding:2px 0}.ru-ft .ft-legal>div:not(.ft-co){order:2;flex-basis:100%;margin-top:8px}.ru-ft .ft-co{order:3;line-height:1.55}.ru-ft-giant{font-size:25vw;margin-top:.08em}.ru-ft .ft-bot{align-items:center!important;text-align:center!important}.ru-ft .ft-legal{justify-content:center;text-align:center!important}.ru-ft .ft-bot .ru-legal{justify-content:center;align-self:center}}</style>
-
-<style>@media(max-width:600px){footer{padding-left:20px!important;padding-right:20px!important}.ft-brand{flex-basis:100%!important}}</style>
-  <div class="ru-ft-card">
-    <div class="ru-ft-top">
-      <div class="ft-brand" style="flex:0 0 auto">
-        <a href="/" style="font-size:17px;font-weight:600;color:#C77936;font-family:'General Sans',sans-serif;margin-bottom:8px;text-decoration:none;letter-spacing:-.01em;display:inline-block">Rent<span style="color:#2D2820;font-weight:300">UP</span></a>
-        <p class="ru-ft-tag">Prima firmă de <em>rental optimization</em> din România.</p><p class="ru-ft-city">București</p>
-      </div>
-      <div class="ru-ft-cols">
-        <div>
-          <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:14px">Servicii</div>
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <a href="/audit.html" style="font-size:14px;color:#7A6E62;text-decoration:none"><span class="ft-f">Raport de Rentabilitate</span><span class="ft-s">Raport Rentabilitate</span></a>
-            <a href="/staging-virtual.html" style="font-size:14px;color:#C77936;text-decoration:none;font-weight:500">Staging Virtual</a>
-            <a href="/#packages" style="font-size:14px;color:#7A6E62;text-decoration:none"><span class="ft-f">Design de interior</span><span class="ft-s">Design Interior</span></a>
-            <a href="/rental-kit.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Rental Kit</a>
-          </div>
-        </div>
-        <div>
-          <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:14px">Resurse</div>
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <a href="/realitatea-chiriei.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Probleme & Soluții</a>
-            <a href="/simulator.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Simulator mobilare</a>
-            <a href="/faq.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Întrebări frecvente</a>
-            <a href="/blog/" style="font-size:14px;color:#7A6E62;text-decoration:none">Blog</a>
-          </div>
-        </div>
-        <div>
-          <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:14px">Contact</div>
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <span style="font-size:14px;color:#7A6E62">hello@rentup.solutions</span>
-            <span style="font-size:14px;color:#7A6E62">+40 741 176 865</span>
-            
-          </div>
-        </div>
-        <div>
-          <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:14px">Social</div>
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <a href="https://instagram.com/rentup.solutions" style="font-size:14px;color:#7A6E62;text-decoration:none" target="_blank" rel="noopener">Instagram</a>
-            <a href="https://www.linkedin.com/company/rentup-solutions" style="font-size:14px;color:#7A6E62;text-decoration:none" target="_blank" rel="noopener">LinkedIn</a>
-            <a href="https://www.facebook.com/rentup.solutions/" style="font-size:14px;color:#7A6E62;text-decoration:none" target="_blank" rel="noopener">Facebook</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="ft-bot" style="padding-top:20px;border-top:.5px solid #EDE5D8;display:flex;justify-content:center;flex-wrap:wrap;gap:6px 24px;text-align:center;width:100%">
-    <div class="ft-legal">
-    <div class="ft-co" style="font-size:12px;color:var(--light);white-space:normal">Wirtual Design &amp; Architecture SRL · CUI 44170236 · J23/2626/2021 · Clinceni, Ilfov</div>
-<div style="font-size:12px;color:var(--light);white-space:nowrap">© 2026 RentUP · Toate drepturile rezervate</div>
-<a href="/termeni.html" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Termeni și condiții</a>
-<a href="/confidentialitate.html" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Politică de confidențialitate</a>
-      <a href="#" onclick="ruCookieSettings();return false" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Setări cookie</a>
-    </div>
-    <div class="ru-legal" style="display:flex"><a class="ru-sal" href="https://reclamatiisal.anpc.ro/" target="_blank" rel="noopener" aria-label="ANPC: Soluționarea alternativă a litigiilor (detalii)" style="display:inline-flex;color:var(--light,#776B60);text-decoration:none"><svg width="200" height="50" viewBox="0 0 200 50" fill="none" aria-hidden="true" style="display:block"><rect x=".5" y=".5" width="199" height="49" rx="12" stroke="currentColor"/><path d="M85 9v32" stroke="currentColor" stroke-opacity=".45"/><image x="4" y="8.5" width="27.4" height="33" href="/images/stema-anpc-sepia.png"/><text x="34" y="21" fill="currentColor" font-family="'General Sans',sans-serif" font-size="13" font-weight="600" letter-spacing=".2">ANPC</text><text x="34.2" y="26.2" fill="currentColor" font-family="'General Sans',sans-serif" font-size="2.7" font-weight="500" letter-spacing=".05">AUTORITATEA NAȚIONALĂ PENTRU</text><text x="34.2" y="29.6" fill="currentColor" font-family="'General Sans',sans-serif" font-size="2.7" font-weight="500" letter-spacing=".05">PROTECȚIA CONSUMATORILOR</text><text x="34" y="39.5" fill="currentColor" font-family="'General Sans',sans-serif" font-size="7.4" font-style="italic" font-weight="500">Te respectă</text><text x="141" y="18" fill="currentColor" font-family="'General Sans',sans-serif" font-size="6.3" font-weight="600" text-anchor="middle" letter-spacing=".1">SOLUȚIONAREA ALTERNATIVĂ</text><text x="141" y="26" fill="currentColor" font-family="'General Sans',sans-serif" font-size="6.3" font-weight="600" text-anchor="middle" letter-spacing=".1">A LITIGIILOR</text><rect x="121" y="31" width="40" height="12" rx="6" fill="currentColor"/><text x="141" y="39.3" fill="#FDFAF6" font-family="'General Sans',sans-serif" font-size="5.6" font-weight="600" text-anchor="middle" letter-spacing=".4">DETALII</text></svg></a></div>
-    </div>
-  </div>
-<style id="ru-ft-bot">.ft-bot{justify-content:space-between!important;align-items:center!important;gap:16px 40px!important;flex-wrap:wrap!important}.ft-legal{flex:1 1 480px;display:flex;flex-wrap:wrap;gap:6px 24px;text-align:left}.ft-bot .ru-legal{flex:0 0 auto}.ft-co{order:2;flex-basis:100%}@media(max-width:600px){.ft-bot{flex-direction:column!important;align-items:flex-start!important}.ft-legal{flex-basis:auto}}</style>
-<div class="ru-ft-giant" aria-hidden="true">Rent<span>UP</span></div>
-</footer>
+<script>
+/* 87%: cifrele se rotesc ca un contor (odometru): urcă lin până la 80, apoi procentele vin rar, fiecare cu o rotire moale */
+(function(){
+  var box=document.querySelector('.e-num'), s1=document.querySelector('#e-d1 .st'), s2=document.querySelector('#e-d2 .st'), c1=document.getElementById('e-d1');
+  function set(v){
+    var u=v%10, t=Math.floor(v/10)+Math.max(0,u-9);
+    s2.style.transform='translateY(calc(var(--h) * '+(-u)+'))';
+    s1.style.transform='translateY(calc(var(--h) * '+(-t)+'))';
+    c1.style.opacity=v<10?Math.max(0,v-9):1;
+  }
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){ set(87); return; }
+  function tween(a,b,dur,ease,done){
+    var t0=null;
+    (function f(ts){ if(t0===null) t0=ts; var x=Math.min((ts-t0)/dur,1); set(a+(b-a)*ease(x)); if(x<1) requestAnimationFrame(f); else if(done) done(); })(performance.now());
+  }
+  function out4(x){ return 1-Math.pow(1-x,4); }
+  function inOut(x){ return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2; }
+  /* pornește de la 60: până la 80 pas cu pas, cu mici blocaje; de la 80 la 87 tot mai rar (~19 s în total), apoi rămâne la 87 */
+  var n=60, A=[120,90,140,900,100,80,130,110,1000,90,120,100,80,140,700,110,90,130,100],
+      B=[500,700,600,1300,800,1100];
+  box.style.transition='opacity 6s ease'; box.style.opacity='.55'; set(n);
+  function step(){
+    if(n>=87) return;
+    var slow=n>=80, i=n-60;
+    if(n===80) box.style.opacity='1';
+    tween(n,n+1,slow?650:300,inOut,function(){ n++; if(n<87) setTimeout(step, slow?B[(n-81)%B.length]:A[i%A.length]); });
+  }
+  setTimeout(step,1800);
+})();
+</script>
 
 <!-- Cookie Banner -->
 <style id="ru-cb-m">@media(max-width:600px){#cookie-banner{padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px))!important;gap:10px!important}#cookie-banner>div:first-child{flex:1 1 100%!important;min-width:0!important}#cookie-banner>div:first-child>div:first-child{display:none!important}#cookie-banner .cb-opt{display:none}#cookie-banner>div:last-child{flex:1 1 100%!important}#cookie-banner>div:last-child>button{flex:1 1 0!important;height:40px!important;padding:0 16px!important;font-size:13px!important}}</style>

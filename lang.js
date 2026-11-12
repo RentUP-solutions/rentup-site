@@ -1685,6 +1685,8 @@
   if (!('Înapoi acasă' in T)) T['Înapoi acasă'] = 'Back home';
   if (!('Nu facem doar design.' in T)) T['Nu facem doar design.'] = 'Not just design.';
 
+  if (!('Raportul de Rentabilitate' in T)) T['Raportul de Rentabilitate'] = 'Profitability Report';
+  if (!('sau înapoi acasă' in T)) T['sau înapoi acasă'] = 'or back home';
   /* ─── Engine ─────────────────────────────────────────────────────────── */
   var LANG_KEY = 'ru-lang';
   var lang = localStorage.getItem(LANG_KEY) || 'ro';
