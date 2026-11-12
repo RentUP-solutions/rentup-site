@@ -195,7 +195,8 @@ body{overflow-x:clip}
 @media(hover:hover){.fq-pop button:hover{color:var(--brand)}}
 
 /* categorii + întrebări */
-.fq-layout{display:grid;grid-template-columns:240px minmax(0,1fr);gap:clamp(32px,5vw,72px);padding-bottom:clamp(56px,8vw,96px)}
+.fq-layout{display:grid;grid-template-columns:240px minmax(0,1fr);gap:clamp(32px,5vw,72px)}
+.fq .fq-layout{padding-bottom:clamp(64px,8vw,104px)}
 .fq-side{position:sticky;top:88px;align-self:start;display:flex;flex-direction:column;gap:2px}
 .fq-side a{display:flex;justify-content:space-between;gap:10px;font-size:14px;color:var(--mid);text-decoration:none;padding:9px 14px;border-radius:10px;transition:background 200ms,color 200ms}
 .fq-side a small{color:var(--light)}
@@ -217,6 +218,7 @@ body{overflow-x:clip}
 .fq-cat-h span{font-size:14px;font-weight:600;color:var(--brand);letter-spacing:.06em}
 .fq-cat-h h2{font-size:clamp(22px,2.6vw,28px);letter-spacing:-.025em}
 .qa{background:#fff;border-radius:16px;box-shadow:0 2px 20px rgba(45,40,32,.05);margin-bottom:8px;transition:box-shadow 260ms var(--ease)}
+#fq-list>.fq-cat:last-of-type>.qa:last-child{margin-bottom:0}
 .qa.open{box-shadow:0 10px 36px rgba(45,40,32,.09)}
 .qa-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;text-align:left;font:400 16px 'General Sans',sans-serif;color:var(--text);background:none;border:none;padding:20px 22px;cursor:pointer;border-radius:16px}
 .qa-q:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
@@ -256,6 +258,26 @@ body{overflow-x:clip}
 @media(hover:hover){.fq-play:hover span{transform:scale(1.08)}}
 .fq-play:focus-visible{outline:2px solid var(--brand);outline-offset:-4px;border-radius:18px}
 .fq-reel.on .fq-play{opacity:0;pointer-events:none}
+.fq-reels{position:relative;overflow:hidden;--ic:#262119}
+.fq-reels>.wrap{position:relative;z-index:1}
+.fq-bg{position:absolute;inset:0;pointer-events:none;user-select:none}
+.fq-ic{position:absolute;overflow:visible;transform:rotate(var(--r));animation:fq-dr ease-in-out infinite alternate}
+.fq-ic .s{fill:var(--ic);stroke:var(--ic);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.fq-ic .ln{fill:none;stroke:var(--ic);stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round}
+.fq-ic .c{fill:var(--text);stroke:var(--text);stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}
+.fq-ic .c.l{fill:none}
+@keyframes fq-dr{from{transform:translate(0,0) rotate(var(--r))}to{transform:translate(-1.8vw,2vh) rotate(calc(var(--r) - 6deg))}}
+.fq-reel video{cursor:pointer}
+.fq-lb{position:fixed;inset:0;z-index:300;background:rgba(20,16,12,.92);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;transition:opacity 280ms var(--ease)}
+.fq-lb[hidden]{display:none}
+.fq-lb.in{opacity:1}
+.fq-lb video{height:min(90svh,calc((100vw - 48px)*16/9));aspect-ratio:9/16;max-width:100%;border-radius:18px;background:#000;transform:scale(.96);transition:transform 320ms var(--ease)}
+.fq-lb.in video{transform:none}
+.fq-lb-x{position:fixed;top:16px;right:16px;z-index:1;width:44px;height:44px;border-radius:50%;border:none;background:rgba(253,250,246,.14);color:#FDFAF6;display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(8px)}
+.fq-lb-x:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+@media(max-width:600px){.fq-lb{padding:0;background:#000}.fq-lb video{width:100vw;height:100svh;border-radius:0;object-fit:contain}.fq-lb-x{top:calc(12px + env(safe-area-inset-top,0px));right:12px}}
+@media(max-width:860px){.fq-bg{display:none}}
+@media(prefers-reduced-motion:reduce){.fq-ic{animation:none}.fq-lb,.fq-lb video{transition:none}}
 .fq-r-tag{display:block;margin-top:12px;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--brand)}
 @media(max-width:860px){.fq-r-row{grid-template-columns:repeat(4,64%);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-right:calc(-1*clamp(16px,5vw,56px));padding-right:16px}.fq-r-row::-webkit-scrollbar{display:none}.fq-r-item{scroll-snap-align:start}}
 
@@ -295,7 +317,7 @@ body{overflow-x:clip}
       "name": "Ce face RentUP, concret?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "RentUP este un studio de design interior specializat exclusiv în optimizarea apartamentelor pentru închiriere. Nu facem design rezidențial general, facem design gândit să atragă chiriaș potrivit, să genereze fotografii bune și să reziste în timp cu costuri minime de întreținere. Pe lângă design, livrăm un sistem complet de administrare: Rental Kit: care include documente, contracte, protocoale de selecție chiriaș și ghiduri de gestionare a situațiilor dificile, customizate pentru proprietatea ta."
+        "text": "RentUP este un studio de design interior specializat exclusiv în optimizarea apartamentelor pentru închiriere. Nu facem design rezidențial general, facem design gândit să atragă chiriaș potrivit, să genereze fotografii bune și să reziste în timp cu costuri minime de întreținere. Înainte de design, Raportul de Rentabilitate pornește de la pozele tale și îți arată ce merită schimbat, cu ce buget și în cât timp îți recuperezi investiția. Apoi facem designul. După design, livrăm un sistem complet de administrare (Rental Kit) care include documente, contracte, protocoale de selecție chiriaș și ghiduri de gestionare a situațiilor dificile. Toate documentele sunt personalizate pentru proprietatea ta."
       }
     },
     {
@@ -304,14 +326,6 @@ body{overflow-x:clip}
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Pentru proprietarii care dau sau vor să dea un apartament în chirie și vor să facă asta cu un sistem, nu cu speranța că norocul va fi de partea lor. În special pentru cei care au avut experiențe negative și nu vor să le repete, au apartamentul gol și se tem să înceapă, vor să înțeleagă dacă investiția în amenajare are sens sau caută un chiriaș bun, nu neapărat chiria cea mai mare."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "RentUP se ocupă și de apartamente în regim hotelier sau Airbnb?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ne specializăm exclusiv în închirierea clasică, pe termen lung: un singur chiriaș potrivit, care semnează un contract, se mută și rămâne ani de zile. Tot ce livrăm, de la design până la Rental Kit, e construit pentru acest tip de relație stabilă, nu pentru rotația zilnică de oaspeți specifică regimului hotelier."
       }
     },
     {
@@ -359,7 +373,7 @@ body{overflow-x:clip}
       "name": "Care e diferența dintre pachete?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sunt 3 pachete. Design de Interior: plan + moodboard + randări + planșe tehnice, fără Rental Kit. Quick Win: mobilier, decor și iluminat fără atingerea finisajelor, cu Rental Kit. Invest Premium: design complet, Rental Kit și execuție coordonată de noi până la finalizare. Primul pas e Raportul de Rentabilitate, gratuit, pe baza pozelor. Dacă vrei să vezi apartamentul mobilat înainte să decizi, Staging Virtual costă 200€ și se scade din Quick Win sau Invest Premium."
+        "text": "Sunt 3 pachete. Design de Interior: plan + moodboard + randări + planșe tehnice, fără Rental Kit. Quick Win: mobilier, decor și iluminat fără atingerea finisajelor, cu Rental Kit. Invest Premium: design complet, Rental Kit și execuție coordonată de noi până la finalizare. Raportul de Rentabilitate e gratuit, pe baza pozelor. Dacă vrei să vezi apartamentul mobilat înainte să decizi, Staging Virtual costă 200€ și se scade din Quick Win sau Invest Premium."
       }
     },
     {
@@ -564,15 +578,15 @@ body{overflow-x:clip}
   <h1>Întrebări <em>frecvente.</em></h1>
   <div class="fq-search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9A8E82" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
     <input id="fq-q" type="search" placeholder="Caută: garanție, neplată, preț…" aria-label="Caută o întrebare" autocomplete="off"></div>
-  <div class="fq-pop">Des căutate: <button type="button" data-s="neplată">neplată</button><button type="button" data-s="mobilierul">mobilierul e inclus?</button><button type="button" data-s="Airbnb">Airbnb</button><button type="button" data-s="animale">animale</button></div>
+  <div class="fq-pop">Des căutate: <button type="button" data-s="neplată">neplată</button><button type="button" data-s="mobilierul">mobilierul e inclus?</button><button type="button" data-s="animale">animale</button></div>
 </div></header>
 
 <div class="wrap fq-layout">
-  <aside class="fq-side" id="fq-side" aria-label="Categorii"><a href="#despre" class="on">Despre RentUP<small>6</small></a><a href="#audit">Raport de Rentabilitate<small>3</small></a><a href="#pachete">Pachete & Prețuri<small>8</small></a><a href="#selectie">Selecția chiriașului<small>4</small></a><a href="#probleme">Situații dificile<small>4</small></a><a href="#rental-kit">Rental Kit<small>3</small></a><a href="#pregatire">Pregătirea apartamentului<small>3</small></a></aside>
+  <aside class="fq-side" id="fq-side" aria-label="Categorii"><a href="#despre" class="on">Despre RentUP<small>5</small></a><a href="#audit">Raport de Rentabilitate<small>3</small></a><a href="#pachete">Pachete & Prețuri<small>8</small></a><a href="#selectie">Selecția chiriașului<small>4</small></a><a href="#probleme">Situații dificile<small>4</small></a><a href="#rental-kit">Rental Kit<small>3</small></a><a href="#pregatire">Pregătirea apartamentului<small>3</small></a></aside>
   <div id="fq-list">
 <section class="fq-cat" id="despre"><div class="fq-cat-h"><span>01</span><h2>Despre RentUP</h2></div>
 <div class="qa"><button type="button" class="qa-q" aria-expanded="false"><span>Ce face RentUP, concret?</span><span class="pl" aria-hidden="true"></span></button><div class="qa-a"><div><div class="qa-in"><span class="qa-short"><b>Pe scurt</b>Design de interior gândit pentru închiriere, plus sistemul de administrare.</span><p>RentUP este un studio de design interior specializat exclusiv în optimizarea apartamentelor pentru închiriere. Nu facem design rezidențial general, facem design gândit să atragă chiriaș potrivit, să genereze fotografii bune și să reziste în timp cu costuri minime de întreținere.</p>
-          <p>Pe lângă design, livrăm un sistem complet de administrare (<strong>Rental Kit</strong>) care include documente, contracte, protocoale de selecție chiriaș și ghiduri de gestionare a situațiilor dificile. Toate documentele sunt customizate pentru proprietatea ta.</p></div></div></div></div>
+          <p>Înainte de design, <strong>Raportul de Rentabilitate</strong> pornește de la pozele tale și îți arată ce merită schimbat, cu ce buget și în cât timp îți recuperezi investiția. Apoi facem designul. După design, livrăm un sistem complet de administrare (<strong>Rental Kit</strong>) care include documente, contracte, protocoale de selecție chiriaș și ghiduri de gestionare a situațiilor dificile. Toate documentele sunt personalizate pentru proprietatea ta.</p></div></div></div></div>
 <div class="qa"><button type="button" class="qa-q" aria-expanded="false"><span>Pentru cine e RentUP?</span><span class="pl" aria-hidden="true"></span></button><div class="qa-a"><div><div class="qa-in"><span class="qa-short"><b>Pe scurt</b>Pentru proprietarii care vor să închirieze cu un sistem, nu pe noroc.</span><p>Pentru proprietarii care dau sau vor să dea un apartament în chirie și vor să facă asta cu un sistem, nu cu speranța că norocul va fi de partea lor.</p>
           <p>În special pentru cei care:</p>
           <ul class="fa-list">
@@ -581,7 +595,6 @@ body{overflow-x:clip}
             <li>Vor să înțeleagă dacă investiția în amenajare are sens</li>
             <li>Caută un chiriaș bun, nu neapărat chiria cea mai mare</li>
           </ul></div></div></div></div>
-<div class="qa"><button type="button" class="qa-q" aria-expanded="false"><span>RentUP se ocupă și de apartamente în regim hotelier sau Airbnb?</span><span class="pl" aria-hidden="true"></span></button><div class="qa-a"><div><div class="qa-in"><span class="qa-short"><b>Pe scurt</b>Nu. Doar închiriere clasică, pe termen lung.</span><p>Ne specializăm exclusiv în închirierea clasică, pe termen lung: un singur chiriaș potrivit, care semnează un contract, se mută și rămâne ani de zile. Tot ce livrăm, de la design până la Rental Kit, e construit pentru acest tip de relație stabilă, nu pentru rotația zilnică de oaspeți specifică regimului hotelier.</p></div></div></div></div>
 <div class="qa"><button type="button" class="qa-q" aria-expanded="false"><span>Garantați că voi găsi un chiriaș bun?</span><span class="pl" aria-hidden="true"></span></button><div class="qa-a"><div><div class="qa-in"><span class="qa-short"><b>Pe scurt</b>Nu. Reducem riscul sistematic, nu îl eliminăm.</span><p>Nu. Niciun sistem nu poate garanta comportamentul unui om. Ce garantăm este că procesul de selecție, documentație și design <strong>reduce semnificativ probabilitatea</strong> unui chiriaș problematic, iar dacă ceva merge prost, ai instrumentele legale necesare să te protejezi eficient.</p>
           <p>Diferența față de haos: cele mai multe probleme serioase pot fi filtrate înainte de semnare, printr-o selecție făcută după un proces, nu după instinct.</p>
           <div class="fa-note">Nu eliminăm riscul. Îl reducem sistematic. Haosul e garantat, sistemul e opțional.</div></div></div></div></div>
@@ -605,7 +618,7 @@ body{overflow-x:clip}
           <p>E posibil ca Raportul de Rentabilitate să confirme că ești deja la nivel optim și că nu ai nevoie de nicio intervenție suplimentară. Asta e la fel de valoroasă ca o listă lungă de recomandări.</p></div></div></div></div></section>
 <section class="fq-cat" id="pachete"><div class="fq-cat-h"><span>03</span><h2>Pachete & Prețuri</h2></div>
 <div class="qa"><button type="button" class="qa-q" aria-expanded="false"><span>Care e diferența dintre pachete?</span><span class="pl" aria-hidden="true"></span></button><div class="qa-a"><div><div class="qa-in"><span class="qa-short"><b>Pe scurt</b>Diferă prin cât de mult intervenim: de la proiectul de design, la execuția coordonată de noi.</span><p><strong>Design de Interior</strong>: plan de amenajare, moodboard, 1–2 randări per cameră, planșe tehnice pentru mobilier la comandă, buget mobilier cu furnizori, vizite pe șantier. Fără Rental Kit, fără selecție chiriaș. Bun dacă vrei să te muți din apartament și vrei să îl închiriezi cu minimum de implicare în sistem.</p>
-          <p><strong>Primul pas: Raportul de Rentabilitate (gratuit)</strong>: pe baza pozelor tale, fără vizită: evaluare, ROI estimat și recomandare de pachet. Dacă vrei să vezi apartamentul mobilat înainte să decizi, <strong>Staging Virtual</strong> costă 200€ și se scade din Quick Win sau Invest Premium.</p>
+          <p><strong>Raportul de Rentabilitate (gratuit)</strong>: pe baza pozelor tale, fără vizită: evaluare, ROI estimat și recomandare de pachet. Dacă vrei să vezi apartamentul mobilat înainte să decizi, <strong>Staging Virtual</strong> costă 200€ și se scade din Quick Win sau Invest Premium.</p>
           <p><strong>Quick Win</strong>: pentru apartamente cu finisaje bune (faianță, gresie, pereți ok). Nu atingem baia sau bucătăria structural, totul se face din mobilier, textile și iluminat. Include Rental Kit complet. Recuperare estimată: 8–14 luni.</p>
           <p><strong>Invest Premium</strong>: tot ce include Quick Win plus: randări complete per cameră, documentație mobilier custom, vizite până la finalizarea implementării, coordonare furnizori și agenți imobiliari. Noi coordonăm execuția.</p>
           <div class="fa-note">Rezumat: Design de Interior = doar proiectul. Quick Win = rezultat rapid fără renovare, tu execuți. Invest Premium = investiție completă, noi executăm.</div></div></div></div></div>
@@ -734,12 +747,13 @@ body{overflow-x:clip}
   </div>
 </div>
 
-<section class="fq-reels"><div class="wrap">
+<section class="fq-reels"><div class="fq-bg" aria-hidden="true"><svg class="fq-ic" viewBox="0 0 24 24" style="left:6%;top:14%;width:clamp(90px,12vw,190px);height:clamp(90px,12vw,190px);--r:-8deg;animation-duration:15s;animation-delay:0s"><circle class="s" cx="12" cy="12" r="9.5"/><path class="c" d="M10 8.6v6.8l5.4-3.4z"/></svg><svg class="fq-ic" viewBox="0 0 24 24" style="left:-2%;top:34%;width:clamp(110px,15vw,240px);height:clamp(110px,15vw,240px);--r:6deg;animation-duration:18s;animation-delay:-4s"><path class="s" d="M12 3.5 3.5 10.6V20.5h17v-9.9z"/><rect class="c" x="10.2" y="14.5" width="3.6" height="8" rx="1"/></svg><svg class="fq-ic" viewBox="0 0 24 24" style="left:55%;top:8%;width:clamp(80px,10vw,160px);height:clamp(80px,10vw,160px);--r:-14deg;animation-duration:14s;animation-delay:-7s"><circle class="s" cx="7.5" cy="12" r="4.8"/><path class="s" d="M11 11h9.5v2H19v2.8h-2.4V13H11z"/><circle class="c" cx="6.6" cy="12" r="1.4"/></svg><svg class="fq-ic" viewBox="0 0 24 24" style="left:78%;top:52%;width:clamp(100px,13vw,210px);height:clamp(100px,13vw,210px);--r:10deg;animation-duration:17s;animation-delay:-2s"><rect class="s" x="4.5" y="4" width="15" height="17.5" rx="2.4"/><rect class="c" x="8.6" y="2" width="6.8" height="3.6" rx="1.4"/><rect class="s" x="9.4" y="2.6" width="5.2" height="2.4" rx=".9"/><path class="c l" d="M8.4 11.1l.7.7 1.3-1.4M12.6 11.1h3.6M8.4 16.1l.7.7 1.3-1.4M12.6 16.1h3.6"/></svg><svg class="fq-ic" viewBox="0 0 24 24" style="left:88%;top:6%;width:clamp(70px,9vw,140px);height:clamp(70px,9vw,140px);--r:-4deg;animation-duration:16s;animation-delay:-9s"><rect class="s" x="5.5" y="6" width="13" height="6.5" rx="2"/><rect class="s" x="2.5" y="10" width="3.5" height="7.5" rx="1.75"/><rect class="s" x="18" y="10" width="3.5" height="7.5" rx="1.75"/><rect class="s" x="5.5" y="13" width="13" height="4.5" rx="1"/><path class="s" d="M4.5 18.5v1.2M19.5 18.5v1.2"/></svg><svg class="fq-ic" viewBox="0 0 24 24" style="left:14%;top:76%;width:clamp(70px,9vw,150px);height:clamp(70px,9vw,150px);--r:8deg;animation-duration:19s;animation-delay:-5s"><path class="s" d="M9 3.5h6l3.5 7.5h-13z"/><path class="s" d="M12 11v8"/><rect class="s" x="8.5" y="19" width="7" height="1.6" rx=".8"/></svg><svg class="fq-ic" viewBox="0 0 24 24" style="left:18%;top:40%;width:clamp(70px,8vw,140px);height:clamp(70px,8vw,140px);--r:-10deg;animation-duration:16s;animation-delay:-3s"><circle class="s" cx="12" cy="12" r="9.5"/><path class="c l" d="M15.2 8.4a4.4 4.4 0 1 0 0 7.2M7.6 10.9h5.2M7.6 13.1h5.2"/></svg><svg class="fq-ic" viewBox="0 0 24 24" style="left:73%;top:24%;width:clamp(70px,8vw,140px);height:clamp(70px,8vw,140px);--r:8deg;animation-duration:18s;animation-delay:-6s"><path class="s" d="M7 14.5h10l-1.4 6.5H8.4z"/><path class="ln" d="M12 14.5V8"/><path class="s" d="M12 10.5C8.6 10.5 6.5 8.6 6.5 5.2c3.4 0 5.5 1.9 5.5 5.3zM12 8.8c0-3.2 1.9-5.1 5.5-5.1 0 3.3-2 5.1-5.5 5.1z"/></svg><svg class="fq-ic" viewBox="0 0 24 24" style="left:93%;top:76%;width:clamp(80px,9vw,160px);height:clamp(80px,9vw,160px);--r:-18deg;animation-duration:15s;animation-delay:-8s"><rect class="s" x="3" y="3" width="14" height="5.5" rx="1.6"/><path class="ln" d="M17 5.75h1.8a1.2 1.2 0 0 1 1.2 1.2v3a1.2 1.2 0 0 1-1.2 1.2h-6.6a1.2 1.2 0 0 0-1.2 1.2V14"/><rect class="s" x="9.6" y="14" width="2.8" height="7" rx="1.4"/></svg></div><div class="wrap">
   <div class="tag"><i></i>Pe scurt, în video</div>
   <h2>Mai simplu de văzut <em>decât de citit.</em></h2>
   <p class="sub">Clipuri scurte despre ce contează când dai un apartament în chirie.</p>
-  <div class="fq-r-row"><div class="fq-r-item"><div class="fq-reel"><video src="videos/reel-design-investitie.mp4" poster="videos/reel-design-investitie.webp" preload="none" playsinline></video><button type="button" class="fq-play" aria-label="Pornește clipul"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="#FDFAF6" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></button></div><span class="fq-r-tag">Investiție</span></div><div class="fq-r-item"><div class="fq-reel"><video src="videos/reel-depozitare.mp4" poster="videos/reel-depozitare.webp" preload="none" playsinline></video><button type="button" class="fq-play" aria-label="Pornește clipul"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="#FDFAF6" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></button></div><span class="fq-r-tag">Amenajare</span></div><div class="fq-r-item"><div class="fq-reel"><video src="videos/reel-rental-kit.mp4" poster="videos/reel-rental-kit.webp" preload="none" playsinline></video><button type="button" class="fq-play" aria-label="Pornește clipul"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="#FDFAF6" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></button></div><span class="fq-r-tag">Rental Kit</span></div><div class="fq-r-item"><div class="fq-reel"><video src="videos/reel-ferestre-sparte.mp4" poster="videos/reel-ferestre-sparte.webp" preload="none" playsinline></video><button type="button" class="fq-play" aria-label="Pornește clipul"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="#FDFAF6" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></button></div><span class="fq-r-tag">Îngrijire</span></div></div>
+  <div class="fq-r-row"><div class="fq-r-item"><div class="fq-reel"><video src="videos/reel-design-investitie.mp4" poster="videos/reel-design-investitie.webp" preload="none" playsinline></video><button type="button" class="fq-play" aria-label="Vezi clipul cu sunet"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="#FDFAF6" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></button></div><span class="fq-r-tag">Investiție</span></div><div class="fq-r-item"><div class="fq-reel"><video src="videos/reel-depozitare.mp4" poster="videos/reel-depozitare.webp" preload="none" playsinline></video><button type="button" class="fq-play" aria-label="Vezi clipul cu sunet"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="#FDFAF6" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></button></div><span class="fq-r-tag">Amenajare</span></div><div class="fq-r-item"><div class="fq-reel"><video src="videos/reel-rental-kit.mp4" poster="videos/reel-rental-kit.webp" preload="none" playsinline></video><button type="button" class="fq-play" aria-label="Vezi clipul cu sunet"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="#FDFAF6" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></button></div><span class="fq-r-tag">Rental Kit</span></div><div class="fq-r-item"><div class="fq-reel"><video src="videos/reel-ferestre-sparte.mp4" poster="videos/reel-ferestre-sparte.webp" preload="none" playsinline></video><button type="button" class="fq-play" aria-label="Vezi clipul cu sunet"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="#FDFAF6" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></button></div><span class="fq-r-tag">Îngrijire</span></div></div>
 </div></section>
+<div class="fq-lb" id="fq-lb" hidden role="dialog" aria-modal="true" aria-label="Clip video"><button type="button" class="fq-lb-x" aria-label="Închide"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button><video playsinline controls preload="none"></video></div>
 
 <section class="fq-contact" id="contact"><div class="wrap"><div class="fq-cbox">
   <div><h2>Nu ai găsit răspunsul?</h2><p>Scrie-ne sau programează un apel de 15 minute, fără angajament.</p></div>
@@ -777,18 +791,39 @@ body{overflow-x:clip}
   q.addEventListener('input',search);
   document.querySelectorAll('.fq-pop button').forEach(function(b){b.addEventListener('click',function(){q.value=b.dataset.s;search();list.scrollIntoView({behavior:'smooth',block:'start'})})});
 
-  /* reels: pornește la apăsare, cu sunet; celelalte se opresc */
-  var row=document.querySelector('.fq-r-row');
+  /* reels: rulează toate odată, fără sunet, cât secțiunea e pe ecran; la apăsare se deschid mari, de la început, cu sunet */
+  var row=document.querySelector('.fq-r-row'),sec=document.querySelector('.fq-reels');
+  var still=window.matchMedia('(prefers-reduced-motion: reduce)').matches,inView=false;
+  var lb=document.getElementById('fq-lb'),lbv=lb.querySelector('video'),lbx=lb.querySelector('.fq-lb-x'),lastBtn=null;
   function vids(){return [].slice.call(row.querySelectorAll('video'))}
-  function playing(){return vids().some(function(v){return !v.paused&&!v.ended})}
+  function bgPlay(){vids().forEach(function(v){v.muted=true;v.loop=true;v.playsInline=true;var p=v.play();if(p&&p.catch)p.catch(function(){})})}
+  function bgPause(){vids().forEach(function(v){v.pause()})}
+  function bgSync(){if(!still&&inView&&lb.hidden&&!document.hidden)bgPlay();else bgPause()}
+  new IntersectionObserver(function(es){inView=es[0].isIntersecting;bgSync()},{rootMargin:'200px 0px'}).observe(sec);
+  document.addEventListener('visibilitychange',bgSync);
+  function openLb(v,btn){
+    lastBtn=btn;lbv.poster=v.poster;lbv.src=v.currentSrc||v.src;lbv.muted=false;
+    lb.hidden=false;document.documentElement.style.overflow='hidden';
+    requestAnimationFrame(function(){lb.classList.add('in')});
+    bgPause();marq.hold();
+    try{lbv.currentTime=0}catch(e){}
+    var p=lbv.play();if(p&&p.catch)p.catch(function(){});
+    lbx.focus({preventScroll:true});
+  }
+  function closeLb(){
+    if(lb.hidden)return;
+    lbv.pause();lb.classList.remove('in');lb.hidden=true;lbv.removeAttribute('src');lbv.load();
+    document.documentElement.style.overflow='';marq.go();bgSync();
+    if(lastBtn&&lastBtn.offsetParent)lastBtn.focus({preventScroll:true});
+  }
   row.addEventListener('click',function(e){
-    var b=e.target.closest('.fq-play');if(!b)return;
-    var v=b.previousElementSibling;vids().forEach(function(x){if(x!==v)x.pause()});
-    b.parentNode.classList.add('on');v.controls=true;v.play();marq.hold();
+    var r=e.target.closest('.fq-reel');if(!r)return;
+    openLb(r.querySelector('video'),r.querySelector('.fq-play'));
   });
-  row.addEventListener('ended',function(e){var v=e.target;v.controls=false;v.currentTime=0;v.parentNode.classList.remove('on');marq.go()},true);
-  row.addEventListener('pause',function(){if(!playing())marq.go()},true);
-  row.addEventListener('play',function(){marq.hold()},true);
+  lbx.addEventListener('click',closeLb);
+  lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
+  lbv.addEventListener('ended',closeLb);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
 
   /* pe telefon: bandă care se derulează încet; se oprește cât rulează un clip sau cât ții degetul pe ea */
   var marq=(function(){
@@ -808,7 +843,7 @@ body{overflow-x:clip}
       var items=[].slice.call(row.children);
       track=document.createElement('div');track.className='fq-r-track';
       items.forEach(function(it){track.appendChild(it)});
-      items.forEach(function(it){var c=it.cloneNode(true);c.setAttribute('aria-hidden','true');c.querySelectorAll('button').forEach(function(b){b.tabIndex=-1});c.querySelector('.fq-reel').classList.remove('on');var cv=c.querySelector('video');cv.controls=false;track.appendChild(c)});
+      items.forEach(function(it){var c=it.cloneNode(true);c.setAttribute('aria-hidden','true');c.querySelectorAll('button').forEach(function(b){b.tabIndex=-1});c.querySelector('.fq-reel').classList.remove('on');var cv=c.querySelector('video');cv.controls=false;cv.muted=true;track.appendChild(c)});
       row.appendChild(track);row.classList.add('fq-marq');x=0;half=track.scrollWidth/2;run();
     }
     function destroy(){
@@ -858,9 +893,9 @@ body{overflow-x:clip}
           <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:14px">Servicii</div>
           <div style="display:flex;flex-direction:column;gap:10px">
             <a href="/audit.html" style="font-size:14px;color:#7A6E62;text-decoration:none"><span class="ft-f">Raport de Rentabilitate</span><span class="ft-s">Raport Rentabilitate</span></a>
-            <a href="/staging-virtual.html" style="font-size:14px;color:#C77936;text-decoration:none;font-weight:500">Staging Virtual</a>
+            <a href="/staging-virtual.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Staging Virtual</a>
             <a href="/#packages" style="font-size:14px;color:#7A6E62;text-decoration:none"><span class="ft-f">Design de interior</span><span class="ft-s">Design Interior</span></a>
-            <a href="/rental-kit.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Rental Kit</a>
+            <a href="/rental-kit.html" style="font-size:14px;color:#C77936;text-decoration:none;font-weight:500">Rental Kit</a>
           </div>
         </div>
         <div>
@@ -902,7 +937,7 @@ body{overflow-x:clip}
     </div>
   </div>
 <style id="ru-ft-bot">.ft-bot{justify-content:space-between!important;align-items:center!important;gap:16px 40px!important;flex-wrap:wrap!important}.ft-legal{flex:1 1 480px;display:flex;flex-wrap:wrap;gap:6px 24px;text-align:left}.ft-bot .ru-legal{flex:0 0 auto}.ft-co{order:2;flex-basis:100%}@media(max-width:600px){.ft-bot{flex-direction:column!important;align-items:flex-start!important}.ft-legal{flex-basis:auto}}</style>
-<div class="ru-ft-giant" aria-hidden="true">Rent<span>UP</span></div>
+<style id="ru-ft-gm">@media(max-width:1024px){.ru-ft-giant{height:auto;overflow:visible;line-height:.9;padding-bottom:.04em;-webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.45) 45%,transparent 92%);mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.45) 45%,transparent 92%)}}</style><div class="ru-ft-giant" aria-hidden="true">Rent<span>UP</span></div>
 </footer>
 
 
@@ -1026,5 +1061,30 @@ if(!localStorage.getItem('cookieConsent')){
 @media(prefers-reduced-motion:reduce){.fq .btn-g,.fq .btn-p,.fq-pop button,.lang-toggle-btn,.nav-cta,.nav-links a{transition:none}}
 </style>
 <script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("#nav-mobile a");if(!a)return;var m=document.getElementById("nav-mobile");m.classList.remove("open");var b=document.getElementById("nav-hamburger");if(b){b.setAttribute("aria-label","Deschide meniul");b.setAttribute("aria-expanded","false");}});</script>
+<script id="ru-fade-js">
+/* trecere lină între cremul deschis (#FDFAF6) și cel închis (#F5EFE6), în loc de o linie */
+(function(){
+  if(document.getElementById('ru-fade'))return;
+  var STONE='rgb(245, 239, 230)',CREAM='rgb(253, 250, 246)',H=180;
+  var G='#FDFAF6 0,#FBF7F1 22%,#F8F3EB 50%,#F6F0E8 72%,#F5EFE6 100%';
+  function bg(el){return getComputedStyle(el).backgroundColor}
+  function wide(el){return el.offsetWidth>=document.documentElement.clientWidth*.9}
+  function nb(el,dir){var n=el[dir];while(n&&(/^(SCRIPT|STYLE|LINK|NOSCRIPT|TEMPLATE)$/.test(n.tagName)||!n.offsetHeight))n=n[dir];return n}
+  function cream(n){if(!n)return false;var c=bg(n);if(c==='rgba(0, 0, 0, 0)')return getComputedStyle(document.body).backgroundColor===CREAM&&getComputedStyle(n).position!=='fixed';return c===CREAM&&wide(n)}
+  function run(){
+    [].forEach.call(document.querySelectorAll('body *'),function(el){
+      if(bg(el)!==STONE||el.offsetHeight<160||!wide(el)||getComputedStyle(el).backgroundImage!=='none')return;
+      if(el.closest('footer,nav,#cookie-banner'))return;
+      var t=cream(nb(el,'previousElementSibling')),b=cream(nb(el,'nextElementSibling'));
+      if(!t&&!b)return;
+      var L=[],h=Math.min(H,Math.round(el.offsetHeight/2));
+      if(t){L.push('linear-gradient(180deg,'+G+') top/100% '+h+'px no-repeat');el.style.borderTop='0'}
+      if(b){L.push('linear-gradient(0deg,'+G+') bottom/100% '+h+'px no-repeat');el.style.borderBottom='0'}
+      el.style.background=L.join(',')+','+'#F5EFE6';
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
+})();
+</script>
 </body>
 </html>

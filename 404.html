@@ -129,8 +129,8 @@ a:focus-visible{outline:2px solid var(--bg);outline-offset:4px;border-radius:4px
   <h1 class="sr">Eroare 404: pagina nu a fost găsită</h1>
   <div class="e-num" aria-hidden="true"><span>4</span><span>0</span><span>4</span></div>
   <div class="e-c">
-    <p><span class="e-w" style="--i:0">Explorarea</span> <span class="e-w" style="--i:1">face</span> <span class="e-w" style="--i:2">parte</span> <span class="e-w" style="--i:3">și</span> <span class="e-w" style="--i:4">din</span> <span class="e-w" style="--i:5">procesul</span> <span class="e-w" style="--i:6">nostru</span> <span class="e-w" style="--i:7">creativ,</span> <span class="e-w" style="--i:8">însă</span> <span class="e-w" style="--i:9">pare</span> <span class="e-w" style="--i:10">că</span> <span class="e-w" style="--i:11">te-ai</span> <span class="e-w" style="--i:12">rătăcit.</span></p>
-    <a class="e-btn" href="/" style="--i:13"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M16 12H8"/><path d="m11.5 8.5-3.5 3.5 3.5 3.5"/></svg>Du-mă înapoi acasă</a>
+    <p><span class="e-w" style="--i:0">Explorarea</span> <span class="e-w" style="--i:1">face</span> <span class="e-w" style="--i:2">parte</span> <span class="e-w" style="--i:3">și</span> <span class="e-w" style="--i:4">din</span> <span class="e-w" style="--i:5">procesul</span> <span class="e-w" style="--i:6">nostru</span> <span class="e-w" style="--i:7">creativ,</span> <span class="e-w" style="--i:8">însă</span> <span class="e-w" style="--i:9">pare</span> <span class="e-w" style="--i:10">că</span> <span class="e-w" style="--i:11">tu</span> <span class="e-w" style="--i:12">te-ai</span> <span class="e-w" style="--i:13">rătăcit.</span></p>
+    <a class="e-btn" href="/" style="--i:14"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M16 12H8"/><path d="m11.5 8.5-3.5 3.5 3.5 3.5"/></svg>Du-mă înapoi acasă</a>
   </div>
 </main>
 
@@ -154,5 +154,30 @@ try{ if(!localStorage.getItem('cookieConsent')){ document.getElementById('cookie
 /* Hover-uri line: orice schimbare de culoare/fundal/contur/umbră la hover durează 400ms (generat; celelalte tranziții ale elementelor își păstrează durata) */
 
 </style>
+<script id="ru-fade-js">
+/* trecere lină între cremul deschis (#FDFAF6) și cel închis (#F5EFE6), în loc de o linie */
+(function(){
+  if(document.getElementById('ru-fade'))return;
+  var STONE='rgb(245, 239, 230)',CREAM='rgb(253, 250, 246)',H=180;
+  var G='#FDFAF6 0,#FBF7F1 22%,#F8F3EB 50%,#F6F0E8 72%,#F5EFE6 100%';
+  function bg(el){return getComputedStyle(el).backgroundColor}
+  function wide(el){return el.offsetWidth>=document.documentElement.clientWidth*.9}
+  function nb(el,dir){var n=el[dir];while(n&&(/^(SCRIPT|STYLE|LINK|NOSCRIPT|TEMPLATE)$/.test(n.tagName)||!n.offsetHeight))n=n[dir];return n}
+  function cream(n){if(!n)return false;var c=bg(n);if(c==='rgba(0, 0, 0, 0)')return getComputedStyle(document.body).backgroundColor===CREAM&&getComputedStyle(n).position!=='fixed';return c===CREAM&&wide(n)}
+  function run(){
+    [].forEach.call(document.querySelectorAll('body *'),function(el){
+      if(bg(el)!==STONE||el.offsetHeight<160||!wide(el)||getComputedStyle(el).backgroundImage!=='none')return;
+      if(el.closest('footer,nav,#cookie-banner'))return;
+      var t=cream(nb(el,'previousElementSibling')),b=cream(nb(el,'nextElementSibling'));
+      if(!t&&!b)return;
+      var L=[],h=Math.min(H,Math.round(el.offsetHeight/2));
+      if(t){L.push('linear-gradient(180deg,'+G+') top/100% '+h+'px no-repeat');el.style.borderTop='0'}
+      if(b){L.push('linear-gradient(0deg,'+G+') bottom/100% '+h+'px no-repeat');el.style.borderBottom='0'}
+      el.style.background=L.join(',')+','+'#F5EFE6';
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
+})();
+</script>
 </body>
 </html>

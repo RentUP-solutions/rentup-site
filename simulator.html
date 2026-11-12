@@ -231,5 +231,30 @@ if(!localStorage.getItem('cookieConsent')){
   if(en) load(); else window.ruLater(load);
 })();
 </script>
+<script id="ru-fade-js">
+/* trecere lină între cremul deschis (#FDFAF6) și cel închis (#F5EFE6), în loc de o linie */
+(function(){
+  if(document.getElementById('ru-fade'))return;
+  var STONE='rgb(245, 239, 230)',CREAM='rgb(253, 250, 246)',H=180;
+  var G='#FDFAF6 0,#FBF7F1 22%,#F8F3EB 50%,#F6F0E8 72%,#F5EFE6 100%';
+  function bg(el){return getComputedStyle(el).backgroundColor}
+  function wide(el){return el.offsetWidth>=document.documentElement.clientWidth*.9}
+  function nb(el,dir){var n=el[dir];while(n&&(/^(SCRIPT|STYLE|LINK|NOSCRIPT|TEMPLATE)$/.test(n.tagName)||!n.offsetHeight))n=n[dir];return n}
+  function cream(n){if(!n)return false;var c=bg(n);if(c==='rgba(0, 0, 0, 0)')return getComputedStyle(document.body).backgroundColor===CREAM&&getComputedStyle(n).position!=='fixed';return c===CREAM&&wide(n)}
+  function run(){
+    [].forEach.call(document.querySelectorAll('body *'),function(el){
+      if(bg(el)!==STONE||el.offsetHeight<160||!wide(el)||getComputedStyle(el).backgroundImage!=='none')return;
+      if(el.closest('footer,nav,#cookie-banner'))return;
+      var t=cream(nb(el,'previousElementSibling')),b=cream(nb(el,'nextElementSibling'));
+      if(!t&&!b)return;
+      var L=[],h=Math.min(H,Math.round(el.offsetHeight/2));
+      if(t){L.push('linear-gradient(180deg,'+G+') top/100% '+h+'px no-repeat');el.style.borderTop='0'}
+      if(b){L.push('linear-gradient(0deg,'+G+') bottom/100% '+h+'px no-repeat');el.style.borderBottom='0'}
+      el.style.background=L.join(',')+','+'#F5EFE6';
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
+})();
+</script>
 </body>
 </html>

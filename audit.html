@@ -561,9 +561,9 @@ button,a{touch-action:manipulation}
           <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:14px">Servicii</div>
           <div style="display:flex;flex-direction:column;gap:10px">
             <a href="/audit.html" style="font-size:14px;color:#7A6E62;text-decoration:none"><span class="ft-f">Raport de Rentabilitate</span><span class="ft-s">Raport Rentabilitate</span></a>
-            <a href="/staging-virtual.html" style="font-size:14px;color:#C77936;text-decoration:none;font-weight:500">Staging Virtual</a>
+            <a href="/staging-virtual.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Staging Virtual</a>
             <a href="/#packages" style="font-size:14px;color:#7A6E62;text-decoration:none"><span class="ft-f">Design de interior</span><span class="ft-s">Design Interior</span></a>
-            <a href="/rental-kit.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Rental Kit</a>
+            <a href="/rental-kit.html" style="font-size:14px;color:#C77936;text-decoration:none;font-weight:500">Rental Kit</a>
           </div>
         </div>
         <div>
@@ -605,7 +605,7 @@ button,a{touch-action:manipulation}
     </div>
   </div>
 <style id="ru-ft-bot">.ft-bot{justify-content:space-between!important;align-items:center!important;gap:16px 40px!important;flex-wrap:wrap!important}.ft-legal{flex:1 1 480px;display:flex;flex-wrap:wrap;gap:6px 24px;text-align:left}.ft-bot .ru-legal{flex:0 0 auto}.ft-co{order:2;flex-basis:100%}@media(max-width:600px){.ft-bot{flex-direction:column!important;align-items:flex-start!important}.ft-legal{flex-basis:auto}}</style>
-<div class="ru-ft-giant" aria-hidden="true">Rent<span>UP</span></div>
+<style id="ru-ft-gm">@media(max-width:1024px){.ru-ft-giant{height:auto;overflow:visible;line-height:.9;padding-bottom:.04em;-webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.45) 45%,transparent 92%);mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.45) 45%,transparent 92%)}}</style><div class="ru-ft-giant" aria-hidden="true">Rent<span>UP</span></div>
 </footer>
 
 <script>
@@ -946,5 +946,30 @@ body:has(#ru-slide.ru-vis) .wa-float,body:has(#ru-slide.ru-vis) #btt{opacity:0;p
 .wa-opt{transition:background-color 400ms ease}
 @media(prefers-reduced-motion:reduce){#ru-slide .rsb,#ru-slide .rsc,#ru-slide .rsd,#wa-close,.btn-g,.btn-p,.card,.cc,.lang-toggle-btn,.nav-cta,.nav-links a,.wa-opt{transition:none}}
 </style>
+<script id="ru-fade-js">
+/* trecere lină între cremul deschis (#FDFAF6) și cel închis (#F5EFE6), în loc de o linie */
+(function(){
+  if(document.getElementById('ru-fade'))return;
+  var STONE='rgb(245, 239, 230)',CREAM='rgb(253, 250, 246)',H=180;
+  var G='#FDFAF6 0,#FBF7F1 22%,#F8F3EB 50%,#F6F0E8 72%,#F5EFE6 100%';
+  function bg(el){return getComputedStyle(el).backgroundColor}
+  function wide(el){return el.offsetWidth>=document.documentElement.clientWidth*.9}
+  function nb(el,dir){var n=el[dir];while(n&&(/^(SCRIPT|STYLE|LINK|NOSCRIPT|TEMPLATE)$/.test(n.tagName)||!n.offsetHeight))n=n[dir];return n}
+  function cream(n){if(!n)return false;var c=bg(n);if(c==='rgba(0, 0, 0, 0)')return getComputedStyle(document.body).backgroundColor===CREAM&&getComputedStyle(n).position!=='fixed';return c===CREAM&&wide(n)}
+  function run(){
+    [].forEach.call(document.querySelectorAll('body *'),function(el){
+      if(bg(el)!==STONE||el.offsetHeight<160||!wide(el)||getComputedStyle(el).backgroundImage!=='none')return;
+      if(el.closest('footer,nav,#cookie-banner'))return;
+      var t=cream(nb(el,'previousElementSibling')),b=cream(nb(el,'nextElementSibling'));
+      if(!t&&!b)return;
+      var L=[],h=Math.min(H,Math.round(el.offsetHeight/2));
+      if(t){L.push('linear-gradient(180deg,'+G+') top/100% '+h+'px no-repeat');el.style.borderTop='0'}
+      if(b){L.push('linear-gradient(0deg,'+G+') bottom/100% '+h+'px no-repeat');el.style.borderBottom='0'}
+      el.style.background=L.join(',')+','+'#F5EFE6';
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
+})();
+</script>
 </body>
 </html>

@@ -634,7 +634,6 @@
     "Pe scurt": "In short",
     "Design de interior gândit pentru închiriere, plus sistemul de administrare.": "Interior design built for renting, plus the management system.",
     "Pentru proprietarii care vor să închirieze cu un sistem, nu pe noroc.": "For landlords who want to rent with a system, not on luck.",
-    "Nu. Doar închiriere clasică, pe termen lung.": "No. Only classic, long-term rentals.",
     "Nu. Reducem riscul sistematic, nu îl eliminăm.": "No. We reduce the risk systematically, we don't eliminate it.",
     "Pentru că un spațiu îngrijit filtrează natural chiriașii.": "Because a well-kept space naturally filters tenants.",
     "Vizitele, da. Proiectele de design le livrăm oriunde în țară.": "The visits, yes. Design projects we deliver anywhere in the country.",
@@ -1164,6 +1163,9 @@
     "Raportul e gratuit și nu te obligă la nimic. Dacă vrei să mergi mai departe, îți spune care dintre cele trei pachete se potrivește apartamentului tău. Vizita pe teren se face doar în pachetele plătite.": "The report is free and doesn't commit you to anything. If you want to go further, it tells you which of the three packages fits your apartment. On-site visits are only part of the paid packages.",
     "Remote, pe baza pozelor · garsoniere și apartamente 2–3 camere · livrat în 72h de la primirea pozelor": "Remote, based on photos · studios and 2–3 room apartments · delivered within 72h of receiving the photos",
     "Cere raportul →": "Request the report →",
+    'Cere raportul': 'Request the report',
+    'Raportul de Rentabilitate Gratuit': 'Free Profitability Report',
+    'Îți calculează exact cât costă situația ta actuală față de cea optimizată și cât durează recuperarea.': 'It calculates exactly what your current situation costs compared to the optimised one, and how long the payback takes.',
     "Opțional: vrei să-l vezi și mobilat înainte să decizi?": "Optional: want to see it furnished before you decide?",
     "Pasul 2, dacă vrei să continuăm": "Step 2, if you want to continue",
     "Doar proiectul de design. Plan, randări, planșe tehnice, listă de achiziții: implementezi și gestionezi restul singur.": "Just the design project. Plan, renders, technical drawings, shopping list — you implement and manage the rest yourself.",
@@ -1193,7 +1195,6 @@
     'Bazele. Ce facem, pentru cine și ce nu facem.': "The basics. What we do, for whom, and what we don't do.",
     'Ce face RentUP, concret?': 'What does RentUP do, concretely?',
     'Pentru cine e RentUP?': 'Who is RentUP for?',
-    'RentUP se ocupă și de apartamente în regim hotelier sau Airbnb?': 'Does RentUP also handle short-term / Airbnb rentals?',
     '02 · Raport de Rentabilitate': '02 · Profitability Report',
     'Ce este Raportul de Rentabilitate și ce primesc?': 'What is the Profitability Report and what do I receive?',
     'Primul pas. O evaluare reală înainte de orice decizie.': 'The first step. A real evaluation before any decision.',
@@ -1243,6 +1244,7 @@
 
     /* ── REALITATEA-CHIRIEI PAGE ── */
     'Din grupurile de proprietari români · Date reale 2025–2026': 'From Romanian landlord groups · Real data 2025–2026',
+    'Din grupurile de proprietari români': 'From Romanian landlord groups',
     'Nu e ghinion.': "It's not bad luck.",
     'E lipsă de sistem.': "It's a lack of system.",
     "Sute de proprietari spun același lucru: „E chestie de noroc.\" Nu e. Cele mai multe probleme cu chiriașii pot fi prevenite sau rezolvate rapid, dacă există un proces. Iată cum arată.": "Hundreds of landlords say the same thing: \"It's a matter of luck.\" It's not. Most tenant problems can be prevented or resolved quickly if there is a process. Here's what it looks like.",
@@ -1501,15 +1503,15 @@
 
     /* 01 — About RentUP */
     'RentUP este un studio de design interior specializat exclusiv în optimizarea apartamentelor pentru închiriere. Nu facem design rezidențial general, facem design gândit să atragă chiriaș potrivit, să genereze fotografii bune și să reziste în timp cu costuri minime de întreținere.': 'RentUP is an interior design studio specialising exclusively in optimising apartments for rental. We don\'t do general residential design — we design with the goal of attracting the right tenant, generating great photos, and lasting over time with minimal maintenance costs.',
-    'Pe lângă design, livrăm un sistem complet de administrare (': 'In addition to design, we deliver a complete management system (',
-    ') care include documente, contracte, protocoale de selecție chiriaș și ghiduri de gestionare a situațiilor dificile. Toate documentele sunt customizate pentru proprietatea ta.': ') that includes documents, contracts, tenant selection protocols and guides for managing difficult situations. All documents are customised for your property.',
+    'Înainte de design, ': 'Before the design, the ',
+    ' pornește de la pozele tale și îți arată ce merită schimbat, cu ce buget și în cât timp îți recuperezi investiția. Apoi facem designul. După design, livrăm un sistem complet de administrare (': ' starts from your photos and shows you what is worth changing, on what budget and how long it takes to recover the investment. Then we do the design. After the design, we deliver a complete management system (',
+    ') care include documente, contracte, protocoale de selecție chiriaș și ghiduri de gestionare a situațiilor dificile. Toate documentele sunt personalizate pentru proprietatea ta.': ') that includes documents, contracts, tenant selection protocols and guides for managing difficult situations. All documents are personalised for your property.',
     'Pentru proprietarii care dau sau vor să dea un apartament în chirie și vor să facă asta cu un sistem, nu cu speranța că norocul va fi de partea lor.': 'For landlords who rent or want to rent an apartment and want to do it with a system, not hoping that luck will be on their side.',
     'În special pentru cei care:': 'Especially for those who:',
     'Au avut experiențe negative și nu vor să le repete': 'Have had negative experiences and don\'t want to repeat them',
     'Au apartamentul gol și se tem să înceapă': 'Have an empty apartment and are afraid to start',
     'Vor să înțeleagă dacă investiția în amenajare are sens': 'Want to understand whether investing in furnishing makes sense',
     'Caută un chiriaș bun, nu neapărat chiria cea mai mare': 'Are looking for a good tenant, not necessarily the highest rent',
-    'Ne specializăm exclusiv în închirierea clasică, pe termen lung: un singur chiriaș potrivit, care semnează un contract, se mută și rămâne ani de zile. Tot ce livrăm, de la design până la Rental Kit, e construit pentru acest tip de relație stabilă, nu pentru rotația zilnică de oaspeți specifică regimului hotelier.': 'We specialise exclusively in classic long-term rental: one suitable tenant who signs a contract, moves in and stays for years. Everything we deliver — from design to the Rental Kit — is built for this type of stable relationship, not for the daily guest rotation typical of short-term rental.',
     'Nu. Niciun sistem nu poate garanta comportamentul unui om. Ce garantăm este că procesul de selecție, documentație și design': 'No. No system can guarantee a person\'s behaviour. What we guarantee is that the selection process, documentation and design',
     'reduce semnificativ probabilitatea': 'significantly reduces the probability',
     'unui chiriaș problematic, iar dacă ceva merge prost, ai instrumentele legale necesare să te protejezi eficient.': 'of a problematic tenant, and if something goes wrong, you have the legal tools needed to protect yourself effectively.',
@@ -1766,6 +1768,8 @@
       'Înapoi sus':         'Back to top',
       'Scrie-ne pe WhatsApp': 'Write to us on WhatsApp',
       'Închide':            'Close',
+      'Vezi clipul cu sunet': 'Watch the clip with sound',
+      'Clip video':         'Video clip',
     };
     document.querySelectorAll('[aria-label]').forEach(function (el) {
       if (!el._ruAriaOrig) el._ruAriaOrig = el.getAttribute('aria-label');

@@ -404,6 +404,94 @@ button,a{touch-action:manipulation}
 </style>
 <style id="ru-nav-t">@media(min-width:769px) and (max-width:1100px){nav{padding:0 24px}.nav-links{gap:18px}.nav-cta{padding:8px 14px}}</style>
 <style id="ru-ar">.ar{display:inline-block;width:1em;height:1em;margin-left:.35em;vertical-align:-.14em;flex-shrink:0}.ar-l{margin-left:0;margin-right:.35em}.ar-m{margin:0 .3em}</style>
+<style id="rc-v2">
+
+/* fundal cu puncte, ca pe FAQ; secțiunile cu fundal propriu le acoperă */
+body{position:relative;isolation:isolate;background:var(--bg)}
+body::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(rgba(45,40,32,.16) 1.1px,transparent 1.4px);background-size:22px 22px;opacity:.7;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22%,#000 78%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 22%,#000 78%,transparent 100%)}
+@media(max-width:768px){body::before{background-image:radial-gradient(rgba(45,40,32,.16) .6px,transparent .8px);background-size:9px 9px}}
+.hero,.problems,.quotes-section,.system-section{background:transparent}
+
+/* „Calculul pe care proprietarii îl ignoră”: crem ca pe homepage, fără puncte */
+.cost-section{background:var(--bg-stone);--muted:#776B60;--light:#776B60}
+.cost-h{color:var(--dark)}
+.cost-card{background:#fff;box-shadow:0 2px 20px rgba(45,40,32,.05)}
+.cost-card:hover{background:#fff;box-shadow:0 10px 32px rgba(45,40,32,.1)}
+.cost-section .cost-note{display:flex;align-items:center;gap:20px;background:#fff;border:0;border-left:0;border-radius:20px;box-shadow:0 2px 24px rgba(45,40,32,.06);padding:22px 22px 22px 28px}
+.cn-txt{flex:1;display:flex;flex-direction:column;gap:3px}
+.cn-txt strong{font-size:17px;font-weight:500;color:var(--dark);letter-spacing:-.01em}
+.cn-txt span{font-size:14px;color:var(--muted);line-height:1.55}
+.cn-btn{flex-shrink:0;display:inline-flex;align-items:center;font-size:14px;font-weight:500;color:#FDFAF6;background:var(--dark);padding:13px 22px;border-radius:100px;text-decoration:none;transition:background-color 400ms}
+.cn-btn:hover{background:var(--brand)}
+.cn-btn:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+@media(max-width:640px){.cost-section .cost-note{flex-wrap:wrap;padding:20px}.cn-txt{flex-basis:100%}.cn-btn{width:100%;justify-content:center}}
+/* hero centrat; cifrele într-un card alb, ca la FAQ */
+.hero{background:transparent;border-bottom:0;text-align:center;padding:96px 24px 72px}
+.hero-eyebrow{justify-content:center}
+.hero-h1{font-size:clamp(40px,6vw,68px);letter-spacing:-.04em}
+.hero-sub{margin:0 auto;max-width:600px}
+.hero .hero-stats{margin:0 auto;background:#fff;border-radius:20px;box-shadow:0 2px 24px rgba(45,40,32,.06);padding:28px 8px;gap:0!important}
+.hero-stats>div{padding:0 28px;text-align:left}
+.hero-stats>div+div{border-left:1px solid var(--border)}
+@media(max-width:860px){.hero .hero-stats{padding:8px;gap:0!important}.hero-stats>div{padding:16px}.hero-stats>div+div{border-left:0}.hero-stats>div:nth-child(even){border-left:1px solid var(--border)}.hero-stats>div:nth-child(n+3){border-top:1px solid var(--border)}.hs-label{font-size:12px!important}}
+
+/* problemele: meniu lateral + carduri care se deschid */
+.problems{padding:88px 24px 104px}
+.problems>div{max-width:1120px!important}
+.sh-dark,.sh{font-size:clamp(30px,4vw,44px)}
+.rc-layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:56px;align-items:start}
+.rc-side{position:sticky;top:96px;display:flex;flex-direction:column;gap:2px}
+.rc-side a{display:flex;gap:12px;align-items:baseline;font-size:14px;line-height:1.35;color:var(--mid);text-decoration:none;padding:10px 14px;border-radius:12px;transition:background-color 400ms,color 400ms,box-shadow 400ms}
+.rc-side a b{font-weight:600;font-size:12px;color:var(--light);width:18px;flex-shrink:0}
+.rc-side a:hover{color:var(--dark)}
+.rc-side a.on{background:#fff;color:var(--dark);box-shadow:0 1px 10px rgba(45,40,32,.06)}
+.rc-side a.on b{color:var(--brand)}
+.rc-side a:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.problems-grid{gap:12px}
+.problems .problem-item{display:block;background:#fff;border:0;border-radius:18px;box-shadow:0 2px 20px rgba(45,40,32,.05);scroll-margin-top:96px;overflow:hidden}
+.problems .problem-item:hover{background:#fff;transform:none;box-shadow:0 8px 28px rgba(45,40,32,.08)}
+.rc-h{margin:0;font:inherit}
+.rc-head{display:flex;align-items:center;gap:16px;width:100%;text-align:left;background:none;border:0;cursor:pointer;padding:24px 28px;font:inherit;color:var(--dark)}
+.rc-head:focus-visible{outline:2px solid var(--brand);outline-offset:-4px;border-radius:18px}
+.rc-head .n{font-size:13px;font-weight:600;color:var(--brand);width:22px;flex-shrink:0}
+.rc-head .t{flex:1;font-size:16px;font-weight:400;line-height:1.35}
+.rc-head .tg{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--light);text-align:right}
+.rc-head .pl{width:28px;height:28px;border-radius:50%;border:1px solid var(--brand-border);position:relative;flex-shrink:0;transition:background-color 400ms}
+.rc-head .pl::before,.rc-head .pl::after{content:"";position:absolute;left:50%;top:50%;width:10px;height:1.5px;background:var(--brand);transform:translate(-50%,-50%)}
+.rc-head .pl::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform 400ms}
+.problem-item.open .pl{background:var(--brand)}
+.problem-item.open .pl::before,.problem-item.open .pl::after{background:#fff}
+.problem-item.open .pl::after{transform:translate(-50%,-50%) rotate(0)}
+.rc-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows 450ms cubic-bezier(.23,1,.32,1)}
+.problem-item.open .rc-body{grid-template-rows:1fr}
+.rc-body>div{overflow:hidden;min-height:0;display:grid;grid-template-columns:1fr 1fr}
+.problems .p-problem{padding:0 28px 28px 66px;border:0}
+.p-voice{background:none;border-left:2px solid var(--brand);border-radius:0;padding:2px 0 2px 14px;margin-top:18px}
+.p-voice-text{color:var(--mid)}
+.problems .p-solution{background:var(--brand-light);margin:0 20px 20px 0;border-radius:14px;padding:22px 24px;border:0}
+.p-sol-tag{color:var(--brand)}
+.p-sol-title{color:var(--dark)}
+.p-sol-items li{color:var(--dark);opacity:.85}
+.p-sol-items li::before{background:var(--brand)}
+@media(max-width:860px){.rc-layout{grid-template-columns:1fr}.rc-side{display:none}.rc-body>div{grid-template-columns:1fr}.problems .p-problem{padding:0 22px 20px}.problems .p-solution{margin:0 12px 12px}.rc-head{padding:20px 22px}.rc-head .tg{display:none}}
+
+/* citate și sistem: carduri albe */
+.quote-card,.sys-card{background:#fff;border:0;border-radius:18px;box-shadow:0 2px 20px rgba(45,40,32,.05)}
+.sys-card:hover{background:#fff;border:0;box-shadow:0 10px 32px rgba(45,40,32,.1)}
+.qc-text{color:var(--dark);font-style:normal}
+.sys-num{opacity:1;font-size:14px;font-weight:600;letter-spacing:.08em}
+
+/* secțiunea dinainte de footer: maro */
+.cta-section{background:var(--dark);border-top:0;color:#FDFAF6;--muted:#A89C90}
+.cta-section h2{color:#FDFAF6}
+.cta-section .btn-brand{display:inline-flex;align-items:center;color:#FDFAF6;box-shadow:0 10px 30px rgba(199,121,54,.25);transition:background-color 400ms ease,transform 200ms cubic-bezier(.23,1,.32,1),box-shadow 400ms ease}
+@media(hover:hover) and (pointer:fine){.cta-section .btn-brand:hover{background:#a8622a;transform:translateY(-2px);box-shadow:0 14px 36px rgba(199,121,54,.3)}}
+.cta-section .btn-brand:active{transform:scale(.98)}
+.cta-section .btn-brand:focus-visible{outline:2px solid var(--brand);outline-offset:4px}
+.cta-section .btn-outline{color:#FDFAF6;border-color:rgba(253,250,246,.4)}
+.cta-section .btn-outline:hover{background:rgba(253,250,246,.08)}
+@media(prefers-reduced-motion:reduce){.rc-body,.rc-head .pl,.rc-head .pl::after,.rc-side a{transition:none}}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Sari la conținut</a>
@@ -443,67 +531,9 @@ button,a{touch-action:manipulation}
 </div>
 <!-- HERO -->
 <div class="hero" id="main-content">
-  <div class="hero-eyebrow"><div class="hero-dot"></div>Din grupurile de proprietari români · Date reale 2025–2026</div>
+  <div class="hero-eyebrow"><div class="hero-dot"></div>Din grupurile de proprietari români</div>
   <h1 class="hero-h1">Nu e ghinion.<br><em>E lipsă de sistem.</em></h1>
   <p class="hero-sub">Sute de proprietari spun același lucru: „E chestie de noroc." Nu e. Cele mai multe probleme cu chiriașii pot fi prevenite sau rezolvate rapid, dacă există un proces. Iată cum arată.</p>
-  <div class="hero-stats" style="grid-template-columns:repeat(4,auto)">
-    <div>
-      <div class="hs-val"><span>3–4</span></div>
-      <div class="hs-label">chiriași în medie<br>pe 5 ani, fără sistem</div>
-    </div>
-    <div>
-      <div class="hs-val"><span>3.000–8.000€</span></div>
-      <div class="hs-label">costul estimat al<br>unui chiriaș problematic</div>
-    </div>
-    <div>
-      <div class="hs-val"><span>Selecția</span></div>
-      <div class="hs-label">momentul în care previi<br>cele mai multe probleme</div>
-    </div>
-    <div>
-      <div class="hs-val"><span>8.000–15.000€</span></div>
-      <div class="hs-label">costul real al lui<br>"nu fac nimic" pe 5 ani</div>
-    </div>
-  </div>
-</div>
-
-<!-- QUOTE BANNER -->
-<div class="quote-banner sr">
-  <div class="qb-mark">"</div>
-  <div>
-    <div class="qb-text">Când suna telefonul, tresăream. Nu mai închiriez niciodată.</div>
-    <div class="qb-source">Proprietar, 8 ani experiență cu chirii · Grup Facebook proprietari, 2026</div>
-  </div>
-</div>
-
-<!-- URGENT NAVIGATOR -->
-<div class="urgent-nav">
-  <div style="max-width:960px;margin:0 auto">
-    <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--red);margin-bottom:8px">Ai o situație activă acum?</div>
-    <div style="font-size:20px;font-weight:500;color:var(--dark);margin-bottom:4px">Mergi direct la problema ta.</div>
-    <p style="font-size:14px;color:var(--muted);margin-bottom:20px">Selectează situația în care te afli. Fiecare are pași concreți mai jos.</p>
-    <div class="urgent-grid sr">
-      <a href="#p02" class="urgent-card">
-        <div class="uc-tag">Urgent</div>
-        <div class="uc-title">Chiriașul nu plătește chiria sau utilitățile</div>
-        <div class="uc-arrow">Mergi la soluție<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></div>
-      </a>
-      <a href="#p04" class="urgent-card">
-        <div class="uc-tag">Urgent</div>
-        <div class="uc-title">Chiriașul refuză să plece. Ce fac?</div>
-        <div class="uc-arrow">Mergi la soluție<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></div>
-      </a>
-      <a href="#p01" class="urgent-card">
-        <div class="uc-tag">Frecvent</div>
-        <div class="uc-title">A plecat și a lăsat daune. Cum recuperez?</div>
-        <div class="uc-arrow">Mergi la soluție<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></div>
-      </a>
-      <a href="#p05" class="urgent-card">
-        <div class="uc-tag">Prevenție</div>
-        <div class="uc-title">Nu știu pe cine să bag. E noroc sau există sistem?</div>
-        <div class="uc-arrow">Mergi la soluție<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></div>
-      </a>
-    </div>
-  </div>
 </div>
 
 <!-- COSTUL INACȚIUNII -->
@@ -531,7 +561,8 @@ button,a{touch-action:manipulation}
       </div>
     </div>
     <div class="cost-note sr">
-      <strong>Raportul de Rentabilitate Gratuit</strong> îți calculează exact cât costă situația ta actuală față de cea optimizată și cât durează recuperarea.
+      <div class="cn-txt"><strong>Raportul de Rentabilitate Gratuit</strong><span>Îți calculează exact cât costă situația ta actuală față de cea optimizată și cât durează recuperarea.</span></div>
+      <a class="cn-btn" href="audit.html" onclick="gtag('event','click_audit_cta');gtag('event','conversion',{'send_to':'AW-18253477545'});">Cere raportul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
     </div>
   </div>
 </div>
@@ -543,13 +574,15 @@ button,a{touch-action:manipulation}
     <h2 class="sh-dark" style="text-align:center">Ce merge prost<br>și de ce nu e inevitabil.</h2>
     <p class="sec-sub-dark" style="text-align:center;max-width:540px;margin:0 auto 56px">Fiecare situație de mai jos are o soluție structurată. Diferența dintre stres și liniște nu e norocul, ci existența unui sistem înaintea problemei.</p>
 
+    <div class="rc-layout">
+    <aside class="rc-side" aria-label="Situații"><a href="#p01" class="on"><b>01</b><span>Chiriașul a plecat și a lăsat daune</span></a><a href="#p02"><b>02</b><span>Chiriașul nu plătește chiria sau utilitățile</span></a><a href="#p03"><b>03</b><span>Chiriașul bun nu stă mult. Rotație frecventă.</span></a><a href="#p04"><b>04</b><span>Chiriașul refuză să plece. Ce fac acum?</span></a><a href="#p05"><b>05</b><span>Nu știu pe cine bag în casă. "E noroc."</span></a><a href="#p06"><b>06</b><span>Nu accept animale, dar pierd chiriași buni</span></a><a href="#p07"><b>07</b><span>Chiriașul face gălăgie. Vecinii reclamă constant.</span></a></aside>
     <div class="problems-grid">
 
-      <div class="problem-item sr" id="p01">
-        <div class="p-num">01</div>
+      <div class="problem-item sr open" id="p01">
+        <h3 class="rc-h"><button type="button" class="rc-head" aria-expanded="true" aria-controls="p01-b"><span class="n">01</span><span class="t">Chiriașul a plecat și a lăsat daune</span><span class="pl" aria-hidden="true"></span></button></h3>
+        <div class="rc-body" id="p01-b"><div>
+
         <div class="p-problem">
-          <div class="p-tag">Cel mai frecvent</div>
-          <div class="p-title">Chiriașul a plecat și a lăsat daune</div>
           <div class="p-desc">Mobilier deteriorat, pereți zgâriați, mizerie acumulată, obiecte lipsă. Garanția nu acoperă totul, iar fără documentație semnată la intrare nu poți dovedi nimic în fața niciunui for.</div>
           <div class="p-voice">
             <div class="p-voice-text">"Paguba totală a depășit 20.000 de lei. Nu aveam toate facturile ca să dovedesc costul real. Am plătit eu din buzunar."</div>
@@ -565,13 +598,14 @@ button,a{touch-action:manipulation}
             <li>Procedura de avertisment în 5 zile, cu modele de notificări incluse în Rental Kit</li>
           </ul>
         </div>
+        </div></div>
       </div>
 
       <div class="problem-item sr" id="p02">
-        <div class="p-num">02</div>
+        <h3 class="rc-h"><button type="button" class="rc-head" aria-expanded="false" aria-controls="p02-b"><span class="n">02</span><span class="t">Chiriașul nu plătește chiria sau utilitățile</span><span class="pl" aria-hidden="true"></span></button></h3>
+        <div class="rc-body" id="p02-b"><div>
+
         <div class="p-problem">
-          <div class="p-tag">Cel mai stresant</div>
-          <div class="p-title">Chiriașul nu plătește chiria sau utilitățile</div>
           <div class="p-desc">Întârzieri, scuze, promisiuni. Proprietarul nu știe când să acționeze, cum să formuleze notificarea sau ce urmează dacă tăcerea continuă. Între timp, facturile curg.</div>
           <div class="p-voice">
             <div class="p-voice-text">"M-am trezit că plătesc facturi de 2.000 de lei pe consumul altuia. Nu știam ce să fac sau de unde să încep."</div>
@@ -587,13 +621,14 @@ button,a{touch-action:manipulation}
             <li>Contract notarial = același lucru, plus procedura de evacuare pentru neplată se judecă fără citarea pârâtului (art. 1042 NCPC)</li>
           </ul>
         </div>
+        </div></div>
       </div>
 
       <div class="problem-item sr" id="p03">
-        <div class="p-num">03</div>
+        <h3 class="rc-h"><button type="button" class="rc-head" aria-expanded="false" aria-controls="p03-b"><span class="n">03</span><span class="t">Chiriașul bun nu stă mult. Rotație frecventă.</span><span class="pl" aria-hidden="true"></span></button></h3>
+        <div class="rc-body" id="p03-b"><div>
+
         <div class="p-problem">
-          <div class="p-tag">Cel mai costisitor pe termen lung</div>
-          <div class="p-title">Chiriașul bun nu stă mult. Rotație frecventă.</div>
           <div class="p-desc">Fiecare schimbare înseamnă luni goale, curățenie, zugrăvit, selecție nouă. Proprietarii nu calculează că pierd câștigul pe 2 luni la fiecare tranziție, și asta de 3–4 ori în 5 ani.</div>
           <div class="p-voice">
             <div class="p-voice-text">"Am avut 4 chiriași în 3 ani. La fiecare schimbare, câștigul pe 2 luni s-a dus pe reparații. Stăteam cu el gol câte o lună."</div>
@@ -608,13 +643,14 @@ button,a{touch-action:manipulation}
             <li>Chiriașul potrivit stă 2–3 ani, nu 6–12 luni</li>
           </ul>
         </div>
+        </div></div>
       </div>
 
       <div class="problem-item sr" id="p04">
-        <div class="p-num">04</div>
+        <h3 class="rc-h"><button type="button" class="rc-head" aria-expanded="false" aria-controls="p04-b"><span class="n">04</span><span class="t">Chiriașul refuză să plece. Ce fac acum?</span><span class="pl" aria-hidden="true"></span></button></h3>
+        <div class="rc-body" id="p04-b"><div>
+
         <div class="p-problem">
-          <div class="p-tag">Cel mai subestimat</div>
-          <div class="p-title">Chiriașul refuză să plece. Ce fac acum?</div>
           <div class="p-desc">Contractul a expirat sau nu mai plătește. Chiriașul știe că evacuarea prin instanță durează. Dacă nu ai autentificare notarială sau contract cu titlu executoriu, nu poți face aproape nimic rapid, mai ales iarna (1 dec – 1 mart).</div>
           <div class="p-voice">
             <div class="p-voice-text">"Nu au mai vrut să plece și nici nu plăteau. Eram în proces de evacuare 8 luni. Casa distrusă, poliția nu a făcut nimic."</div>
@@ -630,13 +666,14 @@ button,a{touch-action:manipulation}
             <li>Ghid de mediere înainte de procedură. Multe situații se rezolvă amiabil cu pașii corecți.</li>
           </ul>
         </div>
+        </div></div>
       </div>
 
       <div class="problem-item sr" id="p05">
-        <div class="p-num">05</div>
+        <h3 class="rc-h"><button type="button" class="rc-head" aria-expanded="false" aria-controls="p05-b"><span class="n">05</span><span class="t">Nu știu pe cine bag în casă. "E noroc."</span><span class="pl" aria-hidden="true"></span></button></h3>
+        <div class="rc-body" id="p05-b"><div>
+
         <div class="p-problem">
-          <div class="p-tag">Cel mai emoțional</div>
-          <div class="p-title">Nu știu pe cine bag în casă. "E noroc."</div>
           <div class="p-desc">Proprietarii selectează după instinct, aspect, profesie sau recomandări vagi. Toți chiriașii par serioși la prima vizionare. Nu există un sistem de diferențiere. Toți știu că poți greși indiferent cât de bine pare omul.</div>
           <div class="p-voice">
             <div class="p-voice-text">"Am ales după profesie: educatoare, redactor la o revistă. Tot dezastru. Am ajuns la concluzia că e pur și simplu noroc."</div>
@@ -652,13 +689,14 @@ button,a{touch-action:manipulation}
             <li>Designul apartamentului filtrează natural profilul neadecvat înainte să ajungi la selecție</li>
           </ul>
         </div>
+        </div></div>
       </div>
 
       <div class="problem-item sr" id="p06">
-        <div class="p-num">06</div>
+        <h3 class="rc-h"><button type="button" class="rc-head" aria-expanded="false" aria-controls="p06-b"><span class="n">06</span><span class="t">Nu accept animale, dar pierd chiriași buni</span><span class="pl" aria-hidden="true"></span></button></h3>
+        <div class="rc-body" id="p06-b"><div>
+
         <div class="p-problem">
-          <div class="p-tag">Segment neacoperit</div>
-          <div class="p-title">Nu accept animale, dar pierd chiriași buni</div>
           <div class="p-desc">Proprietarii refuză automat din cauza experiențelor anterioare. Nu există un instrument de protecție concret: doar refuzul total sau asumarea riscului orb. Ambele variante au un cost.</div>
           <div class="p-voice">
             <div class="p-voice-text">"Refuz pentru că nu am cu ce mă proteja. Nu pentru că nu vreau. Știu că pierd oameni buni, dar nu știu cum să mă acopăr."</div>
@@ -673,13 +711,14 @@ button,a{touch-action:manipulation}
             <li>Proces verbal foto detaliat la predare, documentație care acoperă orice daune</li>
           </ul>
         </div>
+        </div></div>
       </div>
 
       <div class="problem-item sr" id="p07">
-        <div class="p-num">07</div>
+        <h3 class="rc-h"><button type="button" class="rc-head" aria-expanded="false" aria-controls="p07-b"><span class="n">07</span><span class="t">Chiriașul face gălăgie. Vecinii reclamă constant.</span><span class="pl" aria-hidden="true"></span></button></h3>
+        <div class="rc-body" id="p07-b"><div>
+
         <div class="p-problem">
-          <div class="p-tag">Mai rar discutat</div>
-          <div class="p-title">Chiriașul face gălăgie. Vecinii reclamă constant.</div>
           <div class="p-desc">Chiriașul plătește la timp, dar vecinii se plâng de zgomot. Proprietarul e pus în mijloc fără instrumente: nu poate obliga un adult să fie liniștit, dar nici nu vrea să piardă un chiriaș platnic.</div>
           <div class="p-voice">
             <div class="p-voice-text">"Achita chiria, utilitățile, nu ne deranjam unii pe alții, dar cu vecinii era dezastru. Am fost obligat să reziliez contractul."</div>
@@ -694,8 +733,10 @@ button,a{touch-action:manipulation}
             <li>Clauza de reziliere la constatare PV poliție, baza legală pentru a acționa rapid</li>
           </ul>
         </div>
+        </div></div>
       </div>
 
+    </div>
     </div>
   </div>
 </section>
@@ -828,9 +869,9 @@ button,a{touch-action:manipulation}
           <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:14px">Servicii</div>
           <div style="display:flex;flex-direction:column;gap:10px">
             <a href="/audit.html" style="font-size:14px;color:#7A6E62;text-decoration:none"><span class="ft-f">Raport de Rentabilitate</span><span class="ft-s">Raport Rentabilitate</span></a>
-            <a href="/staging-virtual.html" style="font-size:14px;color:#C77936;text-decoration:none;font-weight:500">Staging Virtual</a>
+            <a href="/staging-virtual.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Staging Virtual</a>
             <a href="/#packages" style="font-size:14px;color:#7A6E62;text-decoration:none"><span class="ft-f">Design de interior</span><span class="ft-s">Design Interior</span></a>
-            <a href="/rental-kit.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Rental Kit</a>
+            <a href="/rental-kit.html" style="font-size:14px;color:#C77936;text-decoration:none;font-weight:500">Rental Kit</a>
           </div>
         </div>
         <div>
@@ -872,7 +913,7 @@ button,a{touch-action:manipulation}
     </div>
   </div>
 <style id="ru-ft-bot">.ft-bot{justify-content:space-between!important;align-items:center!important;gap:16px 40px!important;flex-wrap:wrap!important}.ft-legal{flex:1 1 480px;display:flex;flex-wrap:wrap;gap:6px 24px;text-align:left}.ft-bot .ru-legal{flex:0 0 auto}.ft-co{order:2;flex-basis:100%}@media(max-width:600px){.ft-bot{flex-direction:column!important;align-items:flex-start!important}.ft-legal{flex-basis:auto}}</style>
-<div class="ru-ft-giant" aria-hidden="true">Rent<span>UP</span></div>
+<style id="ru-ft-gm">@media(max-width:1024px){.ru-ft-giant{height:auto;overflow:visible;line-height:.9;padding-bottom:.04em;-webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.45) 45%,transparent 92%);mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.45) 45%,transparent 92%)}}</style><div class="ru-ft-giant" aria-hidden="true">Rent<span>UP</span></div>
 </footer>
 
 <script>
@@ -1092,5 +1133,44 @@ if(!localStorage.getItem('cookieConsent')){
 @media(prefers-reduced-motion:reduce){#wa-close,.btn-brand,.btn-outline,.cost-card,.lang-toggle-btn,.nav-cta,.nav-links a,.problem-item,.quote-card,.sys-card,.urgent-card,.wa-opt{transition:none}}
 </style>
 <script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("#nav-mobile a");if(!a)return;var m=document.getElementById("nav-mobile");m.classList.remove("open");var b=document.getElementById("nav-hamburger");if(b){b.setAttribute("aria-label","Deschide meniul");b.setAttribute("aria-expanded","false");}});</script>
+<script>
+/* Probleme: carduri care se deschid + meniul lateral */
+(function(){
+  var items=[].slice.call(document.querySelectorAll('.problems .problem-item'));if(!items.length)return;
+  var links=[].slice.call(document.querySelectorAll('.rc-side a')),lock=0;
+  function setOpen(it,open){it.classList.toggle('open',open);it.querySelector('.rc-head').setAttribute('aria-expanded',open?'true':'false')}
+  items.forEach(function(it){it.querySelector('.rc-head').addEventListener('click',function(){setOpen(it,!it.classList.contains('open'))})});
+  function on(id){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+id)})}
+  links.forEach(function(a){a.addEventListener('click',function(){var it=document.getElementById(a.getAttribute('href').slice(1));if(it)setOpen(it,true);on(it.id);lock=Date.now()+900})});
+  window.addEventListener('scroll',function(){if(Date.now()<lock)return;var cur=items[0];items.forEach(function(it){if(it.getBoundingClientRect().top<=140)cur=it});on(cur.id)},{passive:true});
+  function fromHash(){var it=location.hash&&document.getElementById(location.hash.slice(1));if(it&&it.classList.contains('problem-item')){setOpen(it,true);on(it.id)}}
+  fromHash();window.addEventListener('hashchange',fromHash);
+})();
+</script>
+<script id="ru-fade-js">
+/* trecere lină între cremul deschis (#FDFAF6) și cel închis (#F5EFE6), în loc de o linie */
+(function(){
+  if(document.getElementById('ru-fade'))return;
+  var STONE='rgb(245, 239, 230)',CREAM='rgb(253, 250, 246)',H=180;
+  var G='#FDFAF6 0,#FBF7F1 22%,#F8F3EB 50%,#F6F0E8 72%,#F5EFE6 100%';
+  function bg(el){return getComputedStyle(el).backgroundColor}
+  function wide(el){return el.offsetWidth>=document.documentElement.clientWidth*.9}
+  function nb(el,dir){var n=el[dir];while(n&&(/^(SCRIPT|STYLE|LINK|NOSCRIPT|TEMPLATE)$/.test(n.tagName)||!n.offsetHeight))n=n[dir];return n}
+  function cream(n){if(!n)return false;var c=bg(n);if(c==='rgba(0, 0, 0, 0)')return getComputedStyle(document.body).backgroundColor===CREAM&&getComputedStyle(n).position!=='fixed';return c===CREAM&&wide(n)}
+  function run(){
+    [].forEach.call(document.querySelectorAll('body *'),function(el){
+      if(bg(el)!==STONE||el.offsetHeight<160||!wide(el)||getComputedStyle(el).backgroundImage!=='none')return;
+      if(el.closest('footer,nav,#cookie-banner'))return;
+      var t=cream(nb(el,'previousElementSibling')),b=cream(nb(el,'nextElementSibling'));
+      if(!t&&!b)return;
+      var L=[],h=Math.min(H,Math.round(el.offsetHeight/2));
+      if(t){L.push('linear-gradient(180deg,'+G+') top/100% '+h+'px no-repeat');el.style.borderTop='0'}
+      if(b){L.push('linear-gradient(0deg,'+G+') bottom/100% '+h+'px no-repeat');el.style.borderBottom='0'}
+      el.style.background=L.join(',')+','+'#F5EFE6';
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
+})();
+</script>
 </body>
 </html>

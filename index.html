@@ -1239,6 +1239,12 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
    pe secțiunile închise rămân deschise, ca să se citească. */
 #cookie-banner{--muted:#A89C90;--light:#B8AFA4}
 </style>
+<style id="ru-fade">
+/* trecere lină între cremul deschis și cel închis, în loc de o linie */
+#portfolio{background:linear-gradient(180deg,#FDFAF6 0,#FBF7F1 40px,#F8F3EB 90px,#F6F0E8 130px,#F5EFE6 180px) top/100% 180px no-repeat,linear-gradient(0deg,#FDFAF6 0,#FBF7F1 40px,#F8F3EB 90px,#F6F0E8 130px,#F5EFE6 180px) bottom/100% 180px no-repeat,var(--bg-stone)}
+#about,#testimonials{background:linear-gradient(180deg,#FDFAF6 0,#FBF7F1 40px,#F8F3EB 90px,#F6F0E8 130px,#F5EFE6 180px) top/100% 180px no-repeat,var(--bg-stone)}
+#process{background:linear-gradient(0deg,#FDFAF6 0,#FBF7F1 40px,#F8F3EB 90px,#F6F0E8 130px,#F5EFE6 180px) bottom/100% 180px no-repeat,var(--bg-stone)}
+</style>
 </head>
 <body>
 <noscript><style>body{opacity:1}</style></noscript>
@@ -1825,9 +1831,9 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
           <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:14px">Servicii</div>
           <div style="display:flex;flex-direction:column;gap:10px">
             <a href="audit.html" style="font-size:14px;color:#7A6E62;text-decoration:none"><span class="ft-f">Raport de Rentabilitate</span><span class="ft-s">Raport Rentabilitate</span></a>
-            <a href="staging-virtual.html" style="font-size:14px;color:#C77936;text-decoration:none;font-weight:500">Staging Virtual</a>
+            <a href="staging-virtual.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Staging Virtual</a>
             <a href="/#packages" style="font-size:14px;color:#7A6E62;text-decoration:none"><span class="ft-f">Design de interior</span><span class="ft-s">Design Interior</span></a>
-            <a href="rental-kit.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Rental Kit</a>
+            <a href="rental-kit.html" style="font-size:14px;color:#C77936;text-decoration:none;font-weight:500">Rental Kit</a>
           </div>
         </div>
         <div>
@@ -1869,7 +1875,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
     </div>
   </div>
 <style id="ru-ft-bot">.ft-bot{justify-content:space-between!important;align-items:center!important;gap:16px 40px!important;flex-wrap:wrap!important}.ft-legal{flex:1 1 480px;display:flex;flex-wrap:wrap;gap:6px 24px;text-align:left}.ft-bot .ru-legal{flex:0 0 auto}.ft-co{order:2;flex-basis:100%}@media(max-width:600px){.ft-bot{flex-direction:column!important;align-items:flex-start!important}.ft-legal{flex-basis:auto}}</style>
-<div class="ru-ft-giant" aria-hidden="true">Rent<span>UP</span></div>
+<style id="ru-ft-gm">@media(max-width:1024px){.ru-ft-giant{height:auto;overflow:visible;line-height:.9;padding-bottom:.04em;-webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.45) 45%,transparent 92%);mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.45) 45%,transparent 92%)}}</style><div class="ru-ft-giant" aria-hidden="true">Rent<span>UP</span></div>
 </footer>
 
 
