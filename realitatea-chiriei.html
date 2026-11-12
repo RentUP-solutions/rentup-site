@@ -248,13 +248,6 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .nav-cta{font-family:'General Sans',sans-serif;font-size:14px;font-weight:500;color:#C77936;border:.5px solid #C77936;padding:8px 18px;border-radius:100px;text-decoration:none;white-space:nowrap;transition:background .2s}
 .nav-cta:hover{background:#FAF4EB}
 @media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}}
-@media(max-width:768px){
-  footer > div > div:first-child > div:last-child{
-    display:flex!important;
-    flex-direction:column!important;
-    gap:32px!important;
-  }
-}
 
 /* Page transitions */
 body{opacity:0.01;transition:opacity .46s cubic-bezier(0.23,1,0.32,1)}
@@ -409,7 +402,7 @@ button,a{touch-action:manipulation}
 /* fundal cu puncte, ca pe FAQ; secțiunile cu fundal propriu le acoperă */
 body{position:relative;isolation:isolate;background:var(--bg)}
 body::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(rgba(45,40,32,.16) 1.1px,transparent 1.4px);background-size:22px 22px;opacity:.7;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22%,#000 78%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 22%,#000 78%,transparent 100%)}
-@media(max-width:768px){body::before{background-image:radial-gradient(rgba(45,40,32,.16) .6px,transparent .8px);background-size:9px 9px}}
+@media(max-width:768px){body::before{background-image:radial-gradient(rgba(45,40,32,.128) .68px,transparent .9px);background-size:10px 10px}}
 .hero,.problems,.quotes-section,.system-section{background:transparent}
 
 /* „Calculul pe care proprietarii îl ignoră”: crem ca pe homepage, fără puncte */
@@ -844,7 +837,7 @@ body::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none
 
 <footer class="ru-ft">
 <style id="ru-ft-card">.ru-ft .ft-s{display:none}@media(max-width:600px){.ru-ft .ft-f{display:none}.ru-ft .ft-s{display:inline}}.ru-ft{isolation:isolate}.ru-ft::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(rgba(45,40,32,.16) 1.1px,transparent 1.4px);background-size:22px 22px;opacity:.7;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 12%,transparent 50%);mask-image:linear-gradient(180deg,transparent 0%,#000 12%,transparent 50%)}
-@media(max-width:768px){.ru-ft::before{background-image:radial-gradient(rgba(45,40,32,.16) .6px,transparent .8px);background-size:9px 9px}}
+@media(max-width:768px){.ru-ft::before{background-image:radial-gradient(rgba(45,40,32,.128) .68px,transparent .9px);background-size:10px 10px}}
 .ru-ft{display:block!important;position:relative;overflow:hidden;background:#FDFAF6!important;border-top:0!important;padding:64px 32px 0!important}
 .ru-ft-card{position:relative;z-index:1;max-width:1200px;margin:0 auto;background:#fff;border:1px solid rgba(45,40,32,.06);border-radius:28px;padding:52px 56px 32px;box-shadow:0 1px 2px rgba(45,40,32,.04),0 12px 32px rgba(45,40,32,.07),0 40px 80px -24px rgba(45,40,32,.12)}
 .ru-ft-top{display:grid!important;grid-template-columns:minmax(0,1fr) auto;gap:48px;align-items:start;margin-bottom:40px}
@@ -1172,5 +1165,6 @@ if(!localStorage.getItem('cookieConsent')){
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
 })();
 </script>
+<script src="/navpill.js" defer></script>
 </body>
 </html>

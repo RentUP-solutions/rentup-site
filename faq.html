@@ -136,9 +136,6 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .nav-cta:hover{background:#FAF4EB}
 @media(max-width:768px){nav{padding:0 20px}
 .nav-links{display:none}}
-@media(max-width:768px){footer > div > div:first-child > div:last-child{display:flex!important;
-    flex-direction:column!important;
-    gap:32px!important;}}
 body{opacity:0.01;transition:opacity .46s cubic-bezier(0.23,1,0.32,1)}
 img{-webkit-user-drag:none;user-drag:none}
 .nav-mobile{display:flex;position:fixed;top:64px;left:0;right:0;background:rgba(253,250,246,.98);border-bottom:.5px solid #EDE5D8;padding:16px 20px;flex-direction:column;gap:4px;z-index:99;overscroll-behavior:contain;opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity 260ms cubic-bezier(0.23,1,0.32,1),transform 260ms cubic-bezier(0.23,1,0.32,1),visibility 0s linear 260ms}
@@ -210,6 +207,13 @@ body{overflow-x:clip}
   .fq-side a{flex:0 0 auto;border-radius:100px;padding:8px 14px;border:.5px solid var(--border);background:#fff}
   .fq-side a small{display:none}
   .fq-side a.on{background:var(--text);color:#FDFAF6;border-color:var(--text)}
+}
+/* Telefon: categoriile plutesc ca niște pastile de sticlă, fără bandă de fundal în spate */
+@media(max-width:860px){
+  .fq-side{background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none;border-bottom:0;padding-top:12px;padding-bottom:34px;margin-bottom:-20px}
+  .fq-side a{background:rgba(253,250,246,.72);-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2);border:1px solid rgba(255,255,255,.7);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.85),0 2px 6px rgba(45,40,32,.06),0 10px 24px -10px rgba(45,40,32,.22)}
+  .fq-side a.on{background:var(--text);border-color:var(--text);box-shadow:0 2px 6px rgba(45,40,32,.12),0 10px 24px -10px rgba(45,40,32,.35)}
 }
 .fq-cat{padding-top:24px;scroll-margin-top:96px}
 .fq-cat+.fq-cat{margin-top:40px}
@@ -295,7 +299,7 @@ body{overflow-x:clip}
 @media(max-width:760px){.fq-cbox{grid-template-columns:minmax(0,1fr)}}
 @media(prefers-reduced-motion:reduce){.fq *{transition:none!important}}
 
-@media(max-width:768px){body::before{background-image:radial-gradient(rgba(45,40,32,.16) .6px,transparent .8px);background-size:9px 9px}}
+@media(max-width:768px){body::before{background-image:radial-gradient(rgba(45,40,32,.128) .68px,transparent .9px);background-size:10px 10px}}
 </style>
 <script type="application/ld+json">
 {
@@ -868,7 +872,7 @@ body{overflow-x:clip}
 
 <footer class="ru-ft">
 <style id="ru-ft-card">.ru-ft .ft-s{display:none}@media(max-width:600px){.ru-ft .ft-f{display:none}.ru-ft .ft-s{display:inline}}.ru-ft{isolation:isolate}.ru-ft::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(rgba(45,40,32,.16) 1.1px,transparent 1.4px);background-size:22px 22px;opacity:.7;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 12%,transparent 50%);mask-image:linear-gradient(180deg,transparent 0%,#000 12%,transparent 50%)}
-@media(max-width:768px){.ru-ft::before{background-image:radial-gradient(rgba(45,40,32,.16) .6px,transparent .8px);background-size:9px 9px}}
+@media(max-width:768px){.ru-ft::before{background-image:radial-gradient(rgba(45,40,32,.128) .68px,transparent .9px);background-size:10px 10px}}
 .ru-ft{display:block!important;position:relative;overflow:hidden;background:#FDFAF6!important;border-top:0!important;padding:64px 32px 0!important}
 .ru-ft-card{position:relative;z-index:1;max-width:1200px;margin:0 auto;background:#fff;border:1px solid rgba(45,40,32,.06);border-radius:28px;padding:52px 56px 32px;box-shadow:0 1px 2px rgba(45,40,32,.04),0 12px 32px rgba(45,40,32,.07),0 40px 80px -24px rgba(45,40,32,.12)}
 .ru-ft-top{display:grid!important;grid-template-columns:minmax(0,1fr) auto;gap:48px;align-items:start;margin-bottom:40px}
@@ -1086,5 +1090,6 @@ if(!localStorage.getItem('cookieConsent')){
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
 })();
 </script>
+<script src="/navpill.js" defer></script>
 </body>
 </html>

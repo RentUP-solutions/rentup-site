@@ -288,6 +288,9 @@ h2.sh{font-size:clamp(1.5rem,4vw,2.375rem);font-weight:300;color:var(--text);lin
 .cx-peek{position:fixed;left:84px;right:16px;bottom:24px;z-index:110;display:none;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px;border-radius:100px;background:var(--text);color:#FDFAF6;box-shadow:0 10px 30px rgba(45,40,32,.25);font-size:14px;transform:translateY(160%);transition:transform 420ms cubic-bezier(0.23,1,0.32,1);pointer-events:none}
 .cx-peek b{font-size:18px;font-weight:400;font-variant-numeric:tabular-nums}
 .cx-peek.show{transform:none}
+/* ascunsă = complet în afara ecranului și invizibilă: pe iPhone, sub bara plutitoare din Safari, se vedea marginea ei și umbra tăiată */
+.cx-peek{transform:translateY(calc(100% + 160px));visibility:hidden;transition:transform 420ms cubic-bezier(0.23,1,0.32,1),visibility 0s linear 420ms}
+.cx-peek.show{visibility:visible;transition:transform 420ms cubic-bezier(0.23,1,0.32,1),visibility 0s}
 @media(max-width:860px){.cx-grid{grid-template-columns:minmax(0,1fr)}.cx-peek{display:flex}}
 /* pe telefoane înguste, „Brașov / Constanța” nu încape pe un rând: îl lăsăm să treacă pe două, în loc să lățească tot calculatorul */
 @media(max-width:480px){.cx-seg button{white-space:normal;line-height:1.25;padding:9px 4px;font-size:12.5px}}
@@ -1184,7 +1187,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 #calc>div>div:nth-child(2){transition-delay:80ms}
 /* Price blur */
 .price-blur{filter:blur(8px);background:rgba(45,40,32,.12);border-radius:6px;padding:2px 10px;display:inline-block;user-select:none;pointer-events:none}
-@media(max-width:768px){#hero::before,#calc::before,#rental-kit-teaser::before,#instagram::before{background-image:radial-gradient(rgba(45,40,32,.16) .6px,transparent .8px);background-size:9px 9px}}
+@media(max-width:768px){#hero::before,#calc::before,#rental-kit-teaser::before,#instagram::before{background-image:radial-gradient(rgba(45,40,32,.128) .68px,transparent .9px);background-size:10px 10px}}
 </style>
 <script type="application/ld+json">
 {
@@ -1254,28 +1257,34 @@ main>section{background:transparent!important}
 #portfolio::after,#about::after,#process::after,#testimonials::after,#packages::after,#faq::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.35;mix-blend-mode:multiply;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .6 0 0 0 0 .55 0 0 0 0 .48 0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 @media(max-width:600px){#portfolio,#about,#process,#testimonials,#packages,#faq{margin:12px 8px;border-radius:22px}
-  body{background:radial-gradient(rgba(45,40,32,.14) .6px,transparent .8px) 0 0/9px 9px,var(--bg)}}
-/* Meniu desktop: lipit sus pe toată lățimea → pill plutitor după scroll */
-.ru-nav-sp{display:none}
-@media(min-width:901px){
-  .ru-nav-sp{display:block;height:64px}
-  nav{position:fixed;top:0;left:0;right:0;margin:0 auto;max-width:100%;
-    transition:max-width .7s cubic-bezier(.22,1,.36,1),top .7s cubic-bezier(.22,1,.36,1),border-radius .7s cubic-bezier(.22,1,.36,1),height .5s cubic-bezier(.22,1,.36,1),padding .7s cubic-bezier(.22,1,.36,1),background .4s ease,box-shadow .5s ease}
-  nav .nav-links a,nav .nav-links .lang-toggle-btn{max-width:200px;overflow:hidden;white-space:nowrap;transition:opacity .3s ease,max-width .5s cubic-bezier(.22,1,.36,1),margin .5s cubic-bezier(.22,1,.36,1)}
-  nav.pill{top:14px;max-width:860px;height:54px;border-radius:999px;padding:0 7px 0 26px;
-    background:rgba(253,250,246,.72)!important;-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2);border:1px solid rgba(255,255,255,.7);
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.85),0 2px 6px rgba(45,40,32,.06),0 18px 40px -12px rgba(45,40,32,.22)!important}
-  nav.pill .nav-links{gap:22px}
-  nav.pill .nav-links .nav-x{opacity:0;max-width:0;margin-left:-22px;pointer-events:none}
-  nav.pill .nav-cta{background:#C77936;color:#FDFAF6;padding:9px 18px}
-}
-@media(min-width:901px) and (prefers-reduced-motion:reduce){nav,nav .nav-links a,nav .nav-links .lang-toggle-btn{transition:none}}
+  body{background:radial-gradient(rgba(45,40,32,.112) .68px,transparent .9px) 0 0/10px 10px,var(--bg)}}
+/* Meniu: lipit sus pe toată lățimea → pill plutitor după scroll (desktop și telefon) */
+.ru-nav-sp{display:block;height:64px}
+nav{position:fixed;top:0;left:0;right:0;margin:0 auto;max-width:100%;
+  transition:max-width .7s cubic-bezier(.22,1,.36,1),top .7s cubic-bezier(.22,1,.36,1),border-radius .7s cubic-bezier(.22,1,.36,1),height .5s cubic-bezier(.22,1,.36,1),padding .7s cubic-bezier(.22,1,.36,1),background .4s ease,box-shadow .5s ease}
+nav .nav-links a,nav .nav-links .lang-toggle-btn{max-width:200px;overflow:hidden;white-space:nowrap;transition:opacity .3s ease,max-width .5s cubic-bezier(.22,1,.36,1),margin .5s cubic-bezier(.22,1,.36,1)}
+nav.pill{border-radius:999px;background:rgba(253,250,246,.72)!important;-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2);border:1px solid rgba(255,255,255,.7);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.85),0 2px 6px rgba(45,40,32,.06),0 18px 40px -12px rgba(45,40,32,.22)!important}
+nav.pill .nav-links{gap:22px}
+nav.pill .nav-links .nav-x{opacity:0;max-width:0;margin-left:-22px;pointer-events:none}
+nav.pill .nav-cta{background:#C77936;color:#FDFAF6;padding:9px 18px}
+@media(min-width:901px){nav.pill{top:14px;max-width:860px;height:54px;padding:0 7px 0 26px}}
+@media(max-width:900px){.ru-nav-sp{height:56px}nav.pill{top:10px;max-width:calc(100% - 20px);height:50px;padding:0 8px 0 20px}}
+@media(max-width:600px){.ru-nav-sp{height:52px}nav.pill{height:48px;padding:0 6px 0 18px}}
+@media(prefers-reduced-motion:reduce){nav,nav .nav-links a,nav .nav-links .lang-toggle-btn{transition:none}}
+/* Banda de Instagram: fără fade la capete */
+#instagram .igs{-webkit-mask-image:none;mask-image:none}
+/* Footer: punctele din pagină continuă în el și se sting treptat în jos (fără trecere bruscă) */
+footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%)!important}
+.ru-ft::before{display:none}
+/* Testimoniale pe telefon: cifrele mai mici, ca „/lună” să rămână pe același rând */
+@media(max-width:600px){.tt-rent{flex-wrap:nowrap;white-space:nowrap;font-size:clamp(30px,10.5vw,44px)}}
 /* Punctele „din spatele” cardurilor bej: estompate, doar ca o umbră a pattern-ului (aliniate din JS) */
 #portfolio,#about,#process,#testimonials,#packages,#faq{background:rgba(245,239,230,.95)!important}
 #portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before,#faq::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:radial-gradient(circle,rgba(45,40,32,.042) 0,rgba(45,40,32,.023) 1.3px,rgba(45,40,32,.008) 3px,transparent 5px) var(--dx,0) var(--dy,0)/22px 22px;-webkit-mask-image:radial-gradient(ellipse 75% 75% at 50% 50%,rgba(0,0,0,.15) 0%,rgba(0,0,0,.35) 45%,#000 100%);mask-image:radial-gradient(ellipse 75% 75% at 50% 50%,rgba(0,0,0,.15) 0%,rgba(0,0,0,.35) 45%,#000 100%)}
-@media(max-width:600px){#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before,#faq::before{background-size:9px 9px;
-  background-image:radial-gradient(circle,rgba(45,40,32,.042) 0,rgba(45,40,32,.023) .56px,rgba(45,40,32,.008) 1.29px,transparent 2.15px)}}
+@media(max-width:600px){#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before,#faq::before{background-size:10px 10px;
+  background-image:radial-gradient(circle,rgba(45,40,32,.034) 0,rgba(45,40,32,.018) .62px,rgba(45,40,32,.0064) 1.43px,transparent 2.4px)}}
 /* Contact: card maro mat, opac (fără puncte) */
 #contact{margin:20px clamp(12px,1.6vw,24px);border-radius:clamp(24px,2.4vw,36px);isolation:isolate;background:var(--dark)!important;
   border:1px solid rgba(255,255,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 1px 2px rgba(45,40,32,.08),0 30px 70px -30px rgba(45,40,32,.45)}
@@ -1883,7 +1892,7 @@ main>section{background:transparent!important}
 </main>
 <footer class="ru-ft">
 <style id="ru-ft-card">.ru-ft .ft-s{display:none}@media(max-width:600px){.ru-ft .ft-f{display:none}.ru-ft .ft-s{display:inline}}.ru-ft{isolation:isolate}.ru-ft::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(rgba(45,40,32,.16) 1.1px,transparent 1.4px);background-size:22px 22px;opacity:.7;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 12%,transparent 50%);mask-image:linear-gradient(180deg,transparent 0%,#000 12%,transparent 50%)}
-@media(max-width:768px){.ru-ft::before{background-image:radial-gradient(rgba(45,40,32,.16) .6px,transparent .8px);background-size:9px 9px}}
+@media(max-width:768px){.ru-ft::before{background-image:radial-gradient(rgba(45,40,32,.128) .68px,transparent .9px);background-size:10px 10px}}
 .ru-ft{display:block!important;position:relative;overflow:hidden;background:#FDFAF6!important;border-top:0!important;padding:64px 32px 0!important}
 .ru-ft-card{position:relative;z-index:1;max-width:1200px;margin:0 auto;background:#fff;border:1px solid rgba(45,40,32,.06);border-radius:28px;padding:52px 56px 32px;box-shadow:0 1px 2px rgba(45,40,32,.04),0 12px 32px rgba(45,40,32,.07),0 40px 80px -24px rgba(45,40,32,.12)}
 .ru-ft-top{display:grid!important;grid-template-columns:minmax(0,1fr) auto;gap:48px;align-items:start;margin-bottom:40px}
@@ -2150,10 +2159,15 @@ input[type=range]::-webkit-slider-thumb{transition:transform 120ms cubic-bezier(
   nav.querySelectorAll('.nav-links a,.nav-links .lang-toggle-btn').forEach(function(el){
     var t=(el.textContent||'').trim();if(t==='Rental Kit'||t==='FAQ'||el.classList.contains('lang-toggle-btn'))el.classList.add('nav-x');});
   var on=false;
-  function upd(){var y=window.scrollY;if(!on&&y>80){on=true;nav.classList.add('pill')}else if(on&&y<24){on=false;nav.classList.remove('pill')}}
+  var mob=document.getElementById('nav-mobile');
+  /* cu meniul de pe telefon deschis, bara revine pe toată lățimea, ca panoul să stea lipit de ea */
+  function upd(){var y=window.scrollY,open=mob&&mob.classList.contains('open');
+    if(!on&&y>80)on=true;else if(on&&y<24)on=false;
+    nav.classList.toggle('pill',on&&!open)}
   window.addEventListener('scroll',upd,{passive:true});upd();
+  if(mob&&'MutationObserver'in window)new MutationObserver(upd).observe(mob,{attributes:true,attributeFilter:['class']});
   var cards=document.querySelectorAll('#portfolio,#about,#process,#testimonials,#packages,#faq');
-  function al(){var g=window.innerWidth<=600?9:22;cards.forEach(function(s){var r=s.getBoundingClientRect(),x=r.left+window.scrollX+1,y=r.top+window.scrollY+1;
+  function al(){var g=window.innerWidth<=600?10:22;cards.forEach(function(s){var r=s.getBoundingClientRect(),x=r.left+window.scrollX+1,y=r.top+window.scrollY+1;
     s.style.setProperty('--dx',(-(x%g))+'px');s.style.setProperty('--dy',(-(y%g))+'px');});}
   al();window.addEventListener('load',al);
   if('ResizeObserver'in window)new ResizeObserver(function(){requestAnimationFrame(al)}).observe(document.body);else window.addEventListener('resize',al);
