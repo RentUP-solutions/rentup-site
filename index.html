@@ -832,7 +832,7 @@ footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56p
   .disc{font-size:10px}
 
   /* Team */
-  .tc-photo{height:420px}
+  .tc-photo{height:280px}
   .tc-body{padding:16px 18px}
   .tc-name{font-size:16px}
   .tc-bio{font-size:14px}
@@ -958,11 +958,6 @@ img{-webkit-user-drag:none;user-drag:none}
   .diff-v{font-size:24px}
 }
 .nav-hamburger{display:none}
-@media(max-width:900px){#rental-kit-teaser [style*="grid-template-columns:1fr 1fr"]{display:flex!important;flex-direction:column!important;gap:40px!important}}
-@media(max-width:900px){#rental-kit-teaser{padding:0!important}}
-@media(max-width:900px){#rental-kit-teaser>div>div:first-child{padding:40px 16px 32px!important}}
-@media(max-width:900px){#rental-kit-teaser img{width:100%!important;max-width:100%!important;margin:0!important;display:block}}
-@media(max-width:600px){#rental-kit-teaser svg{width:14px!important;height:14px!important;flex-shrink:0}}
 
 .ba-photos { position: relative; overflow: hidden; }
 .ba-overlay {
@@ -1529,27 +1524,42 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 
 
 <!-- RENTAL KIT TEASER -->
-<section id="rental-kit-teaser" style="padding:80px 0 0 56px;background:var(--bg);overflow:hidden">
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:stretch">
-    <div style="padding-bottom:80px">
-      <div class="sec-tag"><div class="dot"></div>Rental Kit</div>
-      <h2 class="sh" data-en="The landlord's peace of mind has <span class='rot' data-words='a recipe.|a system.|a plan.'>a recipe.</span>">Liniștea proprietarului are <span class="rot" data-words="o rețetă.|un sistem.|un plan.">o rețetă.</span></h2>
-      <p style="font-size:16px;color:var(--muted);line-height:1.75;margin-bottom:20px">Designul aduce chiriașul potrivit. <strong style="color:var(--text)">Rental Kit-ul îl ține.</strong></p>
-      <p style="font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:32px">Cum listezi. Pe cine primești. Cum predai cheile fără să-ți pară rău după.<br>Rental Kit-ul este sistemul complet de documente, protocoale și contracte, personalizat pentru proprietatea ta.</p>
-      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:36px">
-        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Sistem de selecție chiriaș pe 4 piloni</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Contract de închiriere și încetare personalizat pentru proprietatea ta</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Protocol pas cu pas pentru când lucrurile merg prost</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Ghid de utilizare pentru chiriaș, îl primești educat, nu improvizat</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Comunicare structurată și mentenanță pe toată durata contractului</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>La predare, totul e documentat prin proces verbal foto și inventar detaliat</div>
-      </div>
-      <a href="rental-kit.html" class="btn-primary">Descoperă Rental Kit<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-    </div>
-    <div style="display:flex;align-items:flex-end;justify-content:flex-end">
-      <img src="RENTALKIT_MOCKUP_2.webp" srcset="images/rentalkit-mockup-800.webp 800w, images/rentalkit-mockup-1200.webp 1200w, RENTALKIT_MOCKUP_2.webp 2000w" sizes="(max-width:900px) 100vw, 50vw" width="2000" height="1252" loading="lazy" decoding="async" alt="Rental Kit, sistem complet pentru proprietari" style="width:100%;height:auto;display:block;vertical-align:bottom">
-    </div>
+<section id="rental-kit-teaser">
+<style id="ru-rkt">
+#rental-kit-teaser{padding:96px 32px 0;background:var(--bg);overflow:hidden}
+.rkt-head{text-align:center;max-width:640px;margin:0 auto 48px}
+.rkt-head .sec-tag{justify-content:center}
+.rkt-head .sh{text-align:center}
+.rkt-sub{font-size:16px;color:var(--muted);line-height:1.7;margin:0}
+.rkt-sub strong{color:var(--text);font-weight:500}
+.rkt-grid{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.rkt-c{background:#FDFAF6;border-radius:18px;box-shadow:0 2px 24px rgba(45,40,32,.08);padding:26px 24px 24px;display:flex;flex-direction:column;gap:14px;transition:box-shadow 400ms cubic-bezier(0.23,1,0.32,1)}
+@media(hover:hover){.rkt-c:hover{box-shadow:0 4px 34px rgba(45,40,32,.13)}}
+.rkt-c h3{font-size:16px;font-weight:500;letter-spacing:-.01em;color:var(--text);margin:0 0 4px}
+.rkt-c p{font-size:14px;line-height:1.6;color:var(--muted);margin:0}
+.rkt-ic{width:40px;height:40px;border-radius:12px;background:#FAF4EB;border:1px solid #E8D5BC;display:grid;place-items:center;color:var(--brand);flex-shrink:0}
+.rkt-ic svg{width:20px;height:20px}
+.rkt-cta{display:flex;justify-content:center;margin:40px 0 56px}
+.rkt-shot{max-width:900px;margin:0 auto;-webkit-mask-image:linear-gradient(180deg,#000 55%,transparent 100%);mask-image:linear-gradient(180deg,#000 55%,transparent 100%)}
+.rkt-shot img{width:100%;height:auto;display:block}
+@media(max-width:900px){.rkt-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){#rental-kit-teaser{padding:56px 16px 0}.rkt-head{margin-bottom:32px}.rkt-grid{grid-template-columns:1fr}.rkt-c{flex-direction:row;padding:20px}.rkt-cta{margin:32px 0 40px}}
+</style>
+  <div class="rkt-head">
+    <div class="sec-tag"><div class="dot"></div>Rental Kit</div>
+    <h2 class="sh" data-en="The landlord's peace of mind has <span class='rot' data-words='a recipe.|a system.|a plan.'>a recipe.</span>">Liniștea proprietarului are <span class="rot" data-words="o rețetă.|un sistem.|un plan.">o rețetă.</span></h2>
+    <p class="rkt-sub">Designul aduce chiriașul potrivit. <strong>Rental Kit-ul îl ține.</strong></p>
   </div>
+  <div class="rkt-grid">
+    <div class="rkt-c"><div class="rkt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div><div><h3>Selecție chiriaș</h3><p>Sistem de selecție pe 4 piloni.</p></div></div>
+    <div class="rkt-c"><div class="rkt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></div><div><h3>Contracte personalizate</h3><p>Închiriere și încetare, făcute pentru proprietatea ta.</p></div></div>
+    <div class="rkt-c"><div class="rkt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><div><h3>Protocol de criză</h3><p>Pas cu pas, pentru când lucrurile merg prost.</p></div></div>
+    <div class="rkt-c"><div class="rkt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5M9 7h6"/></svg></div><div><h3>Ghid pentru chiriaș</h3><p>Îl primești educat, nu improvizat.</p></div></div>
+    <div class="rkt-c"><div class="rkt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></div><div><h3>Comunicare și mentenanță</h3><p>Structurate, pe toată durata contractului.</p></div></div>
+    <div class="rkt-c"><div class="rkt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8a2 2 0 0 1 2-2h2l2-2h6l2 2h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="3.5"/></svg></div><div><h3>Predare documentată</h3><p>Proces verbal foto și inventar detaliat.</p></div></div>
+  </div>
+  <div class="rkt-cta"><a href="rental-kit.html" class="btn-primary">Descoperă Rental Kit<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
+  <div class="rkt-shot"><img src="RENTALKIT_MOCKUP_2.webp" srcset="images/rentalkit-mockup-800.webp 800w, images/rentalkit-mockup-1200.webp 1200w, RENTALKIT_MOCKUP_2.webp 2000w" sizes="(max-width:900px) 100vw, 50vw" width="2000" height="1252" loading="lazy" decoding="async" alt="Rental Kit, sistem complet pentru proprietari"></div>
 </section>
 
 <!-- S7 TESTIMONIALS -->
@@ -1574,7 +1584,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         <div class="tt-rent"><span class="tt-from">400€</span><span class="tt-arrow"><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span><span class="tt-to" data-from="400" data-to="550">550€</span><span class="tt-unit">/lună</span></div>
         <div class="tt-rent-l">chiria lunară, înainte și după</div>
       </div>
-      <div class="tt-res"><div class="tt-r"><b>+150€</b><span>chirie lunară</span></div><div class="tt-r"><b>4 zile</b><span>până la primul chiriaș potrivit</span></div><div class="tt-r"><b>12 luni</b><span>durata șederii<br>(contract semnat pe 2 ani de la început)</span></div><div class="tt-r"><b>~48 luni</b><span>recuperare completă a investiției (din chiria extra + rotația de chiriași eliminată)</span></div></div>
+      <div class="tt-res"><div class="tt-r"><b>+150€</b><span>chirie lunară</span></div><div class="tt-r"><b>4 zile</b><span>până la primul chiriaș potrivit</span></div><div class="tt-r"><b>24 luni</b><span>durata șederii</span></div><div class="tt-r"><b>~48 luni</b><span>recuperare completă a <span class="tt-nw">investiției<span class="tt-iw"><button type="button" class="tt-i" aria-label="Cum e calculat" aria-expanded="false"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" style="display:block"><circle cx="8" cy="8" r="7.3" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="8" cy="4.6" r="1.05" fill="currentColor"/><rect x="7.15" y="6.75" width="1.7" height="5.1" rx=".85" fill="currentColor"/></svg></button><span class="tt-tip" role="tooltip">Din chiria extra + rotația de chiriași eliminată.</span></span></span></span></div></div>
       <blockquote class="tt-q"><span class="tt-src">„Am fost foarte mulțumit de rezultat. Apartamentul a ieșit exact așa cum mi-a fost prezentat, iar găsirea noilor chiriași a fost mult mai ușoară decât mă așteptam.”</span></blockquote>
       <div class="tt-qa">Dl. Ciobanu, proprietar apartament 2 camere</div>
       <button class="tt-more-btn" type="button" aria-expanded="false">Povestea completă și bugetul<span class="tt-plus" aria-hidden="true"></span></button>
@@ -1590,7 +1600,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         <div class="tt-rent"><span class="tt-from">400€</span><span class="tt-arrow"><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span><span class="tt-to" data-from="400" data-to="620">620€</span><span class="tt-unit">/lună</span></div>
         <div class="tt-rent-l">chiria lunară, înainte și după</div>
       </div>
-      <div class="tt-res"><div class="tt-r"><b>+220€</b><span>chirie lunară</span></div><div class="tt-r"><b>5 zile</b><span>până la primul chiriaș potrivit</span></div><div class="tt-r"><b>24 luni</b><span>durata șederii<br>(contract semnat pe 2 ani de la început)</span></div><div class="tt-r"><b>~14 luni</b><span>recuperare completă a investiției (din chiria extra + rotația de chiriași eliminată)</span></div></div>
+      <div class="tt-res"><div class="tt-r"><b>+220€</b><span>chirie lunară</span></div><div class="tt-r"><b>5 zile</b><span>până la primul chiriaș potrivit</span></div><div class="tt-r"><b>24 luni</b><span>durata șederii</span></div><div class="tt-r"><b>~14 luni</b><span>recuperare completă a <span class="tt-nw">investiției<span class="tt-iw"><button type="button" class="tt-i" aria-label="Cum e calculat" aria-expanded="false"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" style="display:block"><circle cx="8" cy="8" r="7.3" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="8" cy="4.6" r="1.05" fill="currentColor"/><rect x="7.15" y="6.75" width="1.7" height="5.1" rx=".85" fill="currentColor"/></svg></button><span class="tt-tip" role="tooltip">Din chiria extra + rotația de chiriași eliminată.</span></span></span></span></div></div>
       <blockquote class="tt-q"><span class="tt-src">„Sincer, mă așteptam la randări frumoase și atât. Nu mă așteptam să am și un sistem clar pentru ce fac cu apartamentul după. Chiriașul de acum e cel mai bun pe care l-am avut și cred că asta nu e o coincidență."</span></blockquote>
       <div class="tt-qa">Costi Barbu, proprietar apartament 2 camere</div>
       <button class="tt-more-btn" type="button" aria-expanded="false">Povestea completă și bugetul<span class="tt-plus" aria-hidden="true"></span></button>
@@ -1789,7 +1799,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 
 </main>
 <footer class="ru-ft">
-<style id="ru-ft-card">.ru-ft{isolation:isolate}.ru-ft::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(rgba(45,40,32,.16) 1.1px,transparent 1.4px);background-size:22px 22px;opacity:.7;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 12%,transparent 50%);mask-image:linear-gradient(180deg,transparent 0%,#000 12%,transparent 50%)}
+<style id="ru-ft-card">.ru-ft .ft-s{display:none}@media(max-width:600px){.ru-ft .ft-f{display:none}.ru-ft .ft-s{display:inline}}.ru-ft{isolation:isolate}.ru-ft::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(rgba(45,40,32,.16) 1.1px,transparent 1.4px);background-size:22px 22px;opacity:.7;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 12%,transparent 50%);mask-image:linear-gradient(180deg,transparent 0%,#000 12%,transparent 50%)}
 @media(max-width:768px){.ru-ft::before{background-image:radial-gradient(rgba(45,40,32,.16) .6px,transparent .8px);background-size:9px 9px}}
 .ru-ft{display:block!important;position:relative;overflow:hidden;background:#FDFAF6!important;border-top:0!important;padding:64px 32px 0!important}
 .ru-ft-card{position:relative;z-index:1;max-width:1200px;margin:0 auto;background:#fff;border:1px solid rgba(45,40,32,.06);border-radius:28px;padding:52px 56px 32px;box-shadow:0 1px 2px rgba(45,40,32,.04),0 12px 32px rgba(45,40,32,.07),0 40px 80px -24px rgba(45,40,32,.12)}
@@ -1801,7 +1811,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 .ru-ft-city{font-size:14px;color:#776B60;margin:0}
 .ru-ft-giant{position:relative;z-index:0;margin-top:.12em;text-align:center;font-family:'General Sans',sans-serif;font-weight:600;font-size:clamp(60px,21vw,300px);line-height:.78;letter-spacing:-.05em;height:.66em;overflow:hidden;white-space:nowrap;color:rgba(199,121,54,.24);-webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.14) 100%);mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.14) 100%);-webkit-user-select:none;user-select:none;pointer-events:none}
 .ru-ft-giant span{font-weight:300;color:rgba(45,40,32,.14)}
-@media(max-width:720px){.ru-ft{padding:32px 12px 0!important}.ru-ft-card{padding:32px 22px 26px;border-radius:22px}.ru-ft-top{grid-template-columns:1fr;gap:36px}.ru-ft-cols{grid-template-columns:1fr 1fr;gap:28px 24px}.ru-ft-tag{font-size:21px}}</style>
+@media(max-width:720px){.ru-ft{padding:32px 12px 0!important}.ru-ft-card{padding:32px 22px 26px;border-radius:22px}.ru-ft-top{grid-template-columns:1fr;gap:36px}.ru-ft-cols{grid-template-columns:1fr 1fr;gap:28px 24px}.ru-ft-tag{font-size:21px}}@media(max-width:600px){.ru-ft-card{padding:30px 22px 26px}.ru-ft-tag{font-size:22px;max-width:none;margin-top:16px}.ru-ft-top{gap:32px;margin-bottom:28px}.ru-ft-cols{gap:28px 16px}.ru-ft .ft-bot{gap:20px!important;padding-top:22px!important}.ru-ft .ft-legal{gap:10px 20px}.ru-ft .ft-legal>a{order:1;font-size:13px!important;color:#776B60!important;padding:2px 0}.ru-ft .ft-legal>div:not(.ft-co){order:2;flex-basis:100%;margin-top:8px}.ru-ft .ft-co{order:3;line-height:1.55}.ru-ft-giant{font-size:25vw;margin-top:.08em}.ru-ft .ft-bot{align-items:center!important;text-align:center!important}.ru-ft .ft-legal{justify-content:center;text-align:center!important}.ru-ft .ft-bot .ru-legal{justify-content:center;align-self:center}}</style>
 
 <style>@media(max-width:600px){footer{padding-left:20px!important;padding-right:20px!important}.ft-brand{flex-basis:100%!important}}</style>
   <div class="ru-ft-card">
@@ -1814,9 +1824,9 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         <div>
           <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:14px">Servicii</div>
           <div style="display:flex;flex-direction:column;gap:10px">
-            <a href="audit.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Raport de Rentabilitate</a>
+            <a href="audit.html" style="font-size:14px;color:#7A6E62;text-decoration:none"><span class="ft-f">Raport de Rentabilitate</span><span class="ft-s">Raport Rentabilitate</span></a>
             <a href="staging-virtual.html" style="font-size:14px;color:#C77936;text-decoration:none;font-weight:500">Staging Virtual</a>
-            <a href="/#packages" style="font-size:14px;color:#7A6E62;text-decoration:none">Design de interior</a>
+            <a href="/#packages" style="font-size:14px;color:#7A6E62;text-decoration:none"><span class="ft-f">Design de interior</span><span class="ft-s">Design Interior</span></a>
             <a href="rental-kit.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Rental Kit</a>
           </div>
         </div>
@@ -1838,7 +1848,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
           </div>
         </div>
         <div>
-          <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:14px">Urmărește-ne</div>
+          <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:14px">Social</div>
           <div style="display:flex;flex-direction:column;gap:10px">
             <a href="https://instagram.com/rentup.solutions" style="font-size:14px;color:#7A6E62;text-decoration:none" target="_blank" rel="noopener">Instagram</a>
             <a href="https://www.linkedin.com/company/rentup-solutions" style="font-size:14px;color:#7A6E62;text-decoration:none" target="_blank" rel="noopener">LinkedIn</a>
@@ -2038,5 +2048,17 @@ input[type=range]::-webkit-slider-thumb{transition:transform 120ms cubic-bezier(
 @media(prefers-reduced-motion:reduce){#ru-exit .reb,#ru-exit .rec,#ru-exit .red,#wa-close,.ba,.ba .ba-overlay,.ba .ba-overlay span,.btn-ghost,.btn-primary,.cc,.con-g,.con-p,.cs,.ct-l,.ct-wa,.fc,.hero-eyebrow a,.ig-follow,.lang-toggle-btn,.nav-cta,.nav-links a,.nav-mob-cta,.pc .pc-n,.pk-btn,.pk-card[data-k="premium"] .pk-btn,.pkg,.pkg-pre,.pkg-pre .btn-primary,.pkg-subgrid .pkg,.port-cta,.reason,.stat,.tbn,.tc,.te-q,.tec,.wa-opt,input[type=range]::-webkit-slider-thumb{transition:none}}
 </style>
 <script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("#nav-mobile a");if(!a)return;var m=document.getElementById("nav-mobile");m.classList.remove("open");var b=document.getElementById("nav-hamburger");if(b){b.setAttribute("aria-label","Deschide meniul");b.setAttribute("aria-expanded","false");}});</script>
+<style id="ru-tt-tip">.tt-r .tt-nw{display:inline;white-space:nowrap;font-size:inherit;color:inherit}.tt-r .tt-iw{position:relative;display:inline-block;vertical-align:-3px;margin-left:6px;line-height:0}
+.tt-i{position:relative;display:block;width:16px;height:16px;padding:0;border:0;background:transparent;color:#A89C90;cursor:pointer;border-radius:50%;transition:color 400ms cubic-bezier(0.23,1,0.32,1)}
+.tt-i::after{content:"";position:absolute;inset:-12px}
+.tt-i:focus-visible{outline:2px solid #E8D5BC;outline-offset:2px}
+.tt-iw.open .tt-i{color:#C77936}
+.tt-r .tt-iw .tt-tip{display:block;position:absolute;right:-13px;top:calc(100% + 12px);width:max-content;max-width:min(240px,72vw);background:rgb(45,40,32);color:#FDFAF6;font-size:13px;font-weight:400;line-height:1.5;letter-spacing:.005em;padding:10px 14px;border-radius:12px;box-shadow:0 1px 2px rgba(45,40,32,.1),0 10px 30px rgba(45,40,32,.18);opacity:0;visibility:hidden;transform:translateY(-4px) scale(.97);transform-origin:calc(100% - 21px) 0;transition:opacity 180ms cubic-bezier(0.23,1,0.32,1),transform 220ms cubic-bezier(0.23,1,0.32,1),visibility 0s linear 220ms;z-index:5;pointer-events:none;text-align:left;white-space:normal}
+.tt-r .tt-iw .tt-tip::after{content:"";position:absolute;right:16px;top:-4px;width:9px;height:9px;background:rgb(45,40,32);border-radius:2px 0 0 0;transform:rotate(45deg)}
+.tt-iw.open .tt-tip,.tt-iw:has(.tt-i:focus-visible) .tt-tip{opacity:1;visibility:visible;transform:none;transition:opacity 180ms cubic-bezier(0.23,1,0.32,1),transform 220ms cubic-bezier(0.23,1,0.32,1),visibility 0s}
+@media(hover:hover){.tt-iw:hover .tt-tip{opacity:1;visibility:visible;transform:none;transition:opacity 180ms cubic-bezier(0.23,1,0.32,1),transform 220ms cubic-bezier(0.23,1,0.32,1),visibility 0s}.tt-iw:hover .tt-i{color:#C77936}}
+@media(hover:none){.tt-i{color:#C77936}}
+@media(prefers-reduced-motion:reduce){.tt-r .tt-iw .tt-tip{transition:none!important;transform:none!important}}</style>
+<script>document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.tt-i');document.querySelectorAll('.tt-iw.open').forEach(function(w){if(!b||w!==b.parentNode){w.classList.remove('open');w.firstChild.setAttribute('aria-expanded','false');}});if(b){var w=b.parentNode,o=w.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');}});document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.tt-iw.open').forEach(function(w){w.classList.remove('open');});});</script>
 </body>
 </html>
