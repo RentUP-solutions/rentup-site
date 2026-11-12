@@ -1239,11 +1239,76 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
    pe secțiunile închise rămân deschise, ca să se citească. */
 #cookie-banner{--muted:#A89C90;--light:#B8AFA4}
 </style>
-<style id="ru-fade">
-/* trecere lină între cremul deschis și cel închis, în loc de o linie */
-#portfolio{background:linear-gradient(180deg,#FDFAF6 0,#FBF7F1 40px,#F8F3EB 90px,#F6F0E8 130px,#F5EFE6 180px) top/100% 180px no-repeat,linear-gradient(0deg,#FDFAF6 0,#FBF7F1 40px,#F8F3EB 90px,#F6F0E8 130px,#F5EFE6 180px) bottom/100% 180px no-repeat,var(--bg-stone)}
-#about,#testimonials{background:linear-gradient(180deg,#FDFAF6 0,#FBF7F1 40px,#F8F3EB 90px,#F6F0E8 130px,#F5EFE6 180px) top/100% 180px no-repeat,var(--bg-stone)}
-#process{background:linear-gradient(0deg,#FDFAF6 0,#FBF7F1 40px,#F8F3EB 90px,#F6F0E8 130px,#F5EFE6 180px) bottom/100% 180px no-repeat,var(--bg-stone)}
+<style id="ru-glass">
+/* Fundal continuu: crem deschis cu puncte, de sus până jos */
+body{background:radial-gradient(rgba(45,40,32,.13) 1.1px,transparent 1.4px) 0 0/22px 22px,var(--bg)}
+main>section{background:transparent!important}
+#hero::before,#calc::before,#rental-kit-teaser::before,#instagram::before{display:none}
+/* Secțiunile crem închis = carduri mari, glass mat; punctele se ghicesc „prin” card (aliniate cu cele din pagină din JS) */
+#portfolio,#about,#process,#testimonials,#packages,#faq{position:relative;isolation:isolate;
+  margin:20px clamp(12px,1.6vw,24px);border-radius:clamp(24px,2.4vw,36px);
+  background:rgba(245,239,230,.95)!important;
+  border:1px solid rgba(255,255,255,.65);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 1px 2px rgba(45,40,32,.04),0 24px 60px -28px rgba(45,40,32,.18);overflow:clip}
+/* granulație fină = efectul „mat” */
+#portfolio::after,#about::after,#process::after,#testimonials::after,#packages::after,#faq::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.35;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .6 0 0 0 0 .55 0 0 0 0 .48 0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+@media(max-width:600px){#portfolio,#about,#process,#testimonials,#packages,#faq{margin:12px 8px;border-radius:22px}
+  body{background:radial-gradient(rgba(45,40,32,.14) .6px,transparent .8px) 0 0/9px 9px,var(--bg)}}
+/* Meniu desktop: lipit sus pe toată lățimea → pill plutitor după scroll */
+.ru-nav-sp{display:none}
+@media(min-width:901px){
+  .ru-nav-sp{display:block;height:64px}
+  nav{position:fixed;top:0;left:0;right:0;margin:0 auto;max-width:100%;
+    transition:max-width .7s cubic-bezier(.22,1,.36,1),top .7s cubic-bezier(.22,1,.36,1),border-radius .7s cubic-bezier(.22,1,.36,1),height .5s cubic-bezier(.22,1,.36,1),padding .7s cubic-bezier(.22,1,.36,1),background .4s ease,box-shadow .5s ease}
+  nav .nav-links a,nav .nav-links .lang-toggle-btn{max-width:200px;overflow:hidden;white-space:nowrap;transition:opacity .3s ease,max-width .5s cubic-bezier(.22,1,.36,1),margin .5s cubic-bezier(.22,1,.36,1)}
+  nav.pill{top:14px;max-width:860px;height:54px;border-radius:999px;padding:0 7px 0 26px;
+    background:rgba(253,250,246,.72)!important;-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2);border:1px solid rgba(255,255,255,.7);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.85),0 2px 6px rgba(45,40,32,.06),0 18px 40px -12px rgba(45,40,32,.22)!important}
+  nav.pill .nav-links{gap:22px}
+  nav.pill .nav-links .nav-x{opacity:0;max-width:0;margin-left:-22px;pointer-events:none}
+  nav.pill .nav-cta{background:#C77936;color:#FDFAF6;padding:9px 18px}
+}
+@media(min-width:901px) and (prefers-reduced-motion:reduce){nav,nav .nav-links a,nav .nav-links .lang-toggle-btn{transition:none}}
+/* Punctele „din spatele” cardurilor bej: estompate, doar ca o umbră a pattern-ului (aliniate din JS) */
+#portfolio,#about,#process,#testimonials,#packages,#faq{background:rgba(245,239,230,.95)!important}
+#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before,#faq::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(circle,rgba(45,40,32,.042) 0,rgba(45,40,32,.023) 1.3px,rgba(45,40,32,.008) 3px,transparent 5px) var(--dx,0) var(--dy,0)/22px 22px;-webkit-mask-image:radial-gradient(ellipse 75% 75% at 50% 50%,rgba(0,0,0,.15) 0%,rgba(0,0,0,.35) 45%,#000 100%);mask-image:radial-gradient(ellipse 75% 75% at 50% 50%,rgba(0,0,0,.15) 0%,rgba(0,0,0,.35) 45%,#000 100%)}
+@media(max-width:600px){#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before,#faq::before{background-size:9px 9px;
+  background-image:radial-gradient(circle,rgba(45,40,32,.042) 0,rgba(45,40,32,.023) .56px,rgba(45,40,32,.008) 1.29px,transparent 2.15px)}}
+/* Contact: card maro mat, opac (fără puncte) */
+#contact{margin:20px clamp(12px,1.6vw,24px);border-radius:clamp(24px,2.4vw,36px);isolation:isolate;background:var(--dark)!important;
+  border:1px solid rgba(255,255,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 1px 2px rgba(45,40,32,.08),0 30px 70px -30px rgba(45,40,32,.45)}
+#contact::before{z-index:-1}
+#contact::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.5;mix-blend-mode:screen;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .9 0 0 0 0 .85 0 0 0 0 .78 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+@media(max-width:600px){#contact{margin:12px 8px;border-radius:22px}}
+/* Pachete: butonul stă între descriere și listă, fără linie despărțitoare; toate butoanele portocalii */
+.pk-card>.pk-cta{margin-top:20px;padding-top:0}
+.pk-card>.pk-list{margin-top:22px;padding-top:0;border-top:0}
+.pk-main .pk-btn{background:var(--brand);color:#FDFAF6;border-color:var(--brand)}
+@media(hover:hover) and (pointer:fine){.pk-main .pk-btn:hover{background:#A8622A;border-color:#A8622A}}
+/* Pe desktop, rândurile cardurilor sunt comune (subgrid): butoanele ajung pe aceeași linie oricât text are descrierea */
+@media(min-width:861px){@supports (grid-template-rows:subgrid){
+  .pk-cards-3>.pk-card{display:grid;grid-row:span 7;grid-template-rows:subgrid;row-gap:0;align-content:start}}}
+/* Invest Premium: card portocaliu, glass mat */
+.pk-card[data-k="premium"]{isolation:isolate;overflow:clip;
+  background:radial-gradient(ellipse 120% 80% at 20% 0%,rgba(255,255,255,.16),transparent 60%),#C77936;border:1px solid rgba(255,255,255,.25);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 2px 6px rgba(199,121,54,.18),0 24px 50px -18px rgba(199,121,54,.5)}
+.pk-card[data-k="premium"]::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.6;mix-blend-mode:soft-light;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.pk-card[data-k="premium"] :is(.pk-name,.pk-price,.pk-price b,.pk-all summary,.pk-calc summary,h4,h4 a,.pk-cta p){color:#FDFAF6}
+.pk-card[data-k="premium"] :is(.pk-flag,.pk-desc,.pk-li,.pk-price small,.pk-calc,.pk-calc b){color:rgba(253,250,246,.85)}
+.pk-lead{font-size:14px;font-weight:500;line-height:1.5;color:var(--text)}
+.pk-card[data-k="premium"] .pk-lead{color:#FDFAF6}
+.pk-card[data-k="premium"] .pk-li::before{background:rgba(253,250,246,.6)}
+.pk-card[data-k="premium"] .pk-list{border-top-color:rgba(253,250,246,.3)}
+.pk-card[data-k="premium"] .pk-list h4 a{border-bottom-color:rgba(253,250,246,.5)}
+.pk-card[data-k="premium"] :is(.pk-all,.pk-calc) summary::after{color:#FDFAF6}
+.pk-card[data-k="premium"] .pk-btn{background:#FDFAF6;color:#A8622A;border-color:#FDFAF6}
+@media(hover:hover) and (pointer:fine){.pk-card[data-k="premium"] .pk-btn:hover{background:#2D2820;color:#FDFAF6;border-color:#2D2820}}
+.pk-card[data-k="premium"] .pk-btn:active{background:#2D2820;color:#FDFAF6}
+.pk-card[data-k="premium"] .pk-btn:focus-visible{outline-color:#FDFAF6}
 </style>
 </head>
 <body>
@@ -1280,6 +1345,7 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
   <a href="faq.html">FAQ</a>
   <a href="/#contact">Contact</a>
 </div>
+<div class="ru-nav-sp" aria-hidden="true"></div>
 
 <main id="main-content">
 <!-- S1 HERO -->
@@ -1550,6 +1616,11 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
 .rkt-shot img{width:100%;height:auto;display:block}
 @media(max-width:900px){.rkt-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){#rental-kit-teaser{padding:56px 16px 0}.rkt-head{margin-bottom:32px}.rkt-grid{grid-template-columns:1fr}.rkt-c{flex-direction:row;padding:20px}.rkt-cta{margin:32px 0 40px}}
+/* Placeholder temporar în locul pozei Rental Kit */
+.rkt-ph{max-width:560px;margin:0 auto 80px;text-align:center}
+.rkt-ph-t{font-size:clamp(18px,2.2vw,22px);font-weight:500;letter-spacing:-.01em;color:var(--text);margin:0}
+.rkt-ph-n{margin:12px 0 0;font-size:15px;line-height:1.7;color:var(--muted);text-wrap:balance}
+@media(max-width:600px){.rkt-ph{margin-bottom:56px}}
 </style>
   <div class="rkt-head">
     <div class="sec-tag"><div class="dot"></div>Rental Kit</div>
@@ -1565,7 +1636,13 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
     <div class="rkt-c"><div class="rkt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8a2 2 0 0 1 2-2h2l2-2h6l2 2h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="3.5"/></svg></div><div><h3>Predare documentată</h3><p>Proces verbal foto și inventar detaliat.</p></div></div>
   </div>
   <div class="rkt-cta"><a href="rental-kit.html" class="btn-primary">Descoperă Rental Kit<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
+  <!-- POZA RENTAL KIT (de pus înapoi când e gata designul):
   <div class="rkt-shot"><img src="RENTALKIT_MOCKUP_2.webp" srcset="images/rentalkit-mockup-800.webp 800w, images/rentalkit-mockup-1200.webp 1200w, RENTALKIT_MOCKUP_2.webp 2000w" sizes="(max-width:900px) 100vw, 50vw" width="2000" height="1252" loading="lazy" decoding="async" alt="Rental Kit, sistem complet pentru proprietari"></div>
+  -->
+  <div class="rkt-ph">
+    <p class="rkt-ph-t">[ placeholder poză Rental Kit ]</p>
+    <p class="rkt-ph-n">Cristiana încă lucrează la design în Photoshop. Până atunci, imaginează-ți ceva foarte frumos și foarte profesional.</p>
+  </div>
 </section>
 
 <!-- S7 TESTIMONIALS -->
@@ -1650,19 +1727,20 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         <div class="pk-top"><div class="pk-name">Design de Interior</div></div>
         <div class="pk-price"><b>25€/m²</b><small>minim 800€</small></div>
         <p class="pk-desc">Doar proiectul de design, fără Rental Kit. Implementezi și gestionezi restul singur.</p>
+        <div class="pk-cta"><a class="pk-btn" href="https://wa.me/40741176865" onclick="gtag('event','click_whatsapp')">Scrie-ne pe WhatsApp<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
         <div class="pk-list">
           <div class="pk-li">Plan 2D amenajare + moodboard</div>
           <div class="pk-li">1–2 randări per cameră</div>
           <div class="pk-li">Planșe tehnice pentru mobilier la comandă</div>
           <div class="pk-li">Listă de achiziții, buget și furnizori</div>
         </div>
-        <div class="pk-cta"><a class="pk-btn" href="https://wa.me/40741176865" onclick="gtag('event','click_whatsapp')">Scrie-ne pe WhatsApp<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a><p>Primești un ghid în 24h cu pașii următori.</p></div>
       </div>
 
       <div class="pk-card" data-k="quick" id="quick-win">
         <div class="pk-top"><div class="pk-name">Quick Win</div><div class="pk-flag pk-flag-g">Mobilare accesibilă</div></div>
         <div class="pk-price"><b>30€/m²</b><small>minim 1.000€</small></div>
         <p class="pk-desc">Design + Rental Kit, pe un buget mai mic. Se potrivește dacă finisajele sunt estetice și în stare bună sau dacă bucătăria e deja utilată.</p>
+        <div class="pk-cta"><a class="pk-btn" href="https://wa.me/40741176865" onclick="gtag('event','click_whatsapp')">Scrie-ne pe WhatsApp<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
         <div class="pk-list">
           <div class="pk-li">Schițe 3D</div>
           <div class="pk-li">Selecție chiriaș + contract personalizat</div>
@@ -1683,18 +1761,18 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
           <div class="pk-li">Prezentare profesională a apartamentului</div>
         </div>
         </details>
-        <div class="pk-cta"><a class="pk-btn" href="https://wa.me/40741176865" onclick="gtag('event','click_whatsapp')">Scrie-ne pe WhatsApp<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a><p>Primești un ghid în 24h cu pașii următori.</p></div>
       </div>
 
       <div class="pk-card" data-k="premium">
         <div class="pk-top"><div class="pk-name">Invest Premium</div><div class="pk-flag">Cu implementare</div></div>
         <div class="pk-price"><b>50€/m²</b><small>minim 2.000€</small></div>
         <p class="pk-desc">Renovare, finisaje și mobilier custom, de la concept la primul chiriaș semnat.</p>
+        <div class="pk-cta"><a class="pk-btn" href="https://wa.me/40741176865" onclick="gtag('event','click_whatsapp')">Scrie-ne pe WhatsApp<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
         <div class="pk-list">
+          <div class="pk-lead">Tot ce include Quick Win, plus:</div>
           <div class="pk-li">Randări complete per cameră</div>
           <div class="pk-li">Documentație mobilier custom</div>
           <div class="pk-li">Contractare, coordonare echipe și logistică achiziții</div>
-          <div class="pk-li">Asistență permanentă pe toată durata implementării</div>
         </div>
         <details class="pk-all"><summary>Vezi tot ce include</summary>
         <div class="pk-list">
@@ -1715,7 +1793,6 @@ input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shado
         </div>
         </details>
         <details class="pk-calc"><summary>Ce se adaugă la onorariu</summary><div class="pk-calc-r"><span>Coordonare execuție</span><b>10% din lucrări</b></div><div class="pk-calc-r"><span>Mobilier și materiale</span><b>preț de magazin, fără adaos</b></div><div class="pk-calc-r"><span>Lucrări de construcții</span><b>deviz de la echipă</b></div></details>
-        <div class="pk-cta"><a class="pk-btn" href="https://wa.me/40741176865" onclick="gtag('event','click_whatsapp')">Scrie-ne pe WhatsApp<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a><p>Primești un ghid în 24h cu pașii următori.</p></div>
       </div>
   </div>
 </div>
@@ -2066,5 +2143,21 @@ input[type=range]::-webkit-slider-thumb{transition:transform 120ms cubic-bezier(
 @media(hover:none){.tt-i{color:#C77936}}
 @media(prefers-reduced-motion:reduce){.tt-r .tt-iw .tt-tip{transition:none!important;transform:none!important}}</style>
 <script>document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.tt-i');document.querySelectorAll('.tt-iw.open').forEach(function(w){if(!b||w!==b.parentNode){w.classList.remove('open');w.firstChild.setAttribute('aria-expanded','false');}});if(b){var w=b.parentNode,o=w.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');}});document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.tt-iw.open').forEach(function(w){w.classList.remove('open');});});</script>
+<script>
+/* Meniu pill la scroll (desktop) + alinierea punctelor din carduri cu cele din pagină */
+(function(){
+  var nav=document.querySelector('nav');if(!nav)return;
+  nav.querySelectorAll('.nav-links a,.nav-links .lang-toggle-btn').forEach(function(el){
+    var t=(el.textContent||'').trim();if(t==='Rental Kit'||t==='FAQ'||el.classList.contains('lang-toggle-btn'))el.classList.add('nav-x');});
+  var on=false;
+  function upd(){var y=window.scrollY;if(!on&&y>80){on=true;nav.classList.add('pill')}else if(on&&y<24){on=false;nav.classList.remove('pill')}}
+  window.addEventListener('scroll',upd,{passive:true});upd();
+  var cards=document.querySelectorAll('#portfolio,#about,#process,#testimonials,#packages,#faq');
+  function al(){var g=window.innerWidth<=600?9:22;cards.forEach(function(s){var r=s.getBoundingClientRect(),x=r.left+window.scrollX+1,y=r.top+window.scrollY+1;
+    s.style.setProperty('--dx',(-(x%g))+'px');s.style.setProperty('--dy',(-(y%g))+'px');});}
+  al();window.addEventListener('load',al);
+  if('ResizeObserver'in window)new ResizeObserver(function(){requestAnimationFrame(al)}).observe(document.body);else window.addEventListener('resize',al);
+})();
+</script>
 </body>
 </html>
