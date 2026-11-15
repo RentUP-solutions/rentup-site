@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
+<style id="ru-motion">/* Sistemul de mișcare RentUP: aceleași curbe și durate pe tot site-ul */:root{--ease-out:cubic-bezier(0.23,1,0.32,1);--ease-in-out:cubic-bezier(0.77,0,0.175,1);--ease-pop:cubic-bezier(0.34,1.4,0.64,1);--d-press:160ms;--d-fast:200ms;--d-ui:260ms;--d-move:420ms;--d-hover:400ms;--d-reveal:620ms}/* Trecerea între pagini: crossfade scurt; meniul rămâne pe loc (browserele fără suport încarcă normal) */@view-transition{navigation:auto}::view-transition-old(root),::view-transition-new(root){animation-duration:var(--d-ui);animation-timing-function:var(--ease-out)}::view-transition-group(ru-nav){animation-duration:var(--d-ui);animation-timing-function:var(--ease-out)}nav{view-transition-name:ru-nav}/* Mișcare redusă: fără deplasări și bucle; rămân doar estompările scurte care ajută la înțelegere */@media (prefers-reduced-motion:reduce){@view-transition{navigation:none}*,*::before,*::after{animation-duration:1ms!important;animation-delay:0s!important;animation-iteration-count:1!important;scroll-behavior:auto!important}.sr{transform:none!important;filter:none!important;transition:opacity 200ms ease-out!important}}</style>
 <meta charset="UTF-8">
 <!-- Consimțământ cookies (Legea 506/2004 + GDPR): Google Analytics, Google Ads,
      Clarity și AdSense se încarcă DOAR după „Accept” în banner. Consent Mode v2
@@ -136,13 +137,13 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .nav-cta:hover{background:#FAF4EB}
 @media(max-width:768px){nav{padding:0 20px}
 .nav-links{display:none}}
-body{opacity:0.01;transition:opacity .46s cubic-bezier(0.23,1,0.32,1)}
+body{opacity:0.01;transition:opacity .46s var(--ease-out)}
 img{-webkit-user-drag:none;user-drag:none}
-.nav-mobile{display:flex;position:fixed;top:64px;left:0;right:0;background:rgba(253,250,246,.98);border-bottom:.5px solid #EDE5D8;padding:16px 20px;flex-direction:column;gap:4px;z-index:99;overscroll-behavior:contain;opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity 260ms cubic-bezier(0.23,1,0.32,1),transform 260ms cubic-bezier(0.23,1,0.32,1),visibility 0s linear 260ms}
+.nav-mobile{display:flex;position:fixed;top:64px;left:0;right:0;background:rgba(253,250,246,.98);border-bottom:.5px solid #EDE5D8;padding:16px 20px;flex-direction:column;gap:4px;z-index:99;overscroll-behavior:contain;opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity 260ms var(--ease-out),transform 260ms var(--ease-out),visibility 0s linear 260ms}
 .nav-mobile a{font-family:'General Sans',sans-serif;font-size:15px;color:var(--muted);text-decoration:none;padding:12px 0;border-bottom:.5px solid #EDE5D8;display:block;transition:color 150ms ease-out}
 .nav-mobile a:last-child{border-bottom:none}
 .nav-mobile a:active{color:var(--brand)}
-.nav-mobile.open{opacity:1;visibility:visible;transform:none;transition:opacity 260ms cubic-bezier(0.23,1,0.32,1),transform 260ms cubic-bezier(0.23,1,0.32,1),visibility 0s linear 0s}
+.nav-mobile.open{opacity:1;visibility:visible;transform:none;transition:opacity 260ms var(--ease-out),transform 260ms var(--ease-out),visibility 0s linear 0s}
 .nav-hamburger{display:none}
 @media(max-width:768px){.nav-links{display:none}
 .nav-hamburger{display:flex}
@@ -150,10 +151,10 @@ img{-webkit-user-drag:none;user-drag:none}
 @keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.7)}}
 @keyframes hdrIn{from{opacity:0;transform:translateY(18px) scale(0.977);filter:blur(5px)}to{opacity:1;transform:none;filter:none}}
 .nav-links a{position:relative}
-.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--brand);transform:scaleX(0);transform-origin:right;transition:transform 270ms cubic-bezier(0.23,1,0.32,1)}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--brand);transform:scaleX(0);transform-origin:right;transition:transform 270ms var(--ease-out)}
 .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);transform-origin:left}
-.sr{opacity:0;transform:translateY(20px) scale(0.987);will-change:transform,opacity;transition:opacity 560ms cubic-bezier(0.23,1,0.32,1),transform 560ms cubic-bezier(0.23,1,0.32,1)}
-.sr.in{opacity:1;transform:none;will-change:auto}
+.sr{opacity:0;transform:translateY(20px) scale(0.987);transition:opacity 560ms var(--ease-out),transform 560ms var(--ease-out)}
+.sr.in{opacity:1;transform:none}
 .skip-link{position:absolute;left:-9999px;top:4px;z-index:9999;background:var(--bg);color:var(--brand);padding:8px 18px;border-radius:0 0 8px 8px;font-size:14px;font-weight:500;border:1px solid var(--brand-border);text-decoration:none}
 .skip-link:focus{left:4px}
 .nav-cta:focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:100px}
@@ -162,7 +163,7 @@ img{-webkit-user-drag:none;user-drag:none}
 button,a{touch-action:manipulation}
 
 /* ── FAQ (redesign 2026-10) ── */
-:root{--ease:cubic-bezier(0.23,1,0.32,1)}
+:root{--ease:var(--ease-out)}
 body{overflow-x:clip}
 .fq{line-height:1.6}
 .fq .wrap{max-width:1120px;margin:0 auto;padding:0 clamp(16px,5vw,56px)}
@@ -527,8 +528,8 @@ body{overflow-x:clip}
 .lang-toggle-btn:focus-visible{outline:2px solid #C77936;outline-offset:3px;border-radius:100px}
 .lang-mob{display:none!important}
 @media(max-width:768px){.lang-mob{display:inline-flex!important;margin-left:auto;margin-right:2px}.lang-mob+#nav-hamburger{margin-left:0!important}}
-#nav-hamburger span{border-radius:2px;transition:translate 180ms cubic-bezier(0.23,1,0.32,1) 160ms,rotate 220ms cubic-bezier(0.23,1,0.32,1) 0ms,opacity 120ms ease 140ms}
-#nav-hamburger[aria-expanded="true"] span{transition:translate 180ms cubic-bezier(0.23,1,0.32,1) 0ms,rotate 260ms cubic-bezier(0.34,1.4,0.64,1) 170ms,opacity 120ms ease 60ms}
+#nav-hamburger span{border-radius:2px;transition:translate 180ms var(--ease-out) 160ms,rotate 220ms var(--ease-out) 0ms,opacity 120ms ease 140ms}
+#nav-hamburger[aria-expanded="true"] span{transition:translate 180ms var(--ease-out) 0ms,rotate 260ms var(--ease-pop) 170ms,opacity 120ms ease 60ms}
 #nav-hamburger[aria-expanded="true"] span:nth-child(1){translate:0 7px;rotate:45deg}
 #nav-hamburger[aria-expanded="true"] span:nth-child(2){opacity:0}
 #nav-hamburger[aria-expanded="true"] span:nth-child(3){translate:0 -7px;rotate:-45deg}
@@ -541,6 +542,10 @@ body{overflow-x:clip}
 </style>
 <style id="ru-nav-t">@media(min-width:769px) and (max-width:1100px){nav{padding:0 24px}.nav-links{gap:18px}.nav-cta{padding:8px 14px}}</style>
 <style id="ru-ar">.ar{display:inline-block;width:1em;height:1em;margin-left:.35em;vertical-align:-.14em;flex-shrink:0}.ar-l{margin-left:0;margin-right:.35em}.ar-m{margin:0 .3em}</style>
+<style id="ru-ft-cont">/* Footer: punctele din pagină continuă în el și se sting treptat în jos (fără pauză), ca pe homepage */footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%)!important}footer.ru-ft::before{display:none}</style>
+<style id="ru-nodots">/* Telefon: fără punctele de fundal (desktopul și tableta le păstrează) */@media(max-width:600px){body{background-image:none!important}body::before,.ru-ft::before,.audit-hero::before,#hero::before,#calc::before,#rental-kit-teaser::before,#instagram::before,#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before,#faq::before{background-image:none!important}}</style>
+<style id="fq-chips">/* Categoriile (telefon/tabletă): albe cu contur și text mai închis; banda lor acoperă conținutul de dedesubt, ca să nu se mai vadă printre meniu și categorii */@media(max-width:860px){.fq-side a{background:#fff!important;border:1px solid rgba(45,40,32,.10)!important;color:#5A4F44!important;box-shadow:0 1px 2px rgba(45,40,32,.06)!important}.fq-side a.on{background:#2D2820!important;color:#FDFAF6!important;border-color:#2D2820!important}.fq-side{background:linear-gradient(180deg,rgba(253,250,246,.97) 0,rgba(253,250,246,.97) 60%,rgba(253,250,246,0) 100%)!important;box-shadow:0 -70px 0 0 rgba(253,250,246,.97)!important}}</style>
+<style id="fq-side-d">/* Categoriile pe desktop: același stil ca pe telefon (albe cu contur, cea selectată maro închis) */@media(min-width:861px){.fq-side{gap:6px}.fq-side a{background:#fff;border:1px solid rgba(45,40,32,.10);color:#5A4F44;box-shadow:0 1px 2px rgba(45,40,32,.06);border-radius:12px}.fq-side a small{color:#8A7E72}.fq-side a.on{background:#2D2820;color:#FDFAF6;border-color:#2D2820;box-shadow:0 2px 6px rgba(45,40,32,.12),0 10px 24px -10px rgba(45,40,32,.35)}.fq-side a.on small{color:#E0A36B}@media(hover:hover){.fq-side a:not(.on):hover{border-color:rgba(45,40,32,.22);color:#2D2820}}}</style>
 </head>
 <body>
 <noscript><style>body{opacity:1}</style></noscript>
@@ -963,7 +968,7 @@ document.addEventListener('click',function(e){
   if(!href||href.startsWith('#')||href.startsWith('http')||href.startsWith('mailto')||href.startsWith('tel')) return;
   if(a.target==='_blank') return;
   e.preventDefault();
-  document.body.style.transition='opacity .46s cubic-bezier(0.23,1,0.32,1)';
+  document.body.style.transition='opacity .46s var(--ease-out)';
   document.body.style.opacity='0';
   setTimeout(function(){ window.location.href=href; },470);
 });
@@ -1090,6 +1095,6 @@ if(!localStorage.getItem('cookieConsent')){
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
 })();
 </script>
-<script src="/navpill.js" defer></script>
+<script src="/navpill.js?v=20261115c" defer></script>
 </body>
 </html>

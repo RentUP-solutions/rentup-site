@@ -74,8 +74,8 @@ function calc(){
   document.getElementById('g-nb').textContent=fmt(netBad);
   document.getElementById('g-ng').textContent=fmt(netGood);
   const max=Math.max(netBad,netGood,1);
-  document.getElementById('g-fb').style.width=Math.max(0,netBad/max*100)+'%';
-  document.getElementById('g-fg').style.width=Math.max(0,netGood/max*100)+'%';
+  document.getElementById('g-fb').style.transform='translateX('+(Math.min(100,Math.max(0,netBad/max*100))-100)+'%)';
+  document.getElementById('g-fg').style.transform='translateX('+(Math.min(100,Math.max(0,netGood/max*100))-100)+'%)';
   const vacR=Math.round(vacN*10)/10;
   document.getElementById('g-src').innerHTML=rowsHtml([
     [(en?'Empty months avoided':'Luni goale evitate')+' <span>('+vacR+' × '+fmt(rent)+')</span>','+'+fmt(fromVac)],

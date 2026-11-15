@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
+<style id="ru-motion">/* Sistemul de mișcare RentUP: aceleași curbe și durate pe tot site-ul */:root{--ease-out:cubic-bezier(0.23,1,0.32,1);--ease-in-out:cubic-bezier(0.77,0,0.175,1);--ease-pop:cubic-bezier(0.34,1.4,0.64,1);--d-press:160ms;--d-fast:200ms;--d-ui:260ms;--d-move:420ms;--d-hover:400ms;--d-reveal:620ms}/* Trecerea între pagini: crossfade scurt; meniul rămâne pe loc (browserele fără suport încarcă normal) */@view-transition{navigation:auto}::view-transition-old(root),::view-transition-new(root){animation-duration:var(--d-ui);animation-timing-function:var(--ease-out)}::view-transition-group(ru-nav){animation-duration:var(--d-ui);animation-timing-function:var(--ease-out)}nav{view-transition-name:ru-nav}/* Mișcare redusă: fără deplasări și bucle; rămân doar estompările scurte care ajută la înțelegere */@media (prefers-reduced-motion:reduce){@view-transition{navigation:none}*,*::before,*::after{animation-duration:1ms!important;animation-delay:0s!important;animation-iteration-count:1!important;scroll-behavior:auto!important}.sr{transform:none!important;filter:none!important;transition:opacity 200ms ease-out!important}}</style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">

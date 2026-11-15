@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
+<style id="ru-motion">/* Sistemul de mișcare RentUP: aceleași curbe și durate pe tot site-ul */:root{--ease-out:cubic-bezier(0.23,1,0.32,1);--ease-in-out:cubic-bezier(0.77,0,0.175,1);--ease-pop:cubic-bezier(0.34,1.4,0.64,1);--d-press:160ms;--d-fast:200ms;--d-ui:260ms;--d-move:420ms;--d-hover:400ms;--d-reveal:620ms}/* Trecerea între pagini: crossfade scurt; meniul rămâne pe loc (browserele fără suport încarcă normal) */@view-transition{navigation:auto}::view-transition-old(root),::view-transition-new(root){animation-duration:var(--d-ui);animation-timing-function:var(--ease-out)}::view-transition-group(ru-nav){animation-duration:var(--d-ui);animation-timing-function:var(--ease-out)}nav{view-transition-name:ru-nav}/* Mișcare redusă: fără deplasări și bucle; rămân doar estompările scurte care ajută la înțelegere */@media (prefers-reduced-motion:reduce){@view-transition{navigation:none}*,*::before,*::after{animation-duration:1ms!important;animation-delay:0s!important;animation-iteration-count:1!important;scroll-behavior:auto!important}.sr{transform:none!important;filter:none!important;transition:opacity 200ms ease-out!important}}</style>
 <meta charset="UTF-8">
 <!-- Consimțământ cookies (Legea 506/2004 + GDPR): Google Analytics, Google Ads,
      Clarity și AdSense se încarcă DOAR după „Accept” în banner. Consent Mode v2
@@ -189,24 +190,24 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .nav-cta:hover{background:#FAF4EB}
 @media(max-width:768px){nav{padding:0 20px}
 .nav-links{display:none}}
-body{opacity:0.01;transition:opacity .46s cubic-bezier(0.23,1,0.32,1)}
+body{opacity:0.01;transition:opacity .46s var(--ease-out)}
 img{-webkit-user-drag:none;user-drag:none}
 @keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.7)}}
 @keyframes hdrIn{from{opacity:0;transform:translateY(18px) scale(0.977);filter:blur(5px)}to{opacity:1;transform:none;filter:none}}
 .nav-links a{position:relative}
-.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--brand);transform:scaleX(0);transform-origin:right;transition:transform 270ms cubic-bezier(0.23,1,0.32,1)}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--brand);transform:scaleX(0);transform-origin:right;transition:transform 270ms var(--ease-out)}
 .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);transform-origin:left}
-.sr{opacity:0;transform:translateY(22px) scale(0.98);filter:blur(4px);will-change:transform,opacity,filter;transition:opacity 580ms cubic-bezier(0.23,1,0.32,1),transform 580ms cubic-bezier(0.23,1,0.32,1),filter 460ms ease}
-.sr.in{opacity:1;transform:none;filter:none;will-change:auto}
+.sr{opacity:0;transform:translateY(22px) scale(0.98);filter:blur(4px);transition:opacity 580ms var(--ease-out),transform 580ms var(--ease-out),filter 460ms ease}
+.sr.in{opacity:1;transform:none;filter:none}
 @media(max-width:600px){.sr{filter:none}
 .sr.in{filter:none}}
-.doc-frame{transition:transform 280ms cubic-bezier(0.23,1,0.32,1),box-shadow 280ms cubic-bezier(0.23,1,0.32,1)}
-.doc-frame.jstilt{transition:box-shadow 280ms cubic-bezier(0.23,1,0.32,1),transform 0s}
-.nav-mobile{display:flex;position:fixed;top:64px;left:0;right:0;background:rgba(253,250,246,.98);border-bottom:.5px solid #EDE5D8;padding:16px 20px;flex-direction:column;gap:4px;z-index:99;overscroll-behavior:contain;opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity 260ms cubic-bezier(0.23,1,0.32,1),transform 260ms cubic-bezier(0.23,1,0.32,1),visibility 0s linear 260ms}
+.doc-frame{transition:transform 280ms var(--ease-out),box-shadow 280ms var(--ease-out)}
+.doc-frame.jstilt{transition:box-shadow 280ms var(--ease-out),transform 0s}
+.nav-mobile{display:flex;position:fixed;top:64px;left:0;right:0;background:rgba(253,250,246,.98);border-bottom:.5px solid #EDE5D8;padding:16px 20px;flex-direction:column;gap:4px;z-index:99;overscroll-behavior:contain;opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity 260ms var(--ease-out),transform 260ms var(--ease-out),visibility 0s linear 260ms}
 .nav-mobile a{font-family:'General Sans',sans-serif;font-size:15px;color:var(--muted);text-decoration:none;padding:12px 0;border-bottom:.5px solid #EDE5D8;display:block;transition:color 150ms ease-out}
 .nav-mobile a:last-child{border-bottom:none}
 .nav-mobile a:active{color:var(--brand)}
-.nav-mobile.open{opacity:1;visibility:visible;transform:none;transition:opacity 260ms cubic-bezier(0.23,1,0.32,1),transform 260ms cubic-bezier(0.23,1,0.32,1),visibility 0s linear 0s}
+.nav-mobile.open{opacity:1;visibility:visible;transform:none;transition:opacity 260ms var(--ease-out),transform 260ms var(--ease-out),visibility 0s linear 0s}
 .nav-hamburger{display:none}
 @media(max-width:768px){.nav-links{display:none}
 .nav-hamburger{display:flex}
@@ -218,7 +219,7 @@ img{-webkit-user-drag:none;user-drag:none}
 #btt:focus-visible{outline:2px solid var(--brand);outline-offset:4px}
 button,a{touch-action:manipulation}
 .doc-frame{cursor:zoom-in}
-.doc-modal-backdrop{position:fixed;inset:0;background:rgba(45,40,32,.4);backdrop-filter:blur(2px);opacity:0;transition:opacity 380ms cubic-bezier(0.23,1,0.32,1);z-index:1000;cursor:zoom-out}
+.doc-modal-backdrop{position:fixed;inset:0;background:rgba(45,40,32,.4);backdrop-filter:blur(2px);opacity:0;transition:opacity 380ms var(--ease-out);z-index:1000;cursor:zoom-out}
 .doc-modal-clone{position:fixed;z-index:1001;will-change:transform;cursor:zoom-out;box-shadow:0 30px 90px rgba(45,40,32,.28)}
 .doc-modal-clone .doc-frame{cursor:zoom-out}
 .doc-modal-close{position:absolute;top:14px;left:14px;width:30px;height:30px;border-radius:100px;background:rgba(45,40,32,.5);color:#fff;border:none;font-size:16px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 220ms ease,background 150ms ease;z-index:2}
@@ -226,7 +227,7 @@ button,a{touch-action:manipulation}
 .doc-modal-close:hover{background:rgba(45,40,32,.75)}
 
 /* ── RENTAL KIT (redesign 2026-10) ── */
-:root{--alert:#A32D2D;--alert-bg:#FCEBEB;--ease:cubic-bezier(0.23,1,0.32,1)}
+:root{--alert:#A32D2D;--alert-bg:#FCEBEB;--ease:var(--ease-out)}
 body{overflow-x:clip}
 .rk{line-height:1.6}
 .rk a{color:inherit}
@@ -288,15 +289,15 @@ body{overflow-x:clip}
 .rk-split ul{list-style:none;margin-top:24px;display:grid;gap:10px}
 .rk-split li{font-size:14px;line-height:1.6;padding-left:22px;position:relative}
 .rk-split .a li{color:var(--mid)}
-.rk-split li::before{content:"";position:absolute;left:1px;top:calc(.8em - 4px);width:8px;height:8px;border-radius:50%;background:var(--brand);animation:rkBul 3.6s cubic-bezier(0.23,1,0.32,1) infinite}
+.rk-split li::before{content:"";position:absolute;left:1px;top:calc(.8em - 4px);width:8px;height:8px;border-radius:50%;background:var(--brand);animation:rkBul 3.6s var(--ease-out) infinite}
 .rk-split .a li:nth-child(2)::before{animation-delay:.6s}.rk-split .a li:nth-child(3)::before{animation-delay:1.2s}
 .rk-split .b li:nth-child(1)::before{animation-delay:1.8s}.rk-split .b li:nth-child(2)::before{animation-delay:2.4s}.rk-split .b li:nth-child(3)::before{animation-delay:3s}
 /* Rental Kit: lista apare pe rând, cu bifă care se desenează, după ce blocul intră în ecran (.sr.in) */
-.rk-split .b li{padding-left:30px;opacity:0;transform:translateY(8px);transition:opacity 500ms cubic-bezier(0.23,1,0.32,1),transform 500ms cubic-bezier(0.23,1,0.32,1)}
+.rk-split .b li{padding-left:30px;opacity:0;transform:translateY(8px);transition:opacity 500ms var(--ease-out),transform 500ms var(--ease-out)}
 .rk-split .b li::before{display:none}
 .rk-split .b li svg{position:absolute;left:0;top:calc(.8em - 9px);width:18px;height:18px}
 .rk-split .b li svg circle{fill:#FAF4EB;stroke:var(--brand);stroke-width:1.2}
-.rk-split .b li svg path{fill:none;stroke:var(--brand);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:12;stroke-dashoffset:12;transition:stroke-dashoffset 420ms cubic-bezier(0.23,1,0.32,1)}
+.rk-split .b li svg path{fill:none;stroke:var(--brand);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:12;stroke-dashoffset:12;transition:stroke-dashoffset 420ms var(--ease-out)}
 .rk-split.in .b li{opacity:1;transform:none}
 .rk-split.in .b li svg path{stroke-dashoffset:0}
 .rk-split.in .b li:nth-child(1){transition-delay:450ms}.rk-split.in .b li:nth-child(1) svg path{transition-delay:750ms}
@@ -355,7 +356,7 @@ body{overflow-x:clip}
 .rk-tl-pt{position:relative;padding-left:26px}
 .rk-tl-pt .h{display:flex;align-items:center;gap:12px;min-height:20px}
 .rk-tl-pt .h i{flex:1;height:1px;background:#5A4D40;margin-right:-8px}
-.rk-tl-pt::before{content:"";position:absolute;left:0;top:3px;width:14px;height:14px;border-radius:50%;background:var(--brand);animation:rkDot 2.4s cubic-bezier(0.23,1,0.32,1) infinite}
+.rk-tl-pt::before{content:"";position:absolute;left:0;top:3px;width:14px;height:14px;border-radius:50%;background:var(--brand);animation:rkDot 2.4s var(--ease-out) infinite}
 .rk-tl-pt:nth-child(2)::before{animation-delay:.8s}
 .rk-tl-pt:nth-child(3)::before{animation-delay:1.6s}
 /* legătura merge doar până la bulina următoare */
@@ -451,8 +452,8 @@ body{overflow-x:clip}
 .lang-toggle-btn:focus-visible{outline:2px solid #C77936;outline-offset:3px;border-radius:100px}
 .lang-mob{display:none!important}
 @media(max-width:768px){.lang-mob{display:inline-flex!important;margin-left:auto;margin-right:2px}.lang-mob+#nav-hamburger{margin-left:0!important}}
-#nav-hamburger span{border-radius:2px;transition:translate 180ms cubic-bezier(0.23,1,0.32,1) 160ms,rotate 220ms cubic-bezier(0.23,1,0.32,1) 0ms,opacity 120ms ease 140ms}
-#nav-hamburger[aria-expanded="true"] span{transition:translate 180ms cubic-bezier(0.23,1,0.32,1) 0ms,rotate 260ms cubic-bezier(0.34,1.4,0.64,1) 170ms,opacity 120ms ease 60ms}
+#nav-hamburger span{border-radius:2px;transition:translate 180ms var(--ease-out) 160ms,rotate 220ms var(--ease-out) 0ms,opacity 120ms ease 140ms}
+#nav-hamburger[aria-expanded="true"] span{transition:translate 180ms var(--ease-out) 0ms,rotate 260ms var(--ease-pop) 170ms,opacity 120ms ease 60ms}
 #nav-hamburger[aria-expanded="true"] span:nth-child(1){translate:0 7px;rotate:45deg}
 #nav-hamburger[aria-expanded="true"] span:nth-child(2){opacity:0}
 #nav-hamburger[aria-expanded="true"] span:nth-child(3){translate:0 -7px;rotate:-45deg}
@@ -465,6 +466,9 @@ body{overflow-x:clip}
 </style>
 <style id="ru-nav-t">@media(min-width:769px) and (max-width:1100px){nav{padding:0 24px}.nav-links{gap:18px}.nav-cta{padding:8px 14px}}</style>
 <style id="ru-ar">.ar{display:inline-block;width:1em;height:1em;margin-left:.35em;vertical-align:-.14em;flex-shrink:0}.ar-l{margin-left:0;margin-right:.35em}.ar-m{margin:0 .3em}</style>
+<style id="ru-ft-cont">/* Footer: punctele din pagină continuă în el și se sting treptat în jos (fără pauză), ca pe homepage */footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%)!important}footer.ru-ft::before{display:none}</style>
+<style id="rk-nosee">/* Telefon: fără „Primește tot kitul → contactează-ne” pe cele două ghiduri din hero */@media(max-width:860px){.blur-overlay .see-more{display:none}}</style>
+<style id="ru-nodots">/* Telefon: fără punctele de fundal (desktopul și tableta le păstrează) */@media(max-width:600px){body{background-image:none!important}body::before,.ru-ft::before,.audit-hero::before,#hero::before,#calc::before,#rental-kit-teaser::before,#instagram::before,#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before,#faq::before{background-image:none!important}}</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Sari la conținut</a>
@@ -814,7 +818,7 @@ document.addEventListener('click',function(e){
   if(!href||href.startsWith('#')||href.startsWith('http')||href.startsWith('mailto')||href.startsWith('tel')) return;
   if(a.target==='_blank') return;
   e.preventDefault();
-  document.body.style.transition='opacity .46s cubic-bezier(0.23,1,0.32,1)';
+  document.body.style.transition='opacity .46s var(--ease-out)';
   document.body.style.opacity='0';
   setTimeout(function(){ window.location.href=href; },470);
 });
@@ -851,16 +855,16 @@ document.addEventListener('click',function(e){
 #wa-box{width:300px;border:none;border-radius:20px;box-shadow:0 16px 48px rgba(45,40,32,.18);padding:8px}
 #wa-head{border-bottom:none;padding:14px 12px 10px 14px}
 #wa-title{font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--light)}
-#wa-close{width:30px;height:30px;border-radius:50%;background:#F5EFE6;color:#7A6E62;font-size:18px;transition:background 180ms cubic-bezier(0.23,1,0.32,1)}
+#wa-close{width:30px;height:30px;border-radius:50%;background:#F5EFE6;color:#7A6E62;font-size:18px;transition:background 180ms var(--ease-out)}
 #wa-close:hover{background:#EDE5D8;color:#2D2820}
 #wa-opts{display:grid;gap:2px}
-.wa-opt{border-bottom:none;border-radius:12px;padding:12px 14px;font-size:14px;transition:background 180ms cubic-bezier(0.23,1,0.32,1)}
+.wa-opt{border-bottom:none;border-radius:12px;padding:12px 14px;font-size:14px;transition:background 180ms var(--ease-out)}
 .wa-opt:hover{background:#F5EFE6}
 #wa-custom-wrap{border-top:none;margin-top:6px;padding:12px 6px 6px;background:none}
 #wa-custom-lbl{font-size:14px;color:var(--light);margin:0 8px 8px}
 #wa-custom-ta{border:none;border-radius:14px;background:#F5EFE6;padding:11px 14px;font-size:14px;transition:background 180ms,box-shadow 180ms}
 #wa-custom-ta:focus{background:#fff;box-shadow:0 0 0 1.5px #C77936}
-#wa-send-btn{border-radius:100px;padding:12px 0;font-size:14px;font-weight:500;transition:transform 150ms cubic-bezier(0.23,1,0.32,1),filter 180ms}
+#wa-send-btn{border-radius:100px;padding:12px 0;font-size:14px;font-weight:500;transition:transform 150ms var(--ease-out),filter 180ms}
 #wa-send-btn:hover{filter:brightness(.94);transform:translateY(-1px)}
 #wa-send-btn:active{transform:scale(.97)}
 </style>
@@ -983,7 +987,7 @@ window.addEventListener('scroll',function(){
 // mai mare, cu același decor, apoi revine lin la loc — blur-overlay-ul existent rămâne tranziția naturală
 (function(){
   if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
-  var EASE='cubic-bezier(0.23,1,0.32,1)', DUR=460;
+  var EASE='var(--ease-out)', DUR=460;
   var backdrop=null, clone=null, scrollY=0;
 
   function frameTarget(r){
@@ -1061,7 +1065,7 @@ window.addEventListener('scroll',function(){
 // completând respirația la hover deja definită în CSS pentru .wi-icon svg / .tc-icon svg
 (function(){
   if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
-  var DUR=1000, EASE='cubic-bezier(0.23,1,0.32,1)';
+  var DUR=1000, EASE='var(--ease-out)';
   var icons=document.querySelectorAll('.wi-icon svg, .tc-icon svg');
   if(!icons.length) return;
   var io=new IntersectionObserver(function(entries){
@@ -1133,12 +1137,12 @@ if(!localStorage.getItem('cookieConsent')){
   if(en) load(); else window.ruLater(load);
 })();
 </script>
-<script src="float.js" defer></script>
+<script src="float.js?v=20261115" defer></script>
 <script src="igstrip.js" defer></script>
 <style id="ru-smooth-hover">
 /* Hover-uri line: orice schimbare de culoare/fundal/contur/umbră la hover durează 400ms (generat; celelalte tranziții ale elementelor își păstrează durata) */
 #wa-close{transition:background-color 400ms ease,color 400ms ease}
-.doc-frame{transition:transform 280ms cubic-bezier(0.23,1,0.32,1),box-shadow 400ms ease}
+.doc-frame{transition:transform 280ms var(--ease-out),box-shadow 400ms ease}
 .doc-modal-close{transition:opacity 400ms ease,background-color 400ms ease}
 .lang-toggle-btn{transition:background-color 400ms ease,border-color 400ms ease}
 .nav-back{transition:color 400ms ease}
@@ -1146,7 +1150,7 @@ if(!localStorage.getItem('cookieConsent')){
 .nav-links a{transition:color 400ms ease}
 .rk .btn-g{transition:color 400ms ease,background-color 400ms ease}
 .rk .btn-p{transition:background-color 400ms ease}
-.rk-file{transition:transform 260ms cubic-bezier(0.23,1,0.32,1),box-shadow 400ms ease}
+.rk-file{transition:transform 260ms var(--ease-out),box-shadow 400ms ease}
 .wa-opt{transition:background-color 400ms ease}
 @media(prefers-reduced-motion:reduce){#wa-close,.doc-frame,.doc-modal-close,.lang-toggle-btn,.nav-back,.nav-cta,.nav-links a,.rk .btn-g,.rk .btn-p,.rk-file,.wa-opt{transition:none}}
 </style>
@@ -1176,6 +1180,6 @@ if(!localStorage.getItem('cookieConsent')){
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
 })();
 </script>
-<script src="/navpill.js" defer></script>
+<script src="/navpill.js?v=20261115c" defer></script>
 </body>
 </html>

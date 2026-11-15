@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
+<style id="ru-motion">/* Sistemul de mișcare RentUP: aceleași curbe și durate pe tot site-ul */:root{--ease-out:cubic-bezier(0.23,1,0.32,1);--ease-in-out:cubic-bezier(0.77,0,0.175,1);--ease-pop:cubic-bezier(0.34,1.4,0.64,1);--d-press:160ms;--d-fast:200ms;--d-ui:260ms;--d-move:420ms;--d-hover:400ms;--d-reveal:620ms}/* Trecerea între pagini: crossfade scurt; meniul rămâne pe loc (browserele fără suport încarcă normal) */@view-transition{navigation:auto}::view-transition-old(root),::view-transition-new(root){animation-duration:var(--d-ui);animation-timing-function:var(--ease-out)}::view-transition-group(ru-nav){animation-duration:var(--d-ui);animation-timing-function:var(--ease-out)}nav{view-transition-name:ru-nav}/* Mișcare redusă: fără deplasări și bucle; rămân doar estompările scurte care ajută la înțelegere */@media (prefers-reduced-motion:reduce){@view-transition{navigation:none}*,*::before,*::after{animation-duration:1ms!important;animation-delay:0s!important;animation-iteration-count:1!important;scroll-behavior:auto!important}.sr{transform:none!important;filter:none!important;transition:opacity 200ms ease-out!important}}</style>
 <meta charset="UTF-8">
 <!-- Consimțământ cookies (Legea 506/2004 + GDPR): Google Analytics, Google Ads,
      Clarity și AdSense se încarcă DOAR după „Accept” în banner. Consent Mode v2
@@ -150,7 +151,7 @@ section .inner>.sec-h,section .inner>.sec-sub{text-align:center;margin-left:auto
 .hero-btns{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
 
 /* ── BUTTONS ── */
-.btn-p{display:inline-block;font-size:14px;font-weight:500;background:var(--brand);color:var(--bg);padding:14px 28px;border-radius:100px;text-decoration:none;border:none;cursor:pointer;transition:background 180ms cubic-bezier(0.23,1,0.32,1),transform 150ms cubic-bezier(0.23,1,0.32,1)}
+.btn-p{display:inline-block;font-size:14px;font-weight:500;background:var(--brand);color:var(--bg);padding:14px 28px;border-radius:100px;text-decoration:none;border:none;cursor:pointer;transition:background 180ms var(--ease-out),transform 150ms var(--ease-out)}
 .btn-p:hover{background:#a8622a;transform:translateY(-1px)}
 .btn-p:active{transform:scale(.97);transition-duration:80ms}
 .btn-g{display:inline-block;color:var(--muted);font-size:14px;padding:14px 26px;border:.5px solid #4D4238;border-radius:100px;text-decoration:none;transition:color 150ms ease,transform 160ms ease}
@@ -231,13 +232,13 @@ section .inner>.sec-h,section .inner>.sec-sub{text-align:center;margin-left:auto
 }
 
 /* Page transitions */
-body{opacity:0.01;transition:opacity .46s cubic-bezier(0.23,1,0.32,1)}
+body{opacity:0.01;transition:opacity .46s var(--ease-out)}
 img{-webkit-user-drag:none;user-drag:none}
 
-.nav-mobile{display:flex;position:fixed;top:64px;left:0;right:0;background:rgba(253,250,246,.98);border-bottom:.5px solid #EDE5D8;padding:16px 20px;flex-direction:column;gap:4px;z-index:99;overscroll-behavior:contain;opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity 260ms cubic-bezier(0.23,1,0.32,1),transform 260ms cubic-bezier(0.23,1,0.32,1),visibility 0s linear 260ms}
+.nav-mobile{display:flex;position:fixed;top:64px;left:0;right:0;background:rgba(253,250,246,.98);border-bottom:.5px solid #EDE5D8;padding:16px 20px;flex-direction:column;gap:4px;z-index:99;overscroll-behavior:contain;opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity 260ms var(--ease-out),transform 260ms var(--ease-out),visibility 0s linear 260ms}
 .nav-mobile a{font-family:'General Sans',sans-serif;font-size:15px;color:var(--muted);text-decoration:none;padding:12px 0;border-bottom:.5px solid #EDE5D8;display:block;transition:color 150ms ease-out}
 .nav-mobile a:last-child{border-bottom:none}.nav-mobile a:active{color:var(--brand)}
-.nav-mobile.open{opacity:1;visibility:visible;transform:none;transition:opacity 260ms cubic-bezier(0.23,1,0.32,1),transform 260ms cubic-bezier(0.23,1,0.32,1),visibility 0s linear 0s}
+.nav-mobile.open{opacity:1;visibility:visible;transform:none;transition:opacity 260ms var(--ease-out),transform 260ms var(--ease-out),visibility 0s linear 0s}
 
 @media(max-width:768px){
   nav{padding:0 20px}
@@ -252,16 +253,16 @@ img{-webkit-user-drag:none;user-drag:none}
 @keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.7)}}
 .dot{animation:dotPulse 2.8s ease-in-out infinite}
 @keyframes hdrIn{from{opacity:0;transform:translateY(18px) scale(0.977);filter:blur(5px)}to{opacity:1;transform:none;filter:none}}
-.sec-tag{animation:hdrIn 480ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:60ms}
-.audit-hero h1{animation:hdrIn 560ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:130ms}
-.audit-hero-sub{animation:hdrIn 520ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:220ms}
-.audit-hero-meta{animation:hdrIn 480ms cubic-bezier(0.23,1,0.32,1) both;animation-delay:310ms}
-.sr{opacity:0;transform:translateY(22px) scale(0.985);filter:blur(3px);will-change:transform,opacity,filter;transition:opacity 580ms cubic-bezier(0.23,1,0.32,1),transform 580ms cubic-bezier(0.23,1,0.32,1),filter 460ms ease}
-.sr.in{opacity:1;transform:none;filter:none;will-change:auto}
+.sec-tag{animation:hdrIn 480ms var(--ease-out) both;animation-delay:60ms}
+.audit-hero h1{animation:hdrIn 560ms var(--ease-out) both;animation-delay:130ms}
+.audit-hero-sub{animation:hdrIn 520ms var(--ease-out) both;animation-delay:220ms}
+.audit-hero-meta{animation:hdrIn 480ms var(--ease-out) both;animation-delay:310ms}
+.sr{opacity:0;transform:translateY(22px) scale(0.985);filter:blur(3px);transition:opacity 580ms var(--ease-out),transform 580ms var(--ease-out),filter 460ms ease}
+.sr.in{opacity:1;transform:none;filter:none}
 @media(max-width:600px){.sr{filter:none}.sr.in{filter:none}}
-.card{transition:box-shadow 260ms cubic-bezier(0.23,1,0.32,1),transform 240ms cubic-bezier(0.23,1,0.32,1)}
+.card{transition:box-shadow 260ms var(--ease-out),transform 240ms var(--ease-out)}
 @media(hover:hover){.card:hover{box-shadow:0 8px 32px rgba(45,40,32,.11);transform:translateY(-2px)}.rep:hover,.step1:hover{transform:none}}
-.cc{transition:background 180ms ease,transform 180ms cubic-bezier(0.23,1,0.32,1)}
+.cc{transition:background 180ms ease,transform 180ms var(--ease-out)}
 .cc:hover{background:#453A2E;transform:translateY(-1px)}
 .lnk:focus-visible{outline:2px solid var(--brand);outline-offset:4px;border-radius:2px}
 
@@ -312,8 +313,8 @@ button,a{touch-action:manipulation}
 .lang-toggle-btn:focus-visible{outline:2px solid #C77936;outline-offset:3px;border-radius:100px}
 .lang-mob{display:none!important}
 @media(max-width:768px){.lang-mob{display:inline-flex!important;margin-left:auto;margin-right:2px}.lang-mob+#nav-hamburger{margin-left:0!important}}
-#nav-hamburger span{border-radius:2px;transition:translate 180ms cubic-bezier(0.23,1,0.32,1) 160ms,rotate 220ms cubic-bezier(0.23,1,0.32,1) 0ms,opacity 120ms ease 140ms}
-#nav-hamburger[aria-expanded="true"] span{transition:translate 180ms cubic-bezier(0.23,1,0.32,1) 0ms,rotate 260ms cubic-bezier(0.34,1.4,0.64,1) 170ms,opacity 120ms ease 60ms}
+#nav-hamburger span{border-radius:2px;transition:translate 180ms var(--ease-out) 160ms,rotate 220ms var(--ease-out) 0ms,opacity 120ms ease 140ms}
+#nav-hamburger[aria-expanded="true"] span{transition:translate 180ms var(--ease-out) 0ms,rotate 260ms var(--ease-pop) 170ms,opacity 120ms ease 60ms}
 #nav-hamburger[aria-expanded="true"] span:nth-child(1){translate:0 7px;rotate:45deg}
 #nav-hamburger[aria-expanded="true"] span:nth-child(2){opacity:0}
 #nav-hamburger[aria-expanded="true"] span:nth-child(3){translate:0 -7px;rotate:-45deg}
@@ -325,6 +326,7 @@ button,a{touch-action:manipulation}
 #cta,#cookie-banner{--muted:#A89C90;--light:#B8AFA4}
 </style>
 <style id="ru-ar">.ar{display:inline-block;width:1em;height:1em;margin-left:.35em;vertical-align:-.14em;flex-shrink:0}.ar-l{margin-left:0;margin-right:.35em}.ar-m{margin:0 .3em}</style>
+<style id="ru-nodots">/* Telefon: fără punctele de fundal (desktopul și tableta le păstrează) */@media(max-width:600px){body{background-image:none!important}body::before,.ru-ft::before,.audit-hero::before,#hero::before,#calc::before,#rental-kit-teaser::before,#instagram::before,#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before,#faq::before{background-image:none!important}}</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Sari la conținut</a>
@@ -625,7 +627,7 @@ document.addEventListener('click',function(e){
   if(!href||href.startsWith('#')||href.startsWith('http')||href.startsWith('mailto')||href.startsWith('tel')) return;
   if(a.target==='_blank') return;
   e.preventDefault();
-  document.body.style.transition='opacity .46s cubic-bezier(0.23,1,0.32,1)';
+  document.body.style.transition='opacity .46s var(--ease-out)';
   document.body.style.opacity='0';
   setTimeout(function(){ window.location.href=href; },470);
 });
@@ -643,16 +645,16 @@ document.addEventListener('contextmenu', function(e){
 #wa-box{width:300px;border:none;border-radius:20px;box-shadow:0 16px 48px rgba(45,40,32,.18);padding:8px}
 #wa-head{border-bottom:none;padding:14px 12px 10px 14px}
 #wa-title{font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--light)}
-#wa-close{width:30px;height:30px;border-radius:50%;background:#F5EFE6;color:#7A6E62;font-size:18px;transition:background 180ms cubic-bezier(0.23,1,0.32,1)}
+#wa-close{width:30px;height:30px;border-radius:50%;background:#F5EFE6;color:#7A6E62;font-size:18px;transition:background 180ms var(--ease-out)}
 #wa-close:hover{background:#EDE5D8;color:#2D2820}
 #wa-opts{display:grid;gap:2px}
-.wa-opt{border-bottom:none;border-radius:12px;padding:12px 14px;font-size:14px;transition:background 180ms cubic-bezier(0.23,1,0.32,1)}
+.wa-opt{border-bottom:none;border-radius:12px;padding:12px 14px;font-size:14px;transition:background 180ms var(--ease-out)}
 .wa-opt:hover{background:#F5EFE6}
 #wa-custom-wrap{border-top:none;margin-top:6px;padding:12px 6px 6px;background:none}
 #wa-custom-lbl{font-size:14px;color:var(--light);margin:0 8px 8px}
 #wa-custom-ta{border:none;border-radius:14px;background:#F5EFE6;padding:11px 14px;font-size:14px;transition:background 180ms,box-shadow 180ms}
 #wa-custom-ta:focus{background:#fff;box-shadow:0 0 0 1.5px #C77936}
-#wa-send-btn{border-radius:100px;padding:12px 0;font-size:14px;font-weight:500;transition:transform 150ms cubic-bezier(0.23,1,0.32,1),filter 180ms}
+#wa-send-btn{border-radius:100px;padding:12px 0;font-size:14px;font-weight:500;transition:transform 150ms var(--ease-out),filter 180ms}
 #wa-send-btn:hover{filter:brightness(.94);transform:translateY(-1px)}
 #wa-send-btn:active{transform:scale(.97)}
 </style>
@@ -751,7 +753,7 @@ if(localStorage.getItem('cookieConsent')){
 <!-- POPUP #1 — Slide-in micro-formular (email capture + Enhanced Conversions) -->
 <style>
 body:has(#ru-slide.ru-vis) .wa-float,body:has(#ru-slide.ru-vis) #btt{opacity:0;pointer-events:none}
-#ru-slide{position:fixed;bottom:80px;right:24px;width:360px;background:#FDFAF6;border:.5px solid #E8D5BC;border-radius:14px;padding:22px 22px 18px;box-shadow:0 12px 40px rgba(45,40,32,.14);z-index:994;transform:translateY(140%);opacity:0;transition:transform 420ms cubic-bezier(0.23,1,0.32,1),opacity 360ms ease;pointer-events:none}
+#ru-slide{position:fixed;bottom:80px;right:24px;width:360px;background:#FDFAF6;border:.5px solid #E8D5BC;border-radius:14px;padding:22px 22px 18px;box-shadow:0 12px 40px rgba(45,40,32,.14);z-index:994;transform:translateY(140%);opacity:0;transition:transform 420ms var(--ease-out),opacity 360ms ease;pointer-events:none}
 #ru-slide.ru-vis{transform:translateY(0);opacity:1;pointer-events:auto}
 #ru-slide .rsc{position:absolute;top:10px;right:12px;background:none;border:none;cursor:pointer;font-size:20px;color:var(--muted);line-height:1;padding:4px 6px;font-family:'General Sans',sans-serif}
 #ru-slide .rsh{font-size:14px;font-weight:500;color:#2D2820;margin-bottom:6px;line-height:1.35;letter-spacing:-.01em;padding-right:20px}
@@ -764,13 +766,13 @@ body:has(#ru-slide.ru-vis) .wa-float,body:has(#ru-slide.ru-vis) #btt{opacity:0;p
 #ru-slide .rsok{display:none;text-align:center;padding:12px 0 4px;font-size:14px;color:#0F6E56;font-weight:500}
 /* Slide-in — design nou (stil calculator) */
 #ru-slide{border:none;border-radius:20px;box-shadow:0 16px 48px rgba(45,40,32,.18);padding:24px 22px 20px}
-#ru-slide .rsc{top:14px;right:14px;width:30px;height:30px;padding:0;border-radius:50%;background:#F5EFE6;color:#7A6E62;font-size:17px;display:flex;align-items:center;justify-content:center;transition:background 180ms cubic-bezier(0.23,1,0.32,1)}
+#ru-slide .rsc{top:14px;right:14px;width:30px;height:30px;padding:0;border-radius:50%;background:#F5EFE6;color:#7A6E62;font-size:17px;display:flex;align-items:center;justify-content:center;transition:background 180ms var(--ease-out)}
 #ru-slide .rsc:hover{background:#EDE5D8;color:#2D2820}
 #ru-slide .rsh{font-size:18px;font-weight:400;letter-spacing:-.02em;padding-right:34px;margin-bottom:8px}
 #ru-slide .rss{font-size:14px;margin-bottom:16px}
 #ru-slide .rsi{border:none;border-radius:100px;background:#F5EFE6;padding:12px 16px;transition:background 180ms,box-shadow 180ms}
 #ru-slide .rsi:focus{background:#fff;box-shadow:0 0 0 1.5px #C77936}
-#ru-slide .rsb{display:block;width:100%;margin-top:4px;font-family:'General Sans',sans-serif;font-size:14px;font-weight:500;background:var(--brand);color:var(--bg);border:none;border-radius:100px;padding:13px 24px;cursor:pointer;-webkit-appearance:none;appearance:none;transition:background 180ms cubic-bezier(0.23,1,0.32,1),transform 150ms cubic-bezier(0.23,1,0.32,1)}
+#ru-slide .rsb{display:block;width:100%;margin-top:4px;font-family:'General Sans',sans-serif;font-size:14px;font-weight:500;background:var(--brand);color:var(--bg);border:none;border-radius:100px;padding:13px 24px;cursor:pointer;-webkit-appearance:none;appearance:none;transition:background 180ms var(--ease-out),transform 150ms var(--ease-out)}
 #ru-slide .rsb:hover{background:#a8622a;transform:translateY(-1px)}
 #ru-slide .rsb:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
 #ru-slide .rsb:active{transform:scale(.97);transition-duration:80ms}
@@ -929,17 +931,17 @@ body:has(#ru-slide.ru-vis) .wa-float,body:has(#ru-slide.ru-vis) #btt{opacity:0;p
   if(en) load(); else window.ruLater(load);
 })();
 </script>
-<script src="float.js" defer></script>
+<script src="float.js?v=20261115" defer></script>
 <style id="ru-smooth-hover">
 /* Hover-uri line: orice schimbare de culoare/fundal/contur/umbră la hover durează 400ms (generat; celelalte tranziții ale elementelor își păstrează durata) */
-#ru-slide .rsb{transition:background-color 400ms ease,transform 150ms cubic-bezier(0.23,1,0.32,1)}
+#ru-slide .rsb{transition:background-color 400ms ease,transform 150ms var(--ease-out)}
 #ru-slide .rsc{transition:background-color 400ms ease,color 400ms ease}
 #ru-slide .rsd{transition:background-color 400ms ease,color 400ms ease,border-color 400ms ease}
 #wa-close{transition:background-color 400ms ease,color 400ms ease}
-.btn-g{transition:color 400ms ease,transform 160ms cubic-bezier(0.23,1,0.32,1)}
-.btn-p{transition:background-color 400ms ease,transform 150ms cubic-bezier(0.23,1,0.32,1)}
-.card{transition:box-shadow 400ms ease,transform 240ms cubic-bezier(0.23,1,0.32,1)}
-.cc{transition:background-color 400ms ease,transform 180ms cubic-bezier(0.23,1,0.32,1)}
+.btn-g{transition:color 400ms ease,transform 160ms var(--ease-out)}
+.btn-p{transition:background-color 400ms ease,transform 150ms var(--ease-out)}
+.card{transition:box-shadow 400ms ease,transform 240ms var(--ease-out)}
+.cc{transition:background-color 400ms ease,transform 180ms var(--ease-out)}
 .lang-toggle-btn{transition:background-color 400ms ease,border-color 400ms ease}
 .nav-cta{transition:background-color 400ms ease}
 .nav-links a{transition:color 400ms ease}
@@ -971,6 +973,6 @@ body:has(#ru-slide.ru-vis) .wa-float,body:has(#ru-slide.ru-vis) #btt{opacity:0;p
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
 })();
 </script>
-<script src="/navpill.js" defer></script>
+<script src="/navpill.js?v=20261115c" defer></script>
 </body>
 </html>
