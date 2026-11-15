@@ -2,6 +2,7 @@
 <html lang="ro">
 <head>
 <style id="ru-motion">/* Sistemul de mișcare RentUP: aceleași curbe și durate pe tot site-ul */:root{--ease-out:cubic-bezier(0.23,1,0.32,1);--ease-in-out:cubic-bezier(0.77,0,0.175,1);--ease-pop:cubic-bezier(0.34,1.4,0.64,1);--d-press:160ms;--d-fast:200ms;--d-ui:260ms;--d-move:420ms;--d-hover:400ms;--d-reveal:620ms}/* Trecerea între pagini: crossfade scurt; meniul rămâne pe loc (browserele fără suport încarcă normal) */@view-transition{navigation:auto}::view-transition-old(root),::view-transition-new(root){animation-duration:var(--d-ui);animation-timing-function:var(--ease-out)}::view-transition-group(ru-nav){animation-duration:var(--d-ui);animation-timing-function:var(--ease-out)}nav{view-transition-name:ru-nav}/* Mișcare redusă: fără deplasări și bucle; rămân doar estompările scurte care ajută la înțelegere */@media (prefers-reduced-motion:reduce){@view-transition{navigation:none}*,*::before,*::after{animation-duration:1ms!important;animation-delay:0s!important;animation-iteration-count:1!important;scroll-behavior:auto!important}.sr{transform:none!important;filter:none!important;transition:opacity 200ms ease-out!important}}</style>
+<script>/* adresă curată: /pagina în loc de /pagina.html (fără reîncărcare) */(function(){var p=location.pathname;if(/\.html$/.test(p)){history.replaceState(null,"",p.replace(/(^|\/)index\.html$/,"$1").replace(/\.html$/,"")+location.search+location.hash)}})();</script>
 <meta charset="UTF-8">
 <!-- Consimțământ cookies (Legea 506/2004 + GDPR): Google Analytics, Google Ads,
      Clarity și AdSense se încarcă DOAR după „Accept” în banner. Consent Mode v2
@@ -99,10 +100,10 @@ function gtag_report_conversion_social(url) {
 <meta property="og:title" content="Staging Virtual Apartament | RentUP București">
 <meta property="og:description" content="Randări fotorealiste + plan de achiziții cu produse reale. Gândit de arhitecți, nu de un algoritm. 200€ fix, livrare în câteva zile.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.rentup.solutions/staging-virtual.html">
+<meta property="og:url" content="https://www.rentup.solutions/staging-virtual">
 <meta property="og:image" content="https://www.rentup.solutions/images/opengraph_logo.webp">
 <meta property="og:locale" content="ro_RO">
-<link rel="canonical" href="https://www.rentup.solutions/staging-virtual.html">
+<link rel="canonical" href="https://www.rentup.solutions/staging-virtual">
 
 <style>
 @font-face{font-family:'General Sans';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/general-sans-300-normal.woff2') format('woff2');}
@@ -160,7 +161,7 @@ section{padding:64px 48px}
 .cmp-tbl th.col-ru{color:#fff;background:var(--brand);font-weight:700}
 .cmp-tbl td{padding:14px 16px;font-size:14px;border-bottom:.5px solid var(--border);vertical-align:middle}
 .cmp-tbl tr:last-child td{border-bottom:none}
-.cmp-tbl tr:hover td{background:var(--bg-stone)}
+@media(hover:hover){.cmp-tbl tr:hover td{background:var(--bg-stone)}}
 .cmp-tbl td:first-child{color:var(--mid)}
 .cmp-tbl th.col-ai{border-left:.5px solid var(--border)}
 .cmp-tbl td.c-ai{text-align:center;color:var(--muted);border-left:.5px solid var(--border)}
@@ -217,17 +218,17 @@ img{-webkit-user-drag:none;user-drag:none}
 .sr.in{opacity:1;transform:none;filter:none}
 @media(max-width:600px){.sr{filter:none}.sr.in{filter:none}}
 .card{transition:box-shadow 260ms var(--ease-out),transform 240ms var(--ease-out)}
-.card:hover{box-shadow:0 8px 28px rgba(45,40,32,.22);transform:translateY(-2px)}
+@media(hover:hover){.card:hover{box-shadow:0 8px 28px rgba(45,40,32,.22);transform:translateY(-2px)}}
 .step{transition:background 180ms ease}
-.step:hover{background:var(--brand-light)}
+@media(hover:hover){.step:hover{background:var(--brand-light)}}
 .btn-p{transition:background 180ms ease,transform 160ms ease}
-.btn-p:hover{transform:translateY(-1px)}
+@media(hover:hover){.btn-p:hover{transform:translateY(-1px)}}
 .btn-g{transition:background 180ms ease,color 150ms ease,transform 160ms ease}
-.btn-g:hover{transform:translateY(-1px)}
+@media(hover:hover){.btn-g:hover{transform:translateY(-1px)}}
 .hero-cta{transition:background 180ms ease,transform 160ms ease}
-.hero-cta:hover{background:#B56C2E;transform:translateY(-1px)}
+@media(hover:hover){.hero-cta:hover{background:#B56C2E;transform:translateY(-1px)}}
 .cc{transition:background 180ms ease,transform 180ms var(--ease-out)}
-.cc:hover{background:#453A2E;transform:translateY(-1px)}
+@media(hover:hover){.cc:hover{background:#453A2E;transform:translateY(-1px)}}
 
 /* ── STAGING VIRTUAL: ANNOTATE ── */
 .sv-dot{position:absolute;width:26px;height:26px;border-radius:50%;background:var(--brand);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;transform:translate(-50%,-50%);z-index:4;box-shadow:0 2px 10px rgba(199,121,54,.4);transition:transform 200ms ease,box-shadow 200ms ease;cursor:pointer}
@@ -238,9 +239,9 @@ img{-webkit-user-drag:none;user-drag:none}
   100%{box-shadow:0 1px 8px rgba(45,40,32,.07);transform:translateY(0) scale(1)}
 }
 .sv-card-active{animation:sv-card-ping 950ms var(--ease-out) forwards}
-.sv-dot:hover{transform:translate(-50%,-50%) scale(1.18);box-shadow:0 4px 16px rgba(199,121,54,.55)}
+@media(hover:hover){.sv-dot:hover{transform:translate(-50%,-50%) scale(1.18);box-shadow:0 4px 16px rgba(199,121,54,.55)}}
 .sv-card{display:flex;align-items:center;gap:9px;background:var(--bg);border:.5px solid var(--border);border-radius:10px;padding:8px 11px;box-shadow:0 1px 8px rgba(45,40,32,.07);transition:box-shadow 200ms ease,transform 200ms ease}
-.sv-card:hover{box-shadow:0 4px 18px rgba(45,40,32,.13);transform:translateY(-1px)}
+@media(hover:hover){.sv-card:hover{box-shadow:0 4px 18px rgba(45,40,32,.13);transform:translateY(-1px)}}
 .sv-card-icon{width:30px;height:30px;border-radius:7px;background:var(--brand-light);border:.5px solid var(--brand-border);display:flex;align-items:center;justify-content:center;color:var(--brand);flex-shrink:0;overflow:hidden}
 .sv-card-icon.photo{background:#fff;border-color:var(--border)}
 .sv-card-name{font-size:11px;font-weight:600;color:var(--dark);margin-bottom:1px}
@@ -282,7 +283,7 @@ img{-webkit-user-drag:none;user-drag:none}
 .sv-tbl th{text-align:left;padding:9px 14px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);border-bottom:.5px solid var(--border);white-space:nowrap}
 .sv-tbl td{padding:12px 14px;font-size:14px;border-bottom:.5px solid var(--border);color:var(--dark);vertical-align:middle}
 .sv-tbl tr:last-child td{border-bottom:none}
-.sv-tbl tbody tr:hover td{background:var(--brand-light)}
+@media(hover:hover){.sv-tbl tbody tr:hover td{background:var(--brand-light)}}
 .sv-tbl td.col-nr{color:var(--light);font-size:14px;width:36px}
 .sv-tbl td.col-furnizor{color:var(--mid)}
 .sv-tbl td.col-buc,.sv-tbl th.col-buc{text-align:center}
@@ -328,14 +329,14 @@ button,a{touch-action:manipulation}
     "availability": "https://schema.org/InStock"
   },
   "areaServed": "București",
-  "url": "https://www.rentup.solutions/staging-virtual.html"
+  "url": "https://www.rentup.solutions/staging-virtual"
 }
 </script>
 <style>
 /* Butonul de limbă + meniul hamburger (aceleași reguli pe care le injectează lang.js;
    sunt aici ca nav-ul să arate corect înainte să se încarce lang.js) */
 .lang-toggle-btn{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:#C77936;border:.5px solid #E8D5BC;background:transparent;padding:5px 11px;border-radius:100px;cursor:pointer;letter-spacing:.04em;transition:background 150ms ease,border-color 150ms ease;flex-shrink:0}
-.lang-toggle-btn:hover{background:#FAF4EB;border-color:#C77936}
+@media(hover:hover){.lang-toggle-btn:hover{background:#FAF4EB;border-color:#C77936}}
 .lang-toggle-btn:focus-visible{outline:2px solid #C77936;outline-offset:3px;border-radius:100px}
 .lang-mob{display:none!important}
 @media(max-width:768px){.lang-mob{display:inline-flex!important;margin-left:auto;margin-right:2px}.lang-mob+#nav-hamburger{margin-left:0!important}}
@@ -353,13 +354,15 @@ button,a{touch-action:manipulation}
 </style>
 <style id="ru-ar">.ar{display:inline-block;width:1em;height:1em;margin-left:.35em;vertical-align:-.14em;flex-shrink:0}.ar-l{margin-left:0;margin-right:.35em}.ar-m{margin:0 .3em}</style>
 <style id="ru-nodots">/* Telefon: fără punctele de fundal (desktopul și tableta le păstrează) */@media(max-width:600px){body{background-image:none!important}body::before,.ru-ft::before,.audit-hero::before,#hero::before,#calc::before,#rental-kit-teaser::before,#instagram::before,#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before,#faq::before{background-image:none!important}}</style>
+<style id="ru-dark-card">/* Secțiunea maro închis = card mat, ca secțiunea de contact de pe homepage */.audit-cta{position:relative;isolation:isolate;overflow:clip;margin:20px clamp(12px,1.6vw,24px);border-radius:clamp(24px,2.4vw,36px);border:1px solid rgba(255,255,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 1px 2px rgba(45,40,32,.08),0 30px 70px -30px rgba(45,40,32,.45)}@media(max-width:600px){.audit-cta{margin:12px 8px;border-radius:22px}}.audit-cta::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.5;mix-blend-mode:screen;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .9 0 0 0 0 .85 0 0 0 0 .78 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}</style>
+<style id="ru-grid">/* Fundal: grilă de plan tehnic (în locul punctelor) pe desktop și tabletă; pe telefon fundalul rămâne simplu (ru-nodots) */@media(min-width:601px){body::before,.ru-ft::before,.audit-hero::before{background-image:url(/grid.svg?v=20261116b)!important;background-size:1280px 1280px!important;opacity:1!important}#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before,#faq::before,.cost-section::before{background-image:url(/grid.svg?v=20261116b)!important;background-size:1280px 1280px!important;opacity:.5}}</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Sari la conținut</a>
 
 <nav>
   <a class="logo" href="/">Rent<span>UP</span></a>
-  <a href="/" style="font-family:'General Sans',sans-serif;font-size:14px;color:var(--muted);text-decoration:none"><svg class="ar ar-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg>Înapoi la site</a>
+  <a href="/" data-back style="font-family:'General Sans',sans-serif;font-size:14px;color:var(--muted);text-decoration:none"><svg class="ar ar-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg>Înapoi la site</a>
   <button class="lang-toggle-btn" onclick="toggleLang()" title="Switch to English">EN</button>
 </nav>
 
@@ -785,7 +788,7 @@ button,a{touch-action:manipulation}
       </div>
     </div>
     <div style="margin-top:16px">
-      <a href="portofoliu.html" style="font-size:14px;color:var(--brand);text-decoration:none;font-weight:500">Vezi cazurile complete în portofoliu<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+      <a href="/portofoliu" style="font-size:14px;color:var(--brand);text-decoration:none;font-weight:500">Vezi cazurile complete în portofoliu<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
     </div>
   </div>
 </section>
@@ -808,21 +811,8 @@ button,a{touch-action:manipulation}
 
 <!-- FOOTER -->
 <footer class="ru-ft">
-<style id="ru-ft-card">.ru-ft .ft-s{display:none}@media(max-width:600px){.ru-ft .ft-f{display:none}.ru-ft .ft-s{display:inline}}.ru-ft{isolation:isolate}.ru-ft::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(rgba(45,40,32,.16) 1.1px,transparent 1.4px);background-size:22px 22px;opacity:.7;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 12%,transparent 50%);mask-image:linear-gradient(180deg,transparent 0%,#000 12%,transparent 50%)}
-@media(max-width:768px){.ru-ft::before{background-image:radial-gradient(rgba(45,40,32,.128) .68px,transparent .9px);background-size:10px 10px}}
-.ru-ft{display:block!important;position:relative;overflow:hidden;background:#FDFAF6!important;border-top:0!important;padding:64px 32px 0!important}
-.ru-ft-card{position:relative;z-index:1;max-width:1200px;margin:0 auto;background:#fff;border:1px solid rgba(45,40,32,.06);border-radius:28px;padding:52px 56px 32px;box-shadow:0 1px 2px rgba(45,40,32,.04),0 12px 32px rgba(45,40,32,.07),0 40px 80px -24px rgba(45,40,32,.12)}
-.ru-ft-top{display:grid!important;grid-template-columns:minmax(0,1fr) auto;gap:48px;align-items:start;margin-bottom:40px}
-.ru-ft-cols{display:grid;grid-template-columns:repeat(4,auto);gap:48px}
-.ru-ft .ft-brand>a{font-size:22px!important;margin-bottom:0!important}
-.ru-ft-tag{font-family:'General Sans',sans-serif;font-size:24px;font-weight:600;line-height:1.25;letter-spacing:-.015em;color:#2D2820;margin:18px 0 6px;max-width:15ch}
-.ru-ft-tag em{font-style:normal;color:#C77936}
-.ru-ft-city{font-size:14px;color:#776B60;margin:0}
-.ru-ft-giant{position:relative;z-index:0;margin-top:.12em;text-align:center;font-family:'General Sans',sans-serif;font-weight:600;font-size:clamp(60px,21vw,300px);line-height:.78;letter-spacing:-.05em;height:.66em;overflow:hidden;white-space:nowrap;color:rgba(199,121,54,.24);-webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.14) 100%);mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.14) 100%);-webkit-user-select:none;user-select:none;pointer-events:none}
-.ru-ft-giant span{font-weight:300;color:rgba(45,40,32,.14)}
-@media(max-width:720px){.ru-ft{padding:32px 12px 0!important}.ru-ft-card{padding:32px 22px 26px;border-radius:22px}.ru-ft-top{grid-template-columns:1fr;gap:36px}.ru-ft-cols{grid-template-columns:1fr 1fr;gap:28px 24px}.ru-ft-tag{font-size:21px}}@media(max-width:600px){.ru-ft-card{padding:30px 22px 26px}.ru-ft-tag{font-size:22px;max-width:none;margin-top:16px}.ru-ft-top{gap:32px;margin-bottom:28px}.ru-ft-cols{gap:28px 16px}.ru-ft .ft-bot{gap:20px!important;padding-top:22px!important}.ru-ft .ft-legal{gap:10px 20px}.ru-ft .ft-legal>a{order:1;font-size:13px!important;color:#776B60!important;padding:2px 0}.ru-ft .ft-legal>div:not(.ft-co){order:2;flex-basis:100%;margin-top:8px}.ru-ft .ft-co{order:3;line-height:1.55}.ru-ft-giant{font-size:25vw;margin-top:.08em}.ru-ft .ft-bot{align-items:center!important;text-align:center!important}.ru-ft .ft-legal{justify-content:center;text-align:center!important}.ru-ft .ft-bot .ru-legal{justify-content:center;align-self:center}}</style>
+<link rel="stylesheet" href="/footer.css?v=20261116">
 
-<style>@media(max-width:600px){footer{padding-left:20px!important;padding-right:20px!important}.ft-brand{flex-basis:100%!important}}</style>
   <div class="ru-ft-card">
     <div class="ru-ft-top">
       <div class="ft-brand" style="flex:0 0 auto">
@@ -833,18 +823,18 @@ button,a{touch-action:manipulation}
         <div>
           <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:14px">Servicii</div>
           <div style="display:flex;flex-direction:column;gap:10px">
-            <a href="/audit.html" style="font-size:14px;color:#7A6E62;text-decoration:none"><span class="ft-f">Raport de Rentabilitate</span><span class="ft-s">Raport Rentabilitate</span></a>
-            <a href="/staging-virtual.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Staging Virtual</a>
+            <a href="/audit" style="font-size:14px;color:#7A6E62;text-decoration:none"><span class="ft-f">Raport de Rentabilitate</span><span class="ft-s">Raport Rentabilitate</span></a>
+            <a href="/staging-virtual" style="font-size:14px;color:#7A6E62;text-decoration:none">Staging Virtual</a>
             <a href="/#packages" style="font-size:14px;color:#7A6E62;text-decoration:none"><span class="ft-f">Design de interior</span><span class="ft-s">Design Interior</span></a>
-            <a href="/rental-kit.html" style="font-size:14px;color:#C77936;text-decoration:none;font-weight:500">Rental Kit</a>
+            <a href="/rental-kit" style="font-size:14px;color:#C77936;text-decoration:none;font-weight:500">Rental Kit</a>
           </div>
         </div>
         <div>
           <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:14px">Resurse</div>
           <div style="display:flex;flex-direction:column;gap:10px">
-            <a href="/realitatea-chiriei.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Probleme & Soluții</a>
-            <a href="/simulator.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Simulator mobilare</a>
-            <a href="/faq.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Întrebări frecvente</a>
+            <a href="/realitatea-chiriei" style="font-size:14px;color:#7A6E62;text-decoration:none">Probleme & Soluții</a>
+            <a href="/simulator" style="font-size:14px;color:#7A6E62;text-decoration:none">Simulator mobilare</a>
+            <a href="/faq" style="font-size:14px;color:#7A6E62;text-decoration:none">Întrebări frecvente</a>
             <a href="/blog/" style="font-size:14px;color:#7A6E62;text-decoration:none">Blog</a>
           </div>
         </div>
@@ -870,15 +860,14 @@ button,a{touch-action:manipulation}
     <div class="ft-legal">
     <div class="ft-co" style="font-size:12px;color:var(--light);white-space:normal">Wirtual Design &amp; Architecture SRL · CUI 44170236 · J23/2626/2021 · Clinceni, Ilfov</div>
 <div style="font-size:12px;color:var(--light);white-space:nowrap">© 2026 RentUP · Toate drepturile rezervate</div>
-<a href="/termeni.html" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Termeni și condiții</a>
-<a href="/confidentialitate.html" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Politică de confidențialitate</a>
+<a href="/termeni" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Termeni și condiții</a>
+<a href="/confidentialitate" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Politică de confidențialitate</a>
       <a href="#" onclick="ruCookieSettings();return false" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Setări cookie</a>
     </div>
     <div class="ru-legal" style="display:flex"><a class="ru-sal" href="https://reclamatiisal.anpc.ro/" target="_blank" rel="noopener" aria-label="ANPC: Soluționarea alternativă a litigiilor (detalii)" style="display:inline-flex;color:var(--light,#776B60);text-decoration:none"><svg width="200" height="50" viewBox="0 0 200 50" fill="none" aria-hidden="true" style="display:block"><rect x=".5" y=".5" width="199" height="49" rx="12" stroke="currentColor"/><path d="M85 9v32" stroke="currentColor" stroke-opacity=".45"/><image x="4" y="8.5" width="27.4" height="33" href="/images/stema-anpc-sepia.png"/><text x="34" y="21" fill="currentColor" font-family="'General Sans',sans-serif" font-size="13" font-weight="600" letter-spacing=".2">ANPC</text><text x="34.2" y="26.2" fill="currentColor" font-family="'General Sans',sans-serif" font-size="2.7" font-weight="500" letter-spacing=".05">AUTORITATEA NAȚIONALĂ PENTRU</text><text x="34.2" y="29.6" fill="currentColor" font-family="'General Sans',sans-serif" font-size="2.7" font-weight="500" letter-spacing=".05">PROTECȚIA CONSUMATORILOR</text><text x="34" y="39.5" fill="currentColor" font-family="'General Sans',sans-serif" font-size="7.4" font-style="italic" font-weight="500">Te respectă</text><text x="141" y="18" fill="currentColor" font-family="'General Sans',sans-serif" font-size="6.3" font-weight="600" text-anchor="middle" letter-spacing=".1">SOLUȚIONAREA ALTERNATIVĂ</text><text x="141" y="26" fill="currentColor" font-family="'General Sans',sans-serif" font-size="6.3" font-weight="600" text-anchor="middle" letter-spacing=".1">A LITIGIILOR</text><rect x="121" y="31" width="40" height="12" rx="6" fill="currentColor"/><text x="141" y="39.3" fill="#FDFAF6" font-family="'General Sans',sans-serif" font-size="5.6" font-weight="600" text-anchor="middle" letter-spacing=".4">DETALII</text></svg></a></div>
     </div>
   </div>
-<style id="ru-ft-bot">.ft-bot{justify-content:space-between!important;align-items:center!important;gap:16px 40px!important;flex-wrap:wrap!important}.ft-legal{flex:1 1 480px;display:flex;flex-wrap:wrap;gap:6px 24px;text-align:left}.ft-bot .ru-legal{flex:0 0 auto}.ft-co{order:2;flex-basis:100%}@media(max-width:600px){.ft-bot{flex-direction:column!important;align-items:flex-start!important}.ft-legal{flex-basis:auto}}</style>
-<style id="ru-ft-gm">@media(max-width:1024px){.ru-ft-giant{height:auto;overflow:visible;line-height:.9;padding-bottom:.04em;-webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.45) 45%,transparent 92%);mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.45) 45%,transparent 92%)}}</style><div class="ru-ft-giant" aria-hidden="true">Rent<span>UP</span></div>
+<div class="ru-ft-giant" aria-hidden="true">Rent<span>UP</span></div>
 </footer>
 
 <script>
@@ -910,7 +899,7 @@ document.addEventListener('contextmenu',function(e){
 
 <!-- WhatsApp Floating (mobil) -->
 <style>
-.wa-float{display:none;position:fixed;bottom:24px;left:24px;width:52px;height:52px;background:#25D366;border-radius:50%;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.35);z-index:998;text-decoration:none;transition:transform .2s,box-shadow .2s}.wa-float:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(37,211,102,.45)}@media(max-width:768px){.wa-float{display:flex}}
+.wa-float{display:none;position:fixed;bottom:24px;left:24px;width:52px;height:52px;background:#25D366;border-radius:50%;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.35);z-index:998;text-decoration:none;transition:transform .2s,box-shadow .2s}@media(hover:hover){.wa-float:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(37,211,102,.45)}}@media(max-width:768px){.wa-float{display:flex}}
 #quiz-modal{display:none;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center;padding:16px}
 #quiz-modal.open{display:flex}
 #quiz-overlay{position:absolute;inset:0;background:rgba(45,40,32,.5)}
@@ -920,22 +909,22 @@ document.addEventListener('contextmenu',function(e){
 .qdot{width:6px;height:6px;border-radius:50%;background:#EDE5D8;transition:background .25s}
 .qdot.on{background:#C77936}
 #quiz-close{background:none;border:none;cursor:pointer;color:#8B7D6B;font-size:22px;line-height:1;padding:0;width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:6px;transition:background .15s}
-#quiz-close:hover{background:#F5EFE6}
+@media(hover:hover){#quiz-close:hover{background:#F5EFE6}}
 .qstep{padding:28px 24px 24px}
 .qq{font-size:16px;font-weight:600;color:#2D2820;margin:0 0 20px;line-height:1.4}
 .qsub{font-size:14px;color:#8B7D6B;margin:-12px 0 20px;line-height:1.55}
 .qopts{display:flex;flex-direction:column;gap:10px}
 .qopt{display:block;width:100%;text-align:left;padding:13px 16px;background:#fff;border:1px solid #EDE5D8;border-radius:10px;cursor:pointer;font-size:14px;color:#2D2820;font-family:'General Sans',sans-serif;line-height:1.4;transition:color 400ms ease,background-color 400ms ease,border-color 400ms ease,transform 150ms var(--ease-out);font-weight:500}
-.qopt:hover{border-color:#C77936;background:#FDF8F3;color:#C77936}
+@media(hover:hover){.qopt:hover{border-color:#C77936;background:#FDF8F3;color:#C77936}}
 .qfield{margin-bottom:12px}
 .qinput{width:100%;box-sizing:border-box;border:1px solid #EDE5D8;border-radius:10px;padding:12px 14px;font-size:14px;font-family:'General Sans',sans-serif;color:#2D2820;background:#fff;outline:none;transition:border-color .15s}
 .qinput:focus{border-color:#C77936}
 .qinput::placeholder{color:#B8A898}
 .qsubmit{width:100%;background:#C77936;color:#FDFAF6;border:none;border-radius:10px;padding:13px 0;font-size:14px;font-weight:600;cursor:pointer;font-family:'General Sans',sans-serif;transition:background .2s;margin-top:4px}
-.qsubmit:hover{background:#B06B2C}
+@media(hover:hover){.qsubmit:hover{background:#B06B2C}}
 .qsubmit:disabled{background:#D4A878;cursor:not-allowed}
 .qerr{font-size:14px;color:#C0392B;margin:8px 0 0;display:none}
-.qback{background:none;border:none;cursor:pointer;font-size:14px;color:#8B7D6B;font-family:'General Sans',sans-serif;padding:0;margin-bottom:14px;display:inline-block;transition:color .15s}.qback:hover{color:#2D2820}
+.qback{background:none;border:none;cursor:pointer;font-size:14px;color:#8B7D6B;font-family:'General Sans',sans-serif;padding:0;margin-bottom:14px;display:inline-block;transition:color .15s}@media(hover:hover){.qback:hover{color:#2D2820}}
 #quiz-ok{display:none;text-align:center;padding:40px 24px 36px}
 .qok-icon{width:52px;height:52px;background:#F0FAF4;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;color:#27AE60}
 .qok-h{font-size:17px;font-weight:600;color:#2D2820;margin:0 0 8px}
@@ -984,7 +973,7 @@ document.addEventListener('contextmenu',function(e){
         <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
         <p class="qerr" id="qerr">A apărut o eroare. Încearcă din nou.</p>
         <button class="qsubmit" type="submit">Primesc planul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
-        <p style="font-size:14px;color:var(--muted);margin:10px 0 0;line-height:1.5">Folosim datele doar ca să-ți trimitem planul și să discutăm despre el. Detalii în <a href="confidentialitate.html" style="color:inherit;text-decoration:underline">Politica de confidențialitate</a>.</p>
+        <p style="font-size:14px;color:var(--muted);margin:10px 0 0;line-height:1.5">Folosim datele doar ca să-ți trimitem planul și să discutăm despre el. Detalii în <a href="/confidentialitate" style="color:inherit;text-decoration:underline">Politica de confidențialitate</a>.</p>
       </form>
     </div>
     <div id="quiz-ok">
@@ -1083,7 +1072,7 @@ window.addEventListener('scroll',function(){
 <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#2D2820;border-top:0.5px solid #4D4238;padding:16px 20px;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;z-index:130;font-family:'General Sans',sans-serif">
   <div style="flex:1;min-width:180px">
     <div style="font-size:13px;font-weight:500;color:#FDFAF6;margin-bottom:3px">Folosim cookie-uri</div>
-    <div style="font-size:12px;color:var(--muted);line-height:1.5">Folosim cookie-uri pentru analiză și îmbunătățirea experienței. <span class="cb-opt">Poți accepta sau refuza cookie-urile opționale. </span><a href="confidentialitate.html" style="color:#C77936;text-decoration:none">Politică de confidențialitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
+    <div style="font-size:12px;color:var(--muted);line-height:1.5">Folosim cookie-uri pentru analiză și îmbunătățirea experienței. <span class="cb-opt">Poți accepta sau refuza cookie-urile opționale. </span><a href="/confidentialitate" style="color:#C77936;text-decoration:none">Politică de confidențialitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
   </div>
   <div style="display:flex;gap:8px;align-items:center;flex-shrink:0">
     <button onclick="setCookies('refused')" style="font-size:13px;font-weight:500;color:var(--muted);background:none;border:1px solid #4D4238;padding:0 20px;height:44px;border-radius:100px;cursor:pointer;font-family:'General Sans',sans-serif;touch-action:manipulation;-webkit-tap-highlight-color:transparent">Refuz</button>
@@ -1197,7 +1186,7 @@ if(localStorage.getItem('cookieConsent')){
   var state=0, pending=false;
   function load(){
     if(state) return; state=1;
-    var s=document.createElement('script'); s.src='lang.js';
+    var s=document.createElement('script'); s.src='lang.js?v=20261115';
     s.onload=function(){ state=2; if(pending){ pending=false; window.toggleLang(); } };
     document.body.appendChild(s);
   }
@@ -1206,7 +1195,7 @@ if(localStorage.getItem('cookieConsent')){
   if(en) load(); else window.ruLater(load);
 })();
 </script>
-<script src="float.js?v=20261115" defer></script>
+<script src="float.js?v=20261115b" defer></script>
 <style id="ru-smooth-hover">
 /* Hover-uri line: orice schimbare de culoare/fundal/contur/umbră la hover durează 400ms (generat; celelalte tranziții ale elementelor își păstrează durata) */
 #quiz-close{transition:background-color 400ms ease}
@@ -1249,6 +1238,9 @@ if(localStorage.getItem('cookieConsent')){
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
 })();
 </script>
-<script src="/navpill.js?v=20261115c" defer></script>
+<script src="/navpill.js?v=20261115e" defer></script>
+<script>/* „Înapoi la site”: dacă ai venit de pe site, te întoarce exact unde erai (secțiunea și poziția de scroll din pagina de unde ai plecat); altfel, homepage */(function(){var a=document.querySelector("a[data-back]");if(!a)return;a.addEventListener("click",function(e){try{var r=document.referrer?new URL(document.referrer):null;if(r&&r.origin===location.origin&&r.pathname!==location.pathname&&history.length>1){e.preventDefault();history.back();}}catch(_){}});})();</script>
+<style id="ru-touch">/* Touch: hover-ul nu rămâne „lipit” după atingere; cât ții degetul apăsat, elementul arată ca la hover și se apasă ușor (în loc să se ridice). Pe dispozitivele cu mouse nu se schimbă nimic. */@media(hover:none){.cmp-tbl tr:active td{background:var(--bg-stone)}.card:active{box-shadow:0 8px 28px rgba(45,40,32,.22);transform:scale(.97)}.step:active{background:var(--brand-light);transform:scale(.97)}.btn-p:active{transform:scale(.97)}.btn-g:active{transform:scale(.97)}.hero-cta:active{background:#B56C2E;transform:scale(.97)}.cc:active{background:#453A2E;transform:scale(.97)}.sv-dot:active{transform:scale(.97);box-shadow:0 4px 16px rgba(199,121,54,.55)}.sv-card:active{box-shadow:0 4px 18px rgba(45,40,32,.13);transform:scale(.97)}.sv-tbl tbody tr:active td{background:var(--brand-light)}.lang-toggle-btn:active{background:#FAF4EB;border-color:#C77936;transform:scale(.97)}.wa-float:active{transform:scale(.97);box-shadow:0 10px 30px rgba(37,211,102,.45)}#quiz-close:active{background:#F5EFE6;transform:scale(.97)}.qopt:active{border-color:#C77936;background:#FDF8F3;color:#C77936;transform:scale(.97)}.qsubmit:active{background:#B06B2C;transform:scale(.97)}.qback:active{color:#2D2820;transform:scale(.97)}}</style>
+<script>/* iOS aplică stilul de apăsare doar dacă pagina ascultă atingerile */document.addEventListener("touchstart",function(){},{passive:true});</script>
 </body>
 </html>

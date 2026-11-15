@@ -2,6 +2,7 @@
 <html lang="ro">
 <head>
 <style id="ru-motion">/* Sistemul de mișcare RentUP: aceleași curbe și durate pe tot site-ul */:root{--ease-out:cubic-bezier(0.23,1,0.32,1);--ease-in-out:cubic-bezier(0.77,0,0.175,1);--ease-pop:cubic-bezier(0.34,1.4,0.64,1);--d-press:160ms;--d-fast:200ms;--d-ui:260ms;--d-move:420ms;--d-hover:400ms;--d-reveal:620ms}/* Trecerea între pagini: crossfade scurt; meniul rămâne pe loc (browserele fără suport încarcă normal) */@view-transition{navigation:auto}::view-transition-old(root),::view-transition-new(root){animation-duration:var(--d-ui);animation-timing-function:var(--ease-out)}::view-transition-group(ru-nav){animation-duration:var(--d-ui);animation-timing-function:var(--ease-out)}nav{view-transition-name:ru-nav}/* Mișcare redusă: fără deplasări și bucle; rămân doar estompările scurte care ajută la înțelegere */@media (prefers-reduced-motion:reduce){@view-transition{navigation:none}*,*::before,*::after{animation-duration:1ms!important;animation-delay:0s!important;animation-iteration-count:1!important;scroll-behavior:auto!important}.sr{transform:none!important;filter:none!important;transition:opacity 200ms ease-out!important}}</style>
+<script>/* adresă curată: /pagina în loc de /pagina.html (fără reîncărcare) */(function(){var p=location.pathname;if(/\.html$/.test(p)){history.replaceState(null,"",p.replace(/(^|\/)index\.html$/,"$1").replace(/\.html$/,"")+location.search+location.hash)}})();</script>
 <meta charset="UTF-8">
 <!-- Consimțământ cookies (Legea 506/2004 + GDPR): Google Analytics, Google Ads,
      Clarity și AdSense se încarcă DOAR după „Accept” în banner. Consent Mode v2
@@ -102,10 +103,10 @@ function gtag_report_conversion_social(url) {
 <meta property="og:title" content="Raport de Rentabilitate Apartament Gratuit | RentUP">
 <meta property="og:description" content="Evaluare completă a apartamentului tău, remote, pe baza pozelor: scor per cameră, chirie corectă pentru zona ta, intervenții prioritizate și ROI estimat. Livrat în 72h.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.rentup.solutions/audit.html">
+<meta property="og:url" content="https://www.rentup.solutions/audit">
 <meta property="og:image" content="https://www.rentup.solutions/images/opengraph_logo.webp">
 <meta property="og:locale" content="ro_RO">
-<link rel="canonical" href="https://www.rentup.solutions/audit.html">
+<link rel="canonical" href="https://www.rentup.solutions/audit">
 
 <style>
 @font-face{font-family:'General Sans';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/general-sans-300-normal.woff2') format('woff2');}
@@ -123,9 +124,9 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .logo span{color:#2D2820;font-weight:300}
 .nav-links{display:flex;align-items:center;gap:28px}
 .nav-links a{font-family:'General Sans',sans-serif;font-size:14px;color:var(--muted);text-decoration:none;transition:color .15s}
-.nav-links a:hover,.nav-links a.active{color:#2D2820}
+.nav-links a.active{color:#2D2820}@media(hover:hover){.nav-links a:hover{color:#2D2820}}
 .nav-cta{font-family:'General Sans',sans-serif;font-size:14px;font-weight:500;color:#C77936;border:.5px solid #C77936;padding:8px 18px;border-radius:100px;text-decoration:none;white-space:nowrap;transition:background .2s}
-.nav-cta:hover{background:#FAF4EB}
+@media(hover:hover){.nav-cta:hover{background:#FAF4EB}}
 
 /* ── LAYOUT ── */
 .inner{max-width:1080px;margin:0 auto}
@@ -152,10 +153,10 @@ section .inner>.sec-h,section .inner>.sec-sub{text-align:center;margin-left:auto
 
 /* ── BUTTONS ── */
 .btn-p{display:inline-block;font-size:14px;font-weight:500;background:var(--brand);color:var(--bg);padding:14px 28px;border-radius:100px;text-decoration:none;border:none;cursor:pointer;transition:background 180ms var(--ease-out),transform 150ms var(--ease-out)}
-.btn-p:hover{background:#a8622a;transform:translateY(-1px)}
+@media(hover:hover){.btn-p:hover{background:#a8622a;transform:translateY(-1px)}}
 .btn-p:active{transform:scale(.97);transition-duration:80ms}
 .btn-g{display:inline-block;color:var(--muted);font-size:14px;padding:14px 26px;border:.5px solid #4D4238;border-radius:100px;text-decoration:none;transition:color 150ms ease,transform 160ms ease}
-.btn-g:hover{color:var(--bg);transform:translateY(-1px)}
+@media(hover:hover){.btn-g:hover{color:var(--bg);transform:translateY(-1px)}}
 .lnk{font-size:14px;font-weight:500;color:var(--brand);text-decoration:none;border-bottom:1px solid var(--brand-border);padding-bottom:2px;white-space:nowrap}
 
 /* ── CARDS ── */
@@ -263,7 +264,7 @@ img{-webkit-user-drag:none;user-drag:none}
 .card{transition:box-shadow 260ms var(--ease-out),transform 240ms var(--ease-out)}
 @media(hover:hover){.card:hover{box-shadow:0 8px 32px rgba(45,40,32,.11);transform:translateY(-2px)}.rep:hover,.step1:hover{transform:none}}
 .cc{transition:background 180ms ease,transform 180ms var(--ease-out)}
-.cc:hover{background:#453A2E;transform:translateY(-1px)}
+@media(hover:hover){.cc:hover{background:#453A2E;transform:translateY(-1px)}}
 .lnk:focus-visible{outline:2px solid var(--brand);outline-offset:4px;border-radius:2px}
 
 /* ── FOCUS VISIBLE ── */
@@ -302,14 +303,14 @@ button,a{touch-action:manipulation}
     "description": "Gratuit"
   },
   "areaServed": "RO",
-  "url": "https://www.rentup.solutions/audit.html"
+  "url": "https://www.rentup.solutions/audit"
 }
 </script>
 <style>
 /* Butonul de limbă + meniul hamburger (aceleași reguli pe care le injectează lang.js;
    sunt aici ca nav-ul să arate corect înainte să se încarce lang.js) */
 .lang-toggle-btn{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:#C77936;border:.5px solid #E8D5BC;background:transparent;padding:5px 11px;border-radius:100px;cursor:pointer;letter-spacing:.04em;transition:background 150ms ease,border-color 150ms ease;flex-shrink:0}
-.lang-toggle-btn:hover{background:#FAF4EB;border-color:#C77936}
+@media(hover:hover){.lang-toggle-btn:hover{background:#FAF4EB;border-color:#C77936}}
 .lang-toggle-btn:focus-visible{outline:2px solid #C77936;outline-offset:3px;border-radius:100px}
 .lang-mob{display:none!important}
 @media(max-width:768px){.lang-mob{display:inline-flex!important;margin-left:auto;margin-right:2px}.lang-mob+#nav-hamburger{margin-left:0!important}}
@@ -327,13 +328,15 @@ button,a{touch-action:manipulation}
 </style>
 <style id="ru-ar">.ar{display:inline-block;width:1em;height:1em;margin-left:.35em;vertical-align:-.14em;flex-shrink:0}.ar-l{margin-left:0;margin-right:.35em}.ar-m{margin:0 .3em}</style>
 <style id="ru-nodots">/* Telefon: fără punctele de fundal (desktopul și tableta le păstrează) */@media(max-width:600px){body{background-image:none!important}body::before,.ru-ft::before,.audit-hero::before,#hero::before,#calc::before,#rental-kit-teaser::before,#instagram::before,#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before,#faq::before{background-image:none!important}}</style>
+<style id="ru-dark-card">/* Secțiunea maro închis = card mat, ca secțiunea de contact de pe homepage */.audit-cta{position:relative;isolation:isolate;overflow:clip;margin:20px clamp(12px,1.6vw,24px);border-radius:clamp(24px,2.4vw,36px);border:1px solid rgba(255,255,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 1px 2px rgba(45,40,32,.08),0 30px 70px -30px rgba(45,40,32,.45)}@media(max-width:600px){.audit-cta{margin:12px 8px;border-radius:22px}}.audit-cta::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.5;mix-blend-mode:screen;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .9 0 0 0 0 .85 0 0 0 0 .78 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}</style>
+<style id="ru-grid">/* Fundal: grilă de plan tehnic (în locul punctelor) pe desktop și tabletă; pe telefon fundalul rămâne simplu (ru-nodots) */@media(min-width:601px){body::before,.ru-ft::before,.audit-hero::before{background-image:url(/grid.svg?v=20261116b)!important;background-size:1280px 1280px!important;opacity:1!important}#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before,#faq::before,.cost-section::before{background-image:url(/grid.svg?v=20261116b)!important;background-size:1280px 1280px!important;opacity:.5}}</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Sari la conținut</a>
 
 <nav>
   <a class="logo" href="/">Rent<span>UP</span></a>
-  <a href="/" style="font-family:'General Sans',sans-serif;font-size:14px;color:var(--muted);text-decoration:none"><svg class="ar ar-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg>Înapoi la site</a>
+  <a href="/" data-back style="font-family:'General Sans',sans-serif;font-size:14px;color:var(--muted);text-decoration:none"><svg class="ar ar-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg>Înapoi la site</a>
   <button class="lang-toggle-btn" onclick="toggleLang()" title="Switch to English">EN</button>
 </nav>
 
@@ -446,7 +449,7 @@ button,a{touch-action:manipulation}
       </div>
       <a class="btn-p" href="#cta">Cere raportul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
     </div>
-    <p class="opt">Opțional: vrei să-l vezi și mobilat înainte să decizi? <a href="staging-virtual.html">Staging Virtual</a>: randări pe baza pozelor, 200€, care se scad din Quick Win sau Invest Premium.</p>
+    <p class="opt">Opțional: vrei să-l vezi și mobilat înainte să decizi? <a href="/staging-virtual">Staging Virtual</a>: randări pe baza pozelor, 200€, care se scad din Quick Win sau Invest Premium.</p>
 
     <div class="flow-next">
       <p class="flow-l">Pasul 2, dacă vrei să continuăm</p>
@@ -537,21 +540,8 @@ button,a{touch-action:manipulation}
 
 <!-- FOOTER -->
 <footer class="ru-ft">
-<style id="ru-ft-card">.ru-ft .ft-s{display:none}@media(max-width:600px){.ru-ft .ft-f{display:none}.ru-ft .ft-s{display:inline}}.ru-ft{isolation:isolate}.ru-ft::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(rgba(45,40,32,.16) 1.1px,transparent 1.4px);background-size:22px 22px;opacity:.7;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 12%,transparent 50%);mask-image:linear-gradient(180deg,transparent 0%,#000 12%,transparent 50%)}
-@media(max-width:768px){.ru-ft::before{background-image:radial-gradient(rgba(45,40,32,.128) .68px,transparent .9px);background-size:10px 10px}}
-.ru-ft{display:block!important;position:relative;overflow:hidden;background:#FDFAF6!important;border-top:0!important;padding:64px 32px 0!important}
-.ru-ft-card{position:relative;z-index:1;max-width:1200px;margin:0 auto;background:#fff;border:1px solid rgba(45,40,32,.06);border-radius:28px;padding:52px 56px 32px;box-shadow:0 1px 2px rgba(45,40,32,.04),0 12px 32px rgba(45,40,32,.07),0 40px 80px -24px rgba(45,40,32,.12)}
-.ru-ft-top{display:grid!important;grid-template-columns:minmax(0,1fr) auto;gap:48px;align-items:start;margin-bottom:40px}
-.ru-ft-cols{display:grid;grid-template-columns:repeat(4,auto);gap:48px}
-.ru-ft .ft-brand>a{font-size:22px!important;margin-bottom:0!important}
-.ru-ft-tag{font-family:'General Sans',sans-serif;font-size:24px;font-weight:600;line-height:1.25;letter-spacing:-.015em;color:#2D2820;margin:18px 0 6px;max-width:15ch}
-.ru-ft-tag em{font-style:normal;color:#C77936}
-.ru-ft-city{font-size:14px;color:#776B60;margin:0}
-.ru-ft-giant{position:relative;z-index:0;margin-top:.12em;text-align:center;font-family:'General Sans',sans-serif;font-weight:600;font-size:clamp(60px,21vw,300px);line-height:.78;letter-spacing:-.05em;height:.66em;overflow:hidden;white-space:nowrap;color:rgba(199,121,54,.24);-webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.14) 100%);mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.14) 100%);-webkit-user-select:none;user-select:none;pointer-events:none}
-.ru-ft-giant span{font-weight:300;color:rgba(45,40,32,.14)}
-@media(max-width:720px){.ru-ft{padding:32px 12px 0!important}.ru-ft-card{padding:32px 22px 26px;border-radius:22px}.ru-ft-top{grid-template-columns:1fr;gap:36px}.ru-ft-cols{grid-template-columns:1fr 1fr;gap:28px 24px}.ru-ft-tag{font-size:21px}}@media(max-width:600px){.ru-ft-card{padding:30px 22px 26px}.ru-ft-tag{font-size:22px;max-width:none;margin-top:16px}.ru-ft-top{gap:32px;margin-bottom:28px}.ru-ft-cols{gap:28px 16px}.ru-ft .ft-bot{gap:20px!important;padding-top:22px!important}.ru-ft .ft-legal{gap:10px 20px}.ru-ft .ft-legal>a{order:1;font-size:13px!important;color:#776B60!important;padding:2px 0}.ru-ft .ft-legal>div:not(.ft-co){order:2;flex-basis:100%;margin-top:8px}.ru-ft .ft-co{order:3;line-height:1.55}.ru-ft-giant{font-size:25vw;margin-top:.08em}.ru-ft .ft-bot{align-items:center!important;text-align:center!important}.ru-ft .ft-legal{justify-content:center;text-align:center!important}.ru-ft .ft-bot .ru-legal{justify-content:center;align-self:center}}</style>
+<link rel="stylesheet" href="/footer.css?v=20261116">
 
-<style>@media(max-width:600px){footer{padding-left:20px!important;padding-right:20px!important}.ft-brand{flex-basis:100%!important}}</style>
   <div class="ru-ft-card">
     <div class="ru-ft-top">
       <div class="ft-brand" style="flex:0 0 auto">
@@ -562,18 +552,18 @@ button,a{touch-action:manipulation}
         <div>
           <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:14px">Servicii</div>
           <div style="display:flex;flex-direction:column;gap:10px">
-            <a href="/audit.html" style="font-size:14px;color:#7A6E62;text-decoration:none"><span class="ft-f">Raport de Rentabilitate</span><span class="ft-s">Raport Rentabilitate</span></a>
-            <a href="/staging-virtual.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Staging Virtual</a>
+            <a href="/audit" style="font-size:14px;color:#7A6E62;text-decoration:none"><span class="ft-f">Raport de Rentabilitate</span><span class="ft-s">Raport Rentabilitate</span></a>
+            <a href="/staging-virtual" style="font-size:14px;color:#7A6E62;text-decoration:none">Staging Virtual</a>
             <a href="/#packages" style="font-size:14px;color:#7A6E62;text-decoration:none"><span class="ft-f">Design de interior</span><span class="ft-s">Design Interior</span></a>
-            <a href="/rental-kit.html" style="font-size:14px;color:#C77936;text-decoration:none;font-weight:500">Rental Kit</a>
+            <a href="/rental-kit" style="font-size:14px;color:#C77936;text-decoration:none;font-weight:500">Rental Kit</a>
           </div>
         </div>
         <div>
           <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:14px">Resurse</div>
           <div style="display:flex;flex-direction:column;gap:10px">
-            <a href="/realitatea-chiriei.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Probleme & Soluții</a>
-            <a href="/simulator.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Simulator mobilare</a>
-            <a href="/faq.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Întrebări frecvente</a>
+            <a href="/realitatea-chiriei" style="font-size:14px;color:#7A6E62;text-decoration:none">Probleme & Soluții</a>
+            <a href="/simulator" style="font-size:14px;color:#7A6E62;text-decoration:none">Simulator mobilare</a>
+            <a href="/faq" style="font-size:14px;color:#7A6E62;text-decoration:none">Întrebări frecvente</a>
             <a href="/blog/" style="font-size:14px;color:#7A6E62;text-decoration:none">Blog</a>
           </div>
         </div>
@@ -599,15 +589,14 @@ button,a{touch-action:manipulation}
     <div class="ft-legal">
     <div class="ft-co" style="font-size:12px;color:var(--light);white-space:normal">Wirtual Design &amp; Architecture SRL · CUI 44170236 · J23/2626/2021 · Clinceni, Ilfov</div>
 <div style="font-size:12px;color:var(--light);white-space:nowrap">© 2026 RentUP · Toate drepturile rezervate</div>
-<a href="/termeni.html" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Termeni și condiții</a>
-<a href="/confidentialitate.html" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Politică de confidențialitate</a>
+<a href="/termeni" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Termeni și condiții</a>
+<a href="/confidentialitate" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Politică de confidențialitate</a>
       <a href="#" onclick="ruCookieSettings();return false" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Setări cookie</a>
     </div>
     <div class="ru-legal" style="display:flex"><a class="ru-sal" href="https://reclamatiisal.anpc.ro/" target="_blank" rel="noopener" aria-label="ANPC: Soluționarea alternativă a litigiilor (detalii)" style="display:inline-flex;color:var(--light,#776B60);text-decoration:none"><svg width="200" height="50" viewBox="0 0 200 50" fill="none" aria-hidden="true" style="display:block"><rect x=".5" y=".5" width="199" height="49" rx="12" stroke="currentColor"/><path d="M85 9v32" stroke="currentColor" stroke-opacity=".45"/><image x="4" y="8.5" width="27.4" height="33" href="/images/stema-anpc-sepia.png"/><text x="34" y="21" fill="currentColor" font-family="'General Sans',sans-serif" font-size="13" font-weight="600" letter-spacing=".2">ANPC</text><text x="34.2" y="26.2" fill="currentColor" font-family="'General Sans',sans-serif" font-size="2.7" font-weight="500" letter-spacing=".05">AUTORITATEA NAȚIONALĂ PENTRU</text><text x="34.2" y="29.6" fill="currentColor" font-family="'General Sans',sans-serif" font-size="2.7" font-weight="500" letter-spacing=".05">PROTECȚIA CONSUMATORILOR</text><text x="34" y="39.5" fill="currentColor" font-family="'General Sans',sans-serif" font-size="7.4" font-style="italic" font-weight="500">Te respectă</text><text x="141" y="18" fill="currentColor" font-family="'General Sans',sans-serif" font-size="6.3" font-weight="600" text-anchor="middle" letter-spacing=".1">SOLUȚIONAREA ALTERNATIVĂ</text><text x="141" y="26" fill="currentColor" font-family="'General Sans',sans-serif" font-size="6.3" font-weight="600" text-anchor="middle" letter-spacing=".1">A LITIGIILOR</text><rect x="121" y="31" width="40" height="12" rx="6" fill="currentColor"/><text x="141" y="39.3" fill="#FDFAF6" font-family="'General Sans',sans-serif" font-size="5.6" font-weight="600" text-anchor="middle" letter-spacing=".4">DETALII</text></svg></a></div>
     </div>
   </div>
-<style id="ru-ft-bot">.ft-bot{justify-content:space-between!important;align-items:center!important;gap:16px 40px!important;flex-wrap:wrap!important}.ft-legal{flex:1 1 480px;display:flex;flex-wrap:wrap;gap:6px 24px;text-align:left}.ft-bot .ru-legal{flex:0 0 auto}.ft-co{order:2;flex-basis:100%}@media(max-width:600px){.ft-bot{flex-direction:column!important;align-items:flex-start!important}.ft-legal{flex-basis:auto}}</style>
-<style id="ru-ft-gm">@media(max-width:1024px){.ru-ft-giant{height:auto;overflow:visible;line-height:.9;padding-bottom:.04em;-webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.45) 45%,transparent 92%);mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.45) 45%,transparent 92%)}}</style><div class="ru-ft-giant" aria-hidden="true">Rent<span>UP</span></div>
+<div class="ru-ft-giant" aria-hidden="true">Rent<span>UP</span></div>
 </footer>
 
 <script>
@@ -638,24 +627,24 @@ document.addEventListener('contextmenu', function(e){
 </script>
 
 <!-- WhatsApp Floating (mobil) -->
-<style>.wa-float{display:none;position:fixed;bottom:24px;left:24px;width:52px;height:52px;background:#25D366;border-radius:50%;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.35);z-index:998;text-decoration:none;transition:transform .2s,box-shadow .2s}.wa-float:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(37,211,102,.45)}@media(max-width:768px){.wa-float{display:flex}}
-#wa-modal{display:none;position:fixed;inset:0;z-index:9999}#wa-modal.open{display:block}#wa-overlay{position:absolute;inset:0;background:rgba(45,40,32,.45)}#wa-box{position:absolute;bottom:88px;left:16px;width:280px;background:#FDFAF6;border:.5px solid #EDE5D8;border-radius:16px;box-shadow:0 12px 40px rgba(45,40,32,.18);overflow:hidden;font-family:'General Sans',sans-serif}#wa-head{display:flex;align-items:center;justify-content:space-between;padding:13px 16px 11px;border-bottom:.5px solid #EDE5D8}#wa-title{font-size:14px;font-weight:600;color:#2D2820;letter-spacing:.02em}#wa-close{background:none;border:none;cursor:pointer;color:#8B7D6B;font-size:20px;line-height:1;padding:0;width:24px;height:24px;display:flex;align-items:center;justify-content:center}.wa-opt{display:block;width:100%;text-align:left;padding:11px 16px;background:none;border:none;border-bottom:.5px solid #EDE5D8;cursor:pointer;font-size:14px;color:#2D2820;font-family:'General Sans',sans-serif;line-height:1.4;transition:background .15s}.wa-opt:hover{background:#F5EFE6}#wa-custom-wrap{padding:12px 16px 14px;border-top:.5px solid #EDE5D8}#wa-custom-lbl{font-size:11px;color:#8B7D6B;margin:0 0 7px}#wa-custom-ta{width:100%;box-sizing:border-box;border:.5px solid #EDE5D8;border-radius:8px;padding:8px 10px;font-size:14px;font-family:'General Sans',sans-serif;color:#2D2820;background:#fff;resize:none;outline:none;line-height:1.5;display:block}#wa-custom-ta:focus{border-color:#C77936}#wa-send-btn{margin-top:8px;width:100%;background:#25D366;color:#FDFAF6;border:none;border-radius:8px;padding:9px 0;font-size:14px;font-weight:600;cursor:pointer;font-family:'General Sans',sans-serif}
+<style>.wa-float{display:none;position:fixed;bottom:24px;left:24px;width:52px;height:52px;background:#25D366;border-radius:50%;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.35);z-index:998;text-decoration:none;transition:transform .2s,box-shadow .2s}@media(hover:hover){.wa-float:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(37,211,102,.45)}}@media(max-width:768px){.wa-float{display:flex}}
+#wa-modal{display:none;position:fixed;inset:0;z-index:9999}#wa-modal.open{display:block}#wa-overlay{position:absolute;inset:0;background:rgba(45,40,32,.45)}#wa-box{position:absolute;bottom:88px;left:16px;width:280px;background:#FDFAF6;border:.5px solid #EDE5D8;border-radius:16px;box-shadow:0 12px 40px rgba(45,40,32,.18);overflow:hidden;font-family:'General Sans',sans-serif}#wa-head{display:flex;align-items:center;justify-content:space-between;padding:13px 16px 11px;border-bottom:.5px solid #EDE5D8}#wa-title{font-size:14px;font-weight:600;color:#2D2820;letter-spacing:.02em}#wa-close{background:none;border:none;cursor:pointer;color:#8B7D6B;font-size:20px;line-height:1;padding:0;width:24px;height:24px;display:flex;align-items:center;justify-content:center}.wa-opt{display:block;width:100%;text-align:left;padding:11px 16px;background:none;border:none;border-bottom:.5px solid #EDE5D8;cursor:pointer;font-size:14px;color:#2D2820;font-family:'General Sans',sans-serif;line-height:1.4;transition:background .15s}@media(hover:hover){.wa-opt:hover{background:#F5EFE6}}#wa-custom-wrap{padding:12px 16px 14px;border-top:.5px solid #EDE5D8}#wa-custom-lbl{font-size:11px;color:#8B7D6B;margin:0 0 7px}#wa-custom-ta{width:100%;box-sizing:border-box;border:.5px solid #EDE5D8;border-radius:8px;padding:8px 10px;font-size:14px;font-family:'General Sans',sans-serif;color:#2D2820;background:#fff;resize:none;outline:none;line-height:1.5;display:block}#wa-custom-ta:focus{border-color:#C77936}#wa-send-btn{margin-top:8px;width:100%;background:#25D366;color:#FDFAF6;border:none;border-radius:8px;padding:9px 0;font-size:14px;font-weight:600;cursor:pointer;font-family:'General Sans',sans-serif}
 /* WA modal — design nou (stil calculator) */
 #wa-overlay{background:rgba(45,40,32,.32);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
 #wa-box{width:300px;border:none;border-radius:20px;box-shadow:0 16px 48px rgba(45,40,32,.18);padding:8px}
 #wa-head{border-bottom:none;padding:14px 12px 10px 14px}
 #wa-title{font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--light)}
 #wa-close{width:30px;height:30px;border-radius:50%;background:#F5EFE6;color:#7A6E62;font-size:18px;transition:background 180ms var(--ease-out)}
-#wa-close:hover{background:#EDE5D8;color:#2D2820}
+@media(hover:hover){#wa-close:hover{background:#EDE5D8;color:#2D2820}}
 #wa-opts{display:grid;gap:2px}
 .wa-opt{border-bottom:none;border-radius:12px;padding:12px 14px;font-size:14px;transition:background 180ms var(--ease-out)}
-.wa-opt:hover{background:#F5EFE6}
+@media(hover:hover){.wa-opt:hover{background:#F5EFE6}}
 #wa-custom-wrap{border-top:none;margin-top:6px;padding:12px 6px 6px;background:none}
 #wa-custom-lbl{font-size:14px;color:var(--light);margin:0 8px 8px}
 #wa-custom-ta{border:none;border-radius:14px;background:#F5EFE6;padding:11px 14px;font-size:14px;transition:background 180ms,box-shadow 180ms}
 #wa-custom-ta:focus{background:#fff;box-shadow:0 0 0 1.5px #C77936}
 #wa-send-btn{border-radius:100px;padding:12px 0;font-size:14px;font-weight:500;transition:transform 150ms var(--ease-out),filter 180ms}
-#wa-send-btn:hover{filter:brightness(.94);transform:translateY(-1px)}
+@media(hover:hover){#wa-send-btn:hover{filter:brightness(.94);transform:translateY(-1px)}}
 #wa-send-btn:active{transform:scale(.97)}
 </style>
 <!-- WhatsApp Modal -->
@@ -734,7 +723,7 @@ window.addEventListener('scroll',function(){
 <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#2D2820;border-top:0.5px solid #4D4238;padding:16px 20px;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;z-index:130;font-family:'General Sans',sans-serif">
   <div style="flex:1;min-width:180px">
     <div style="font-size:13px;font-weight:500;color:#FDFAF6;margin-bottom:3px">Folosim cookie-uri</div>
-    <div style="font-size:12px;color:var(--muted);line-height:1.5">Folosim cookie-uri pentru analiză și îmbunătățirea experienței. <span class="cb-opt">Poți accepta sau refuza cookie-urile opționale. </span><a href="confidentialitate.html" style="color:#C77936;text-decoration:none">Politică de confidențialitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
+    <div style="font-size:12px;color:var(--muted);line-height:1.5">Folosim cookie-uri pentru analiză și îmbunătățirea experienței. <span class="cb-opt">Poți accepta sau refuza cookie-urile opționale. </span><a href="/confidentialitate" style="color:#C77936;text-decoration:none">Politică de confidențialitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
   </div>
   <div style="display:flex;gap:8px;align-items:center;flex-shrink:0">
     <button onclick="setCookies('refused')" style="font-size:13px;font-weight:500;color:var(--muted);background:none;border:1px solid #4D4238;padding:0 20px;height:44px;border-radius:100px;cursor:pointer;font-family:'General Sans',sans-serif;touch-action:manipulation;-webkit-tap-highlight-color:transparent">Refuz</button>
@@ -761,19 +750,19 @@ body:has(#ru-slide.ru-vis) .wa-float,body:has(#ru-slide.ru-vis) #btt{opacity:0;p
 #ru-slide .rsi{width:100%;padding:9px 12px;border:.5px solid #D8CFC4;border-radius:8px;font-family:'General Sans',sans-serif;font-size:14px;color:#2D2820;background:#fff;outline:none;transition:border-color .2s;box-sizing:border-box}
 #ru-slide .rsi:focus{border-color:#C77936}
 #ru-slide .rsd{display:block;width:100%;text-align:center;margin:8px 0 0;font-size:14px;font-weight:500;color:#7A6E62;cursor:pointer;background:none;border:.5px solid #D8CFC4;border-radius:100px;font-family:'General Sans',sans-serif;padding:11px 24px;transition:background 180ms,color 180ms,border-color 180ms}
-#ru-slide .rsd:hover{background:#F5EFE6;border-color:#C9BBA9;color:#2D2820}
-#ru-slide .rsd:hover{color:#2D2820}
+@media(hover:hover){#ru-slide .rsd:hover{background:#F5EFE6;border-color:#C9BBA9;color:#2D2820}}
+@media(hover:hover){#ru-slide .rsd:hover{color:#2D2820}}
 #ru-slide .rsok{display:none;text-align:center;padding:12px 0 4px;font-size:14px;color:#0F6E56;font-weight:500}
 /* Slide-in — design nou (stil calculator) */
 #ru-slide{border:none;border-radius:20px;box-shadow:0 16px 48px rgba(45,40,32,.18);padding:24px 22px 20px}
 #ru-slide .rsc{top:14px;right:14px;width:30px;height:30px;padding:0;border-radius:50%;background:#F5EFE6;color:#7A6E62;font-size:17px;display:flex;align-items:center;justify-content:center;transition:background 180ms var(--ease-out)}
-#ru-slide .rsc:hover{background:#EDE5D8;color:#2D2820}
+@media(hover:hover){#ru-slide .rsc:hover{background:#EDE5D8;color:#2D2820}}
 #ru-slide .rsh{font-size:18px;font-weight:400;letter-spacing:-.02em;padding-right:34px;margin-bottom:8px}
 #ru-slide .rss{font-size:14px;margin-bottom:16px}
 #ru-slide .rsi{border:none;border-radius:100px;background:#F5EFE6;padding:12px 16px;transition:background 180ms,box-shadow 180ms}
 #ru-slide .rsi:focus{background:#fff;box-shadow:0 0 0 1.5px #C77936}
 #ru-slide .rsb{display:block;width:100%;margin-top:4px;font-family:'General Sans',sans-serif;font-size:14px;font-weight:500;background:var(--brand);color:var(--bg);border:none;border-radius:100px;padding:13px 24px;cursor:pointer;-webkit-appearance:none;appearance:none;transition:background 180ms var(--ease-out),transform 150ms var(--ease-out)}
-#ru-slide .rsb:hover{background:#a8622a;transform:translateY(-1px)}
+@media(hover:hover){#ru-slide .rsb:hover{background:#a8622a;transform:translateY(-1px)}}
 #ru-slide .rsb:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
 #ru-slide .rsb:active{transform:scale(.97);transition-duration:80ms}
 @media(max-width:520px){#ru-slide{left:12px;right:12px;width:auto;bottom:16px}}
@@ -791,7 +780,7 @@ body:has(#ru-slide.ru-vis) .wa-float,body:has(#ru-slide.ru-vis) #btt{opacity:0;p
     <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><input type="text" id="rs-hp" name="_honey" tabindex="-1" autocomplete="off"></div>
     <button class="rsb" id="rs-btn" onclick="RuSlide.submit()">Trimite-mi raportul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
     <p id="rs-err" role="alert" style="display:none;font-size:14px;color:#A32D2D;margin:8px 0 0;text-align:center">Nu am putut trimite cererea. Încearcă din nou sau scrie-ne pe <a href="https://wa.me/40741176865" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">WhatsApp</a>.</p>
-    <p style="font-size:8.5px;line-height:1.45;color:var(--muted);margin:8px 0 0;text-align:center">Folosim datele doar pentru raport și discuția despre el. Detalii în <a href="confidentialitate.html" style="color:inherit;text-decoration:underline">Politica de confidențialitate</a>.</p>
+    <p style="font-size:8.5px;line-height:1.45;color:var(--muted);margin:8px 0 0;text-align:center">Folosim datele doar pentru raport și discuția despre el. Detalii în <a href="/confidentialitate" style="color:inherit;text-decoration:underline">Politica de confidențialitate</a>.</p>
   </div>
   <div class="rsok" id="rs-ok">✓ Gata! Te contactăm în 24h.</div>
 </div>
@@ -922,7 +911,7 @@ body:has(#ru-slide.ru-vis) .wa-float,body:has(#ru-slide.ru-vis) #btt{opacity:0;p
   var state=0, pending=false;
   function load(){
     if(state) return; state=1;
-    var s=document.createElement('script'); s.src='lang.js';
+    var s=document.createElement('script'); s.src='lang.js?v=20261115';
     s.onload=function(){ state=2; if(pending){ pending=false; window.toggleLang(); } };
     document.body.appendChild(s);
   }
@@ -931,7 +920,7 @@ body:has(#ru-slide.ru-vis) .wa-float,body:has(#ru-slide.ru-vis) #btt{opacity:0;p
   if(en) load(); else window.ruLater(load);
 })();
 </script>
-<script src="float.js?v=20261115" defer></script>
+<script src="float.js?v=20261115b" defer></script>
 <style id="ru-smooth-hover">
 /* Hover-uri line: orice schimbare de culoare/fundal/contur/umbră la hover durează 400ms (generat; celelalte tranziții ale elementelor își păstrează durata) */
 #ru-slide .rsb{transition:background-color 400ms ease,transform 150ms var(--ease-out)}
@@ -973,6 +962,9 @@ body:has(#ru-slide.ru-vis) .wa-float,body:has(#ru-slide.ru-vis) #btt{opacity:0;p
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
 })();
 </script>
-<script src="/navpill.js?v=20261115c" defer></script>
+<script src="/navpill.js?v=20261115e" defer></script>
+<script>/* „Înapoi la site”: dacă ai venit de pe site, te întoarce exact unde erai (secțiunea și poziția de scroll din pagina de unde ai plecat); altfel, homepage */(function(){var a=document.querySelector("a[data-back]");if(!a)return;a.addEventListener("click",function(e){try{var r=document.referrer?new URL(document.referrer):null;if(r&&r.origin===location.origin&&r.pathname!==location.pathname&&history.length>1){e.preventDefault();history.back();}}catch(_){}});})();</script>
+<style id="ru-touch">/* Touch: hover-ul nu rămâne „lipit” după atingere; cât ții degetul apăsat, elementul arată ca la hover și se apasă ușor (în loc să se ridice). Pe dispozitivele cu mouse nu se schimbă nimic. */@media(hover:none){.nav-links a:active{color:#2D2820;transform:scale(.97)}.nav-cta:active{background:#FAF4EB;transform:scale(.97)}.btn-g:active{color:var(--bg);transform:scale(.97)}.cc:active{background:#453A2E;transform:scale(.97)}.lang-toggle-btn:active{background:#FAF4EB;border-color:#C77936;transform:scale(.97)}.wa-float:active{transform:scale(.97);box-shadow:0 10px 30px rgba(37,211,102,.45)}.wa-opt:active{background:#F5EFE6;transform:scale(.97)}#wa-close:active{background:#EDE5D8;color:#2D2820;transform:scale(.97)}#ru-slide .rsd:active{background:#F5EFE6;border-color:#C9BBA9;color:#2D2820;transform:scale(.97)}#ru-slide .rsd:active{color:#2D2820;transform:scale(.97)}#ru-slide .rsc:active{background:#EDE5D8;color:#2D2820;transform:scale(.97)}}</style>
+<script>/* iOS aplică stilul de apăsare doar dacă pagina ascultă atingerile */document.addEventListener("touchstart",function(){},{passive:true});</script>
 </body>
 </html>

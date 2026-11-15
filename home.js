@@ -912,7 +912,7 @@ document.addEventListener('touchstart',function(){},{passive:true});
 (function(){
   var el=document.getElementById('port-count');if(!el||!window.fetch) return;
   function go(){
-  fetch('portofoliu.html',{credentials:'same-origin'}).then(function(r){return r.ok?r.text():''}).then(function(t){
+  fetch('/portofoliu',{credentials:'same-origin'}).then(function(r){return r.ok?r.text():''}).then(function(t){
     var n=(t.match(/class="pf-row"/g)||[]).length;
     if(n) el.textContent=n;
   }).catch(function(){});

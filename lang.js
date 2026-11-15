@@ -73,7 +73,7 @@
     'chirie lunară în plus': 'extra monthly rent',
 
     /* ── INDEX: Stats ── */
-    '8–48 luni': '8–48 months',
+    'de la 12 luni': 'from 12 months',
     'Consultația inițială e gratuită': 'The initial consultation is free',
     '· fără angajament': '· no commitment',
     'recuperarea investiției, de la reamenajare la renovare completă': 'investment payback, from refurnishing to full renovation',
@@ -1692,6 +1692,8 @@
 
   if (!('Raportul de Rentabilitate' in T)) T['Raportul de Rentabilitate'] = 'Profitability Report';
   if (!('sau înapoi acasă' in T)) T['sau înapoi acasă'] = 'or back home';
+  if (!('Du-mă înapoi acasă' in T)) T['Du-mă înapoi acasă'] = 'Take me back home';
+  if (!('Eroare 404: pagina nu a fost găsită' in T)) T['Eroare 404: pagina nu a fost găsită'] = 'Error 404: page not found';
   /* ─── Engine ─────────────────────────────────────────────────────────── */
   var LANG_KEY = 'ru-lang';
   var lang = localStorage.getItem(LANG_KEY) || 'ro';

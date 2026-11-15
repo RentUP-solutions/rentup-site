@@ -2,6 +2,7 @@
 <html lang="ro">
 <head>
 <style id="ru-motion">/* Sistemul de mișcare RentUP: aceleași curbe și durate pe tot site-ul */:root{--ease-out:cubic-bezier(0.23,1,0.32,1);--ease-in-out:cubic-bezier(0.77,0,0.175,1);--ease-pop:cubic-bezier(0.34,1.4,0.64,1);--d-press:160ms;--d-fast:200ms;--d-ui:260ms;--d-move:420ms;--d-hover:400ms;--d-reveal:620ms}/* Trecerea între pagini: crossfade scurt; meniul rămâne pe loc (browserele fără suport încarcă normal) */@view-transition{navigation:auto}::view-transition-old(root),::view-transition-new(root){animation-duration:var(--d-ui);animation-timing-function:var(--ease-out)}::view-transition-group(ru-nav){animation-duration:var(--d-ui);animation-timing-function:var(--ease-out)}nav{view-transition-name:ru-nav}/* Mișcare redusă: fără deplasări și bucle; rămân doar estompările scurte care ajută la înțelegere */@media (prefers-reduced-motion:reduce){@view-transition{navigation:none}*,*::before,*::after{animation-duration:1ms!important;animation-delay:0s!important;animation-iteration-count:1!important;scroll-behavior:auto!important}.sr{transform:none!important;filter:none!important;transition:opacity 200ms ease-out!important}}</style>
+<script>/* adresă curată: /pagina în loc de /pagina.html (fără reîncărcare) */(function(){var p=location.pathname;if(/\.html$/.test(p)){history.replaceState(null,"",p.replace(/(^|\/)index\.html$/,"$1").replace(/\.html$/,"")+location.search+location.hash)}})();</script>
 <meta charset="UTF-8">
 <!-- Consimțământ cookies (Legea 506/2004 + GDPR): Google Analytics, Google Ads,
      Clarity și AdSense se încarcă DOAR după „Accept” în banner. Consent Mode v2
@@ -92,10 +93,10 @@ gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personali
 <meta property="og:title" content="Întrebări Frecvente | RentUP">
 <meta property="og:description" content="Răspunsuri la cele mai frecvente întrebări despre design interior pentru închiriere, selecție chiriaș, contracte și sistemul RentUP.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.rentup.solutions/faq.html">
+<meta property="og:url" content="https://www.rentup.solutions/faq">
 <meta property="og:image" content="https://www.rentup.solutions/images/opengraph_logo.webp">
 <meta property="og:locale" content="ro_RO">
-<link rel="canonical" href="https://www.rentup.solutions/faq.html">
+<link rel="canonical" href="https://www.rentup.solutions/faq">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Întrebări Frecvente | RentUP">
 <meta name="twitter:description" content="Răspunsuri la cele mai frecvente întrebări despre design interior pentru închiriere, selecție chiriaș și sistemul RentUP.">
@@ -132,9 +133,9 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .logo span{color:#2D2820;font-weight:300}
 .nav-links{display:flex;align-items:center;gap:28px}
 .nav-links a{font-family:'General Sans',sans-serif;font-size:14px;color:var(--muted);text-decoration:none;transition:color .15s}
-.nav-links a:hover,.nav-links a.active{color:#2D2820}
+.nav-links a.active{color:#2D2820}@media(hover:hover){.nav-links a:hover{color:#2D2820}}
 .nav-cta{font-family:'General Sans',sans-serif;font-size:14px;font-weight:500;color:#C77936;border:.5px solid #C77936;padding:8px 18px;border-radius:100px;text-decoration:none;white-space:nowrap;transition:background .2s}
-.nav-cta:hover{background:#FAF4EB}
+@media(hover:hover){.nav-cta:hover{background:#FAF4EB}}
 @media(max-width:768px){nav{padding:0 20px}
 .nav-links{display:none}}
 body{opacity:0.01;transition:opacity .46s var(--ease-out)}
@@ -152,7 +153,7 @@ img{-webkit-user-drag:none;user-drag:none}
 @keyframes hdrIn{from{opacity:0;transform:translateY(18px) scale(0.977);filter:blur(5px)}to{opacity:1;transform:none;filter:none}}
 .nav-links a{position:relative}
 .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--brand);transform:scaleX(0);transform-origin:right;transition:transform 270ms var(--ease-out)}
-.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);transform-origin:left}
+.nav-links a.active::after{transform:scaleX(1);transform-origin:left}@media(hover:hover){.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}}
 .sr{opacity:0;transform:translateY(20px) scale(0.987);transition:opacity 560ms var(--ease-out),transform 560ms var(--ease-out)}
 .sr.in{opacity:1;transform:none}
 .skip-link{position:absolute;left:-9999px;top:4px;z-index:9999;background:var(--bg);color:var(--brand);padding:8px 18px;border-radius:0 0 8px 8px;font-size:14px;font-weight:500;border:1px solid var(--brand-border);text-decoration:none}
@@ -308,7 +309,7 @@ body{overflow-x:clip}
   "@type": "BreadcrumbList",
   "itemListElement": [
     {"@type": "ListItem", "position": 1, "name": "Acasă", "item": "https://www.rentup.solutions/"},
-    {"@type": "ListItem", "position": 2, "name": "Întrebări frecvente", "item": "https://www.rentup.solutions/faq.html"}
+    {"@type": "ListItem", "position": 2, "name": "Întrebări frecvente", "item": "https://www.rentup.solutions/faq"}
   ]
 }
 </script>
@@ -524,7 +525,7 @@ body{overflow-x:clip}
 /* Butonul de limbă + meniul hamburger (aceleași reguli pe care le injectează lang.js;
    sunt aici ca nav-ul să arate corect înainte să se încarce lang.js) */
 .lang-toggle-btn{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:#C77936;border:.5px solid #E8D5BC;background:transparent;padding:5px 11px;border-radius:100px;cursor:pointer;letter-spacing:.04em;transition:background 150ms ease,border-color 150ms ease;flex-shrink:0}
-.lang-toggle-btn:hover{background:#FAF4EB;border-color:#C77936}
+@media(hover:hover){.lang-toggle-btn:hover{background:#FAF4EB;border-color:#C77936}}
 .lang-toggle-btn:focus-visible{outline:2px solid #C77936;outline-offset:3px;border-radius:100px}
 .lang-mob{display:none!important}
 @media(max-width:768px){.lang-mob{display:inline-flex!important;margin-left:auto;margin-right:2px}.lang-mob+#nav-hamburger{margin-left:0!important}}
@@ -546,6 +547,8 @@ body{overflow-x:clip}
 <style id="ru-nodots">/* Telefon: fără punctele de fundal (desktopul și tableta le păstrează) */@media(max-width:600px){body{background-image:none!important}body::before,.ru-ft::before,.audit-hero::before,#hero::before,#calc::before,#rental-kit-teaser::before,#instagram::before,#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before,#faq::before{background-image:none!important}}</style>
 <style id="fq-chips">/* Categoriile (telefon/tabletă): albe cu contur și text mai închis; banda lor acoperă conținutul de dedesubt, ca să nu se mai vadă printre meniu și categorii */@media(max-width:860px){.fq-side a{background:#fff!important;border:1px solid rgba(45,40,32,.10)!important;color:#5A4F44!important;box-shadow:0 1px 2px rgba(45,40,32,.06)!important}.fq-side a.on{background:#2D2820!important;color:#FDFAF6!important;border-color:#2D2820!important}.fq-side{background:linear-gradient(180deg,rgba(253,250,246,.97) 0,rgba(253,250,246,.97) 60%,rgba(253,250,246,0) 100%)!important;box-shadow:0 -70px 0 0 rgba(253,250,246,.97)!important}}</style>
 <style id="fq-side-d">/* Categoriile pe desktop: același stil ca pe telefon (albe cu contur, cea selectată maro închis) */@media(min-width:861px){.fq-side{gap:6px}.fq-side a{background:#fff;border:1px solid rgba(45,40,32,.10);color:#5A4F44;box-shadow:0 1px 2px rgba(45,40,32,.06);border-radius:12px}.fq-side a small{color:#8A7E72}.fq-side a.on{background:#2D2820;color:#FDFAF6;border-color:#2D2820;box-shadow:0 2px 6px rgba(45,40,32,.12),0 10px 24px -10px rgba(45,40,32,.35)}.fq-side a.on small{color:#E0A36B}@media(hover:hover){.fq-side a:not(.on):hover{border-color:rgba(45,40,32,.22);color:#2D2820}}}</style>
+<style id="ru-dark-card">/* Secțiunea maro închis = card mat, ca secțiunea de contact de pe homepage */.fq-reels{position:relative;isolation:isolate;overflow:clip;margin:20px clamp(12px,1.6vw,24px);border-radius:clamp(24px,2.4vw,36px);border:1px solid rgba(255,255,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 1px 2px rgba(45,40,32,.08),0 30px 70px -30px rgba(45,40,32,.45)}@media(max-width:600px){.fq-reels{margin:12px 8px;border-radius:22px}}.fq-reels::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.5;mix-blend-mode:screen;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .9 0 0 0 0 .85 0 0 0 0 .78 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}</style>
+<style id="ru-grid">/* Fundal: grilă de plan tehnic (în locul punctelor) pe desktop și tabletă; pe telefon fundalul rămâne simplu (ru-nodots) */@media(min-width:601px){body::before,.ru-ft::before,.audit-hero::before{background-image:url(/grid.svg?v=20261116b)!important;background-size:1280px 1280px!important;opacity:1!important}#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before,#faq::before,.cost-section::before{background-image:url(/grid.svg?v=20261116b)!important;background-size:1280px 1280px!important;opacity:.5}}</style>
 </head>
 <body>
 <noscript><style>body{opacity:1}</style></noscript>
@@ -556,10 +559,10 @@ body{overflow-x:clip}
   <div class="nav-links">
     <a href="/#process">Cum funcționează</a>
     <a href="/#packages">Pachete</a>
-    <a href="portofoliu.html">Portofoliu</a>
-    <a href="rental-kit.html">Rental Kit</a>
+    <a href="/portofoliu">Portofoliu</a>
+    <a href="/rental-kit">Rental Kit</a>
     
-    <a href="faq.html" class="active">FAQ</a>
+    <a href="/faq" class="active">FAQ</a>
     <a href="/#contact">Contact</a>
     <button class="lang-toggle-btn" onclick="toggleLang()" title="Switch to English">EN</button>
   </div>
@@ -569,15 +572,15 @@ body{overflow-x:clip}
   <span style="width:22px;height:2px;background:#C77936;display:block"></span>
   <span style="width:22px;height:2px;background:#C77936;display:block"></span>
 </button>
-<a class="nav-cta" href="audit.html">Raport de Rentabilitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+<a class="nav-cta" href="/audit">Raport de Rentabilitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
 </nav>
 <div class="nav-mobile" id="nav-mobile">
   <a href="/#process">Cum funcționează</a>
   <a href="/#packages">Pachete</a>
-  <a href="portofoliu.html">Portofoliu</a>
-  <a href="rental-kit.html">Rental Kit</a>
+  <a href="/portofoliu">Portofoliu</a>
+  <a href="/rental-kit">Rental Kit</a>
   
-  <a href="faq.html">FAQ</a>
+  <a href="/faq">FAQ</a>
   <a href="/#contact">Contact</a>
 </div>
 <!-- HERO -->
@@ -702,7 +705,7 @@ body{overflow-x:clip}
           <div style="margin-top:14px;padding:14px 16px;background:#FAF4EB;border:.5px solid #E8D5BC;border-radius:8px">
             <div style="font-size:14px;font-weight:500;color:#C77936;margin-bottom:6px">Vrei să vezi exact ce conține?</div>
             <div style="font-size:14px;color:var(--muted);margin-bottom:10px">Toate modulele, documentele și protocoalele sunt detaliate pe pagina dedicată.</div>
-            <a href="rental-kit.html" style="font-size:14px;font-weight:500;color:white;background:#C77936;padding:8px 18px;border-radius:100px;text-decoration:none;display:inline-block;margin-top:8px">Descoperă Rental Kit<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="/rental-kit" style="font-size:14px;font-weight:500;color:white;background:#C77936;padding:8px 18px;border-radius:100px;text-decoration:none;display:inline-block;margin-top:8px">Descoperă Rental Kit<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
           </div></div></div></div></div>
 <div class="qa"><button type="button" class="qa-q" aria-expanded="false"><span>Ar trebui să accept chiriași cu animale de companie?</span><span class="pl" aria-hidden="true"></span></button><div class="qa-a"><div><div class="qa-in"><span class="qa-short"><b>Pe scurt</b>Da, cu protecție adecvată.</span><p>Nu recomandăm refuzul automat, recomandăm protecție adecvată. Proprietarii care refuză sistematic pierd adesea chiriași serioși și stabili, doar pentru că au animale.</p>
           <p>Cu instrumentele corecte, poți accepta animale în siguranță:</p>
@@ -715,12 +718,12 @@ body{overflow-x:clip}
 <section class="fq-cat" id="probleme"><div class="fq-cat-h"><span>05</span><h2>Situații dificile</h2></div>
 <div class="qa"><button type="button" class="qa-q" aria-expanded="false"><span>Chiriașul nu plătește, cum procedez?</span><span class="pl" aria-hidden="true"></span></button><div class="qa-a"><div><div class="qa-in"><span class="qa-short"><b>Pe scurt</b>Urmezi un protocol pe zile, fără să improvizezi.</span><p>Există un protocol clar pe zile, de la primul reminder la executare silită. Fără să improvizezi.</p><p style="filter:blur(4px);user-select:none;pointer-events:none">Ziua 1-5 reminder WhatsApp, Ziua 5-15 notificare formală, Ziua 30 titlu executoriu. Modelele complete sunt în Rental Kit.</p><div style="margin-top:12px;padding:14px 16px;background:#FAF4EB;border:.5px solid #E8D5BC;border-radius:8px">
       <div style="font-size:14px;font-weight:500;color:#C77936;margin-bottom:6px">Protocolul complet este în Rental Kit.</div>
-<a href="rental-kit.html" style="font-size:14px;font-weight:500;color:white;background:#C77936;padding:8px 18px;border-radius:100px;text-decoration:none;display:inline-block;margin-top:8px">Descoperă Rental Kit<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>    </div></div></div></div></div>
+<a href="/rental-kit" style="font-size:14px;font-weight:500;color:white;background:#C77936;padding:8px 18px;border-radius:100px;text-decoration:none;display:inline-block;margin-top:8px">Descoperă Rental Kit<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>    </div></div></div></div></div>
 <div class="qa"><button type="button" class="qa-q" aria-expanded="false"><span>Chiriașul refuză să plece la expirarea contractului, ce fac?</span><span class="pl" aria-hidden="true"></span></button><div class="qa-a"><div><div class="qa-in"><span class="qa-short"><b>Pe scurt</b>Există un protocol clar, de la mediere la executor.</span><p>Există un protocol clar pentru această situație. De la mediere amiabilă până la evacuare prin executor, fără luni de instanță judecătorească. Depinde de tipul contractului pe care îl ai.</p>
           <div style="margin-top:12px;padding:14px 16px;background:#FAF4EB;border:.5px solid #E8D5BC;border-radius:8px">
             <div style="font-size:14px;font-weight:500;color:#C77936;margin-bottom:6px">Protocolul complet este în Rental Kit.</div>
             <div style="font-size:14px;color:var(--muted);margin-bottom:10px">Pași exacți, termene, modele de notificări și clauze contractuale care fac diferența.</div>
-            <a href="rental-kit.html" style="font-size:14px;font-weight:500;color:white;background:#C77936;padding:8px 18px;border-radius:100px;text-decoration:none;display:inline-block;margin-top:8px" onclick="gtag('event','click_rental_kit_faq')">Descoperă Rental Kit<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="/rental-kit" style="font-size:14px;font-weight:500;color:white;background:#C77936;padding:8px 18px;border-radius:100px;text-decoration:none;display:inline-block;margin-top:8px" onclick="gtag('event','click_rental_kit_faq')">Descoperă Rental Kit<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
           </div></div></div></div></div>
 <div class="qa"><button type="button" class="qa-q" aria-expanded="false"><span>Chiriașul a lăsat daune la plecare, cum recuperez?</span><span class="pl" aria-hidden="true"></span></button><div class="qa-a"><div><div class="qa-in"><span class="qa-short"><b>Pe scurt</b>Reții din garanție daunele documentate.</span><p>Ai dreptul să reții din garanție contravaloarea daunelor documentate. Procedura recomandată în contractul standard RentUP (termene contractuale, nu termene legale):</p>
           <ul class="fa-list">
@@ -747,11 +750,11 @@ body{overflow-x:clip}
             <li>Fotografii bune, făcute ziua, cu lumină naturală</li>
             <li>Documentație completă: inventar, proces verbal foto, contract, chestionar de evaluare</li>
           </ul>
-          <p class="fa-note">Vezi <a href="/blog/cum-pregatesti-apartamentul-pentru-chirie.html">ghidul complet pas cu pas</a>, cu bugete și exemple, sau pornește cu un <a href="/audit.html">Raport de Rentabilitate Gratuit RentUP</a> pentru o listă de priorități personalizată pentru apartamentul tău.</p></div></div></div></div>
+          <p class="fa-note">Vezi <a href="/blog/cum-pregatesti-apartamentul-pentru-chirie">ghidul complet pas cu pas</a>, cu bugete și exemple, sau pornește cu un <a href="/audit">Raport de Rentabilitate Gratuit RentUP</a> pentru o listă de priorități personalizată pentru apartamentul tău.</p></div></div></div></div>
 <div class="qa"><button type="button" class="qa-q" aria-expanded="false"><span>Cât costă să pregătești un apartament pentru chirie?</span><span class="pl" aria-hidden="true"></span></button><div class="qa-a"><div><div class="qa-in"><span class="qa-short"><b>Pe scurt</b>Depinde de starea inițială. Raportul îți spune în ce categorie ești.</span><p>Depinde de starea inițială: 0–500€ pentru curățenie profesională și reparații mici, 1.000–4.000€ pentru completări de mobilier, zugrăveală parțială și fotografii profesionale, sau 3.000–12.000€ pentru o amenajare completă cu staging.</p>
-          <p>Un <a href="/audit.html">Raport de Rentabilitate Gratuit RentUP</a> îți spune exact în ce categorie te încadrezi și ce intervenții au cel mai mare impact.</p></div></div></div></div>
+          <p>Un <a href="/audit">Raport de Rentabilitate Gratuit RentUP</a> îți spune exact în ce categorie te încadrezi și ce intervenții au cel mai mare impact.</p></div></div></div></div>
 <div class="qa"><button type="button" class="qa-q" aria-expanded="false"><span>Ce documente trebuie să am pregătite înainte de a primi un chiriaș?</span><span class="pl" aria-hidden="true"></span></button><div class="qa-a"><div><div class="qa-in"><span class="qa-short"><b>Pe scurt</b>Inventar, proces verbal foto, contract și chestionar de evaluare.</span><p>Minimum: inventarul proprietății, procesul verbal foto la predare, contractul de închiriere înregistrat și un chestionar de evaluare pentru candidați.</p>
-          <p>Toate aceste documente, editabile și adaptate proprietății tale, sunt incluse în <a href="/rental-kit.html">Rental Kit</a>.</p></div></div></div></div></section>
+          <p>Toate aceste documente, editabile și adaptate proprietății tale, sunt incluse în <a href="/rental-kit">Rental Kit</a>.</p></div></div></div></div></section>
   <p class="fq-empty" id="fq-empty" hidden>Nu am găsit nimic. <a href="#contact">Întreabă-ne direct<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></p>
   </div>
 </div>
@@ -766,7 +769,7 @@ body{overflow-x:clip}
 
 <section class="fq-contact" id="contact"><div class="wrap"><div class="fq-cbox">
   <div><h2>Nu ai găsit răspunsul?</h2><p>Scrie-ne sau programează un apel de 15 minute, fără angajament.</p></div>
-  <div class="b"><a class="btn btn-p" href="https://wa.me/40741176865" target="_blank" rel="noopener" onclick="gtag('event','click_whatsapp');gtag('event','click_contact_faq')">Scrie-ne pe WhatsApp<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a><a class="btn btn-g" href="audit.html" onclick="gtag('event','click_audit_cta');gtag('event','conversion',{'send_to':'AW-18253477545'});">Raport de Rentabilitate</a></div>
+  <div class="b"><a class="btn btn-p" href="https://wa.me/40741176865" target="_blank" rel="noopener" onclick="gtag('event','click_whatsapp');gtag('event','click_contact_faq')">Scrie-ne pe WhatsApp<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a><a class="btn btn-g" href="/audit" onclick="gtag('event','click_audit_cta');gtag('event','conversion',{'send_to':'AW-18253477545'});">Raport de Rentabilitate</a></div>
 </div></div></section>
 </main>
 <script>
@@ -876,21 +879,8 @@ body{overflow-x:clip}
 </script>
 
 <footer class="ru-ft">
-<style id="ru-ft-card">.ru-ft .ft-s{display:none}@media(max-width:600px){.ru-ft .ft-f{display:none}.ru-ft .ft-s{display:inline}}.ru-ft{isolation:isolate}.ru-ft::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(rgba(45,40,32,.16) 1.1px,transparent 1.4px);background-size:22px 22px;opacity:.7;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 12%,transparent 50%);mask-image:linear-gradient(180deg,transparent 0%,#000 12%,transparent 50%)}
-@media(max-width:768px){.ru-ft::before{background-image:radial-gradient(rgba(45,40,32,.128) .68px,transparent .9px);background-size:10px 10px}}
-.ru-ft{display:block!important;position:relative;overflow:hidden;background:#FDFAF6!important;border-top:0!important;padding:64px 32px 0!important}
-.ru-ft-card{position:relative;z-index:1;max-width:1200px;margin:0 auto;background:#fff;border:1px solid rgba(45,40,32,.06);border-radius:28px;padding:52px 56px 32px;box-shadow:0 1px 2px rgba(45,40,32,.04),0 12px 32px rgba(45,40,32,.07),0 40px 80px -24px rgba(45,40,32,.12)}
-.ru-ft-top{display:grid!important;grid-template-columns:minmax(0,1fr) auto;gap:48px;align-items:start;margin-bottom:40px}
-.ru-ft-cols{display:grid;grid-template-columns:repeat(4,auto);gap:48px}
-.ru-ft .ft-brand>a{font-size:22px!important;margin-bottom:0!important}
-.ru-ft-tag{font-family:'General Sans',sans-serif;font-size:24px;font-weight:600;line-height:1.25;letter-spacing:-.015em;color:#2D2820;margin:18px 0 6px;max-width:15ch}
-.ru-ft-tag em{font-style:normal;color:#C77936}
-.ru-ft-city{font-size:14px;color:#776B60;margin:0}
-.ru-ft-giant{position:relative;z-index:0;margin-top:.12em;text-align:center;font-family:'General Sans',sans-serif;font-weight:600;font-size:clamp(60px,21vw,300px);line-height:.78;letter-spacing:-.05em;height:.66em;overflow:hidden;white-space:nowrap;color:rgba(199,121,54,.24);-webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.14) 100%);mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.14) 100%);-webkit-user-select:none;user-select:none;pointer-events:none}
-.ru-ft-giant span{font-weight:300;color:rgba(45,40,32,.14)}
-@media(max-width:720px){.ru-ft{padding:32px 12px 0!important}.ru-ft-card{padding:32px 22px 26px;border-radius:22px}.ru-ft-top{grid-template-columns:1fr;gap:36px}.ru-ft-cols{grid-template-columns:1fr 1fr;gap:28px 24px}.ru-ft-tag{font-size:21px}}@media(max-width:600px){.ru-ft-card{padding:30px 22px 26px}.ru-ft-tag{font-size:22px;max-width:none;margin-top:16px}.ru-ft-top{gap:32px;margin-bottom:28px}.ru-ft-cols{gap:28px 16px}.ru-ft .ft-bot{gap:20px!important;padding-top:22px!important}.ru-ft .ft-legal{gap:10px 20px}.ru-ft .ft-legal>a{order:1;font-size:13px!important;color:#776B60!important;padding:2px 0}.ru-ft .ft-legal>div:not(.ft-co){order:2;flex-basis:100%;margin-top:8px}.ru-ft .ft-co{order:3;line-height:1.55}.ru-ft-giant{font-size:25vw;margin-top:.08em}.ru-ft .ft-bot{align-items:center!important;text-align:center!important}.ru-ft .ft-legal{justify-content:center;text-align:center!important}.ru-ft .ft-bot .ru-legal{justify-content:center;align-self:center}}</style>
+<link rel="stylesheet" href="/footer.css?v=20261116">
 
-<style>@media(max-width:600px){footer{padding-left:20px!important;padding-right:20px!important}.ft-brand{flex-basis:100%!important}}</style>
   <div class="ru-ft-card">
     <div class="ru-ft-top">
       <div class="ft-brand" style="flex:0 0 auto">
@@ -901,18 +891,18 @@ body{overflow-x:clip}
         <div>
           <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:14px">Servicii</div>
           <div style="display:flex;flex-direction:column;gap:10px">
-            <a href="/audit.html" style="font-size:14px;color:#7A6E62;text-decoration:none"><span class="ft-f">Raport de Rentabilitate</span><span class="ft-s">Raport Rentabilitate</span></a>
-            <a href="/staging-virtual.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Staging Virtual</a>
+            <a href="/audit" style="font-size:14px;color:#7A6E62;text-decoration:none"><span class="ft-f">Raport de Rentabilitate</span><span class="ft-s">Raport Rentabilitate</span></a>
+            <a href="/staging-virtual" style="font-size:14px;color:#7A6E62;text-decoration:none">Staging Virtual</a>
             <a href="/#packages" style="font-size:14px;color:#7A6E62;text-decoration:none"><span class="ft-f">Design de interior</span><span class="ft-s">Design Interior</span></a>
-            <a href="/rental-kit.html" style="font-size:14px;color:#C77936;text-decoration:none;font-weight:500">Rental Kit</a>
+            <a href="/rental-kit" style="font-size:14px;color:#C77936;text-decoration:none;font-weight:500">Rental Kit</a>
           </div>
         </div>
         <div>
           <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:14px">Resurse</div>
           <div style="display:flex;flex-direction:column;gap:10px">
-            <a href="/realitatea-chiriei.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Probleme & Soluții</a>
-            <a href="/simulator.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Simulator mobilare</a>
-            <a href="/faq.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Întrebări frecvente</a>
+            <a href="/realitatea-chiriei" style="font-size:14px;color:#7A6E62;text-decoration:none">Probleme & Soluții</a>
+            <a href="/simulator" style="font-size:14px;color:#7A6E62;text-decoration:none">Simulator mobilare</a>
+            <a href="/faq" style="font-size:14px;color:#7A6E62;text-decoration:none">Întrebări frecvente</a>
             <a href="/blog/" style="font-size:14px;color:#7A6E62;text-decoration:none">Blog</a>
           </div>
         </div>
@@ -938,15 +928,14 @@ body{overflow-x:clip}
     <div class="ft-legal">
     <div class="ft-co" style="font-size:12px;color:var(--light);white-space:normal">Wirtual Design &amp; Architecture SRL · CUI 44170236 · J23/2626/2021 · Clinceni, Ilfov</div>
 <div style="font-size:12px;color:var(--light);white-space:nowrap">© 2026 RentUP · Toate drepturile rezervate</div>
-<a href="/termeni.html" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Termeni și condiții</a>
-<a href="/confidentialitate.html" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Politică de confidențialitate</a>
+<a href="/termeni" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Termeni și condiții</a>
+<a href="/confidentialitate" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Politică de confidențialitate</a>
       <a href="#" onclick="ruCookieSettings();return false" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Setări cookie</a>
     </div>
     <div class="ru-legal" style="display:flex"><a class="ru-sal" href="https://reclamatiisal.anpc.ro/" target="_blank" rel="noopener" aria-label="ANPC: Soluționarea alternativă a litigiilor (detalii)" style="display:inline-flex;color:var(--light,#776B60);text-decoration:none"><svg width="200" height="50" viewBox="0 0 200 50" fill="none" aria-hidden="true" style="display:block"><rect x=".5" y=".5" width="199" height="49" rx="12" stroke="currentColor"/><path d="M85 9v32" stroke="currentColor" stroke-opacity=".45"/><image x="4" y="8.5" width="27.4" height="33" href="/images/stema-anpc-sepia.png"/><text x="34" y="21" fill="currentColor" font-family="'General Sans',sans-serif" font-size="13" font-weight="600" letter-spacing=".2">ANPC</text><text x="34.2" y="26.2" fill="currentColor" font-family="'General Sans',sans-serif" font-size="2.7" font-weight="500" letter-spacing=".05">AUTORITATEA NAȚIONALĂ PENTRU</text><text x="34.2" y="29.6" fill="currentColor" font-family="'General Sans',sans-serif" font-size="2.7" font-weight="500" letter-spacing=".05">PROTECȚIA CONSUMATORILOR</text><text x="34" y="39.5" fill="currentColor" font-family="'General Sans',sans-serif" font-size="7.4" font-style="italic" font-weight="500">Te respectă</text><text x="141" y="18" fill="currentColor" font-family="'General Sans',sans-serif" font-size="6.3" font-weight="600" text-anchor="middle" letter-spacing=".1">SOLUȚIONAREA ALTERNATIVĂ</text><text x="141" y="26" fill="currentColor" font-family="'General Sans',sans-serif" font-size="6.3" font-weight="600" text-anchor="middle" letter-spacing=".1">A LITIGIILOR</text><rect x="121" y="31" width="40" height="12" rx="6" fill="currentColor"/><text x="141" y="39.3" fill="#FDFAF6" font-family="'General Sans',sans-serif" font-size="5.6" font-weight="600" text-anchor="middle" letter-spacing=".4">DETALII</text></svg></a></div>
     </div>
   </div>
-<style id="ru-ft-bot">.ft-bot{justify-content:space-between!important;align-items:center!important;gap:16px 40px!important;flex-wrap:wrap!important}.ft-legal{flex:1 1 480px;display:flex;flex-wrap:wrap;gap:6px 24px;text-align:left}.ft-bot .ru-legal{flex:0 0 auto}.ft-co{order:2;flex-basis:100%}@media(max-width:600px){.ft-bot{flex-direction:column!important;align-items:flex-start!important}.ft-legal{flex-basis:auto}}</style>
-<style id="ru-ft-gm">@media(max-width:1024px){.ru-ft-giant{height:auto;overflow:visible;line-height:.9;padding-bottom:.04em;-webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.45) 45%,transparent 92%);mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.45) 45%,transparent 92%)}}</style><div class="ru-ft-giant" aria-hidden="true">Rent<span>UP</span></div>
+<div class="ru-ft-giant" aria-hidden="true">Rent<span>UP</span></div>
 </footer>
 
 
@@ -1018,7 +1007,7 @@ document.addEventListener('click',function(e){
 <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#2D2820;border-top:0.5px solid #4D4238;padding:16px 20px;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;z-index:130;font-family:'General Sans',sans-serif">
   <div style="flex:1;min-width:180px">
     <div style="font-size:13px;font-weight:500;color:#FDFAF6;margin-bottom:3px">Folosim cookie-uri</div>
-    <div style="font-size:12px;color:var(--muted);line-height:1.5">Folosim cookie-uri pentru analiză și îmbunătățirea experienței. <span class="cb-opt">Poți accepta sau refuza cookie-urile opționale. </span><a href="confidentialitate.html" style="color:#C77936;text-decoration:none">Politică de confidențialitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
+    <div style="font-size:12px;color:var(--muted);line-height:1.5">Folosim cookie-uri pentru analiză și îmbunătățirea experienței. <span class="cb-opt">Poți accepta sau refuza cookie-urile opționale. </span><a href="/confidentialitate" style="color:#C77936;text-decoration:none">Politică de confidențialitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
   </div>
   <div style="display:flex;gap:8px;align-items:center;flex-shrink:0">
     <button onclick="setCookies('refused')" style="font-size:13px;font-weight:500;color:var(--muted);background:none;border:1px solid #4D4238;padding:0 20px;height:44px;border-radius:100px;cursor:pointer;font-family:'General Sans',sans-serif;touch-action:manipulation;-webkit-tap-highlight-color:transparent">Refuz</button>
@@ -1050,7 +1039,7 @@ if(!localStorage.getItem('cookieConsent')){
   var state=0, pending=false;
   function load(){
     if(state) return; state=1;
-    var s=document.createElement('script'); s.src='lang.js';
+    var s=document.createElement('script'); s.src='lang.js?v=20261115';
     s.onload=function(){ state=2; if(pending){ pending=false; window.toggleLang(); } };
     document.body.appendChild(s);
   }
@@ -1095,6 +1084,8 @@ if(!localStorage.getItem('cookieConsent')){
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
 })();
 </script>
-<script src="/navpill.js?v=20261115c" defer></script>
+<script src="/navpill.js?v=20261115e" defer></script>
+<style id="ru-touch">/* Touch: hover-ul nu rămâne „lipit” după atingere; cât ții degetul apăsat, elementul arată ca la hover și se apasă ușor (în loc să se ridice). Pe dispozitivele cu mouse nu se schimbă nimic. */@media(hover:none){.nav-links a:active{color:#2D2820;transform:scale(.97)}.nav-cta:active{background:#FAF4EB;transform:scale(.97)}.lang-toggle-btn:active{background:#FAF4EB;border-color:#C77936;transform:scale(.97)}}</style>
+<script>/* iOS aplică stilul de apăsare doar dacă pagina ascultă atingerile */document.addEventListener("touchstart",function(){},{passive:true});</script>
 </body>
 </html>

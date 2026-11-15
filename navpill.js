@@ -12,17 +12,19 @@
     'nav .nav-links a,nav .nav-links .lang-toggle-btn{white-space:nowrap}'+
     'nav .nav-links{transition:gap '+D+' '+E+'}'+
     /* alb (nu crem) + contur fin: se desprinde clar de fundalul crem al paginii */
-    'nav.pill{border-radius:999px!important;background:rgba(255,255,255,.86)!important;-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2);border:1px solid rgba(45,40,32,.09)!important;'+
-      'box-shadow:0 1px 2px rgba(45,40,32,.06),0 12px 30px -10px rgba(45,40,32,.28)!important}'+
+    /* sticlă mată: transparentă, cu blur, ca să se vadă culorile și umbrele din spate; contur luminos + linie fină de separare */
+    'nav.pill{border-radius:999px!important;background:rgba(255,255,255,.62)!important;-webkit-backdrop-filter:blur(18px) saturate(1.6);backdrop-filter:blur(18px) saturate(1.6);border:1px solid rgba(255,255,255,.55)!important;'+
+      'box-shadow:inset 0 1px 0 rgba(255,255,255,.75),0 0 0 .5px rgba(45,40,32,.08),0 12px 30px -10px rgba(45,40,32,.28)!important}'+
     'nav.pill .nav-cta{background:#C77936;color:#FDFAF6;border-color:#C77936;padding:9px 18px}'+
     '@media(min-width:901px){nav.pill{top:14px!important;max-width:var(--np-w,1080px)!important;height:54px!important;padding:0 7px 0 26px!important}nav.pill .nav-links{gap:22px}}'+
     '@media(max-width:900px){nav.pill{top:10px!important;max-width:calc(100% - 20px)!important;height:50px!important;padding:0 8px 0 20px!important}}'+
     '@media(max-width:600px){nav.pill{height:48px!important;padding:0 6px 0 18px!important}}'+
+    '/* Meniul deschis pe telefon: panou alb ca un card, bara de sus albă cu el (un singur bloc), pagina din spate ușor întunecată */.nav-mobile{background:#fff!important;border-bottom:0!important;border-radius:0 0 24px 24px;box-shadow:0 24px 48px -16px rgba(45,40,32,.30),0 0 0 100vmax rgba(45,40,32,0);transition-property:opacity,transform,visibility,box-shadow!important}.nav-mobile.open{box-shadow:0 24px 48px -16px rgba(45,40,32,.30),0 0 0 100vmax rgba(45,40,32,.22)}nav.np-open{background:#fff!important;box-shadow:none!important}'+
     '@media(prefers-reduced-motion:reduce){nav,nav .nav-links{transition:none!important}}';
   document.head.appendChild(st);
   /* fără contur în starea normală, browserul îi dă culoarea textului (maro închis); la trecerea în pill conturul
      pornea de la maro închis și se estompa = „contur negru” vizibil. Pornim de la aceeași nuanță, dar transparentă. */
-  ['Top','Right','Bottom','Left'].forEach(function(s){if(getComputedStyle(nav)['border'+s+'Style']==='none')nav.style['border'+s+'Color']='rgba(45,40,32,0)'});
+  ['Top','Right','Bottom','Left'].forEach(function(s){if(getComputedStyle(nav)['border'+s+'Style']==='none')nav.style['border'+s+'Color']='rgba(255,255,255,0)'});
   /* spațiul pe care îl ocupa bara înainte să devină fixă (altfel conținutul ar urca sub ea) */
   var sp=document.createElement('div');sp.className='np-sp';sp.setAttribute('aria-hidden','true');
   var mob=document.getElementById('nav-mobile')||document.querySelector('.nav-mobile');
@@ -44,7 +46,9 @@
     var y=window.scrollY,open=mob&&mob.classList.contains('open');
     if(!on&&y>80){on=true;width()}else if(on&&y<24)on=false;
     nav.classList.toggle('pill',on&&!open);
+    nav.classList.toggle('np-open',!!open);
   }
+  /* atingerea pe zona întunecată închide meniul și nu apasă pe ce e dedesubt */document.addEventListener('click',function(e){var m=document.getElementById('nav-mobile')||document.querySelector('.nav-mobile');if(m&&m.classList.contains('open')&&!e.target.closest('nav,.nav-mobile')){e.preventDefault();e.stopPropagation();m.classList.remove('open')}},true);
   size();width();upd();
   window.addEventListener('scroll',upd,{passive:true});
   window.addEventListener('resize',function(){size();width()});

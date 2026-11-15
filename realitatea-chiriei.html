@@ -2,6 +2,7 @@
 <html lang="ro">
 <head>
 <style id="ru-motion">/* Sistemul de mișcare RentUP: aceleași curbe și durate pe tot site-ul */:root{--ease-out:cubic-bezier(0.23,1,0.32,1);--ease-in-out:cubic-bezier(0.77,0,0.175,1);--ease-pop:cubic-bezier(0.34,1.4,0.64,1);--d-press:160ms;--d-fast:200ms;--d-ui:260ms;--d-move:420ms;--d-hover:400ms;--d-reveal:620ms}/* Trecerea între pagini: crossfade scurt; meniul rămâne pe loc (browserele fără suport încarcă normal) */@view-transition{navigation:auto}::view-transition-old(root),::view-transition-new(root){animation-duration:var(--d-ui);animation-timing-function:var(--ease-out)}::view-transition-group(ru-nav){animation-duration:var(--d-ui);animation-timing-function:var(--ease-out)}nav{view-transition-name:ru-nav}/* Mișcare redusă: fără deplasări și bucle; rămân doar estompările scurte care ajută la înțelegere */@media (prefers-reduced-motion:reduce){@view-transition{navigation:none}*,*::before,*::after{animation-duration:1ms!important;animation-delay:0s!important;animation-iteration-count:1!important;scroll-behavior:auto!important}.sr{transform:none!important;filter:none!important;transition:opacity 200ms ease-out!important}}</style>
+<script>/* adresă curată: /pagina în loc de /pagina.html (fără reîncărcare) */(function(){var p=location.pathname;if(/\.html$/.test(p)){history.replaceState(null,"",p.replace(/(^|\/)index\.html$/,"$1").replace(/\.html$/,"")+location.search+location.hash)}})();</script>
 <meta charset="UTF-8">
 <!-- Consimțământ cookies (Legea 506/2004 + GDPR): Google Analytics, Google Ads,
      Clarity și AdSense se încarcă DOAR după „Accept” în banner. Consent Mode v2
@@ -103,10 +104,10 @@ function gtag_report_conversion_social(url) {
 <meta property="og:title" content="Probleme & Soluții pentru Proprietari | RentUP">
 <meta property="og:description" content="Situații reale cu care se confruntă proprietarii români și cum le rezolvi cu un sistem. Neplată, daune, evacuare, rotație frecventă: soluții concrete.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.rentup.solutions/realitatea-chiriei.html">
+<meta property="og:url" content="https://www.rentup.solutions/realitatea-chiriei">
 <meta property="og:image" content="https://www.rentup.solutions/images/opengraph_logo.webp">
 <meta property="og:locale" content="ro_RO">
-<link rel="canonical" href="https://www.rentup.solutions/realitatea-chiriei.html">
+<link rel="canonical" href="https://www.rentup.solutions/realitatea-chiriei">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Probleme & Soluții pentru Proprietari | RentUP">
 <meta name="twitter:description" content="Situații reale cu care se confruntă proprietarii români și cum le rezolvi cu un sistem. Neplată, daune, evacuare, rotație frecventă.">
@@ -169,7 +170,7 @@ h2.sh-dark{font-size:36px;font-weight:300;color:var(--dark);line-height:1.1;lett
 
 .problems-grid{display:flex;flex-direction:column;gap:10px}
 .problem-item{scroll-margin-top:80px;display:grid;grid-template-columns:56px 1fr 1fr;gap:0;background:var(--bg2);border:.5px solid var(--border);border-radius:12px;overflow:hidden;transition:background .2s,border-color .2s,box-shadow .2s,transform .4s ease}
-.problem-item:hover{background:var(--bg3)}
+@media(hover:hover){.problem-item:hover{background:var(--bg3)}}
 .p-num{background:rgba(199,121,54,.12);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:300;color:var(--brand);border-right:.5px solid rgba(255,255,255,.07)}
 .p-problem{padding:28px 32px;border-right:.5px solid rgba(255,255,255,.07)}
 .p-tag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--red);margin-bottom:10px}
@@ -189,7 +190,7 @@ h2.sh-dark{font-size:36px;font-weight:300;color:var(--dark);line-height:1.1;lett
 .quotes-section{padding:88px 56px;background:var(--bg-stone)}
 .quotes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
 .quote-card{background:var(--bg);border:.5px solid var(--border);border-radius:14px;padding:28px;position:relative;transition:box-shadow .2s,transform .2s}
-.quote-card:hover{box-shadow:0 8px 32px rgba(45,40,32,.08)}
+@media(hover:hover){.quote-card:hover{box-shadow:0 8px 32px rgba(45,40,32,.08)}}
 .qc-mark{font-size:36px;color:var(--brand);opacity:.3;line-height:1;margin-bottom:12px}
 .qc-text{font-size:14px;color:var(--mid);line-height:1.7;font-style:italic;margin-bottom:16px}
 .qc-source{font-size:11px;color:var(--light);display:flex;align-items:center;gap:6px}
@@ -204,7 +205,7 @@ h2.sh-dark{font-size:36px;font-weight:300;color:var(--dark);line-height:1.1;lett
 .system-intro{max-width:600px;margin-bottom:60px}
 .system-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .sys-card{padding:28px 26px;border:.5px solid var(--border);border-radius:14px;background:var(--bg-stone);transition:background .2s,border-color .2s,box-shadow .2s}
-.sys-card:hover{background:var(--brand-light);border-color:var(--brand-border)}
+@media(hover:hover){.sys-card:hover{background:var(--brand-light);border-color:var(--brand-border)}}
 .sys-num{font-size:32px;font-weight:300;color:var(--brand);margin-bottom:14px;opacity:.5}
 .sys-title{font-size:16px;font-weight:500;margin-bottom:10px}
 .sys-desc{font-size:14px;color:var(--muted);line-height:1.65}
@@ -217,9 +218,9 @@ h2.sh-dark{font-size:36px;font-weight:300;color:var(--dark);line-height:1.1;lett
 .cta-section p{font-size:15px;color:var(--muted);line-height:1.7;max-width:680px;margin:0 auto 36px}
 .cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .btn-brand{font-size:14px;font-weight:500;background:var(--brand);color:var(--dark);padding:14px 28px;border-radius:100px;text-decoration:none;transition:background .2s}
-.btn-brand:hover{background:#a8622a}
+@media(hover:hover){.btn-brand:hover{background:#a8622a}}
 .btn-outline{font-size:14px;font-weight:500;color:var(--brand);border:.5px solid var(--brand);padding:14px 22px;border-radius:100px;text-decoration:none}
-.btn-outline:hover{background:var(--brand-light)}
+@media(hover:hover){.btn-outline:hover{background:var(--brand-light)}}
 
 footer{background:var(--bg);border-top:.5px solid var(--border);padding:24px 56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
 .f-logo{font-size:15px;font-weight:500;color:var(--brand)}
@@ -245,9 +246,9 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.96);backdrop-
 .logo span{color:#2D2820;font-weight:300}
 .nav-links{display:flex;align-items:center;gap:28px}
 .nav-links a{font-family:'General Sans',sans-serif;font-size:14px;color:var(--muted);text-decoration:none;transition:color .15s}
-.nav-links a:hover,.nav-links a.active{color:#2D2820}
+.nav-links a.active{color:#2D2820}@media(hover:hover){.nav-links a:hover{color:#2D2820}}
 .nav-cta{font-family:'General Sans',sans-serif;font-size:14px;font-weight:500;color:#C77936;border:.5px solid #C77936;padding:8px 18px;border-radius:100px;text-decoration:none;white-space:nowrap;transition:background .2s}
-.nav-cta:hover{background:#FAF4EB}
+@media(hover:hover){.nav-cta:hover{background:#FAF4EB}}
 @media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}}
 
 /* Page transitions */
@@ -267,7 +268,7 @@ img{-webkit-user-drag:none;user-drag:none}
 .urgent-nav{background:var(--bg);border-bottom:.5px solid var(--border);padding:40px 56px}
 .urgent-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}
 .urgent-card{background:var(--bg-stone);border:.5px solid var(--border);border-radius:10px;padding:16px 18px;text-decoration:none;transition:background .15s,border-color .15s,box-shadow .15s;display:flex;flex-direction:column;gap:6px}
-.urgent-card:hover{background:var(--brand-light);border-color:var(--brand-border)}
+@media(hover:hover){.urgent-card:hover{background:var(--brand-light);border-color:var(--brand-border)}}
 .uc-tag{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--red)}
 .uc-title{font-size:14px;font-weight:500;color:var(--dark);line-height:1.35}
 .uc-arrow{font-size:14px;color:var(--brand);margin-top:4px}
@@ -308,24 +309,24 @@ img{-webkit-user-drag:none;user-drag:none}
 .hero-stats{animation:hdrIn 480ms var(--ease-out) both;animation-delay:320ms}
 .nav-links a{position:relative}
 .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--brand);transform:scaleX(0);transform-origin:right;transition:transform 270ms var(--ease-out)}
-.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);transform-origin:left}
+.nav-links a.active::after{transform:scaleX(1);transform-origin:left}@media(hover:hover){.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}}
 .sr{opacity:0;transform:translateY(22px) scale(0.985);filter:blur(3px);transition:opacity 580ms var(--ease-out),transform 580ms var(--ease-out),filter 460ms ease}
 .sr.in{opacity:1;transform:none;filter:none}
 @media(max-width:600px){.sr{filter:none}.sr.in{filter:none}}
 .problem-item{transition:box-shadow 280ms var(--ease-out),transform 280ms var(--ease-out)}
-.problem-item:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(45,40,32,.1)}
+@media(hover:hover){.problem-item:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(45,40,32,.1)}}
 .urgent-card{transition:background 160ms ease,border-color 160ms ease,transform 200ms var(--ease-out)}
-.urgent-card:hover{transform:translateY(-1px)}
+@media(hover:hover){.urgent-card:hover{transform:translateY(-1px)}}
 .quote-card{transition:box-shadow 260ms var(--ease-out),transform 240ms var(--ease-out)}
-.quote-card:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(45,40,32,.1)}
+@media(hover:hover){.quote-card:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(45,40,32,.1)}}
 .sys-card{transition:background 180ms ease,border-color 180ms ease,transform 220ms var(--ease-out)}
-.sys-card:hover{transform:translateY(-2px)}
+@media(hover:hover){.sys-card:hover{transform:translateY(-2px)}}
 .cost-card{transition:background 180ms ease,transform 220ms var(--ease-out)}
-.cost-card:hover{background:#453A2E;transform:translateY(-1px)}
+@media(hover:hover){.cost-card:hover{background:#453A2E;transform:translateY(-1px)}}
 .btn-brand{transition:background 180ms ease,transform 160ms ease}
-.btn-brand:hover{transform:translateY(-1px)}
+@media(hover:hover){.btn-brand:hover{transform:translateY(-1px)}}
 .btn-outline{transition:background 180ms ease,transform 160ms ease,color 150ms ease}
-.btn-outline:hover{transform:translateY(-1px)}
+@media(hover:hover){.btn-outline:hover{transform:translateY(-1px)}}
 
 /* ── FOCUS VISIBLE ── */
 .skip-link{position:absolute;left:-9999px;top:4px;z-index:9999;background:var(--bg);color:var(--brand);padding:8px 18px;border-radius:0 0 8px 8px;font-size:14px;font-weight:500;border:1px solid var(--brand-border);text-decoration:none}
@@ -361,9 +362,9 @@ button,a{touch-action:manipulation}
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://www.rentup.solutions/realitatea-chiriei.html"
+    "@id": "https://www.rentup.solutions/realitatea-chiriei"
   },
-  "url": "https://www.rentup.solutions/realitatea-chiriei.html"
+  "url": "https://www.rentup.solutions/realitatea-chiriei"
 }
 </script>
 <script type="application/ld+json">
@@ -372,7 +373,7 @@ button,a{touch-action:manipulation}
   "@type": "BreadcrumbList",
   "itemListElement": [
     {"@type": "ListItem", "position": 1, "name": "Acasă", "item": "https://www.rentup.solutions/"},
-    {"@type": "ListItem", "position": 2, "name": "Probleme & soluții", "item": "https://www.rentup.solutions/realitatea-chiriei.html"}
+    {"@type": "ListItem", "position": 2, "name": "Probleme & soluții", "item": "https://www.rentup.solutions/realitatea-chiriei"}
   ]
 }
 </script>
@@ -380,7 +381,7 @@ button,a{touch-action:manipulation}
 /* Butonul de limbă + meniul hamburger (aceleași reguli pe care le injectează lang.js;
    sunt aici ca nav-ul să arate corect înainte să se încarce lang.js) */
 .lang-toggle-btn{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:#C77936;border:.5px solid #E8D5BC;background:transparent;padding:5px 11px;border-radius:100px;cursor:pointer;letter-spacing:.04em;transition:background 150ms ease,border-color 150ms ease;flex-shrink:0}
-.lang-toggle-btn:hover{background:#FAF4EB;border-color:#C77936}
+@media(hover:hover){.lang-toggle-btn:hover{background:#FAF4EB;border-color:#C77936}}
 .lang-toggle-btn:focus-visible{outline:2px solid #C77936;outline-offset:3px;border-radius:100px}
 .lang-mob{display:none!important}
 @media(max-width:768px){.lang-mob{display:inline-flex!important;margin-left:auto;margin-right:2px}.lang-mob+#nav-hamburger{margin-left:0!important}}
@@ -410,13 +411,13 @@ body::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none
 .cost-section{background:var(--bg-stone);--muted:#776B60;--light:#776B60}
 .cost-h{color:var(--dark)}
 .cost-card{background:#fff;box-shadow:0 2px 20px rgba(45,40,32,.05)}
-.cost-card:hover{background:#fff;box-shadow:0 10px 32px rgba(45,40,32,.1)}
+@media(hover:hover){.cost-card:hover{background:#fff;box-shadow:0 10px 32px rgba(45,40,32,.1)}}
 .cost-section .cost-note{display:flex;align-items:center;gap:20px;background:#fff;border:0;border-left:0;border-radius:20px;box-shadow:0 2px 24px rgba(45,40,32,.06);padding:22px 22px 22px 28px}
 .cn-txt{flex:1;display:flex;flex-direction:column;gap:3px}
 .cn-txt strong{font-size:17px;font-weight:500;color:var(--dark);letter-spacing:-.01em}
 .cn-txt span{font-size:14px;color:var(--muted);line-height:1.55}
 .cn-btn{flex-shrink:0;display:inline-flex;align-items:center;font-size:14px;font-weight:500;color:#FDFAF6;background:var(--dark);padding:13px 22px;border-radius:100px;text-decoration:none;transition:background-color 400ms}
-.cn-btn:hover{background:var(--brand)}
+@media(hover:hover){.cn-btn:hover{background:var(--brand)}}
 .cn-btn:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
 @media(max-width:640px){.cost-section .cost-note{flex-wrap:wrap;padding:20px}.cn-txt{flex-basis:100%}.cn-btn{width:100%;justify-content:center}}
 /* hero centrat; cifrele într-un card alb, ca la FAQ */
@@ -437,13 +438,13 @@ body::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none
 .rc-side{position:sticky;top:96px;display:flex;flex-direction:column;gap:2px}
 .rc-side a{display:flex;gap:12px;align-items:baseline;font-size:14px;line-height:1.35;color:var(--mid);text-decoration:none;padding:10px 14px;border-radius:12px;transition:background-color 400ms,color 400ms,box-shadow 400ms}
 .rc-side a b{font-weight:600;font-size:12px;color:var(--light);width:18px;flex-shrink:0}
-.rc-side a:hover{color:var(--dark)}
+@media(hover:hover){.rc-side a:hover{color:var(--dark)}}
 .rc-side a.on{background:#fff;color:var(--dark);box-shadow:0 1px 10px rgba(45,40,32,.06)}
 .rc-side a.on b{color:var(--brand)}
 .rc-side a:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
 .problems-grid{gap:12px}
 .problems .problem-item{display:block;background:#fff;border:0;border-radius:18px;box-shadow:0 2px 20px rgba(45,40,32,.05);scroll-margin-top:96px;overflow:hidden}
-.problems .problem-item:hover{background:#fff;transform:none;box-shadow:0 8px 28px rgba(45,40,32,.08)}
+@media(hover:hover){.problems .problem-item:hover{background:#fff;transform:none;box-shadow:0 8px 28px rgba(45,40,32,.08)}}
 .rc-h{margin:0;font:inherit}
 .rc-head{display:flex;align-items:center;gap:16px;width:100%;text-align:left;background:none;border:0;cursor:pointer;padding:24px 28px;font:inherit;color:var(--dark)}
 .rc-head:focus-visible{outline:2px solid var(--brand);outline-offset:-4px;border-radius:18px}
@@ -471,7 +472,7 @@ body::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none
 
 /* citate și sistem: carduri albe */
 .quote-card,.sys-card{background:#fff;border:0;border-radius:18px;box-shadow:0 2px 20px rgba(45,40,32,.05)}
-.sys-card:hover{background:#fff;border:0;box-shadow:0 10px 32px rgba(45,40,32,.1)}
+@media(hover:hover){.sys-card:hover{background:#fff;border:0;box-shadow:0 10px 32px rgba(45,40,32,.1)}}
 .qc-text{color:var(--dark);font-style:normal}
 .sys-num{opacity:1;font-size:14px;font-weight:600;letter-spacing:.08em}
 
@@ -483,11 +484,15 @@ body::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none
 .cta-section .btn-brand:active{transform:scale(.98)}
 .cta-section .btn-brand:focus-visible{outline:2px solid var(--brand);outline-offset:4px}
 .cta-section .btn-outline{color:#FDFAF6;border-color:rgba(253,250,246,.4)}
-.cta-section .btn-outline:hover{background:rgba(253,250,246,.08)}
+@media(hover:hover){.cta-section .btn-outline:hover{background:rgba(253,250,246,.08)}}
 @media(prefers-reduced-motion:reduce){.rc-body,.rc-head .pl,.rc-head .pl::after,.rc-side a{transition:none}}
 </style>
 <style id="ru-ft-cont">/* Footer: punctele din pagină continuă în el și se sting treptat în jos (fără pauză), ca pe homepage */footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%)!important}footer.ru-ft::before{display:none}</style>
 <style id="ru-nodots">/* Telefon: fără punctele de fundal (desktopul și tableta le păstrează) */@media(max-width:600px){body{background-image:none!important}body::before,.ru-ft::before,.audit-hero::before,#hero::before,#calc::before,#rental-kit-teaser::before,#instagram::before,#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before,#faq::before{background-image:none!important}}</style>
+<style id="ru-cards">/* Secțiunile crem închis = carduri glass mat, ca pe homepage */.cost-section{position:relative;isolation:isolate;margin:20px clamp(12px,1.6vw,24px);border-radius:clamp(24px,2.4vw,36px);background:rgba(245,239,230,.95)!important;border:1px solid rgba(255,255,255,.65);box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 1px 2px rgba(45,40,32,.04),0 24px 60px -28px rgba(45,40,32,.18);overflow:clip}.cost-section::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.35;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .6 0 0 0 0 .55 0 0 0 0 .48 0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}@media(max-width:600px){.cost-section{margin:12px 8px;border-radius:22px}}.cost-section::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(circle,rgba(45,40,32,.042) 0,rgba(45,40,32,.023) 1.3px,rgba(45,40,32,.008) 3px,transparent 5px) var(--dx,0) var(--dy,0)/22px 22px;-webkit-mask-image:radial-gradient(ellipse 75% 75% at 50% 50%,rgba(0,0,0,.15) 0%,rgba(0,0,0,.35) 45%,#000 100%);mask-image:radial-gradient(ellipse 75% 75% at 50% 50%,rgba(0,0,0,.15) 0%,rgba(0,0,0,.35) 45%,#000 100%)}@media(max-width:600px){.cost-section::before{display:none}}</style>
+<script>/* punctele din card aliniate cu cele din pagină */document.addEventListener("DOMContentLoaded",function(){var c=document.querySelectorAll(".cost-section");function al(){c.forEach(function(s){var r=s.getBoundingClientRect(),x=r.left+scrollX+s.clientLeft,y=r.top+scrollY+s.clientTop;s.style.setProperty("--dx",(-(x%1280))+"px");s.style.setProperty("--dy",(-(y%1280))+"px")})}al();window.addEventListener("load",al);if("ResizeObserver"in window)new ResizeObserver(function(){requestAnimationFrame(al)}).observe(document.body)});</script>
+<style id="ru-dark-card">/* Secțiunea maro închis = card mat, ca secțiunea de contact de pe homepage */.cta-section{position:relative;isolation:isolate;overflow:clip;margin:20px clamp(12px,1.6vw,24px);border-radius:clamp(24px,2.4vw,36px);border:1px solid rgba(255,255,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 1px 2px rgba(45,40,32,.08),0 30px 70px -30px rgba(45,40,32,.45)}@media(max-width:600px){.cta-section{margin:12px 8px;border-radius:22px}}.cta-section::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.5;mix-blend-mode:screen;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .9 0 0 0 0 .85 0 0 0 0 .78 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}</style>
+<style id="ru-grid">/* Fundal: grilă de plan tehnic (în locul punctelor) pe desktop și tabletă; pe telefon fundalul rămâne simplu (ru-nodots) */@media(min-width:601px){body::before,.ru-ft::before,.audit-hero::before{background-image:url(/grid.svg?v=20261116b)!important;background-size:1280px 1280px!important;opacity:1!important}#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before,#faq::before,.cost-section::before{background-image:url(/grid.svg?v=20261116b)!important;background-size:1280px 1280px!important;opacity:.5}}</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Sari la conținut</a>
@@ -497,12 +502,9 @@ body::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none
   <div class="nav-links">
     <a href="/#process">Cum funcționează</a>
     <a href="/#packages">Pachete</a>
-    <a href="portofoliu.html">Portofoliu</a>
-    <a href="rental-kit.html">Rental Kit</a>
-    
-    
-    <a href="/blog/">Blog</a>
-    <a href="faq.html">FAQ</a>
+    <a href="/portofoliu">Portofoliu</a>
+    <a href="/rental-kit">Rental Kit</a>
+    <a href="/faq">FAQ</a>
   <a href="/#contact">Contact</a>
     <button class="lang-toggle-btn" onclick="toggleLang()" title="Switch to English">EN</button>
   </div>
@@ -512,17 +514,14 @@ body::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none
   <span style="width:22px;height:2px;background:#C77936;display:block"></span>
   <span style="width:22px;height:2px;background:#C77936;display:block"></span>
 </button>
-<a class="nav-cta" href="audit.html">Raport de Rentabilitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+<a class="nav-cta" href="/audit">Raport de Rentabilitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
 </nav>
 <div class="nav-mobile" id="nav-mobile">
   <a href="/#process">Cum funcționează</a>
   <a href="/#packages">Pachete</a>
-  <a href="portofoliu.html">Portofoliu</a>
-  <a href="rental-kit.html">Rental Kit</a>
-  
-  
-  <a href="/blog/">Blog</a>
-  <a href="faq.html">FAQ</a>
+  <a href="/portofoliu">Portofoliu</a>
+  <a href="/rental-kit">Rental Kit</a>
+  <a href="/faq">FAQ</a>
   <a href="/#contact">Contact</a>
 </div>
 <!-- HERO -->
@@ -558,7 +557,7 @@ body::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none
     </div>
     <div class="cost-note sr">
       <div class="cn-txt"><strong>Raportul de Rentabilitate Gratuit</strong><span>Îți calculează exact cât costă situația ta actuală față de cea optimizată și cât durează recuperarea.</span></div>
-      <a class="cn-btn" href="audit.html" onclick="gtag('event','click_audit_cta');gtag('event','conversion',{'send_to':'AW-18253477545'});">Cere raportul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+      <a class="cn-btn" href="/audit" onclick="gtag('event','click_audit_cta');gtag('event','conversion',{'send_to':'AW-18253477545'});">Cere raportul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
     </div>
   </div>
 </div>
@@ -833,27 +832,14 @@ body::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none
   <div style="font-size:44px;font-weight:300;color:var(--brand);letter-spacing:-.04em;margin-bottom:4px">Gratuit</div>
   <div style="font-size:14px;color:var(--muted);margin-bottom:28px">raport livrat în 72h · fără angajament</div>
   <div class="cta-btns">
-    <a class="btn-brand" href="audit.html" onclick="gtag('event','click_audit_cta');gtag('event','conversion',{'send_to':'AW-18253477545'});">Programează Raportul de Rentabilitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-    <a class="btn-outline" href="faq.html">Întrebări frecvente</a>
+    <a class="btn-brand" href="/audit" onclick="gtag('event','click_audit_cta');gtag('event','conversion',{'send_to':'AW-18253477545'});">Programează Raportul de Rentabilitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+    <a class="btn-outline" href="/faq">Întrebări frecvente</a>
   </div>
 </div>
 
 <footer class="ru-ft">
-<style id="ru-ft-card">.ru-ft .ft-s{display:none}@media(max-width:600px){.ru-ft .ft-f{display:none}.ru-ft .ft-s{display:inline}}.ru-ft{isolation:isolate}.ru-ft::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(rgba(45,40,32,.16) 1.1px,transparent 1.4px);background-size:22px 22px;opacity:.7;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 12%,transparent 50%);mask-image:linear-gradient(180deg,transparent 0%,#000 12%,transparent 50%)}
-@media(max-width:768px){.ru-ft::before{background-image:radial-gradient(rgba(45,40,32,.128) .68px,transparent .9px);background-size:10px 10px}}
-.ru-ft{display:block!important;position:relative;overflow:hidden;background:#FDFAF6!important;border-top:0!important;padding:64px 32px 0!important}
-.ru-ft-card{position:relative;z-index:1;max-width:1200px;margin:0 auto;background:#fff;border:1px solid rgba(45,40,32,.06);border-radius:28px;padding:52px 56px 32px;box-shadow:0 1px 2px rgba(45,40,32,.04),0 12px 32px rgba(45,40,32,.07),0 40px 80px -24px rgba(45,40,32,.12)}
-.ru-ft-top{display:grid!important;grid-template-columns:minmax(0,1fr) auto;gap:48px;align-items:start;margin-bottom:40px}
-.ru-ft-cols{display:grid;grid-template-columns:repeat(4,auto);gap:48px}
-.ru-ft .ft-brand>a{font-size:22px!important;margin-bottom:0!important}
-.ru-ft-tag{font-family:'General Sans',sans-serif;font-size:24px;font-weight:600;line-height:1.25;letter-spacing:-.015em;color:#2D2820;margin:18px 0 6px;max-width:15ch}
-.ru-ft-tag em{font-style:normal;color:#C77936}
-.ru-ft-city{font-size:14px;color:#776B60;margin:0}
-.ru-ft-giant{position:relative;z-index:0;margin-top:.12em;text-align:center;font-family:'General Sans',sans-serif;font-weight:600;font-size:clamp(60px,21vw,300px);line-height:.78;letter-spacing:-.05em;height:.66em;overflow:hidden;white-space:nowrap;color:rgba(199,121,54,.24);-webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.14) 100%);mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.14) 100%);-webkit-user-select:none;user-select:none;pointer-events:none}
-.ru-ft-giant span{font-weight:300;color:rgba(45,40,32,.14)}
-@media(max-width:720px){.ru-ft{padding:32px 12px 0!important}.ru-ft-card{padding:32px 22px 26px;border-radius:22px}.ru-ft-top{grid-template-columns:1fr;gap:36px}.ru-ft-cols{grid-template-columns:1fr 1fr;gap:28px 24px}.ru-ft-tag{font-size:21px}}@media(max-width:600px){.ru-ft-card{padding:30px 22px 26px}.ru-ft-tag{font-size:22px;max-width:none;margin-top:16px}.ru-ft-top{gap:32px;margin-bottom:28px}.ru-ft-cols{gap:28px 16px}.ru-ft .ft-bot{gap:20px!important;padding-top:22px!important}.ru-ft .ft-legal{gap:10px 20px}.ru-ft .ft-legal>a{order:1;font-size:13px!important;color:#776B60!important;padding:2px 0}.ru-ft .ft-legal>div:not(.ft-co){order:2;flex-basis:100%;margin-top:8px}.ru-ft .ft-co{order:3;line-height:1.55}.ru-ft-giant{font-size:25vw;margin-top:.08em}.ru-ft .ft-bot{align-items:center!important;text-align:center!important}.ru-ft .ft-legal{justify-content:center;text-align:center!important}.ru-ft .ft-bot .ru-legal{justify-content:center;align-self:center}}</style>
+<link rel="stylesheet" href="/footer.css?v=20261116">
 
-<style>@media(max-width:600px){footer{padding-left:20px!important;padding-right:20px!important}.ft-brand{flex-basis:100%!important}}</style>
   <div class="ru-ft-card">
     <div class="ru-ft-top">
       <div class="ft-brand" style="flex:0 0 auto">
@@ -864,18 +850,18 @@ body::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none
         <div>
           <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:14px">Servicii</div>
           <div style="display:flex;flex-direction:column;gap:10px">
-            <a href="/audit.html" style="font-size:14px;color:#7A6E62;text-decoration:none"><span class="ft-f">Raport de Rentabilitate</span><span class="ft-s">Raport Rentabilitate</span></a>
-            <a href="/staging-virtual.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Staging Virtual</a>
+            <a href="/audit" style="font-size:14px;color:#7A6E62;text-decoration:none"><span class="ft-f">Raport de Rentabilitate</span><span class="ft-s">Raport Rentabilitate</span></a>
+            <a href="/staging-virtual" style="font-size:14px;color:#7A6E62;text-decoration:none">Staging Virtual</a>
             <a href="/#packages" style="font-size:14px;color:#7A6E62;text-decoration:none"><span class="ft-f">Design de interior</span><span class="ft-s">Design Interior</span></a>
-            <a href="/rental-kit.html" style="font-size:14px;color:#C77936;text-decoration:none;font-weight:500">Rental Kit</a>
+            <a href="/rental-kit" style="font-size:14px;color:#C77936;text-decoration:none;font-weight:500">Rental Kit</a>
           </div>
         </div>
         <div>
           <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:14px">Resurse</div>
           <div style="display:flex;flex-direction:column;gap:10px">
-            <a href="/realitatea-chiriei.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Probleme & Soluții</a>
-            <a href="/simulator.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Simulator mobilare</a>
-            <a href="/faq.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Întrebări frecvente</a>
+            <a href="/realitatea-chiriei" style="font-size:14px;color:#7A6E62;text-decoration:none">Probleme & Soluții</a>
+            <a href="/simulator" style="font-size:14px;color:#7A6E62;text-decoration:none">Simulator mobilare</a>
+            <a href="/faq" style="font-size:14px;color:#7A6E62;text-decoration:none">Întrebări frecvente</a>
             <a href="/blog/" style="font-size:14px;color:#7A6E62;text-decoration:none">Blog</a>
           </div>
         </div>
@@ -901,15 +887,14 @@ body::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none
     <div class="ft-legal">
     <div class="ft-co" style="font-size:12px;color:var(--light);white-space:normal">Wirtual Design &amp; Architecture SRL · CUI 44170236 · J23/2626/2021 · Clinceni, Ilfov</div>
 <div style="font-size:12px;color:var(--light);white-space:nowrap">© 2026 RentUP · Toate drepturile rezervate</div>
-<a href="/termeni.html" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Termeni și condiții</a>
-<a href="/confidentialitate.html" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Politică de confidențialitate</a>
+<a href="/termeni" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Termeni și condiții</a>
+<a href="/confidentialitate" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Politică de confidențialitate</a>
       <a href="#" onclick="ruCookieSettings();return false" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Setări cookie</a>
     </div>
     <div class="ru-legal" style="display:flex"><a class="ru-sal" href="https://reclamatiisal.anpc.ro/" target="_blank" rel="noopener" aria-label="ANPC: Soluționarea alternativă a litigiilor (detalii)" style="display:inline-flex;color:var(--light,#776B60);text-decoration:none"><svg width="200" height="50" viewBox="0 0 200 50" fill="none" aria-hidden="true" style="display:block"><rect x=".5" y=".5" width="199" height="49" rx="12" stroke="currentColor"/><path d="M85 9v32" stroke="currentColor" stroke-opacity=".45"/><image x="4" y="8.5" width="27.4" height="33" href="/images/stema-anpc-sepia.png"/><text x="34" y="21" fill="currentColor" font-family="'General Sans',sans-serif" font-size="13" font-weight="600" letter-spacing=".2">ANPC</text><text x="34.2" y="26.2" fill="currentColor" font-family="'General Sans',sans-serif" font-size="2.7" font-weight="500" letter-spacing=".05">AUTORITATEA NAȚIONALĂ PENTRU</text><text x="34.2" y="29.6" fill="currentColor" font-family="'General Sans',sans-serif" font-size="2.7" font-weight="500" letter-spacing=".05">PROTECȚIA CONSUMATORILOR</text><text x="34" y="39.5" fill="currentColor" font-family="'General Sans',sans-serif" font-size="7.4" font-style="italic" font-weight="500">Te respectă</text><text x="141" y="18" fill="currentColor" font-family="'General Sans',sans-serif" font-size="6.3" font-weight="600" text-anchor="middle" letter-spacing=".1">SOLUȚIONAREA ALTERNATIVĂ</text><text x="141" y="26" fill="currentColor" font-family="'General Sans',sans-serif" font-size="6.3" font-weight="600" text-anchor="middle" letter-spacing=".1">A LITIGIILOR</text><rect x="121" y="31" width="40" height="12" rx="6" fill="currentColor"/><text x="141" y="39.3" fill="#FDFAF6" font-family="'General Sans',sans-serif" font-size="5.6" font-weight="600" text-anchor="middle" letter-spacing=".4">DETALII</text></svg></a></div>
     </div>
   </div>
-<style id="ru-ft-bot">.ft-bot{justify-content:space-between!important;align-items:center!important;gap:16px 40px!important;flex-wrap:wrap!important}.ft-legal{flex:1 1 480px;display:flex;flex-wrap:wrap;gap:6px 24px;text-align:left}.ft-bot .ru-legal{flex:0 0 auto}.ft-co{order:2;flex-basis:100%}@media(max-width:600px){.ft-bot{flex-direction:column!important;align-items:flex-start!important}.ft-legal{flex-basis:auto}}</style>
-<style id="ru-ft-gm">@media(max-width:1024px){.ru-ft-giant{height:auto;overflow:visible;line-height:.9;padding-bottom:.04em;-webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.45) 45%,transparent 92%);mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.45) 45%,transparent 92%)}}</style><div class="ru-ft-giant" aria-hidden="true">Rent<span>UP</span></div>
+<div class="ru-ft-giant" aria-hidden="true">Rent<span>UP</span></div>
 </footer>
 
 <script>
@@ -974,24 +959,24 @@ document.addEventListener('click',function(e){
 </script>
 
 <!-- WhatsApp Floating (mobil) -->
-<style>.wa-float{display:none;position:fixed;bottom:24px;left:24px;width:52px;height:52px;background:#25D366;border-radius:50%;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.35);z-index:998;text-decoration:none;transition:transform .2s,box-shadow .2s}.wa-float:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(37,211,102,.45)}@media(max-width:768px){.wa-float{display:flex}}
-#wa-modal{display:none;position:fixed;inset:0;z-index:9999}#wa-modal.open{display:block}#wa-overlay{position:absolute;inset:0;background:rgba(45,40,32,.45)}#wa-box{position:absolute;bottom:88px;left:16px;width:280px;background:#FDFAF6;border:.5px solid #EDE5D8;border-radius:16px;box-shadow:0 12px 40px rgba(45,40,32,.18);overflow:hidden;font-family:'General Sans',sans-serif}#wa-head{display:flex;align-items:center;justify-content:space-between;padding:13px 16px 11px;border-bottom:.5px solid #EDE5D8}#wa-title{font-size:14px;font-weight:600;color:#2D2820;letter-spacing:.02em}#wa-close{background:none;border:none;cursor:pointer;color:#8B7D6B;font-size:20px;line-height:1;padding:0;width:24px;height:24px;display:flex;align-items:center;justify-content:center}.wa-opt{display:block;width:100%;text-align:left;padding:11px 16px;background:none;border:none;border-bottom:.5px solid #EDE5D8;cursor:pointer;font-size:14px;color:#2D2820;font-family:'General Sans',sans-serif;line-height:1.4;transition:background .15s}.wa-opt:hover{background:#F5EFE6}#wa-custom-wrap{padding:12px 16px 14px;border-top:.5px solid #EDE5D8}#wa-custom-lbl{font-size:11px;color:#8B7D6B;margin:0 0 7px}#wa-custom-ta{width:100%;box-sizing:border-box;border:.5px solid #EDE5D8;border-radius:8px;padding:8px 10px;font-size:14px;font-family:'General Sans',sans-serif;color:#2D2820;background:#fff;resize:none;outline:none;line-height:1.5;display:block}#wa-custom-ta:focus{border-color:#C77936}#wa-send-btn{margin-top:8px;width:100%;background:#25D366;color:#FDFAF6;border:none;border-radius:8px;padding:9px 0;font-size:14px;font-weight:600;cursor:pointer;font-family:'General Sans',sans-serif}
+<style>.wa-float{display:none;position:fixed;bottom:24px;left:24px;width:52px;height:52px;background:#25D366;border-radius:50%;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.35);z-index:998;text-decoration:none;transition:transform .2s,box-shadow .2s}@media(hover:hover){.wa-float:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(37,211,102,.45)}}@media(max-width:768px){.wa-float{display:flex}}
+#wa-modal{display:none;position:fixed;inset:0;z-index:9999}#wa-modal.open{display:block}#wa-overlay{position:absolute;inset:0;background:rgba(45,40,32,.45)}#wa-box{position:absolute;bottom:88px;left:16px;width:280px;background:#FDFAF6;border:.5px solid #EDE5D8;border-radius:16px;box-shadow:0 12px 40px rgba(45,40,32,.18);overflow:hidden;font-family:'General Sans',sans-serif}#wa-head{display:flex;align-items:center;justify-content:space-between;padding:13px 16px 11px;border-bottom:.5px solid #EDE5D8}#wa-title{font-size:14px;font-weight:600;color:#2D2820;letter-spacing:.02em}#wa-close{background:none;border:none;cursor:pointer;color:#8B7D6B;font-size:20px;line-height:1;padding:0;width:24px;height:24px;display:flex;align-items:center;justify-content:center}.wa-opt{display:block;width:100%;text-align:left;padding:11px 16px;background:none;border:none;border-bottom:.5px solid #EDE5D8;cursor:pointer;font-size:14px;color:#2D2820;font-family:'General Sans',sans-serif;line-height:1.4;transition:background .15s}@media(hover:hover){.wa-opt:hover{background:#F5EFE6}}#wa-custom-wrap{padding:12px 16px 14px;border-top:.5px solid #EDE5D8}#wa-custom-lbl{font-size:11px;color:#8B7D6B;margin:0 0 7px}#wa-custom-ta{width:100%;box-sizing:border-box;border:.5px solid #EDE5D8;border-radius:8px;padding:8px 10px;font-size:14px;font-family:'General Sans',sans-serif;color:#2D2820;background:#fff;resize:none;outline:none;line-height:1.5;display:block}#wa-custom-ta:focus{border-color:#C77936}#wa-send-btn{margin-top:8px;width:100%;background:#25D366;color:#FDFAF6;border:none;border-radius:8px;padding:9px 0;font-size:14px;font-weight:600;cursor:pointer;font-family:'General Sans',sans-serif}
 /* WA modal — design nou (stil calculator) */
 #wa-overlay{background:rgba(45,40,32,.32);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
 #wa-box{width:300px;border:none;border-radius:20px;box-shadow:0 16px 48px rgba(45,40,32,.18);padding:8px}
 #wa-head{border-bottom:none;padding:14px 12px 10px 14px}
 #wa-title{font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--light)}
 #wa-close{width:30px;height:30px;border-radius:50%;background:#F5EFE6;color:#7A6E62;font-size:18px;transition:background 180ms var(--ease-out)}
-#wa-close:hover{background:#EDE5D8;color:#2D2820}
+@media(hover:hover){#wa-close:hover{background:#EDE5D8;color:#2D2820}}
 #wa-opts{display:grid;gap:2px}
 .wa-opt{border-bottom:none;border-radius:12px;padding:12px 14px;font-size:14px;transition:background 180ms var(--ease-out)}
-.wa-opt:hover{background:#F5EFE6}
+@media(hover:hover){.wa-opt:hover{background:#F5EFE6}}
 #wa-custom-wrap{border-top:none;margin-top:6px;padding:12px 6px 6px;background:none}
 #wa-custom-lbl{font-size:14px;color:var(--light);margin:0 8px 8px}
 #wa-custom-ta{border:none;border-radius:14px;background:#F5EFE6;padding:11px 14px;font-size:14px;transition:background 180ms,box-shadow 180ms}
 #wa-custom-ta:focus{background:#fff;box-shadow:0 0 0 1.5px #C77936}
 #wa-send-btn{border-radius:100px;padding:12px 0;font-size:14px;font-weight:500;transition:transform 150ms var(--ease-out),filter 180ms}
-#wa-send-btn:hover{filter:brightness(.94);transform:translateY(-1px)}
+@media(hover:hover){#wa-send-btn:hover{filter:brightness(.94);transform:translateY(-1px)}}
 #wa-send-btn:active{transform:scale(.97)}
 </style>
 <!-- WhatsApp Modal -->
@@ -1069,7 +1054,7 @@ window.addEventListener('scroll',function(){
 <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#2D2820;border-top:0.5px solid #4D4238;padding:16px 20px;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;z-index:130;font-family:'General Sans',sans-serif">
   <div style="flex:1;min-width:180px">
     <div style="font-size:13px;font-weight:500;color:#FDFAF6;margin-bottom:3px">Folosim cookie-uri</div>
-    <div style="font-size:12px;color:var(--muted);line-height:1.5">Folosim cookie-uri pentru analiză și îmbunătățirea experienței. <span class="cb-opt">Poți accepta sau refuza cookie-urile opționale. </span><a href="confidentialitate.html" style="color:#C77936;text-decoration:none">Politică de confidențialitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
+    <div style="font-size:12px;color:var(--muted);line-height:1.5">Folosim cookie-uri pentru analiză și îmbunătățirea experienței. <span class="cb-opt">Poți accepta sau refuza cookie-urile opționale. </span><a href="/confidentialitate" style="color:#C77936;text-decoration:none">Politică de confidențialitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
   </div>
   <div style="display:flex;gap:8px;align-items:center;flex-shrink:0">
     <button onclick="setCookies('refused')" style="font-size:13px;font-weight:500;color:var(--muted);background:none;border:1px solid #4D4238;padding:0 20px;height:44px;border-radius:100px;cursor:pointer;font-family:'General Sans',sans-serif;touch-action:manipulation;-webkit-tap-highlight-color:transparent">Refuz</button>
@@ -1102,7 +1087,7 @@ if(!localStorage.getItem('cookieConsent')){
   var state=0, pending=false;
   function load(){
     if(state) return; state=1;
-    var s=document.createElement('script'); s.src='lang.js';
+    var s=document.createElement('script'); s.src='lang.js?v=20261115';
     s.onload=function(){ state=2; if(pending){ pending=false; window.toggleLang(); } };
     document.body.appendChild(s);
   }
@@ -1111,7 +1096,7 @@ if(!localStorage.getItem('cookieConsent')){
   if(en) load(); else window.ruLater(load);
 })();
 </script>
-<script src="float.js?v=20261115" defer></script>
+<script src="float.js?v=20261115b" defer></script>
 <style id="ru-smooth-hover">
 /* Hover-uri line: orice schimbare de culoare/fundal/contur/umbră la hover durează 400ms (generat; celelalte tranziții ale elementelor își păstrează durata) */
 #wa-close{transition:background-color 400ms ease,color 400ms ease}
@@ -1168,6 +1153,8 @@ if(!localStorage.getItem('cookieConsent')){
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
 })();
 </script>
-<script src="/navpill.js?v=20261115c" defer></script>
+<script src="/navpill.js?v=20261115e" defer></script>
+<style id="ru-touch">/* Touch: hover-ul nu rămâne „lipit” după atingere; cât ții degetul apăsat, elementul arată ca la hover și se apasă ușor (în loc să se ridice). Pe dispozitivele cu mouse nu se schimbă nimic. */@media(hover:none){.problem-item:active{background:var(--bg3);transform:scale(.97)}.quote-card:active{box-shadow:0 8px 32px rgba(45,40,32,.08);transform:scale(.97)}.sys-card:active{background:var(--brand-light);border-color:var(--brand-border);transform:scale(.97)}.btn-brand:active{background:#a8622a;transform:scale(.97)}.btn-outline:active{background:var(--brand-light);transform:scale(.97)}.nav-links a:active{color:#2D2820;transform:scale(.97)}.nav-cta:active{background:#FAF4EB;transform:scale(.97)}.urgent-card:active{background:var(--brand-light);border-color:var(--brand-border);transform:scale(.97)}.problem-item:active{transform:scale(.97);box-shadow:0 8px 28px rgba(45,40,32,.1)}.urgent-card:active{transform:scale(.97)}.quote-card:active{transform:scale(.97);box-shadow:0 10px 36px rgba(45,40,32,.1)}.sys-card:active{transform:scale(.97)}.cost-card:active{background:#453A2E;transform:scale(.97)}.btn-brand:active{transform:scale(.97)}.btn-outline:active{transform:scale(.97)}.lang-toggle-btn:active{background:#FAF4EB;border-color:#C77936;transform:scale(.97)}.cost-card:active{background:#fff;box-shadow:0 10px 32px rgba(45,40,32,.1);transform:scale(.97)}.cn-btn:active{background:var(--brand);transform:scale(.97)}.rc-side a:active{color:var(--dark);transform:scale(.97)}.problems .problem-item:active{background:#fff;transform:scale(.97);box-shadow:0 8px 28px rgba(45,40,32,.08)}.sys-card:active{background:#fff;border:0;box-shadow:0 10px 32px rgba(45,40,32,.1);transform:scale(.97)}.cta-section .btn-outline:active{background:rgba(253,250,246,.08);transform:scale(.97)}.wa-float:active{transform:scale(.97);box-shadow:0 10px 30px rgba(37,211,102,.45)}.wa-opt:active{background:#F5EFE6;transform:scale(.97)}#wa-close:active{background:#EDE5D8;color:#2D2820;transform:scale(.97)}}</style>
+<script>/* iOS aplică stilul de apăsare doar dacă pagina ascultă atingerile */document.addEventListener("touchstart",function(){},{passive:true});</script>
 </body>
 </html>

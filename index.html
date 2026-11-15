@@ -2,6 +2,7 @@
 <html lang="ro">
 <head>
 <style id="ru-motion">/* Sistemul de mișcare RentUP: aceleași curbe și durate pe tot site-ul */:root{--ease-out:cubic-bezier(0.23,1,0.32,1);--ease-in-out:cubic-bezier(0.77,0,0.175,1);--ease-pop:cubic-bezier(0.34,1.4,0.64,1);--d-press:160ms;--d-fast:200ms;--d-ui:260ms;--d-move:420ms;--d-hover:400ms;--d-reveal:620ms}/* Trecerea între pagini: crossfade scurt; meniul rămâne pe loc (browserele fără suport încarcă normal) */@view-transition{navigation:auto}::view-transition-old(root),::view-transition-new(root){animation-duration:var(--d-ui);animation-timing-function:var(--ease-out)}::view-transition-group(ru-nav){animation-duration:var(--d-ui);animation-timing-function:var(--ease-out)}nav{view-transition-name:ru-nav}/* Mișcare redusă: fără deplasări și bucle; rămân doar estompările scurte care ajută la înțelegere */@media (prefers-reduced-motion:reduce){@view-transition{navigation:none}*,*::before,*::after{animation-duration:1ms!important;animation-delay:0s!important;animation-iteration-count:1!important;scroll-behavior:auto!important}.sr{transform:none!important;filter:none!important;transition:opacity 200ms ease-out!important}}</style>
+<script>/* adresă curată: /pagina în loc de /pagina.html (fără reîncărcare) */(function(){var p=location.pathname;if(/\.html$/.test(p)){history.replaceState(null,"",p.replace(/(^|\/)index\.html$/,"$1").replace(/\.html$/,"")+location.search+location.hash)}})();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Consimțământ cookies (Legea 506/2004 + GDPR): Google Analytics, Google Ads,
@@ -160,16 +161,16 @@ h2.sh{font-size:clamp(1.5rem,4vw,2.375rem);font-weight:300;color:var(--text);lin
 .hero-l{padding:80px 0}
 .hero-eyebrow{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--brand);margin-bottom:24px;display:flex;align-items:center;gap:8px;cursor:default;user-select:none}
 .hero-eyebrow a{color:inherit;text-decoration:none;cursor:pointer;transition:opacity 150ms ease}
-.hero-eyebrow a:hover{opacity:0.65}
+@media(hover:hover){.hero-eyebrow a:hover{opacity:0.65}}
 .hero-dot{width:6px;height:6px;border-radius:50%;background:var(--brand);flex-shrink:0}
 .hero-h1{font-size:clamp(1.875rem,6vw,3.5rem);font-weight:300;line-height:1.02;letter-spacing:-.035em;margin-bottom:24px;color:var(--text);text-wrap:balance}
 .hero-h1 em{font-style:normal;font-weight:500;color:var(--brand)}
 .hero-sub{font-size:16px;color:var(--muted);line-height:1.75;margin-bottom:40px;max-width:420px}
 .hero-btns{display:flex;gap:16px;align-items:center;margin-bottom:24px;flex-wrap:wrap}
 .btn-primary{font-size:14px;font-weight:500;background:var(--brand);color:var(--bg);padding:14px 28px;border-radius:100px;text-decoration:none;border:none;cursor:pointer;transition:background 180ms var(--ease-out),transform 150ms var(--ease-out)}
-.btn-primary:hover{background:#a8622a;transform:translateY(-1px)}
+@media(hover:hover){.btn-primary:hover{background:#a8622a;transform:translateY(-1px)}}
 .btn-ghost{font-size:14px;color:var(--muted);text-decoration:none;cursor:pointer;background:none;border:none;transition:color 150ms ease-out}
-.btn-ghost:hover{color:var(--text)}
+@media(hover:hover){.btn-ghost:hover{color:var(--text)}}
 .hero-micro{font-size:14px;color:var(--light);margin-bottom:20px}
 .hero-note{margin:-8px 0 0;font-size:14px;color:var(--muted)}
 .hero-note b{font-weight:500;color:var(--text)}
@@ -189,7 +190,7 @@ h2.sh{font-size:clamp(1.5rem,4vw,2.375rem);font-weight:300;color:var(--text);lin
 .stats-g{display:grid;grid-template-columns:repeat(4,1fr)}
 .stat{padding:32px 28px;border-right:.5px solid var(--border);text-align:center;transition:background 150ms ease-out}
 .stat:last-child{border-right:none}
-.stat:hover{background:var(--brand-light)}
+@media(hover:hover){.stat:hover{background:var(--brand-light)}}
 .stat-v{font-size:32px;font-weight:300;color:var(--brand);letter-spacing:-.025em;margin-bottom:7px}
 .stat-l{font-size:14px;color:var(--light);line-height:1.4}
 
@@ -290,8 +291,12 @@ h2.sh{font-size:clamp(1.5rem,4vw,2.375rem);font-weight:300;color:var(--text);lin
 .cx-peek b{font-size:18px;font-weight:400;font-variant-numeric:tabular-nums}
 .cx-peek.show{transform:none}
 /* ascunsă = complet în afara ecranului și invizibilă: pe iPhone, sub bara plutitoare din Safari, se vedea marginea ei și umbra tăiată */
-.cx-peek{transform:translateY(calc(100% + 160px));visibility:hidden;transition:transform 420ms var(--ease-out),visibility 0s linear 420ms}
-.cx-peek.show{visibility:visible;transition:transform 420ms var(--ease-out),visibility 0s}
+.cx-peek{transform:scale(.72,.6);transform-origin:50% 100%;opacity:0;visibility:hidden;
+  /* ieșire: se strânge spre centru și se estompează (nu mai coboară sub ecran, deci arată la fel pe orice telefon) */
+  transition:transform 320ms cubic-bezier(0.45,0,0.2,1),opacity 220ms ease 60ms,visibility 0s linear 380ms}
+/* intrare: se deschide din centru, cu un mic recul */
+.cx-peek.show{transform:none;opacity:1;visibility:visible;transition:transform 440ms cubic-bezier(0.34,1.2,0.64,1),opacity 260ms ease,visibility 0s}
+@media(prefers-reduced-motion:reduce){.cx-peek,.cx-peek.show{transform:none!important;transition:opacity 200ms ease,visibility 0s linear 200ms!important}.cx-peek.show{transition:opacity 200ms ease!important}}
 @media(max-width:860px){.cx-grid{grid-template-columns:minmax(0,1fr)}.cx-peek{display:flex}}
 /* pe telefoane înguste, „Brașov / Constanța” nu încape pe un rând: îl lăsăm să treacă pe două, în loc să lățească tot calculatorul */
 @media(max-width:480px){.cx-seg button{white-space:normal;line-height:1.25;padding:9px 4px;font-size:12.5px}}
@@ -308,7 +313,7 @@ h2.sh{font-size:clamp(1.5rem,4vw,2.375rem);font-weight:300;color:var(--text);lin
   .cx-det td:first-child{grid-column:1/-1;font-weight:500;color:var(--text)}
   .cx-det td[data-l]::before{content:attr(data-l)": ";color:var(--light)}
 }
-@media(prefers-reduced-motion:reduce){.cx-ind,.cx-fill,.cx-more,.cx-peek,.cx-seg button{transition:none!important}}
+@media(prefers-reduced-motion:reduce){.cx-ind,.cx-fill,.cx-more,.cx-seg button{transition:none!important}}
 .calc-inner{max-width:680px}
 input[type=range]{width:100%;appearance:none;height:1.5px;background:var(--border);border-radius:2px;outline:none;cursor:pointer;margin:10px 0}
 input[type=range]:focus-visible{outline:2px solid var(--brand);outline-offset:4px;border-radius:2px}
@@ -320,7 +325,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .tbns{display:flex;gap:8px}
 .tbn{flex:1;padding:10px 12px;background:#E8DDD0;border:none;border-radius:8px;font-size:14px;font-weight:500;color:var(--muted);cursor:pointer;text-align:center;font-family:'General Sans',sans-serif;transition:background .15s,color .15s}
 .tbn.on{background:#FDFAF6;color:var(--brand)}
-.tbn:hover{background:rgba(199,121,54,.06);color:var(--brand)}
+@media(hover:hover){.tbn:hover{background:rgba(199,121,54,.06);color:var(--brand)}}
 .cr{background:var(--bg);border:.5px solid var(--border);border-radius:16px;padding:28px;margin-top:32px;box-shadow:0 2px 16px rgba(45,40,32,.04)}
 .crh{display:flex;justify-content:space-between;margin-bottom:22px;padding-bottom:16px;border-bottom:.5px solid var(--border)}
 .crh-l{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
@@ -350,7 +355,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 #about{background:var(--bg-stone)}
 .team-g{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:56px}
 .tc{border:none;border-radius:14px;overflow:hidden;background:var(--bg);box-shadow:0 2px 16px rgba(45,40,32,.16);transition:box-shadow .2s}
-.tc:hover{box-shadow:0 8px 28px rgba(45,40,32,.22)}
+@media(hover:hover){.tc:hover{box-shadow:0 8px 28px rgba(45,40,32,.22)}}
 .tc-photo{background:linear-gradient(140deg,var(--bg-warm) 0%,var(--bg-stone) 100%);height:380px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--light);letter-spacing:.04em}
 .tc-photo img{opacity:0;filter:blur(16px);transition:opacity 800ms var(--ease-out),filter 800ms var(--ease-out)}
 .tc-photo img.ph-in{opacity:1;filter:none}
@@ -365,7 +370,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .reasons{display:flex;flex-direction:column;gap:0;border:none;border-radius:14px;overflow:hidden;box-shadow:0 2px 16px rgba(45,40,32,.16)}
 .reason{display:flex;gap:20px;padding:22px 26px;border-bottom:1px solid var(--border);background:#FDFBF8;transition:background 150ms ease-out}
 .reason:last-child{border-bottom:none}
-.reason:hover{background:var(--brand-light)}
+@media(hover:hover){.reason:hover{background:var(--brand-light)}}
 .rn{font-size:18px;font-weight:600;color:var(--brand);flex-shrink:0;width:24px;padding-top:0}
 .rt{font-size:14px;color:var(--mid);line-height:1.65}
 .rt strong{color:var(--text);font-weight:500}
@@ -446,14 +451,14 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .ig-h{flex-direction:column;align-items:center;text-align:center}
 .ig-h .sec-tag{justify-content:center}
 .ig-h .sec-sub{margin-left:auto;margin-right:auto}
-.ig-follow{background:transparent!important;color:var(--brand)!important;border:.5px solid var(--brand)}
+.ig-follow{background:transparent!important;color:var(--brand)!important;border:1px solid rgba(199,121,54,.62)} /* 1px în loc de .5px: Chrome pe iPhone desena incomplet conturul de jumătate de pixel */.ig-h{position:relative;z-index:1}@media(hover:hover){.ig-follow:hover{border-color:var(--brand)}}
 @media(hover:hover) and (pointer:fine){.ig-follow:hover{background:var(--brand)!important;color:#FDFAF6!important}}
 .pstrip.ps-static{overflow-x:auto;scrollbar-width:none;-webkit-mask-image:none;mask-image:none;padding:4px 16px}
 .pstrip.ps-static::-webkit-scrollbar{display:none}
 @media(max-width:600px){.ps-card{height:300px;border-radius:14px}.ps-group{margin-right:16px}.pstrip{margin-bottom:28px}}
 .port-g{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px}
 .ba{border:none;border-radius:14px;overflow:hidden;background:var(--bg);box-shadow:0 2px 16px rgba(45,40,32,.16);transition:box-shadow .2s,transform .2s}
-.ba:hover{box-shadow:0 8px 28px rgba(45,40,32,.22);transform:translateY(-2px)}
+@media(hover:hover){.ba:hover{box-shadow:0 8px 28px rgba(45,40,32,.22);transform:translateY(-2px)}}
 .ba-photos{display:grid;grid-template-columns:1fr 1fr}
 .ba-p{height:200px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;letter-spacing:.08em;flex-direction:column;gap:8px}
 .ba-p.b{background:var(--bg-warm);color:var(--light)}
@@ -463,13 +468,13 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .ba-meta{font-size:14px;color:var(--muted);margin-top:3px}
 .ba-res{font-size:14px;font-weight:500;color:#8B5E10;background:#FDF0D8;padding:5px 14px;border-radius:100px;border:.5px solid #E8C87C}
 .port-cta{display:flex;align-items:center;justify-content:space-between;padding:22px 28px;border:none;border-radius:12px;background:var(--bg);text-decoration:none;box-shadow:0 2px 16px rgba(45,40,32,.16);transition:background 180ms var(--ease-out),box-shadow 180ms var(--ease-out),transform 150ms var(--ease-out)}
-.port-cta:hover{background:var(--brand-light);box-shadow:0 8px 28px rgba(45,40,32,.22)}
+@media(hover:hover){.port-cta:hover{background:var(--brand-light);box-shadow:0 8px 28px rgba(45,40,32,.22)}}
 .port-cta-l{font-size:15px;font-weight:500;color:var(--text)}
 .port-cta-sub{font-size:14px;color:var(--muted);margin-top:3px}
 .port-cta-arrow{flex-shrink:0;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--brand-light);color:var(--brand);transition:background 200ms var(--ease-out),color 200ms var(--ease-out)}
 .port-cta-arrow svg{transition:transform 220ms var(--ease-out)}
-.port-cta:hover .port-cta-arrow{background:var(--brand);color:#FDFAF6}
-.port-cta:hover .port-cta-arrow svg{transform:translateX(3px)}
+@media(hover:hover){.port-cta:hover .port-cta-arrow{background:var(--brand);color:#FDFAF6}}
+@media(hover:hover){.port-cta:hover .port-cta-arrow svg{transform:translateX(3px)}}
 
 /* ── TESTIMONIALS ── */
 #testimonials{background:var(--bg-stone)}
@@ -525,7 +530,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 @media(prefers-reduced-motion:reduce){.tt-panel,.tt-stage,.tt-ind,.tt-more{transition:none!important}}
 .te-g{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:36px}
 .tec{background:var(--bg);border:none;border-radius:14px;padding:24px;box-shadow:0 2px 16px rgba(45,40,32,.16);transition:box-shadow 200ms ease-out}
-.tec:hover{box-shadow:0 8px 28px rgba(45,40,32,.22)}
+@media(hover:hover){.tec:hover{box-shadow:0 8px 28px rgba(45,40,32,.22)}}
 .tec-q{font-size:36px;font-weight:200;color:var(--border);line-height:1;margin-bottom:12px}
 .tec-t{font-size:14px;color:var(--mid);line-height:1.75;font-style:italic;margin-bottom:16px}
 .tec-n{font-size:14px;font-weight:500}
@@ -655,11 +660,11 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .pkg-subgrid .pkg{border-top-left-radius:0!important;border-top-right-radius:0!important;border-bottom-left-radius:0!important;border-bottom-right-radius:0!important;border:none;box-shadow:none;position:relative;z-index:0}
 .pkg-subgrid .pkg:first-child{border-bottom-left-radius:14px!important}
 .pkg-subgrid .pkg:last-child{border-bottom-right-radius:14px!important}
-.pkg-subgrid .pkg:hover,.pkg-subgrid .pkg:active{transform:translateY(-5px) scale(1.04);box-shadow:0 10px 40px rgba(45,40,32,.26),0 0 20px rgba(45,40,32,.1);z-index:2}
-.pkg-subgrid .pkg:first-child:hover,.pkg-subgrid .pkg:first-child:active{border-bottom-left-radius:0!important}
-.pkg-subgrid .pkg:last-child:hover,.pkg-subgrid .pkg:last-child:active{border-bottom-right-radius:0!important}
+.pkg-subgrid .pkg:active{transform:translateY(-5px) scale(1.04);box-shadow:0 10px 40px rgba(45,40,32,.26),0 0 20px rgba(45,40,32,.1);z-index:2}@media(hover:hover){.pkg-subgrid .pkg:hover{transform:translateY(-5px) scale(1.04);box-shadow:0 10px 40px rgba(45,40,32,.26),0 0 20px rgba(45,40,32,.1);z-index:2}}
+.pkg-subgrid .pkg:first-child:active{border-bottom-left-radius:0!important}@media(hover:hover){.pkg-subgrid .pkg:first-child:hover{border-bottom-left-radius:0!important}}
+.pkg-subgrid .pkg:last-child:active{border-bottom-right-radius:0!important}@media(hover:hover){.pkg-subgrid .pkg:last-child:hover{border-bottom-right-radius:0!important}}
 .pkg{border-radius:16px;overflow:hidden;border:none;background:var(--bg);box-shadow:0 2px 16px rgba(45,40,32,.16);transition:box-shadow .2s,transform .2s,border-radius .2s;display:flex;flex-direction:column}
-.pkg:hover{box-shadow:0 8px 28px rgba(45,40,32,.22);transform:translateY(-2px)}
+@media(hover:hover){.pkg:hover{box-shadow:0 8px 28px rgba(45,40,32,.22);transform:translateY(-2px)}}
 .pkg-h{padding:26px 22px 20px}
 .pkg-name{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--light);margin-bottom:14px}
 .pkg-price{font-size:42px;font-weight:300;color:var(--text);letter-spacing:-.04em;line-height:1}
@@ -677,8 +682,8 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .pkg-std .pkg-div{background:var(--brand-border)}
 /* PREMIUM FULL ORANGE */
 .pkg-pre{border-color:#C8894E;background:#C8894E}
-.pkg-pre:hover{box-shadow:0 8px 40px rgba(200,137,78,.25)}
-.pkg-pre .btn-primary:hover,.pkg-pre .btn-primary:active{background:rgba(255,255,255,.24)!important;border-color:rgba(255,255,255,.3)!important}
+@media(hover:hover){.pkg-pre:hover{box-shadow:0 8px 40px rgba(200,137,78,.25)}}
+.pkg-pre .btn-primary:active{background:rgba(255,255,255,.24)!important;border-color:rgba(255,255,255,.3)!important}@media(hover:hover){.pkg-pre .btn-primary:hover{background:rgba(255,255,255,.24)!important;border-color:rgba(255,255,255,.3)!important}}
 .pkg-pre .pkg-h{background:#C8894E;padding-bottom:10px}
 .pkg-pre .pkg-name{color:rgba(253,250,246,.7)}
 .pkg-pre .pkg-price{color:#FDFAF6}
@@ -697,7 +702,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .fi{border-bottom:.5px solid var(--border);padding:22px 0;cursor:pointer}
 .fi:last-child{border-bottom:.5px solid #EDE0CE}
 .fq{font-size:15px;font-weight:500;display:flex;justify-content:space-between;gap:16px;user-select:none;transition:color .15s}
-.fi-icon{font-size:22px;color:var(--brand);flex-shrink:0;transition:transform 160ms var(--ease-out);font-weight:300}
+.fi-icon{position:relative;flex-shrink:0;width:22px;height:22px;font-size:0;color:var(--brand);transition:transform 260ms var(--ease-out)}/* „+” desenat din două linii centrate exact: la rotire stă pe loc (caracterul din font se deplasa ~10px) */.fi-icon::before,.fi-icon::after{content:"";position:absolute;left:50%;top:50%;width:15px;height:1.5px;margin:-.75px 0 0 -7.5px;border-radius:1px;background:currentColor}.fi-icon::after{transform:rotate(90deg)}
 .fa{font-size:14px;color:var(--muted);line-height:1.75;display:grid;grid-template-rows:0fr;opacity:0;margin-top:0;
   /* închidere: rapidă, conținutul se stinge primul */
   transition:grid-template-rows 320ms var(--ease-in-out),margin-top 320ms var(--ease-in-out),opacity var(--d-fast) var(--ease-out)}
@@ -720,12 +725,12 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 @keyframes livePulse{0%,100%{opacity:1}50%{opacity:.45}}
 .con-btns{display:flex;gap:12px;justify-content:center;margin-bottom:56px;flex-wrap:wrap}
 .con-p{background:var(--brand);color:var(--bg);font-size:14px;font-weight:500;padding:14px 30px;border-radius:100px;text-decoration:none;transition:background 180ms var(--ease-out),transform 150ms var(--ease-out)}
-.con-p:hover{background:#a8622a;transform:translateY(-1px)}
+@media(hover:hover){.con-p:hover{background:#a8622a;transform:translateY(-1px)}}
 .con-g{color:var(--muted);font-size:14px;padding:14px 26px;border:.5px solid #4D4238;border-radius:100px;text-decoration:none;transition:border-color 150ms ease-out,color 150ms ease-out}
-.con-g:hover{border-color:var(--muted-ui);color:var(--light)}
+@media(hover:hover){.con-g:hover{border-color:var(--muted-ui);color:var(--light)}}
 .con-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:580px;margin:0 auto}
 .cc{background:#3D3228;border-radius:12px;padding:20px;text-align:left;transition:background .15s}
-.cc:hover{background:#4D4238}
+@media(hover:hover){.cc:hover{background:#4D4238}}
 .cc-l{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px;font-weight:600}
 .cc-v{font-size:14px;font-weight:500;color:var(--bg)}
 .con-micro{font-size:14px;color:#5A5248;margin-top:32px}
@@ -745,7 +750,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 @keyframes ctPulse{0%{transform:scale(.4);opacity:.9}100%{transform:scale(1.6);opacity:0}}
 .ct-alt{display:flex;justify-content:center;flex-wrap:wrap;gap:12px 28px;margin-top:40px;font-size:14px}
 .ct-l{color:rgba(253,250,246,.75);text-decoration:none;border-bottom:1px solid rgba(253,250,246,.2);padding-bottom:2px;transition:color 200ms,border-color 200ms}
-.ct-l:hover{color:#FDFAF6;border-color:var(--brand)}
+@media(hover:hover){.ct-l:hover{color:#FDFAF6;border-color:var(--brand)}}
 @media(max-width:600px){.ct-wa{padding:18px 28px;font-size:16px}.ct-slots{font-size:14px}}
 @media(prefers-reduced-motion:reduce){.ct-pulse::after{animation:none}}
 
@@ -928,16 +933,16 @@ nav{position:sticky;top:0;z-index:var(--z-nav);background:rgba(253,250,246,.96);
 .logo span{color:#2D2820;font-weight:300}
 .nav-links{display:flex;align-items:center;gap:28px}
 .nav-links a{font-family:'General Sans',sans-serif;font-size:14px;color:var(--muted);text-decoration:none;transition:color .15s}
-.nav-links a:hover,.nav-links a.active{color:#2D2820}
+.nav-links a.active{color:#2D2820}@media(hover:hover){.nav-links a:hover{color:#2D2820}}
 .nav-cta{font-family:'General Sans',sans-serif;font-size:14px;font-weight:500;color:#C77936;border:.5px solid #C77936;padding:8px 18px;border-radius:100px;text-decoration:none;white-space:nowrap;transition:background 150ms ease-out,border-color 150ms ease-out}
-.nav-cta:hover{background:#FAF4EB}
+@media(hover:hover){.nav-cta:hover{background:#FAF4EB}}
 .br-mob{display:none}
 @media(max-width:768px){.br-mob{display:block}}
 /* tabletă: cu textul de 14px meniul nu mai încăpea, așa că strângem marginile și spațiile dintre linkuri */
 @media(min-width:769px) and (max-width:1100px){nav{padding:0 24px}.nav-links{gap:18px}.nav-cta{padding:8px 14px}}
 @media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}.nav-hamburger{display:flex}.nav-cta{display:none}.nav-mob-cta{display:inline-flex!important}}
 .nav-mob-cta{display:none;font-family:'General Sans',sans-serif;font-size:14px;font-weight:500;color:#C77936;border:.5px solid #C77936;padding:6px 13px;border-radius:100px;text-decoration:none;white-space:nowrap;margin-left:auto;margin-right:10px;transition:background 150ms ease-out}
-.nav-mob-cta:hover{background:#FAF4EB}
+@media(hover:hover){.nav-mob-cta:hover{background:#FAF4EB}}
 
 /* Page transitions */
 body{opacity:0.01;transition:opacity .46s var(--ease-out)}
@@ -981,13 +986,13 @@ img{-webkit-user-drag:none;user-drag:none}
   opacity: 0; transform: translateY(6px);
   transition: opacity 200ms ease-out, transform 200ms var(--ease-out);
 }
-.ba:hover .ba-overlay { background: rgba(45,40,32,0.38); }
-.ba:hover .ba-overlay span { opacity: 1; transform: translateY(0); }
+@media(hover:hover){.ba:hover .ba-overlay{ background: rgba(45,40,32,0.38); }}
+@media(hover:hover){.ba:hover .ba-overlay span{ opacity: 1; transform: translateY(0); }}
 .ba { cursor: pointer; }
 /* Butonul de limbă + meniul hamburger (aceleași reguli pe care le injectează lang.js;
    sunt aici ca nav-ul să arate corect înainte să se încarce lang.js) */
 .lang-toggle-btn{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:#C77936;border:.5px solid #E8D5BC;background:transparent;padding:5px 11px;border-radius:100px;cursor:pointer;letter-spacing:.04em;transition:background 150ms ease,border-color 150ms ease;flex-shrink:0}
-.lang-toggle-btn:hover{background:#FAF4EB;border-color:#C77936}
+@media(hover:hover){.lang-toggle-btn:hover{background:#FAF4EB;border-color:#C77936}}
 .lang-toggle-btn:focus-visible{outline:2px solid #C77936;outline-offset:3px;border-radius:100px}
 .lang-mob{display:none!important}
 @media(max-width:768px){.lang-mob{display:inline-flex!important;margin-left:auto;margin-right:2px}.lang-mob+#nav-hamburger{margin-left:0!important}}
@@ -1038,13 +1043,13 @@ button,a,.tbn,.fi{touch-action:manipulation}
 
 /* ── ASYMMETRIC HOVER — intru rapid, ies lent ── */
 .pkg{transition:box-shadow 200ms var(--ease-out),transform 200ms var(--ease-out),border-radius 360ms var(--ease-out)}
-.pkg:not(:hover){transition:box-shadow 400ms ease,transform 400ms ease,border-radius 420ms ease}
+@media(hover:hover){.pkg:not(:hover){transition:box-shadow 400ms ease,transform 400ms ease,border-radius 420ms ease}}
 .ba{transition:box-shadow 200ms var(--ease-out),transform 200ms var(--ease-out),border-radius 360ms var(--ease-out)}
-.ba:not(:hover){transition:box-shadow 400ms ease,transform 400ms ease,border-radius 420ms ease}
+@media(hover:hover){.ba:not(:hover){transition:box-shadow 400ms ease,transform 400ms ease,border-radius 420ms ease}}
 /* Squircle morph — colțul din dreapta-jos crește lin spre forma semnătură (vezi hero-visual) */
-.pkg:hover{border-radius:16px 16px 46px 16px}
+@media(hover:hover){.pkg:hover{border-radius:16px 16px 46px 16px}}
 .tc{transition:box-shadow 200ms var(--ease-out)}
-.tc:not(:hover){transition:box-shadow 400ms ease}
+@media(hover:hover){.tc:not(:hover){transition:box-shadow 400ms ease}}
 /* ── DIFF SMOOTH (no reflow trick) ── */
 
 
@@ -1066,16 +1071,16 @@ button,a,.tbn,.fi{touch-action:manipulation}
 /* ── ENHANCED MOTION v2 ── */
 /* Stat hover lift */
 .stat{transition:background 180ms ease,transform 220ms var(--ease-out)}
-.stat:hover{transform:translateY(-2px)}
+@media(hover:hover){.stat:hover{transform:translateY(-2px)}}
 /* Reason slide on hover */
 .reason{transition:background 150ms ease-out,transform 240ms var(--ease-out)}
-.reason:hover{transform:translateX(5px)}
+@media(hover:hover){.reason:hover{transform:translateX(5px)}}
 /* Contact card lift */
 .cc{transition:background .15s,transform 220ms var(--ease-out),box-shadow 220ms ease}
-.cc:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.15)}
+@media(hover:hover){.cc:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.15)}}
 /* Team card lift */
 .tc{transition:box-shadow 260ms var(--ease-out),transform 260ms var(--ease-out)}
-.tc:hover{box-shadow:0 18px 52px rgba(45,40,32,.1);transform:translateY(-4px)}
+@media(hover:hover){.tc:hover{box-shadow:0 18px 52px rgba(45,40,32,.1);transform:translateY(-4px)}}
 /* Process card lift */
 /* Etapele procesului: la hover (doar cu mouse) etapa rămâne albă și pe loc, doar cifra devine portocalie */
 @media(hover:hover) and (pointer:fine){.pc:hover .pc-n{color:var(--brand)}}
@@ -1112,21 +1117,21 @@ button,a,.tbn,.fi{touch-action:manipulation}
 .port-cta{transition:box-shadow 450ms var(--ease-out)}
 .port-cta .port-cta-arrow{transition:background-color 450ms ease,color 450ms ease}
 @media(hover:hover) and (pointer:fine){.port-cta:hover{background:var(--bg);box-shadow:0 4px 22px rgba(45,40,32,.18),0 18px 48px rgba(45,40,32,.14)}}
-.port-cta:hover .port-cta-arrow svg{transform:none}
+@media(hover:hover){.port-cta:hover .port-cta-arrow svg{transform:none}}
 /* Portfolio card deeper shadow */
-.ba:hover{box-shadow:0 14px 44px rgba(45,40,32,.11);transform:translateY(-4px)}
+@media(hover:hover){.ba:hover{box-shadow:0 14px 44px rgba(45,40,32,.11);transform:translateY(-4px)}}
 /* Package deeper hover */
-.pkg:hover{box-shadow:0 22px 60px rgba(45,40,32,.13);transform:translateY(-6px)}
+@media(hover:hover){.pkg:hover{box-shadow:0 22px 60px rgba(45,40,32,.13);transform:translateY(-6px)}}
 /* Fit card hover */
 .fc{transition:box-shadow 200ms var(--ease-out),transform 200ms var(--ease-out)}
-.fc:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(45,40,32,.20)}
+@media(hover:hover){.fc:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(45,40,32,.20)}}
 /* Testimonial card hover */
 .tec{transition:box-shadow 220ms var(--ease-out),transform 220ms var(--ease-out)}
-.tec:hover{box-shadow:0 12px 40px rgba(45,40,32,.28);transform:translateY(-3px)}
+@media(hover:hover){.tec:hover{box-shadow:0 12px 40px rgba(45,40,32,.28);transform:translateY(-3px)}}
 /* Nav link underline slide */
 .nav-links a{position:relative}
 .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--brand);transform:scaleX(0);transform-origin:right;transition:transform 270ms var(--ease-out)}
-.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+@media(hover:hover){.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}}
 /* Hero badge glow pulse */
 @keyframes badgePulse{0%,100%{box-shadow:0 4px 16px rgba(45,40,32,.06)}55%{box-shadow:0 8px 40px rgba(15,110,86,.22)}}
 .hero-badge{animation:badgePulse 4.2s ease-in-out infinite}
@@ -1136,44 +1141,44 @@ button,a,.tbn,.fi{touch-action:manipulation}
 /* Premium shimmer on hover */
 .pkg-pre{position:relative}
 .pkg-pre::after{content:'';position:absolute;top:0;left:-90%;width:55%;height:100%;background:linear-gradient(105deg,transparent 0%,rgba(255,255,255,.1) 50%,transparent 100%);transform:skewX(-18deg);transition:left 750ms var(--ease-out);pointer-events:none;z-index:1}
-.pkg-pre:hover::after{left:190%}
+@media(hover:hover){.pkg-pre:hover::after{left:190%}}
 /* Back-to-top hover */
-#btt:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(199,121,54,.42)!important}
+@media(hover:hover){#btt:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(199,121,54,.42)!important}}
 /* WhatsApp floating (mobil) */
 .wa-float{display:none;position:fixed;bottom:24px;left:24px;width:52px;height:52px;background:#25D366;border-radius:50%;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.35);z-index:var(--z-float);text-decoration:none;transition:transform .2s,box-shadow .2s}
-.wa-float:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(37,211,102,.45)}
+@media(hover:hover){.wa-float:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(37,211,102,.45)}}
 @media(max-width:768px){.wa-float{display:flex}}
-#wa-modal{display:none;position:fixed;inset:0;z-index:var(--z-modal)}#wa-modal.open{display:block}#wa-overlay{position:absolute;inset:0;background:rgba(45,40,32,.45)}#wa-box{position:absolute;bottom:88px;left:16px;width:280px;background:#FDFAF6;border:.5px solid #EDE5D8;border-radius:16px;box-shadow:0 12px 40px rgba(45,40,32,.18);overflow:hidden;font-family:'General Sans',sans-serif}#wa-head{display:flex;align-items:center;justify-content:space-between;padding:13px 16px 11px;border-bottom:.5px solid #EDE5D8}#wa-title{font-size:14px;font-weight:600;color:#2D2820;letter-spacing:.02em}#wa-close{background:none;border:none;cursor:pointer;color:#8B7D6B;font-size:20px;line-height:1;padding:0;width:24px;height:24px;display:flex;align-items:center;justify-content:center}.wa-opt{display:block;width:100%;text-align:left;padding:11px 16px;background:none;border:none;border-bottom:.5px solid #EDE5D8;cursor:pointer;font-size:14px;color:#2D2820;font-family:'General Sans',sans-serif;line-height:1.4;transition:background .15s}.wa-opt:hover{background:#F5EFE6}#wa-custom-wrap{padding:12px 16px 14px;border-top:.5px solid #EDE5D8}#wa-custom-lbl{font-size:11px;color:#8B7D6B;margin:0 0 7px}#wa-custom-ta{width:100%;box-sizing:border-box;border:.5px solid #EDE5D8;border-radius:8px;padding:8px 10px;font-size:14px;font-family:'General Sans',sans-serif;color:#2D2820;background:#fff;resize:none;outline:none;line-height:1.5;display:block}#wa-custom-ta:focus{border-color:#C77936}#wa-send-btn{margin-top:8px;width:100%;background:#25D366;color:#FDFAF6;border:none;border-radius:8px;padding:9px 0;font-size:14px;font-weight:600;cursor:pointer;font-family:'General Sans',sans-serif}
+#wa-modal{display:none;position:fixed;inset:0;z-index:var(--z-modal)}#wa-modal.open{display:block}#wa-overlay{position:absolute;inset:0;background:rgba(45,40,32,.45)}#wa-box{position:absolute;bottom:88px;left:16px;width:280px;background:#FDFAF6;border:.5px solid #EDE5D8;border-radius:16px;box-shadow:0 12px 40px rgba(45,40,32,.18);overflow:hidden;font-family:'General Sans',sans-serif}#wa-head{display:flex;align-items:center;justify-content:space-between;padding:13px 16px 11px;border-bottom:.5px solid #EDE5D8}#wa-title{font-size:14px;font-weight:600;color:#2D2820;letter-spacing:.02em}#wa-close{background:none;border:none;cursor:pointer;color:#8B7D6B;font-size:20px;line-height:1;padding:0;width:24px;height:24px;display:flex;align-items:center;justify-content:center}.wa-opt{display:block;width:100%;text-align:left;padding:11px 16px;background:none;border:none;border-bottom:.5px solid #EDE5D8;cursor:pointer;font-size:14px;color:#2D2820;font-family:'General Sans',sans-serif;line-height:1.4;transition:background .15s}@media(hover:hover){.wa-opt:hover{background:#F5EFE6}}#wa-custom-wrap{padding:12px 16px 14px;border-top:.5px solid #EDE5D8}#wa-custom-lbl{font-size:11px;color:#8B7D6B;margin:0 0 7px}#wa-custom-ta{width:100%;box-sizing:border-box;border:.5px solid #EDE5D8;border-radius:8px;padding:8px 10px;font-size:14px;font-family:'General Sans',sans-serif;color:#2D2820;background:#fff;resize:none;outline:none;line-height:1.5;display:block}#wa-custom-ta:focus{border-color:#C77936}#wa-send-btn{margin-top:8px;width:100%;background:#25D366;color:#FDFAF6;border:none;border-radius:8px;padding:9px 0;font-size:14px;font-weight:600;cursor:pointer;font-family:'General Sans',sans-serif}
 /* WA modal — design nou (stil calculator) */
 #wa-overlay{background:rgba(45,40,32,.32);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
 #wa-box{width:300px;border:none;border-radius:20px;box-shadow:0 16px 48px rgba(45,40,32,.18);padding:8px}
 #wa-head{border-bottom:none;padding:14px 12px 10px 14px}
 #wa-title{font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--light)}
 #wa-close{width:30px;height:30px;border-radius:50%;background:#F5EFE6;color:#7A6E62;font-size:18px;transition:background 180ms var(--ease-out)}
-#wa-close:hover{background:#EDE5D8;color:#2D2820}
+@media(hover:hover){#wa-close:hover{background:#EDE5D8;color:#2D2820}}
 #wa-opts{display:grid;gap:2px}
 .wa-opt{border-bottom:none;border-radius:12px;padding:12px 14px;font-size:14px;transition:background 180ms var(--ease-out)}
-.wa-opt:hover{background:#F5EFE6}
+@media(hover:hover){.wa-opt:hover{background:#F5EFE6}}
 #wa-custom-wrap{border-top:none;margin-top:6px;padding:12px 6px 6px;background:none}
 #wa-custom-lbl{font-size:14px;color:var(--light);margin:0 8px 8px}
 #wa-custom-ta{border:none;border-radius:14px;background:#F5EFE6;padding:11px 14px;font-size:14px;transition:background 180ms,box-shadow 180ms}
 #wa-custom-ta:focus{background:#fff;box-shadow:0 0 0 1.5px #C77936}
 #wa-send-btn{border-radius:100px;padding:12px 0;font-size:14px;font-weight:500;transition:transform 150ms var(--ease-out),filter 180ms}
-#wa-send-btn:hover{filter:brightness(.94);transform:translateY(-1px)}
+@media(hover:hover){#wa-send-btn:hover{filter:brightness(.94);transform:translateY(-1px)}}
 #wa-send-btn:active{transform:scale(.97)}
 /* Hero image parallax hint */
 .hero-visual img{transition:transform 0ms linear}
 /* Testimonial cs box subtle lift */
 .cs{transition:box-shadow 250ms var(--ease-out)}
-.cs:hover{box-shadow:0 8px 32px rgba(45,40,32,.07)}
+@media(hover:hover){.cs:hover{box-shadow:0 8px 32px rgba(45,40,32,.07)}}
 .te-q{background:var(--bg);border:none;border-radius:16px;padding:32px;box-shadow:0 2px 16px rgba(45,40,32,.16);transition:box-shadow 250ms var(--ease-out)}
-.te-q:hover{box-shadow:0 8px 28px rgba(45,40,32,.22)}
+@media(hover:hover){.te-q:hover{box-shadow:0 8px 28px rgba(45,40,32,.22)}}
 .te-q p{font-size:14px;color:var(--mid);line-height:1.8;font-style:italic;margin-bottom:14px}
 
 /* ── CALCULATOR ANIMATIONS ── */
 /* Range thumb feel */
 input[type=range]::-webkit-slider-thumb{transition:transform 120ms var(--ease-out),box-shadow 150ms ease}
-input[type=range]:hover::-webkit-slider-thumb{box-shadow:0 3px 14px rgba(199,121,54,.38)}
+@media(hover:hover){input[type=range]:hover::-webkit-slider-thumb{box-shadow:0 3px 14px rgba(199,121,54,.38)}}
 input[type=range].dragging::-webkit-slider-thumb{transform:scale(1.32);box-shadow:0 4px 18px rgba(199,121,54,.45)}
 /* Starea "live" — valorile se estompează în timp ce user-ul ține apăsat pe slider */
 .cr-sv.calc-live{opacity:0.42;transition:opacity 100ms ease}
@@ -1266,18 +1271,19 @@ main>section{background:transparent!important}
 /* Meniu: lipit sus pe toată lățimea → pill plutitor după scroll (desktop și telefon) */
 .ru-nav-sp{display:block;height:64px}
 nav{position:fixed;top:0;left:0;right:0;margin:0 auto;max-width:100%;
-  border-color:rgba(45,40,32,0); /* conturul pill-ului apare lin din transparent, nu din culoarea textului */
+  border-color:rgba(255,255,255,0); /* conturul pill-ului apare lin din transparent, nu din culoarea textului */
   transition:max-width 480ms var(--ease-out),top 480ms var(--ease-out),border-radius 480ms var(--ease-out),height 380ms var(--ease-out),padding 480ms var(--ease-out),background 300ms ease,box-shadow 380ms ease,border-color 300ms ease}
 nav .nav-links{transition:gap 480ms var(--ease-out)}
 nav .nav-links a,nav .nav-links .lang-toggle-btn{white-space:nowrap}
-nav.pill{border-radius:999px;background:rgba(255,255,255,.86)!important;-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2);border:1px solid rgba(45,40,32,.09);
-  box-shadow:0 1px 2px rgba(45,40,32,.06),0 12px 30px -10px rgba(45,40,32,.28)!important}
+nav.pill{border-radius:999px;background:rgba(255,255,255,.62)!important;-webkit-backdrop-filter:blur(18px) saturate(1.6);backdrop-filter:blur(18px) saturate(1.6);border:1px solid rgba(255,255,255,.55);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.75),0 0 0 .5px rgba(45,40,32,.08),0 12px 30px -10px rgba(45,40,32,.28)!important}
 nav.pill .nav-links{gap:22px}
 nav.pill .nav-cta{background:#C77936;color:#FDFAF6;padding:9px 18px}
 @media(min-width:901px){nav.pill{top:14px;max-width:var(--np-w,1080px);height:54px;padding:0 7px 0 26px}}
 @media(max-width:900px){.ru-nav-sp{height:56px}nav.pill{top:10px;max-width:calc(100% - 20px);height:50px;padding:0 8px 0 20px}}
 @media(max-width:600px){.ru-nav-sp{height:52px}nav.pill{height:48px;padding:0 6px 0 18px}}
 @media(prefers-reduced-motion:reduce){nav,nav .nav-links{transition:background 200ms ease,box-shadow 200ms ease}}
+/* Meniul deschis pe telefon: panou alb ca un card, bara de sus albă cu el (un singur bloc), pagina din spate ușor întunecată */.nav-mobile{background:#fff!important;border-bottom:0!important;border-radius:0 0 24px 24px;box-shadow:0 24px 48px -16px rgba(45,40,32,.30),0 0 0 100vmax rgba(45,40,32,0);transition-property:opacity,transform,visibility,box-shadow!important}.nav-mobile.open{box-shadow:0 24px 48px -16px rgba(45,40,32,.30),0 0 0 100vmax rgba(45,40,32,.22)}nav.np-open{background:#fff!important;box-shadow:none!important}
 /* Banda de Instagram: fără fade la capete */
 #instagram .igs{-webkit-mask-image:none;mask-image:none}
 /* Footer: punctele din pagină continuă în el și se sting treptat în jos (fără trecere bruscă) */
@@ -1326,6 +1332,7 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
 .pk-card[data-k="premium"] .pk-btn:focus-visible{outline-color:#FDFAF6}
 </style>
 <style id="ru-nodots">/* Telefon: fără punctele de fundal (desktopul și tableta le păstrează) */@media(max-width:600px){body{background-image:none!important}body::before,.ru-ft::before,.audit-hero::before,#hero::before,#calc::before,#rental-kit-teaser::before,#instagram::before,#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before,#faq::before{background-image:none!important}}</style>
+<style id="ru-grid">/* Fundal: grilă de plan tehnic (în locul punctelor) pe desktop și tabletă; pe telefon fundalul rămâne simplu (ru-nodots) */@media(min-width:601px){body::before,.ru-ft::before,.audit-hero::before{background-image:url(/grid.svg?v=20261116b)!important;background-size:1280px 1280px!important;opacity:1!important}#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before,#faq::before,.cost-section::before{background-image:url(/grid.svg?v=20261116b)!important;background-size:1280px 1280px!important;opacity:.5}body{background:url(/grid.svg?v=20261116b) 0 0/1280px 1280px,var(--bg)!important}#hero,#calc{isolation:isolate}#hero::before,#calc::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;display:block!important;background:var(--bg)!important}/* hero: grila (cu crucile) se stinge lin în jurul textului, rămâne spre margini și în jurul imaginii */#hero::before{-webkit-mask-image:radial-gradient(ellipse 36% 60% at 24% 52%,#000 0,#000 48%,transparent 100%);mask-image:radial-gradient(ellipse 36% 60% at 24% 52%,#000 0,#000 48%,transparent 100%)}/* calculator: grila la jumătate, cu tranziții moi sus și jos */#calc::before{opacity:.55;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 160px,#000 calc(100% - 160px),transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 160px,#000 calc(100% - 160px),transparent 100%)}}</style>
 </head>
 <body>
 <noscript><style>body{opacity:1}</style></noscript>
@@ -1337,10 +1344,10 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
   <div class="nav-links">
     <a href="/#process">Cum funcționează</a>
     <a href="/#packages">Pachete</a>
-    <a href="portofoliu.html">Portofoliu</a>
-    <a href="rental-kit.html">Rental Kit</a>
+    <a href="/portofoliu">Portofoliu</a>
+    <a href="/rental-kit">Rental Kit</a>
     
-    <a href="faq.html">FAQ</a>
+    <a href="/faq">FAQ</a>
     <a href="/#contact">Contact</a>
     <button class="lang-toggle-btn" onclick="toggleLang()" title="Switch to English">EN</button>
   </div>
@@ -1350,15 +1357,15 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
   <span style="width:22px;height:2px;background:#C77936;display:block"></span>
   <span style="width:22px;height:2px;background:#C77936;display:block"></span>
 </button>
-<a class="nav-cta" href="audit.html">Raport de Rentabilitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+<a class="nav-cta" href="/audit">Raport de Rentabilitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
 </nav>
 <div class="nav-mobile" id="nav-mobile">
   <a href="/#process">Cum funcționează</a>
   <a href="/#packages">Pachete</a>
-  <a href="portofoliu.html">Portofoliu</a>
-  <a href="rental-kit.html">Rental Kit</a>
+  <a href="/portofoliu">Portofoliu</a>
+  <a href="/rental-kit">Rental Kit</a>
   
-  <a href="faq.html">FAQ</a>
+  <a href="/faq">FAQ</a>
   <a href="/#contact">Contact</a>
 </div>
 <div class="ru-nav-sp" aria-hidden="true"></div>
@@ -1374,10 +1381,10 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
     </div>
     <div class="hero-btns">
       <a class="btn-primary" href="#calc" onclick="gtag('event','click_calculator_roi')">Sunt proprietar<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-      <a class="btn-primary" href="investitori.html" onclick="gtag('event','click_hero_investitori')" style="background:transparent;color:var(--brand);border:.5px solid var(--brand);transition:background 400ms ease,color 400ms ease,transform 150ms var(--ease-out)">Sunt investitor<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+      <a class="btn-primary" href="/investitori" onclick="gtag('event','click_hero_investitori')" style="background:transparent;color:var(--brand);border:.5px solid var(--brand);transition:background 400ms ease,color 400ms ease,transform 150ms var(--ease-out)">Sunt investitor<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
     </div>
     <p class="hero-note"><b>Consultația inițială e gratuită</b> · fără angajament</p>
-    <div class="hero-facts"><div><b>8–48 luni</b><span>recuperarea investiției</span></div><div><b>5 zile</b><span>până la primul chiriaș potrivit</span></div></div>
+    <div class="hero-facts"><div><b>de la 12 luni</b><span>recuperarea investiției</span></div><div><b>5 zile</b><span>până la primul chiriaș potrivit</span></div></div>
   </div>
   <div class="hero-r">
     <div class="hero-visual" style="padding:0;overflow:hidden;border-radius:2px 2px 80px 2px">
@@ -1397,35 +1404,35 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
   <div class="pstrip" role="region" aria-label="Proiecte din portofoliu, înainte și după">
     <div class="ps-track">
     <div class="ps-group">
-      <a class="ps-card" href="portofoliu.html#proiect-drumul-taberei" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/drumul-taberei-inainte.webp" data-srcset="images/strip/drumul-taberei-inainte-300.webp 300w, images/strip/drumul-taberei-inainte-450.webp 450w, images/strip/drumul-taberei-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="2 camere Drumul Taberei: înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">2 camere Drumul Taberei</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
-      <a class="ps-card" href="portofoliu.html#proiect-drumul-taberei" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/drumul-taberei-dupa.webp" data-srcset="images/strip/drumul-taberei-dupa-300.webp 300w, images/strip/drumul-taberei-dupa-450.webp 450w, images/strip/drumul-taberei-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="2 camere Drumul Taberei: după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">2 camere Drumul Taberei</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
+      <a class="ps-card" href="/portofoliu#proiect-drumul-taberei" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/drumul-taberei-inainte.webp" data-srcset="images/strip/drumul-taberei-inainte-300.webp 300w, images/strip/drumul-taberei-inainte-450.webp 450w, images/strip/drumul-taberei-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="2 camere Drumul Taberei: înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">2 camere Drumul Taberei</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
+      <a class="ps-card" href="/portofoliu#proiect-drumul-taberei" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/drumul-taberei-dupa.webp" data-srcset="images/strip/drumul-taberei-dupa-300.webp 300w, images/strip/drumul-taberei-dupa-450.webp 450w, images/strip/drumul-taberei-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="2 camere Drumul Taberei: după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">2 camere Drumul Taberei</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
     </div>
     <div class="ps-group">
-      <a class="ps-card" href="portofoliu.html#proiect-tineretului" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/tineretului-inainte.webp" data-srcset="images/strip/tineretului-inainte-300.webp 300w, images/strip/tineretului-inainte-450.webp 450w, images/strip/tineretului-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Tineretului: înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">Garsonieră Tineretului</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
-      <a class="ps-card" href="portofoliu.html#proiect-tineretului" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/tineretului-dupa.webp" data-srcset="images/strip/tineretului-dupa-300.webp 300w, images/strip/tineretului-dupa-450.webp 450w, images/strip/tineretului-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Tineretului: după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">Garsonieră Tineretului</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
+      <a class="ps-card" href="/portofoliu#proiect-tineretului" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/tineretului-inainte.webp" data-srcset="images/strip/tineretului-inainte-300.webp 300w, images/strip/tineretului-inainte-450.webp 450w, images/strip/tineretului-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Tineretului: înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">Garsonieră Tineretului</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
+      <a class="ps-card" href="/portofoliu#proiect-tineretului" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/tineretului-dupa.webp" data-srcset="images/strip/tineretului-dupa-300.webp 300w, images/strip/tineretului-dupa-450.webp 450w, images/strip/tineretului-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Tineretului: după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">Garsonieră Tineretului</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
     </div>
     <div class="ps-group">
-      <a class="ps-card" href="portofoliu.html#proiect-floreasca" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/floreasca-inainte.webp" data-srcset="images/strip/floreasca-inainte-300.webp 300w, images/strip/floreasca-inainte-450.webp 450w, images/strip/floreasca-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="2 camere Floreasca: înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">2 camere Floreasca</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
-      <a class="ps-card" href="portofoliu.html#proiect-floreasca" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/floreasca-dupa.webp" data-srcset="images/strip/floreasca-dupa-300.webp 300w, images/strip/floreasca-dupa-450.webp 450w, images/strip/floreasca-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="2 camere Floreasca: după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">2 camere Floreasca</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
+      <a class="ps-card" href="/portofoliu#proiect-floreasca" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/floreasca-inainte.webp" data-srcset="images/strip/floreasca-inainte-300.webp 300w, images/strip/floreasca-inainte-450.webp 450w, images/strip/floreasca-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="2 camere Floreasca: înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">2 camere Floreasca</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
+      <a class="ps-card" href="/portofoliu#proiect-floreasca" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/floreasca-dupa.webp" data-srcset="images/strip/floreasca-dupa-300.webp 300w, images/strip/floreasca-dupa-450.webp 450w, images/strip/floreasca-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="2 camere Floreasca: după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">2 camere Floreasca</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
     </div>
     <div class="ps-group">
-      <a class="ps-card" href="portofoliu.html#proiect-aviatiei" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/aviatiei-dupa.webp" data-srcset="images/strip/aviatiei-dupa-300.webp 300w, images/strip/aviatiei-dupa-450.webp 450w, images/strip/aviatiei-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Apartament Aviației: după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">Apartament Aviației</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
+      <a class="ps-card" href="/portofoliu#proiect-aviatiei" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/aviatiei-dupa.webp" data-srcset="images/strip/aviatiei-dupa-300.webp 300w, images/strip/aviatiei-dupa-450.webp 450w, images/strip/aviatiei-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Apartament Aviației: după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">Apartament Aviației</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
     </div>
     <div class="ps-group">
-      <a class="ps-card" href="portofoliu.html#proiect-dormitor-matrimonial" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/dormitor-matrimonial-inainte.webp" data-srcset="images/strip/dormitor-matrimonial-inainte-300.webp 300w, images/strip/dormitor-matrimonial-inainte-450.webp 450w, images/strip/dormitor-matrimonial-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Dormitor Matrimonial: înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">Dormitor Matrimonial</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
-      <a class="ps-card" href="portofoliu.html#proiect-dormitor-matrimonial" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/dormitor-matrimonial-dupa.webp" data-srcset="images/strip/dormitor-matrimonial-dupa-300.webp 300w, images/strip/dormitor-matrimonial-dupa-450.webp 450w, images/strip/dormitor-matrimonial-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Dormitor Matrimonial: după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">Dormitor Matrimonial</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
+      <a class="ps-card" href="/portofoliu#proiect-dormitor-matrimonial" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/dormitor-matrimonial-inainte.webp" data-srcset="images/strip/dormitor-matrimonial-inainte-300.webp 300w, images/strip/dormitor-matrimonial-inainte-450.webp 450w, images/strip/dormitor-matrimonial-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Dormitor Matrimonial: înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">Dormitor Matrimonial</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
+      <a class="ps-card" href="/portofoliu#proiect-dormitor-matrimonial" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/dormitor-matrimonial-dupa.webp" data-srcset="images/strip/dormitor-matrimonial-dupa-300.webp 300w, images/strip/dormitor-matrimonial-dupa-450.webp 450w, images/strip/dormitor-matrimonial-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Dormitor Matrimonial: după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">Dormitor Matrimonial</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
     </div>
     <div class="ps-group">
-      <a class="ps-card" href="portofoliu.html#proiect-garsoniera-drumul-taberei" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/garsoniera-drumul-taberei-inainte.webp" data-srcset="images/strip/garsoniera-drumul-taberei-inainte-300.webp 300w, images/strip/garsoniera-drumul-taberei-inainte-450.webp 450w, images/strip/garsoniera-drumul-taberei-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Drumul Taberei: înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">Garsonieră Drumul Taberei</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
-      <a class="ps-card" href="portofoliu.html#proiect-garsoniera-drumul-taberei" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/garsoniera-drumul-taberei-dupa.webp" data-srcset="images/strip/garsoniera-drumul-taberei-dupa-300.webp 300w, images/strip/garsoniera-drumul-taberei-dupa-450.webp 450w, images/strip/garsoniera-drumul-taberei-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Drumul Taberei: după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">Garsonieră Drumul Taberei</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
+      <a class="ps-card" href="/portofoliu#proiect-garsoniera-drumul-taberei" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/garsoniera-drumul-taberei-inainte.webp" data-srcset="images/strip/garsoniera-drumul-taberei-inainte-300.webp 300w, images/strip/garsoniera-drumul-taberei-inainte-450.webp 450w, images/strip/garsoniera-drumul-taberei-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Drumul Taberei: înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">Garsonieră Drumul Taberei</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
+      <a class="ps-card" href="/portofoliu#proiect-garsoniera-drumul-taberei" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/garsoniera-drumul-taberei-dupa.webp" data-srcset="images/strip/garsoniera-drumul-taberei-dupa-300.webp 300w, images/strip/garsoniera-drumul-taberei-dupa-450.webp 450w, images/strip/garsoniera-drumul-taberei-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Drumul Taberei: după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">Garsonieră Drumul Taberei</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
     </div>
     <div class="ps-group">
-      <a class="ps-card" href="portofoliu.html#proiect-vatra-luminoasa" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/vatra-luminoasa-inainte.webp" data-srcset="images/strip/vatra-luminoasa-inainte-300.webp 300w, images/strip/vatra-luminoasa-inainte-450.webp 450w, images/strip/vatra-luminoasa-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Vatra Luminoasă: înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">Garsonieră Vatra Luminoasă</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
-      <a class="ps-card" href="portofoliu.html#proiect-vatra-luminoasa" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/vatra-luminoasa-dupa.webp" data-srcset="images/strip/vatra-luminoasa-dupa-300.webp 300w, images/strip/vatra-luminoasa-dupa-450.webp 450w, images/strip/vatra-luminoasa-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Vatra Luminoasă: după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">Garsonieră Vatra Luminoasă</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
+      <a class="ps-card" href="/portofoliu#proiect-vatra-luminoasa" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/vatra-luminoasa-inainte.webp" data-srcset="images/strip/vatra-luminoasa-inainte-300.webp 300w, images/strip/vatra-luminoasa-inainte-450.webp 450w, images/strip/vatra-luminoasa-inainte.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Vatra Luminoasă: înainte" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag b">Înainte</span><span class="ps-info"><span class="ps-name">Garsonieră Vatra Luminoasă</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
+      <a class="ps-card" href="/portofoliu#proiect-vatra-luminoasa" onclick="gtag('event','click_portfolio_preview')"><img data-src="images/strip/vatra-luminoasa-dupa.webp" data-srcset="images/strip/vatra-luminoasa-dupa-300.webp 300w, images/strip/vatra-luminoasa-dupa-450.webp 450w, images/strip/vatra-luminoasa-dupa.webp 600w" sizes="(max-width:600px) 225px, 300px" alt="Garsonieră Vatra Luminoasă: după design RentUP" width="600" height="800" loading="lazy" decoding="async"><span class="ps-tag a">După</span><span class="ps-info"><span class="ps-name">Garsonieră Vatra Luminoasă</span><span class="ps-cta">Vezi proiectul<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></span></a>
     </div>
     </div>
   </div>
-  <a class="port-cta" href="portofoliu.html" style="max-width:860px;margin:0 auto">
+  <a class="port-cta" href="/portofoliu" style="max-width:860px;margin:0 auto">
     <div>
       <div class="port-cta-l">Vezi toate proiectele</div>
       <div class="port-cta-sub"><span id="port-count">7</span> proiecte finalizate · Before & after complet · Statistici detaliate</div>
@@ -1586,7 +1593,7 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
     <div class="pc"><div class="pc-n">02</div><div class="pc-t">Concept & direcție</div><div class="pc-d">Propunem direcția estetică și funcțională. Tu confirmi direcția înainte să mergem mai departe. Ce aprobăm azi nu se schimbă mâine.</div><div class="pc-get"><b>Primești:</b> 2 direcții de design + moodboard</div></div>
     <div class="pc"><div class="pc-n">03</div><div class="pc-t">Design & vizualizare</div><div class="pc-d">Planuri detaliate, Listă de achiziții și documentație tehnică, randări fotorealiste. Vezi exact cum va arăta spațiul înainte să cumperi ceva.</div><div class="pc-get"><b>Primești:</b> planuri 2D, randări fotorealiste, listă de achiziții și documentație tehnică</div></div>
     <div class="pc"><div class="pc-n">04</div><div class="pc-t">Implementare</div><div class="pc-d">Mobilier, montaj și, unde e nevoie, lucrări. În Invest Premium coordonăm noi echipele și achizițiile până la final. În Quick Win implementezi tu, după lista noastră, iar noi venim o dată pe șantier.</div><div class="pc-get"><b>Primești:</b> apartamentul amenajat conform proiectului</div></div>
-    <div class="pc"><div class="pc-n">05</div><div class="pc-t">Livrare pe piață cu Rental Kit</div><div class="pc-d">Staging, fotografii profesionale și anunț pe platforme. Primești și <a class="pc-link" href="rental-kit.html">Rental Kit-ul</a>: tot ce-ți trebuie ca să alegi chiriașul potrivit și să te protejezi, de la contract la procesul verbal foto.</div><div class="pc-get"><b>Primești:</b> Rental Kit, fotografii profesionale și anunț live</div></div>
+    <div class="pc"><div class="pc-n">05</div><div class="pc-t">Livrare pe piață cu Rental Kit</div><div class="pc-d">Staging, fotografii profesionale și anunț pe platforme. Primești și <a class="pc-link" href="/rental-kit">Rental Kit-ul</a>: tot ce-ți trebuie ca să alegi chiriașul potrivit și să te protejezi, de la contract la procesul verbal foto.</div><div class="pc-get"><b>Primești:</b> Rental Kit, fotografii profesionale și anunț live</div></div>
   </div>
   <div class="proc-timeline">
     <div class="pt-item"><span class="pt-dot"></span><div class="pt-label">Raport livrat</div><div class="pt-time">3 zile</div></div>
@@ -1651,7 +1658,7 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
     <div class="rkt-c"><div class="rkt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></div><div><h3>Comunicare și mentenanță</h3><p>Structurate, pe toată durata contractului.</p></div></div>
     <div class="rkt-c"><div class="rkt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8a2 2 0 0 1 2-2h2l2-2h6l2 2h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="3.5"/></svg></div><div><h3>Predare documentată</h3><p>Proces verbal foto și inventar detaliat.</p></div></div>
   </div>
-  <div class="rkt-cta"><a href="rental-kit.html" class="btn-primary">Descoperă Rental Kit<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
+  <div class="rkt-cta"><a href="/rental-kit" class="btn-primary">Descoperă Rental Kit<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
   <!-- POZA RENTAL KIT (de pus înapoi când e gata designul):
   <div class="rkt-shot"><img src="RENTALKIT_MOCKUP_2.webp" srcset="images/rentalkit-mockup-800.webp 800w, images/rentalkit-mockup-1200.webp 1200w, RENTALKIT_MOCKUP_2.webp 2000w" sizes="(max-width:900px) 100vw, 50vw" width="2000" height="1252" loading="lazy" decoding="async" alt="Rental Kit, sistem complet pentru proprietari"></div>
   -->
@@ -1690,7 +1697,7 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
       <div class="tt-more"><div class="tt-more-in"><div class="tt-more-g">
         <div><div class="cs-sl">Situația inițială</div><p class="cs-p">Domnul Ciobanu a preluat un apartament aflat într-o stare precară: baie cu mucegai și faianță desprinsă, tavane parțial degradate, coridoare cu pereți scorojiți și instalații vechi. Știa că totul trebuie luat de la zero, însă, nefiind în țară, se temea că procesul va fi foarte lung și anevoios. În plus, era nesigur pe rezultate și nu știa dacă apartamentul va putea ajunge să arate așa cum își dorea. Dl. Ciobanu știa că trebuie să facă totul de la zero și se temea că nu va vedea niciodată banii înapoi. Credea că un apartament atât de uzat nu mai poate arăta frumos.</p><div class="cs-sl" style="margin-top:18px">Ce am schimbat</div><p class="cs-p">Am prioritizat intervențiile cu cel mai mare impact vizual și de durabilitate: baie renovată complet cu materiale moderne, tavane refăcute și finisate uniform, coridoarele reproiectate pentru un flux logic. Dormitorul a primit un decor structural discret și iluminat indirect pentru o senzație de confort imediat. Livingul a fost mobilat funcțional, cu depozitare integrată și materiale care rezistă la uzură intensă. Rezultatul a depășit așteptările proprietarului.</p></div>
         <div><div class="cs-sl">Buget implementare</div><div class="bud-g"><div class="bud-row"><span>Serviciul RentUP</span><strong>2.750€</strong></div><div class="bud-row"><span>Renovare + manoperă</span><strong>5.000€</strong></div><div class="bud-row"><span>Mobilier + accesorii</span><strong>4.100€</strong></div><div class="bud-tot"><span>Total investiție</span><span>11.850€</span></div></div>
-          <div style="padding-top:18px"><a href="portofoliu.html#proiect-drumul-taberei" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:var(--brand);text-decoration:none;border-bottom:1px solid var(--brand-border);padding-bottom:2px" onclick="gtag('event','click_case_study_portfolio_link')">Vezi pozele complete ale proiectului<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div></div>
+          <div style="padding-top:18px"><a href="/portofoliu#proiect-drumul-taberei" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:var(--brand);text-decoration:none;border-bottom:1px solid var(--brand-border);padding-bottom:2px" onclick="gtag('event','click_case_study_portfolio_link')">Vezi pozele complete ale proiectului<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div></div>
       </div></div></div>
     </div>
     <div class="tt-panel" id="tt-p2" role="tabpanel" aria-labelledby="tt-t2">
@@ -1706,7 +1713,7 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
       <div class="tt-more"><div class="tt-more-in"><div class="tt-more-g">
         <div><div class="cs-sl">Situația inițială</div><p class="cs-p">Costi Barbu, 37 de ani, moștenise apartamentul de la părinți. Îl închiria cu 400€/lună, dar nu reușea să păstreze chiriașii mai mult de 6–8 luni. Perioade de ~2 luni goale între fiecare chiriaș. Reparații după fiecare plecare. Credea că problema sunt chiriașii. Nu era.</p><div class="cs-sl" style="margin-top:18px">Ce am schimbat</div><p class="cs-p">Living reorganizat într-un spațiu mai coerent, pentru un flux mai eficient. Canapeaua existentă a fost repoziționată pentru a elibera vizual și funcțional camera. Perdele albe semitransparente și jaluzele discrete pe balcon pentru mai multă lumină, intimitate și o senzație amplificată de spațiu. Spații de depozitare maximizate în dormitor prin dulapuri integrate. Covoarele repoziționate corect pentru a ancora zonele și a aduce mai mult echilibru vizual.</p></div>
         <div><div class="cs-sl">Buget implementare</div><div class="bud-g"><div class="bud-row"><span>Serviciul RentUP</span><strong>1.456€</strong></div><div class="bud-row"><span>Mobilier</span><strong>2.000€</strong></div><div class="bud-row"><span>Accesorii + decor</span><strong>700€</strong></div><div class="bud-tot"><span>Total investiție</span><span>4.156€</span></div></div>
-          <div style="padding-top:18px"><a href="portofoliu.html#proiect-floreasca" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:var(--brand);text-decoration:none;border-bottom:1px solid var(--brand-border);padding-bottom:2px" onclick="gtag('event','click_case_study_portfolio_link')">Vezi pozele complete ale proiectului<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div></div>
+          <div style="padding-top:18px"><a href="/portofoliu#proiect-floreasca" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:var(--brand);text-decoration:none;border-bottom:1px solid var(--brand-border);padding-bottom:2px" onclick="gtag('event','click_case_study_portfolio_link')">Vezi pozele complete ale proiectului<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div></div>
       </div></div></div>
     </div>
     <div class="tt-panel" id="tt-p3" role="tabpanel" aria-labelledby="tt-t3">
@@ -1734,9 +1741,9 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
 
   <div class="pk-free" data-k="free">
     <p><b>Pasul 0: Raportul de Rentabilitate.</b> Ne trimiți poze cu apartamentul și în 72h primești ce merită schimbat, bugetul estimat și pachetul potrivit. Fără vizită, fără angajament.</p>
-    <a class="pk-link" href="audit.html" onclick="gtag('event','click_audit_cta');gtag('event','conversion',{'send_to':'AW-18253477545'});">Începe cu raportul gratuit<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+    <a class="pk-link" href="/audit" onclick="gtag('event','click_audit_cta');gtag('event','conversion',{'send_to':'AW-18253477545'});">Începe cu raportul gratuit<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
   </div>
-  <p class="pk-extra">Vrei să-l vezi și mobilat înainte să decizi? <a href="staging-virtual.html">Staging Virtual</a>: randări pe baza pozelor, 200€, care se scad din Quick Win sau Invest Premium.</p>
+  <p class="pk-extra">Vrei să-l vezi și mobilat înainte să decizi? <a href="/staging-virtual">Staging Virtual</a>: randări pe baza pozelor, 200€, care se scad din Quick Win sau Invest Premium.</p>
 
   <div class="pk-cards pk-cards-3 pk-main">
       <div class="pk-card" data-k="simplu">
@@ -1771,7 +1778,7 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
           <div class="pk-li">Listă de achiziții, buget și furnizori</div>
           <h4>Execuție</h4>
           <div class="pk-li">1 vizită pe șantier</div>
-          <h4><a href="rental-kit.html">Rental Kit</a></h4>
+          <h4><a href="/rental-kit">Rental Kit</a></h4>
           <div class="pk-li">Selecție chiriaș + contract personalizat</div>
           <div class="pk-li">Documente legale personalizate</div>
           <div class="pk-li">Prezentare profesională a apartamentului</div>
@@ -1802,7 +1809,7 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
           <div class="pk-li">Asistență permanentă pe toată durata implementării</div>
           <div class="pk-li">Contractare, coordonare echipe și logistică achiziții</div>
           <div class="pk-li">Planificare șantier și calendar de execuție</div>
-          <h4><a href="rental-kit.html">Rental Kit</a></h4>
+          <h4><a href="/rental-kit">Rental Kit</a></h4>
           <div class="pk-li">Selecție chiriaș + contract personalizat</div>
           <div class="pk-li">Documente legale personalizate</div>
           <div class="pk-li">Prezentare profesională a apartamentului</div>
@@ -1861,7 +1868,7 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
     <div class="fi" role="button" tabindex="0" aria-expanded="false" onclick="this.classList.toggle('open');this.setAttribute('aria-expanded',this.classList.contains('open'))" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"><div class="fq">Lucrați doar în București?<span class="fi-icon">+</span></div><div class="fa"><div>Vizitele pe teren le facem în București și zona metropolitană. Pentru alte orașe, deplasarea se face contra cost. Contactează-ne pentru detalii. Proiectele de design le realizăm pentru orice locație din România și le livrăm digital, fără vizită.</div></div></div>
   </div>
   <div style="text-align:center;margin-top:32px">
-    <a href="faq.html" class="btn-ghost" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:14px;color:var(--brand);border:.5px solid var(--brand);padding:11px 22px;border-radius:100px;transition:background 400ms ease,color 400ms ease">
+    <a href="/faq" class="btn-ghost" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:14px;color:var(--brand);border:.5px solid var(--brand);padding:11px 22px;border-radius:100px;transition:background 400ms ease,color 400ms ease">
       Toate întrebările frecvente<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
     </a>
   </div>
@@ -1898,21 +1905,8 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
 
 </main>
 <footer class="ru-ft">
-<style id="ru-ft-card">.ru-ft .ft-s{display:none}@media(max-width:600px){.ru-ft .ft-f{display:none}.ru-ft .ft-s{display:inline}}.ru-ft{isolation:isolate}.ru-ft::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(rgba(45,40,32,.16) 1.1px,transparent 1.4px);background-size:22px 22px;opacity:.7;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 12%,transparent 50%);mask-image:linear-gradient(180deg,transparent 0%,#000 12%,transparent 50%)}
-@media(max-width:768px){.ru-ft::before{background-image:radial-gradient(rgba(45,40,32,.128) .68px,transparent .9px);background-size:10px 10px}}
-.ru-ft{display:block!important;position:relative;overflow:hidden;background:#FDFAF6!important;border-top:0!important;padding:64px 32px 0!important}
-.ru-ft-card{position:relative;z-index:1;max-width:1200px;margin:0 auto;background:#fff;border:1px solid rgba(45,40,32,.06);border-radius:28px;padding:52px 56px 32px;box-shadow:0 1px 2px rgba(45,40,32,.04),0 12px 32px rgba(45,40,32,.07),0 40px 80px -24px rgba(45,40,32,.12)}
-.ru-ft-top{display:grid!important;grid-template-columns:minmax(0,1fr) auto;gap:48px;align-items:start;margin-bottom:40px}
-.ru-ft-cols{display:grid;grid-template-columns:repeat(4,auto);gap:48px}
-.ru-ft .ft-brand>a{font-size:22px!important;margin-bottom:0!important}
-.ru-ft-tag{font-family:'General Sans',sans-serif;font-size:24px;font-weight:600;line-height:1.25;letter-spacing:-.015em;color:#2D2820;margin:18px 0 6px;max-width:15ch}
-.ru-ft-tag em{font-style:normal;color:#C77936}
-.ru-ft-city{font-size:14px;color:#776B60;margin:0}
-.ru-ft-giant{position:relative;z-index:0;margin-top:.12em;text-align:center;font-family:'General Sans',sans-serif;font-weight:600;font-size:clamp(60px,21vw,300px);line-height:.78;letter-spacing:-.05em;height:.66em;overflow:hidden;white-space:nowrap;color:rgba(199,121,54,.24);-webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.14) 100%);mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.14) 100%);-webkit-user-select:none;user-select:none;pointer-events:none}
-.ru-ft-giant span{font-weight:300;color:rgba(45,40,32,.14)}
-@media(max-width:720px){.ru-ft{padding:32px 12px 0!important}.ru-ft-card{padding:32px 22px 26px;border-radius:22px}.ru-ft-top{grid-template-columns:1fr;gap:36px}.ru-ft-cols{grid-template-columns:1fr 1fr;gap:28px 24px}.ru-ft-tag{font-size:21px}}@media(max-width:600px){.ru-ft-card{padding:30px 22px 26px}.ru-ft-tag{font-size:22px;max-width:none;margin-top:16px}.ru-ft-top{gap:32px;margin-bottom:28px}.ru-ft-cols{gap:28px 16px}.ru-ft .ft-bot{gap:20px!important;padding-top:22px!important}.ru-ft .ft-legal{gap:10px 20px}.ru-ft .ft-legal>a{order:1;font-size:13px!important;color:#776B60!important;padding:2px 0}.ru-ft .ft-legal>div:not(.ft-co){order:2;flex-basis:100%;margin-top:8px}.ru-ft .ft-co{order:3;line-height:1.55}.ru-ft-giant{font-size:25vw;margin-top:.08em}.ru-ft .ft-bot{align-items:center!important;text-align:center!important}.ru-ft .ft-legal{justify-content:center;text-align:center!important}.ru-ft .ft-bot .ru-legal{justify-content:center;align-self:center}}</style>
+<link rel="stylesheet" href="/footer.css?v=20261116">
 
-<style>@media(max-width:600px){footer{padding-left:20px!important;padding-right:20px!important}.ft-brand{flex-basis:100%!important}}</style>
   <div class="ru-ft-card">
     <div class="ru-ft-top">
       <div class="ft-brand" style="flex:0 0 auto">
@@ -1923,18 +1917,18 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
         <div>
           <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:14px">Servicii</div>
           <div style="display:flex;flex-direction:column;gap:10px">
-            <a href="audit.html" style="font-size:14px;color:#7A6E62;text-decoration:none"><span class="ft-f">Raport de Rentabilitate</span><span class="ft-s">Raport Rentabilitate</span></a>
-            <a href="staging-virtual.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Staging Virtual</a>
+            <a href="/audit" style="font-size:14px;color:#7A6E62;text-decoration:none"><span class="ft-f">Raport de Rentabilitate</span><span class="ft-s">Raport Rentabilitate</span></a>
+            <a href="/staging-virtual" style="font-size:14px;color:#7A6E62;text-decoration:none">Staging Virtual</a>
             <a href="/#packages" style="font-size:14px;color:#7A6E62;text-decoration:none"><span class="ft-f">Design de interior</span><span class="ft-s">Design Interior</span></a>
-            <a href="rental-kit.html" style="font-size:14px;color:#C77936;text-decoration:none;font-weight:500">Rental Kit</a>
+            <a href="/rental-kit" style="font-size:14px;color:#C77936;text-decoration:none;font-weight:500">Rental Kit</a>
           </div>
         </div>
         <div>
           <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:14px">Resurse</div>
           <div style="display:flex;flex-direction:column;gap:10px">
-            <a href="realitatea-chiriei.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Probleme & Soluții</a>
-            <a href="simulator.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Simulator mobilare</a>
-            <a href="faq.html" style="font-size:14px;color:#7A6E62;text-decoration:none">Întrebări frecvente</a>
+            <a href="/realitatea-chiriei" style="font-size:14px;color:#7A6E62;text-decoration:none">Probleme & Soluții</a>
+            <a href="/simulator" style="font-size:14px;color:#7A6E62;text-decoration:none">Simulator mobilare</a>
+            <a href="/faq" style="font-size:14px;color:#7A6E62;text-decoration:none">Întrebări frecvente</a>
             <a href="/blog/" style="font-size:14px;color:#7A6E62;text-decoration:none">Blog</a>
           </div>
         </div>
@@ -1960,15 +1954,14 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
     <div class="ft-legal">
     <div class="ft-co" style="font-size:12px;color:var(--light);white-space:normal">Wirtual Design &amp; Architecture SRL · CUI 44170236 · J23/2626/2021 · Clinceni, Ilfov</div>
 <div style="font-size:12px;color:var(--light);white-space:nowrap">© 2026 RentUP · Toate drepturile rezervate</div>
-<a href="termeni.html" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Termeni și condiții</a>
-<a href="confidentialitate.html" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Politică de confidențialitate</a>
+<a href="/termeni" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Termeni și condiții</a>
+<a href="/confidentialitate" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Politică de confidențialitate</a>
       <a href="#" onclick="ruCookieSettings();return false" style="font-size:12px;color:var(--light);text-decoration:none;white-space:nowrap">Setări cookie</a>
     </div>
     <div class="ru-legal" style="display:flex"><a class="ru-sal" href="https://reclamatiisal.anpc.ro/" target="_blank" rel="noopener" aria-label="ANPC: Soluționarea alternativă a litigiilor (detalii)" style="display:inline-flex;color:var(--light,#776B60);text-decoration:none"><svg width="200" height="50" viewBox="0 0 200 50" fill="none" aria-hidden="true" style="display:block"><rect x=".5" y=".5" width="199" height="49" rx="12" stroke="currentColor"/><path d="M85 9v32" stroke="currentColor" stroke-opacity=".45"/><image x="4" y="8.5" width="27.4" height="33" href="/images/stema-anpc-sepia.png"/><text x="34" y="21" fill="currentColor" font-family="'General Sans',sans-serif" font-size="13" font-weight="600" letter-spacing=".2">ANPC</text><text x="34.2" y="26.2" fill="currentColor" font-family="'General Sans',sans-serif" font-size="2.7" font-weight="500" letter-spacing=".05">AUTORITATEA NAȚIONALĂ PENTRU</text><text x="34.2" y="29.6" fill="currentColor" font-family="'General Sans',sans-serif" font-size="2.7" font-weight="500" letter-spacing=".05">PROTECȚIA CONSUMATORILOR</text><text x="34" y="39.5" fill="currentColor" font-family="'General Sans',sans-serif" font-size="7.4" font-style="italic" font-weight="500">Te respectă</text><text x="141" y="18" fill="currentColor" font-family="'General Sans',sans-serif" font-size="6.3" font-weight="600" text-anchor="middle" letter-spacing=".1">SOLUȚIONAREA ALTERNATIVĂ</text><text x="141" y="26" fill="currentColor" font-family="'General Sans',sans-serif" font-size="6.3" font-weight="600" text-anchor="middle" letter-spacing=".1">A LITIGIILOR</text><rect x="121" y="31" width="40" height="12" rx="6" fill="currentColor"/><text x="141" y="39.3" fill="#FDFAF6" font-family="'General Sans',sans-serif" font-size="5.6" font-weight="600" text-anchor="middle" letter-spacing=".4">DETALII</text></svg></a></div>
     </div>
   </div>
-<style id="ru-ft-bot">.ft-bot{justify-content:space-between!important;align-items:center!important;gap:16px 40px!important;flex-wrap:wrap!important}.ft-legal{flex:1 1 480px;display:flex;flex-wrap:wrap;gap:6px 24px;text-align:left}.ft-bot .ru-legal{flex:0 0 auto}.ft-co{order:2;flex-basis:100%}@media(max-width:600px){.ft-bot{flex-direction:column!important;align-items:flex-start!important}.ft-legal{flex-basis:auto}}</style>
-<style id="ru-ft-gm">@media(max-width:1024px){.ru-ft-giant{height:auto;overflow:visible;line-height:.9;padding-bottom:.04em;-webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.45) 45%,transparent 92%);mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.45) 45%,transparent 92%)}}</style><div class="ru-ft-giant" aria-hidden="true">Rent<span>UP</span></div>
+<div class="ru-ft-giant" aria-hidden="true">Rent<span>UP</span></div>
 </footer>
 
 
@@ -2003,7 +1996,7 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
 <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#2D2820;border-top:0.5px solid #4D4238;padding:16px 20px;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;z-index:130;font-family:'General Sans',sans-serif">
   <div style="flex:1;min-width:180px">
     <div style="font-size:13px;font-weight:500;color:#FDFAF6;margin-bottom:3px">Folosim cookie-uri</div>
-    <div style="font-size:12px;color:var(--muted);line-height:1.5">Folosim cookie-uri pentru analiză și îmbunătățirea experienței. <span class="cb-opt">Poți accepta sau refuza cookie-urile opționale. </span><a href="confidentialitate.html" style="color:#C77936;text-decoration:none">Politică de confidențialitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
+    <div style="font-size:12px;color:var(--muted);line-height:1.5">Folosim cookie-uri pentru analiză și îmbunătățirea experienței. <span class="cb-opt">Poți accepta sau refuza cookie-urile opționale. </span><a href="/confidentialitate" style="color:#C77936;text-decoration:none">Politică de confidențialitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
   </div>
   <div style="display:flex;gap:8px;align-items:center;flex-shrink:0">
     <button onclick="setCookies('refused')" style="font-size:13px;font-weight:500;color:var(--muted);background:none;border:1px solid #4D4238;padding:0 20px;height:44px;border-radius:100px;cursor:pointer;font-family:'General Sans',sans-serif;touch-action:manipulation;-webkit-tap-highlight-color:transparent">Refuz</button>
@@ -2025,14 +2018,14 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
 #ru-exit .rei{width:100%;padding:10px 13px;border:.5px solid #D8CFC4;border-radius:8px;font-family:'General Sans',sans-serif;font-size:14px;color:#2D2820;background:#fff;outline:none;transition:border-color .2s;box-sizing:border-box}
 #ru-exit .rei:focus{border-color:#C77936}
 #ru-exit .red{display:block;text-align:center;margin-top:11px;font-size:14px;color:var(--muted);cursor:pointer;background:none;border:none;font-family:'General Sans',sans-serif;padding:3px}
-#ru-exit .red:hover{color:#2D2820}
+@media(hover:hover){#ru-exit .red:hover{color:#2D2820}}
 #ru-exit .ren{font-size:11px;color:var(--light);margin-top:14px;line-height:1.5}
 #ru-exit .reok{display:none;text-align:center;padding:20px 0;font-size:15px;color:#0F6E56;font-weight:500}
 /* Exit-intent — design nou (stil calculator) */
 #ru-exit-ov{background:rgba(45,40,32,.32);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
 #ru-exit{border-radius:20px;box-shadow:0 24px 64px rgba(45,40,32,.2);padding:clamp(28px,4vw,40px)}
 #ru-exit .rec{top:16px;right:16px;width:32px;height:32px;padding:0;border-radius:50%;background:#F5EFE6;color:#7A6E62;font-size:18px;display:flex;align-items:center;justify-content:center;transition:background 180ms var(--ease-out)}
-#ru-exit .rec:hover{background:#EDE5D8;color:#2D2820}
+@media(hover:hover){#ru-exit .rec:hover{background:#EDE5D8;color:#2D2820}}
 #ru-exit .ret{font-size:14px;letter-spacing:.06em;color:var(--light);margin-bottom:14px}
 #ru-exit .reh{font-size:clamp(22px,2.6vw,26px);font-weight:300;letter-spacing:-.025em;line-height:1.22;margin-bottom:12px;padding-right:28px}
 #ru-exit .res{font-size:14px;margin-bottom:24px}
@@ -2040,7 +2033,7 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
 #ru-exit .rei{border:none;border-radius:100px;background:#F5EFE6;padding:13px 18px;font-size:14px;transition:background 180ms,box-shadow 180ms}
 #ru-exit .rei:focus{background:#fff;box-shadow:0 0 0 1.5px #C77936}
 #ru-exit .reb{display:block;width:100%;margin-top:6px;font-family:'General Sans',sans-serif;font-size:14px;font-weight:500;background:var(--brand);color:var(--bg);border:none;border-radius:100px;padding:14px 28px;cursor:pointer;-webkit-appearance:none;appearance:none;transition:background 180ms var(--ease-out),transform 150ms var(--ease-out)}
-#ru-exit .reb:hover{background:#a8622a;transform:translateY(-1px)}
+@media(hover:hover){#ru-exit .reb:hover{background:#a8622a;transform:translateY(-1px)}}
 #ru-exit .reb:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
 #ru-exit .reb:active{transform:scale(.97);transition-duration:80ms}
 #ru-exit .ren{font-size:8.5px;line-height:1.45;text-align:center;margin-top:16px}
@@ -2062,13 +2055,13 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
     <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><input type="text" id="re-hp" name="_honey" tabindex="-1" autocomplete="off"></div>
     <button class="reb" id="re-btn" onclick="RuExit.submit()">Vreau raportul gratuit<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
     <p id="re-err" role="alert" style="display:none;font-size:14px;color:#A32D2D;margin:8px 0 0;text-align:center">Nu am putut trimite cererea. Încearcă din nou sau scrie-ne pe <a href="https://wa.me/40741176865" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">WhatsApp</a>.</p>
-    <p class="ren">Folosim datele doar pentru raport și discuția despre el. Detalii în <a href="confidentialitate.html" style="color:inherit;text-decoration:underline">Politica de confidențialitate</a>.</p>
+    <p class="ren">Folosim datele doar pentru raport și discuția despre el. Detalii în <a href="/confidentialitate" style="color:inherit;text-decoration:underline">Politica de confidențialitate</a>.</p>
   </div>
   <div class="reok" id="re-ok">✓ Raportul e confirmat. Te contactăm în 24h.</div>
 </div>
 
 
-<script src="home.js?v=20261115" defer></script>
+<script src="home.js?v=20261116" defer></script>
 <script src="rot.js" defer></script>
 <!-- Ce nu e necesar la prima afișare pornește la prima interacțiune (scroll/atingere/click)
      sau la 2s după load: lang.js (traducerea EN, ~60 KB), pozele din banda de portofoliu,
@@ -2090,7 +2083,7 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
   var state=0, pending=false;
   function load(){
     if(state) return; state=1;
-    var s=document.createElement('script'); s.src='lang.js';
+    var s=document.createElement('script'); s.src='lang.js?v=20261115';
     s.onload=function(){ state=2; if(pending){ pending=false; window.toggleLang(); } };
     document.body.appendChild(s);
   }
@@ -2099,7 +2092,7 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
   if(en) load(); else window.ruLater(load);
 })();
 </script>
-<script src="float.js?v=20261115" defer></script>
+<script src="float.js?v=20261115b" defer></script>
 <script src="igstrip.js" defer></script>
 <!-- AdSense: la prima interacțiune a userului (scroll/click/touch).
      Lighthouse nu simulează interacțiuni → LCP rămâne curat.
@@ -2174,18 +2167,21 @@ input[type=range]::-webkit-slider-thumb{transition:transform 120ms var(--ease-ou
   /* cu meniul de pe telefon deschis, bara revine pe toată lățimea, ca panoul să stea lipit de ea */
   function upd(){var y=window.scrollY,open=mob&&mob.classList.contains('open');
     if(!on&&y>80){on=true;width()}else if(on&&y<24)on=false;
-    nav.classList.toggle('pill',on&&!open)}
+    nav.classList.toggle('pill',on&&!open);nav.classList.toggle('np-open',!!open)}
+  /* atingerea pe zona întunecată închide meniul și nu apasă pe ce e dedesubt */document.addEventListener('click',function(e){var m=document.getElementById('nav-mobile')||document.querySelector('.nav-mobile');if(m&&m.classList.contains('open')&&!e.target.closest('nav,.nav-mobile')){e.preventDefault();e.stopPropagation();m.classList.remove('open')}},true);
   window.addEventListener('scroll',upd,{passive:true});width();upd();
   window.addEventListener('resize',width);
   if('MutationObserver'in window){
     if(mob)new MutationObserver(upd).observe(mob,{attributes:true,attributeFilter:['class']});
     if(links)new MutationObserver(function(){requestAnimationFrame(width)}).observe(links,{childList:true,subtree:true,characterData:true});}
   var cards=document.querySelectorAll('#portfolio,#about,#process,#testimonials,#packages,#faq');
-  function al(){var g=window.innerWidth<=600?10:22;cards.forEach(function(s){var r=s.getBoundingClientRect(),x=r.left+window.scrollX+1,y=r.top+window.scrollY+1;
+  function al(){var g=window.innerWidth<=600?10:1280;cards.forEach(function(s){var r=s.getBoundingClientRect(),x=r.left+window.scrollX+1,y=r.top+window.scrollY+1;
     s.style.setProperty('--dx',(-(x%g))+'px');s.style.setProperty('--dy',(-(y%g))+'px');});}
   al();window.addEventListener('load',al);
   if('ResizeObserver'in window)new ResizeObserver(function(){requestAnimationFrame(al)}).observe(document.body);else window.addEventListener('resize',al);
 })();
 </script>
+<style id="ru-touch">/* Touch: hover-ul nu rămâne „lipit” după atingere; cât ții degetul apăsat, elementul arată ca la hover și se apasă ușor (în loc să se ridice). Pe dispozitivele cu mouse nu se schimbă nimic. */@media(hover:none){.hero-eyebrow a:active{opacity:0.65;transform:scale(.97)}.btn-primary:active{background:#a8622a;transform:scale(.97)}.btn-ghost:active{color:var(--text);transform:scale(.97)}.tc:active{box-shadow:0 8px 28px rgba(45,40,32,.22);transform:scale(.97)}.ig-follow:active{border-color:var(--brand);transform:scale(.97)}.port-cta:active{background:var(--brand-light);box-shadow:0 8px 28px rgba(45,40,32,.22);transform:scale(.97)}.port-cta:active .port-cta-arrow{background:var(--brand);color:#FDFAF6}.tec:active{box-shadow:0 8px 28px rgba(45,40,32,.22);transform:scale(.97)}.pkg-pre:active{box-shadow:0 8px 40px rgba(200,137,78,.25);transform:scale(.97)}.con-g:active{border-color:var(--muted-ui);color:var(--light);transform:scale(.97)}.cc:active{background:#4D4238;transform:scale(.97)}.ct-l:active{color:#FDFAF6;border-color:var(--brand);transform:scale(.97)}.nav-links a:active{color:#2D2820;transform:scale(.97)}.nav-cta:active{background:#FAF4EB;transform:scale(.97)}.nav-mob-cta:active{background:#FAF4EB;transform:scale(.97)}.ba:active .ba-overlay{background: rgba(45,40,32,0.38)}.ba:active .ba-overlay span{opacity: 1}.lang-toggle-btn:active{background:#FAF4EB;border-color:#C77936;transform:scale(.97)}.cc:active{transform:scale(.97);box-shadow:0 10px 28px rgba(0,0,0,.15)}.tc:active{box-shadow:0 18px 52px rgba(45,40,32,.1);transform:scale(.97)}.fc:active{transform:scale(.97);box-shadow:0 8px 28px rgba(45,40,32,.20)}.tec:active{box-shadow:0 12px 40px rgba(45,40,32,.28);transform:scale(.97)}#btt:active{transform:scale(.97);box-shadow:0 10px 30px rgba(199,121,54,.42)!important}.wa-float:active{transform:scale(.97);box-shadow:0 10px 30px rgba(37,211,102,.45)}.wa-opt:active{background:#F5EFE6;transform:scale(.97)}#wa-close:active{background:#EDE5D8;color:#2D2820;transform:scale(.97)}.cs:active{box-shadow:0 8px 32px rgba(45,40,32,.07);transform:scale(.97)}.te-q:active{box-shadow:0 8px 28px rgba(45,40,32,.22);transform:scale(.97)}#ru-exit .red:active{color:#2D2820;transform:scale(.97)}#ru-exit .rec:active{background:#EDE5D8;color:#2D2820;transform:scale(.97)}}</style>
+<script>/* iOS aplică stilul de apăsare doar dacă pagina ascultă atingerile */document.addEventListener("touchstart",function(){},{passive:true});</script>
 </body>
 </html>

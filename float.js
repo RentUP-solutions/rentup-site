@@ -16,8 +16,10 @@
       '.wa-float,#btt{width:46px!important;height:46px!important;transition:transform 460ms cubic-bezier(0.23,1,0.32,1),box-shadow 400ms ease,background 400ms ease!important}'+
       '.wa-float{left:35px!important}'+
       '#btt{right:35px!important;display:flex!important}'+
-      'body:is(.fl-hide,.fl-foot,.fl-dark,.cx-peek-on) .wa-float{transform:translateX(calc(-100% - 40px))!important;pointer-events:none}'+
-      'body:is(.fl-hide,.fl-foot,.fl-dark,.cx-peek-on,.fl-top) #btt{transform:translateX(calc(100% + 40px))!important;pointer-events:none}'+
+      /* ieșirea: aceeași mișcare laterală, dar cu o curbă care nu parcurge tot drumul în primele cadre
+         (cu ease-out puternic butoanele păreau să dispară pe loc); intrarea rămâne rapidă (ease-out) */
+      'body:is(.fl-hide,.fl-foot,.fl-dark,.cx-peek-on) .wa-float{transform:translateX(calc(-100% - 40px))!important;pointer-events:none;transition:transform 440ms cubic-bezier(0.45,0,0.2,1),box-shadow 400ms ease!important}'+
+      'body:is(.fl-hide,.fl-foot,.fl-dark,.cx-peek-on,.fl-top) #btt{transform:translateX(calc(100% + 40px))!important;pointer-events:none;transition:transform 440ms cubic-bezier(0.45,0,0.2,1),box-shadow 400ms ease!important}'+
     '}'+
     '@media(prefers-reduced-motion:reduce){.wa-float,#btt{transition:none!important}}';
   document.head.appendChild(st);
