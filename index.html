@@ -699,8 +699,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 /* ── FAQ ── */
 #faq{background:var(--bg-stone)}
 .faq-inner{max-width:720px;margin:0 auto}
-.fi{border-bottom:.5px solid var(--border);padding:22px 0;cursor:pointer}
-.fi:last-child{border-bottom:.5px solid #EDE0CE}
+.fi{padding:22px 0;cursor:pointer}
 .fq{font-size:15px;font-weight:500;display:flex;justify-content:space-between;gap:16px;user-select:none;transition:color .15s}
 .fi-icon{position:relative;flex-shrink:0;width:18px;height:18px;margin-top:1px;font-size:0;color:var(--brand);transition:transform 260ms var(--ease-out)}/* „+” desenat ca SVG (mască) peste culoarea textului: cele două linii sunt randate identic la orice unghi, deci „+” și „×” arată ca același semn rotit (cu două pseudo-elemente, linia orizontală se alinia la pixel și ieșea mai groasă decât cea rotită) */.fi-icon::before{content:"";position:absolute;inset:0;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M3 9h12M9 3v12' stroke='%23000' stroke-width='1.5' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") center/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M3 9h12M9 3v12' stroke='%23000' stroke-width='1.5' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") center/100% 100% no-repeat}
 .fa{font-size:14px;color:var(--muted);line-height:1.75;display:grid;grid-template-rows:0fr;opacity:0;margin-top:0;
@@ -1258,15 +1257,15 @@ body{background:radial-gradient(rgba(45,40,32,.13) 1.1px,transparent 1.4px) 0 0/
 main>section{background:transparent!important}
 #hero::before,#calc::before,#rental-kit-teaser::before,#instagram::before{display:none}
 /* Secțiunile crem închis = carduri mari, glass mat; punctele se ghicesc „prin” card (aliniate cu cele din pagină din JS) */
-#portfolio,#about,#process,#testimonials,#packages,#faq{position:relative;isolation:isolate;
+#portfolio,#about,#process,#testimonials,#packages{position:relative;isolation:isolate;
   margin:20px clamp(12px,1.6vw,24px);border-radius:clamp(24px,2.4vw,36px);
   background:rgba(245,239,230,.95)!important;
   border:1px solid rgba(255,255,255,.65);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 1px 2px rgba(45,40,32,.04),0 24px 60px -28px rgba(45,40,32,.18);overflow:clip}
 /* granulație fină = efectul „mat” */
-#portfolio::after,#about::after,#process::after,#testimonials::after,#packages::after,#faq::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.35;mix-blend-mode:multiply;
+#portfolio::after,#about::after,#process::after,#testimonials::after,#packages::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.35;mix-blend-mode:multiply;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .6 0 0 0 0 .55 0 0 0 0 .48 0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-@media(max-width:600px){#portfolio,#about,#process,#testimonials,#packages,#faq{margin:12px 8px;border-radius:22px}
+@media(max-width:600px){#portfolio,#about,#process,#testimonials,#packages{margin:12px 8px;border-radius:22px}
   body{background:radial-gradient(rgba(45,40,32,.112) .68px,transparent .9px) 0 0/10px 10px,var(--bg)}}
 /* Meniu: lipit sus pe toată lățimea → pill plutitor după scroll (desktop și telefon) */
 .ru-nav-sp{display:block;height:64px}
@@ -1292,10 +1291,10 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
 /* Testimoniale pe telefon: cifrele mai mici, ca „/lună” să rămână pe același rând */
 @media(max-width:600px){.tt-rent{flex-wrap:nowrap;white-space:nowrap;font-size:clamp(30px,10.5vw,44px)}}
 /* Punctele „din spatele” cardurilor bej: estompate, doar ca o umbră a pattern-ului (aliniate din JS) */
-#portfolio,#about,#process,#testimonials,#packages,#faq{background:rgba(245,239,230,.95)!important}
-#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before,#faq::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+#portfolio,#about,#process,#testimonials,#packages{background:rgba(245,239,230,.95)!important}
+#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:radial-gradient(circle,rgba(45,40,32,.042) 0,rgba(45,40,32,.023) 1.3px,rgba(45,40,32,.008) 3px,transparent 5px) var(--dx,0) var(--dy,0)/22px 22px;-webkit-mask-image:radial-gradient(ellipse 75% 75% at 50% 50%,rgba(0,0,0,.15) 0%,rgba(0,0,0,.35) 45%,#000 100%);mask-image:radial-gradient(ellipse 75% 75% at 50% 50%,rgba(0,0,0,.15) 0%,rgba(0,0,0,.35) 45%,#000 100%)}
-@media(max-width:600px){#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before,#faq::before{background-size:10px 10px;
+@media(max-width:600px){#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before{background-size:10px 10px;
   background-image:radial-gradient(circle,rgba(45,40,32,.034) 0,rgba(45,40,32,.018) .62px,rgba(45,40,32,.0064) 1.43px,transparent 2.4px)}}
 /* Contact: card maro mat, opac (fără puncte) */
 #contact{margin:20px clamp(12px,1.6vw,24px);border-radius:clamp(24px,2.4vw,36px);isolation:isolate;background:var(--dark)!important;
@@ -1331,8 +1330,8 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
 .pk-card[data-k="premium"] .pk-btn:active{background:#2D2820;color:#FDFAF6}
 .pk-card[data-k="premium"] .pk-btn:focus-visible{outline-color:#FDFAF6}
 </style>
-<style id="ru-nodots">/* Telefon: fără punctele de fundal (desktopul și tableta le păstrează) */@media(max-width:600px){body{background-image:none!important}body::before,.ru-ft::before,.audit-hero::before,#hero::before,#calc::before,#rental-kit-teaser::before,#instagram::before,#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before,#faq::before{background-image:none!important}}</style>
-<style id="ru-grid">/* Fundal: grilă de plan tehnic (în locul punctelor) pe desktop și tabletă; pe telefon fundalul rămâne simplu (ru-nodots) */@media(min-width:601px){body::before,.ru-ft::before,.audit-hero::before{background-image:url(/grid.svg?v=20261116b)!important;background-size:1280px 1280px!important;opacity:1!important}#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before,#faq::before,.cost-section::before{background-image:url(/grid.svg?v=20261116b)!important;background-size:1280px 1280px!important;opacity:.5}body{background:url(/grid.svg?v=20261116b) 0 0/1280px 1280px,var(--bg)!important}#hero,#calc{isolation:isolate}#hero::before,#calc::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;display:block!important;background:var(--bg)!important}/* hero: grila (cu crucile) se stinge lin în jurul textului, rămâne spre margini și în jurul imaginii */#hero::before{-webkit-mask-image:radial-gradient(ellipse 36% 60% at 24% 52%,#000 0,#000 48%,transparent 100%);mask-image:radial-gradient(ellipse 36% 60% at 24% 52%,#000 0,#000 48%,transparent 100%)}/* calculator: grila la jumătate, cu tranziții moi sus și jos */#calc::before{opacity:.55;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 160px,#000 calc(100% - 160px),transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 160px,#000 calc(100% - 160px),transparent 100%)}}</style>
+<style id="ru-nodots">/* Telefon: fără punctele de fundal (desktopul și tableta le păstrează) */@media(max-width:600px){body{background-image:none!important}body::before,.ru-ft::before,.audit-hero::before,#hero::before,#calc::before,#rental-kit-teaser::before,#instagram::before,#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before{background-image:none!important}}</style>
+<style id="ru-grid">/* Fundal: grilă de plan tehnic (în locul punctelor) pe desktop și tabletă; pe telefon fundalul rămâne simplu (ru-nodots) */@media(min-width:601px){body::before,.ru-ft::before,.audit-hero::before{background-image:url(/grid.svg?v=20261116b)!important;background-size:1280px 1280px!important;opacity:1!important}#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before,.cost-section::before{background-image:url(/grid.svg?v=20261116b)!important;background-size:1280px 1280px!important;opacity:.5}body{background:url(/grid.svg?v=20261116b) 0 0/1280px 1280px,var(--bg)!important}#hero,#calc{isolation:isolate}#hero::before,#calc::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;display:block!important;background:var(--bg)!important}/* hero: grila (cu crucile) se stinge lin în jurul textului, rămâne spre margini și în jurul imaginii */#hero::before{-webkit-mask-image:radial-gradient(ellipse 36% 60% at 24% 52%,#000 0,#000 48%,transparent 100%);mask-image:radial-gradient(ellipse 36% 60% at 24% 52%,#000 0,#000 48%,transparent 100%)}/* calculator: grila la jumătate, cu tranziții moi sus și jos */#calc::before{opacity:.55;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 160px,#000 calc(100% - 160px),transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 160px,#000 calc(100% - 160px),transparent 100%)}}</style>
 <style id="ru-hero-ba">/* Hero cu comutator „Înainte de RentUP / După RentUP”. Desktop: fundal negru → la comutare fundalul obișnuit cu grila; pozele plutesc în jurul comutatorului. Telefon/tabletă: anunțul Floreasca, cu comutatorul deasupra. */
 @property --hbp{syntax:'<number>';inherits:true;initial-value:0}
 /* comutatorul: bila și portocaliul citesc aceeași valoare (--hbp), deci alunecă împreună */
@@ -2371,7 +2370,7 @@ input[type=range]::-webkit-slider-thumb{transition:transform 120ms var(--ease-ou
   if('MutationObserver'in window){
     if(mob)new MutationObserver(upd).observe(mob,{attributes:true,attributeFilter:['class']});
     if(links)new MutationObserver(function(){requestAnimationFrame(width)}).observe(links,{childList:true,subtree:true,characterData:true});}
-  var cards=document.querySelectorAll('#portfolio,#about,#process,#testimonials,#packages,#faq');
+  var cards=document.querySelectorAll('#portfolio,#about,#process,#testimonials,#packages');
   function al(){var g=window.innerWidth<=600?10:1280;cards.forEach(function(s){var r=s.getBoundingClientRect(),x=r.left+window.scrollX+1,y=r.top+window.scrollY+1;
     s.style.setProperty('--dx',(-(x%g))+'px');s.style.setProperty('--dy',(-(y%g))+'px');});}
   al();window.addEventListener('load',al);

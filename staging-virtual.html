@@ -356,6 +356,66 @@ button,a{touch-action:manipulation}
 <style id="ru-nodots">/* Telefon: fără punctele de fundal (desktopul și tableta le păstrează) */@media(max-width:600px){body{background-image:none!important}body::before,.ru-ft::before,.audit-hero::before,#hero::before,#calc::before,#rental-kit-teaser::before,#instagram::before,#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before,#faq::before{background-image:none!important}}</style>
 <style id="ru-dark-card">/* Secțiunea maro închis = card mat, ca secțiunea de contact de pe homepage */.audit-cta{position:relative;isolation:isolate;overflow:clip;margin:20px clamp(12px,1.6vw,24px);border-radius:clamp(24px,2.4vw,36px);border:1px solid rgba(255,255,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 1px 2px rgba(45,40,32,.08),0 30px 70px -30px rgba(45,40,32,.45)}@media(max-width:600px){.audit-cta{margin:12px 8px;border-radius:22px}}.audit-cta::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.5;mix-blend-mode:screen;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .9 0 0 0 0 .85 0 0 0 0 .78 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}</style>
 <style id="ru-grid">/* Fundal: grilă de plan tehnic (în locul punctelor) pe desktop și tabletă; pe telefon fundalul rămâne simplu (ru-nodots) */@media(min-width:601px){body::before,.ru-ft::before,.audit-hero::before{background-image:url(/grid.svg?v=20261116b)!important;background-size:1280px 1280px!important;opacity:1!important}#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before,#faq::before,.cost-section::before{background-image:url(/grid.svg?v=20261116b)!important;background-size:1280px 1280px!important;opacity:.5}}</style>
+<style id="ru-v2">/* Design nou, ca pe homepage: grila de fundal pe toată pagina (din ru-grid, doar ≥601px), secțiunile crem închis = carduri mate, fără linii despărțitoare și fără pastile */
+body{position:relative;isolation:isolate}
+body::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none}
+.audit-hero,.hero-img-wrap,main>section,body>section{background:transparent!important;border-bottom:0!important}
+.audit-hero::before{display:none!important}
+section.ru-card{position:relative;isolation:isolate;margin:20px clamp(12px,1.6vw,24px);border-radius:clamp(24px,2.4vw,36px);background:rgba(245,239,230,.95)!important;border:1px solid rgba(255,255,255,.65);box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 1px 2px rgba(45,40,32,.04),0 24px 60px -28px rgba(45,40,32,.18);overflow:clip}
+section.ru-card::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.35;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .6 0 0 0 0 .55 0 0 0 0 .48 0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+@media(max-width:600px){section.ru-card{margin:12px 8px;border-radius:22px}}
+/* Etichetele din hero: text simplu cu puncte între ele, nu pastile */
+.audit-hero-meta{gap:4px 0}
+.meta-tag{background:none!important;border:0!important;padding:0!important;border-radius:0!important;font-size:14px;font-weight:400!important;color:var(--mid)!important}
+.meta-tag b{font-weight:500}
+.meta-tag+.meta-tag::before{content:"·";margin:0 10px;color:var(--light-ui)}
+/* Cardurile din interior: aceeași umbră ca pe homepage */
+.card{box-shadow:0 2px 16px rgba(45,40,32,.16)}
+/* Footer: pornește transparent, ca umbra cardului maro de deasupra să nu fie tăiată brusc (ca pe homepage) */
+footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%)!important}
+.ru-ft::before{display:none}
+/* Lista de achiziții + tabelul AI vs RentUP: designul nou (card alb rotunjit cu umbră moale, ca tabelul de rezultate din portofoliu) */
+.sv-list{margin-top:24px;background:#fff;border-radius:24px;box-shadow:0 24px 60px -34px rgba(45,40,32,.4),0 1px 2px rgba(45,40,32,.04);overflow:hidden}
+.sv-list-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:22px 24px 10px}
+.sv-list-t{font-size:16px;font-weight:500;letter-spacing:-.01em;color:var(--text);display:flex;align-items:center;gap:10px}
+.sv-list-t svg{color:var(--brand)}
+.sv-list-x{font-size:12px;color:var(--light-ui)}
+.sv-tbl{font-variant-numeric:tabular-nums}
+.sv-tbl th{padding:12px 16px;font-size:11px;letter-spacing:.1em;color:var(--muted-ui);border-bottom:1px solid var(--border)}
+.sv-tbl th:first-child,.sv-tbl td:first-child{padding-left:24px}
+.sv-tbl th:last-child,.sv-tbl td:last-child{padding-right:24px}
+.sv-tbl td{padding:14px 16px;border-bottom:1px solid #F3EDE4}
+.sv-tbl td.col-nr{color:var(--light-ui);font-size:12px;font-weight:600}
+@media(hover:hover){.sv-tbl tbody tr:hover td{background:#FDFAF6}}
+.sv-tbl tr.sv-total-row td{background:var(--brand-light);border-top:0;font-size:15px}
+.sv-tbl tr.sv-total-row td.col-total{color:var(--brand)}
+.tbl-scroll-hint{border:0!important;box-shadow:0 2px 10px rgba(45,40,32,.12)}
+.cmp-tbl-wrap{background:#fff;border:0!important;border-radius:24px!important;box-shadow:0 24px 60px -34px rgba(45,40,32,.4),0 1px 2px rgba(45,40,32,.04)}
+.cmp-tbl thead tr{background:none}
+.cmp-tbl th{padding:20px 20px 14px;font-size:11px;letter-spacing:.1em;color:var(--muted-ui);border-bottom:1px solid var(--border)}
+.cmp-tbl th.col-ai,.cmp-tbl td.c-ai{border-left:0}
+.cmp-tbl th.col-ru{background:#F3DCC4;color:#A8622A;font-weight:600}
+.cmp-tbl td{padding:16px 20px;border-bottom:1px solid #F3EDE4;color:var(--text)}
+.cmp-tbl td:first-child{color:var(--text);font-weight:500}
+.cmp-tbl td.c-ai{color:var(--mid)}
+.cmp-tbl td.c-ai.x{color:var(--mid);font-weight:400}
+.cmp-tbl td.c-ru{background:#F8E9DA;border-left:0;color:var(--text);font-weight:500;border-bottom-color:#F0DCC6}
+@media(hover:hover){.cmp-tbl tr:hover td{background:#FDFAF6}.cmp-tbl tr:hover td.c-ru{background:#F5E1CC}}
+.cmp-tbl .ck,.cmp-tbl .xx{display:inline-block;width:18px;height:18px;border-radius:50%;vertical-align:-4px;margin-right:8px}
+.cmp-tbl .ck{background:var(--brand) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/11px no-repeat}
+.cmp-tbl .xx{background:#EFE9E1 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239A8E82' stroke-width='3.5' stroke-linecap='round'%3E%3Cpath d='M7 7l10 10M17 7 7 17'/%3E%3C/svg%3E") center/10px no-repeat}
+/* telefon: comutatorul dintre coloane = un singur control alb, nu două pastile */
+.cmp-tabs{background:#fff;border-radius:100px;padding:4px;gap:4px!important;box-shadow:0 2px 12px rgba(45,40,32,.1)}
+.cmp-tab{border:0!important;background:transparent}
+.cmp-tab.on{background:var(--brand)}
+/* Butonul de WhatsApp din CTA: portocaliu, mare, cu glow, ca pe homepage */
+.ct-wa{display:inline-flex;align-items:center;gap:4px;padding:20px 40px;border-radius:100px;background:var(--brand);color:#FDFAF6;font-size:17px;font-weight:500;text-decoration:none;box-shadow:0 10px 30px rgba(199,121,54,.25);transition:background 400ms ease,transform 200ms var(--ease-out),box-shadow 400ms ease}
+@media(hover:hover) and (pointer:fine){.ct-wa:hover{background:#a8622a;transform:translateY(-2px);box-shadow:0 14px 36px rgba(199,121,54,.3)}}
+.ct-wa:active{transform:scale(.98)}
+.ct-wa:focus-visible{outline:2px solid var(--brand);outline-offset:4px}
+@media(max-width:600px){.ct-wa{padding:18px 28px;font-size:16px}}
+.cta-btns{align-items:center}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Sari la conținut</a>
@@ -374,19 +434,19 @@ button,a{touch-action:manipulation}
     <p class="audit-hero-sub">Randări + plan real de cumpărat, gândit de arhitecți care știu ce atrage repede  un chiriaș bun, nu un algoritm generic. Preț fix 200€, livrare în câteva zile, fără vizită.</p>
     <a class="hero-cta" href="#" onclick="event.preventDefault();document.getElementById('quiz-modal').classList.add('open')" aria-label="Vreau planul meu">Vreau planul meu<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
     <div class="audit-hero-meta">
-      <span class="meta-tag">✓ Livrare în câteva zile</span>
-      <span class="meta-tag">✓ Fără angajament mare</span>
-      <span class="meta-tag">✓ 200€ se scad din orice pachet mai mare</span>
+      <span class="meta-tag">Livrare în câteva zile</span>
+      <span class="meta-tag">Fără angajament mare</span>
+      <span class="meta-tag">200€ se scad din orice pachet mai mare</span>
     </div>
   </div>
 </div>
 
 <!-- HERO IMAGE + ANNOTATE -->
-<div class="hero-img-wrap" style="padding:48px;background:var(--bg);border-bottom:.5px solid var(--border)">
+<div class="hero-img-wrap" style="padding:48px">
   <div style="max-width:1100px;margin:0 auto">
 
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">
-      <span style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--brand);background:var(--brand-light);border:.5px solid var(--brand-border);padding:3px 10px;border-radius:100px;white-space:nowrap">Proiect real livrat</span>
+      <div class="sec-tag" style="margin:0"><div class="dot"></div>Proiect real livrat</div>
     </div>
 
     <div id="sv-annotate" style="display:flex;align-items:flex-start;position:relative">
@@ -503,13 +563,13 @@ button,a{touch-action:manipulation}
     </div>
 
     <!-- Lista de achiziții -->
-    <div style="margin-top:24px;border:.5px solid var(--border);border-radius:14px;overflow:hidden">
-      <div style="padding:13px 20px;border-bottom:.5px solid var(--border);display:flex;justify-content:space-between;align-items:center;background:var(--bg-stone)">
-        <div style="font-size:14px;font-weight:600;color:var(--dark);display:flex;align-items:center;gap:8px">
+    <div class="sv-list">
+      <div class="sv-list-h">
+        <div class="sv-list-t">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
           Lista de achiziții
         </div>
-        <div style="font-size:11px;color:var(--light);font-style:italic">exemplu</div>
+        <div class="sv-list-x">exemplu</div>
       </div>
       <div class="tbl-gradient-wrap">
         <div class="tbl-scroll-hint">swipe<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></div>
@@ -603,7 +663,7 @@ button,a{touch-action:manipulation}
 </div>
 
 <!-- SECȚIUNEA 2: De ce AI-ul te lasă baltă -->
-<section style="background:var(--bg)">
+<section>
   <div class="inner">
     <div class="sec-tag"><div class="dot"></div>De ce AI-ul, singur, te lasă baltă</div>
     <h2 class="sec-h">Ai încercat deja. Știi exact ce lipsește.</h2>
@@ -629,10 +689,10 @@ button,a{touch-action:manipulation}
 </section>
 
 <!-- SECȚIUNEA 3: Ce primești -->
-<section style="background:var(--bg-stone)">
+<section class="ru-card">
   <div class="inner">
     <div class="sec-tag"><div class="dot"></div>Ce primești, concret</div>
-    <h2 class="sec-h">Nu o poză. Un plan pe care chiar îl execuți.</h2>
+    <h2 class="sec-h">Un plan pe care chiar îl execuți.</h2>
     <div class="card-stack">
       <div class="card sr" style="padding:0;overflow:hidden">
         <div style="display:flex;align-items:center;gap:14px;padding:14px 20px;border-bottom:.5px solid var(--border)">
@@ -671,7 +731,7 @@ button,a{touch-action:manipulation}
 </section>
 
 <!-- SECȚIUNEA 4: Tabel comparativ -->
-<section style="background:var(--bg)">
+<section>
   <div class="inner">
     <div class="sec-tag"><div class="dot"></div>Comparație directă</div>
     <h2 class="sec-h">AI vs <span style="color:#C77936;font-weight:600">Rent</span><span style="color:#2D2820;font-weight:300">UP</span>.</h2>
@@ -701,13 +761,13 @@ button,a{touch-action:manipulation}
           </tr>
           <tr>
             <td>Poți cumpăra exact ce vezi?</td>
-            <td class="c-ai x">✗ Rar</td>
-            <td class="c-ru">✓ Da</td>
+            <td class="c-ai x"><b class="xx"></b>Rar</td>
+            <td class="c-ru"><b class="ck"></b>Da</td>
           </tr>
           <tr>
             <td>Ține cont de bugetul tău real?</td>
-            <td class="c-ai x">✗ Nu</td>
-            <td class="c-ru">✓ Da</td>
+            <td class="c-ai x"><b class="xx"></b>Nu</td>
+            <td class="c-ru"><b class="ck"></b>Da</td>
           </tr>
           <tr>
             <td>Cine decide ce funcționează</td>
@@ -716,8 +776,8 @@ button,a{touch-action:manipulation}
           </tr>
           <tr>
             <td>Gândit pentru tipul de chiriaș pe care-l vrei</td>
-            <td class="c-ai x">✗ Nu</td>
-            <td class="c-ru">✓ Da</td>
+            <td class="c-ai x"><b class="xx"></b>Nu</td>
+            <td class="c-ru"><b class="ck"></b>Da</td>
           </tr>
         </tbody>
       </table>
@@ -726,7 +786,7 @@ button,a{touch-action:manipulation}
 </section>
 
 <!-- SECȚIUNEA 5: Proces 4 pași -->
-<section style="background:var(--bg-stone)">
+<section class="ru-card">
   <div class="inner">
     <div class="sec-tag"><div class="dot"></div>Cum funcționează: 4 pași</div>
     <h2 class="sec-h">Trimiți pozele. Primești planul.</h2>
@@ -756,7 +816,7 @@ button,a{touch-action:manipulation}
 </section>
 
 <!-- SECȚIUNEA 6: Dovadă / trust -->
-<section style="background:var(--bg)">
+<section>
   <div class="inner">
     <div class="sec-tag"><div class="dot"></div>Aceeași expertiză din spatele proiectelor reale</div>
     <h2 class="sec-h">Staging Virtual, construit pe experiență concretă.</h2>
@@ -777,6 +837,7 @@ button,a{touch-action:manipulation}
         <img src="images/portofoliu_5-800.webp" srcset="images/portofoliu_5-800.webp 800w, images/portofoliu_5-1200.webp 1200w" sizes="(max-width:900px) 100vw, 33vw" width="800" height="533" loading="lazy" decoding="async" alt="Garsonieră Vatra Luminoasă după optimizare RentUP" style="width:100%;height:200px;object-fit:cover;display:block">
         <div style="padding:10px 12px;background:var(--bg-stone)">
           <div style="font-size:11px;font-weight:600;color:var(--brand);text-transform:uppercase;letter-spacing:.08em">Garsonieră · Vatra Luminoasă</div>
+          <div style="font-size:14px;color:var(--muted);margin-top:2px">450€/lună, prima închiriere</div>
         </div>
       </div>
       <div style="border-radius:10px;overflow:hidden;border:.5px solid var(--border)">
@@ -799,7 +860,7 @@ button,a{touch-action:manipulation}
   <h2 class="cta-h">Trimite pozele acum,<br><em>primești planul în câteva zile.</em></h2>
   <p class="cta-s">Locuri limitate zilnic.</p>
   <div class="cta-btns">
-    <a class="btn-p" href="https://wa.me/40741176865?text=Bun%C4%83%20ziua!%20M-ar%20interesa%20Staging%20Virtual%20pentru%20apartamentul%20meu.%20Cum%20func%C8%9Bioneaz%C4%83%3F" onclick="gtag('event','click_whatsapp');gtag('event','conversion',{'send_to':'AW-18253477545/vaI4COjKgdYcEKnt9_9D'});" target="_blank" rel="noopener noreferrer">Trimite pe WhatsApp<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+    <a class="ct-wa" href="https://wa.me/40741176865?text=Bun%C4%83%20ziua!%20M-ar%20interesa%20Staging%20Virtual%20pentru%20apartamentul%20meu.%20Cum%20func%C8%9Bioneaz%C4%83%3F" onclick="gtag('event','click_whatsapp');gtag('event','conversion',{'send_to':'AW-18253477545/vaI4COjKgdYcEKnt9_9D'});" target="_blank" rel="noopener noreferrer">Trimite pe WhatsApp<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
     <a class="btn-g" href="mailto:hello@rentup.solutions?subject=Staging%20Virtual%20%E2%80%94%20cerere%20ofert%C4%83" onclick="gtag('event','click_email')">Sau trimite pe email<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
   </div>
   <div class="cta-cards sr">
@@ -1186,7 +1247,7 @@ if(localStorage.getItem('cookieConsent')){
   var state=0, pending=false;
   function load(){
     if(state) return; state=1;
-    var s=document.createElement('script'); s.src='lang.js?v=20261115';
+    var s=document.createElement('script'); s.src='lang.js?v=20261116k';
     s.onload=function(){ state=2; if(pending){ pending=false; window.toggleLang(); } };
     document.body.appendChild(s);
   }

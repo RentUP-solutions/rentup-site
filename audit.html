@@ -203,7 +203,6 @@ section .inner>.sec-h,section .inner>.sec-sub{text-align:center;margin-left:auto
 .pk-price b{font-size:20px;font-weight:400;letter-spacing:-.015em;line-height:1}
 .pk-desc{margin-top:12px;font-size:14px;line-height:1.6;color:var(--mid)}
 .flow-foot{margin-top:20px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
-.not-inc{margin-top:40px}
 
 /* ── FOR WHOM ── */
 .fw-t{font-size:17px;font-weight:500;letter-spacing:-.01em;margin-bottom:18px}
@@ -330,6 +329,59 @@ button,a{touch-action:manipulation}
 <style id="ru-nodots">/* Telefon: fără punctele de fundal (desktopul și tableta le păstrează) */@media(max-width:600px){body{background-image:none!important}body::before,.ru-ft::before,.audit-hero::before,#hero::before,#calc::before,#rental-kit-teaser::before,#instagram::before,#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before,#faq::before{background-image:none!important}}</style>
 <style id="ru-dark-card">/* Secțiunea maro închis = card mat, ca secțiunea de contact de pe homepage */.audit-cta{position:relative;isolation:isolate;overflow:clip;margin:20px clamp(12px,1.6vw,24px);border-radius:clamp(24px,2.4vw,36px);border:1px solid rgba(255,255,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 1px 2px rgba(45,40,32,.08),0 30px 70px -30px rgba(45,40,32,.45)}@media(max-width:600px){.audit-cta{margin:12px 8px;border-radius:22px}}.audit-cta::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.5;mix-blend-mode:screen;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .9 0 0 0 0 .85 0 0 0 0 .78 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}</style>
 <style id="ru-grid">/* Fundal: grilă de plan tehnic (în locul punctelor) pe desktop și tabletă; pe telefon fundalul rămâne simplu (ru-nodots) */@media(min-width:601px){body::before,.ru-ft::before,.audit-hero::before{background-image:url(/grid.svg?v=20261116b)!important;background-size:1280px 1280px!important;opacity:1!important}#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before,#faq::before,.cost-section::before{background-image:url(/grid.svg?v=20261116b)!important;background-size:1280px 1280px!important;opacity:.5}}</style>
+<style id="ru-audit-doc">/* Hero: foaia de raport completată (varianta C din machetă, fără comutator) lângă text; pe ecrane mici trece sub text */
+.ah-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:clamp(40px,5vw,72px);align-items:center}
+.ah-txt{min-width:0}
+.ah-doc{scroll-margin-top:96px}
+.ah-doc{position:relative;background:#fff;border:1px solid rgba(45,40,32,.06);border-radius:16px;padding:24px 24px 18px;display:flex;flex-direction:column;gap:8px;text-align:left;
+  box-shadow:6px -6px 0 -1px #fff,6px -6px 0 0 rgba(45,40,32,.08),12px -12px 0 -1px #fff,12px -12px 0 0 rgba(45,40,32,.07),0 30px 60px -26px rgba(45,40,32,.45);animation:hdrIn 620ms var(--ease-out) both;animation-delay:380ms}
+.ah-dk{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--brand)}
+.ah-dt{font-size:19px;font-weight:500;letter-spacing:-.015em;line-height:1.2;color:var(--text)}
+.ah-sec{list-style:none;margin:2px 0 0;padding:0;display:flex;flex-direction:column}
+.ah-sec li{display:grid;grid-template-columns:24px minmax(0,1fr) auto;align-items:center;gap:8px;font-size:14px;color:var(--text);padding:8px 0;border-bottom:1px solid var(--border)}
+.ah-sec li>span{font-size:11px;font-weight:600;color:var(--brand)}
+.ah-sec em{font-style:normal;min-width:0}
+.ah-sec small{display:block;font-size:12px;color:var(--mid);line-height:1.4;margin-top:1px}
+.ah-sec b.ok{width:16px;height:16px;border-radius:50%;background:var(--brand) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/10px no-repeat}
+.ah-sec b.n{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--text)}
+.ah-sec b.br{color:var(--brand)}
+.ah-sec b.n s{color:var(--light-ui);font-weight:400;margin-right:6px}
+.ah-sec li.hi{background:linear-gradient(90deg,rgba(199,121,54,.08),transparent);margin:0 -8px;padding-left:8px;padding-right:8px}
+.ah-foot{font-size:12px;color:var(--light-ui);margin-top:4px}
+@media(max-width:960px){.ah-wrap{grid-template-columns:minmax(0,1fr);gap:40px}.ah-doc{max-width:520px}}
+@media(max-width:600px){.ah-doc{padding:20px 16px 14px;box-shadow:5px -5px 0 -1px #fff,5px -5px 0 0 rgba(45,40,32,.08),0 24px 50px -24px rgba(45,40,32,.4);margin-right:5px}.ah-sec li{font-size:13px}.ah-dt{font-size:17px}}
+</style>
+<style id="ru-v2">/* Design nou, ca pe homepage: grila de fundal pe toată pagina (din ru-grid, doar ≥601px), secțiunile crem închis = carduri mate, fără linii despărțitoare și fără pastile */
+body{position:relative;isolation:isolate}
+body::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none}
+.audit-hero,.hero-img-wrap,main>section,body>section{background:transparent!important;border-bottom:0!important}
+.audit-hero::before{display:none!important}
+section.ru-card{position:relative;isolation:isolate;margin:20px clamp(12px,1.6vw,24px);border-radius:clamp(24px,2.4vw,36px);background:rgba(245,239,230,.95)!important;border:1px solid rgba(255,255,255,.65);box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 1px 2px rgba(45,40,32,.04),0 24px 60px -28px rgba(45,40,32,.18);overflow:clip}
+section.ru-card::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.35;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .6 0 0 0 0 .55 0 0 0 0 .48 0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+@media(max-width:600px){section.ru-card{margin:12px 8px;border-radius:22px}}
+/* Etichetele din hero: text simplu cu puncte între ele, nu pastile */
+.audit-hero-meta{gap:4px 0}
+.meta-tag{background:none!important;border:0!important;padding:0!important;border-radius:0!important;font-size:14px;font-weight:400!important;color:var(--mid)!important}
+.meta-tag b{font-weight:500}
+.meta-tag+.meta-tag::before{content:"·";margin:0 10px;color:var(--light-ui)}
+/* Cardurile din interior: aceeași umbră ca pe homepage */
+.card{box-shadow:0 2px 16px rgba(45,40,32,.16)}
+/* Footer: pornește transparent, ca umbra cardului maro de deasupra să nu fie tăiată brusc (ca pe homepage) */
+footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%)!important}
+.ru-ft::before{display:none}
+/* Pentru cine: doar situațiile în care merită, carduri cu bifa portocalie (ca foaia din hero) */
+.fw-grid{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:860px;margin:0 auto}
+.fw-grid li{display:flex;align-items:flex-start;gap:14px;font-size:15px;line-height:1.55;color:var(--text);padding:22px 24px}
+.fw-ok{flex:none;width:20px;height:20px;margin-top:1px;border-radius:50%;background:var(--brand) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/12px no-repeat}
+@media(max-width:700px){.fw-grid{grid-template-columns:minmax(0,1fr)}}
+/* Butonul de WhatsApp din CTA: portocaliu, mare, cu glow, ca pe homepage */
+.ct-wa{display:inline-flex;align-items:center;gap:4px;padding:20px 40px;border-radius:100px;background:var(--brand);color:#FDFAF6;font-size:17px;font-weight:500;text-decoration:none;box-shadow:0 10px 30px rgba(199,121,54,.25);transition:background 400ms ease,transform 200ms var(--ease-out),box-shadow 400ms ease}
+@media(hover:hover) and (pointer:fine){.ct-wa:hover{background:#a8622a;transform:translateY(-2px);box-shadow:0 14px 36px rgba(199,121,54,.3)}}
+.ct-wa:active{transform:scale(.98)}
+.ct-wa:focus-visible{outline:2px solid var(--brand);outline-offset:4px}
+@media(max-width:600px){.ct-wa{padding:18px 28px;font-size:16px}}
+.cta-btns{align-items:center}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Sari la conținut</a>
@@ -343,7 +395,8 @@ button,a{touch-action:manipulation}
 
 <!-- HERO -->
 <div class="audit-hero" id="main-content">
-  <div class="inner">
+  <div class="inner ah-wrap">
+   <div class="ah-txt">
     <div class="sec-tag"><div class="dot"></div>Pasul 1 · Gratuit</div>
     <h1>Raport de Rentabilitate<br><em>apartament.</em></h1>
     <p class="audit-hero-sub">Ne trimiți poze cu apartamentul și în 72h afli ce merită schimbat, cât costă și ce impact are asupra chiriei. Nu e design interior, e diagnosticul care îți arată dacă și cât merită să investești.</p>
@@ -357,11 +410,26 @@ button,a{touch-action:manipulation}
       <a class="btn-p" href="https://wa.me/40741176865?text=Bun%C4%83%20ziua!%20A%C8%99%20vrea%20%C8%99i%20eu%20raportul%20gratuit%20pentru%20apartamentul%20meu.%20Unde%20v%C4%83%20trimit%20pozele%3F" onclick="gtag('event','click_whatsapp');gtag('event','conversion',{'send_to':'AW-18253477545/vaI4COjKgdYcEKnt9_9D'});">Trimite pozele pe WhatsApp<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
       <a class="lnk" href="#continut">Ce conține raportul</a>
     </div>
+   </div>
+    <div class="ah-doc" id="continut">
+      <div class="ah-dk">Raport de Rentabilitate</div>
+      <div class="ah-dt">2 camere Floreasca</div>
+      <ol class="ah-sec">
+        <li><span>01</span><em>Starea actuală<small>Scor per cameră, puncte forte și slabe</small></em><b class="ok"></b></li>
+        <li><span>02</span><em>Analiza de piață<small>Chiria medie în zonă, neoptimizat vs optimizat</small></em><b class="ok"></b></li>
+        <li><span>03</span><em>Intervenții<small>Ce schimbi prima dată, ce poți amâna</small></em><b class="ok"></b></li>
+        <li><span>04</span><em>Buget<small>Cost orientativ, total minim și recomandat</small></em><b class="ok"></b></li>
+        <li class="hi"><span>05</span><em>Potențial de chirie<small>Chiria estimată după recomandări</small></em><b class="n br"><s>400€</s>620€</b></li>
+        <li class="hi"><span>06</span><em>ROI estimat<small>În cât timp recuperezi investiția</small></em><b class="n">~14 luni</b></li>
+        <li class="hi"><span>07</span><em>Pachet<small>Dacă merită un proiect și care</small></em><b class="n">Quick Win</b></li>
+      </ol>
+      <div class="ah-foot">7 secțiuni · livrat în 72h</div>
+    </div>
   </div>
 </div>
 
 <!-- DE CE AI NEVOIE -->
-<section style="background:var(--bg-stone)">
+<section class="ru-card">
   <div class="inner">
     <div class="sec-tag"><div class="dot"></div>De ce ai nevoie de un Raport de Rentabilitate</div>
     <h2 class="sec-h">Situații tipice și ce obții.</h2>
@@ -391,7 +459,7 @@ button,a{touch-action:manipulation}
 </section>
 
 <!-- 3 PAȘI -->
-<section style="background:var(--bg)">
+<section>
   <div class="inner">
     <div class="sec-tag"><div class="dot"></div>Cum funcționează</div>
     <h2 class="sec-h">De la poze la raport în 72h.</h2>
@@ -416,25 +484,8 @@ button,a{touch-action:manipulation}
   </div>
 </section>
 
-<!-- CE CONȚINE RAPORTUL -->
-<section style="background:var(--bg-stone)" id="continut">
-  <div class="inner">
-    <div class="sec-tag"><div class="dot"></div>Ce conține raportul</div>
-    <h2 class="sec-h">7 secțiuni. Un document complet.</h2>
-    <div class="card rep sr" style="margin-top:40px">
-      <div class="rep-row"><div class="rn">01</div><div class="rt">Evaluarea stării actuale</div><div class="rd">Scor per cameră, puncte forte și puncte slabe, probleme identificate</div></div>
-      <div class="rep-row"><div class="rn">02</div><div class="rt">Analiza de piață</div><div class="rd">Chiria medie în zona ta pentru apartamente similare, neoptimizate vs optimizate</div></div>
-      <div class="rep-row"><div class="rn">03</div><div class="rt">Lista de intervenții prioritizate</div><div class="rd">Ce schimbi prima dată, ce poți amâna, ce nu merită investit, cu prioritate și impact</div></div>
-      <div class="rep-row"><div class="rn">04</div><div class="rt">Estimare buget implementare</div><div class="rd">Cost orientativ per intervenție, total minim și total recomandat</div></div>
-      <div class="rep-row"><div class="rn">05</div><div class="rt">Potențial de chirie</div><div class="rd">Chiria estimată după implementarea recomandărilor, conservator și optimist</div></div>
-      <div class="rep-row"><div class="rn">06</div><div class="rt">ROI estimat</div><div class="rd">Cât durează să recuperezi investiția din chiria extra generată</div></div>
-      <div class="rep-row"><div class="rn">07</div><div class="rt">Recomandare pachet</div><div class="rd">Dacă situația merită un proiect complet, ce pachet și de ce</div></div>
-    </div>
-  </div>
-</section>
-
 <!-- RAPORTUL ȘI PACHETELE -->
-<section style="background:var(--bg)">
+<section class="ru-card">
   <div class="inner">
     <div class="sec-tag"><div class="dot"></div>Raportul și pachetele</div>
     <h2 class="sec-h">Primul pas, înainte de orice pachet.</h2>
@@ -475,52 +526,22 @@ button,a{touch-action:manipulation}
         <a class="lnk" href="/#packages">Vezi ce include fiecare pachet<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
       </div>
     </div>
-
-    <div class="grid-2 not-inc">
-      <div class="card sr">
-        <div class="card-title">Ce NU include raportul</div>
-        <ul class="li-list no">
-          <li>Proiect de design sau randări</li>
-          <li>Vizită pe teren</li>
-          <li>Implementare sau coordonare lucrări</li>
-          <li>Achiziție mobilier sau materiale</li>
-          <li>Listarea apartamentului</li>
-        </ul>
-      </div>
-      <div class="card sr">
-        <div class="card-title">De ce remote</div>
-        <p class="step-d">Pozele ne arată tot ce contează pentru raport: mobilierul, finisajele, lumina, cum e folosit spațiul. Nu e nevoie de nicio deplasare, iar tu primești răspunsul mai repede. Vizita pe teren vine abia în pachetul ales.</p>
-      </div>
-    </div>
   </div>
 </section>
 
 <!-- PENTRU CINE -->
-<section style="background:var(--bg-stone)">
+<section>
   <div class="inner">
     <div class="sec-tag"><div class="dot"></div>Potrivit dacă</div>
     <h2 class="sec-h">Este Raportul de Rentabilitate pentru tine?</h2>
-    <div class="grid-2" style="margin-top:40px">
-      <div class="card sr">
-        <div class="fw-t yes">✓ Merită Raportul de Rentabilitate dacă...</div>
-        <ul class="li-list">
-          <li>Ai un apartament deja mobilat pe care îl închiriezi sau vrei să îl închiriezi</li>
-          <li>Nu ești sigur dacă merită un proiect complet de design</li>
-          <li>Vrei o opinie externă profesională înainte de orice investiție</li>
-          <li>Chiria actuală e sub potențialul pieței și nu știi de ce</li>
-        </ul>
-      </div>
-      <div class="card sr">
-        <div class="fw-t no">✗ Probabil nu ai nevoie dacă...</div>
-        <ul class="li-list no">
-          <li>Apartamentul e gol și neamenajat complet. Poți începe direct cu pachetul Quick Win sau Invest Premium</li>
-          <li>Știi deja exact ce vrei să schimbi și ai bugetul pregătit</li>
-          <li>Cauți confirmare emoțională, nu analiză obiectivă</li>
-        </ul>
-      </div>
+    <p class="sec-sub">Raportul de Rentabilitate e primul pas potrivit dacă ești nehotărât. Este gratuit, primești claritate și decizi în cunoștință de cauză dacă și cât merită să investești. Fără angajament pentru nimic ulterior.</p>
+    <ul class="fw-grid">
+      <li class="card sr"><b class="fw-ok"></b>Ai un apartament deja mobilat pe care îl închiriezi sau vrei să îl închiriezi</li>
+      <li class="card sr"><b class="fw-ok"></b>Nu ești sigur dacă merită un proiect complet de design</li>
+      <li class="card sr"><b class="fw-ok"></b>Vrei o opinie externă profesională înainte de orice investiție</li>
+      <li class="card sr"><b class="fw-ok"></b>Chiria actuală e sub potențialul pieței și nu știi de ce</li>
+    </ul>
     </div>
-    <div class="fw-note sr">Raportul de Rentabilitate e primul pas potrivit dacă ești nehotărât. Este gratuit, primești claritate și decizi în cunoștință de cauză dacă și cât merită să investești. Fără angajament pentru nimic ulterior.</div>
-  </div>
 </section>
 
 <!-- CTA -->
@@ -528,7 +549,7 @@ button,a{touch-action:manipulation}
   <h2 class="cta-h" data-en="Send us the photos.<br><em>Let's talk about <span class='rot' data-words='your apartment.|your studio.|your investment.'>your apartment.</span></em>">Trimite-ne pozele.<br><em>Vorbim despre <span class="rot" data-words="apartamentul tău.|garsoniera ta.|investiția ta.">apartamentul tău.</span></em></h2>
   <p class="cta-s">Poze din fiecare cameră, suprafața, zona și chiria actuală sau dorită. Îți răspundem în 24h.</p>
   <div class="cta-btns">
-    <a class="btn-p" href="https://wa.me/40741176865?text=Bun%C4%83%20ziua!%20A%C8%99%20vrea%20%C8%99i%20eu%20raportul%20gratuit%20pentru%20apartamentul%20meu.%20Unde%20v%C4%83%20trimit%20pozele%3F" onclick="gtag('event','click_whatsapp');gtag('event','conversion',{'send_to':'AW-18253477545/vaI4COjKgdYcEKnt9_9D'});">WhatsApp direct<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+    <a class="ct-wa" href="https://wa.me/40741176865?text=Bun%C4%83%20ziua!%20A%C8%99%20vrea%20%C8%99i%20eu%20raportul%20gratuit%20pentru%20apartamentul%20meu.%20Unde%20v%C4%83%20trimit%20pozele%3F" onclick="gtag('event','click_whatsapp');gtag('event','conversion',{'send_to':'AW-18253477545/vaI4COjKgdYcEKnt9_9D'});">WhatsApp direct<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
     <a class="btn-g" href="mailto:hello@rentup.solutions" onclick="gtag('event','click_email')">Email</a>
   </div>
   <div class="cta-cards sr">
@@ -911,7 +932,7 @@ body:has(#ru-slide.ru-vis) .wa-float,body:has(#ru-slide.ru-vis) #btt{opacity:0;p
   var state=0, pending=false;
   function load(){
     if(state) return; state=1;
-    var s=document.createElement('script'); s.src='lang.js?v=20261115';
+    var s=document.createElement('script'); s.src='lang.js?v=20261116k';
     s.onload=function(){ state=2; if(pending){ pending=false; window.toggleLang(); } };
     document.body.appendChild(s);
   }
