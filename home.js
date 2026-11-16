@@ -931,3 +931,66 @@ document.addEventListener('touchstart',function(){},{passive:true});
     if(post) post.textContent = 'liber luna aceasta.';
   }
 })();
+;
+/* Hero: comutatorul „Înainte de RentUP / După RentUP”. Pe desktop schimbă pozele din jurul lui și fundalul,
+   pe telefon schimbă anunțul Floreasca. Ambele comutatoare țin aceeași stare (clasa .on pe #hero). */
+(function(){
+  var hero = document.getElementById('hero');
+  if(!hero) return;
+  var tgs = hero.querySelectorAll('.hb-tg');
+  if(!tgs.length) return;
+  /* grila hero-ului pornește de unde e grila paginii, ca după comutare să se lipească exact de ea */
+  function alignGrid(){ hero.style.setProperty('--gy', (-(hero.getBoundingClientRect().top + window.scrollY)) + 'px'); }
+  alignGrid();
+  window.addEventListener('resize', alignGrid);
+  window.addEventListener('load', alignGrid);
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var tracked = false;
+  function count(el, from, to, delay){
+    if(reduce){ el.textContent = to + '€'; return; }
+    setTimeout(function(){
+      var t0 = null, dur = 1000;
+      function step(t){
+        if(!t0) t0 = t;
+        var p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(from + (to - from) * e) + '€';
+        if(p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }, delay || 0);
+  }
+  function toggle(){
+    var on = !hero.classList.contains('on');
+    hero.classList.toggle('on', on);
+    for(var i = 0; i < tgs.length; i++) tgs[i].setAttribute('aria-checked', on ? 'true' : 'false');
+    var nums = hero.querySelectorAll('[data-from]');
+    for(var j = 0; j < nums.length; j++){
+      var f = +nums[j].getAttribute('data-from'), t = +nums[j].getAttribute('data-to');
+      count(nums[j], on ? f : t, on ? t : f, 300 + (j % 6) * 90);
+    }
+    if(on && !tracked && typeof gtag === 'function'){ tracked = true; gtag('event', 'hero_toggle'); }
+  }
+  for(var i = 0; i < tgs.length; i++) tgs[i].addEventListener('click', function(e){ e.stopPropagation(); toggle(); });
+  var labels = hero.querySelectorAll('.hb-sl');
+  for(var k = 0; k < labels.length; k++) labels[k].addEventListener('click', toggle);
+  var card = hero.querySelector('.hb-card');
+  if(card) card.addEventListener('click', toggle);
+})();
+;
+/* Secțiunea Portofoliu: comutatorul trece toate cardurile din bandă din „înainte” în „după” */
+(function(){
+  var sec = document.getElementById('portfolio');
+  if(!sec) return;
+  var tg = sec.querySelector('.ps-ctl .hb-tg');
+  if(!tg) return;
+  var tracked = false;
+  function toggle(){
+    var on = !sec.classList.contains('on');
+    sec.classList.toggle('on', on);
+    tg.setAttribute('aria-checked', on ? 'true' : 'false');
+    if(on && !tracked && typeof gtag === 'function'){ tracked = true; gtag('event', 'portfolio_toggle'); }
+  }
+  tg.addEventListener('click', toggle);
+  var lab = sec.querySelector('.ps-ctl .hb-sl');
+  if(lab) lab.addEventListener('click', toggle);
+})();

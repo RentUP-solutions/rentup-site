@@ -431,6 +431,63 @@ button,a,.filter-btn,.proj{touch-action:manipulation}
 <style id="ru-ft-cont">/* Footer: punctele din pagină continuă în el și se sting treptat în jos (fără pauză), ca pe homepage */footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%)!important}footer.ru-ft::before{display:none}</style>
 <style id="ru-nodots">/* Telefon: fără punctele de fundal (desktopul și tableta le păstrează) */@media(max-width:600px){body{background-image:none!important}body::before,.ru-ft::before,.audit-hero::before,#hero::before,#calc::before,#rental-kit-teaser::before,#instagram::before,#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before,#faq::before{background-image:none!important}}</style>
 <style id="ru-grid">/* Fundal: grilă de plan tehnic (în locul punctelor) pe desktop și tabletă; pe telefon fundalul rămâne simplu (ru-nodots) */@media(min-width:601px){body::before,.ru-ft::before,.audit-hero::before{background-image:url(/grid.svg?v=20261116b)!important;background-size:1280px 1280px!important;opacity:1!important}#portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before,#faq::before,.cost-section::before{background-image:url(/grid.svg?v=20261116b)!important;background-size:1280px 1280px!important;opacity:.5}}</style>
+<style id="ru-pf-res">/* Hero portofoliu: tabelul rezultatelor cu comutator înainte / după RentUP */
+@property --hbp{syntax:'<number>';inherits:true;initial-value:0}
+.pf-sum{padding:0 32px 24px;margin-top:-56px}
+/* aceeași lățime ca acel card din footer: max 1200px, centrat */
+.pf-sum>*{max-width:1200px;margin-left:auto;margin-right:auto}
+.pr-ctl{display:flex;align-items:center;gap:12px;margin:0;text-transform:none;letter-spacing:0}
+.pr-th0{padding-top:12px!important;padding-bottom:12px!important}
+.pr-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.pf-sum .hb-sl{font-size:14px;font-weight:500}
+.hb-tg{--w:68px;--h:36px;--k:28px;--hbp:0;position:relative;width:var(--w);height:var(--h);border-radius:100px;border:0;padding:0;cursor:pointer;background:#d9cfc2;flex:none;isolation:isolate;-webkit-tap-highlight-color:transparent;transition:--hbp 420ms cubic-bezier(0.32,0.72,0,1);animation:hbNudge 3.2s ease-in-out 1.2s infinite}
+.hb-tg:focus-visible{outline:2px solid var(--brand);outline-offset:4px}
+.hb-fill{position:absolute;left:0;top:0;bottom:0;border-radius:100px;background:var(--brand);width:calc(var(--h) + var(--hbp) * (var(--w) - var(--h)));opacity:min(1,calc(var(--hbp) * 4));z-index:-1}
+.hb-k{position:absolute;left:4px;top:4px;width:var(--k);height:var(--k);border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transform:translateX(calc(var(--hbp) * (var(--w) - var(--k) - 8px)));display:grid;place-items:center}
+.hb-k svg{width:14px;height:14px;stroke:var(--brand);transition:transform 420ms cubic-bezier(0.32,0.72,0,1)}
+.hb-tg::before{content:"";position:absolute;inset:0;border-radius:100px;pointer-events:none;animation:hbGlow 1.6s ease-in-out infinite}
+.pf-sum.on .hb-tg{--hbp:1;animation:none}
+.pf-sum.on .hb-tg::before{animation:none}
+.pf-sum.on .hb-k svg{transform:rotate(180deg)}
+@keyframes hbNudge{0%,70%,100%{--hbp:0}80%{--hbp:.22}90%{--hbp:0}}
+@keyframes hbGlow{0%,100%{box-shadow:0 0 0 0 rgba(199,121,54,0),0 0 4px 0 rgba(199,121,54,.2)}50%{box-shadow:0 0 0 2px rgba(199,121,54,.45),0 0 14px 2px rgba(199,121,54,.4)}}
+.hb-sl{display:inline-grid;font-size:14px;font-weight:500;white-space:nowrap;cursor:pointer;user-select:none}
+.hb-sl>span{grid-area:1/1;transition:opacity 380ms var(--ease-out),transform 380ms var(--ease-out)}
+.hb-sl .s1{color:var(--text)}
+.hb-sl .s2{opacity:0;transform:translateY(5px);color:var(--brand)}
+.pf-sum.on .hb-sl .s1{opacity:0;transform:translateY(-5px)}
+.pf-sum.on .hb-sl .s2{opacity:1;transform:none}
+/* tabelul */
+.pr-tw{overflow-x:auto;background:#fff;border-radius:28px;border:.5px solid var(--border);box-shadow:0 24px 60px -34px rgba(45,40,32,.4);-webkit-overflow-scrolling:touch}
+.pr-t{width:100%;border-collapse:collapse;min-width:720px;font-variant-numeric:tabular-nums}
+.pr-t th{text-align:left;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:16px 20px;border-bottom:.5px solid var(--border)}
+.pr-t td{padding:14px 20px;border-bottom:.5px solid var(--border);font-size:15px;color:var(--text);vertical-align:middle}
+.pr-t tr:last-child td{border-bottom:0}
+.pr-pj{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}
+.pr-pj i{width:44px;height:44px;border-radius:10px;overflow:hidden;flex:none;position:relative;background:#F5EFE6}
+.pr-pj i img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pr-pj i .aft{opacity:0;transition:opacity 700ms var(--ease-out)}
+.pf-sum.on .pr-pj i .aft{opacity:1}
+.pr-pj span{font-weight:500;line-height:1.3}
+.pr-pj small{display:block;font-size:12px;font-weight:400;color:var(--muted)}
+@media(hover:hover){.pr-pj span{transition:color 400ms}.pr-pj:hover span{color:var(--brand)}}
+.pr-rr{display:flex;align-items:center;gap:12px}
+.pr-rr b{min-width:52px;font-weight:600}
+.pr-tr{flex:1;height:6px;border-radius:3px;background:#F5EFE6;position:relative;min-width:90px}
+.pr-tr i{position:absolute;left:0;top:0;bottom:0;border-radius:3px;background:#cfc4b6;width:var(--wb);transition:width 1100ms cubic-bezier(0.65,0,0.35,1),background-color 600ms}
+.pf-sum.on .pr-tr i{width:var(--wa);background:var(--brand)}
+.pr-d{font-weight:600;opacity:0;transition:opacity 400ms 900ms}
+.pr-first{font-weight:400;font-size:13px;color:var(--muted)}
+.pf-sum.on .pr-d{opacity:1}
+.pr-h{opacity:.22;transition:opacity 500ms 600ms}
+.pf-sum.on .pr-h{opacity:1}
+@media(max-width:900px){.pf-sum{padding:0 32px 16px;margin-top:-40px}}
+@media(max-width:720px){.pf-sum{padding:0 12px 16px}.pr-tw{border-radius:22px}}
+@media(max-width:900px){.pr-t td,.pr-t th{padding-left:16px;padding-right:16px}}
+/* pe telefon tabelul nu se afișează */
+@media(max-width:600px){.pf-sum{display:none}}
+@media(prefers-reduced-motion:reduce){.hb-tg,.hb-tg::before{animation:none!important}}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Sari la conținut</a>
@@ -505,6 +562,45 @@ button,a,.filter-btn,.proj{touch-action:manipulation}
     <div class="pf-info"><h2 class="pf-name">Garsonieră Vatra Luminoasă</h2><div class="pf-meta">București · Sector 2 · 32 mp</div><div class="pf-res pf-word">450€/lună</div><div class="pf-stats"><div><b>0€</b><span>reparații după plecare</span></div><div><b>2 ani</b><span>contract chiriaș</span></div><div><b>~8 luni</b><span>recuperare inv.</span></div></div><div class="pf-tags"><span>Quick Win</span><span>2 săptămâni</span><span>Garsonieră</span></div></div>
   </article>
 </div>
+
+<section class="pf-sum" id="rezultate" aria-label="Rezultatele apartamentelor de închiriat">
+  <div class="sec-tag"><div class="dot"></div>Rezultate în cifre</div>
+  <div class="pr-tw">
+    <table class="pr-t">
+      <thead><tr><th scope="col" class="pr-th0"><span class="pr-sr">Proiect</span><div class="hb-ctl pr-ctl">
+    <button class="hb-tg" type="button" role="switch" aria-checked="false" aria-label="Arată rezultatele după RentUP"><span class="hb-fill"></span><span class="hb-k"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></button>
+    <span class="hb-sl"><span class="s1">Înainte de RentUP</span><span class="s2">După RentUP</span></span>
+  </div></th><th scope="col">Chirie lunară</th><th scope="col">Diferență</th><th scope="col">Până la chiriaș</th><th scope="col">Recuperare</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><a class="pr-pj" href="#proiect-drumul-taberei"><i><img src="images/strip/gal/portofoliu_2-b.webp" alt="" width="600" height="800" loading="lazy" decoding="async"><img class="aft" src="images/strip/gal/portofoliu_2-a.webp" alt="" width="600" height="800" loading="lazy" decoding="async"></i><span>2 camere Drumul Taberei<small>Sector 6 · 55 mp</small></span></a></td>
+          <td><div class="pr-rr"><b data-from="400" data-to="550">400€</b><span class="pr-tr"><i style="--wb:65%;--wa:89%"></i></span></div></td>
+          <td class="pr-d">+150€</td><td class="pr-h">4 zile</td><td class="pr-h">~48 luni</td>
+        </tr>
+        <tr>
+          <td><a class="pr-pj" href="#proiect-tineretului"><i><img src="images/strip/gal/hero_index-b.webp" alt="" width="600" height="800" loading="lazy" decoding="async"><img class="aft" src="images/strip/gal/hero_index-a.webp" alt="" width="600" height="800" loading="lazy" decoding="async"></i><span>Garsonieră Tineretului<small>Sector 4 · 38 mp</small></span></a></td>
+          <td><div class="pr-rr"><b data-from="300" data-to="500">300€</b><span class="pr-tr"><i style="--wb:48%;--wa:81%"></i></span></div></td>
+          <td class="pr-d">+200€</td><td class="pr-h">7 zile</td><td class="pr-h">~30 luni</td>
+        </tr>
+        <tr>
+          <td><a class="pr-pj" href="#proiect-floreasca"><i><img src="images/strip/gal/portofoliu_7-b.webp" alt="" width="600" height="800" loading="lazy" decoding="async"><img class="aft" src="images/strip/gal/portofoliu_7-a.webp" alt="" width="600" height="800" loading="lazy" decoding="async"></i><span>2 camere Floreasca<small>Sector 1 · 52 mp</small></span></a></td>
+          <td><div class="pr-rr"><b data-from="400" data-to="620">400€</b><span class="pr-tr"><i style="--wb:65%;--wa:100%"></i></span></div></td>
+          <td class="pr-d">+220€</td><td class="pr-h">5 zile</td><td class="pr-h">~14 luni</td>
+        </tr>
+        <tr>
+          <td><a class="pr-pj" href="#proiect-garsoniera-drumul-taberei"><i><img src="images/strip/gal/portofoliu_12-b.webp" alt="" width="600" height="800" loading="lazy" decoding="async"><img class="aft" src="images/strip/gal/portofoliu_12-a.webp" alt="" width="600" height="800" loading="lazy" decoding="async"></i><span>Garsonieră Drumul Taberei<small>Sector 6 · 33 mp</small></span></a></td>
+          <td><div class="pr-rr"><b>430€</b><span class="pr-tr"><i style="--wb:69%;--wa:69%"></i></span></div></td>
+          <td class="pr-d pr-first">Prima închiriere</td><td class="pr-h">4 zile</td><td class="pr-h">~20 luni</td>
+        </tr>
+        <tr>
+          <td><a class="pr-pj" href="#proiect-vatra-luminoasa"><i><img src="images/strip/gal/portofoliu_4-b.webp" alt="" width="600" height="800" loading="lazy" decoding="async"><img class="aft" src="images/strip/gal/portofoliu_4-a.webp" alt="" width="600" height="800" loading="lazy" decoding="async"></i><span>Garsonieră Vatra Luminoasă<small>Sector 2 · 32 mp</small></span></a></td>
+          <td><div class="pr-rr"><b>450€</b><span class="pr-tr"><i style="--wb:73%;--wa:73%"></i></span></div></td>
+          <td class="pr-d pr-first">Prima închiriere</td><td class="pr-h">contract 2 ani</td><td class="pr-h">~8 luni</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
 <!-- LIGHTBOX -->
 <div class="lb" id="lb" onclick="closeLb()">
@@ -1106,7 +1202,7 @@ if(!localStorage.getItem('cookieConsent')){
   var state=0, pending=false;
   function load(){
     if(state) return; state=1;
-    var s=document.createElement('script'); s.src='lang.js?v=20261115';
+    var s=document.createElement('script'); s.src='lang.js?v=20261116h';
     s.onload=function(){ state=2; if(pending){ pending=false; window.toggleLang(); } };
     document.body.appendChild(s);
   }
@@ -1162,5 +1258,24 @@ if(!localStorage.getItem('cookieConsent')){
 <script src="/navpill.js?v=20261115e" defer></script>
 <style id="ru-touch">/* Touch: hover-ul nu rămâne „lipit” după atingere; cât ții degetul apăsat, elementul arată ca la hover și se apasă ușor (în loc să se ridice). Pe dispozitivele cu mouse nu se schimbă nimic. */@media(hover:none){.nav-back:active{color:var(--text);transform:scale(.97)}.filter-btn:active{border-color:var(--brand);color:var(--brand);transform:scale(.97)}.proj:active{box-shadow:0 8px 28px rgba(45,40,32,.22);transform:scale(.97)}.filter-nav a:active{color: var(--brand, #C77936) !important;transform:scale(.97)}.filters a:active{color: var(--brand, #C77936) !important;transform:scale(.97)}.port-faq-btn:active{background: var(--brand-light, #FAF4EB);transform:scale(.97)}.nav-links a:active{color:#2D2820;transform:scale(.97)}.nav-cta:active{background:#FAF4EB;transform:scale(.97)}.gal-btn:active{background:white;transform:scale(.97)}.lb-btn:active{background:rgba(255,255,255,.25);transform:scale(.97)}.gallery:active .gal-hint{opacity: 0}.filter-btn:not(.on):active{transform:scale(.97)}.lang-toggle-btn:active{background:#FAF4EB;border-color:#C77936;transform:scale(.97)}.wa-float:active{transform:scale(.97);box-shadow:0 10px 30px rgba(37,211,102,.45)}.wa-opt:active{background:#F5EFE6;transform:scale(.97)}#wa-close:active{background:#EDE5D8;color:#2D2820;transform:scale(.97)}}</style>
 <script>/* iOS aplică stilul de apăsare doar dacă pagina ascultă atingerile */document.addEventListener("touchstart",function(){},{passive:true});</script>
+<script>
+/* Hero portofoliu: comutatorul înainte / după din tabelul rezultatelor */
+(function(){
+  var sec=document.querySelector('.pf-sum'); if(!sec) return;
+  var tg=sec.querySelector('.hb-tg'), lab=sec.querySelector('.hb-sl'), tracked=false;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function count(el,from,to,delay){
+    if(reduce){el.textContent=to+'€';return}
+    setTimeout(function(){var t0=null;function step(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/1000),e=1-Math.pow(1-p,3);el.textContent=Math.round(from+(to-from)*e)+'€';if(p<1)requestAnimationFrame(step)}requestAnimationFrame(step)},delay);
+  }
+  function toggle(){
+    var on=!sec.classList.contains('on');
+    sec.classList.toggle('on',on); tg.setAttribute('aria-checked',on?'true':'false');
+    sec.querySelectorAll('[data-from]').forEach(function(n,i){var f=+n.getAttribute('data-from'),t=+n.getAttribute('data-to');count(n,on?f:t,on?t:f,250+i*110)});
+    if(on&&!tracked&&typeof gtag==='function'){tracked=true;gtag('event','portfolio_results_toggle')}
+  }
+  tg.addEventListener('click',toggle); if(lab) lab.addEventListener('click',toggle);
+})();
+</script>
 </body>
 </html>
