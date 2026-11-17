@@ -19,7 +19,7 @@
     '@media(min-width:901px){nav.pill{top:14px!important;max-width:var(--np-w,1080px)!important;height:54px!important;padding:0 7px 0 26px!important}nav.pill .nav-links{gap:22px}}'+
     '@media(max-width:900px){nav.pill{top:10px!important;max-width:calc(100% - 20px)!important;height:50px!important;padding:0 8px 0 20px!important}}'+
     '@media(max-width:600px){nav.pill{height:48px!important;padding:0 6px 0 18px!important}}'+
-    '/* Meniul deschis pe telefon: panou alb ca un card, bara de sus albă cu el (un singur bloc), pagina din spate ușor întunecată */.nav-mobile{background:#fff!important;border-bottom:0!important;border-radius:0 0 24px 24px;box-shadow:0 24px 48px -16px rgba(45,40,32,.30),0 0 0 100vmax rgba(45,40,32,0);transition-property:opacity,transform,visibility,box-shadow!important}.nav-mobile.open{box-shadow:0 24px 48px -16px rgba(45,40,32,.30),0 0 0 100vmax rgba(45,40,32,.22)}nav.np-open{background:#fff!important;box-shadow:none!important}'+
+    '/* Meniul deschis pe telefon: panou alb ca un card, bara de sus albă cu el (un singur bloc), pagina din spate ușor întunecată */.nav-mobile{background:#fff!important;border-bottom:0!important;border-radius:0 0 24px 24px;box-shadow:0 24px 48px -16px rgba(45,40,32,.30),0 0 0 100vmax rgba(45,40,32,0);transition-property:opacity,transform,visibility,box-shadow!important}.nav-mobile.open{box-shadow:0 24px 48px -16px rgba(45,40,32,.30)}/* fundalul din spatele meniului: întunecat și foarte ușor blurat */.np-dim{position:fixed;inset:0;z-index:98;background:rgba(45,40,32,.22);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity 260ms cubic-bezier(0.23,1,0.32,1),visibility 0s linear 260ms}body:has(.nav-mobile.open) .np-dim{opacity:1;visibility:visible;transition:opacity 260ms cubic-bezier(0.23,1,0.32,1)}nav.np-open{background:#fff!important;box-shadow:none!important}'+
     '@media(prefers-reduced-motion:reduce){nav,nav .nav-links{transition:none!important}}';
   document.head.appendChild(st);
   /* fără contur în starea normală, browserul îi dă culoarea textului (maro închis); la trecerea în pill conturul
@@ -28,6 +28,7 @@
   /* spațiul pe care îl ocupa bara înainte să devină fixă (altfel conținutul ar urca sub ea) */
   var sp=document.createElement('div');sp.className='np-sp';sp.setAttribute('aria-hidden','true');
   var mob=document.getElementById('nav-mobile')||document.querySelector('.nav-mobile');
+  if(mob&&!document.querySelector('.np-dim')){var dm=document.createElement('div');dm.className='np-dim';dm.setAttribute('aria-hidden','true');document.body.appendChild(dm)}
   var after=(mob&&nav.nextElementSibling===mob)?mob:nav;   /* păstrăm valide selectoarele de tip nav+.nav-mobile */
   after.parentNode.insertBefore(sp,after.nextSibling);
   var on=false;

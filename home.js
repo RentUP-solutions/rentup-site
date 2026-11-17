@@ -977,7 +977,7 @@ document.addEventListener('touchstart',function(){},{passive:true});
   if(card) card.addEventListener('click', toggle);
 })();
 ;
-/* Secțiunea Portofoliu: comutatorul trece toate cardurile din bandă din „înainte” în „după” */
+/* Secțiunea Portofoliu: pornește pe „după” (clasa .on pusă direct în HTML); comutatorul arată „înainte” */
 (function(){
   var sec = document.getElementById('portfolio');
   if(!sec) return;
@@ -988,7 +988,7 @@ document.addEventListener('touchstart',function(){},{passive:true});
     var on = !sec.classList.contains('on');
     sec.classList.toggle('on', on);
     tg.setAttribute('aria-checked', on ? 'true' : 'false');
-    if(on && !tracked && typeof gtag === 'function'){ tracked = true; gtag('event', 'portfolio_toggle'); }
+    if(!tracked && typeof gtag === 'function'){ tracked = true; gtag('event', 'portfolio_toggle'); }
   }
   tg.addEventListener('click', toggle);
   var lab = sec.querySelector('.ps-ctl .hb-sl');

@@ -404,7 +404,6 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
       <span class="meta-tag"><b>Gratuit</b></span>
       <span class="meta-tag">Remote, pe baza pozelor</span>
       <span class="meta-tag">Livrat în 72h</span>
-      <span class="meta-tag">Fără angajament</span>
     </div>
     <div class="hero-btns">
       <a class="btn-p" href="https://wa.me/40741176865?text=Bun%C4%83%20ziua!%20A%C8%99%20vrea%20%C8%99i%20eu%20raportul%20gratuit%20pentru%20apartamentul%20meu.%20Unde%20v%C4%83%20trimit%20pozele%3F" onclick="gtag('event','click_whatsapp');gtag('event','conversion',{'send_to':'AW-18253477545/vaI4COjKgdYcEKnt9_9D'});">Trimite pozele pe WhatsApp<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
@@ -686,9 +685,6 @@ document.addEventListener('contextmenu', function(e){
     </div>
   </div>
 </div>
-<a href="https://wa.me/40741176865" class="wa-float" aria-label="Scrie-ne pe WhatsApp" target="_blank" rel="noopener">
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="#FDFAF6" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-</a>
 <script>
 (function(){
   var WA='https://wa.me/40741176865';
@@ -787,8 +783,12 @@ body:has(#ru-slide.ru-vis) .wa-float,body:has(#ru-slide.ru-vis) #btt{opacity:0;p
 #ru-slide .rsb:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
 #ru-slide .rsb:active{transform:scale(.97);transition-duration:80ms}
 @media(max-width:520px){#ru-slide{left:12px;right:12px;width:auto;bottom:16px}}
+/* pe telefon fereastra ocupă mult din ecran: pagina din spate se întunecă și se blurează foarte puțin (ca la meniu) */
+#ru-slide-bg{display:none}
+@media(max-width:520px){#ru-slide-bg{display:block;position:fixed;inset:0;z-index:993;background:rgba(45,40,32,.22);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);opacity:0;visibility:hidden;transition:opacity 360ms ease,visibility 0s linear 360ms}body:has(#ru-slide.ru-vis) #ru-slide-bg{opacity:1;visibility:visible;transition:opacity 360ms ease}}
 </style>
 
+<div id="ru-slide-bg" aria-hidden="true" onclick="RuSlide.dismiss(true)"></div>
 <div id="ru-slide" role="dialog" aria-label="Primești Raportul pe email">
   <button class="rsc" onclick="RuSlide.dismiss(true)" aria-label="Închide">×</button>
   <div class="rsh">Raportul e gratuit. Îl primești pe email.</div>
@@ -941,7 +941,7 @@ body:has(#ru-slide.ru-vis) .wa-float,body:has(#ru-slide.ru-vis) #btt{opacity:0;p
   if(en) load(); else window.ruLater(load);
 })();
 </script>
-<script src="float.js?v=20261115b" defer></script>
+<script src="float.js?v=20261117" defer></script>
 <style id="ru-smooth-hover">
 /* Hover-uri line: orice schimbare de culoare/fundal/contur/umbră la hover durează 400ms (generat; celelalte tranziții ale elementelor își păstrează durata) */
 #ru-slide .rsb{transition:background-color 400ms ease,transform 150ms var(--ease-out)}
@@ -983,7 +983,7 @@ body:has(#ru-slide.ru-vis) .wa-float,body:has(#ru-slide.ru-vis) #btt{opacity:0;p
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
 })();
 </script>
-<script src="/navpill.js?v=20261115e" defer></script>
+<script src="/navpill.js?v=20261117" defer></script>
 <script>/* „Înapoi la site”: dacă ai venit de pe site, te întoarce exact unde erai (secțiunea și poziția de scroll din pagina de unde ai plecat); altfel, homepage */(function(){var a=document.querySelector("a[data-back]");if(!a)return;a.addEventListener("click",function(e){try{var r=document.referrer?new URL(document.referrer):null;if(r&&r.origin===location.origin&&r.pathname!==location.pathname&&history.length>1){e.preventDefault();history.back();}}catch(_){}});})();</script>
 <style id="ru-touch">/* Touch: hover-ul nu rămâne „lipit” după atingere; cât ții degetul apăsat, elementul arată ca la hover și se apasă ușor (în loc să se ridice). Pe dispozitivele cu mouse nu se schimbă nimic. */@media(hover:none){.nav-links a:active{color:#2D2820;transform:scale(.97)}.nav-cta:active{background:#FAF4EB;transform:scale(.97)}.btn-g:active{color:var(--bg);transform:scale(.97)}.cc:active{background:#453A2E;transform:scale(.97)}.lang-toggle-btn:active{background:#FAF4EB;border-color:#C77936;transform:scale(.97)}.wa-float:active{transform:scale(.97);box-shadow:0 10px 30px rgba(37,211,102,.45)}.wa-opt:active{background:#F5EFE6;transform:scale(.97)}#wa-close:active{background:#EDE5D8;color:#2D2820;transform:scale(.97)}#ru-slide .rsd:active{background:#F5EFE6;border-color:#C9BBA9;color:#2D2820;transform:scale(.97)}#ru-slide .rsd:active{color:#2D2820;transform:scale(.97)}#ru-slide .rsc:active{background:#EDE5D8;color:#2D2820;transform:scale(.97)}}</style>
 <script>/* iOS aplică stilul de apăsare doar dacă pagina ascultă atingerile */document.addEventListener("touchstart",function(){},{passive:true});</script>

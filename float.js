@@ -18,7 +18,7 @@
       '#btt{right:35px!important;display:flex!important}'+
       /* ieșirea: aceeași mișcare laterală, dar cu o curbă care nu parcurge tot drumul în primele cadre
          (cu ease-out puternic butoanele păreau să dispară pe loc); intrarea rămâne rapidă (ease-out) */
-      'body:is(.fl-hide,.fl-foot,.fl-dark,.cx-peek-on) .wa-float{transform:translateX(calc(-100% - 40px))!important;pointer-events:none;transition:transform 440ms cubic-bezier(0.45,0,0.2,1),box-shadow 400ms ease!important}'+
+      'body:is(.fl-hide,.fl-foot,.fl-dark,.cx-peek-on,.fl-hero) .wa-float{transform:translateX(calc(-100% - 40px))!important;pointer-events:none;transition:transform 440ms cubic-bezier(0.45,0,0.2,1),box-shadow 400ms ease!important}'+
       'body:is(.fl-hide,.fl-foot,.fl-dark,.cx-peek-on,.fl-top) #btt{transform:translateX(calc(100% + 40px))!important;pointer-events:none;transition:transform 440ms cubic-bezier(0.45,0,0.2,1),box-shadow 400ms ease!important}'+
     '}'+
     '@media(prefers-reduced-motion:reduce){.wa-float,#btt{transition:none!important}}';
@@ -51,7 +51,18 @@
     make();
     var rt; window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(make,200)});
   }
-  function watchAll(){watchFoot();watchDark()}
+  /* WhatsApp nu apare în prima secțiune a paginii (omul încă n-a citit nimic): stă ascuns până iese din ecran
+     ținta: [data-fl-after] dacă pagina o are (pe homepage = portofoliul de sub hero), altfel hero-ul */
+  function watchHero(){
+    var t=document.querySelector('[data-fl-after]')||document.querySelector('#hero,.rk-hero,.audit-hero,.hero');
+    if(!t||!('IntersectionObserver' in window)) return;
+    document.body.classList.add('fl-hero');
+    new IntersectionObserver(function(es){
+      var e=es[es.length-1];
+      document.body.classList.toggle('fl-hero', e.isIntersecting||e.boundingClientRect.top>0);
+    }).observe(t);
+  }
+  function watchAll(){watchFoot();watchDark();watchHero()}
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',watchAll); else watchAll();
   /* poziția de start o citim la primul scroll, nu la încărcare (evită un layout forțat) */
   var lastY=null,idle;

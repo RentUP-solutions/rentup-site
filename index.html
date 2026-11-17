@@ -493,6 +493,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .tt-panel.fade{opacity:0;transform:translateY(10px);filter:blur(4px)}
 .tt-title{font-size:clamp(18px,2vw,21px);font-weight:500;letter-spacing:-.01em;line-height:1.3;color:var(--text);text-wrap:balance}
 .tt-meta{margin-top:8px;font-size:14px;color:var(--muted)}
+.tt-meta i{font-style:normal}.tt-meta .tt-ws{display:none}@media(max-width:600px){.tt-meta .tt-wl{display:none}.tt-meta .tt-ws{display:inline}}
 .tt-meta span+span::before{content:"·";margin:0 8px;color:var(--light)}
 .tt-big{margin:36px 0 28px}
 .tt-rent{display:flex;align-items:baseline;flex-wrap:wrap;gap:0 .18em;font-size:clamp(44px,7.4vw,80px);font-weight:300;letter-spacing:-.045em;line-height:1;font-variant-numeric:tabular-nums}
@@ -501,11 +502,14 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .tt-to{color:var(--text)}
 .tt-unit{font-size:18px;color:var(--muted);letter-spacing:0;margin-left:.2em}
 .tt-rent-l{margin-top:10px;font-size:14px;color:var(--muted)}
-.tt-res{display:grid;grid-template-columns:repeat(4,1fr);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)}
-.tt-r{padding:18px 18px 18px 0}
-.tt-r+.tt-r{padding-left:18px;border-left:.5px solid var(--border)}
-.tt-r b{display:block;font-size:24px;font-weight:400;letter-spacing:-.02em;color:var(--text);margin-bottom:6px}
-.tt-r span{display:block;font-size:14px;line-height:1.5;color:var(--muted)}
+/* statisticile: listă ca la buget — textul în stânga, cifra în dreapta; 2 coloane pe desktop, 1 pe telefon */
+.tt-res{display:grid;grid-template-columns:1fr 1fr;column-gap:48px}
+.tt-r{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:12px 0;border-bottom:.5px solid var(--border)}
+.tt-r:nth-child(-n+2){border-top:.5px solid var(--border)}
+.tt-r b{order:2;flex:none;font-size:16px;font-weight:500;letter-spacing:-.01em;color:var(--text);white-space:nowrap;font-variant-numeric:tabular-nums}
+.tt-r>span{order:1;min-width:0}
+.tt-r span{display:block;font-size:14px;line-height:1.45;color:var(--muted)}
+.tt-r>span::first-letter{text-transform:uppercase}
 .tt-q{margin:40px 0 12px;font-size:clamp(21px,2.6vw,30px);font-weight:300;line-height:1.32;letter-spacing:-.02em;color:var(--text);text-wrap:pretty}
 .tt-q-first{margin-top:32px}
 .tt-q .w{display:inline-block;transition:opacity 620ms var(--ease-out),filter 620ms var(--ease-out),transform 620ms var(--ease-out)}
@@ -525,7 +529,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:20px;height:20px;b
 .tt-more.open{grid-template-rows:1fr}
 .tt-more-in{overflow:hidden;min-height:0}
 .tt-more-g{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;padding-top:24px}
-@media(max-width:700px){.tt-res{grid-template-columns:1fr 1fr}.tt-r:nth-child(3){padding-left:0;border-left:none}.tt-r:nth-child(n+3){border-top:.5px solid var(--border)}.tt-more-g{grid-template-columns:1fr;gap:24px}.tt-tabs{width:100%;justify-content:space-between}.tt-tab{padding:10px 11px;font-size:14px}}
+@media(max-width:700px){.tt-res{grid-template-columns:1fr}.tt-r:nth-child(2){border-top:0}.tt-more-g{grid-template-columns:1fr;gap:24px}.tt-tabs{width:100%;justify-content:space-between}.tt-tab{padding:10px 11px;font-size:14px}}
 @media(max-width:420px){.tt-tab{padding:10px 7px}}
 @media(prefers-reduced-motion:reduce){.tt-panel,.tt-stage,.tt-ind,.tt-more{transition:none!important}}
 .te-g{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:36px}
@@ -1282,7 +1286,7 @@ nav.pill .nav-cta{background:#C77936;color:#FDFAF6;padding:9px 18px}
 @media(max-width:900px){.ru-nav-sp{height:56px}nav.pill{top:10px;max-width:calc(100% - 20px);height:50px;padding:0 8px 0 20px}}
 @media(max-width:600px){.ru-nav-sp{height:52px}nav.pill{height:48px;padding:0 6px 0 18px}}
 @media(prefers-reduced-motion:reduce){nav,nav .nav-links{transition:background 200ms ease,box-shadow 200ms ease}}
-/* Meniul deschis pe telefon: panou alb ca un card, bara de sus albă cu el (un singur bloc), pagina din spate ușor întunecată */.nav-mobile{background:#fff!important;border-bottom:0!important;border-radius:0 0 24px 24px;box-shadow:0 24px 48px -16px rgba(45,40,32,.30),0 0 0 100vmax rgba(45,40,32,0);transition-property:opacity,transform,visibility,box-shadow!important}.nav-mobile.open{box-shadow:0 24px 48px -16px rgba(45,40,32,.30),0 0 0 100vmax rgba(45,40,32,.22)}nav.np-open{background:#fff!important;box-shadow:none!important}
+/* Meniul deschis pe telefon: panou alb ca un card, bara de sus albă cu el (un singur bloc), pagina din spate ușor întunecată */.nav-mobile{background:#fff!important;border-bottom:0!important;border-radius:0 0 24px 24px;box-shadow:0 24px 48px -16px rgba(45,40,32,.30),0 0 0 100vmax rgba(45,40,32,0);transition-property:opacity,transform,visibility,box-shadow!important}.nav-mobile.open{box-shadow:0 24px 48px -16px rgba(45,40,32,.30)}/* fundalul din spatele meniului: întunecat și foarte ușor blurat */.np-dim{position:fixed;inset:0;z-index:98;background:rgba(45,40,32,.22);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity 260ms cubic-bezier(0.23,1,0.32,1),visibility 0s linear 260ms}body:has(.nav-mobile.open) .np-dim{opacity:1;visibility:visible;transition:opacity 260ms cubic-bezier(0.23,1,0.32,1)}nav.np-open{background:#fff!important;box-shadow:none!important}
 /* Banda de Instagram: fără fade la capete */
 #instagram .igs{-webkit-mask-image:none;mask-image:none}
 /* Footer: punctele din pagină continuă în el și se sting treptat în jos (fără trecere bruscă) */
@@ -1290,6 +1294,9 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
 .ru-ft::before{display:none}
 /* Testimoniale pe telefon: cifrele mai mici, ca „/lună” să rămână pe același rând */
 @media(max-width:600px){.tt-rent{flex-wrap:nowrap;white-space:nowrap;font-size:clamp(30px,10.5vw,44px)}}
+/* telefon: „recuperarea investiției” în loc de „recuperare completă a investiției” */
+.tt-r .tt-dk,.tt-r .tt-mb{display:inline;font-size:inherit;color:inherit}.tt-r .tt-mb{display:none}
+@media(max-width:600px){.tt-r{padding:11px 0}.tt-r .tt-dk{display:none}.tt-r .tt-mb{display:inline}}
 /* Punctele „din spatele” cardurilor bej: estompate, doar ca o umbră a pattern-ului (aliniate din JS) */
 #portfolio,#about,#process,#testimonials,#packages{background:rgba(245,239,230,.95)!important}
 #portfolio::before,#about::before,#process::before,#testimonials::before,#packages::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
@@ -1525,6 +1532,7 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
 </button>
 <a class="nav-cta" href="/audit">Raport de Rentabilitate<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
 </nav>
+<div class="np-dim" aria-hidden="true"></div>
 <div class="nav-mobile" id="nav-mobile">
   <a href="/#process">Cum funcționează</a>
   <a href="/#packages">Pachete</a>
@@ -1598,12 +1606,12 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
 
 
 <!-- S6 PORTFOLIO -->
-<section id="portfolio">
+<section id="portfolio" class="on" data-fl-after>
   <div class="sec-tag" style="justify-content:center"><div class="dot"></div>Portofoliu</div>
   <h2 class="sh" style="text-align:center" data-en="Real results.<br>Spaces <span class='rot' data-words='transformed.|designed for tenants.|that get rented.'>transformed.</span>">Rezultate reale.<br>Spații <span class="rot" data-words="transformate.|gândite pentru chiriaș.|care se închiriază.">transformate.</span></h2>
   <p class="sec-sub" style="text-align:center;margin:0 auto 26px">Fiecare proiect a urmărit același obiectiv: un apartament care produce mai mult, cu mai puțin efort pentru proprietar.</p>
   <div class="hb-ctl ps-ctl">
-    <button class="hb-tg" type="button" role="switch" aria-checked="false" aria-label="Arată proiectele după RentUP"><span class="hb-fill"></span><span class="hb-k"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></button>
+    <button class="hb-tg" type="button" role="switch" aria-checked="true" aria-label="Arată proiectele după RentUP"><span class="hb-fill"></span><span class="hb-k"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></button>
     <span class="hb-sl"><span class="s1">Înainte de RentUP</span><span class="s2">După RentUP</span></span>
   </div>
   <div class="pstrip" role="region" aria-label="Proiecte din portofoliu, înainte și după">
@@ -1881,12 +1889,12 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
 
   <div class="tt-stage">
     <div class="tt-panel on" id="tt-p1" role="tabpanel" aria-labelledby="tt-t1">
-      <div class="tt-head"><h3 class="tt-title">2 camere Drumul Taberei: de la apartament distrus la chiriaș în 4 zile</h3><div class="tt-meta"><span>București · Sector 6</span><span>55 mp</span><span>12 săptămâni</span></div></div>
+      <div class="tt-head"><h3 class="tt-title">2 camere Drumul Taberei: de la apartament distrus la chiriaș în 4 zile</h3><div class="tt-meta"><span>București · Sector 6</span><span>55 mp</span><span>12 <i class="tt-wl">săptămâni</i><i class="tt-ws">săpt.</i></span></div></div>
       <div class="tt-big">
         <div class="tt-rent"><span class="tt-from">400€</span><span class="tt-arrow"><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span><span class="tt-to" data-from="400" data-to="550">550€</span><span class="tt-unit">/lună</span></div>
         <div class="tt-rent-l">chiria lunară, înainte și după</div>
       </div>
-      <div class="tt-res"><div class="tt-r"><b>+150€</b><span>chirie lunară</span></div><div class="tt-r"><b>4 zile</b><span>până la primul chiriaș potrivit</span></div><div class="tt-r"><b>24 luni</b><span>durata șederii</span></div><div class="tt-r"><b>~48 luni</b><span>recuperare completă a <span class="tt-nw">investiției<span class="tt-iw"><button type="button" class="tt-i" aria-label="Cum e calculat" aria-expanded="false"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" style="display:block"><circle cx="8" cy="8" r="7.3" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="8" cy="4.6" r="1.05" fill="currentColor"/><rect x="7.15" y="6.75" width="1.7" height="5.1" rx=".85" fill="currentColor"/></svg></button><span class="tt-tip" role="tooltip">Din chiria extra + rotația de chiriași eliminată.</span></span></span></span></div></div>
+      <div class="tt-res"><div class="tt-r"><b>+150€</b><span>chirie lunară</span></div><div class="tt-r"><b>4 zile</b><span>până la primul chiriaș potrivit</span></div><div class="tt-r"><b>24 luni</b><span>durata șederii</span></div><div class="tt-r"><b>~48 luni</b><span><span class="tt-dk">recuperare completă a </span><span class="tt-mb">recuperarea </span><span class="tt-nw">investiției<span class="tt-iw"><button type="button" class="tt-i" aria-label="Cum e calculat" aria-expanded="false"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" style="display:block"><circle cx="8" cy="8" r="7.3" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="8" cy="4.6" r="1.05" fill="currentColor"/><rect x="7.15" y="6.75" width="1.7" height="5.1" rx=".85" fill="currentColor"/></svg></button><span class="tt-tip" role="tooltip">Din chiria extra + rotația de chiriași eliminată.</span></span></span></span></div></div>
       <blockquote class="tt-q"><span class="tt-src">„Am fost foarte mulțumit de rezultat. Apartamentul a ieșit exact așa cum mi-a fost prezentat, iar găsirea noilor chiriași a fost mult mai ușoară decât mă așteptam.”</span></blockquote>
       <div class="tt-qa">Dl. Ciobanu, proprietar apartament 2 camere</div>
       <button class="tt-more-btn" type="button" aria-expanded="false">Povestea completă și bugetul<span class="tt-plus" aria-hidden="true"></span></button>
@@ -1897,12 +1905,12 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
       </div></div></div>
     </div>
     <div class="tt-panel" id="tt-p2" role="tabpanel" aria-labelledby="tt-t2">
-      <div class="tt-head"><h3 class="tt-title">2 camere Floreasca: de la rotație constantă la chiriaș pe 2 ani</h3><div class="tt-meta"><span>București · Sector 1</span><span>52 mp</span><span>4 săptămâni</span></div></div>
+      <div class="tt-head"><h3 class="tt-title">2 camere Floreasca: de la rotație constantă la chiriaș pe 2 ani</h3><div class="tt-meta"><span>București · Sector 1</span><span>52 mp</span><span>4 <i class="tt-wl">săptămâni</i><i class="tt-ws">săpt.</i></span></div></div>
       <div class="tt-big">
         <div class="tt-rent"><span class="tt-from">400€</span><span class="tt-arrow"><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span><span class="tt-to" data-from="400" data-to="620">620€</span><span class="tt-unit">/lună</span></div>
         <div class="tt-rent-l">chiria lunară, înainte și după</div>
       </div>
-      <div class="tt-res"><div class="tt-r"><b>+220€</b><span>chirie lunară</span></div><div class="tt-r"><b>5 zile</b><span>până la primul chiriaș potrivit</span></div><div class="tt-r"><b>24 luni</b><span>durata șederii</span></div><div class="tt-r"><b>~14 luni</b><span>recuperare completă a <span class="tt-nw">investiției<span class="tt-iw"><button type="button" class="tt-i" aria-label="Cum e calculat" aria-expanded="false"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" style="display:block"><circle cx="8" cy="8" r="7.3" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="8" cy="4.6" r="1.05" fill="currentColor"/><rect x="7.15" y="6.75" width="1.7" height="5.1" rx=".85" fill="currentColor"/></svg></button><span class="tt-tip" role="tooltip">Din chiria extra + rotația de chiriași eliminată.</span></span></span></span></div></div>
+      <div class="tt-res"><div class="tt-r"><b>+220€</b><span>chirie lunară</span></div><div class="tt-r"><b>5 zile</b><span>până la primul chiriaș potrivit</span></div><div class="tt-r"><b>24 luni</b><span>durata șederii</span></div><div class="tt-r"><b>~14 luni</b><span><span class="tt-dk">recuperare completă a </span><span class="tt-mb">recuperarea </span><span class="tt-nw">investiției<span class="tt-iw"><button type="button" class="tt-i" aria-label="Cum e calculat" aria-expanded="false"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" style="display:block"><circle cx="8" cy="8" r="7.3" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="8" cy="4.6" r="1.05" fill="currentColor"/><rect x="7.15" y="6.75" width="1.7" height="5.1" rx=".85" fill="currentColor"/></svg></button><span class="tt-tip" role="tooltip">Din chiria extra + rotația de chiriași eliminată.</span></span></span></span></div></div>
       <blockquote class="tt-q"><span class="tt-src">„Sincer, mă așteptam la randări frumoase și atât. Nu mă așteptam să am și un sistem clar pentru ce fac cu apartamentul după. Chiriașul de acum e cel mai bun pe care l-am avut și cred că asta nu e o coincidență."</span></blockquote>
       <div class="tt-qa">Costi Barbu, proprietar apartament 2 camere</div>
       <button class="tt-more-btn" type="button" aria-expanded="false">Povestea completă și bugetul<span class="tt-plus" aria-hidden="true"></span></button>
@@ -2257,7 +2265,7 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
 </div>
 
 
-<script src="home.js?v=20261116d" defer></script>
+<script src="home.js?v=20261117" defer></script>
 <script src="rot.js" defer></script>
 <!-- Ce nu e necesar la prima afișare pornește la prima interacțiune (scroll/atingere/click)
      sau la 2s după load: lang.js (traducerea EN, ~60 KB), pozele din banda de portofoliu,
@@ -2279,7 +2287,7 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
   var state=0, pending=false;
   function load(){
     if(state) return; state=1;
-    var s=document.createElement('script'); s.src='lang.js?v=20261116i';
+    var s=document.createElement('script'); s.src='lang.js?v=20261117b';
     s.onload=function(){ state=2; if(pending){ pending=false; window.toggleLang(); } };
     document.body.appendChild(s);
   }
@@ -2288,7 +2296,7 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
   if(en) load(); else window.ruLater(load);
 })();
 </script>
-<script src="float.js?v=20261115b" defer></script>
+<script src="float.js?v=20261117" defer></script>
 <script src="igstrip.js" defer></script>
 <!-- AdSense: la prima interacțiune a userului (scroll/click/touch).
      Lighthouse nu simulează interacțiuni → LCP rămâne curat.
@@ -2346,6 +2354,8 @@ input[type=range]::-webkit-slider-thumb{transition:transform 120ms var(--ease-ou
 .tt-iw.open .tt-tip,.tt-iw:has(.tt-i:focus-visible) .tt-tip{opacity:1;visibility:visible;transform:none;transition:opacity 180ms var(--ease-out),transform 220ms var(--ease-out),visibility 0s}
 @media(hover:hover){.tt-iw:hover .tt-tip{opacity:1;visibility:visible;transform:none;transition:opacity 180ms var(--ease-out),transform 220ms var(--ease-out),visibility 0s}.tt-iw:hover .tt-i{color:#C77936}}
 @media(hover:none){.tt-i{color:#C77936}}
+/* telefon: eticheta se așază pe lățimea rândului (din iconiță ieșea din ecran în stânga) */
+@media(max-width:700px){.tt-r{position:relative}.tt-r .tt-iw{position:static}.tt-r .tt-iw .tt-tip{left:0;right:auto;top:calc(100% + 6px);max-width:100%;transform-origin:30% 0}.tt-r .tt-iw .tt-tip::after{display:none}}
 @media(prefers-reduced-motion:reduce){.tt-r .tt-iw .tt-tip{transition:none!important;transform:none!important}}</style>
 <script>document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.tt-i');document.querySelectorAll('.tt-iw.open').forEach(function(w){if(!b||w!==b.parentNode){w.classList.remove('open');w.firstChild.setAttribute('aria-expanded','false');}});if(b){var w=b.parentNode,o=w.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');}});document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.tt-iw.open').forEach(function(w){w.classList.remove('open');});});</script>
 <script>
