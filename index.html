@@ -1375,11 +1375,13 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
 @media(min-width:901px){
   /* hero-ul își acoperă grila din body cu fundalul simplu și își desenează propria grilă, care se poate strâmba */
   #hero{background-color:var(--bg)!important}
-  .hb-grid{display:block;position:absolute;inset:0;z-index:-2;pointer-events:none;background:url(/grid.svg?v=20261116b) 0 var(--gy,-64px)/1280px 1280px;
+  /* containerul taie marginile grilei rotite/mărite, altfel pe tabletă pagina se poate trage în lateral */
+  .hb-grid{display:block;position:absolute;inset:0;z-index:-2;pointer-events:none;overflow:hidden}
+  .hb-grid::before{content:"";position:absolute;inset:0;background:url(/grid.svg?v=20261116b) 0 var(--gy,-64px)/1280px 1280px;
     --gm:120px;-webkit-mask-image:linear-gradient(transparent 0,#000 var(--gm),#000 calc(100% - var(--gm)),transparent 100%);mask-image:linear-gradient(transparent 0,#000 var(--gm),#000 calc(100% - var(--gm)),transparent 100%);
     transform:rotate(-4deg) scale(1.15);opacity:.55;filter:grayscale(1);transition:transform 650ms ease-in,opacity 600ms,filter 600ms,--gm 600ms}
   /* după: grila se îndreaptă cu un mic arc și se lipește exact de grila paginii (fără margini estompate) */
-  #hero.on .hb-grid{transform:none;opacity:1;filter:none;--gm:0px;transition:transform 1300ms cubic-bezier(0.34,1.2,0.64,1),opacity 900ms,filter 900ms,--gm 900ms}
+  #hero.on .hb-grid::before{transform:none;opacity:1;filter:none;--gm:0px;transition:transform 1300ms cubic-bezier(0.34,1.2,0.64,1),opacity 900ms,filter 900ms,--gm 900ms}
   /* zona fără grilă din jurul textului: mai mică, ca grila să se vadă și în stânga textului */
   #hero::before{-webkit-mask-image:radial-gradient(ellipse 26% 44% at 28% 50%,#000 0,#000 40%,transparent 100%);mask-image:radial-gradient(ellipse 26% 44% at 28% 50%,#000 0,#000 40%,transparent 100%)}
   .hb-mob{display:none}
@@ -1428,7 +1430,9 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
 .hbd-sec b.qm{font-weight:400;color:#B8AFA4}
 .hbd-sec b.br{color:var(--brand)}
 .hbd-sec b.ok{width:12px;height:12px;border-radius:50%;background:var(--brand) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/8px no-repeat}
-.hbd-sec li.hi{background:linear-gradient(90deg,rgba(199,121,54,.08),transparent);margin:0 -6px;padding:2px 6px 3px}
+/* 05–07: o singură bandă continuă, acoperă complet rândurile, fade ușor stânga/dreapta */
+.hbd-sec li.hi{position:relative;isolation:isolate;padding:2px 0 3px}
+.hbd-sec li.hi::before{content:"";position:absolute;inset:-3px -6px 0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(199,121,54,.03),rgba(199,121,54,.1) 14%,rgba(199,121,54,.1) 62%,rgba(199,121,54,.02))}
 .hbd-k{padding:0;gap:0}
 .hbd-k>.hbd-dk{padding:14px 20px 0 14px}
 .hbd-k>.hbd-sw{padding:12px 14px 14px}
@@ -2109,7 +2113,7 @@ footer.ru-ft{background:linear-gradient(180deg,rgba(253,250,246,0) 0,#FDFAF6 45%
 
 </main>
 <footer class="ru-ft">
-<link rel="stylesheet" href="/footer.css?v=20261116">
+<link rel="stylesheet" href="/footer.css?v=20261117">
 
   <div class="ru-ft-card">
     <div class="ru-ft-top">
